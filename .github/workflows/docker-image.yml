@@ -48,7 +48,7 @@ jobs:
       # Uruchom nowy kontener
       run: |
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-          docker run -d --name /home/ubuntu/akademia-zadan-web -p 3000:3000 akademia-zadan-web 
+          docker run -d --name akademia-zadan-web -p 3000:3000 akademia-zadan-web 
         "
     - name: cleanup
       run: rm -rf ~/.ssh
