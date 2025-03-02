@@ -1,0 +1,54 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  run_pull:
+    name: run pull
+    runs-on: ubuntu-latest
+    
+
+    steps:
+    - name: Install SSH keys
+      # Ustawienie kluczy SSH dla połączenia
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+
+    - name: Pull latest changes
+      # Pobierz najnowszy kod z repozytorium
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          git config --global --add safe.directory /home/ubuntu/akademia-zadan-web &&
+          cd /home/ubuntu/akademia-zadan-web &&
+          git checkout main &&
+          git pull
+        "
+
+    - name: Stop and remove old container
+      # Zatrzymaj i usuń stary kontener
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          docker ps -q --filter 'ancestor=akademia_zadan_web' | xargs -r docker stop &&
+          docker ps -a -q --filter 'ancestor=akademia_zadan_web' | xargs -r docker rm
+        "
+
+    - name: Build new Docker image
+      # Zbuduj nowy obraz Dockera
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          cd /home/ubuntu/akademia-zadan-web &&
+          docker build -t   /home/ubuntu/akademia-zadan-web .
+        "
+
+    - name: Run new container
+      # Uruchom nowy kontener
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          docker run -d --name /home/ubuntu/akademia-zadan-web -p 3000:3000 akademia-zadan-web 
+        "
+    - name: cleanup
+      run: rm -rf ~/.ssh
