@@ -40,8 +40,10 @@ jobs:
       # Zatrzymaj i usuń stary kontener
       run: |
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-          docker ps -q --filter 'ancestor=akademia-zadan-web' | xargs -r docker stop &&
-          docker ps -a -q --filter 'ancestor=akademia-zadan-web' | xargs -r docker rm
+          if docker ps -a --format '{{.Names}}' | grep -q '^akademia-zadan-web$'; then
+            docker stop akademia-zadan-web || true &&
+            docker rm akademia-zadan-web || true
+          fi
         "
 
     - name: Run new container
