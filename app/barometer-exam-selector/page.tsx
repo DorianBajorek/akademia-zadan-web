@@ -24,7 +24,7 @@ const BarometerExamSelector: React.FC = () => {
             </div>
           </Link>
           
-          <Link href="/barometer/matura-podstawowa">
+          <Link href="/barometer">
             <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer">
               <h3 className="text-2xl font-semibold text-blue-500">Matura Podstawowa</h3>
               <p className="text-gray-600 mt-4">
@@ -33,7 +33,7 @@ const BarometerExamSelector: React.FC = () => {
             </div>
           </Link>
 
-          <Link href="/barometer/egzamin-8-klasisty">
+          <Link href="/barometer">
             <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer">
               <h3 className="text-2xl font-semibold text-blue-500">Egzamin 8 Klasisty</h3>
               <p className="text-gray-600 mt-4">

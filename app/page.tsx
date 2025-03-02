@@ -1,5 +1,6 @@
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import Link from 'next/link';
 
 const Home: React.FC = () => {
   return (
@@ -20,12 +21,14 @@ const Home: React.FC = () => {
               Codziennie 5 nowych zadań, które pomogą Ci przygotować się do egzaminów!
             </p>
           </div>
-          <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
-            <h3 className="text-2xl font-semibold text-blue-500">Barometr</h3>
-            <p className="text-gray-600 mt-4">
-              Przewidź swój wynik na egzaminie i sprawdź postęp!
-            </p>
-          </div>
+          <Link href="/barometer-exam-selector">
+            <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
+              <h3 className="text-2xl font-semibold text-blue-500">Barometr</h3>
+              <p className="text-gray-600 mt-4">
+                Przewidź swój wynik na egzaminie i sprawdź postęp!
+              </p>
+            </div>
+          </Link>
           <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
             <h3 className="text-2xl font-semibold text-blue-500">Rozwiązania</h3>
             <p className="text-gray-600 mt-4">

@@ -1,7 +1,5 @@
 "use client";
 import "katex/dist/katex.min.css";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
@@ -21,7 +19,12 @@ const questions = [
   {
     id: 2,
     text: "Rozwiąż całkę: $\\int_0^{\\pi} x^2 \\cdot \\sin(x) \\, dx$ Podaj wynik tej całki określonej.",
-    answers: ["$2$", "$1$", "$0$", "$4$"],
+    answers: [
+      "$2$",
+      "$1$",
+      "$0$",
+      "$4$"
+    ],
     correct: 2,
   },
   {
@@ -48,55 +51,44 @@ const questions = [
   },
 ];
 
-const Barometer: React.FC = () => {
-  const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
-  const router = useRouter();
+const BarometerResult: React.FC = () => {
+  const userAnswers = [0, 2, 0, 1];
 
-  const handleAnswerSelect = (questionId: number, answerIndex: number) => {
-    setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
+  const calculateScore = () => {
+    return questions.reduce((score, question, index) => {
+      return score + (question.correct === userAnswers[index] ? 1 : 0);
+    }, 0);
   };
 
-  const handleSubmit = () => {
-    const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null);
-
-    if (!allAnswered) {
-      alert("Proszę odpowiedzieć na wszystkie pytania.");
-    } else {
-      router.push("/barometer-result");
-    }
-  };
+  const score = calculateScore();
 
   return (
     <div className="bg-gray-50 min-h-screen">
       <Nav />
       <main className="max-w-4xl mx-auto px-6 py-12">
         <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Barometr Matematyczny
+          Wyniki Barometru
         </h2>
         <p className="text-lg text-gray-700 text-center mb-8">
-          Odpowiedz na poniższe pytania i sprawdź swoje umiejętności!
+          Twój wynik: {score} / {questions.length}
         </p>
 
         <div className="space-y-6">
-          {questions.map((q) => (
-            <Question
-              key={q.id}
-              id={q.id}
-              text={q.text}
-              answers={q.answers}
-              selectedAnswer={selectedAnswers[q.id]}
-              onAnswerSelect={handleAnswerSelect}
-            />
-          ))}
-        </div>
+          {questions.map((q, index) => {
+            const isCorrect = q.correct === userAnswers[index];
 
-        <div className="mt-8 text-center">
-          <button
-            onClick={handleSubmit}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-700"
-          >
-            Wyślij odpowiedzi
-          </button>
+            return (
+              <Question
+                key={q.id}
+                id={q.id}
+                text={q.text}
+                answers={q.answers}
+                selectedAnswer={userAnswers[index]}
+                onAnswerSelect={() => {}}
+                isCorrect={isCorrect}
+              />
+            );
+          })}
         </div>
       </main>
       <Footer />
@@ -104,4 +96,4 @@ const Barometer: React.FC = () => {
   );
 };
 
-export default Barometer;
+export default BarometerResult;
