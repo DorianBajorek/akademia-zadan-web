@@ -3,7 +3,7 @@ import "katex/dist/katex.min.css";
 import { useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { InlineMath, BlockMath } from "react-katex";
+import { InlineMath } from "react-katex";
 
 const questions = [
   {
