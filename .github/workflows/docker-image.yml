@@ -27,21 +27,21 @@ jobs:
           git checkout main &&
           git pull
         "
-
-    - name: Stop and remove old container
-      # Zatrzymaj i usuń stary kontener
-      run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-          docker ps -q --filter 'ancestor=akademia_zadan_web' | xargs -r docker stop &&
-          docker ps -a -q --filter 'ancestor=akademia_zadan_web' | xargs -r docker rm
-        "
-
+        
     - name: Build new Docker image
       # Zbuduj nowy obraz Dockera
       run: |
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
           cd /home/ubuntu/akademia-zadan-web &&
           docker build -t akademia-zadan-web .
+        "
+        
+    - name: Stop and remove old container
+      # Zatrzymaj i usuń stary kontener
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          docker ps -q --filter 'ancestor=akademia-zadan-web' | xargs -r docker stop &&
+          docker ps -a -q --filter 'ancestor=akademia-zadan-web' | xargs -r docker rm
         "
 
     - name: Run new container
