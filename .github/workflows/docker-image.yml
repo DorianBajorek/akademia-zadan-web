@@ -41,7 +41,7 @@ jobs:
       run: |
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
           cd /home/ubuntu/akademia-zadan-web &&
-          docker build -t   /home/ubuntu/akademia-zadan-web .
+          docker build -t akademia-zadan-web .
         "
 
     - name: Run new container
