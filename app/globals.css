@@ -11,4 +11,12 @@
     background-color: #f9fafb;
     color: #333;
   }
+  .inline-math {
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+  
 }

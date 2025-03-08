@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
 import { motion } from "framer-motion";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const BarometerResult: React.FC = () => {
   const router = useRouter();

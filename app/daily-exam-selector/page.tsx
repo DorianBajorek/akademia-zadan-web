@@ -1,12 +1,13 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+import UnderConstruction from "@/components/UnderConstruction";
 
 const DailyExamSelector: React.FC = () => {
   return (
     <div className="bg-gray-50">
       <Nav />
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <UnderConstruction />
+      {/* <main className="max-w-7xl mx-auto px-6 py-12">
         <h2 className="text-5xl font-bold text-center text-blue-600 mb-8">
           Wybierz poziom Daily Zadań
         </h2>
@@ -42,7 +43,7 @@ const DailyExamSelector: React.FC = () => {
             </div>
           </Link>
         </div>
-      </main>
+      </main> */}
       <Footer />
     </div>
   );
