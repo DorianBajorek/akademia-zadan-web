@@ -7,14 +7,15 @@ interface QuestionProps {
   selectedAnswer: number | null;
   onAnswerSelect: (questionId: number, answerIndex: number) => void;
   isCorrect?: boolean | null;
+  correctAnswer?: string | null;
 }
 
 const answerLabels = ["A", "B", "C", "D"];
 
-const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, onAnswerSelect, isCorrect }) => {
+const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, onAnswerSelect, isCorrect, correctAnswer }) => {
   const renderText = (text: string) => {
-    const parts = text.split(/\$(.*?)\$/g); 
-    return parts.map((part, index) =>
+    const parts = text?.split(/\$(.*?)\$/g);
+    return parts?.map((part, index) =>
       index % 2 === 0 ? (
         <span key={index}>{part}</span>
       ) : (
@@ -23,8 +24,10 @@ const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, 
     );
   };
 
+  const correctAnswerIndex = correctAnswer ? answerLabels.indexOf(correctAnswer.toUpperCase()) : -1;
+
   return (
-    <div className="bg-white shadow-lg p-6 rounded-lg">
+    <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400">
       <h3 className="text-xl text-gray-800">
         {renderText(text)}
       </h3>
@@ -38,6 +41,10 @@ const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, 
             } else {
               buttonClass = isCorrect ? "border-green-500 bg-green-100" : "border-red-500 bg-red-100";
             }
+          }
+
+          if (isCorrect === false && correctAnswerIndex === index) {
+            buttonClass = "border-green-500 bg-green-100"; 
           }
 
           return (
