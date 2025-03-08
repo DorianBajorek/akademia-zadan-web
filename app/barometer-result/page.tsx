@@ -52,7 +52,7 @@ const BarometerResult: React.FC = () => {
                   id={q.id}
                   text={q.text}
                   answers={q.answers}
-                  selectedAnswer={q.answers.findIndex(ans => ans === result?.user_answer)}
+                  selectedAnswer={q.answers.findIndex((ans: any) => ans === result?.user_answer)}
                   onAnswerSelect={() => {}}
                   isCorrect={isCorrect}
                   correctAnswer={correctAnswer}
