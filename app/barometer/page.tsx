@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
 import { getProblems, checkBarometerAnswers } from "@/service";
+import QuestionTrueFalse from "@/components/QuestionTrueFalse";
 
 interface QuestionType {
   id: number;
@@ -13,6 +14,7 @@ interface QuestionType {
   answers: string[];
   correct: number;
   taskId: number;
+  taskType: string;
 }
 
 const Barometer: React.FC = () => {
@@ -65,6 +67,7 @@ const Barometer: React.FC = () => {
         ],
         correct: 0,
         taskId: elem.task_id,
+        taskType: elem.task_type
       }));
       setQuestions(newQuestions);
     };
@@ -85,14 +88,24 @@ const Barometer: React.FC = () => {
 
         <div className="space-y-6">
           {questions.map((q) => (
-            <Question
-              key={q.id}
-              id={q.id}
-              text={q.text}
-              answers={q.answers}
-              selectedAnswer={selectedAnswers[q.id]}
-              onAnswerSelect={handleAnswerSelect}
-            />
+            q.taskType === "tf2" ? (
+              <QuestionTrueFalse
+                key={q.id}
+                id={q.id}
+                text={q.text}
+                selectedAnswer={selectedAnswers[q.id]}
+                onAnswerSelect={handleAnswerSelect}
+              />
+            ) : (
+              <Question
+                key={q.id}
+                id={q.id}
+                text={q.text}
+                answers={q.answers}
+                selectedAnswer={selectedAnswers[q.id]}
+                onAnswerSelect={handleAnswerSelect}
+              />
+            )
           ))}
         </div>
 
