@@ -1,70 +1,76 @@
 "use client";
 import "katex/dist/katex.min.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
+import { getProblems, checkBarometerAnswers } from "@/service";
 
-const questions = [
-  {
-    id: 1,
-    text: "Oblicz całkę nieoznaczoną z funkcji: $\\int \\sin(x) \\cdot e^x \\, dx$ Podaj wynik wyrażony za pomocą funkcji elementarnych.",
-    answers: [
-      "$e^x (\\sin(x) - \\cos(x)) + C$",
-      "$e^x (\\cos(x) - \\sin(x)) + C$",
-      "$e^x (\\sin(x) + \\cos(x)) + C$",
-      "$e^x (\\sin(x) \\cdot \\cos(x)) + C$"
-    ],
-    correct: 0,
-  },
-  {
-    id: 2,
-    text: "Rozwiąż całkę: $\\int_0^{\\pi} x^2 \\cdot \\sin(x) \\, dx$ Podaj wynik tej całki określonej.",
-    answers: ["$2$", "$1$", "$0$", "$4$"],
-    correct: 2,
-  },
-  {
-    id: 3,
-    text: "Zastosuj wzór całkowania przez części, aby obliczyć następującą całkę: $\\int x \\cdot e^{-x} \\, dx$ Całka ta wymaga zastosowania metody całkowania przez części, gdzie wybieramy odpowiednie funkcje do rozbicia.",
-    answers: [
-      "$-(x + 1) e^{-x} + C$",
-      "$e^{-x} (x + 1) + C$",
-      "$-(x - 1) e^{-x} + C$",
-      "$x e^{-x} + C$"
-    ],
-    correct: 0,
-  },
-  {
-    id: 4,
-    text: "Wielomian $W(x) = ax^3 + bx^2 + cx + d$ jest iloczynem wielomianów $ F(x) = (2 - 3x)^2 \\quad$ oraz$ \\quad G(x) = 3x - 2. $",
-    answers: [
-      "$-(x + 1) e^{-x} + C$",
-      "$e^{-x} (x + 1) + C$",
-      "$-(x - 1) e^{-x} + C$",
-      "$x e^{-x} + C$"
-    ],
-    correct: 0,
-  },
-];
+interface QuestionType {
+  id: number;
+  text: string;
+  answers: string[];
+  correct: number;
+  taskId: number;
+}
 
 const Barometer: React.FC = () => {
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
   const router = useRouter();
+
+  const replaceHashes = (text: string) => {
+    if (text == null) return "";
+    return text.replace(/##/g, "\\");
+  };
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null);
-
+  
     if (!allAnswered) {
       alert("Proszę odpowiedzieć na wszystkie pytania.");
-    } else {
+      return;
+    }
+    
+    const answersPayload = questions.map(q => ({
+      task_id: q.taskId,
+      user_answer: q.answers[selectedAnswers[q.id]!],
+    }));
+  
+    const result = await checkBarometerAnswers(answersPayload);
+    if (result) {
+      localStorage.setItem("barometerResults", JSON.stringify({ results: result.results, summary: result.summary, questions }));
       router.push("/barometer-result");
+    } else {
+      alert("Wystąpił błąd podczas wysyłania odpowiedzi.");
     }
   };
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getProblems(2);
+      const newQuestions = data.map((elem, index) => ({
+        id: index + 1,
+        text: replaceHashes(elem.description || ""),
+        answers: [
+          replaceHashes(elem.choiceA),
+          replaceHashes(elem.choiceB),
+          replaceHashes(elem.choiceC),
+          replaceHashes(elem.choiceD),
+        ],
+        correct: 0,
+        taskId: elem.task_id,
+      }));
+      setQuestions(newQuestions);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="bg-gray-50 min-h-screen">
