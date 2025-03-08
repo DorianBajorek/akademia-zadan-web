@@ -53,7 +53,7 @@ const Barometer: React.FC = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getProblems(2);
+      const data = await getProblems(10);
       const newQuestions = data.map((elem, index) => ({
         id: index + 1,
         text: replaceHashes(elem.description || ""),
