@@ -1,0 +1,125 @@
+"use client";
+import "katex/dist/katex.min.css";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Question from "@/components/Question";
+import { getProblems, checkBarometerAnswers } from "@/service";
+import QuestionTrueFalse from "@/components/QuestionTrueFalse";
+
+interface QuestionType {
+  id: number;
+  text: string;
+  answers: string[];
+  correct: number;
+  taskId: number;
+  taskType: string;
+}
+
+const DailyTask: React.FC = () => {
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
+  const router = useRouter();
+
+  const replaceHashes = (text: string) => {
+    if (text == null) return "";
+    return text.replace(/##/g, "\\");
+  };
+
+  const handleAnswerSelect = (questionId: number, answerIndex: number) => {
+    setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
+  };
+
+  const handleSubmit = async () => {
+    const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null);
+  
+    if (!allAnswered) {
+      alert("Proszę odpowiedzieć na pytanie daily.");
+      return;
+    }
+    
+    const answersPayload = questions.map(q => ({
+      task_id: q.taskId,
+      user_answer: q.answers[selectedAnswers[q.id]!],
+    }));
+  
+    const result = await checkBarometerAnswers(answersPayload);
+    if (result) {
+      localStorage.setItem("dailyResults", JSON.stringify({ results: result.results, summary: result.summary, questions }));
+      router.push("/daily-task-result");
+    } else {
+      alert("Wystąpił błąd podczas wysyłania odpowiedzi.");
+    }
+  };
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getProblems(1);
+      const newQuestions = data.map((elem, index) => ({
+        id: index + 1,
+        text: replaceHashes(elem.description || ""),
+        answers: [
+          replaceHashes(elem.choiceA),
+          replaceHashes(elem.choiceB),
+          replaceHashes(elem.choiceC),
+          replaceHashes(elem.choiceD),
+        ],
+        correct: 0,
+        taskId: elem.task_id,
+        taskType: elem.task_type
+      }));
+      setQuestions(newQuestions);
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      <Nav />
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
+          Maturalne Daily Zadanie
+        </h2>
+        <p className="text-lg text-gray-700 text-center mb-8">
+          Odpowiedz na poniższe pytania i sprawdź swoje umiejętności!
+        </p>
+
+        <div className="space-y-6">
+          {questions.map((q) => (
+            q.taskType === "tf2" ? (
+              <QuestionTrueFalse
+                key={q.id}
+                id={q.id}
+                text={q.text}
+                selectedAnswer={selectedAnswers[q.id]}
+                onAnswerSelect={handleAnswerSelect}
+              />
+            ) : (
+              <Question
+                key={q.id}
+                id={q.id}
+                text={q.text}
+                answers={q.answers}
+                selectedAnswer={selectedAnswers[q.id]}
+                onAnswerSelect={handleAnswerSelect}
+              />
+            )
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <button
+            onClick={handleSubmit}
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-700"
+          >
+            Sprawdź odpowiedź
+          </button>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default DailyTask;

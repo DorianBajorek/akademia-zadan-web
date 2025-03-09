@@ -19,7 +19,7 @@ const Nav: React.FC = () => {
           <Link href="/" className="text-gray-700 hover:text-blue-500">
             Home
           </Link>
-          <Link href="/daily-exam-selector" className="text-gray-700 hover:text-blue-500">
+          <Link href="/daily-task" className="text-gray-700 hover:text-blue-500">
             Daily Zadania
           </Link>
           <Link href="/barometer-exam-selector" className="text-gray-700 hover:text-blue-500">
