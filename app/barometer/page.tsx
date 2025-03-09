@@ -88,16 +88,7 @@ const Barometer: React.FC = () => {
 
         <div className="space-y-6">
           {questions.map((q) => (
-            q.taskType === "tf2" ? (
-              <QuestionTrueFalse
-                key={q.id}
-                id={q.id}
-                text={q.text}
-                selectedAnswer={selectedAnswers[q.id]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : (
-              <Question
+            <Question
                 key={q.id}
                 id={q.id}
                 text={q.text}
@@ -105,7 +96,6 @@ const Barometer: React.FC = () => {
                 selectedAnswer={selectedAnswers[q.id]}
                 onAnswerSelect={handleAnswerSelect}
               />
-            )
           ))}
         </div>
 
