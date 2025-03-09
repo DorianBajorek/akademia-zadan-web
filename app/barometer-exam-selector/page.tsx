@@ -8,7 +8,6 @@ const BarometerExamSelector: React.FC = () => {
       <Nav />
       <div className="bg-gray-20 min-h-screen flex flex-col items-center justify-center">
         <main className="max-w-7xl mx-auto px-6 py-12">
-          {/* Sekcja z opisem */}
           <div className="bg-white p-10 rounded-2xl shadow-xl mb-12 max-w-4xl mx-auto">
             <h3 className="text-3xl font-semibold text-blue-600 mb-6">Co to jest Barometr?</h3>
             <p className="text-gray-700 text-lg mb-6">
@@ -23,7 +22,6 @@ const BarometerExamSelector: React.FC = () => {
             </p>
           </div>
 
-          {/* Przyciski */}
           <div className="flex justify-center">
             <Link href="/barometer">
               <div className="bg-blue-600 text-white text-2xl font-semibold py-4 px-12 rounded-full shadow-lg hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out">

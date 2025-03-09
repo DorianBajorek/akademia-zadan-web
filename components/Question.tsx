@@ -8,11 +8,25 @@ interface QuestionProps {
   onAnswerSelect: (questionId: number, answerIndex: number) => void;
   isCorrect?: boolean | null;
   correctAnswer?: string | null;
+  question1?: string | null;
+  question2?: string | null;
+  taskType?: string;
 }
 
 const answerLabels = ["A", "B", "C", "D"];
 
-const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, onAnswerSelect, isCorrect, correctAnswer }) => {
+const Question: React.FC<QuestionProps> = ({
+  id,
+  text,
+  answers,
+  selectedAnswer,
+  onAnswerSelect,
+  isCorrect,
+  correctAnswer,
+  question1,
+  question2,
+  taskType,
+}) => {
   const renderText = (text: string) => {
     const parts = text?.split(/\$(.*?)\$/g);
     return parts?.map((part, index) =>
@@ -26,13 +40,31 @@ const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, 
 
   const correctAnswerIndex = correctAnswer ? answerLabels.indexOf(correctAnswer.toUpperCase()) : -1;
 
+  const displayAnswers = taskType === "tf2" 
+    ? ["1. Prawda, 2. Prawda", "1. Prawda, 2. Fałsz", "1. Fałsz, 2. Prawda", "1. Fałsz, 2. Fałsz"].map((answer) => <strong>{answer}</strong>) 
+    : answers.map((answer) => <strong>{renderText(answer)}</strong>);
+
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400">
-      <h3 className="text-xl text-gray-800">
-        {renderText(text)}
-      </h3>
+      <h3 className="text-xl text-gray-800">{renderText(text)}</h3>
+      {question1 && (
+         <h5 className="text-xl text-gray-800">Oceń prawdziwość podanych zdań: </h5>
+      )}
+      {question1 && (
+        <p className="mt-2 text-gray-700">
+          <span className="font-bold">Pytanie 1: </span>
+          {renderText(question1)}
+        </p>
+      )}
+      {question2 && (
+        <p className="mt-2 text-gray-700">
+          <span className="font-bold">Pytanie 2: </span>
+          {renderText(question2)}
+        </p>
+      )}
+
       <div className="mt-4 space-y-3">
-        {answers.map((answer, index) => {
+        {displayAnswers.map((answer, index) => {
           let buttonClass = "border-gray-300 hover:border-blue-400";
 
           if (selectedAnswer === index) {
@@ -44,7 +76,7 @@ const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, 
           }
 
           if (isCorrect === false && correctAnswerIndex === index) {
-            buttonClass = "border-green-500 bg-green-100"; 
+            buttonClass = "border-green-500 bg-green-100";
           }
 
           return (
@@ -55,7 +87,7 @@ const Question: React.FC<QuestionProps> = ({ id, text, answers, selectedAnswer, 
               disabled={isCorrect != null}
             >
               <span className="font-bold text-blue-600 mr-3">ODPOWIEDŹ {answerLabels[index]}</span>
-              {renderText(answer)}
+              {answer}
             </button>
           );
         })}

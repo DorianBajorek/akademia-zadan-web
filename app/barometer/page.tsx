@@ -6,7 +6,6 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
 import { getProblems, checkBarometerAnswers } from "@/service";
-import QuestionTrueFalse from "@/components/QuestionTrueFalse";
 
 interface QuestionType {
   id: number;
@@ -15,6 +14,8 @@ interface QuestionType {
   correct: number;
   taskId: number;
   taskType: string;
+  question1: string;
+  question2: string;
 }
 
 const Barometer: React.FC = () => {
@@ -28,6 +29,7 @@ const Barometer: React.FC = () => {
   };
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
+
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
   };
 
@@ -39,10 +41,13 @@ const Barometer: React.FC = () => {
       return;
     }
     
-    const answersPayload = questions.map(q => ({
-      task_id: q.taskId,
-      user_answer: q.answers[selectedAnswers[q.id]!],
-    }));
+    const answersPayload = questions.map(q => {    
+      return {
+        task_id: q.taskId,
+        user_answer: q.answers[selectedAnswers[q.id]!],
+      };
+    });
+    
   
     const result = await checkBarometerAnswers(answersPayload);
     if (result) {
@@ -56,24 +61,46 @@ const Barometer: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getProblems(10);
-      const newQuestions = data.map((elem: { description: any; choiceA: string; choiceB: string; choiceC: string; choiceD: string; task_id: any; task_type: any; }, index: number) => ({
-        id: index + 1,
-        text: replaceHashes(elem.description || ""),
-        answers: [
-          replaceHashes(elem.choiceA),
-          replaceHashes(elem.choiceB),
-          replaceHashes(elem.choiceC),
-          replaceHashes(elem.choiceD),
-        ],
-        correct: 0,
-        taskId: elem.task_id,
-        taskType: elem.task_type
-      }));
+      const newQuestions = data.map(
+        (
+          elem: {
+            description: any;
+            choiceA: string;
+            choiceB: string;
+            choiceC: string;
+            choiceD: string;
+            task_id: any;
+            task_type: any;
+            question1?: string;
+            question2?: string;
+          },
+          index: number
+        ) => ({
+          id: index + 1,
+          text: replaceHashes(elem.description || ""),
+          answers:
+            elem.task_type === "tf2"
+              ? ["tt", "tf", "ft", "ff"]
+              : [
+                  replaceHashes(elem.choiceA),
+                  replaceHashes(elem.choiceB),
+                  replaceHashes(elem.choiceC),
+                  replaceHashes(elem.choiceD),
+                ],
+          correct: 0,
+          taskId: elem.task_id,
+          taskType: elem.task_type,
+          ...(elem.task_type === "tf2" && {
+            question1: replaceHashes(elem.question1 || ""),
+            question2: replaceHashes(elem.question2 || ""),
+          }),
+        })
+      );
       setQuestions(newQuestions);
     };
-
+  
     fetchData();
-  }, []);
+  }, []);  
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -88,15 +115,31 @@ const Barometer: React.FC = () => {
 
         <div className="space-y-6">
           {questions.map((q) => (
-            <Question
+            q.taskType === "tf2" ? 
+              <Question
                 key={q.id}
                 id={q.id}
                 text={q.text}
                 answers={q.answers}
                 selectedAnswer={selectedAnswers[q.id]}
                 onAnswerSelect={handleAnswerSelect}
+                question1={q.question1}
+                question2={q.question2}
+                taskType="tf2"
               />
+            : (
+              <Question
+                key={q.id}
+                id={q.id}
+                text={q.text}
+                answers={q.answers}
+                selectedAnswer={selectedAnswers[q.id]}
+                onAnswerSelect={handleAnswerSelect}
+                taskType="mc4"
+              />
+            )
           ))}
+
         </div>
 
         <div className="mt-8 text-center">
