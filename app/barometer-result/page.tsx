@@ -16,7 +16,7 @@ const BarometerResult: React.FC = () => {
 
   useEffect(() => {
     const storedResults = localStorage.getItem("barometerResults");
-  
+
     if (storedResults) {
       const { results, summary, questions } = JSON.parse(storedResults);
       setResults(results);
@@ -26,7 +26,7 @@ const BarometerResult: React.FC = () => {
       router.push("/barometer");
     }
   }, []);
-  
+
   if (!summary) {
     return <p className="text-center mt-10">Ładowanie wyników...</p>;
   }
@@ -47,13 +47,12 @@ const BarometerResult: React.FC = () => {
 
         <div className="flex flex-col items-center mb-8">
           <div className="relative w-full max-w-md h-10 bg-gray-200 rounded-full overflow-hidden shadow-lg border-2 border-gray-300">
-            <motion.div 
-              className={`h-full ${getBarometerColor(summary.success_rate)} flex items-center justify-center text-white font-bold text-lg`} 
+            <motion.div
+              className={`h-full ${getBarometerColor(summary.success_rate)} flex items-center justify-center text-white font-bold text-lg`}
               initial={{ width: "0%" }}
               animate={{ width: `${summary.success_rate}%` }}
               transition={{ duration: 1.5, ease: "easeOut" }}
-            >
-            </motion.div>
+            ></motion.div>
           </div>
           <p className="text-lg text-gray-700 mt-2">
             Twój wynik: {summary.success_rate}%
@@ -62,7 +61,7 @@ const BarometerResult: React.FC = () => {
 
         <div className="space-y-6">
           {questions.map((q, index) => {
-            const result = results.find(r => r.task_id === q.taskId);
+            const result = results.find((r) => r.task_id === q.taskId);
             const isCorrect = result?.is_correct;
             const correctAnswer = result?.correct_answer;
 
@@ -72,10 +71,15 @@ const BarometerResult: React.FC = () => {
                   id={q.id}
                   text={q.text}
                   answers={q.answers}
-                  selectedAnswer={q.answers.findIndex((ans: any) => ans === result?.user_answer)}
+                  selectedAnswer={q.answers.findIndex(
+                    (ans: any) => ans === result?.user_answer
+                  )}
                   onAnswerSelect={() => {}}
                   isCorrect={isCorrect}
                   correctAnswer={correctAnswer}
+                  question1={q.taskType === "tf2" ? q.question1 : undefined}
+                  question2={q.taskType === "tf2" ? q.question2 : undefined}
+                  taskType={q.taskType}
                 />
               </div>
             );
