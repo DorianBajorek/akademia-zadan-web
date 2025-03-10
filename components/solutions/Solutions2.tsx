@@ -11,6 +11,21 @@ const Solution2 = () => {
         <BlockMath math="\sin^3 20^\circ + \cos^2 20^\circ \cdot \sin 20^\circ" />
       </div>
 
+      <div className="space-y-3 mb-6">
+        <div className="p-4 bg-gray-100 rounded-lg">
+          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="\cos 20^\circ" /></p>
+        </div>
+        <div className="p-4 bg-gray-100 rounded-lg">
+          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> <InlineMath math="\sin 20^\circ" /></p>
+        </div>
+        <div className="p-4 bg-gray-100 rounded-lg">
+          <p className="font-semibold"><strong>ODPOWIEDŹ C:</strong> <InlineMath math="\tg 20^\circ" /></p>
+        </div>
+        <div className="p-4 bg-gray-100 rounded-lg">
+          <p className="font-semibold"><strong>ODPOWIEDŹ D:</strong> <InlineMath math="\sin 20^\circ \cdot \cos 20^\circ" /></p>
+        </div>
+      </div>
+
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Wyciągnięcie wspólnego czynnika przed nawias</h2>
       <p className="mb-2">
         Zauważamy, że <InlineMath math="\sin 20^\circ" /> jest wspólnym czynnikiem obu składników. Wyciągamy go przed nawias:
@@ -35,7 +50,7 @@ const Solution2 = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
-        <InlineMath math="\sin^3 20^\circ + \cos^2 20^\circ \cdot \sin 20^\circ = \sin 20^\circ" />
+        Wartość wyrażenia <InlineMath math="\sin^3 20^\circ + \cos^2 20^\circ \cdot \sin 20^\circ" /> jest równa <InlineMath math="\sin 20^\circ" /> (odpowiedź <strong>B</strong>).
       </p>
     </div>
   );
