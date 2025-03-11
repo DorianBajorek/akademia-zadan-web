@@ -24,6 +24,7 @@ const Barometer: React.FC = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
   const router = useRouter();
   const letterMap = ["a", "b", "c", "d"];
+  const tf2Map = ["tt", "tf", "ft", "ff"];
 
   const replaceHashes = (text: string) => {
     if (text == null) return "";
@@ -45,7 +46,7 @@ const Barometer: React.FC = () => {
     const answersPayload = questions.map(q => {    
       return {
         task_id: q.taskId,
-        user_answer: letterMap[selectedAnswers[q.id]!],
+        user_answer: q.taskType === "tf2" ? tf2Map[selectedAnswers[q.id]!] : letterMap[selectedAnswers[q.id]!],
       };
     });
     

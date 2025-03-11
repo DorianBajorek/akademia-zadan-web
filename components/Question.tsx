@@ -19,6 +19,7 @@ interface QuestionProps {
 
 const answerLabels = ["A", "B", "C", "D"];
 const letterMap = ["a", "b", "c", "d"];
+const tf2Map = ["tt", "tf", "ft", "ff"];
 
 const Question: React.FC<QuestionProps> = ({
   id,
@@ -51,18 +52,16 @@ const Question: React.FC<QuestionProps> = ({
     router.push(`/rozwiazanie/${taskId}`);
   };
 
-  const correctAnswerIndex = correctAnswer ? answerLabels.indexOf(correctAnswer.toUpperCase()) : -1;
+  const correctAnswerIndex = taskType === "tf2" && correctAnswer ? tf2Map.indexOf(correctAnswer.toLowerCase()) : answerLabels.indexOf(correctAnswer?.toUpperCase() || "");
 
   const displayAnswers = taskType === "tf2" 
-    ? ["1. Prawda, 2. Prawda", "1. Prawda, 2. Fałsz", "1. Fałsz, 2. Prawda", "1. Fałsz, 2. Fałsz"].map((answer) => <strong>{answer}</strong>) 
-    : answers.map((answer) => <strong>{renderText(answer)}</strong>);
+    ? tf2Map.map((_, index) => <strong key={index}>{["1. Prawda, 2. Prawda", "1. Prawda, 2. Fałsz", "1. Fałsz, 2. Prawda", "1. Fałsz, 2. Fałsz"][index]}</strong>) 
+    : answers.map((answer, index) => <strong key={index}>{renderText(answer)}</strong>);
 
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400 relative flex flex-col">
       <h3 className="text-xl text-gray-800">{renderText(text)}</h3>
-      {question1 && (
-        <h5 className="text-xl text-gray-800">Oceń prawdziwość podanych zdań: </h5>
-      )}
+      {question1 && <h5 className="text-xl text-gray-800">Oceń prawdziwość podanych zdań:</h5>}
       {question1 && (
         <p className="mt-2 text-gray-700">
           <span className="font-bold">Pytanie 1: </span>
@@ -89,8 +88,8 @@ const Question: React.FC<QuestionProps> = ({
       <div className="mt-4 space-y-3 flex-grow">
         {displayAnswers.map((answer, index) => {
           let buttonClass = "border-gray-300 hover:border-blue-400";
-          console.log("XD " + selectedAnswer)
-          if (selectedAnswer === letterMap[index]) {
+          
+          if ((taskType === "mc4" && selectedAnswer === letterMap[index]) || (taskType === "tf2" && selectedAnswer === tf2Map[index])) {
             if (isCorrect === null || isCorrect === undefined) {
               buttonClass = "border-blue-500 bg-blue-100";
             } else {

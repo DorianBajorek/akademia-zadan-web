@@ -50,8 +50,8 @@ const BarometerResult: React.FC = () => {
             <motion.div
               className={`h-full ${getBarometerColor(summary.success_rate)} flex items-center justify-center text-white font-bold text-lg`}
               initial={{ width: "0%" }}
-              animate={{ width: `${summary.success_rate}%` }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
+              animate={{ width: `${summary.points}%` }}
+              transition={{ duration: 2.5, ease: "easeOut" }}
             ></motion.div>
           </div>
           <p className="text-lg text-gray-700 mt-2">
