@@ -1,6 +1,6 @@
 import { InlineMath } from "react-katex";
 import { useRouter } from "next/navigation";
-import { solutionsMap } from "@/app/rozwiazanie/[id]/page";
+import { solutionsMap } from "@/app/rozwiazanie/[id]/solutionsMap";
 
 interface QuestionProps {
   id: number;
