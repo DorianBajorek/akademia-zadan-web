@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import "katex/dist/katex.min.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -55,7 +55,7 @@ const BarometerResult: React.FC = () => {
             ></motion.div>
           </div>
           <p className="text-lg text-gray-700 mt-2">
-            Twój wynik: {summary.success_rate}%
+            Estymowany wynik z matury podstawowej z matematyki: {summary.bot_points}% - {summary.top_points}%.
           </p>
         </div>
 
@@ -71,9 +71,7 @@ const BarometerResult: React.FC = () => {
                   text={q.text}
                   taskId={q.taskId}
                   answers={q.answers}
-                  selectedAnswer={q.answers.findIndex(
-                    (ans: any) => ans === result?.user_answer
-                  )}
+                  selectedAnswer={result?.user_answer}
                   onAnswerSelect={() => {}}
                   isCorrect={isCorrect}
                   correctAnswer={correctAnswer}

@@ -23,6 +23,7 @@ const Barometer: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
   const router = useRouter();
+  const letterMap = ["a", "b", "c", "d"];
 
   const replaceHashes = (text: string) => {
     if (text == null) return "";
@@ -44,7 +45,7 @@ const Barometer: React.FC = () => {
     const answersPayload = questions.map(q => {    
       return {
         task_id: q.taskId,
-        user_answer: q.answers[selectedAnswers[q.id]!],
+        user_answer: letterMap[selectedAnswers[q.id]!],
       };
     });
     
@@ -125,7 +126,7 @@ const Barometer: React.FC = () => {
                 taskId={q.taskId}
                 text={q.text}
                 answers={q.answers}
-                selectedAnswer={selectedAnswers[q.id]}
+                selectedAnswer={letterMap[selectedAnswers[q.id]!]}
                 onAnswerSelect={handleAnswerSelect}
                 question1={q.question1}
                 question2={q.question2}
@@ -139,7 +140,7 @@ const Barometer: React.FC = () => {
                 taskId={q.taskId}
                 text={q.text}
                 answers={q.answers}
-                selectedAnswer={selectedAnswers[q.id]}
+                selectedAnswer={letterMap[selectedAnswers[q.id]!]}
                 onAnswerSelect={handleAnswerSelect}
                 taskType="mc4"
                 images={q.images}

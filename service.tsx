@@ -9,31 +9,6 @@ export const getProblems = async(numberOfProblems: number) => {
       }
 }
 
-const mockChecker = {
-    results: [
-      {
-        "task_id": 1,
-        "is_correct": true,
-        "correct_answer": "d",
-        "user_answer": "$2^{16}$",
-        "feedback": "Twoja odpowiedź jest poprawna!"
-      },
-      {
-        "task_id": 4,
-        "is_correct": false,
-        "correct_answer": "d",
-        "user_answer": "$2^{16}$",
-        "feedback": "Twoja odpowiedź jest niepoprawna. Prawidłowa odpowiedź to: d."
-    }
-    ],
-    "summary": {
-       "total_tasks": 2,
-       "correct_answers": 1,
-       "incorrect_answers": 1,
-       "success_rate": 50.0
-   }
-}
-
 export const checkBarometerAnswers = async (problems: { task_id: number; user_answer: string }[]) => {
   try {
     const response = await fetch("https://akademiazadan.pl/api/v1/validate_barometr_problems/", {

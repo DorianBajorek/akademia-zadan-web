@@ -7,7 +7,7 @@ interface QuestionProps {
   text: string;
   taskId: number;
   answers: string[];
-  selectedAnswer: number | null;
+  selectedAnswer: string | null;
   onAnswerSelect: (questionId: number, answerIndex: number) => void;
   isCorrect?: boolean | null;
   correctAnswer?: string | null;
@@ -18,6 +18,7 @@ interface QuestionProps {
 }
 
 const answerLabels = ["A", "B", "C", "D"];
+const letterMap = ["a", "b", "c", "d"];
 
 const Question: React.FC<QuestionProps> = ({
   id,
@@ -88,8 +89,8 @@ const Question: React.FC<QuestionProps> = ({
       <div className="mt-4 space-y-3 flex-grow">
         {displayAnswers.map((answer, index) => {
           let buttonClass = "border-gray-300 hover:border-blue-400";
-
-          if (selectedAnswer === index) {
+          console.log("XD " + selectedAnswer)
+          if (selectedAnswer === letterMap[index]) {
             if (isCorrect === null || isCorrect === undefined) {
               buttonClass = "border-blue-500 bg-blue-100";
             } else {
