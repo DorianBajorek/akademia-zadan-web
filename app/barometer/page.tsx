@@ -29,7 +29,6 @@ const Barometer: React.FC = () => {
   };
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
-
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
   };
 
@@ -119,6 +118,7 @@ const Barometer: React.FC = () => {
               <Question
                 key={q.id}
                 id={q.id}
+                taskId={q.taskId}
                 text={q.text}
                 answers={q.answers}
                 selectedAnswer={selectedAnswers[q.id]}
@@ -131,6 +131,7 @@ const Barometer: React.FC = () => {
               <Question
                 key={q.id}
                 id={q.id}
+                taskId={q.taskId}
                 text={q.text}
                 answers={q.answers}
                 selectedAnswer={selectedAnswers[q.id]}

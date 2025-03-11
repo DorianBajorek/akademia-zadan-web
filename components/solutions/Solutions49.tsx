@@ -1,11 +1,9 @@
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-const Solution3 = () => {
+const Solution49 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
-      <h1 className="text-2xl font-bold mb-4 text-blue-600">Rozwiązanie zadania 3</h1>
-      
       <div className="text-lg mb-4">
         Punkty <InlineMath math="K = (4, -10)" /> i <InlineMath math="L = (b, 2)" /> są końcami odcinka <InlineMath math="KL" />. Pierwsza współrzędna środka odcinka <InlineMath math="KL" /> jest równa <InlineMath math="-12" />. Wynika stąd, że:
       </div>
@@ -55,4 +53,4 @@ const Solution3 = () => {
   );
 };
 
-export default Solution3;
+export default Solution49;

@@ -4,8 +4,6 @@ import "katex/dist/katex.min.css";
 const Solution6 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
-      <h1 className="text-2xl font-bold mb-4 text-blue-600">Rozwiązanie zadania 6</h1>
-      
       <div className="text-lg mb-4">
         Rozważamy wszystkie kody czterocyfrowe utworzone tylko z cyfr <InlineMath math="1, 3, 6, 8" />, przy czym w każdym kodzie każda z tych cyfr występuje dokładnie jeden raz. Liczba wszystkich takich kodów jest równa:
       </div>

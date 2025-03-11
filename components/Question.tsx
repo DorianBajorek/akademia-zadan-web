@@ -1,8 +1,11 @@
 import { InlineMath } from "react-katex";
+import { useRouter } from "next/navigation";
+import { solutionsMap } from "@/app/rozwiazanie/[id]/page";
 
 interface QuestionProps {
   id: number;
   text: string;
+  taskId: number;
   answers: string[];
   selectedAnswer: number | null;
   onAnswerSelect: (questionId: number, answerIndex: number) => void;
@@ -17,6 +20,7 @@ const answerLabels = ["A", "B", "C", "D"];
 
 const Question: React.FC<QuestionProps> = ({
   id,
+  taskId,
   text,
   answers,
   selectedAnswer,
@@ -38,6 +42,12 @@ const Question: React.FC<QuestionProps> = ({
     );
   };
 
+  const router = useRouter();
+
+  const handleSolutionClick = () => {
+    router.push(`/rozwiazanie/${taskId}`);
+  };
+
   const correctAnswerIndex = correctAnswer ? answerLabels.indexOf(correctAnswer.toUpperCase()) : -1;
 
   const displayAnswers = taskType === "tf2" 
@@ -45,10 +55,10 @@ const Question: React.FC<QuestionProps> = ({
     : answers.map((answer) => <strong>{renderText(answer)}</strong>);
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400">
+    <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400 relative flex flex-col">
       <h3 className="text-xl text-gray-800">{renderText(text)}</h3>
       {question1 && (
-         <h5 className="text-xl text-gray-800">Oceń prawdziwość podanych zdań: </h5>
+        <h5 className="text-xl text-gray-800">Oceń prawdziwość podanych zdań: </h5>
       )}
       {question1 && (
         <p className="mt-2 text-gray-700">
@@ -63,7 +73,7 @@ const Question: React.FC<QuestionProps> = ({
         </p>
       )}
 
-      <div className="mt-4 space-y-3">
+      <div className="mt-4 space-y-3 flex-grow">
         {displayAnswers.map((answer, index) => {
           let buttonClass = "border-gray-300 hover:border-blue-400";
 
@@ -91,6 +101,22 @@ const Question: React.FC<QuestionProps> = ({
             </button>
           );
         })}
+      </div>
+
+      <div className="mt-4 flex justify-end">
+        {isCorrect != undefined && isCorrect != null && (
+          <button
+          className={`px-4 py-2 rounded-lg shadow-md transition ${
+            solutionsMap.hasOwnProperty(taskId.toString())
+              ? "bg-blue-500 text-white hover:bg-blue-600"
+              : "bg-gray-400 text-gray-200 cursor-not-allowed"
+          }`}
+          onClick={handleSolutionClick}
+          disabled={!solutionsMap.hasOwnProperty(taskId.toString())}
+        >
+          Rozwiązanie
+        </button>
+        )}
       </div>
     </div>
   );

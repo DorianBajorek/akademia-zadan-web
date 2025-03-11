@@ -1,11 +1,9 @@
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-const Solution7 = () => {
+const Solution12 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
-      <h1 className="text-2xl font-bold mb-4 text-blue-600">Rozwiązanie zadania 7</h1>
-      
       <div className="text-lg mb-4">
         W kartezjańskim układzie współrzędnych <InlineMath math="(x, y)" /> proste <InlineMath math="k" /> oraz <InlineMath math="l" /> są określone równaniami:
         <BlockMath math="k : y = (m + 1)x + 7" />
@@ -71,4 +69,4 @@ const Solution7 = () => {
   );
 };
 
-export default Solution7;
+export default Solution12;

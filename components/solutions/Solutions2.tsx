@@ -4,53 +4,62 @@ import "katex/dist/katex.min.css";
 const Solution2 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
-      <h1 className="text-2xl font-bold mb-4 text-blue-600">Rozwiązanie zadania 2</h1>
-      
-      <div className="text-lg mb-4">
-        Obliczmy wartość wyrażenia:  
-        <BlockMath math="\sin^3 20^\circ + \cos^2 20^\circ \cdot \sin 20^\circ" />
-      </div>
+      <p className="text-lg mb-4">
+        Liczba <InlineMath math="\log_{\sqrt{3}} 9" /> jest równa:
+      </p>
 
       <div className="space-y-3 mb-6">
-        <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="\cos 20^\circ" /></p>
+        <div className="p-4 bg-gray-100 rounded-lf">
+          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> 2</p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> <InlineMath math="\sin 20^\circ" /></p>
+          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> 3</p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ C:</strong> <InlineMath math="\tg 20^\circ" /></p>
+          <p className="font-semibold"><strong>ODPOWIEDŹ C:</strong> 4</p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ D:</strong> <InlineMath math="\sin 20^\circ \cdot \cos 20^\circ" /></p>
+          <p className="font-semibold"><strong>ODPOWIEDŹ D:</strong> 9</p>
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Wyciągnięcie wspólnego czynnika przed nawias</h2>
-      <p className="mb-2">
-        Zauważamy, że <InlineMath math="\sin 20^\circ" /> jest wspólnym czynnikiem obu składników. Wyciągamy go przed nawias:
-      </p>
-      <BlockMath math="\sin 20^\circ (\sin^2 20^\circ + \cos^2 20^\circ)" />
+      <h2 className="text-xl font-semibold mt-4 mb-2">Rozwiązanie:</h2>
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Zastosowanie jedynki trygonometrycznej</h2>
+      <h3 className="text-xl font-semibold mt-4 mb-2">Krok 1: Oznaczenie równania</h3>
       <p className="mb-2">
-        Wiemy, że jedynka trygonometryczna mówi:
+        Oznaczmy:
       </p>
-      <BlockMath math="\sin^2 \theta + \cos^2 \theta = 1" />
-      <p className="mb-2">
-        Podstawiając <InlineMath math="\theta = 20^\circ" />, otrzymujemy:
-      </p>
-      <BlockMath math="\sin^2 20^\circ + \cos^2 20^\circ = 1" />
+      <BlockMath math="\sqrt{3}^x = 9" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Uproszczenie wyrażenia</h2>
+      <h3 className="text-xl font-semibold mt-4 mb-2">Krok 2: Sprowadzenie do tej samej podstawy</h3>
       <p className="mb-2">
-        Podstawiamy jedynkę trygonometryczną do wyrażenia:
+        Zapisujemy obie strony równania jako potęgi liczby 3:
       </p>
-      <BlockMath math="\sin 20^\circ \cdot 1 = \sin 20^\circ" />
+      <BlockMath math="\sqrt{3} = 3^{\frac{1}{2}}, \quad 9 = 3^2" />
+      <p className="mb-2">
+        Podstawiając do równania:
+      </p>
+      <BlockMath math="(3^{\frac{1}{2}})^x = 3^2" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
+      <h3 className="text-xl font-semibold mt-4 mb-2">Krok 3: Uproszczenie równania</h3>
+      <p className="mb-2">
+        Korzystając z własności potęg:
+      </p>
+      <BlockMath math="3^{\frac{1}{2} \cdot x} = 3^2" />
+      <p className="mb-2">
+        Ponieważ podstawy są równe, możemy porównać wykładniki:
+      </p>
+      <BlockMath math="\frac{1}{2} \cdot x = 2" />
+
+      <h3 className="text-xl font-semibold mt-4 mb-2">Krok 4: Rozwiązanie równania</h3>
+      <p className="mb-2">
+        Mnożymy obie strony równania przez 2:
+      </p>
+      <BlockMath math="x = 4" />
+
+      <h3 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h3>
       <p className="text-lg font-bold text-green-600">
-        Wartość wyrażenia <InlineMath math="\sin^3 20^\circ + \cos^2 20^\circ \cdot \sin 20^\circ" /> jest równa <InlineMath math="\sin 20^\circ" /> (odpowiedź <strong>B</strong>).
+        Prawidłowa odpowiedź to: <InlineMath math="\log_{\sqrt{3}} 9 = 4" /> (odpowiedź <strong>C</strong>).
       </p>
     </div>
   );

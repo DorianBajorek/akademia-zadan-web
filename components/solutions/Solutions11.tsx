@@ -1,11 +1,9 @@
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-const Solution8 = () => {
+const Solution11 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
-      <h1 className="text-2xl font-bold mb-4 text-blue-600">Rozwiązanie zadania 8</h1>
-      
       <div className="text-lg mb-4">
         Dany jest równoległobok o bokach długości <InlineMath math="3" /> i <InlineMath math="4" /> oraz o kącie między nimi o mierze <InlineMath math="120^\circ" />. Pole tego równoległoboku jest równe:
       </div>
@@ -68,4 +66,4 @@ const Solution8 = () => {
   );
 };
 
-export default Solution8;
+export default Solution11;

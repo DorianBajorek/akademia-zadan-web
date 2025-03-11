@@ -1,11 +1,9 @@
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-const Solution5 = () => {
+const Solution30 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
-      <h1 className="text-2xl font-bold mb-4 text-blue-600">Rozwiązanie zadania 5</h1>
-      
       <div className="text-lg mb-4">
         Wszystkich liczb naturalnych pięciocyfrowych, w których zapisie dziesiętnym występują tylko cyfry <InlineMath math="0, 5, 7" /> (np. 57075, 55555), jest:
       </div>
@@ -60,4 +58,4 @@ const Solution5 = () => {
   );
 };
 
-export default Solution5;
+export default Solution30;

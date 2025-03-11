@@ -64,12 +64,12 @@ const BarometerResult: React.FC = () => {
             const result = results.find((r) => r.task_id === q.taskId);
             const isCorrect = result?.is_correct;
             const correctAnswer = result?.correct_answer;
-
             return (
               <div key={index} className="space-y-6">
                 <Question
                   id={q.id}
                   text={q.text}
+                  taskId={q.taskId}
                   answers={q.answers}
                   selectedAnswer={q.answers.findIndex(
                     (ans: any) => ans === result?.user_answer

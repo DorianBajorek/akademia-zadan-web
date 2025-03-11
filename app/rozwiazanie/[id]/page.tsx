@@ -7,17 +7,17 @@ import { useParams } from 'next/navigation';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
-const solutionsMap: Record<string, any> = {
-  '1': dynamic(() => import('@/components/solutions/Solutions1')),
+export const solutionsMap: Record<string, any> = {
   '2': dynamic(() => import('@/components/solutions/Solutions2')),
-  '3': dynamic(() => import('@/components/solutions/Solutions3')),
-  '4': dynamic(() => import('@/components/solutions/Solutions4')),
-  '5': dynamic(() => import('@/components/solutions/Solutions5')),
-  '6': dynamic(() => import('@/components/solutions/Solutions6')),
-  '7': dynamic(() => import('@/components/solutions/Solutions7')),
-  '8': dynamic(() => import('@/components/solutions/Solutions8')),
-  '9': dynamic(() => import('@/components/solutions/Solutions9')),
   '10': dynamic(() => import('@/components/solutions/Solutions10')),
+  '49': dynamic(() => import('@/components/solutions/Solutions49')),
+  '34': dynamic(() => import('@/components/solutions/Solutions34')),
+  '30': dynamic(() => import('@/components/solutions/Solutions30')),
+  '13': dynamic(() => import('@/components/solutions/Solutions13')),
+  '12': dynamic(() => import('@/components/solutions/Solutions12')),
+  '11': dynamic(() => import('@/components/solutions/Solutions11')),
+  '41': dynamic(() => import('@/components/solutions/Solutions41')),
+  '43': dynamic(() => import('@/components/solutions/Solutions43')),
 };
 
 const Rozwiazanie = () => {

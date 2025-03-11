@@ -1,11 +1,9 @@
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-const Solution9 = () => {
+const Solution41 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
-      <h1 className="text-2xl font-bold mb-4 text-blue-600">Rozwiązanie zadania 9</h1>
-      
       <div className="text-lg mb-4">
         Ciąg <InlineMath math="(a_n)" /> jest określony wzorem:
         <BlockMath math="a_n = \frac{2n^2 - 30n}{n}" />
@@ -47,4 +45,4 @@ const Solution9 = () => {
   );
 };
 
-export default Solution9;
+export default Solution41;
