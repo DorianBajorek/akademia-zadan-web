@@ -13,7 +13,7 @@ const Solution = () => {
           <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="9" /></p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> <InlineMath math="9" /></p>
+          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> <InlineMath math="-9" /></p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
           <p className="font-semibold"><strong>ODPOWIEDŹ C:</strong> <InlineMath math="4" /></p>
@@ -50,7 +50,7 @@ const Solution = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
-        Wartość <InlineMath math="b" /> jest równa <InlineMath math="-9" />. Żadna z podanych odpowiedzi nie jest poprawna.
+        Wartość <InlineMath math="b" /> jest równa <InlineMath math="-9" />. Prawidłowa odpowiedź to B
       </p>
     </div>
   );
