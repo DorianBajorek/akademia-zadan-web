@@ -80,6 +80,7 @@ const BarometerResult: React.FC = () => {
                   question1={q.taskType === "tf2" ? q.question1 : undefined}
                   question2={q.taskType === "tf2" ? q.question2 : undefined}
                   taskType={q.taskType}
+                  images={q.images}
                 />
               </div>
             );

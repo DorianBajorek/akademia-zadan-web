@@ -16,6 +16,7 @@ interface QuestionType {
   taskType: string;
   question1: string;
   question2: string;
+  images: string[];
 }
 
 const Barometer: React.FC = () => {
@@ -72,6 +73,7 @@ const Barometer: React.FC = () => {
             task_type: any;
             question1?: string;
             question2?: string;
+            images: { image: string }[];
           },
           index: number
         ) => ({
@@ -93,14 +95,16 @@ const Barometer: React.FC = () => {
             question1: replaceHashes(elem.question1 || ""),
             question2: replaceHashes(elem.question2 || ""),
           }),
+          images: Array.isArray(elem.images) ? elem.images.map(img => img.image) : [],
         })
       );
       setQuestions(newQuestions);
     };
   
     fetchData();
-  }, []);  
-
+  }, []);
+  
+    
   return (
     <div className="bg-gray-50 min-h-screen">
       <Nav />
@@ -126,6 +130,7 @@ const Barometer: React.FC = () => {
                 question1={q.question1}
                 question2={q.question2}
                 taskType="tf2"
+                images={q.images}
               />
             : (
               <Question
@@ -137,6 +142,7 @@ const Barometer: React.FC = () => {
                 selectedAnswer={selectedAnswers[q.id]}
                 onAnswerSelect={handleAnswerSelect}
                 taskType="mc4"
+                images={q.images}
               />
             )
           ))}

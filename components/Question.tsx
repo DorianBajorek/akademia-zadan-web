@@ -14,6 +14,7 @@ interface QuestionProps {
   question1?: string | null;
   question2?: string | null;
   taskType?: string;
+  images?: string[];
 }
 
 const answerLabels = ["A", "B", "C", "D"];
@@ -30,6 +31,7 @@ const Question: React.FC<QuestionProps> = ({
   question1,
   question2,
   taskType,
+  images,
 }) => {
   const renderText = (text: string) => {
     const parts = text?.split(/\$(.*?)\$/g);
@@ -72,6 +74,16 @@ const Question: React.FC<QuestionProps> = ({
           {renderText(question2)}
         </p>
       )}
+      {images && images.map((image, index) => (
+        <img 
+          key={index}
+          src={"https://akademiazadan.pl/" + image} 
+          alt={`Image ${index + 1}`} 
+          width={300} 
+          height={300} 
+          className="mt-4 self-center"
+        />
+      ))}
 
       <div className="mt-4 space-y-3 flex-grow">
         {displayAnswers.map((answer, index) => {
@@ -106,16 +118,16 @@ const Question: React.FC<QuestionProps> = ({
       <div className="mt-4 flex justify-end">
         {isCorrect != undefined && isCorrect != null && (
           <button
-          className={`px-4 py-2 rounded-lg shadow-md transition ${
-            solutionsMap.hasOwnProperty(taskId.toString())
-              ? "bg-blue-500 text-white hover:bg-blue-600"
-              : "bg-gray-400 text-gray-200 cursor-not-allowed"
-          }`}
-          onClick={handleSolutionClick}
-          disabled={!solutionsMap.hasOwnProperty(taskId.toString())}
-        >
-          Rozwiązanie
-        </button>
+            className={`px-4 py-2 rounded-lg shadow-md transition ${
+              solutionsMap.hasOwnProperty(taskId.toString())
+                ? "bg-blue-500 text-white hover:bg-blue-600"
+                : "bg-gray-400 text-gray-200 cursor-not-allowed"
+            }`}
+            onClick={handleSolutionClick}
+            disabled={!solutionsMap.hasOwnProperty(taskId.toString())}
+          >
+            Rozwiązanie
+          </button>
         )}
       </div>
     </div>
