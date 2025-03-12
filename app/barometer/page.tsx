@@ -127,7 +127,7 @@ const Barometer: React.FC = () => {
                 taskId={q.taskId}
                 text={q.text}
                 answers={q.answers}
-                selectedAnswer={letterMap[selectedAnswers[q.id]!]}
+                selectedAnswer={tf2Map[selectedAnswers[q.id]!]}
                 onAnswerSelect={handleAnswerSelect}
                 question1={q.question1}
                 question2={q.question2}

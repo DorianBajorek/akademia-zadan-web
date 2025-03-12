@@ -88,8 +88,7 @@ const Question: React.FC<QuestionProps> = ({
       <div className="mt-4 space-y-3 flex-grow">
         {displayAnswers.map((answer, index) => {
           let buttonClass = "border-gray-300 hover:border-blue-400";
-          
-          if ((taskType === "mc4" && selectedAnswer === letterMap[index]) || (taskType === "tf2" && selectedAnswer === tf2Map[index])) {
+          if ((taskType === "mc4" && selectedAnswer === letterMap[index]) || (taskType === "tf2" && selectedAnswer?.toLowerCase() === tf2Map[index])) {
             if (isCorrect === null || isCorrect === undefined) {
               buttonClass = "border-blue-500 bg-blue-100";
             } else {
