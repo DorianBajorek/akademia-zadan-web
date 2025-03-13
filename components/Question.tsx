@@ -15,6 +15,9 @@ interface QuestionProps {
   question2?: string | null;
   taskType?: string;
   images?: string[];
+  category?: string;
+  correct_answer?: string;
+  success_rate?: string;
 }
 
 const answerLabels = ["A", "B", "C", "D"];
@@ -34,6 +37,9 @@ const Question: React.FC<QuestionProps> = ({
   question2,
   taskType,
   images,
+  correct_answer,
+  category,
+  success_rate
 }) => {
   const renderText = (text: string) => {
     const parts = text?.split(/\$(.*?)\$/g);
@@ -52,28 +58,40 @@ const Question: React.FC<QuestionProps> = ({
     router.push(`/rozwiazanie/${taskId}`);
   };
 
-  const correctAnswerIndex = taskType === "tf2" && correctAnswer ? tf2Map.indexOf(correctAnswer.toLowerCase()) : answerLabels.indexOf(correctAnswer?.toUpperCase() || "");
-
-  const displayAnswers = taskType === "tf2" 
-    ? tf2Map.map((_, index) => <strong key={index}>{["1. Prawda, 2. Prawda", "1. Prawda, 2. Fałsz", "1. Fałsz, 2. Prawda", "1. Fałsz, 2. Fałsz"][index]}</strong>) 
-    : answers.map((answer, index) => <strong key={index}>{renderText(answer)}</strong>);
+  const correctAnswerIndex =
+    taskType === "tf2" && correctAnswer
+      ? tf2Map.indexOf(correctAnswer.toLowerCase())
+      : answerLabels.indexOf(correctAnswer?.toUpperCase() || "");
 
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400 relative flex flex-col">
-      <h3 className="text-xl text-gray-800">{renderText(text)}</h3>
-      {question1 && <h5 className="text-xl text-gray-800">Oceń prawdziwość podanych zdań:</h5>}
+      <div className="flex justify-between items-start">
+        <h3 className="text-xl text-gray-800 flex-grow">{renderText(text)}</h3>
+        <div className="ml-4 p-3 border border-gray-300 rounded-lg bg-gray-100 text-sm">
+          <p><strong>taskId:</strong> {taskId}</p>
+          <p><strong>Poprawna odpowiedź:</strong> {correct_answer || "Brak"}</p>
+          <p><strong>Katogira:</strong> {category || "Brak"}</p>
+          <p><strong>SuccessRate:</strong> {success_rate || "Brak"}</p>
+        </div>
+      </div>
+
       {question1 && (
-        <p className="mt-2 text-gray-700">
-          <span className="font-bold">Pytanie 1: </span>
-          {renderText(question1)}
-        </p>
+        <div className="mt-4 flex justify-between items-start">
+          <p className="mt-2 text-gray-700 flex-grow">
+            <span className="font-bold">Pytanie 1: </span>
+            {renderText(question1)}
+          </p>
+        </div>
       )}
       {question2 && (
-        <p className="mt-2 text-gray-700">
-          <span className="font-bold">Pytanie 2: </span>
-          {renderText(question2)}
-        </p>
+        <div className="mt-4 flex justify-between items-start">
+          <p className="mt-2 text-gray-700 flex-grow">
+            <span className="font-bold">Pytanie 2: </span>
+            {renderText(question2)}
+          </p>
+        </div>
       )}
+
       {images && images.map((image, index) => (
         <img 
           key={index}
@@ -86,7 +104,7 @@ const Question: React.FC<QuestionProps> = ({
       ))}
 
       <div className="mt-4 space-y-3 flex-grow">
-        {displayAnswers.map((answer, index) => {
+        {answers.map((answer, index) => {
           let buttonClass = "border-gray-300 hover:border-blue-400";
           if ((taskType === "mc4" && selectedAnswer === letterMap[index]) || (taskType === "tf2" && selectedAnswer?.toLowerCase() === tf2Map[index])) {
             if (isCorrect === null || isCorrect === undefined) {
@@ -95,7 +113,6 @@ const Question: React.FC<QuestionProps> = ({
               buttonClass = isCorrect ? "border-green-500 bg-green-100" : "border-red-500 bg-red-100";
             }
           }
-
           if (isCorrect === false && correctAnswerIndex === index) {
             buttonClass = "border-green-500 bg-green-100";
           }
@@ -108,7 +125,7 @@ const Question: React.FC<QuestionProps> = ({
               disabled={isCorrect != null}
             >
               <span className="font-bold text-blue-600 mr-3">ODPOWIEDŹ {answerLabels[index]}</span>
-              {answer}
+              {renderText(answer)}
             </button>
           );
         })}

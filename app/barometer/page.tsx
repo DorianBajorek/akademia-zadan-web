@@ -17,6 +17,9 @@ interface QuestionType {
   question1: string;
   question2: string;
   images: string[];
+  category: string;
+  correct_answer: string;
+  success_rate: string;
 }
 
 const Barometer: React.FC = () => {
@@ -62,7 +65,7 @@ const Barometer: React.FC = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getProblems(10);
+      const data = await getProblems(300);
       const newQuestions = data.map(
         (
           elem: {
@@ -76,6 +79,9 @@ const Barometer: React.FC = () => {
             question1?: string;
             question2?: string;
             images: { image: string }[];
+            category: string;
+            correct_answer: string;
+            success_rate: string;
           },
           index: number
         ) => ({
@@ -98,6 +104,9 @@ const Barometer: React.FC = () => {
             question2: replaceHashes(elem.question2 || ""),
           }),
           images: Array.isArray(elem.images) ? elem.images.map(img => img.image) : [],
+          category: elem.category,
+          correct_answer: elem.correct_answer,
+          success_rate: elem.success_rate,
         })
       );
       setQuestions(newQuestions);
@@ -133,6 +142,9 @@ const Barometer: React.FC = () => {
                 question2={q.question2}
                 taskType="tf2"
                 images={q.images}
+                category={q.category}
+                correct_answer={q.correct_answer}
+                success_rate={q.success_rate}
               />
             : (
               <Question
@@ -145,6 +157,9 @@ const Barometer: React.FC = () => {
                 onAnswerSelect={handleAnswerSelect}
                 taskType="mc4"
                 images={q.images}
+                category={q.category}
+                correct_answer={q.correct_answer}
+                success_rate={q.success_rate}
               />
             )
           ))}
