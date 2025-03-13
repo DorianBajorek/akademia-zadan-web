@@ -62,4 +62,10 @@ export const solutionsMap: Record<string, any> = {
   '19': dynamic(() => import('@/components/solutions/Solutions19')),
   '78': dynamic(() => import('@/components/solutions/Solutions78')),
   '134': dynamic(() => import('@/components/solutions/Solutions134')),
+  '133': dynamic(() => import('@/components/solutions/Solutions133')),
+  '162': dynamic(() => import('@/components/solutions/Solutions162')),
+  '70': dynamic(() => import('@/components/solutions/Solutions70')),
+  '68': dynamic(() => import('@/components/solutions/Solutions68')),
+  '46': dynamic(() => import('@/components/solutions/Solutions46')),
+  '51': dynamic(() => import('@/components/solutions/Solutions51')),
 };
