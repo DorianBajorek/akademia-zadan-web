@@ -1,5 +1,5 @@
-import { Head } from 'next/document';
-import './globals.css';
+import Script from "next/script";
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -8,10 +8,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <Head>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2838302537006263"
-     crossOrigin="anonymous"></script>
-      </Head>
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2838302537006263"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
