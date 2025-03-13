@@ -9,11 +9,8 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <Head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2838302537006263"
-          crossOrigin="anonymous"
-        ></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2838302537006263"
+     crossOrigin="anonymous"></script>
       </Head>
       <body>{children}</body>
     </html>
