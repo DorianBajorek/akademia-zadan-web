@@ -33,11 +33,11 @@ const Solution121 = () => {
       <p className="mb-2">
         Aby obliczyć, o ile procent zmniejszyła się prowizja, stosujemy wzór na procentową zmianę:
       </p>
-      <BlockMath math="\text{Procentowa zmiana} = \left( \frac{\text{Stara wartość} - \text{Nowa wartość}}{\text{Stara wartość}} \right) \times 100\%" />
+      <BlockMath math="\text{Procentowa zmiana} = \left( \frac{\text{Stara wartość} - \text{Nowa wartość}}{\text{Stara wartość}} \right) \cdot 100\%" />
       <p className="mb-2">
         Podstawiamy wartości:
       </p>
-      <BlockMath math="\text{Procentowa zmiana} = \left( \frac{4\% - 3\%}{4\%} \right) \times 100\% = \left( \frac{1\%}{4\%} \right) \times 100\% = 25\%" />
+      <BlockMath math="\text{Procentowa zmiana} = \left( \frac{4\% - 3\%}{4\%} \right) \cdot 100\% = \left( \frac{1\%}{4\%} \right) \cdot 100\% = 25\%" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">

@@ -62,7 +62,7 @@ const Barometer: React.FC = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getProblems(10);
+      const data = await getProblems(300);
       const newQuestions = data.map(
         (
           elem: {
