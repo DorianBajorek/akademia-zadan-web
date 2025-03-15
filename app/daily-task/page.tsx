@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
-import { getProblems, checkBarometerAnswers } from "@/service";
+import { checkBarometerAnswers, getCurrentDailyProblem } from "@/service";
 import QuestionTrueFalse from "@/components/QuestionTrueFalse";
 
 interface QuestionType {
@@ -55,7 +55,7 @@ const DailyTask: React.FC = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getProblems(1);
+      const data = await getCurrentDailyProblem();
       const newQuestions = data.map((elem, index) => ({
         id: index + 1,
         text: replaceHashes(elem.description || ""),

@@ -69,7 +69,7 @@ const BarometerResult: React.FC = () => {
               Poprawna odpowiedź
             </p>
             <p className="text-lg text-gray-700 mt-2 text-center">
-              Wróć jutro, aby sprawdzić swoją wiedzę w kolejnym zadaniu
+              Gratulacje, wróć jutro, aby sprawdzić swoją wiedzę w kolejnym zadaniu
             </p>
           </div>
            : 
@@ -78,7 +78,7 @@ const BarometerResult: React.FC = () => {
               Błędna odpowiedź
             </p>
             <p className="text-lg text-gray-700 mt-2 text-center">
-              Powodzenia jutro, w międzyczasie możesz zobaczyć wyjaśnienie powyższego zadania, zarówno w formie tekstowej, jak i wideo, klikając przycisk poniżej
+              Powodzenia jutro, w międzyczasie możesz zobaczyć wyjaśnienie powyższego zadania (zarówno w formie tekstowej, jak i wideo) klikając przycisk poniżej
             </p>
           </div>
           }
