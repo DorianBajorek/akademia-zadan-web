@@ -6,7 +6,6 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
 import { checkBarometerAnswers, getCurrentDailyProblem } from "@/service";
-import QuestionTrueFalse from "@/components/QuestionTrueFalse";
 
 interface QuestionType {
   id: number;
@@ -15,12 +14,17 @@ interface QuestionType {
   correct: number;
   taskId: number;
   taskType: string;
+  question1: string;
+  question2: string;
+  images: string[];
 }
 
 const DailyTask: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
   const router = useRouter();
+  const letterMap = ["a", "b", "c", "d"];
+  const tf2Map = ["tt", "tf", "ft", "ff"];
 
   const replaceHashes = (text: string) => {
     if (text == null) return "";
@@ -39,10 +43,12 @@ const DailyTask: React.FC = () => {
       return;
     }
     
-    const answersPayload = questions.map(q => ({
-      task_id: q.taskId,
-      user_answer: q.answers[selectedAnswers[q.id]!],
-    }));
+    const answersPayload = questions.map(q => {    
+      return {
+        task_id: q.taskId,
+        user_answer: q.taskType === "tf2" ? tf2Map[selectedAnswers[q.id]!] : letterMap[selectedAnswers[q.id]!],
+      };
+    });
   
     const result = await checkBarometerAnswers(answersPayload);
     if (result) {
@@ -56,19 +62,43 @@ const DailyTask: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getCurrentDailyProblem();
-      const newQuestions = data.map((elem, index) => ({
-        id: index + 1,
-        text: replaceHashes(elem.description || ""),
-        answers: [
-          replaceHashes(elem.choiceA),
-          replaceHashes(elem.choiceB),
-          replaceHashes(elem.choiceC),
-          replaceHashes(elem.choiceD),
-        ],
-        correct: 0,
-        taskId: elem.task_id,
-        taskType: elem.task_type
-      }));
+      const newQuestions = data.map(
+        (
+          elem: {
+            description: any;
+            choiceA: string;
+            choiceB: string;
+            choiceC: string;
+            choiceD: string;
+            task_id: any;
+            task_type: any;
+            question1?: string;
+            question2?: string;
+            images: { image: string }[];
+          },
+          index: number
+        ) => ({
+          id: index + 1,
+          text: replaceHashes(elem.description || ""),
+          answers:
+            elem.task_type === "tf2"
+              ? ["tt", "tf", "ft", "ff"]
+              : [
+                  replaceHashes(elem.choiceA),
+                  replaceHashes(elem.choiceB),
+                  replaceHashes(elem.choiceC),
+                  replaceHashes(elem.choiceD),
+                ],
+          correct: 0,
+          taskId: elem.task_id,
+          taskType: elem.task_type,
+          ...(elem.task_type === "tf2" && {
+            question1: replaceHashes(elem.question1 || ""),
+            question2: replaceHashes(elem.question2 || ""),
+          }),
+          images: Array.isArray(elem.images) ? elem.images.map(img => img.image) : [],
+        })
+      );
       setQuestions(newQuestions);
     };
 
@@ -88,22 +118,31 @@ const DailyTask: React.FC = () => {
 
         <div className="space-y-6">
           {questions.map((q) => (
-            q.taskType === "tf2" ? (
-              <QuestionTrueFalse
-                key={q.id}
-                id={q.id}
-                text={q.text}
-                selectedAnswer={selectedAnswers[q.id]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : (
+            q.taskType === "tf2" ? 
               <Question
                 key={q.id}
                 id={q.id}
+                taskId={q.taskId}
                 text={q.text}
                 answers={q.answers}
-                selectedAnswer={selectedAnswers[q.id]}
+                selectedAnswer={tf2Map[selectedAnswers[q.id]!]}
                 onAnswerSelect={handleAnswerSelect}
+                question1={q.question1}
+                question2={q.question2}
+                taskType="tf2"
+                images={q.images}
+              />
+            : (
+              <Question
+                key={q.id}
+                id={q.id}
+                taskId={q.taskId}
+                text={q.text}
+                answers={q.answers}
+                selectedAnswer={letterMap[selectedAnswers[q.id]!]}
+                onAnswerSelect={handleAnswerSelect}
+                taskType="mc4"
+                images={q.images}
               />
             )
           ))}

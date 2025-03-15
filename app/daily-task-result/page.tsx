@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import Question from "@/components/Question";
 import Link from 'next/link';
 
-const BarometerResult: React.FC = () => {
+const DailyTaskResult: React.FC = () => {
   const router = useRouter();
   const [results, setResults] = useState<any[]>([]);
   const [summary, setSummary] = useState<any>(null);
@@ -49,11 +49,16 @@ const BarometerResult: React.FC = () => {
                 <Question
                   id={q.id}
                   text={q.text}
+                  taskId={q.taskId}
                   answers={q.answers}
-                  selectedAnswer={q.answers.findIndex(ans => ans === result?.user_answer)}
+                  selectedAnswer={result?.user_answer}
                   onAnswerSelect={() => {}}
                   isCorrect={isCorrect}
                   correctAnswer={correctAnswer}
+                  question1={q.taskType === "tf2" ? q.question1 : undefined}
+                  question2={q.taskType === "tf2" ? q.question2 : undefined}
+                  taskType={q.taskType}
+                  images={q.images}
                 />
               </div>
             );
@@ -98,4 +103,4 @@ const BarometerResult: React.FC = () => {
   );
 };
 
-export default BarometerResult;
+export default DailyTaskResult;
