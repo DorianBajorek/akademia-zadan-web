@@ -30,7 +30,7 @@ export const checkBarometerAnswers = async (problems: { task_id: number; user_an
   }
 };
 
-export const getCurrentDailyProblem = async(numberOfProblems: number) => {
+export const getCurrentDailyProblem = async() => {
   try {
       const response = await axios.get(`https://akademiazadan.pl/api/v1/get_current_daily_problem/`);
       return response.data;
