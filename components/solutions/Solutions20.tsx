@@ -29,10 +29,7 @@ const Solution20 = () => {
       <p className="mb-2">
         Równanie <InlineMath math="\sqrt{3}(x^2 - 2)(x + 3) = 0" /> jest równoważne:
       </p>
-      <BlockMath math="\sqrt{3} = 0 \quad \text{lub} \quad x^2 - 2 = 0 \quad \text{lub} \quad x + 3 = 0" />
-      <p className="mb-2">
-        Ponieważ <InlineMath math="\sqrt{3} \neq 0" />, rozwiązujemy pozostałe równania:
-      </p>
+      <BlockMath math="\quad x^2 - 2 = 0 \quad \text{lub} \quad x + 3 = 0" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Rozwiązanie równań</h2>
       <p className="mb-2">

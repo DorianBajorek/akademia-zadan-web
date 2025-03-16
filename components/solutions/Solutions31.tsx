@@ -23,7 +23,7 @@ const Solution = () => {
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Uproszczenie pierwiastków</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Uproszczenie wyrażenia wewnątrz nawiasu</h2>
       <p className="mb-2">
         Najpierw upraszczamy <InlineMath math="\sqrt{8}" />:
       </p>
@@ -32,30 +32,16 @@ const Solution = () => {
         Podstawiamy do wyrażenia:
       </p>
       <BlockMath math="2\sqrt{8} = 2 \cdot 2\sqrt{2} = 4\sqrt{2}" />
+      <p className="mb-2">
+        Teraz upraszczamy całe wyrażenie wewnątrz nawiasu:
+      </p>
+      <BlockMath math="2\sqrt{8} - 3\sqrt{2} = 4\sqrt{2} - 3\sqrt{2} = \sqrt{2}" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Zastosowanie wzoru skróconego mnożenia</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Podniesienie do kwadratu</h2>
       <p className="mb-2">
-        Korzystamy ze wzoru skróconego mnożenia:
+        Teraz podnosimy uproszczone wyrażenie do kwadratu:
       </p>
-      <BlockMath math="(a - b)^2 = a^2 - 2ab + b^2" />
-      <p className="mb-2">
-        Podstawiamy <InlineMath math="a = 4\sqrt{2}" /> i <InlineMath math="b = 3\sqrt{2}" />:
-      </p>
-      <BlockMath math="(4\sqrt{2} - 3\sqrt{2})^2 = (4\sqrt{2})^2 - 2 \cdot 4\sqrt{2} \cdot 3\sqrt{2} + (3\sqrt{2})^2" />
-
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Obliczenie poszczególnych składników</h2>
-      <p className="mb-2">
-        Obliczamy każdy składnik osobno:
-      </p>
-      <BlockMath math="(4\sqrt{2})^2 = 16 \cdot 2 = 32" />
-      <BlockMath math="2 \cdot 4\sqrt{2} \cdot 3\sqrt{2} = 24 \cdot 2 = 48" />
-      <BlockMath math="(3\sqrt{2})^2 = 9 \cdot 2 = 18" />
-
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 4: Sumowanie składników</h2>
-      <p className="mb-2">
-        Sumujemy składniki:
-      </p>
-      <BlockMath math="32 - 48 + 18 = 2" />
+      <BlockMath math="(\sqrt{2})^2 = 2" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">

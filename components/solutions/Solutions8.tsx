@@ -36,7 +36,7 @@ const Solution8 = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Znalezienie współczynnika <InlineMath math="a" /></h2>
       <p className="mb-2">
-        Funkcja <InlineMath math="g" /> ma to samo miejsce zerowe, więc podstawiamy <InlineMath math="x = -2" /> do wzoru funkcji <InlineMath math="g" />:
+        Funkcja <InlineMath math="g" /> ma to samo miejsce zerowe. Oznacza to, że po podstawieniu <InlineMath math="x = -2" /> do wzoru funckji  <InlineMath math="g" /> uzyskujemy <InlineMath math="0" /> tzn. <InlineMath math="g(-2) = 0" />:
       </p>
       <BlockMath math="g(-2) = a(-2) + 7 = 0" />
       <p className="mb-2">

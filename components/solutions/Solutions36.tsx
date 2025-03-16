@@ -10,7 +10,7 @@ const Solution36 = () => {
 
       <div className="space-y-3 mb-6">
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="3^2 \cdot \sqrt[3]{3}" /></p>
+          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="3^2 \cdot \sqrt[4]{3}" /></p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
           <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> <InlineMath math="\sqrt[3]{3^3}" /></p>
@@ -34,40 +34,11 @@ const Solution36 = () => {
         Wyrażenie <InlineMath math="3^{\frac{1}{4}}" /> jest równe pierwiastkowi czwartego stopnia z 3:
       </p>
       <BlockMath math="3^{\frac{1}{4}} = \sqrt[4]{3}" />
-
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Analiza odpowiedzi</h2>
-      <p className="mb-2">
-        Przekształćmy każdą odpowiedź do postaci z tą samą podstawą:
-      </p>
-
-      <h3 className="text-lg font-semibold mt-4 mb-2">Odpowiedź A:</h3>
-      <p className="mb-2">
-        <InlineMath math="3^2 \cdot \sqrt[3]{3} = 3^2 \cdot 3^{\frac{1}{3}} = 3^{2 + \frac{1}{3}} = 3^{\frac{7}{3}}" />
-      </p>
-
-      <h3 className="text-lg font-semibold mt-4 mb-2">Odpowiedź B:</h3>
-      <p className="mb-2">
-        <InlineMath math="\sqrt[3]{3^3} = 3^{\frac{3}{3}} = 3^1" />
-      </p>
-
-      <h3 className="text-lg font-semibold mt-4 mb-2">Odpowiedź C:</h3>
-      <p className="mb-2">
-        <InlineMath math="3^2 + \sqrt[3]{3} = 9 + 3^{\frac{1}{3}}" />
-      </p>
-
-      <h3 className="text-lg font-semibold mt-4 mb-2">Odpowiedź D:</h3>
-      <p className="mb-2">
-        <InlineMath math="3^2 + \sqrt[3]{3^4} = 9 + 3^{\frac{4}{3}}" />
-      </p>
-
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 4: Porównanie z oryginalnym wyrażeniem</h2>
-      <p className="mb-2">
-        Oryginalne wyrażenie to <InlineMath math="3^{2 + \frac{1}{4}} = 3^{\frac{9}{4}}" />. Żadna z odpowiedzi A, B, C, D nie jest równa <InlineMath math="3^{\frac{9}{4}}" />.
-      </p>
-
+      Mamy więc, że 
+      <BlockMath math=" 3^{2+\frac{1}{4}} = 3^2 \cdot 3^{\frac{1}{4}} = 3^2 \cdot \sqrt[4]{3}"/>
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
-        Żadna z podanych odpowiedzi nie jest poprawna. Prawidłowe wyrażenie to <InlineMath math="3^2 \cdot \sqrt[4]{3}" />.
+        Prawidłowa odpowiedź to <strong>A</strong> (czyli <InlineMath math="3^2 \cdot \sqrt[4]{3}" />).
       </p>
     </div>
   );

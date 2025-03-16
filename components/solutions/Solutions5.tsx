@@ -5,7 +5,7 @@ const Solution5 = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
       <div className="text-lg mb-4">
-        Rozwiąż równanie:
+        Równanie:
         <BlockMath math="\frac{x+1}{(x+2)(x-3)} = 0" />
         w zbiorze liczb rzeczywistych.
       </div>
@@ -25,35 +25,51 @@ const Solution5 = () => {
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Zrozumienie równania</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Wyznaczenie dziedziny</h2>
       <p className="mb-2">
-        Równanie ma postać ułamka równą zero. Ułamek jest równy zero, gdy jego licznik jest równy zero, a mianownik jest różny od zera.
+        Dziedzina równania to zbiór liczb rzeczywistych, dla których mianownik nie jest równy zero. Mianownik równania to:
       </p>
-      <BlockMath math="\frac{x+1}{(x+2)(x-3)} = 0" />
-
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Rozwiązanie licznika</h2>
+      <BlockMath math="(x + 2)(x - 3)" />
       <p className="mb-2">
-        Ustawiamy licznik równy zero:
+        Mianownik jest różny od zera, gdy:
+      </p>
+      <BlockMath math="x + 2 \neq 0 \quad \text{oraz} \quad x - 3 \neq 0" />
+      <p className="mb-2">
+        Rozwiązujemy nierówności:
+      </p>
+      <BlockMath math="x \neq -2 \quad \text{oraz} \quad x \neq 3" />
+      <p className="mb-2">
+        Zatem dziedzina równania to:
+      </p>
+      <BlockMath math="\mathbb{R} \setminus \{-2, 3\}" />
+
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Mnożenie przez mianownik</h2>
+      <p className="mb-2">
+        Aby rozwiązać równanie, mnożymy obie strony przez mianownik:
+      </p>
+      <BlockMath math="\frac{x+1}{(x+2)(x-3)} \cdot (x+2)(x-3) = 0 \cdot (x+2)(x-3)" />
+      <p className="mb-2">
+        Po uproszczeniu otrzymujemy:
       </p>
       <BlockMath math="x + 1 = 0" />
+
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Rozwiązanie równania</h2>
       <p className="mb-2">
         Rozwiązujemy równanie:
       </p>
+      <BlockMath math="x + 1 = 0" />
+      <p className="mb-2">
+        Otrzymujemy:
+      </p>
       <BlockMath math="x = -1" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Sprawdzenie mianownika</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 4: Sprawdzenie rozwiązania w dziedzinie</h2>
       <p className="mb-2">
-        Mianownik nie może być równy zero, więc sprawdzamy, czy rozwiązanie nie zeruje mianownika:
+        Sprawdzamy, czy rozwiązanie <InlineMath math="x = -1" /> należy do dziedziny:
       </p>
-      <BlockMath math="(x + 2)(x - 3) \neq 0" />
+      <BlockMath math="-1 \neq -2 \quad \text{oraz} \quad -1 \neq 3" />
       <p className="mb-2">
-        Rozwiązujemy nierówność:
-      </p>
-      <BlockMath math="x \neq -2 \quad \text{oraz} \quad x \neq 3" />
-
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 4: Wnioskowanie</h2>
-      <p className="mb-2">
-        Jedynym rozwiązaniem jest <InlineMath math="x = -1" />, ponieważ nie zeruje ono mianownika.
+        Zatem <InlineMath math="x = -1" /> jest poprawnym rozwiązaniem.
       </p>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>

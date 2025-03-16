@@ -33,7 +33,7 @@ const Solution39 = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Rozwiązanie równania</h2>
       <p className="mb-2">
-        Najpierw odejmujemy 5 od obu stron równania:
+        Najpier przenosimy liczbę 5 ze strony prawej na lewą:
       </p>
       <BlockMath math="-\frac{1}{3}(x + 3) = -5" />
       <p className="mb-2">
@@ -41,7 +41,7 @@ const Solution39 = () => {
       </p>
       <BlockMath math="x + 3 = 15" />
       <p className="mb-2">
-        Odejmujemy 3 od obu stron, aby wyznaczyć <InlineMath math="x" />:
+        Przenosimy liczbę 3 ze strony lewej równania na prawą i otrzymujemy<InlineMath math="x" />:
       </p>
       <BlockMath math="x = 12" />
 
