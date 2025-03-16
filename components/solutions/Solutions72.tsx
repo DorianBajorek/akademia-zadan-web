@@ -46,15 +46,8 @@ const Solution72 = () => {
       <p className="mb-2">
         Podstawiamy obliczone wartości do wzoru:
       </p>
-      <BlockMath math="f(\sqrt{3} - 1) = \frac{4 - 2\sqrt{3}}{2\sqrt{3} - 4}" />
-      <p className="mb-2">
-        Upraszczamy wyrażenie:
-      </p>
-      <BlockMath math="f(\sqrt{3} - 1) = \frac{4 - 2\sqrt{3}}{2\sqrt{3} - 4} = \frac{2(2 - \sqrt{3})}{2(\sqrt{3} - 2)} = \frac{2 - \sqrt{3}}{\sqrt{3} - 2}" />
-      <p className="mb-2">
-        Zauważamy, że <InlineMath math="\sqrt{3} - 2 = -(2 - \sqrt{3})" />, więc:
-      </p>
-      <BlockMath math="f(\sqrt{3} - 1) = \frac{2 - \sqrt{3}}{-(2 - \sqrt{3})} = -1" />
+      <BlockMath math="f(\sqrt{3} - 1) = \frac{4 - 2\sqrt{3}}{2\sqrt{3} - 4} = \frac{-(2\sqrt{3} -4)}{2\sqrt{3} - 4} =-1" />
+    
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">

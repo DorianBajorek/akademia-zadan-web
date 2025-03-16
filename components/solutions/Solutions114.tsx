@@ -44,7 +44,7 @@ const Solution114 = () => {
       </p>
       <BlockMath math="a \cdot b = 90" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Obliczenie pola czworokąta \( APCR \)</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Obliczenie pola czworokąta <InlineMath math="APCR" /></h2>
       <p className="mb-2">
         Czworokąt <InlineMath math="APCR" /> jest trapezem, którego podstawy to <InlineMath math="AP" /> i <InlineMath math="CR" />, a wysokość to <InlineMath math="b" />. Pole trapezu obliczamy ze wzoru:
       </p>

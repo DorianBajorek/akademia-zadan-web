@@ -25,7 +25,7 @@ const Solution = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Znalezienie miejsc zerowych licznika</h2>
       <p className="mb-2">
-        Równanie jest równe zero, gdy licznik jest równy zero, a mianownik nie jest równy zero. Rozwiązujemy równanie licznika:
+        Lewa strona równania jest równa zero, gdy licznik jest równy zero, a mianownik nie jest równy zero(nie możemy dzielić przez zero). Przyrównujemy licznik do zera:
       </p>
       <BlockMath math="(x - 1)(x + 2) = 0" />
       <p className="mb-2">

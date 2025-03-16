@@ -36,7 +36,7 @@ const Solution = () => {
       </p>
       <BlockMath math="1 = a(2 - 1)(2 - 3)" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Obliczenie współczynnika \( a \)</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Obliczenie współczynnika <InlineMath math="a" /></h2>
       <p className="mb-2">
         Obliczamy wartość wyrażenia:
       </p>

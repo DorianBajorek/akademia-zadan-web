@@ -47,7 +47,7 @@ const Solution = () => {
       <p className="mb-2">
         Suma <InlineMath math="a_1 + a_2 + a_3 + a_4" /> to:
       </p>
-      <BlockMath math="-12 + (-7) + (-2) + 3 = -18" />
+      <BlockMath math="(-12) + (-7) + (-2) + 3 = -18" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">

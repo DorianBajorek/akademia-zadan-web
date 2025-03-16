@@ -35,7 +35,7 @@ const Solution78 = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Dalsze uproszczenie</h2>
       <p className="mb-2">
-        Upraszczamy ułamki (licznik z mianownikiem w peirwszym i drugim ułamki skracam):
+        Upraszczamy ułamki (licznik z mianownikiem w pierwszym i drugim ułamku skracamy):
       </p>
       <BlockMath math="\frac{1}{\cos\alpha} \cdot \sin\alpha" />
       <p className="mb-2">

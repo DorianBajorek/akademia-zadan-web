@@ -43,7 +43,10 @@ const Solution = () => {
         Rozwiązujemy równanie:
       </p>
       <BlockMath math="x^2 = \frac{25}{9}" />
-      <BlockMath math="x = \frac{5}{3}" />
+      <BlockMath math="x = \pm \frac{5}{3}" />
+      <p className="mb-2">
+        Ponieważ wszystkie wyrazy ciągu muszą być dodatnie, odrzucamy ujemne rozwiązanie <InlineMath math="x = -\frac{5}{3}" /> i wybieramy <InlineMath math="x = \frac{5}{3}" />.
+      </p>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
