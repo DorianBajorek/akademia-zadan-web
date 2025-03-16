@@ -27,7 +27,7 @@ const Solution4 = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Przeniesienie wyrazów z <InlineMath math="x" /> na jedną stronę</h2>
       <p className="mb-2">
-        Przenosimy wyrazy zawierające \( x \) na lewą stronę, a stałe na prawą stronę nierówności:
+        Przenosimy wyrazy zawierające <InlineMath math="x"/> na lewą stronę, a stałe na prawą stronę nierówności:
       </p>
       <BlockMath math="1 - \frac{2}{3} < \frac{3}{2}x - x" />
       <p className="mb-2">

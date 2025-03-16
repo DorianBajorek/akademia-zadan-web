@@ -27,7 +27,9 @@ const Solution = () => {
       <p className="mb-2">
         Obliczamy każdy z pierwiastków sześciennych osobno:
       </p>
-      <BlockMath math="\sqrt[3]{-\frac{27}{16}} = -\sqrt[3]{\frac{27}{16}} = -\frac{3}{\sqrt[3]{16}}" />
+      <BlockMath math="
+        \sqrt[3]{-\frac{27}{16}} = -\sqrt[3]{\frac{27}{16}} = -\frac{\sqrt[3]{27}}{\sqrt[3]{16}} = -\frac{3}{\sqrt[3]{16}}
+        " />
       <BlockMath math="\sqrt[3]{-2} = -\sqrt[3]{2}" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Mnożenie wyników</h2>
@@ -38,7 +40,7 @@ const Solution = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Uproszczenie wyrażenia</h2>
       <p className="mb-2">
-        Upraszczamy wyrażenie:
+        Upraszczamy wyrażenie (wyciągając w mianowniku czynnik przed pierwiastek):
       </p>
       <BlockMath math="\frac{3 \cdot \sqrt[3]{2}}{\sqrt[3]{16}} = \frac{3 \cdot \sqrt[3]{2}}{\sqrt[3]{2^4}} = \frac{3 \cdot \sqrt[3]{2}}{2 \cdot \sqrt[3]{2}} = \frac{3}{2}" />
 

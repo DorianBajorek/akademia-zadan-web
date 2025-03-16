@@ -41,6 +41,7 @@ const Solution27 = () => {
       <p className="mb-2">
         Prosta przechodzi przez punkt <InlineMath math="P = (3, 5)" />, więc podstawiamy współrzędne punktu do równania prostej:
       </p>
+      <BlockMath math="y = -\frac{1}{3} \cdot x + b" />
       <BlockMath math="5 = -\frac{1}{3} \cdot 3 + b" />
       <p className="mb-2">
         Obliczamy:

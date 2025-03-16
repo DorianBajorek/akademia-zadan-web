@@ -33,7 +33,7 @@ const Solution = () => {
       <p className="mb-2">
         Wiemy, że <InlineMath math="\sin^2 \alpha + \cos^2 \alpha = 1" /> (jedynka trygonometryczna). Podstawiamy to do wyrażenia:
       </p>
-      <BlockMath math="\sin^2 \alpha \cdot 1 = \sin^2 \alpha" />
+      <BlockMath math="\sin^2 \alpha (\sin^2 \alpha + \cos^2 \alpha) = \sin^2 \alpha \cdot 1 = \sin^2 \alpha" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Intuicja</h2>
       <p className="mb-2">
