@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getProblems = async(numberOfProblems: number) => {
     try {
-        const response = await axios.get(`https://akademiazadan.pl/api/v1/get_barometr_problems/?size=${numberOfProblems}`);
+        const response = await axios.get(`https://akademiazadan.pl/api/v2/get_barometr_problems/?size=${numberOfProblems}`);
         return response.data;
       } catch (error) {
         console.error("Error adding problem:", error);
