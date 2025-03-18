@@ -51,16 +51,24 @@ const Solution34 = () => {
       <BlockMath math="16 \cdot 64 = 1024" />
       <BlockMath math="\log_4 1024" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Uproszczenie logarytmu</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Obliczamy logarytm</h2>
       <p className="mb-2">
-        Zauważamy, że <InlineMath math="1024" /> można zapisać jako potęgę liczby <InlineMath math="4" />:
+       Zgodnie z defincją logarytmu szukamy takiego <InlineMath math="x" />, że po podniesieniu liczby <InlineMath math="4" /> do tej potęgi to otrzymamy <InlineMath math="1024" />
       </p>
-      <BlockMath math="4^5 = 1024" />
       <p className="mb-2">
         Dlatego:
       </p>
-      <BlockMath math="\log_4 1024 = 5" />
-
+      <BlockMath math="4^x = 1024" />
+      <p className="mb-2">
+        Doprowadzamy teraz do tej samej podstawy. Widzimy, że lewą i prawą stronę można zapisać o podstawie 2:
+      </p>
+      <BlockMath math="(2^2)^x = 2^{10}" />
+      <BlockMath math="2^{2x} = 2^{10}" />
+      <p className="mb-2">
+        Jeśli podstawy logarytmu są równe to logarytmy są równe, gdy ich wykładniki są takie same.
+      </p>
+      <BlockMath math="2x = 10" />
+      <BlockMath math="x = 5" />
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
         Wartość wyrażenia <InlineMath math="4 \log_4 2 + 2 \log_4 8" /> jest równa <InlineMath math="5" /> (odpowiedź <strong>C</strong>).
