@@ -30,7 +30,7 @@ const Solution = () => {
       <BlockMath math="\text{Pole} = a^2 \cdot \sin(\alpha)" />
       <BlockMath math="\text{Pole} = \frac{d_1 \cdot d_2}{2}" />
       <p className="mb-2">
-        Gdzie <InlineMath math="a" /> to długość boku, <InlineMath math="\alpha" /> to kąt rozwarty, a <InlineMath math="d_1" /> i <InlineMath math="d_2" /> to długości przekątnych.
+        Gdzie <InlineMath math="a" /> to długość boku, <InlineMath math="\alpha" /> to kąt pomiędzy bokami, a <InlineMath math="d_1" /> i <InlineMath math="d_2" /> to długości przekątnych.
       </p>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Obliczenie pola rombu</h2>

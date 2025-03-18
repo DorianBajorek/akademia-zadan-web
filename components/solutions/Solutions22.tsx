@@ -10,7 +10,7 @@ const Solution22 = () => {
 
       <div className="space-y-3 mb-6">
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="1" /></p>
+          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="11" /></p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
           <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> <InlineMath math="1" /></p>
@@ -25,7 +25,7 @@ const Solution22 = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Wykorzystanie własności paraboli</h2>
       <p className="mb-2">
-        Wierzchołek paraboli znajduje się w punkcie <InlineMath math="x = 3" />. Miejsca zerowe funkcji kwadratowej są symetryczne względem wierzchołka. Jeśli jedno miejsce zerowe to <InlineMath math="-5" />, to drugie miejsce zerowe można znaleźć, korzystając z symetrii.
+        Wierzchołek paraboli znajduje się na prostej <InlineMath math="x = 3" />. Miejsca zerowe funkcji kwadratowej są symetryczne względem wierzchołka. Jeśli jedno miejsce zerowe to <InlineMath math="-5" />, to drugie miejsce zerowe można znaleźć, korzystając z symetrii.
       </p>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Obliczenie drugiego miejsca zerowego</h2>

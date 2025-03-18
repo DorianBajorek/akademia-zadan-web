@@ -42,8 +42,10 @@ const Solution48 = () => {
         Sprawdzamy iloczyn współczynników kierunkowych dla każdej pary prostych:
       </p>
       <BlockMath math="k \text{ i } l: (-1) \cdot \frac{2}{3} = -\frac{2}{3} \neq -1" />
+      <BlockMath math="k \text{ i } m: (-1) \cdot \left( \frac{-3}{2} \right)= \frac{3}{2} \neq -1" />
       <BlockMath math="k \text{ i } n: (-1) \cdot \left(-\frac{2}{3}\right) = \frac{2}{3} \neq -1" />
       <BlockMath math="l \text{ i } m: \frac{2}{3} \cdot \left(-\frac{3}{2}\right) = -1" />
+      <BlockMath math="l \text{ i } n: \frac{2}{3} \cdot \left(-\frac{-2}{3}\right) = \left( \frac{-4}{9} \right) \neq -1 " />
       <BlockMath math="m \text{ i } n: -\frac{3}{2} \cdot \left(-\frac{2}{3}\right) = 1 \neq -1" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>

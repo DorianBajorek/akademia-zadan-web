@@ -33,14 +33,14 @@ const Solution21 = () => {
       <p className="mb-2">
         Iloczyn dwóch liczb jest rózny od zera jeśli każdy z nawiasów jest różny od zera
       </p>
-      <BlockMath math="x - 1 \neq 0" /> oraz <BlockMath math="x + 1 \neq 0" />
+      <BlockMath math="x - 1 \neq 0" /> oraz <BlockMath math="(x + 1)^{2} \neq 0" />  <BlockMath math="(x + 1) \neq 0" />
       <p className="mb-2">
         To oznacza, że <InlineMath math="x \neq 1" /> i <InlineMath math="x \neq -1" />.
       </p>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Rozwiązanie równania</h2>
       <p className="mb-2">
-        Równanie jest równe zero, gdy licznik jest równy zero, a mianownik nie jest równy zero. Zatem:
+        Lewa strona równania jest równa zero, gdy licznik jest równy zero, a mianownik nie jest równy zero. Zatem:
       </p>
       <BlockMath math="(x + 1)(x - 1)^2 = 0" />
       <p className="mb-2">
