@@ -1,7 +1,7 @@
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-const Solution63 = () => {
+const Solution = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
       <div className="text-lg mb-4">
@@ -49,4 +49,4 @@ const Solution63 = () => {
   );
 };
 
-export default Solution63;
+export default Solution;
