@@ -15,7 +15,7 @@ const DailyTaskResult: React.FC = () => {
 
   useEffect(() => {
     const storedResults = localStorage.getItem("dailyResults");
-  
+    console.log(JSON.stringify(storedResults, null, 2));
     if (storedResults) {
       const { results, summary, questions } = JSON.parse(storedResults);
       setResults(results);
@@ -89,13 +89,6 @@ const DailyTaskResult: React.FC = () => {
           }
           <h2 className="text-xl font-bold text-center text-blue-600 mb-8">
           </h2>
-          <div className="flex justify-center">
-            <Link href="/daily-task-solution">
-              <div className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-700">
-                Zobacz rozwiązanie
-              </div>
-            </Link>
-          </div>
         </div>
       </main>
       <Footer />
