@@ -152,6 +152,33 @@ Wyrażenie <InlineMath math="1-\sin^{2}{\alpha}" /> możemy wyznaczyć z jedynki
   <InlineMath math=" \cos{\alpha}(1-\sin^{2}{\alpha}) = \cos{\alpha} \cdot \cos^{2}{\alpha} = \cos^{3}{\alpha}"/>
   </div>
   Zaznaczamy odpowiedź A.
+
+  <h2 className="text-2xl font-bold text-blue-600">Matura maj 2023</h2>
+  <img 
+            src="/post-images/maj_2023_19.png" 
+            alt="Trójkąt prostokątny ABC" 
+            className="rounded-lg" 
+            width={1200} 
+            height={900}  
+        />
+
+
+<div className="text-lg text-gray-700">
+  <p>W wyrażeniu <InlineMath math="\sin^4 \alpha + \sin^2 \alpha \cdot \cos^2 \alpha"/> możemy wyciągnąć wspólny czynnik <InlineMath math="\sin^{2}{\alpha}"/> przed nawias:</p>
+  <InlineMath math="\sin^4 \alpha + \sin^2 \alpha \cdot \cos^2 \alpha = \sin^2 \alpha (\sin^2 \alpha + \cos^2 \alpha)" />
+  
+  <p>Następnie korzystamy z jedynki trygonometrycznej:</p>
+  <InlineMath math="\sin^2 \alpha + \cos^2 \alpha = 1" />
+  
+  <p>Wstawiając to do poprzedniego wyrażenia, otrzymujemy:</p>
+  <InlineMath math="\sin^2 \alpha (\sin^2 \alpha + \cos^2 \alpha) = \sin^2 \alpha \cdot 1 = \sin^2 \alpha" />
+  
+  <p>Zatem wyrażenie <InlineMath math="\sin^4 \alpha + \sin^2 \alpha \cdot \cos^2 \alpha"/> jest równe</p>
+  <div className="text-lg text-gray-700">
+  <InlineMath math="\sin^4 \alpha + \sin^2 \alpha \cdot \cos^2 \alpha = \sin^{2}{\alpha}"/>
+  </div>
+  <p>Prawidłowa odpowiedź to <strong>A. </strong>.</p>
+</div>
       </main>
     </div>
   );
