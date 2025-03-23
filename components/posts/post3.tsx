@@ -90,7 +90,7 @@ const PolynomialEquationsPost: React.FC = () => {
       </div>
       
 </section>
-<h2 className="text-2xl font-bold text-blue-600">Matura poprawkowa sierpień 2024</h2>
+
 Rozwiązanie zadania rozpoczniemy od uproszczenia wyrażęnia w nawiasie. Skorzystamy z dobrze 
 znanych kwadratów, czyli <InlineMath math="4=2^{2}"/> i <InlineMath math="25=5^{2}"/>. Pozwala 
 nam to zapisać 
@@ -128,6 +128,27 @@ Teraz pomnożymy obie uproszczone części:
 </div>
 Otrzymujemy wynik 4, więc zaznaczamy odpowiedź D.
 
+<h2 className="text-2xl font-bold text-blue-600">Sierpień 2023 - Zadanie 5 </h2>
+<img 
+            src="/post-images/sierpien_2023_5.png" 
+            alt="Trójkąt prostokątny ABC" 
+            className="rounded-lg" 
+            width={1200} 
+            height={900}  
+        />
+
+
+Tym razem będziemy działali na podstawie 3. Wiemy, że <InlineMath math="81 = 9 \cdot 9 = 3^{2} \cdot 3^{2} = 3^{4}"/>. Zawsze zamieniamy liczby 
+na najmniejszą podstawą którą możemy uzyskać, dlatego wybraliśmy 3. Dale przekształcamy ułamek zaczynając od mianownika 
+<div className="text-lg text-gray-700">
+<InlineMath math="(-\frac{1}{9})^{-2}=(-\frac{1}{3^{2}})^{-2}=(-3^{-2})^{-2}=3^{(-2) \cdot (-2)}=3^{4}"/>
+</div>
+Wykoszystaliśmy tutaj własność, że liczba ujemna podniesiona do kwadratu staje się liczbą dodatnią. Przekształcamy dalej nasze wyrażenie,
+wykorzystując to co otrzymaliśmy 
+<div className="text-lg text-gray-700">
+<InlineMath math="\frac{3^{-1}}{(-\frac{1}{9})^{-2}} \cdot 81 = \frac{3^{-1}}{3^{4}} \cdot 3^{4} = 3^{-1-4}\cdot 3^{4}=3^{-5}\cdot 3^{4} =3^{-1}=\frac{1}{3}"/>
+</div>
+Zaznaczamy poprawną odpowiedź A.
       </main>
       </div>
   );
