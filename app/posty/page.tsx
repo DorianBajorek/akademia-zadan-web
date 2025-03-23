@@ -16,7 +16,8 @@ const PostsPage = () => {
   const postsMetadata: PostMetadata[] = [
     { id: "1", title: "Rozwiązywanie równań wielomianowych", image: "/post-images/rownaniawymierne.png" },
     { id: "2", title: "Rozwiązywanie równań wielomianowych - zadania otwarte", image: "/post-images/header-rownania-wielomianowe.png" },
-    { id: "3", title: "Działania na potęgach", image: "/post-images/header-potegi-pierwiastki.png" }
+    { id: "3", title: "Działania na potęgach", image: "/post-images/header-potegi-pierwiastki.png" },
+    { id: "4", title: "Przekształcenia trygonometryczne", image: "/post-images/header-potegi-pierwiastki.png" }
   ];
 
   return (
