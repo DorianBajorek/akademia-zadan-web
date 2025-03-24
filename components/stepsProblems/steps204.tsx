@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
+import StudentNotes from "./StudentsNotes";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -78,43 +79,30 @@ const Page = () => {
               1. $$x-2 = 0$$ przenosimy $$2$$ na drugą stronę i otrzymujemy $$x=2$$. <br>
               2. $$x^2-3 = 0$$. Rozwiązujemy jak niżej: <br>
               $$x^2 = 3$$ Pierwiastkujemy stronami pamiętając o dwóch rozwiązaniach: <br>
-              $$x=3$$ lub $$x=-3$$."             
+              $$x=\sqrt{3}$$ lub $$x=-\sqrt{3}$$."             
               onComplete={() => handleStageComplete(3)}
             />
           </>
         )}
         {completedStages.length === 3 && (
-          <div className="mt-8 p-6 rounded-lg shadow-md border border-gray-300 bg-cover bg-center" style={{ backgroundImage: "url('/kratka.png')" }}>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Notatki maturzysty</h3>
-            <div className="text-lg text-gray-700 space-y-4">
-              <InlineMath math="x^3 - 2x^2 - 3x + 6 = 0" />
-              <div>
-                <p>
-                  <InlineMath math="x^2(x-2) - 3(x-2) = 0" />
-                </p>
-              </div>
-              <div className="text-gray-600">
-                <InlineMath math="(x-2)(x^2-3) = 0" />
-                <ul className="list-disc pl-6 mt-2">
-                  <li>
-                    <InlineMath math="x - 2 = 0" /> daje <InlineMath math="x = 2" />.
-                  </li>
-                  <li>
-                    <div className="space-y-2">
-                      <p><InlineMath math="x^2 - 3 = 0" /></p>
-                      <p><InlineMath math="x^2 = 3" /></p>
-                      <p><InlineMath math="x = \sqrt{3}" /></p>
-                      <p><InlineMath math="x = -\sqrt{3}" /></p>
-                    </div>
-                  </li>
-                </ul>
-                <p>Rozwiązania:</p>
-                <p>
-                  <InlineMath math="x = 2, x = \sqrt{3}, x = -\sqrt{3}" />
-                </p>
-              </div>
-            </div>
-          </div>
+          <StudentNotes
+            equation="x^3 - 2x^2 - 3x + 6 = 0"
+            steps={[
+              {
+                step: "x^2(x-2) - 3(x-2) = 0",
+              },
+              {
+                step: "(x-2)(x^2-3) = 0",
+              },
+              {
+                step: "x - 2 = 0 \\Rightarrow x = 2",
+              },
+              {
+                step: "x^2 - 3 = 0 \\Rightarrow x^2 = 3 \\Rightarrow x = \\sqrt{3} \\text{ lub } x = -\\sqrt{3}",
+              }
+            ]}
+            solutions={["x = 2", "x = \\sqrt{3}", "x = -\\sqrt{3}"]}
+          />
         )}
       </div>
     </div>

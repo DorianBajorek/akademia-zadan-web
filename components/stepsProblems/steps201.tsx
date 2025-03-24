@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
+import StudentNotes from "./StudentsNotes";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -47,12 +48,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Która postać jest poprawna po pogrupowaniu?"
               choices={[
-                { label: "(x+5)(x^2-2) = 0", value: "a" },
-                { label: "(x+5)(x^2+2) = 0", value: "b" },
+                { label: "(x+5)(x^2+2) = 0", value: "a" },
+                { label: "(x+5)(x^2-2) = 0", value: "b" },
                 { label: "(x-5)(x^2-2) = 0", value: "c" },
                 { label: "(x-5)(x^2+2) = 0", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawna postać po pogrupowaniu to $$(x+5)(x^2-2) = 0$$. 
                 Dlaczego? Wyciągamy wspólny czynnik $$(x+5)$$ z obu grup. Jeśli z pierwszej grupy $$x^2(x+5)$$ zabierzemy $$(x+5)$$ to zostanie $$x^2$$. Jeśli z drugiej grupy $$-2(x+5)$$ zabierzemy $$(x+5)$$ to zostanie nam $$-2$$. Ostatecznie otrzymamy więc: $$(x+5)(x^2-2)$$"
               onComplete={() => handleStageComplete(2)}
@@ -67,12 +68,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne dla całego równania?"
               choices={[
-                { label: "x = -5, x = \\sqrt{2}, x = -\\sqrt{2}", value: "a" },
-                { label: "x = 5, x = \\sqrt{2}, x = -\\sqrt{2}", value: "b" },
-                { label: "x = -5, x = 2, x = -2", value: "c" },
-                { label: "x = 5, x = 2, x = -2", value: "d" }
+                { label: "x = 5, x = \\sqrt{2}, x = -\\sqrt{2}", value: "a" },
+                { label: "x = -5, x = 2, x = -2", value: "b" },
+                { label: "x = 5, x = 2, x = -2", value: "c" },
+                { label: "x = -5, x = \\sqrt{2}, x = -\\sqrt{2}", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne rozwiązanie to $$x = -5, x = \sqrt{2}, x = -\sqrt{2}$$. <br>
               Dlaczego? Rozwiązujemy równanie $$(x+5)(x^2-2) = 0$$, czyli musimy przyrównać każdy z nawiasów do zera (mamy postać iloczynową). <br>
               1. $$x+5 = 0$$ przenosimy $$5$$ na drugą stronę i otrzymujemy $$x=-5$$. <br>
@@ -84,37 +85,24 @@ const Page = () => {
           </>
         )}
         {completedStages.length === 3 && (
-          <div className="mt-8 p-6 rounded-lg shadow-md border border-gray-300 bg-cover bg-center" style={{ backgroundImage: "url('/kratka.png')" }}>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Notatki maturzysty</h3>
-            <div className="text-lg text-gray-700 space-y-4">
-              <InlineMath math="x^3 + 5x^2 - 2x - 10 = 0" />
-              <div>
-                <p>
-                  <InlineMath math="x^2(x+5) - 2(x+5) = 0" />
-                </p>
-              </div>
-              <div className="text-gray-600">
-                <InlineMath math="(x+5)(x^2-2) = 0" />
-                <ul className="list-disc pl-6 mt-2">
-                  <li>
-                    <InlineMath math="x + 5 = 0" /> daje <InlineMath math="x = -5" />.
-                  </li>
-                  <li>
-                    <div className="space-y-2">
-                      <p><InlineMath math="x^2 - 2 = 0" /></p>
-                      <p><InlineMath math="x^2 = 2" /></p>
-                      <p><InlineMath math="x = \sqrt{2}" /></p>
-                      <p><InlineMath math="x = -\sqrt{2}" /></p>
-                    </div>
-                  </li>
-                </ul>
-                <p>Rozwiązania:</p>
-                <p>
-                  <InlineMath math="x = -5, x = \sqrt{2}, x = -\sqrt{2}" />
-                </p>
-              </div>
-            </div>
-          </div>
+          <StudentNotes
+            equation="x^3 + 5x^2 - 2x - 10 = 0"
+            steps={[
+              {
+                step: "x^2(x+5) - 2(x+5) = 0",
+              },
+              {
+                step: "(x+5)(x^2-2) = 0",
+              },
+              {
+                step: "x + 5 = 0 \\Rightarrow x = -5",
+              },
+              {
+                step: "x^2 - 2 = 0 \\Rightarrow x^2 = 2 \\Rightarrow x = \\sqrt{2} \\text{ lub } x = -\\sqrt{2}",
+              }
+            ]}
+            solutions={["x = -5", "x = \\sqrt{2}", "x = -\\sqrt{2}"]}
+          />
         )}
       </div>
     </div>

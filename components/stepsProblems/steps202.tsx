@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
+import StudentNotes from "./StudentsNotes";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,12 +28,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^2(x-3) - 4(x-3) = 0", value: "a" },
-                { label: "x^2(x-3) + 4(x-3) = 0", value: "b" },
-                { label: "x^2(x+3) - 4(x+3) = 0", value: "c" },
+                { label: "x^2(x-3) + 4(x-3) = 0", value: "a" },
+                { label: "x^2(x+3) - 4(x+3) = 0", value: "b" },
+                { label: "x^2(x-3) - 4(x-3) = 0", value: "c" },
                 { label: "x^2(x+3) + 4(x+3) = 0", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne przekształcenie to $$x^2(x-3) - 4(x-3) = 0$$. 
                 Dlaczego? Pozwala to na wyciągnięcie wspólnego czynnika $$(x-3)$$ w kolejnym kroku. Na tym etapie musimy zrobić tak żeby wyciągnąć najwięcej jak się da z pierwszych dwóch wyrazów, a następnie tak samo z drugiej pary w taki sposób aby po wyciągnięciu zostało to samo. W naszym przypadku jest to $$(x-3)$$. Jeśli nie da się tego dokonać, nie można rozwiązać takiego równania wielomianowego metodą grupowania. Na maturze podstawowej z matematyki zadania są skonstruowane w taki sposób, że ta metoda najczęściej działa."
               onComplete={() => handleStageComplete(1)}
@@ -67,12 +68,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne dla całego równania?"
               choices={[
-                { label: "x = 3, x = 2, x = -2", value: "a" },
-                { label: "x = 3, x = 4, x = -4", value: "b" },
-                { label: "x = -3, x = 2, x = -2", value: "c" },
+                { label: "x = 3, x = 4, x = -4", value: "a" },
+                { label: "x = -3, x = 2, x = -2", value: "b" },
+                { label: "x = 3, x = 2, x = -2", value: "c" },
                 { label: "x = -3, x = 4, x = -4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne rozwiązanie to $$x = 3, x = 2, x = -2$$. <br>
               Dlaczego? Rozwiązujemy równanie $$(x-3)(x^2-4) = 0$$, czyli musimy przyrównać każdy z nawiasów do zera (mamy postać iloczynową). <br>
               1. $$x-3 = 0$$ przenosimy $$3$$ na drugą stronę i otrzymujemy $$x=3$$. <br>
@@ -84,37 +85,24 @@ const Page = () => {
           </>
         )}
         {completedStages.length === 3 && (
-          <div className="mt-8 p-6 rounded-lg shadow-md border border-gray-300 bg-cover bg-center" style={{ backgroundImage: "url('/kratka.png')" }}>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Notatki maturzysty</h3>
-            <div className="text-lg text-gray-700 space-y-4">
-              <InlineMath math="x^3 - 3x^2 - 4x + 12 = 0" />
-              <div>
-                <p>
-                  <InlineMath math="x^2(x-3) - 4(x-3) = 0" />
-                </p>
-              </div>
-              <div className="text-gray-600">
-                <InlineMath math="(x-3)(x^2-4) = 0" />
-                <ul className="list-disc pl-6 mt-2">
-                  <li>
-                    <InlineMath math="x - 3 = 0" /> daje <InlineMath math="x = 3" />.
-                  </li>
-                  <li>
-                    <div className="space-y-2">
-                      <p><InlineMath math="x^2 - 4 = 0" /></p>
-                      <p><InlineMath math="x^2 = 4" /></p>
-                      <p><InlineMath math="x = 2" /></p>
-                      <p><InlineMath math="x = -2" /></p>
-                    </div>
-                  </li>
-                </ul>
-                <p>Rozwiązania:</p>
-                <p>
-                  <InlineMath math="x = 3, x = 2, x = -2" />
-                </p>
-              </div>
-            </div>
-          </div>
+          <StudentNotes
+            equation="x^3 - 3x^2 - 4x + 12 = 0"
+            steps={[
+              {
+                step: "x^2(x-3) - 4(x-3) = 0",
+              },
+              {
+                step: "(x-3)(x^2-4) = 0",
+              },
+              {
+                step: "x - 3 = 0 \\Rightarrow x = 3",
+              },
+              {
+                step: "x^2 - 4 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\text{ lub } x = -2",
+              }
+            ]}
+            solutions={["x = 3", "x = 2", "x = -2"]}
+          />
         )}
       </div>
     </div>

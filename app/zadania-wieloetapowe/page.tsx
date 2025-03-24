@@ -9,52 +9,52 @@ const tasksByCategory = [
     category: "Nierówności kwadratowe",
     tasks: [
       {
-        id: "1",
+        id: "100",
         title: "Zadanie 1",
         img: "/problemImages/problem1.png",
       },
       {
-        id: "2",
+        id: "101",
         title: "Zadanie 2",
         img: "/problemImages/problem2.png",
       },
       {
-        id: "3",
+        id: "102",
         title: "Zadanie 3",
         img: "/problemImages/problem3.png",
       },
       {
-        id: "4",
+        id: "103",
         title: "Zadanie 4",
         img: "/problemImages/problem4.png",
       },
       {
-        id: "5",
+        id: "104",
         title: "Zadanie 5",
         img: "/problemImages/problem5.png",
       },
       {
-        id: "6",
+        id: "105",
         title: "Zadanie 6",
         img: "/problemImages/problem6.png",
       },
       {
-        id: "7",
+        id: "106",
         title: "Zadanie 7",
         img: "/problemImages/problem7.png",
       },
       {
-        id: "8",
+        id: "107",
         title: "Zadanie 8",
         img: "/problemImages/problem8.png",
       },
       {
-        id: "9",
+        id: "108",
         title: "Zadanie 9",
         img: "/problemImages/problem9.png",
       },
       {
-        id: "10",
+        id: "109",
         title: "Zadanie 10",
         img: "/problemImages/problem10.png",
       },
@@ -64,29 +64,44 @@ const tasksByCategory = [
     category: "Równania wymierne",
     tasks: [
       {
-        id: "11",
+        id: "200",
         title: "Zadanie 11",
         img: "/problemImages/problem11.png",
       },
       {
-        id: "12",
+        id: "201",
         title: "Zadanie 12",
         img: "/problemImages/problem12.png",
       },
       {
-        id: "13",
+        id: "202",
         title: "Zadanie 13",
         img: "/problemImages/problem13.png",
       },
       {
-        id: "14",
+        id: "203",
         title: "Zadanie 14",
         img: "/problemImages/problem14.png",
       },
       {
-        id: "15",
+        id: "204",
         title: "Zadanie 15",
         img: "/problemImages/problem15.png",
+      },
+      {
+        id: "205",
+        title: "Zadanie 16",
+        img: "/problemImages/problem205.png",
+      },
+      {
+        id: "206",
+        title: "Zadanie 17",
+        img: "/problemImages/problem206.png",
+      },
+      {
+        id: "207",
+        title: "Zadanie 18",
+        img: "/problemImages/problem207.png",
       },
     ],
   },
