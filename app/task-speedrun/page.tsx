@@ -1,11 +1,10 @@
 "use client";
 import "katex/dist/katex.min.css";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
-import { checkBarometerAnswers, getCurrentDailyProblem } from "@/service";
+import { getProblems, checkBarometerAnswers } from "@/service";
 
 interface QuestionType {
   id: number;
@@ -19,10 +18,13 @@ interface QuestionType {
   images: string[];
 }
 
-const DailyTask: React.FC = () => {
+const TaskSpeedrun: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
-  const router = useRouter();
+  const [isCorrect, setIsCorrect] = useState<boolean>();
+  const [correctAnswer, setCorrectAnswer] = useState<string>();
+  const [showNextTask, setShowNextTask] = useState<boolean>(false);
+  const [questionNr, setQuestionNr] = useState<number>(0);
   const letterMap = ["a", "b", "c", "d"];
   const tf2Map = ["tt", "tf", "ft", "ff"];
 
@@ -33,36 +35,21 @@ const DailyTask: React.FC = () => {
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
+    console.log(questions[0].correct);
+    console.log(answerIndex);
+    setIsCorrect(answerIndex === questions[0].correct);
+    setCorrectAnswer(questions[0].taskType === "tf2" ? tf2Map[questions[0].correct] : letterMap[questions[0].correct])
+    setShowNextTask(true);
     this.pageEnd.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSubmit = async () => {
-    const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null);
-  
-    if (!allAnswered) {
-      alert("Proszę odpowiedzieć na pytanie daily.");
-      return;
-    }
-    
-    const answersPayload = questions.map(q => {    
-      return {
-        task_id: q.taskId,
-        user_answer: q.taskType === "tf2" ? tf2Map[selectedAnswers[q.id]!] : letterMap[selectedAnswers[q.id]!],
-      };
-    });
-  
-    const result = await checkBarometerAnswers(answersPayload);
-    if (result) {
-      localStorage.setItem("dailyResults", JSON.stringify({ results: result.results, summary: result.summary, questions }));
-      router.push("/daily-task-result");
-    } else {
-      alert("Wystąpił błąd podczas wysyłania odpowiedzi.");
-    }
+  const handleNextTask = async () => {
+    setQuestionNr(questionNr + 1);
   };
   
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getCurrentDailyProblem();
+      const data = await getProblems(1);
       const newQuestions = data.map(
         (
           elem: {
@@ -73,6 +60,7 @@ const DailyTask: React.FC = () => {
             choiceD: string;
             task_id: any;
             task_type: any;
+            correct_answer: string;
             question1?: string;
             question2?: string;
             images: { image: string }[];
@@ -90,7 +78,7 @@ const DailyTask: React.FC = () => {
                   replaceHashes(elem.choiceC),
                   replaceHashes(elem.choiceD),
                 ],
-          correct: 0,
+          correct: elem.correct_answer.charCodeAt(0)-"a".charCodeAt(0),
           taskId: elem.task_id,
           taskType: elem.task_type,
           ...(elem.task_type === "tf2" && {
@@ -99,22 +87,27 @@ const DailyTask: React.FC = () => {
           }),
           images: Array.isArray(elem.images) ? elem.images.map(img => img.image) : [],
         })
-      );
+      ).slice(0,1);
+      setIsCorrect(undefined);
+      setSelectedAnswers({});
+      setCorrectAnswer(undefined);
+      setShowNextTask(false);
       setQuestions(newQuestions);
     };
-
+  
     fetchData();
-  }, []);
-
+  }, [questionNr]);
+  
+    
   return (
     <div className="bg-gray-50 min-h-screen">
       <Nav />
       <main className="max-w-4xl mx-auto px-6 py-12">
         <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Maturalne Daily Zadanie
+          Zadaniowy speedrun
         </h2>
         <p className="text-lg text-gray-700 text-center mb-8">
-          Odpowiedz na poniższe pytania i sprawdź swoje umiejętności!
+          Rozwiązuj kolejne losowo wybrane zadania i szlifuj swoje umiejętności
         </p>
 
         <div className="space-y-6">
@@ -128,6 +121,8 @@ const DailyTask: React.FC = () => {
                 answers={q.answers}
                 selectedAnswer={tf2Map[selectedAnswers[q.id]!]}
                 onAnswerSelect={handleAnswerSelect}
+                isCorrect={isCorrect}
+                correctAnswer={correctAnswer}
                 question1={q.question1}
                 question2={q.question2}
                 taskType="tf2"
@@ -142,20 +137,35 @@ const DailyTask: React.FC = () => {
                 answers={q.answers}
                 selectedAnswer={letterMap[selectedAnswers[q.id]!]}
                 onAnswerSelect={handleAnswerSelect}
+                isCorrect={isCorrect}
+                correctAnswer={correctAnswer}
                 taskType="mc4"
                 images={q.images}
               />
             )
           ))}
+
         </div>
-        <div className="mt-8 text-center">
-          <button
-            onClick={handleSubmit}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-700"
-          >
-            Sprawdź odpowiedź
-          </button>
-        </div>
+
+        {showNextTask && (
+          <div className="mt-8 text-center">
+            {isCorrect ?
+              <p className="text-2xl mt-2 font-bold text-center text-green-600  space-y-6">
+                Poprawna odpowiedź
+              </p> :
+              <p className="text-2xl mt-2 font-bold text-center text-gray-600 space-y-6">
+                Błędna odpowiedź
+              </p>
+            }
+            <br />
+            <button
+              onClick={handleNextTask}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-700"
+            >
+              Zobacz kolejne zadanie
+            </button>
+          </div>
+        )}
         <br />
         <div style={{ float:"left", clear: "both" }}
           ref={(el) => { this.pageEnd = el; }}>
@@ -166,4 +176,4 @@ const DailyTask: React.FC = () => {
   );
 };
 
-export default DailyTask;
+export default TaskSpeedrun;

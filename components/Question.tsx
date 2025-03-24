@@ -49,7 +49,8 @@ const Question: React.FC<QuestionProps> = ({
   const router = useRouter();
 
   const handleSolutionClick = () => {
-    router.push(`/rozwiazanie/${taskId}`);
+    const win = window.open(`/rozwiazanie/${taskId}`, "_blank");
+    win.focus();
   };
 
   const correctAnswerIndex = taskType === "tf2" && correctAnswer ? tf2Map.indexOf(correctAnswer.toLowerCase()) : answerLabels.indexOf(correctAnswer?.toUpperCase() || "");
