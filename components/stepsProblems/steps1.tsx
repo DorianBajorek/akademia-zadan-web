@@ -29,12 +29,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
               choices={[
-                { label: "a = 1, b = -4, c = 4", value: "a" },
-                { label: "a = 2, b = -4, c = 4", value: "b" },
-                { label: "a = 1, b = 4, c = -4", value: "c" },
-                { label: "a = -1, b = 4, c = -4", value: "d" }
+                { label: "a = 2, b = -4, c = 4", value: "a" },
+                { label: "a = 1, b = 4, c = -4", value: "b" },
+                { label: "a = -1, b = 4, c = -4", value: "c" },
+                { label: "a = 1, b = -4, c = 4", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Współczynniki dla tej nierówności to $$a = 1, b = -4, c = 4$$. 
                 Dlaczego? Równanie kwadratowe w standardowej postaci ma postać: 
                 $$ax^2 + bx + c = 0$$. <br>

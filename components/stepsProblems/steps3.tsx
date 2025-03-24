@@ -54,12 +54,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Która wartość jest poprawną deltą (Δ) dla tej nierówności?"
               choices={[
-                { label: "Δ = 64", value: "a" },
-                { label: "Δ = 36", value: "b" },
+                { label: "Δ = 36", value: "a" },
+                { label: "Δ = 64", value: "b" },
                 { label: "Δ = -28", value: "c" },
                 { label: "Δ = 16", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Delta (Δ) jest obliczana ze wzoru:
                 $$\Delta = b^2 - 4ac$$.
                 Podstawiając wartości współczynników:

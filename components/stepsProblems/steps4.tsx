@@ -29,12 +29,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
               choices={[
-                { label: "a = -2, b = 3, c = 2", value: "a" },
-                { label: "a = 2, b = 3, c = -2", value: "b" },
-                { label: "a = -2, b = -3, c = 2", value: "c" },
-                { label: "a = 2, b = -3, c = 2", value: "d" }
+                { label: "a = 2, b = 3, c = -2", value: "a" },
+                { label: "a = -2, b = -3, c = 2", value: "b" },
+                { label: "a = 2, b = -3, c = 2", value: "c" },
+                { label: "a = -2, b = 3, c = 2", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Współczynniki dla tej nierówności to $$a = -2, b = 3, c = 2$$. 
                 Dlaczego? Równanie kwadratowe w standardowej postaci ma postać: $$ax^2 + bx + c = 0$$. <br>
                 W przypadku nierówności $$-2x^2 + 3x + 2 \leq 0$$, możemy bezpośrednio odczytać współczynniki: <br>
@@ -101,12 +101,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Który przedział jest rozwiązaniem nierówności $$-2x^2 + 3x + 2 \leq 0$$?"
               choices={[
-                { label: "x ∈ (-∞, -0.5\\rangle ∪ \\langle2, ∞)", value: "a" },
-                { label: "x ∈ \\langle-0.5, 2\\rangle", value: "b" },
-                { label: "x ∈ (-0.5, 2)", value: "c" },
+                { label: "x ∈ \\langle-0.5, 2\\rangle", value: "a" },
+                { label: "x ∈ (-0.5, 2)", value: "b" },
+                { label: "x ∈ (-∞, -0.5\\rangle ∪ \\langle2, ∞)", value: "v" },
                 { label: "x ∈ (-∞, -0.5) ∪ (2, ∞)", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Rozwiązaniem nierówności $$-2x^2 + 3x + 2 \leq 0$$ jest przedział:
                 $$x \in (-\infty, -0.5\rangle \cup \langle2, \infty)$$.
                 Wynika to z faktu, że parabola skierowana jest ramionami do dołu (a < 0), a nierówność jest typu '≤', więc rozwiązanie obejmuje wartości na zewnątrz pierwiastków, włącznie z nimi."
