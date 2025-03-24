@@ -12,7 +12,7 @@ const DailyTaskResult: React.FC = () => {
   const [results, setResults] = useState<any[]>([]);
   const [summary, setSummary] = useState<any>(null);
   const [questions, setQuestions] = useState<any[]>([]);
-
+  
   useEffect(() => {
     const storedResults = localStorage.getItem("dailyResults");
     console.log(JSON.stringify(storedResults, null, 2));
@@ -65,12 +65,12 @@ const DailyTaskResult: React.FC = () => {
           })}
         </div>
 
-        <div className="flex flex-col items-center mb-8 space-y-6">
+        <div className="flex flex-col items-center mb-8">
           <h2 className="text-xl font-bold text-center text-blue-600 mb-8">
           </h2>
           {summary.correct_answers ? 
           <div>
-            <p className="text-2xl mt-2 font-bold text-center text-green-600  space-y-6">
+            <p className="text-2xl mt-2 font-bold text-center text-green-600">
               Poprawna odpowiedź
             </p>
             <p className="text-lg text-gray-700 mt-2 text-center">
@@ -79,11 +79,11 @@ const DailyTaskResult: React.FC = () => {
           </div>
            : 
           <div>
-            <p className="text-2xl mt-2 font-bold text-center text-gray-600 space-y-6">
+            <p className="text-2xl mt-2 font-bold text-center text-gray-600">
               Błędna odpowiedź
             </p>
             <p className="text-lg text-gray-700 mt-2 text-center">
-              Powodzenia jutro, w międzyczasie możesz zobaczyć wyjaśnienie powyższego zadania (zarówno w formie tekstowej, jak i wideo) klikając przycisk poniżej
+              Powodzenia jutro, w międzyczasie możesz zobaczyć wyjaśnienie powyższego zadania klikając przycisk powyżej
             </p>
           </div>
           }

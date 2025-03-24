@@ -23,6 +23,12 @@ const Nav: React.FC = () => {
           <Link href="/barometr-opis" className="text-gray-700 hover:text-blue-500">
             Barometr
           </Link>
+          <Link href="/task-speedrun" className="text-gray-700 hover:text-blue-500">
+            Zadaniowy speedrun
+          </Link>
+          <Link href="/posty" className="text-gray-700 hover:text-blue-500">
+            Blog
+          </Link>
           <Link href="/rozwiazania" className="text-gray-700 hover:text-blue-500">
             Rozwiązania
           </Link>
