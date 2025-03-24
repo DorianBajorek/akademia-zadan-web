@@ -40,7 +40,10 @@ const TaskSpeedrun: React.FC = () => {
     setIsCorrect(answerIndex === questions[0].correct);
     setCorrectAnswer(questions[0].taskType === "tf2" ? tf2Map[questions[0].correct] : letterMap[questions[0].correct])
     setShowNextTask(true);
-    this.pageEnd.scrollIntoView({ behavior: "smooth" });
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
   };
 
   const handleNextTask = async () => {
@@ -166,10 +169,6 @@ const TaskSpeedrun: React.FC = () => {
             </button>
           </div>
         )}
-        <br />
-        <div style={{ float:"left", clear: "both" }}
-          ref={(el) => { this.pageEnd = el; }}>
-        </div>
       </main>
       <Footer />
     </div>

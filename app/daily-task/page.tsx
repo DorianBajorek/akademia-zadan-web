@@ -22,6 +22,7 @@ interface QuestionType {
 const DailyTask: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
+  // const [pageEnd, setPageEnd] = useState<>
   const router = useRouter();
   const letterMap = ["a", "b", "c", "d"];
   const tf2Map = ["tt", "tf", "ft", "ff"];
@@ -33,7 +34,10 @@ const DailyTask: React.FC = () => {
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
-    this.pageEnd.scrollIntoView({ behavior: "smooth" });
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
   };
 
   const handleSubmit = async () => {
@@ -155,10 +159,6 @@ const DailyTask: React.FC = () => {
           >
             Sprawdź odpowiedź
           </button>
-        </div>
-        <br />
-        <div style={{ float:"left", clear: "both" }}
-          ref={(el) => { this.pageEnd = el; }}>
         </div>
       </main>
       <Footer />
