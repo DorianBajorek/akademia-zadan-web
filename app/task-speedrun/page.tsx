@@ -90,7 +90,7 @@ const TaskSpeedrun: React.FC = () => {
           }),
           images: Array.isArray(elem.images) ? elem.images.map(img => img.image) : [],
         })
-      ).slice(0,1);
+      );
       setIsCorrect(undefined);
       setSelectedAnswers({});
       setCorrectAnswer(undefined);

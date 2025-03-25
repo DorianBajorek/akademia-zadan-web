@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
-import { getProblems, checkBarometerAnswers } from "@/service";
+import { getBarometerProblems, checkBarometerAnswers } from "@/service";
 
 interface QuestionType {
   id: number;
@@ -62,7 +62,7 @@ const Barometer: React.FC = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getProblems(10);
+      const data = await getBarometerProblems();
       const newQuestions = data.map(
         (
           elem: {
