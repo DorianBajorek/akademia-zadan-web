@@ -115,6 +115,41 @@ const tasksByCategory = [
       },
     ],
   },
+  {
+    category: "Obliczanie logarytmu",
+    tasks: [
+      {
+        id: "300",
+        title: "Zadanie 21",
+        img: "/problemImages/problem300.png",
+      },
+      {
+        id: "301",
+        title: "Zadanie 22",
+        img: "/problemImages/problem301.png",
+      },
+      {
+        id: "302",
+        title: "Zadanie 23",
+        img: "/problemImages/problem302.png",
+      },
+      {
+        id: "303",
+        title: "Zadanie 24",
+        img: "/problemImages/problem303.png",
+      },
+      {
+        id: "304",
+        title: "Zadanie 25",
+        img: "/problemImages/problem304.png",
+      },
+      {
+        id: "305",
+        title: "Zadanie 26",
+        img: "/problemImages/problem305.png",
+      },
+    ]
+  }
 ];
 
 const SolutionsPage = () => {
