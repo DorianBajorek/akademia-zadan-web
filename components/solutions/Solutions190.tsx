@@ -38,7 +38,7 @@ const Solution = () => {
         Sprawdzamy, które z podanych punktów spełniają równanie okręgu.
       </p>
 
-      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt A = (-1, 7)</h3>
+      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt <InlineMath math="A = (-1, 7)" /></h3>
       <p className="mb-2">
         Podstawiamy współrzędne punktu A do równania okręgu:
       </p>
@@ -47,7 +47,7 @@ const Solution = () => {
         Punkt A leży na okręgu.
       </p>
 
-      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt B = (2, -3)</h3>
+      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt <InlineMath math="B = (2, -3)" /></h3>
       <p className="mb-2">
         Podstawiamy współrzędne punktu B do równania okręgu:
       </p>
@@ -56,7 +56,7 @@ const Solution = () => {
         Punkt B nie leży na okręgu.
       </p>
 
-      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt C = (3, 2)</h3>
+      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt <InlineMath math="C = (3, 2)" /> </h3>
       <p className="mb-2">
         Podstawiamy współrzędne punktu C do równania okręgu:
       </p>
@@ -65,7 +65,7 @@ const Solution = () => {
         Punkt C nie leży na okręgu.
       </p>
 
-      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt D = (5, 3)</h3>
+      <h3 className="text-lg font-semibold mt-4 mb-2">Punkt <InlineMath math="D = (5, 3)" /> </h3>
       <p className="mb-2">
         Podstawiamy współrzędne punktu D do równania okręgu:
       </p>

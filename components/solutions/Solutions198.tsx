@@ -58,13 +58,6 @@ const Solution = () => {
         Układ ma dokładnie jedno rozwiązanie <InlineMath math="(2.2, -0.8)" />, co oznacza że proste przecinają się w jednym punkcie.
       </p>
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Weryfikacja</h2>
-      <p className="mb-2">
-        Sprawdźmy podstawiając do obu równań:
-      </p>
-      <BlockMath math="2.2 - (-0.8) = 3 \quad \text{(spełnione)}" />
-      <BlockMath math="2 \cdot 2.2 + 0.5 \cdot (-0.8) = 4.4 - 0.4 = 4 \quad \text{(spełnione)}" />
-
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
         Układ opisuje <strong>dokładnie jeden punkt</strong> (odpowiedź <strong>B</strong>).

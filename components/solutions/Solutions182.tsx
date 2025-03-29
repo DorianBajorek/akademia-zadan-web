@@ -47,9 +47,9 @@ const Solution = () => {
       </p>
       <BlockMath math="a_n = 5 + (n - 1) \cdot 6" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Obliczenie wyrazu  a_{12} </h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Obliczenie wyrazu <InlineMath math="a_{12}" /></h2>
       <p className="mb-2">
-        Chcemy sprawdzić, dla którego wyrazu  a_n = 71 . Podstawiamy do wzoru:
+        Chcemy sprawdzić, dla którego wyrazu  <InlineMath math="a_{12} = 71" /> . Podstawiamy do wzoru:
       </p>
       <BlockMath math="71 = 5 + (n - 1) \cdot 6" />
       <p className="mb-2">
@@ -67,7 +67,7 @@ const Solution = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 4: Wnioski</h2>
       <p className="mb-2">
-        Wyraz  a_{12}  jest równy 71.
+        Wyraz  <InlineMath math="a_{12}" />  jest równy 71.
       </p>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
