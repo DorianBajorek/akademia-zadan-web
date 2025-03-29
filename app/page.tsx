@@ -22,7 +22,7 @@ const Home: React.FC = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <Link href="/daily-task" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
+          <Link href="/task-speedrun" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
             <h3 className="text-2xl font-semibold text-blue-500">Zadaniowy speedrun</h3>
             <p className="text-gray-600 mt-4">
             Sprawdź się w matematycznym speedrunie! Rozwiązuj zadania jedno po drugim! Szybkość, precyzja i trening – to klucz do sukcesu na maturze!"
