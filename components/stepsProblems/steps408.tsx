@@ -35,7 +35,7 @@ const Page = () => {
                 { label: "2c = a + b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z własności ciągu arytmetycznego: środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich, czyli: $$2b = a + c$$"
+              explanation="Z własności ciągu arytmetycznego wiemy, że $$b-a=c-b$$ czyli: $$2b = a + c$$"
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -52,13 +52,12 @@ const Page = () => {
                 { label: "2m = 4 + (9-3m)", value: "a" },
                 { label: "2·4 = m + (9-3m)", value: "b" },
                 { label: "2(9-3m) = m + 4", value: "c" },
-                { label: "4 = (m + 9-3m)/2", value: "d" }
+                { label: "4 = (m + 9+3m)/2", value: "d" }
               ]}
               correctAnswer="b"
               explanation="Poprawne równanie to: $$2·4 = m + (9-3m)$$ <br>
-              Gdzie: <br>
-              a = m, b = 4, c = 9-3m <br>
-              Z własności ciągu: $$2b = a + c$$"
+              Do własności ciągu $$2b=a+c$$ podstawiamy: <br>
+              $$a = m$$, $$b = 4$$, $$c = 9-3m$$ <br>"
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -67,17 +66,17 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="8 = 9 - 2m"/>
+              Rozwiąż równanie <InlineMath math="2·4 = m + (9-3m)"/>
             </p>
             <ChoiceQuestion
-              question="Które przekształcenie jest poprawne?"
+              question="Wskaż poprawne rozwiązanie"
               choices={[
-                { label: "2m = 1", value: "a" },
+                { label: "m = -0.5", value: "a" },
                 { label: "m = 0.5", value: "b" },
-                { label: "8 - 9 = -2m", value: "c" },
-                { label: "Wszystkie powyższe", value: "d" }
+                { label: "m = 1", value: "c" },
+                { label: "m = -1", value: "d" }
               ]}
-              correctAnswer="d"
+              correctAnswer="b"
               explanation="Kolejne kroki rozwiązania: <br>
               1. $$8 = 9 - 2m$$ <br>
               2. $$-1 = -2m$$ <br>
@@ -88,48 +87,30 @@ const Page = () => {
           </>
         )}
         
-        {completedStages.includes(3) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Sprawdź poprawność rozwiązania
-            </p>
-            <NumericQuestion
-              question="Podaj wartość m"
-              correctAnswer="0.5"
-              explanation="Ostateczne rozwiązanie: <br>
-              $$m = 0.5$$ <br>
-              Sprawdzenie: <br>
-              Dla m = 0.5 ciąg to (0.5, 4, 7.5) <br>
-              Różnica: 4 - 0.5 = 3.5 i 7.5 - 4 = 3.5 <br>
-              Różnica jest stała, więc ciąg jest arytmetyczny."
-              onComplete={() => handleStageComplete(4)}
-            />
-          </>
-        )}
 
-        {completedStages.includes(4) && (
+        {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
               Określ monotoniczność ciągu
             </p>
             <ChoiceQuestion
-              question="Jaka jest monotoniczność ciągu (0.5, 4, 7.5)?"
+              question="Jaka jest monotoniczność ciągu $$(0.5, 4, 7.5)$$?"
               choices={[
-                { label: "Ciąg jest rosnący", value: "a" },
-                { label: "Ciąg jest malejący", value: "b" },
-                { label: "Ciąg jest stały", value: "c" },
-                { label: "Ciąg nie jest monotoniczny", value: "d" }
+                { label: "\\text{Ciąg jest rosnący}", value: "a" },
+                { label: "\\text{Ciąg jest malejący}", value: "b" },
+                { label: "\\text{Ciąg jest stały}", value: "c" },
+                { label: "\\text{Ciąg nie jest monotoniczny}", value: "d" }
               ]}
               correctAnswer="a"
               explanation="Ciąg jest rosnący, ponieważ: <br>
               $$0.5 < 4 < 7.5$$ <br>
               Różnica ciągu: $$r = 3.5$$ (dodatnia, więc ciąg rośnie)"
-              onComplete={() => handleStageComplete(5)}
+              onComplete={() => handleStageComplete(4)}
             />
           </>
         )}
         
-        {completedStages.length === 5 && (
+        {completedStages.length === 4 && (
           <StudentNotes
             equation="(m, 4, 9-3m) \rightarrow \text{ciąg arytmetyczny}"
             steps={[

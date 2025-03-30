@@ -19,7 +19,7 @@ const Page = () => {
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Trzywyrazowy ciąg arytmetyczny</h2>
         <p className="text-lg text-gray-800">Trzywyrazowy ciąg </p>
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="(k, 2k+3, 3k+5)"/> 
+          <InlineMath math="(k, 2k+3, 36)"/> 
         </p>
         <p className="text-lg text-gray-800">jest arytmetyczny. Wyznacz wartość <InlineMath math="k"/> i określ monotoniczność ciągu</p>
         
@@ -27,15 +27,15 @@ const Page = () => {
           <>
             <p className="text-lg text-gray-700 mt-6"></p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (a, b, c) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a, b, c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
                 { label: "a + b + c = 0", value: "a" },
                 { label: "b - c = 2a", value: "b" },
-                { label: "2b = a + c", value: "c" },
+                { label: "b = \\frac{a + c}{2}", value: "c" },
                 { label: "2c = a + b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z własności ciągu arytmetycznego: środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich, czyli: $$2b = a + c$$"
+              explanation="Z własności ciągu arytmetycznego: środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich, czyli: $$b = \frac{a + c}{2}$$"
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -49,16 +49,16 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: `2k = (2k+3) + (3k+5)`, value: "a" },
-                { label: `2(2k+3) = k + (3k+5)`, value: "b" },
-                { label: `2(3k+5) = k + (2k+3)`, value: "c" },
-                { label: `2k+3 = (k + 3k+5)/2`, value: "d" }
+                { label: `2k = (2k+3) + 36`, value: "a" },
+                { label: `2k+3 = \\frac{k + 36}{2}`, value: "b" },
+                { label: `2·36 = k + (2k+3)`, value: "c" },
+                { label: `2k+3 = \\frac{k}{2} + 36`, value: "d" }
               ]}
               correctAnswer="b"
-              explanation={`Poprawne równanie to: $$2(2k+3) = k + (3k+5)$$ <br>
+              explanation={`Poprawne równanie to: $$2k+3 = \\frac{k + 36}{2}$$ <br>
               Gdzie: <br>
-              a = k, b = 2k+3, c = 3k+5 <br>
-              Z własności ciągu: $$2b = a + c$$`}
+              $$a = k$$, $$b = 2k+3$$, $$c = 36$$ <br>
+              Z własności ciągu: $$b = \\frac{a + c}{2}$$`}
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -67,64 +67,68 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="4k + 6 = 4k + 5"/>
+              Rozwiąż równanie <InlineMath math="2k+3 = \frac{k + 36}{2}"/> i wskaż prawidłową odpowiedź
             </p>
             <ChoiceQuestion
-              question="Co wynika z tego równania?"
+              question="Które równanie jest równoważne naszemu równaniu"
               choices={[
-                { label: "6 = 5 (sprzeczność)", value: "a" },
-                { label: "k = 0", value: "b" },
-                { label: "k = -1", value: "c" },
-                { label: "Równanie tożsamościowe", value: "d" }
+                { label: "k = 9", value: "a" },
+                { label: "k = 10", value: "b" },
+                { label: "k  = 11 ", value: "c" },
+                { label: "k=12", value: "d" }
               ]}
-              correctAnswer="a"
-              explanation="Po uproszczeniu równania: <br>
-              1. $$4k + 6 = 4k + 5$$ <br>
-              2. $$6 = 5$$ <br>
-              Otrzymujemy sprzeczność, co oznacza że nie istnieje taka wartość k, dla której ciąg jest arytmetyczny."
+              correctAnswer="b"
+              explanation="Kolejne kroki rozwiązania: <br>
+              1. $$4k + 6 = k + 36$$ <br>
+              2. $$4k - k = 36 - 6$$ <br>
+              3. $$3k = 30$$ <br>
+              4. $$k = 10$$"
               onComplete={() => handleStageComplete(3)}
             />
           </>
         )}
-        
+      
+
         {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Wnioski z rozwiązania
+              Określ monotoniczność ciągu
             </p>
             <ChoiceQuestion
-              question="Jaki wniosek płynie z rozwiązania?"
+              question="Jaka jest monotoniczność ciągu $$(10, 23, 36)$$?"
               choices={[
-                { label: "Ciąg jest arytmetyczny dla k = 1", value: "a" },
-                { label: "Ciąg jest arytmetyczny dla każdego k", value: "b" },
-                { label: "Nie istnieje k, dla którego ciąg jest arytmetyczny", value: "c" },
-                { label: "Ciąg jest arytmetyczny tylko dla k = 0", value: "d" }
+                { label: "\\text{Ciąg jest rosnący}", value: "a" },
+                { label: "\\text{Ciąg jest malejący}", value: "b" },
+                { label: "\\text{Ciąg jest stały}", value: "c" },
+                { label: "\\text{Ciąg nie jest monotoniczny}", value: "a" }
               ]}
-              correctAnswer="c"
-              explanation="Ponieważ równanie doprowadziło nas do sprzeczności (6 = 5), oznacza to że nie istnieje żadna wartość k, dla której ten ciąg byłby arytmetyczny."
+              correctAnswer="a"
+              explanation="Ciąg jest rosnący, ponieważ: <br>
+              $$10 < 23 < 36$$ <br>
+              Różnica ciągu: $$r = 13$$ (dodatnia, więc ciąg rośnie)"
               onComplete={() => handleStageComplete(4)}
             />
           </>
         )}
-
+        
         {completedStages.length === 4 && (
           <StudentNotes
-            equation="(k, 2k+3, 3k+5) \rightarrow \text{brak rozwiązań}"
+            equation="(k, 2k+3, 36) \rightarrow \text{ciąg arytmetyczny}"
             steps={[
               {
-                step: "2b = a + c \\Rightarrow 2(2k+3) = k + (3k+5)",
+                step: "b = \\frac{a + c}{2} \\Rightarrow 2k+3 = \\frac{k + 36}{2}",
               },
               {
-                step: "4k + 6 = 4k + 5",
+                step: "4k + 6 = k + 36",
               },
               {
-                step: "6 = 5 \\text{ (sprzeczność)}",
+                step: "3k = 30 \\Rightarrow k = 10",
               },
               {
-                step: "\\text{Nie istnieje } k \\text{ spełniający warunek}"
+                step: "\\text{Ciąg } (10, 23, 36) \\text{ jest rosnący (r = 13)}"
               }
             ]}
-            solutions={["\\text{Brak rozwiązań}"]}
+            solutions={["k = 10", "(10, 23, 36) \\text{ - ciąg rosnący}"]}
           />
         )}
       </div>

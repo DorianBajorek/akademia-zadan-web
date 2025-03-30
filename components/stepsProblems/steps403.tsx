@@ -52,7 +52,7 @@ const Page = () => {
                 { label: "1=\\frac{4+a+5}{2}", value: "a" },
                 { label: "4=\\frac{1+a+5}{2}", value: "b" },
                 { label: "a+5=\\frac{1+4}{2}", value: "c" },
-                { label: "4 = \\frac{1+a+5}{2}", value: "d" }
+                { label: "4 = \\frac{1-a+5}{2}", value: "d" }
               ]}
               correctAnswer="b"
               explanation="Poprawne przekształcenie to $$4 = \frac{1+a+5}{2}$$. <br>
@@ -67,13 +67,13 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Uprość równanie <InlineMath math="4 = \frac{6+a}{2}"/>
+              Uprość równanie <InlineMath math="4 = \frac{1+a+5}{2}"/>
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
                 { label: "8=6+a", value: "a" },
-                { label: "4=3+0.5a", value: "b" },
+                { label: "4=3+a", value: "b" },
                 { label: "2=a-6", value: "c" },
                 { label: "4=6+a", value: "d" }
               ]}

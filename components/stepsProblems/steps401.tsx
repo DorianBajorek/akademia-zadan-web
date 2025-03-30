@@ -27,7 +27,7 @@ const Page = () => {
           <>
             <p className="text-lg text-gray-700 mt-6"></p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (a,b,c) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
                 { label: "a+b+c=3a", value: "a" },
                 { label: "c-b=2a", value: "b" },

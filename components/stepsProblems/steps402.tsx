@@ -73,15 +73,15 @@ const Page = () => {
               Uprość równanie <InlineMath math="6 = \frac{11+2m-1}{2}"/>
             </p>
             <ChoiceQuestion
-              question="Rozwiąż równanie $$12=11+2m$$. Wskaż prawidłową odpowiedź?"
+              question="Które równanie jest poprawne?"
               choices={[
-                { label: "m=23", value: "a" },
-                { label: "m=\\frac{1}{2}", value: "b" },
-                { label: "m=-\\frac{1}{2}", value: "c" },
-                { label: "m=1", value: "d" }
+                { label: "12=10+2m", value: "a" },
+                { label: "12=m+10", value: "b" },
+                { label: "12=m+11", value: "c" },
+                { label: "12=11+2m", value: "d" }
               ]}
               correctAnswer="b"
-              explanation="Poprawne rozwiązanie to $$m=\frac{1}{2}$$. <br>
+              explanation="Poprawne rozwiązanie to $$12=10+2m$$. <br>
               $$12=11+2m$$ <br> 
               $$1=2m$$ <br> 
               $$m=\frac{1}{2}$$"

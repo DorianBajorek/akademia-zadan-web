@@ -21,7 +21,7 @@ const Page = () => {
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
         <InlineMath math="(2m-5, 4, 9)"/> 
         </p>
-        <p className="text-lg text-gray-800">  jest arytmetyczny. Wyznacz wartość  <InlineMath math="m"/> i określ monotiniczność ciągu</p>
+        <p className="text-lg text-gray-800">  jest arytmetyczny. Wyznacz wartość  <InlineMath math="m"/> i określ monotoniczność ciągu</p>
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -106,7 +106,7 @@ const Page = () => {
         )}
 
 
-{completedStages.includes(2) && (
+{completedStages.includes(4) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
               Uprość równanie  <InlineMath math="4 = \frac{2m-5+9}{2}"/>
@@ -123,12 +123,12 @@ const Page = () => {
               explanation="Poprawne rozwiązanie to $$(-1,4,9)$$ i ciąg rosnący. <br>
               Jeśli $$m=2$$ to $$2m-5=-1$$ i nasz ciągo to $$(-1,4,9)$$. <br> 
               Spełnione są nierówności $$-1<4<9$$, więc ciąg jest rosnący. <br> "
-              onComplete={() => handleStageComplete(3)}
+              onComplete={() => handleStageComplete(5)}
             />
           </>
         )}
         
-        {completedStages.length === 4 && (
+        {completedStages.length === 5 && (
           <StudentNotes
             equation="(2m-5,4,9) \rightarrow \text{ciąg arytmetyczny}"
             steps={[
