@@ -148,6 +148,26 @@ const tasksByCategory = [
         title: "Zadanie 26",
         img: "/problemImages/problem305.png",
       },
+      {
+        id: "306",
+        title: "Zadanie 27",
+        img: "/problemImages/problem306.png",
+      },
+      {
+        id: "307",
+        title: "Zadanie 28",
+        img: "/problemImages/problem307.png",
+      },
+      {
+        id: "308",
+        title: "Zadanie 29",
+        img: "/problemImages/problem308.png",
+      },
+      {
+        id: "309",
+        title: "Zadanie 30",
+        img: "/problemImages/problem309.png",
+      },
     ]
   }
 ];

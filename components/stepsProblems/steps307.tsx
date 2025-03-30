@@ -30,14 +30,15 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie odpowiada definicji logarytmu?"
               choices={[
-                { label: "2^x = 0{,}125^6 \\cdot \\sqrt{64}", value: "a" },
-                { label: "x^2 = 0{,}125^6 \\cdot \\sqrt{64}", value: "b" },
-                { label: "2 \\cdot x = 0{,}125^6 \\cdot \\sqrt{64}", value: "c" },
+                { label: "x^2 = 0{,}125^6 \\cdot \\sqrt{64}", value: "a" },
+                { label: "2 \\cdot x = 0{,}125^6 \\cdot \\sqrt{64}", value: "b" },
+                { label: "2^x = 0{,}125^6 \\cdot \\sqrt{64}", value: "c" },
                 { label: "2 = (0{,}125^6 \\cdot \\sqrt{64})^x", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Z definicji logarytmu wiemy, że $$\log_2(0{,}125^6 \cdot \sqrt{64}) = x$$ oznacza $$2^x = 0{,}125^6 \cdot \sqrt{64}$$."
               onComplete={() => handleStageComplete(1)}
+              img={"/steps-images/definicjaLogarytmu.png"}
             />
           </>
         )}
@@ -50,10 +51,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "(2^{-3})^6 \\cdot 2^3", value: "a" },
-                { label: "(2^{-6})^3 \\cdot 2^6", value: "b" },
-                { label: "2^{-18} \\cdot 2^{-3}", value: "c" },
-                { label: "2^{-9} \\cdot 2^6", value: "d" }
+                { label: "2^x = (2^{-3})^6 \\cdot 2^3", value: "a" },
+                { label: "2^x = (2^{-6})^3 \\cdot 2^6", value: "b" },
+                { label: "2^x = 2^{-18} \\cdot 2^{-3}", value: "c" },
+                { label: "2^x = 2^{-9} \\cdot 2^6", value: "d" }
               ]}
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$(2^{-3})^6 \cdot 2^3$$. <br>
@@ -73,12 +74,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "2^{-15}", value: "a" },
-                { label: "2^{-3}", value: "b" },
-                { label: "2^9", value: "c" },
-                { label: "2^{-18}", value: "d" }
+                { label: "2^x = 2^{-3}", value: "a" },
+                { label: "2^x = 2^9", value: "b" },
+                { label: "2^x = 2^{-15}", value: "c" },
+                { label: "2^x = 2^{-18}", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne rozwiązanie to $$2^{-15}$$. <br>
               $$(2^{-3})^6 \cdot 2^3 = 2^{-18} \cdot 2^3 = 2^{-15}$$"
               onComplete={() => handleStageComplete(3)}
@@ -112,7 +113,10 @@ const Page = () => {
                 step: "0{,}125 = 2^{-3}, \\\\ \\sqrt{64} = 2^3 \\\\ 2^x = (2^{-3})^6 \\cdot 2^3",
               },
               {
-                step: "2^x = 2^{-18} \\cdot 2^3 = 2^{-15}",
+                step: "2^x = 2^{-18} \\cdot 2^3 ",
+              },
+              {
+                step: "2^x = 2^{-15}",
               },
               {
                 step: "x = -15",

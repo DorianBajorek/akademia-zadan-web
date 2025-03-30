@@ -4,7 +4,6 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,12 +29,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie odpowiada definicji logarytmu?"
               choices={[
-                { label: "(3\\sqrt{3})^x = 27\\sqrt[3]{3}", value: "a" },
-                { label: "x^{(3\\sqrt{3})} = 27\\sqrt[3]{3}", value: "b" },
-                { label: "3\\sqrt{3} \\cdot x = 27\\sqrt[3]{3}", value: "c" },
-                { label: "3\\sqrt{3} = (27\\sqrt[3]{3})^x", value: "d" },
+                { label: "x^{(3\\sqrt{3})} = 27\\sqrt[3]{3}", value: "a" },
+                { label: "3\\sqrt{3} \\cdot x = 27\\sqrt[3]{3}", value: "b" },
+                { label: "3\\sqrt{3} = (27\\sqrt[3]{3})^x", value: "c" },
+                { label: "(3\\sqrt{3})^x = 27\\sqrt[3]{3}", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Z definicji logarytmu wiemy, że $$\log_{3\sqrt{3}} 27\sqrt[3]{3} = x$$ oznacza $$(3\sqrt{3})^x = 27\sqrt[3]{3}$$."
               onComplete={() => handleStageComplete(1)}
               img={"/steps-images/definicjaLogarytmu.png"}
@@ -51,12 +50,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "3^{\\frac{3x}{2}} = 3^{\\frac{10}{3}}", value: "a" },
-                { label: "3^{\\frac{x}{2}} = 3^{10}", value: "b" },
-                { label: "3^{3x} = 3^{\\frac{10}{3}}", value: "c" },
-                { label: "3^{\\frac{3}{2}} = 3^{\\frac{x}{3}}", value: "d" }
+                { label: "3^{\\frac{x}{2}} = 3^{10}", value: "a" },
+                { label: "3^{3x} = 3^{\\frac{10}{3}}", value: "b" },
+                { label: "3^{\\frac{3}{2}} = 3^{\\frac{x}{3}}", value: "c" },
+                { label: "3^{\\frac{3x}{2}} = 3^{\\frac{10}{3}}", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne przekształcenie to $$3^{\frac{3x}{2}} = 3^{\frac{10}{3}}$$. <br>
               Dlaczego? <br>
               $$3\sqrt{3} = 3^1 \cdot 3^{\frac{1}{2}} = 3^{\frac{3}{2}}$$ <br>
