@@ -25,9 +25,11 @@ const Page = () => {
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (a,b,c) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
                 { label: "a+b+c=0", value: "a" },
                 { label: "b-c=2a", value: "b" },
@@ -55,7 +57,7 @@ const Page = () => {
                 { label: "2m-1=\\frac{12+6}{2}", value: "c" },
                 { label: "6 = \\frac{12+2m-1}{2}", value: "d" }
               ]}
-              correctAnswer="b"
+              correctAnswer="d"
               explanation="Poprawne przekształcenie to $$6 = \frac{12+2m-1}{2}$$. <br>
               Dlaczego? <br>
               $$a=12, b=6, c=2m-1$$ <br>
@@ -70,7 +72,7 @@ const Page = () => {
 {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Uprość równanie <InlineMath math="6 = \frac{11+2m-1}{2}"/>
+              Uprość równanie <InlineMath math="6 = \frac{12+2m-1}{2}"/>
             </p>
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
@@ -80,11 +82,9 @@ const Page = () => {
                 { label: "12=m+11", value: "c" },
                 { label: "12=11+2m", value: "d" }
               ]}
-              correctAnswer="b"
-              explanation="Poprawne rozwiązanie to $$12=10+2m$$. <br>
-              $$12=11+2m$$ <br> 
-              $$1=2m$$ <br> 
-              $$m=\frac{1}{2}$$"
+              correctAnswer="a"
+              explanation="Poprawne rozwiązanie to $$12=11+2m$$. <br>
+              Wystarczy pomnożyć równanie $$6 = \frac{12+2m-1}{2}$$ stronami przez 2."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -93,18 +93,19 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Oblicz wyrazy ciągu i wskaż jego monotoniczność
+              Z równania <InlineMath math="12=11+2m"/> wyznacz <InlineMath math="m"/>, wyznacz wyrazy ciągu i podaj jego monotoniczność
             </p>
             <ChoiceQuestion
               question="Oblicz wyrazy ciągu i wskaż czy ciąg jest rosnący czy malejący"
               choices={[
-                { label: "(12,6,0) \\rightarrow \\text{ciąg malejący}", value: "a" },
-                { label: "(12,6,0) \\rightarrow \\text{ciąg rosnący}", value: "b" },
-                { label: "(12,6,1) \\rightarrow \\text{ciąg malejący}", value: "c" },
-                { label: "(12,6,1) \\rightarrow \\text{ciąg rosnący}", value: "d" }
+                { label: "m= \\frac{1}{2}, (12,6,0) \\rightarrow \\text{ciąg malejący}", value: "a" },
+                { label: "m= \\frac{1}{2}, (12,6,0) \\rightarrow \\text{ciąg rosnący}", value: "b" },
+                { label: "m= \\frac{1}{2}, (12,6,1) \\rightarrow \\text{ciąg malejący}", value: "c" },
+                { label: "m= \\frac{1}{2}, (12,6,1) \\rightarrow \\text{ciąg rosnący}", value: "d" }
               ]}
               correctAnswer="a"
-              explanation="Poprawne rozwiązanie to $$(12,6,0)$$ i ciąg malejący. <br>
+              explanation="Poprawne rozwiązanie to $$m = \frac{1}{2}, (12,6,0)$$ i ciąg malejący. <br>
+              Z $$12=11+2m $$ mamy $$1=2m$$ i dalej $$m=\frac{1}{2}$$ <br>
               Jeśli $$m=\frac{1}{2}$$ to: <br>
               $$2m-1=0$$ <br>
               Otrzymujemy ciąg $$(12,6,0)$$. <br>

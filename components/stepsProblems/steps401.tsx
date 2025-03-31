@@ -25,14 +25,16 @@ const Page = () => {
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
               question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
-                { label: "a+b+c=3a", value: "a" },
-                { label: "c-b=2a", value: "b" },
+                { label: "a+b+c=0", value: "a" },
+                { label: "b-c=2a", value: "b" },
                 { label: "b = \\frac{a+c}{2}", value: "c" },
-                { label: "2c=3a+b", value: "d" },
+                { label: "2c=a+b", value: "d" },
               ]}
               correctAnswer="c"
               explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
@@ -80,9 +82,9 @@ const Page = () => {
               ]}
               correctAnswer="a"
               explanation="Poprawne rozwiązanie to $$8+4m=6m$$. <br>
+              $$4+2m = \frac{5m+m}{2}$$ <br>
               $$4+2m = \frac{6m}{2}$$ <br> 
-              $$4+2m = 3m$$ <br>
-              Mnożąc obie strony przez $$2$$: $$8+4m=6m$$"
+              $$8+4m = 6m$$ <br>"
               onComplete={() => handleStageComplete(3)}
             />
           </>

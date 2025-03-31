@@ -28,7 +28,7 @@ const Page = () => {
               
             </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (a,b,c) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
                 { label: "a+b+c=0", value: "a" },
                 { label: "b-c=2a", value: "b" },
@@ -105,24 +105,19 @@ const Page = () => {
         </>
         )}
 
-
 {completedStages.includes(4) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Uprość równanie  <InlineMath math="4 = \frac{2m-5+9}{2}"/>
+              Dla <InlineMath math="m=2"/> ciąg <InlineMath math="(2m-5, 4, 9)"/>  przyjmuje postać <InlineMath math="(-1, 4, 9)"/>. 
             </p>
             <ChoiceQuestion
-              question="Oblicz brakujący wyraz ciągu i wskaż czy ciąg jest rosnący czy malejący"
+              question="Dokończ zdanie. Ciąg (-1, 4, 9) jest "
               choices={[
-                { label: "(-1,4,9) \\rightarrow \\text{ciąg rosnący}", value: "a" },
-                { label: "(-1,4,9) \\rightarrow \\text{ciąg malejący}", value: "b" },
-                { label: "(1,4,9) \\rightarrow \\text{ciąg rosnący}", value: "c" },
-                { label: "(1,4,9) \\rightarrow \\text{ciąg malejący}", value: "d" }
+                { label: "\\text{rosnący}", value: "a" },
+                { label: "\\text{malejący}", value: "b" },
               ]}
               correctAnswer="a"
-              explanation="Poprawne rozwiązanie to $$(-1,4,9)$$ i ciąg rosnący. <br>
-              Jeśli $$m=2$$ to $$2m-5=-1$$ i nasz ciągo to $$(-1,4,9)$$. <br> 
-              Spełnione są nierówności $$-1<4<9$$, więc ciąg jest rosnący. <br> "
+              explanation="Poprawne rozwiązanie to ciąg rosnącny ponieważ $$-1<4<9$$"
               onComplete={() => handleStageComplete(5)}
             />
           </>

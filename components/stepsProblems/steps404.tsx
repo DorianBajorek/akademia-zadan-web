@@ -25,18 +25,21 @@ const Page = () => {
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (x, y, z) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
-                { label: "x + y + z = 0", value: "a" },
-                { label: "y - z = 2x", value: "b" },
-                { label: "2y = x + z", value: "c" },
-                { label: "z = x + y", value: "d" },
+                { label: "a+b+c=0", value: "a" },
+                { label: "b-c=2a", value: "b" },
+                { label: "b = \\frac{a+c}{2}", value: "c" },
+                { label: "2c=a+b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z własności ciągu arytmetycznego: środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich, czyli: $$2y = x + z$$"
+              explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
               onComplete={() => handleStageComplete(1)}
+              img={"/steps-images/warunek_ciag_arytmetyczny.png"}
             />
           </>
         )}
@@ -52,13 +55,14 @@ const Page = () => {
                 { label: "2·27 = 9 + (a-1)", value: "a" },
                 { label: "2·9 = 27 + (a-1)", value: "b" },
                 { label: "2(a-1) = 27 + 9", value: "c" },
-                { label: "9 = (27 + a - 1)/2", value: "d" }
+                { label: "9 = \\frac{27 + a - 1}{2}", value: "d" }
               ]}
-              correctAnswer="b"
-              explanation="Poprawne równanie to: $$2·9 = 27 + (a-1)$$ <br>
+              correctAnswer="d"
+              explanation="Poprawne równanie to: $$9 = \frac{27 + a - 1}{2}$$ <br>
+              Z własności ciągu: $$b = \frac{a+c}{2}$$ <br>
               Gdzie: <br>
-              x = 27, y = 9, z = a-1 <br>
-              Z własności ciągu: $$2y = x + z$$"
+              $$a = 27, b = 9, c = a-1$$ <br>
+              "
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -67,7 +71,7 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="18 = 27 + (a - 1)"/>
+             Przekształć  równanie <InlineMath math="9 = \frac{27 + a - 1}{2}"/>
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
@@ -75,14 +79,13 @@ const Page = () => {
                 { label: "18 = 26 + a", value: "a" },
                 { label: "a = 18 - 26", value: "b" },
                 { label: "a = -8", value: "c" },
-                { label: "Wszystkie powyższe", value: "d" }
+                { label: "\\text{Wszystkie powyższe}", value: "a" }
               ]}
               correctAnswer="d"
               explanation="Kolejne kroki rozwiązania: <br>
-              1. $$18 = 27 + a - 1$$ <br>
-              2. $$18 = 26 + a$$ <br>
-              3. $$a = 18 - 26$$ <br>
-              4. $$a = -8$$"
+              1. $$9 = \frac{27 + a - 1}{2}$$ <br>
+              2. $$9 = \frac{26 + a}{2}$$ <br>
+              3. $$18 = 26+a$$ <br>"
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -91,17 +94,15 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Sprawdź poprawność rozwiązania
+              Rozwiąż równananie <InlineMath math="18 = 26+a"/>
             </p>
             <NumericQuestion
               question="Podaj wartość a"
               correctAnswer="-8"
               explanation="Ostateczne rozwiązanie: <br>
               $$a = -8$$ <br>
-              Sprawdzenie: <br>
-              Dla a = -8 ciąg to (27, 9, -9) <br>
-              Różnica: 9 - 27 = -18 i -9 - 9 = -18 <br>
-              Różnica jest stała, więc ciąg jest arytmetyczny."
+              $$a=18-26$$ <br>
+              $$a=-8$$"
               onComplete={() => handleStageComplete(4)}
             />
           </>
@@ -110,15 +111,15 @@ const Page = () => {
         {completedStages.includes(4) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Określ monotoniczność ciągu
+             Dla <InlineMath math="a=-8"/> nasz ciąg ma postać <InlineMath math="(27,9,-9)"/>. 
             </p>
             <ChoiceQuestion
-              question="Jaka jest monotoniczność ciągu (27, 9, -9)?"
+              question="Wskaż monotoniczność ciągu"
               choices={[
-                { label: "Ciąg jest rosnący", value: "a" },
-                { label: "Ciąg jest malejący", value: "b" },
-                { label: "Ciąg jest stały", value: "c" },
-                { label: "Ciąg nie jest monotoniczny", value: "d" }
+                { label: "\\text{Ciąg jest rosnący}", value: "a" },
+                { label: "\\text{Ciąg jest malejący}", value: "b" },
+                { label: "\\text{Ciąg jest stały}", value: "c" },
+                { label: "\\text{Ciąg nie jest monotoniczny}", value: "d" }
               ]}
               correctAnswer="b"
               explanation="Ciąg jest malejący, ponieważ: <br>

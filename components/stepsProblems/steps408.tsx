@@ -25,18 +25,21 @@ const Page = () => {
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (a, b, c) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
-                { label: "a + b + c = 0", value: "a" },
-                { label: "b - c = 2a", value: "b" },
-                { label: "2b = a + c", value: "c" },
-                { label: "2c = a + b", value: "d" },
+                { label: "a+b+c=0", value: "a" },
+                { label: "b-c=2a", value: "b" },
+                { label: "b = \\frac{a+c}{2}", value: "c" },
+                { label: "2c=a+b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z własności ciągu arytmetycznego wiemy, że $$b-a=c-b$$ czyli: $$2b = a + c$$"
+              explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
               onComplete={() => handleStageComplete(1)}
+              img={"/steps-images/warunek_ciag_arytmetyczny.png"}
             />
           </>
         )}
@@ -52,11 +55,11 @@ const Page = () => {
                 { label: "2m = 4 + (9-3m)", value: "a" },
                 { label: "2·4 = m + (9-3m)", value: "b" },
                 { label: "2(9-3m) = m + 4", value: "c" },
-                { label: "4 = (m + 9+3m)/2", value: "d" }
+                { label: "4 = \\frac{m + 9-3m}{2}", value: "d" }
               ]}
-              correctAnswer="b"
-              explanation="Poprawne równanie to: $$2·4 = m + (9-3m)$$ <br>
-              Do własności ciągu $$2b=a+c$$ podstawiamy: <br>
+              correctAnswer="d"
+              explanation="Poprawne równanie to: $$4 = \\frac{m + 9-3m}{2}$$ <br>
+              Do własności ciągu $$b=\frac{a+c}{2}$$ podstawiamy: <br>
               $$a = m$$, $$b = 4$$, $$c = 9-3m$$ <br>"
               onComplete={() => handleStageComplete(2)}
             />
@@ -66,7 +69,7 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="2·4 = m + (9-3m)"/>
+              Rozwiąż równanie <InlineMath math="4 = \frac{m + 9-3m}{2}"/>
             </p>
             <ChoiceQuestion
               question="Wskaż poprawne rozwiązanie"
@@ -91,7 +94,7 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Określ monotoniczność ciągu
+             Dla <InlineMath math="m=0.5"/> nasz ciąg ma postać <InlineMath math="(0.5, 4, 7.5)"/>.
             </p>
             <ChoiceQuestion
               question="Jaka jest monotoniczność ciągu $$(0.5, 4, 7.5)$$?"
@@ -115,7 +118,7 @@ const Page = () => {
             equation="(m, 4, 9-3m) \rightarrow \text{ciąg arytmetyczny}"
             steps={[
               {
-                step: "2b = a + c \\Rightarrow 2·4 = m + (9-3m)",
+                step: "b = \\frac{a + c}{2} \\Rightarrow 4 = \\frac{m + (9-3m)}{2}",
               },
               {
                 step: "8 = 9 - 2m",

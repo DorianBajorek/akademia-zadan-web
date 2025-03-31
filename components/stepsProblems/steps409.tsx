@@ -25,18 +25,21 @@ const Page = () => {
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg $$(a, b, c)$$ jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
-                { label: "a + b + c = 0", value: "a" },
-                { label: "b - c = 2a", value: "b" },
-                { label: "b = \\frac{a + c}{2}", value: "c" },
-                { label: "2c = a + b", value: "d" },
+                { label: "a+b+c=0", value: "a" },
+                { label: "b-c=2a", value: "b" },
+                { label: "b = \\frac{a+c}{2}", value: "c" },
+                { label: "2c=a+b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z własności ciągu arytmetycznego: środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich, czyli: $$b = \frac{a + c}{2}$$"
+              explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
               onComplete={() => handleStageComplete(1)}
+              img={"/steps-images/warunek_ciag_arytmetyczny.png"}
             />
           </>
         )}
@@ -92,7 +95,7 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Określ monotoniczność ciągu
+              Dla <InlineMath math="k=10"/> nasz ciąg ma postać <InlineMath math="(10,23,36)"/>.
             </p>
             <ChoiceQuestion
               question="Jaka jest monotoniczność ciągu $$(10, 23, 36)$$?"
@@ -100,7 +103,7 @@ const Page = () => {
                 { label: "\\text{Ciąg jest rosnący}", value: "a" },
                 { label: "\\text{Ciąg jest malejący}", value: "b" },
                 { label: "\\text{Ciąg jest stały}", value: "c" },
-                { label: "\\text{Ciąg nie jest monotoniczny}", value: "a" }
+                { label: "\\text{Ciąg nie jest monotoniczny}", value: "d" }
               ]}
               correctAnswer="a"
               explanation="Ciąg jest rosnący, ponieważ: <br>

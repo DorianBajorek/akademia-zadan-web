@@ -21,22 +21,25 @@ const Page = () => {
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
           <InlineMath math="(-4 + x, x^2 - 4, 11)"/> 
         </p>
-        <p className="text-lg text-gray-800">jest arytmetyczny. Wyznacz wartość <InlineMath math="x"/> i określ monotoniczność ciągu</p>
+        <p className="text-lg text-gray-800">jest arytmetyczny. Wyznacz wartość <InlineMath math="x"/>. </p>
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (a, b, c) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
-                { label: "a + b + c = 0", value: "a" },
-                { label: "b - c = 2a", value: "b" },
-                { label: "2b = a + c", value: "c" },
-                { label: "2c = a + b", value: "d" },
+                { label: "a+b+c=0", value: "a" },
+                { label: "b-c=2a", value: "b" },
+                { label: "b = \\frac{a+c}{2}", value: "c" },
+                { label: "2c=a+b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z własności ciągu arytmetycznego: środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich, czyli: $$2b = a + c$$"
+              explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
               onComplete={() => handleStageComplete(1)}
+              img={"/steps-images/warunek_ciag_arytmetyczny.png"}
             />
           </>
         )}
@@ -50,15 +53,16 @@ const Page = () => {
               question="Które równanie jest poprawne?"
               choices={[
                 { label: `2(-4 + x) = (x^2 - 4) + 11`, value: "a" },
-                { label: `2(x^2 - 4) = (-4 + x) + 11`, value: "b" },
-                { label: `2·11 = (-4 + x) + (x^2 - 4)`, value: "c" },
-                { label: `x^2 - 4 = ((-4 + x) + 11)/2`, value: "d" }
+                { label: `2(x^2 - 4) = (-4 + x) - 11`, value: "b" },
+                { label: `2 \\cdot 11 = (-4 + x) + (x^2 - 4)`, value: "c" },
+                { label: `x^2 - 4 = \\frac{-4 + x + 11}{2}`, value: "d" }
               ]}
-              correctAnswer="b"
-              explanation={`Poprawne równanie to: $$2(x^2 - 4) = (-4 + x) + 11$$ <br>
+              correctAnswer="d"
+              explanation={`Poprawne równanie to: $$x^2 - 4 = \\frac{-4 + x + 11}{2}$$ <br>
+              Z własności ciągu: $$b = \\frac{a + c}{2}$$
               Gdzie: <br>
-              a = -4 + x, b = x² - 4, c = 11 <br>
-              Z własności ciągu: $$2b = a + c$$`}
+              $$a = -4 + x$$, $$b = x^{2} - 4$$, $$c = 11$$ <br>
+              `}
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -67,24 +71,22 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="2(x^2 - 4) = x + 7"/>
+              Przekształć równanie  <InlineMath math="x^2 - 4 = \frac{-4 + x + 11}{2}"/> do klasycznego równania kwadratowego
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "2x^2 - 8 = x + 7", value: "a" },
-                { label: "2x^2 - x - 15 = 0", value: "b" },
-                { label: "x = 3 \text{ lub } x = -2.5", value: "c" },
-                { label: "Wszystkie powyższe", value: "d" }
+                { label: "2x^{2}-x-15=0", value: "a" },
+                { label: "x^{2}-x-9=0", value: "b" },
+                { label: "x^{2}-x-15=0", value: "c" },
+                { label: "x^{2}=x+7", value: "d" }
               ]}
-              correctAnswer="d"
+              correctAnswer="a"
               explanation="Kolejne kroki rozwiązania: <br>
-              1. $$2x^2 - 8 = x + 7$$ <br>
-              2. $$2x^2 - x - 15 = 0$$ <br>
-              3. Rozwiązanie równania kwadratowego: <br>
-              $$Δ = 1 + 120 = 121$$ <br>
-              $$x = \frac{1 \pm 11}{4}$$ <br>
-              $$x = 3$$ lub $$x = -2.5$$"
+              1. $$x^2 - 4 = \frac{-4 + x + 11}{2}$$ <br>
+              2. $$x^2 - 4 = \frac{ x + 7}{2}$$ <br>
+              3. $$2x^2 - 8 = x+7$$ <br>
+              4. $$ 2x^2-x-15=0$$"
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -93,54 +95,33 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Sprawdź poprawność rozwiązań
+              Rozwiąż równanie <InlineMath math="2x^2-x-15=0"/>
             </p>
             <ChoiceQuestion
               question="Które rozwiązania są poprawne?"
               choices={[
-                { label: "Tylko x = 3", value: "a" },
-                { label: "Tylko x = -2.5", value: "b" },
-                { label: "Obydwa rozwiązania", value: "c" },
-                { label: "Żadne z rozwiązań", value: "d" }
+                { label: "x_{1}=-3, x_{2}=\\frac{5}{2}", value: "a" },
+                { label: "x_{1}=3, x_{2}=\\frac{5}{2}", value: "b" },
+                { label: "x_{1}=3, x_{2}=-\\frac{5}{2}", value: "c" },
+                { label: "x_{1}=3, x_{2}=\\frac{2}{5}", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Obydwa rozwiązania są poprawne: <br>
-              Dla x = 3: ciąg (-1, 5, 11) - różnica r = 6 <br>
-              Dla x = -2.5: ciąg (-6.5, 2.25, 11) - różnica r = 8.75 <br>
-              Oba ciągi są arytmetyczne."
+              explanation="Rozwiązujemy równanie $$2x^2-x-15=0$$  <br>
+              $$\Delta = b^{2}-4ac=(-1)^2-4\cdot 2\cdot (-15)=121$$ <br>
+              $$\sqrt{\Delta}=11$$ <br>
+              $$x_{1}=3, x_{2}=-\frac{5}{2}$$"
               onComplete={() => handleStageComplete(4)}
             />
           </>
         )}
 
-        {completedStages.includes(4) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Określ monotoniczność ciągów
-            </p>
-            <ChoiceQuestion
-              question="Jaka jest monotoniczność otrzymanych ciągów?"
-              choices={[
-                { label: "Oba ciągi są rosnące", value: "a" },
-                { label: "Oba ciągi są malejące", value: "b" },
-                { label: "Jeden rosnący, drugi malejący", value: "c" },
-                { label: "Jeden stały, drugi rosnący", value: "d" }
-              ]}
-              correctAnswer="a"
-              explanation="Oba ciągi są rosnące: <br>
-              1. Dla x = 3: (-1, 5, 11) - różnica r = 6 > 0 <br>
-              2. Dla x = -2.5: (-6.5, 2.25, 11) - różnica r = 8.75 > 0"
-              onComplete={() => handleStageComplete(5)}
-            />
-          </>
-        )}
         
-        {completedStages.length === 5 && (
+        {completedStages.length === 4 && (
           <StudentNotes
             equation="(-4 + x, x^2 - 4, 11) \rightarrow \text{ciąg arytmetyczny}"
             steps={[
               {
-                step: "2b = a + c \\Rightarrow 2(x^2 - 4) = (-4 + x) + 11",
+                step: "b = \\frac{a+c}{2} \\Rightarrow x^2 - 4 = \\frac{-4 + x + 11}{2}",
               },
               {
                 step: "2x^2 - 8 = x + 7",
@@ -148,11 +129,8 @@ const Page = () => {
               {
                 step: "2x^2 - x - 15 = 0 \\Rightarrow x = 3 \\text{ lub } x = -2.5",
               },
-              {
-                step: "\\text{Ciągi: } (-1, 5, 11) \\text{ (r=6)} \\text{ i } (-6.5, 2.25, 11) \\text{ (r=8.75)} \\text{ - oba rosnące}"
-              }
             ]}
-            solutions={["x = 3", "x = -2.5", "Oba ciągi są rosnące"]}
+            solutions={["x = 3", "x = -2.5", ]}
           />
         )}
       </div>

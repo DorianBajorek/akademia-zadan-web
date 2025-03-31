@@ -25,18 +25,21 @@ const Page = () => {
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (x,y,z) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
-                { label: "x+y+z=0", value: "a" },
-                { label: "y-z=2x", value: "b" },
-                { label: "y = \\frac{x+z}{2}", value: "c" },
-                { label: "2z=x+y", value: "d" },
+                { label: "a+b+c=0", value: "a" },
+                { label: "b-c=2a", value: "b" },
+                { label: "b = \\frac{a+c}{2}", value: "c" },
+                { label: "2c=a+b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z definicji ciągu arytmetycznego wiemy, że środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich: $$y = \frac{x+z}{2}$$"
+              explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
               onComplete={() => handleStageComplete(1)}
+              img={"/steps-images/warunek_ciag_arytmetyczny.png"}
             />
           </>
         )}
@@ -56,9 +59,10 @@ const Page = () => {
               ]}
               correctAnswer="b"
               explanation="Poprawne przekształcenie to $$4 = \frac{1+a+5}{2}$$. <br>
+               Z własności ciągu arytmetycznego: $$y = \frac{x+z}{2}$$ <br>
               Gdzie: <br>
-              $$x=1$$, $$y=4$$, $$z=a+5$$ <br>
-              Z własności ciągu arytmetycznego: $$y = \frac{x+z}{2}$$"
+              $$x=1$$, $$y=4$$, $$z=a+5$$ <br>"
+             
               onComplete={() => handleStageComplete(2)}
             />
           </>

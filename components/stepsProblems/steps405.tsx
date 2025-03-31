@@ -25,18 +25,21 @@ const Page = () => {
         
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6"></p>
+            <p className="text-lg text-gray-700 mt-6">
+              
+            </p>
             <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg (x, y, z) jest arytmetyczny, to które równanie jest spełnione?"
+              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
               choices={[
-                { label: "x + y + z = 0", value: "a" },
-                { label: "y - z = 2x", value: "b" },
-                { label: "2y = x + z", value: "c" },
-                { label: "z = x + y", value: "d" },
+                { label: "a+b+c=0", value: "a" },
+                { label: "b-c=2a", value: "b" },
+                { label: "b = \\frac{a+c}{2}", value: "c" },
+                { label: "2c=a+b", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Z własności ciągu arytmetycznego: środkowy wyraz jest średnią arytmetyczną wyrazów sąsiednich, czyli: $$2y = x + z$$"
+              explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
               onComplete={() => handleStageComplete(1)}
+              img={"/steps-images/warunek_ciag_arytmetyczny.png"}
             />
           </>
         )}
@@ -49,16 +52,17 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "2·24 = 6 + (a-1)", value: "a" },
-                { label: "2·6 = 24 + (a-1)", value: "b" },
+                { label: "2\\cdot 24 = 6 + (a-1)", value: "a" },
+                { label: "6 = \\frac{24 + a - 1}{2} ", value: "b" },
                 { label: "2(a-1) = 24 + 6", value: "c" },
-                { label: "6 = (24 + a - 1)/2", value: "d" }
+                { label: "2 \\cdot 6 = 24 + (a-1)", value: "d" }
               ]}
               correctAnswer="b"
-              explanation="Poprawne równanie to: $$2·6 = 24 + (a-1)$$ <br>
+              explanation="Poprawne równanie to: $$6 = \\frac{24 + a - 1}{2} $$ <br>
+              Z własności ciągu: $$b = \frac{a + c}{2}$$ <br>
               Gdzie: <br>
-              x = 24, y = 6, z = a-1 <br>
-              Z własności ciągu: $$2y = x + z$$"
+              $$a = 24$$, $$b = 6$$, $$c = a-1$$ "
+             
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -67,28 +71,29 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="12 = 24 + (a - 1)"/>
+             Rozwiąż równanie <InlineMath math="6 = \frac{24 + a - 1}{2}"/>
             </p>
             <ChoiceQuestion
-              question="Które przekształcenie jest poprawne?"
+              question="Wskaż poprawne rozwiązanie"
               choices={[
-                { label: "12 = 23 + a", value: "a" },
-                { label: "a = 12 - 23", value: "b" },
-                { label: "a = -11", value: "c" },
-                { label: "Wszystkie powyższe", value: "d" }
+                { label: "a=-11", value: "a" },
+                { label: "a=11", value: "b" },
+                { label: "a =1", value: "c" },
+                { label: "a=-1", value: "d" }
               ]}
-              correctAnswer="d"
+              correctAnswer="a"
               explanation="Kolejne kroki rozwiązania: <br>
-              1. $$12 = 24 + a - 1$$ <br>
-              2. $$12 = 23 + a$$ <br>
-              3. $$a = 12 - 23$$ <br>
-              4. $$a = -11$$"
+              1. $$6 = \frac{24 + a - 1}{2}$$ <br>
+              2. $$12 = 24 + a - 1$$ <br>
+              3. $$12 = 23 + a$$ <br>
+              4. $$a = 12 - 23$$ <br>
+              5. $$a = -11$$"
               onComplete={() => handleStageComplete(3)}
             />
           </>
         )}
         
-        {completedStages.includes(3) && (
+        {/* {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
               Sprawdź poprawność rozwiązania
@@ -105,36 +110,36 @@ const Page = () => {
               onComplete={() => handleStageComplete(4)}
             />
           </>
-        )}
+        )} */}
 
-        {completedStages.includes(4) && (
+        {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Określ monotoniczność ciągu
+              Dla <InlineMath math="a=-11"/> nasz ciąg ma postać <InlineMath math="(24,6,-12)"/>
             </p>
             <ChoiceQuestion
               question="Jaka jest monotoniczność ciągu (24, 6, -12)?"
               choices={[
-                { label: "Ciąg jest rosnący", value: "a" },
-                { label: "Ciąg jest malejący", value: "b" },
-                { label: "Ciąg jest stały", value: "c" },
-                { label: "Ciąg nie jest monotoniczny", value: "d" }
+                { label: "\\text{Ciąg jest rosnący}", value: "a" },
+                { label: "\\text{Ciąg jest malejący}", value: "b" },
+                { label: "\\text{Ciąg jest stały}", value: "c" },
+                { label: "\\text{Ciąg nie jest monotoniczny}", value: "d" }
               ]}
               correctAnswer="b"
               explanation="Ciąg jest malejący, ponieważ: <br>
               $$24 > 6 > -12$$ <br>
               Różnica ciągu: $$r = -18$$ (ujemna, więc ciąg maleje)"
-              onComplete={() => handleStageComplete(5)}
+              onComplete={() => handleStageComplete(4)}
             />
           </>
         )}
         
-        {completedStages.length === 5 && (
+        {completedStages.length === 4 && (
           <StudentNotes
             equation="(24, 6, a-1) \rightarrow \text{ciąg arytmetyczny}"
             steps={[
               {
-                step: "2y = x + z \\Rightarrow 2·6 = 24 + (a-1)",
+                step: "b = \\frac{a+c}{2} \\Rightarrow  6 = \\frac{24 + a - 1}{2}",
               },
               {
                 step: "12 = 24 + a - 1",
