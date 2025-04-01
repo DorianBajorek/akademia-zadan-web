@@ -30,12 +30,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie odpowiada definicji logarytmu?"
               choices={[
-                { label: "3^x = \\frac{1}{27}", value: "a" },
-                { label: "x^3 = \\frac{1}{27}", value: "b" },
-                { label: "3 \\cdot x = \\frac{1}{27}", value: "c" },
+                { label: "x^3 = \\frac{1}{27}", value: "a" },
+                { label: "3 \\cdot x = \\frac{1}{27}", value: "b" },
+                { label: "3^x = \\frac{1}{27}", value: "c" },
                 { label: "3 = \\left(\\frac{1}{27}\\right)^x", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Z definicji logarytmu wiemy, że $$\log_3 \frac{1}{27} = x$$ oznacza $$3^x = \frac{1}{27}$$."
               onComplete={() => handleStageComplete(1)}
               img={"/steps-images/definicjaLogarytmu.png"}
@@ -51,12 +51,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "3^x = 3^{-3}", value: "a" },
-                { label: "3^x = 3^3", value: "b" },
-                { label: "3^x = -3^3", value: "c" },
+                { label: "3^x = 3^3", value: "a" },
+                { label: "3^x = -3^3", value: "b" },
+                { label: "3^x = 3^{-3}", value: "c" },
                 { label: "3^x = \\frac{1}{3^3}", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne przekształcenie to $$3^x = 3^{-3}$$. <br>
               Dlaczego? <br>
               $$\frac{1}{27} = \frac{1}{3^3} = 3^{-3}$$"
@@ -88,7 +88,10 @@ const Page = () => {
                 step: "\\log_3 \\frac{1}{27} = x \\Rightarrow 3^x = \\frac{1}{27}",
               },
               {
-                step: "\\frac{1}{27} = 3^{-3} \\Rightarrow 3^x = 3^{-3}",
+                step: "\\frac{1}{27} = 3^{-3}",
+              },
+              {
+                step: "3^x = 3^{-3}",
               },
               {
                 step: "x = -3",

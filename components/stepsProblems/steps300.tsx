@@ -30,13 +30,13 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie odpowiada definicji logarytmu?"
               choices={[
-                { label: "(\\sqrt{2})^x = 2", value: "a" },
-                { label: "x^{(\\sqrt{2})} = 2", value: "b" },
-                { label: "\\sqrt{2} \\cdot x = 2", value: "c" },
+                { label: "x^{(\\sqrt{2})} = 2", value: "a" },
+                { label: "\\sqrt{2} \\cdot x = 2", value: "b" },
+                { label: "(\\sqrt{2})^x = 2", value: "c" },
                 { label: "\\sqrt{2} = 2^x", value: "d" },
               ]}
-              correctAnswer="a"
-              explanation="Z definicji logarytmu wiemy, że $$\\log_{\sqrt{2}} 2 = x$$ oznacza $$(\sqrt{2})^x = 2$$."
+              correctAnswer="c"
+              explanation="Z definicji logarytmu wiemy, że $$\log_{\sqrt{2}} 2 = x$$ oznacza $$(\sqrt{2})^x = 2$$."
               onComplete={() => handleStageComplete(1)}
               img={"/steps-images/definicjaLogarytmu.png"}
             />
@@ -65,29 +65,9 @@ const Page = () => {
             />
           </>
         )}
+
         
         {completedStages.includes(2) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Porównaj wykładniki po obu stronach równania:
-            </p>
-            <ChoiceQuestion
-              question="Które równanie wynika z porównania wykładników?"
-              choices={[
-                { label: "\\frac{x}{2} = 1", value: "a" },
-                { label: "x = \\frac{1}{2}", value: "b" },
-                { label: "\\frac{1}{2} = x", value: "c" },
-                { label: "x = 2", value: "d" }
-              ]}
-              correctAnswer="a"
-              explanation="Poprawne równanie to $$\frac{x}{2} = 1$$. <br>
-              Dlaczego? Jeśli $$2^{\frac{x}{2}} = 2^1$$, to wykładniki muszą być równe, więc $$\frac{x}{2} = 1$$."
-              onComplete={() => handleStageComplete(3)}
-            />
-          </>
-        )}
-        
-        {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
               Rozwiąż równanie liniowe:
@@ -104,7 +84,7 @@ const Page = () => {
           </>
         )}
         
-        {completedStages.length === 4 && (
+        {completedStages.length === 3 && (
           <StudentNotes
             equation="\\log_{\sqrt{2}} 2"
             steps={[

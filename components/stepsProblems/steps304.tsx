@@ -30,12 +30,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie odpowiada definicji logarytmu?"
               choices={[
-                { label: "(\\sqrt{2})^x = 2\\sqrt{2}", value: "a" },
-                { label: "x^{(\\sqrt{2})} = 2\\sqrt{2}", value: "b" },
+                { label: "x^{(\\sqrt{2})} = 2\\sqrt{2}", value: "a" },
+                { label: "(\\sqrt{2})^x = 2\\sqrt{2}", value: "b" },
                 { label: "\\sqrt{2} \\cdot x = 2\\sqrt{2}", value: "c" },
                 { label: "\\sqrt{2} = (2\\sqrt{2})^x", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Z definicji logarytmu wiemy, że $$\log_{\sqrt{2}} (2\sqrt{2}) = x$$ oznacza $$(\sqrt{2})^x = 2\sqrt{2}$$."
               onComplete={() => handleStageComplete(1)}
               img={"/steps-images/definicjaLogarytmu.png"}
@@ -59,7 +59,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$2^{\frac{x}{2}} = 2^{\frac{3}{2}}$$. <br>
               Dlaczego? <br>
-              $$\sqrt{2} = 2^{\frac{1}{2}}$$, więc lewa strona to $$(2^{\frac{1}{2}})^x = 2^{\frac{x}{2}}$$ <br>
+              $$\sqrt{2} = 2^{\frac{1}{2}}$$, a z tego mamy więc, że  $$(2^{\frac{1}{2}})^x = 2^{\frac{x}{2}}$$ <br> Prawa strona
               $$2\sqrt{2} = 2^1 \cdot 2^{\frac{1}{2}} = 2^{\frac{3}{2}}$$"
               onComplete={() => handleStageComplete(2)}
             />
@@ -74,12 +74,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie wynika z porównania wykładników?"
               choices={[
-                { label: "\\frac{x}{2} = \\frac{3}{2}", value: "a" },
-                { label: "x = 3", value: "b" },
-                { label: "\\frac{x}{2} = 1", value: "c" },
-                { label: "x = \\frac{1}{2}", value: "d" }
+                { label: "x = 3", value: "a" },
+                { label: "\\frac{x}{2} = 1", value: "b" },
+                { label: "x = \\frac{1}{2}", value: "c" },
+                { label: "\\frac{x}{2} = \\frac{3}{2}", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne równanie to $$\frac{x}{2} = \frac{3}{2}$$. <br>
               Dlaczego? Jeśli $$2^{\frac{x}{2}} = 2^{\frac{3}{2}}$$, to wykładniki muszą być równe."
               onComplete={() => handleStageComplete(3)}
@@ -105,7 +105,7 @@ const Page = () => {
         
         {completedStages.length === 4 && (
           <StudentNotes
-            equation="\\log_{\\sqrt{2}} (2\\sqrt{2})"
+            equation="\log_{\sqrt{2}} (2\sqrt{2})"
             steps={[
               {
                 step: "\\log_{\\sqrt{2}} (2\\sqrt{2}) = x \\Rightarrow (\\sqrt{2})^x = 2\\sqrt{2}",
@@ -114,7 +114,10 @@ const Page = () => {
                 step: "\\sqrt{2} = 2^{\\frac{1}{2}} \\text{ i } 2\\sqrt{2} = 2^{\\frac{3}{2}}",
               },
               {
-                step: "(2^{\\frac{1}{2}})^x = 2^{\\frac{3}{2}} \\Rightarrow 2^{\\frac{x}{2}} = 2^{\\frac{3}{2}}",
+                step: "(2^{\\frac{1}{2}})^x = 2^{\\frac{3}{2}}",
+              },
+              {
+                step: "2^{\\frac{x}{2}} = 2^{\\frac{3}{2}} ",
               },
               {
                 step: "\\frac{x}{2} = \\frac{3}{2}",

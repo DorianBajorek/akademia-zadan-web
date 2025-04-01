@@ -1,6 +1,6 @@
 "use client";
 import "katex/dist/katex.min.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
@@ -25,6 +25,9 @@ const TaskSpeedrun: React.FC = () => {
   const [correctAnswer, setCorrectAnswer] = useState<string>();
   const [showNextTask, setShowNextTask] = useState<boolean>(false);
   const [questionNr, setQuestionNr] = useState<number>(0);
+  const [timeLeft, setTimeLeft] = useState<number>(300);
+  const [timeUp, setTimeUp] = useState<boolean>(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const letterMap = ["a", "b", "c", "d"];
   const tf2Map = ["tt", "tf", "ft", "ff"];
 
@@ -40,6 +43,9 @@ const TaskSpeedrun: React.FC = () => {
     setIsCorrect(answerIndex === questions[0].correct);
     setCorrectAnswer(questions[0].taskType === "tf2" ? tf2Map[questions[0].correct] : letterMap[questions[0].correct])
     setShowNextTask(true);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     window.scrollTo({
       top: document.documentElement.scrollHeight,
       behavior: "smooth",
@@ -48,8 +54,29 @@ const TaskSpeedrun: React.FC = () => {
 
   const handleNextTask = async () => {
     setQuestionNr(questionNr + 1);
+    setTimeLeft(300); 
+    setTimeUp(false);
+    startTimer();
   };
   
+  const startTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    
+    timerRef.current = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timerRef.current as NodeJS.Timeout);
+          setTimeUp(true);
+          setShowNextTask(true);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getProblems(1);
@@ -96,12 +123,26 @@ const TaskSpeedrun: React.FC = () => {
       setCorrectAnswer(undefined);
       setShowNextTask(false);
       setQuestions(newQuestions);
+      startTimer();
     };
   
     fetchData();
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, [questionNr]);
   
-    
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
+
+  const progressPercentage = (timeLeft / 300) * 100;
+  
   return (
     <div className="bg-gray-50 min-h-screen">
       <Nav />
@@ -112,6 +153,21 @@ const TaskSpeedrun: React.FC = () => {
         <p className="text-lg text-gray-700 text-center mb-8">
           Rozwiązuj kolejne losowo wybrane zadania i szlifuj swoje umiejętności
         </p>
+
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-2">
+            <span className="font-medium text-gray-700">Pozostały czas:</span>
+            <span className={`font-bold ${timeLeft <= 30 ? 'text-red-600' : 'text-blue-600'}`}>
+              {formatTime(timeLeft)}
+            </span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-4">
+            <div 
+              className={`h-4 rounded-full ${timeLeft <= 30 ? 'bg-red-500' : 'bg-blue-500'}`}
+              style={{ width: `${progressPercentage}%`, transition: 'width 1s linear' }}
+            ></div>
+          </div>
+        </div>
 
         <div className="space-y-6">
           {questions.map((q) => (
@@ -152,14 +208,20 @@ const TaskSpeedrun: React.FC = () => {
 
         {showNextTask && (
           <div className="mt-8 text-center">
-            {isCorrect ?
-              <p className="text-2xl mt-2 font-bold text-center text-green-600  space-y-6">
+            {timeUp ? (
+              <div className="mb-6">
+                <p className="text-2xl font-bold text-red-600">Czas minął!</p>
+                <p className="text-lg text-gray-700 mt-2">Nie zdążyłeś odpowiedzieć na czas.</p>
+              </div>
+            ) : isCorrect ? (
+              <p className="text-2xl mt-2 font-bold text-center text-green-600 space-y-6">
                 Poprawna odpowiedź
-              </p> :
+              </p>
+            ) : (
               <p className="text-2xl mt-2 font-bold text-center text-gray-600 space-y-6">
                 Błędna odpowiedź
               </p>
-            }
+            )}
             <br />
             <button
               onClick={handleNextTask}
