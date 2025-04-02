@@ -169,6 +169,31 @@ const tasksByCategory = [
         img: "/problemImages/problem309.png",
       },
     ]
+  },
+  {
+    category: "Potęgi",
+    tasks: [
+      {
+        id: "500",
+        title: "Zadanie 31",
+        img: "/problemImages/problem500.png",
+      },
+      {
+        id: "501",
+        title: "Zadanie 31",
+        img: "/problemImages/problem501.png",
+      },
+      {
+        id: "502",
+        title: "Zadanie 32",
+        img: "/problemImages/problem502.png",
+      },
+      {
+        id: "503",
+        title: "Zadanie 33",
+        img: "/problemImages/problem503.png",
+      },
+    ]
   }
 ];
 
