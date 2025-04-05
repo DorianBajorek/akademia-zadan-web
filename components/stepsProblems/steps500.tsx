@@ -37,6 +37,7 @@ const Page = () => {
               correctAnswer="b"
               explanation="Poprawne przekształcenie to $$32 = 2^5$$, ponieważ $$2^5 = 32$$."
               onComplete={() => handleStageComplete(1)}
+              img="/steps-images/definicjaPotegi.png"
             />
           </>
         )}
@@ -57,6 +58,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$32^{\frac{3}{5}} = (2^5)^{\frac{3}{5}} = 2^{5 \cdot \frac{3}{5}} = 2^3$$. Musimy pamiętać, że jeśli mamy potęgę do potęgi to wykładniki mnożymy!"
               onComplete={() => handleStageComplete(2)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
@@ -77,6 +79,7 @@ const Page = () => {
               correctAnswer="d"
               explanation="Poprawne przekształcenie to $$2^{-1} \cdot 2^3 = 2^{-1 + 3} = 2^2 = 4$$."
               onComplete={() => handleStageComplete(3)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}

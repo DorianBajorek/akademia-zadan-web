@@ -37,6 +37,7 @@ const Page = () => {
               correctAnswer="b"
               explanation="Poprawne przekształcenie to $$27 = 3^3$$, ponieważ $$3^3 = 27$$."
               onComplete={() => handleStageComplete(1)}
+              img="/steps-images/definicjaPotegi.png"
             />
           </>
         )}
@@ -57,6 +58,7 @@ const Page = () => {
               correctAnswer="d"
               explanation="Poprawne przekształcenie to $$\sqrt{27} = 27^{\frac{1}{2}} = (3^3)^{\frac{1}{2}}$$, ponieważ pierwiastek kwadratowy to potęga o wykładniku 1/2."
               onComplete={() => handleStageComplete(2)}
+              img="/steps-images/pierwiastekPotega.png"
             />
           </>
         )}
@@ -77,6 +79,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$(3^3)^{\frac{1}{2}} = 3^{3 \cdot \frac{1}{2}} = 3^{\frac{3}{2}}$$. Gdy mamy potęgę potęgi, mnożymy wykładniki."
               onComplete={() => handleStageComplete(3)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
@@ -97,6 +100,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$3^{-3} \cdot 3^{\frac{3}{2}} = 3^{-3 + \frac{3}{2}} = 3^{-\frac{3}{2}}$$. Gdy mnożymy potęgi o tej samej podstawie, dodajemy wykładniki."
               onComplete={() => handleStageComplete(4)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}

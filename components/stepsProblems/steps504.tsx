@@ -37,6 +37,7 @@ const Page = () => {
               correctAnswer="c"
               explanation="Poprawne przekształcenia to $$100 = 10^2$$ i $$0,1 = 10^{-1}$$, ponieważ: $$10^2 = 100$$ i $$10^{-1} = 0,1$$."
               onComplete={() => handleStageComplete(1)}
+              img="/steps-images/definicjaPotegi.png"
             />
           </>
         )}
@@ -57,6 +58,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenie: $$100^5 = (10^2)^5 = 10^{2 \cdot 5} = 10^{10}$$ (potęga potęgi - mnożymy wykładniki)"
               onComplete={() => handleStageComplete(2)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
@@ -77,6 +79,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenie: $$(0,1)^{-6} = (10^{-1})^{-6} = 10^{6}$$ (mnożymy wykładniki: $$-1 \cdot -6 = 6$$)"
               onComplete={() => handleStageComplete(3)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
@@ -97,6 +100,7 @@ const Page = () => {
               correctAnswer="d"
               explanation="Poprawne przekształcenie: $$10^{10} \cdot 10^{6} = 10^{10 + 6} = 10^{16}$$ (dodajemy wykładniki)"
               onComplete={() => handleStageComplete(4)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}

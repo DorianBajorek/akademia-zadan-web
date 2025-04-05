@@ -193,6 +193,36 @@ const tasksByCategory = [
         title: "Zadanie 33",
         img: "/problemImages/problem503.png",
       },
+      {
+        id: "504",
+        title: "Zadanie 34",
+        img: "/problemImages/problem504.png",
+      },
+      {
+        id: "505",
+        title: "Zadanie 35",
+        img: "/problemImages/problem505.png",
+      },
+      {
+        id: "506",
+        title: "Zadanie 36",
+        img: "/problemImages/problem506.png",
+      },
+      {
+        id: "507",
+        title: "Zadanie 37",
+        img: "/problemImages/problem507.png",
+      },
+      {
+        id: "508",
+        title: "Zadanie 33",
+        img: "/problemImages/problem508.png",
+      },
+      {
+        id: "509",
+        title: "Zadanie 33",
+        img: "/problemImages/problem509.png",
+      },
     ]
   }
 ];

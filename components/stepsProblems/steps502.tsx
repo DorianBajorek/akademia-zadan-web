@@ -37,6 +37,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenia to $$16 = 2^4$$ i $$8 = 2^3$$, ponieważ: $$2^4 = 16$$ i $$2^3 = 8$$."
               onComplete={() => handleStageComplete(1)}
+              img="/steps-images/definicjaPotegi.png"
             />
           </>
         )}
@@ -57,6 +58,7 @@ const Page = () => {
               correctAnswer="d"
               explanation="Poprawne przekształcenie D: <br>1. $$16 = 2^4$$ (zamiana podstawy)<br>2. $$\frac{1}{2^4} = 2^{-4}$$ (ułamek to ujemny wykładnik)<br>3. $$(2^{-4})^8 = 2^{-32}$$ (potęga potęgi - mnożymy wykładniki)"
               onComplete={() => handleStageComplete(2)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
@@ -77,6 +79,7 @@ const Page = () => {
               correctAnswer="b"
               explanation="Poprawne przekształcenie to $$8^{16} = (2^3)^{16} = 2^{3 \cdot 16} = 2^{48}$$. Stosujemy prawo potęgowania potęgi."
               onComplete={() => handleStageComplete(4)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}

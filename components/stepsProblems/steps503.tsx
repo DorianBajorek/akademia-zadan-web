@@ -37,6 +37,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Poprawne przekształcenia to $$81 = 3^4$$ i $$243 = 3^5$$, ponieważ: $$3^4 = 81$$ i $$3^5 = 243$$."
               onComplete={() => handleStageComplete(1)}
+              img="/steps-images/definicjaPotegi.png"
             />
           </>
         )}
@@ -44,7 +45,7 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Przekształć ułamek <InlineMath math="\frac{1}{81}" /> na potęgę o podstawie <InlineMath math="3" />:
+              Przekształć ułamek <InlineMath math="(\frac{1}{81})^2" /> na potęgę o podstawie <InlineMath math="3" />:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
@@ -57,6 +58,7 @@ const Page = () => {
               correctAnswer="d"
               explanation="Poprawne przekształcenie D: <br>1. $$81 = 3^4$$ (zamiana podstawy)<br>2. $$\frac{1}{3^4} = 3^{-4}$$ (ułamek to ujemny wykładnik)<br>3. $$(3^{-4})^2 = 3^{-8}$$ (potęga potęgi - mnożymy wykładniki)"
               onComplete={() => handleStageComplete(2)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
@@ -77,6 +79,7 @@ const Page = () => {
               correctAnswer="d"
               explanation="Poprawne przekształcenie: <br>1. $$\sqrt{243} = 243^{\frac{1}{2}}$$<br>2. $$243 = 3^5$$<br>3. $$(3^5)^{\frac{3}{2}} = 3^{\frac{15}{2}}$$"
               onComplete={() => handleStageComplete(3)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
@@ -97,6 +100,7 @@ const Page = () => {
               correctAnswer="b"
               explanation="Poprawne przekształcenie: $$3^{-8} \cdot 3^{\frac{15}{2}} = 3^{-8 + \frac{15}{2}} = 3^{-\frac{1}{2}}$$"
               onComplete={() => handleStageComplete(4)}
+              img="/steps-images/potegiWlasnosci.png"
             />
           </>
         )}
