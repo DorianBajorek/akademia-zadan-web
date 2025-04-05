@@ -171,6 +171,61 @@ const tasksByCategory = [
     ]
   },
   {
+    category: "Potęgi",
+    tasks: [
+      {
+        id: "500",
+        title: "Zadanie 31",
+        img: "/problemImages/problem500.png",
+      },
+      {
+        id: "501",
+        title: "Zadanie 31",
+        img: "/problemImages/problem501.png",
+      },
+      {
+        id: "502",
+        title: "Zadanie 32",
+        img: "/problemImages/problem502.png",
+      },
+      {
+        id: "503",
+        title: "Zadanie 33",
+        img: "/problemImages/problem503.png",
+      },
+      {
+        id: "504",
+        title: "Zadanie 34",
+        img: "/problemImages/problem504.png",
+      },
+      {
+        id: "505",
+        title: "Zadanie 35",
+        img: "/problemImages/problem505.png",
+      },
+      {
+        id: "506",
+        title: "Zadanie 36",
+        img: "/problemImages/problem506.png",
+      },
+      {
+        id: "507",
+        title: "Zadanie 37",
+        img: "/problemImages/problem507.png",
+      },
+      {
+        id: "508",
+        title: "Zadanie 33",
+        img: "/problemImages/problem508.png",
+      },
+      {
+        id: "509",
+        title: "Zadanie 33",
+        img: "/problemImages/problem509.png",
+      },
+    ]
+  },
+  {
     category : "Ciągi trzywyrazowe",
     tasks : [
       {
@@ -223,7 +278,6 @@ const tasksByCategory = [
         title: "Zadanie 36",
         img: "/problemImages/problem409.png",
       }
-      
     ]
   }
 ];
