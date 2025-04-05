@@ -224,6 +224,61 @@ const tasksByCategory = [
         img: "/problemImages/problem509.png",
       },
     ]
+  },
+  {
+    category : "Ciągi trzywyrazowe",
+    tasks : [
+      {
+        id: "400",
+        title: "Zadanie 27",
+        img: "/problemImages/problem400.png",
+      },
+      {
+        id: "401",
+        title: "Zadanie 28",
+        img: "/problemImages/problem401.png",
+      },
+      {
+        id: "402",
+        title: "Zadanie 29",
+        img: "/problemImages/problem402.png",
+      },
+      {
+        id: "403",
+        title: "Zadanie 30",
+        img: "/problemImages/problem403.png",
+      },
+      {
+        id: "404",
+        title: "Zadanie 31",
+        img: "/problemImages/problem404.png",
+      },
+      {
+        id: "405",
+        title: "Zadanie 32",
+        img: "/problemImages/problem405.png",
+      },
+      {
+        id: "406",
+        title: "Zadanie 33",
+        img: "/problemImages/problem406.png",
+      },
+      {
+        id: "407",
+        title: "Zadanie 34",
+        img: "/problemImages/problem407.png",
+      },
+      {
+        id: "408",
+        title: "Zadanie 35",
+        img: "/problemImages/problem408.png",
+      },
+      {
+        id: "409",
+        title: "Zadanie 36",
+        img: "/problemImages/problem409.png",
+      }
+    ]
   }
 ];
 
