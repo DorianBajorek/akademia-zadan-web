@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Question from "@/components/Question";
+import TaskContent from "@/components/TaskContent";
 
 interface QuestionType {
   id: number;
@@ -14,10 +15,17 @@ interface QuestionType {
   taskId: number;
   taskType: string;
   images: string[];
+  content?: string;
+}
+
+interface OpneQuestion {
+  content: string;
+  image: string;
 }
 
 const Matura1: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const [openTasks, setOpenTasks] = useState<OpneQuestion[]>([]);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: string | null }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -49,10 +57,11 @@ const Matura1: React.FC = () => {
     localStorage.setItem("matura1Results", JSON.stringify({
       questions,
       answers: selectedAnswers,
-      results
+      results,
+      openTasks
     }));
     
-    router.push("/matura1-result");
+    router.push("/matura-result");
   };
 
   useEffect(() => {
@@ -61,7 +70,6 @@ const Matura1: React.FC = () => {
         setLoading(true);
         setError(null);
         
-        // Zakładając, że plik jest w public/data/
         const response = await fetch('/matura/matura1.json');
         
         if (!response.ok) {
@@ -70,22 +78,38 @@ const Matura1: React.FC = () => {
 
         const data = await response.json();
         
-        const formattedQuestions = data.map((item: any, index: number) => ({
-          id: index + 1,
-          text: replaceHashes(item.description),
-          answers: [
-            replaceHashes(item.choiceA),
-            replaceHashes(item.choiceB),
-            replaceHashes(item.choiceC),
-            replaceHashes(item.choiceD)
-          ],
-          correctAnswer: item.correct_answer,
-          taskId: item.task_id,
-          taskType: item.task_type,
-          images: item.images || []
-        }));
+        const formattedQuestions: QuestionType[] = [];
+        const formattedOpenTasks: OpneQuestion[] = [];
+        data.forEach((item: any, index: number) => {
+          const baseQuestion = {
+            id: index + 1,
+            taskId: item.task_id || 0,
+            taskType: item.task_type,
+            images: item.images || []
+          };
+
+          if (item.task_type === "open") {
+            formattedOpenTasks.push({
+              content: replaceHashes(item.content || item.description),
+              image: item.image
+            });
+          } else {
+            formattedQuestions.push({
+              ...baseQuestion,
+              text: replaceHashes(item.description),
+              answers: [
+                replaceHashes(item.choiceA),
+                replaceHashes(item.choiceB),
+                replaceHashes(item.choiceC),
+                replaceHashes(item.choiceD)
+              ],
+              correctAnswer: item.correct_answer
+            });
+          }
+        });
 
         setQuestions(formattedQuestions);
+        setOpenTasks(formattedOpenTasks);
       } catch (err) {
         console.error("Błąd podczas ładowania zadań:", err);
         setError("Wystąpił problem podczas ładowania zadań. Spróbuj odświeżyć stronę.");
@@ -127,6 +151,7 @@ const Matura1: React.FC = () => {
         {!loading && !error && (
           <>
             <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-blue-600 mb-6">Zadania zamknięte</h3>
               {questions.map((q) => (
                 <Question
                   key={q.id}
@@ -142,6 +167,21 @@ const Matura1: React.FC = () => {
                 />
               ))}
             </div>
+
+            {openTasks.length > 0 && (
+              <div className="mt-12">
+                <h3 className="text-2xl font-bold text-blue-600 mb-6">Zadania otwarte</h3>
+                <div className="space-y-6">
+                  {openTasks.map((task, key) => (
+                    <TaskContent
+                      key={key}
+                      content={task.content || ""}
+                      image={task.image}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="mt-8 text-center">
               <button
