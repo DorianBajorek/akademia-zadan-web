@@ -1,0 +1,17 @@
+[
+    {
+        "task_id": 71,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "category": "f",
+        "success_rate": 0.76,
+        "description": "Dana jest nierówność $|x-8| ##leq 10$. Zbiorem nierówności jest przedział",
+        "choiceA": "$x ##in (- ##infty ; 8 ##rangle ##cup ##langle 10; +##infty )$",
+        "choiceB": "$x ##in ##langle -10; 10 ##rangle$",
+        "choiceC": "$x ##in (- ##infty ; -2 ##rangle ##cup ##langle 18; +##infty )$",
+        "choiceD": "$x ##in ##langle -2; 18 ##rangle$",
+        "correct_answer": "d",
+        "solution": "Brak",
+        "images": []
+    }
+]
