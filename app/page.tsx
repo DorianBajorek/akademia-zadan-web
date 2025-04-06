@@ -36,6 +36,31 @@ const Home: React.FC = () => {
           </Link>
         </div>
 
+        <div className="bg-blue-50 p-8 rounded-xl border border-blue-100 mb-12 text-left">
+          <h3 className="text-3xl font-bold text-blue-800 mb-6 text-center">Próbna Matura z Matematyki</h3>
+          <div className="text-lg text-gray-700 leading-relaxed">
+            <p>
+              Ten próbny arkusz maturalny to <span className="font-semibold text-blue-700">coś więcej niż zwykły zestaw zadań</span> – to starannie wyselekcjonowane typy, które <span className="font-semibold">z dużym prawdopodobieństwem pojawią się na prawdziwej maturze z matematyki</span>. 🔥
+            </p>
+            <br />
+            <p>
+              Zadania zostały przygotowane przez <span className="font-semibold text-blue-700">sztuczną inteligencję</span>, która przeanalizowała dziesiątki arkuszy z ostatnich lat, aby wytypować najbardziej prawdopodobne zagadnienia.
+            </p>
+            <br />
+            <p>
+              To lista tzw. <span className="font-bold text-green-700">pewniaków maturalnych</span> – jeśli chcesz mieć realną przewagę i uczyć się tego, co naprawdę się liczy, <span className="font-semibold text-blue-600">zacznij właśnie od tych zadań!</span>
+            </p>
+          </div>
+          <div className="mt-8 text-center">
+            <Link 
+              href="/matura-probna" 
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105"
+            >
+              Rozpocznij próbną maturę
+            </Link>
+          </div>
+        </div>
+
         <div className="text-center mb-6">
           <h3 className="text-2xl font-semibold text-gray-800">Dołącz do naszej społeczności!</h3>
           <p className="text-gray-600 mt-2">Śledź nas na social mediach, aby być na bieżąco z nowymi zadaniami i materiałami edukacyjnymi.</p>

@@ -115,7 +115,7 @@ const TaskSpeedrun: React.FC = () => {
             question1: replaceHashes(elem.question1 || ""),
             question2: replaceHashes(elem.question2 || ""),
           }),
-          images: Array.isArray(elem.images) ? elem.images.map(img => img.image) : [],
+          images: Array.isArray(elem.images) ? elem.images.map(img => "https://akademiazadan.pl/" + img.image) : [],
         })
       );
       setIsCorrect(undefined);

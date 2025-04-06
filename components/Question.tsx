@@ -78,7 +78,7 @@ const Question: React.FC<QuestionProps> = ({
       {images && images.map((image, index) => (
         <img 
           key={index}
-          src={"https://akademiazadan.pl/" + image} 
+          src={image} 
           alt={`Image ${index + 1}`} 
           width={300} 
           height={300} 
