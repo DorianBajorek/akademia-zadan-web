@@ -279,6 +279,60 @@ const tasksByCategory = [
         img: "/problemImages/problem409.png",
       }
     ]
+  },
+  {
+  category : "Proste równoległe i prostopadłe",
+  tasks : [
+    {
+      id: "600",
+      title: "Zadanie 60",
+      img: "/problemImages/problem600.png",
+    },
+    {
+      id: "601",
+      title: "Zadanie 61",
+      img: "/problemImages/problem601.png",
+    },
+    {
+      id: "602",
+      title: "Zadanie 62",
+      img: "/problemImages/problem602.png",
+    },
+    {
+      id: "603",
+      title: "Zadanie 63",
+      img: "/problemImages/problem603.png",
+    },
+    {
+      id: "604",
+      title: "Zadanie 64",
+      img: "/problemImages/problem604.png",
+    },
+    {
+      id: "605",
+      title: "Zadanie 65",
+      img: "/problemImages/problem605.png",
+    },
+    {
+      id: "606",
+      title: "Zadanie 66",
+      img: "/problemImages/problem606.png",
+    },
+    {
+      id: "607",
+      title: "Zadanie 67",
+      img: "/problemImages/problem607.png",
+    },
+    {
+      id: "608",
+      title: "Zadanie 68",
+      img: "/problemImages/problem608.png",
+    },
+    {
+      id: "609",
+      title: "Zadanie 69",
+      img: "/problemImages/problem609.png",
+    }]
   }
 ];
 
