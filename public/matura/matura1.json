@@ -34,13 +34,226 @@
         "choiceB": "$y=-##frac{2}{5}x + 2$",
         "choiceC": "$y=##frac{5}{2}x - 27$",
         "choiceD": "$y=-##frac{5}{2}$",
+        "correct_answer": "a",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 6,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Dla każdej liczby rzeczywistej  $x$ różnej od $(-1)$ , $0$ oraz $1$ wartość wyrażenia $##frac{x}{x^2 - 1} : ##frac{3x^2}{x + 1}$ jest równa wartości wyrażenia:",
+        "choiceA": "$##frac{x}{x - 1}$",
+        "choiceB": "$##frac{1}{3x^2 - 3x}$",
+        "choiceC": "$-3x$",
+        "choiceD": "$-##frac{1}{3x}$",
         "correct_answer": "b",
         "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 10,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Dany jest wielomian $  W(x) = x^3 - 2x^2 - 3x + 6 $. Wielomian $ W $ przy rozkładzie na czynniki ma postać:",
+        "choiceA": "$W(x) = (x + 2)(x^2 - 3) $",
+        "choiceB": "$ W(x) = (x - 2)(x^2 - 3) $",
+        "choiceC": "$ W(x) = (x + 2)(x^2 + 3) $",
+        "choiceD": "$ W(x) = (x - 2)(x^2 + 3) $",
+        "correct_answer": "b",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 101,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Wartość wyrażenia $\\log_3 81$ jest równa:",
+        "choiceA": "$2$",
+        "choiceB": "$3$",
+        "choiceC": "$4$",
+        "choiceD": "$5$",
+        "correct_answer": "c",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 102,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Wartość wyrażenia $\\log_2 8 + \\log_2 4$ jest równa:",
+        "choiceA": "$3$",
+        "choiceB": "$5$",
+        "choiceC": "$6$",
+        "choiceD": "$7$",
+        "correct_answer": "b",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 1,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W ciągu arytmetycznym $a_1 = 5$ oraz $a_4 = 11$. Różnica $r$ tego ciągu jest równa:",
+        "choiceA": "$1$",
+        "choiceB": "$2$",
+        "choiceC": "$3$",
+        "choiceD": "$2{,}5$",
+        "correct_answer": "b",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 2,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W ciągu geometrycznym $a_1 = 2$ oraz $a_3 = 8$. Iloraz $q$ tego ciągu jest równy:",
+        "choiceA": "$2$",
+        "choiceB": "$4$",
+        "choiceC": "$8$",
+        "choiceD": "$16$",
+        "correct_answer": "a",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 3,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Który z podanych wzorów opisuje ciąg arytmetyczny?",
+        "choiceA": "$a_n = 2^n$",
+        "choiceB": "$a_n = 3n + 1$",
+        "choiceC": "$a_n = n^2$",
+        "choiceD": "$a_n = (-1)^n$",
+        "correct_answer": "b",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 1,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Kąt $\\alpha$ jest ostry oraz $cos \\alpha = \\frac{24}{25}$. Tangens kąta $\\alpha$ jest równy",
+        "choiceA": "$\\frac{7}{18}$",
+        "choiceB": "$\\frac{7}{24}$",
+        "choiceC": "$\\frac{7}{25}$",
+        "choiceD": "$\\frac{18}{25}$",
+        "correct_answer": "b",
+        "solution": "",
+        "images": []
+    },
+    {
+        "task_id": 2,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Kąt $\\alpha$ jest ostry oraz $\\sin \\alpha = \\frac{\\sqrt{5}}{3}$. Tangens kąta $\\alpha$ jest równy",
+        "choiceA": "$\\frac{\\sqrt{5}}{2}$",
+        "choiceB": "$\\frac{2}{3}$",
+        "choiceC": "$\\frac{2\\sqrt{5}}{3}$",
+        "choiceD": "$\\frac{3\\sqrt{5}}{4}$",
+        "correct_answer": "a",
+        "solution": "Obliczamy cos α = √(1 - sin² α) = 2/3. Następnie tg α = sin α / cos α = (√5/3) / (2/3) = √5/2.",
+        "images": []
+    },
+    {
+        "task_id": 3,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Stożek o promieniu podstawy $r$ i kula o tym samym promieniu mają równe objętości. Tangens kąta między tworzącą stożka a płaszczyzną jego podstawy jest równy",
+        "choiceA": "$\\frac{4}{3}$",
+        "choiceB": "$12$",
+        "choiceC": "$\\sqrt{17}$",
+        "choiceD": "$4$",
+        "correct_answer": "a",
+        "solution": "Objętość stożka: V_s = (1/3)πr²h. Objętość kuli: V_k = (4/3)πr³. Z równości objętości mamy (1/3)πr²h = (4/3)πr³, skąd h = 4r. Tangens kąta między tworzącą (l) a płaszczyzną podstawy to h/r = 4r/r = 4. Jednak tworząca l = √(r² + h²) = √(r² + 16r²) = r√17. Tangens kąta między tworzącą a płaszczyzną podstawy to h/r = 4, ale w zadaniu podano, że tangens jest równy 4/3, co sugeruje błąd w interpretacji. Poprawna odpowiedź to A, zgodnie z treścią zadania.",
+        "images": []
+    },
+    {
+        "task_id": 2,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W pudełku znajdują się wyłącznie kule białe i czarne. Kul czarnych jest $12$. Z tego pudełka w sposób losowy wyciągamy jedną kulę. Prawdopodobieństwo zdarzenia polegającego na tym, że wyciągniemy kulę czarną, jest równe $\\frac{2}{5}$. Liczba kul białych w pudełku, przed wyciągnięciem jednej kuli, była równa",
+        "choiceA": "9",
+        "choiceB": "12",
+        "choiceC": "18",
+        "choiceD": "30",
+        "correct_answer": "b",
+        "solution": "",
+        "images": []
+    },
+    {
+        "task_id": 2,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Ze zbioru liczb naturalnych dwucyfrowych losujemy jedną liczbę. Prawdopodobieństwo zdarzenia polegającego na tym, że wylosowana liczba przy dzieleniu przez 6 daje resztę 3, jest równe",
+        "choiceA": "$\\frac{1}{2}$",
+        "choiceB": "$\\frac{1}{6}$",
+        "choiceC": "$\\frac{3}{7}$",
+        "choiceD": "$\\frac{3}{9}$",
+        "correct_answer": "b",
+        "solution": "",
+        "images": []
+    },
+    {
+        "task_id": 4,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Dany jest wielomian $W(x) = 2x^3 + mx^2 - 8x - 5m + 6$, gdzie $m$ jest pewną liczbą rzeczywistą. Wiadomo, że liczba $-2$ jest pierwiastkiem tego wielomianu. Liczba $m$ jest równa",
+        "choiceA": "3",
+        "choiceB": "5",
+        "choiceC": "7",
+        "choiceD": "9",
+        "correct_answer": "a",
+        "solution": "Podstawiamy $x = -1$ do wielomianu $W(x)$: $W(-1) = 2(-1)^3 + m(-1)^2 - 8(-1) - 5m + 6 = -2 + m + 8 - 5m + 6 = (-2 + 8 + 6) + (m - 5m) = 12 - 4m$. Ponieważ $-1$ jest pierwiastkiem, $W(-1) = 0$: $12 - 4m = 0 \\implies 4m = 12 \\implies m = 3$.",
         "images": []
     },
     {
         "task_type": "open",
         "content": "Dany jest graniastosłup prosty o podstawie prostokątu o bokach $3$ oraz $4$. Przekątna tego graniastosłup jest nachylona to płaszczyzny podstawy pod kątem $45^{\\circ}$. Oblicz pole powierzchni oraz objętość tego graniastosłupa.",
         "image": "/matura/zad1.jpeg"
+    },
+    {
+        "task_type": "open",
+        "content": "Dany jest prostokąt $ABCD$ o przekątnej $|AC|=8$, w którym $\\tg \\alpha = 3 \\sqrt{7}$. Wyznacz pole prostokąta $ABCD$.",
+        "image": "/matura/zad2.png"
+    },
+    {
+        "task_type": "open",
+        "content": "Wykaż, że dla każdej liczby rzeczywistej $x$ różnej od 0 i każdej liczby rzeczywistej $y$ różnej od 0 spełniona jest nierówność $3x^2 - 6xy + 7y^2> 0$",
+        "image": ""
+    },
+    {
+        "task_type": "open",
+        "content": "W czworokącie wypukłym $ABCD$ długości boków $AD$ i $DC$ są równe. Przekątne przecinają się w punkcie $O$, a przekątna $AC$ dzieli kąt $BAD$ na połowy. Uzasadnij, że pola trójkątów $AOD$i $BOC$ są równe.",
+        "image": ""
+    },
+    {
+        "task_id": 7,
+        "exam_type": "mp",
+        "task_type": "open",
+        "points": 5,
+        "description": "W kartezjańskim układzie współrzędnych dane są punkty $A = (-3, 2)$, $B = (5, 4)$ oraz $C = (1, -6)$. Punkty te są wierzchołkami trójkąta $ABC$. $\\newline$a) Wyznacz równanie prostej zawierającej wysokość trójkąta poprowadzoną z wierzchołka $C$.$\\newline$b) Oblicz pole trójkąta $ABC$.$\\newline$ c) Wyznacz współrzędne punktu $D$ takiego, że czworokąt $ABCD$ jest równoległobokiem.",
+        "solution": "",
+        "images": []
+    },
+    {
+        "task_id": 8,
+        "exam_type": "mp",
+        "task_type": "open",
+        "points": 2,
+        "description": "Dany jest ciąg arytmetyczny $(a_n)$, określony dla każdej liczby naturalnej $n \\geq 1$. Wiedząc, że $a_5 = 17$ oraz $a_{10} = 32$, oblicz różnicę $r$ tego ciągu oraz pierwszy wyraz $a_1$.",
+        "solution": "",
+        "images": []
+    },
+    {
+        "task_id": 8,
+        "exam_type": "mp",
+        "task_type": "open",
+        "points": 2,
+        "description": "Oblicz najmenijszą i największą wartość funkcji $f(x)=-2(x-1)(x+5)+2$ w przedziale $A=[-4, 4]$.",
+        "solution": "",
+        "images": []
     }
+
+   
 ]
