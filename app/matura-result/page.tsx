@@ -18,6 +18,8 @@ interface StoredResults {
   answers: { [key: number]: string | null };
   results: ResultType[];
   openTasks: any[];
+  totalPoints: number;
+  earnedPoints: number;
 }
 
 const Matura1Result: React.FC = () => {
@@ -55,6 +57,26 @@ const Matura1Result: React.FC = () => {
         <h2 className="text-5xl font-extrabold text-center text-blue-600 mb-10">
           Wyniki testu maturalnego
         </h2>
+
+        <div className="mb-10 p-6 bg-white rounded-lg shadow-md border border-gray-200">
+        <h3 className="text-2xl font-bold text-center mb-4">Podsumowanie</h3>
+        <div className="flex justify-center gap-8">
+          <div className="text-center">
+            <p className="text-4xl font-bold text-blue-600">{storedResults.earnedPoints}</p>
+            <p className="text-gray-600">Zdobyte punkty</p>
+          </div>
+          <div className="text-center">
+            <p className="text-4xl font-bold text-gray-700">{storedResults.totalPoints}</p>
+            <p className="text-gray-600">Maksymalna liczba punktów</p>
+          </div>
+          <div className="text-center">
+            <p className="text-4xl font-bold text-green-600">
+              {Math.round((storedResults.earnedPoints / storedResults.totalPoints) * 100)}%
+            </p>
+            <p className="text-gray-600">Wynik procentowy</p>
+          </div>
+        </div>
+      </div>
 
         <div className="space-y-8">
           <h3 className="text-2xl font-bold text-blue-600 mb-6">Zadania zamknięte</h3>

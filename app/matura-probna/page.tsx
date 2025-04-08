@@ -29,6 +29,7 @@ const Matura1: React.FC = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: string | null }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [rawData, setRawData] = useState<any[]>([]);
   const router = useRouter();
 
   const replaceHashes = (text: string) => {
@@ -48,17 +49,34 @@ const Matura1: React.FC = () => {
       return;
     }
     
-    const results = questions.map(q => ({
-      questionId: q.id,
-      userAnswer: selectedAnswers[q.id],
-      isCorrect: selectedAnswers[q.id] === q.correctAnswer
-    }));
-
+    let totalPoints = 0;
+    let earnedPoints = 0;
+    
+    const results = questions.map(q => {
+      const taskData = rawData.find(item => item.task_id === q.taskId);
+      const taskPoints = taskData?.points || 1;
+      totalPoints += taskPoints;
+      
+      const isCorrect = selectedAnswers[q.id] === q.correctAnswer;
+      if (isCorrect) {
+        earnedPoints += taskPoints;
+      }
+      
+      return {
+        questionId: q.id,
+        userAnswer: selectedAnswers[q.id],
+        isCorrect,
+        points: isCorrect ? taskPoints : 0
+      };
+    });
+  
     localStorage.setItem("matura1Results", JSON.stringify({
       questions,
       answers: selectedAnswers,
       results,
-      openTasks
+      openTasks,
+      totalPoints,
+      earnedPoints
     }));
     
     router.push("/matura-result");
@@ -77,7 +95,7 @@ const Matura1: React.FC = () => {
         }
 
         const data = await response.json();
-        
+        setRawData(data);
         const formattedQuestions: QuestionType[] = [];
         const formattedOpenTasks: OpneQuestion[] = [];
         data.forEach((item: any, index: number) => {
