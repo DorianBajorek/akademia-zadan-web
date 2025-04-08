@@ -80,8 +80,8 @@ const Question: React.FC<QuestionProps> = ({
           key={index}
           src={image} 
           alt={`Image ${index + 1}`} 
-          width={300} 
-          height={300} 
+          width={500} 
+          height={500} 
           className="mt-4 self-center"
         />
       ))}

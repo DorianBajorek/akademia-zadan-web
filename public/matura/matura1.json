@@ -208,6 +208,32 @@
         "images": []
     },
     {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W pewnej klasie przeprowadzono ankietę dotyczącą liczby przeczytanych książek w ciągu miesiąca. Wyniki przedstawiono w tabeli. Mediana liczby przeczytanych książek w tej klasie oraz dominanta jest równa",
+        "choiceA": "Mediana 1 oraz Dominanta 2",
+        "choiceB": "Mediana 2 oraz Dominanta 1",
+        "choiceC": "Mediana 1 oraz Dominanta 1",
+        "choiceD": "Mediana 2 oraz Dominanta 2",
+        "correct_answer": "c",
+        "solution": "",
+        "images": ["/matura/zad3.png"]
+    },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W pewnej klasie przeprowadzono ankietę dotyczącą liczby przeczytanych książek w ciągu miesiąca. Wyniki przedstawiono w tabeli. Mediana liczby przeczytanych książek w tej klasie oraz dominanta jest równa",
+        "choiceA": "$\\begin{cases} y = 2x + 1\\\\ y = -3x + 4 \\end{cases}$",
+        "choiceB": "$\\begin{cases} y = -2x - 1\\\\ y = 3x - 4 \\end{cases}$",
+        "choiceC": "$\\begin{cases} y = 2x + 1\\\\ y = 3x + 4 \\end{cases}$",
+        "choiceD": "$\\begin{cases} y = -2x + 1\\\\ y = 3x + 4 \\end{cases}$",
+        "correct_answer": "d",
+        "solution": "",
+        "images": ["/matura/zad4.png"]
+    },
+    {
         "task_type": "open",
         "content": "Dany jest graniastosłup prosty o podstawie prostokątu o bokach $3$ oraz $4$. Przekątna tego graniastosłup jest nachylona to płaszczyzny podstawy pod kątem $45^{\\circ}$. Oblicz pole powierzchni oraz objętość tego graniastosłupa.",
         "image": "/matura/zad1.jpeg"
