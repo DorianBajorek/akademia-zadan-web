@@ -18,16 +18,18 @@ const TaskContent: React.FC<TaskContentProps> = ({ content, image }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400">
-      <div className="text-gray-800 text-xl">{renderText(content)}</div>
+    <div className="bg-white shadow-lg p-4 md:p-6 rounded-lg border border-gray-400">
+      <div className="text-gray-800 text-lg md:text-xl">
+        {renderText(content)}
+      </div>
       
       {image && (
-        <div className="mt-4 flex justify-center">
+        <div className="mt-3 md:mt-4 flex justify-center">
           <img
             src={image}
             alt="Ilustracja do zadania"
-            className="max-w-full h-auto"
-            style={{ maxHeight: "300px" }}
+            className="max-w-full max-h-[60vh] w-auto h-auto object-contain"
+            style={{ maxWidth: "40%", height: "auto" }}
           />
         </div>
       )}
