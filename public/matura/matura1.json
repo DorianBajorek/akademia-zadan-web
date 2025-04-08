@@ -29,6 +29,19 @@
         "task_id": 999,
         "exam_type": "mp",
         "task_type": "mc4",
+        "description": "Dla każdej liczby rzeczywistej $x$ wartość wyrażenia $\\sqrt{2}x-1)^{2}-\\sqrt{2}x+1)^{2}$ jest równa",
+        "choiceA": "$-4\\sqrt{2} x$",
+        "choiceB": "$0$",
+        "choiceC": "$-2\\sqrt{2}x$",
+        "choiceD": "$4x^{2}-4\\sqrt{2}x$",
+        "correct_answer": "b",
+        "solution": "Brak",
+        "images": []
+    },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
         "description": "W kartezjańskim układzie współrzędnym $(x, y)$ proste $k$ jest określona równaniem $y=##frac{2}{5}x  +4$. Prosta $l$ jest równoległa do prostej $k$ i przechodzi przez punkt $P=(10,-2).$ Równanie prostej $l$ ma postać: ",
         "choiceA": "$y=##frac{2}{5}x - 6$",
         "choiceB": "$y=-##frac{2}{5}x + 2$",
@@ -234,6 +247,32 @@
         "images": ["/matura/zad4.png"]
     },
     {
+        "task_id": 4,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W okręgu o środku w punkcie $S$ (Zobacz rysunek) poprowadzoną cięciwę $AB$. Kąt $\\angle SAB$ ma miarę $50^{\\circ}$. Jaką miarę ma kąt $\\alpha$?",
+        "choiceA": "3",
+        "choiceB": "5",
+        "choiceC": "7",
+        "choiceD": "9",
+        "correct_answer": "a",
+        "solution": "Podstawiamy $x = -1$ do wielomianu $W(x)$: $W(-1) = 2(-1)^3 + m(-1)^2 - 8(-1) - 5m + 6 = -2 + m + 8 - 5m + 6 = (-2 + 8 + 6) + (m - 5m) = 12 - 4m$. Ponieważ $-1$ jest pierwiastkiem, $W(-1) = 0$: $12 - 4m = 0 \\implies 4m = 12 \\implies m = 3$.",
+        "images": ["/matura/katy_w_okregu.png"]
+    },
+    {
+        "task_id": 4,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Średnia arytmetyczna zestawu liczb $x,2x,3,3x,4,2$ jest równa $2$. Wynika stąd, że ",
+        "choiceA": "$x=\\frac{1}{2}$",
+        "choiceB": "$x=-\\frac{1}{2}$",
+        "choiceC": "$x=0$",
+        "choiceD": "$x > 5$",
+        "correct_answer": "a",
+        "solution": "Podstawiamy $x = -1$ do wielomianu $W(x)$: $W(-1) = 2(-1)^3 + m(-1)^2 - 8(-1) - 5m + 6 = -2 + m + 8 - 5m + 6 = (-2 + 8 + 6) + (m - 5m) = 12 - 4m$. Ponieważ $-1$ jest pierwiastkiem, $W(-1) = 0$: $12 - 4m = 0 \\implies 4m = 12 \\implies m = 3$.",
+        "images": []
+    },
+    {
         "task_type": "open",
         "content": "Dany jest graniastosłup prosty o podstawie prostokątu o bokach $3$ oraz $4$. Przekątna tego graniastosłup jest nachylona to płaszczyzny podstawy pod kątem $45^{\\circ}$. Oblicz pole powierzchni oraz objętość tego graniastosłupa.",
         "image": "/matura/zad1.jpeg"
@@ -277,6 +316,15 @@
         "task_type": "open",
         "points": 2,
         "description": "Oblicz najmenijszą i największą wartość funkcji $f(x)=-2(x-1)(x+5)+2$ w przedziale $A=[-4, 4]$.",
+        "solution": "",
+        "images": []
+    },
+    {
+        "task_id": 8,
+        "exam_type": "mp",
+        "task_type": "open",
+        "points": 2,
+        "description": "Rozwiąż równanie $\\frac{5}{x-3}=-3x+1$",
         "solution": "",
         "images": []
     }
