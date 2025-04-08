@@ -115,6 +115,35 @@
         "task_id": 999,
         "exam_type": "mp",
         "task_type": "mc4",
+        "description": "Zbiorem wszystkich rozwiązań nierówności $\\frac{2x - 1}{3} \\geq x + 2$ jest przedział",
+        "choiceA": "$\\left(-\\infty, -7\\right]$",
+        "choiceB": "$\\left[-7, +\\infty\\right)$",
+        "choiceC": "$\\left(-\\infty, 7\\right]$",
+        "choiceD": "$\\left[7, +\\infty\\right)$",
+        "correct_answer": "a",
+        "solution": "",
+        "images": [],
+        "points": 1
+    },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Funkcja $f$  określona wzorem $f(x)=\\frac{2}{x}$ dla każdej liczby rzeczywistej $x \\neq 0$. Dla $x=2-\\sqrt{2}$ wartość funkcji jest równa",
+        "choiceA": "$1+\\sqrt{2}$",
+        "choiceB": "\\sqrt{2}",
+        "choiceC": "$2-\\sqrt{2}$",
+        "choiceD": "$2+\\sqrt{2}$",
+        "correct_answer": "d",
+        "solution": "",
+        "images": [],
+        "points": 1
+    },
+
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
         "description": "W kartezjańskim układzie współrzędnym $(x, y)$ proste $k$ jest określona równaniem $y=\\frac{2}{5}x  +4$. Prosta $l$ jest równoległa do prostej $k$ i przechodzi przez punkt $P=(10,-2).$ Równanie prostej $l$ ma postać: ",
         "choiceA": "$y=\\frac{2}{5}x - 6$",
         "choiceB": "$y=-\\frac{2}{5}x + 2$",
@@ -126,10 +155,24 @@
         "points": 1
     },
     {
+        "task_id": 13,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Funkcja liniowa $f(x) = -2x + kx + 7$ jest malejąca dla:",
+        "choiceA": "$k > 2$",
+        "choiceB": "$k < 2$", 
+        "choiceC": "$k > -2$",
+        "choiceD": "$k < -2$",
+        "correct_answer": "b",
+        "solution": "",
+        "images": [],
+        "points": 1
+    },
+    {
         "task_id": 999,
         "exam_type": "mp",
         "task_type": "mc4",
-        "description": "W kartezjańskim układzie współrzędnym $(x, y)$ narysowano dwie funckje liniowe. Wskaż układ równań który te proste opisuje.",
+        "description": "W kartezjańskim układzie współrzędnym $points(x, y)$ narysowano dwie funckje liniowe. Wskaż układ równań który te proste opisuje.",
         "choiceA": "$\\begin{cases} y = 2x + 1\\\\ y = -3x + 4 \\end{cases}$",
         "choiceB": "$\\begin{cases} y = -2x - 1\\\\ y = 3x - 4 \\end{cases}$",
         "choiceC": "$\\begin{cases} y = 2x + 1\\\\ y = 3x + 4 \\end{cases}$",
@@ -182,6 +225,20 @@
         "points": 1
     },
     {
+        "task_id": 15,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Trzywyrazowy ciąg $(3 + a, 6, 24)$ jest geometryczny. Liczba $a$ jest równa",
+        "choiceA": "$-1$",
+        "choiceB": "$0$",
+        "choiceC": "$-\\frac{3}{2}$",
+        "choiceD": "$3$",
+        "correct_answer": "c",
+        "solution": "",
+        "images": [],
+        "points": 1
+    },
+    {
         "task_id": 999,
         "exam_type": "mp",
         "task_type": "mc4",
@@ -195,6 +252,21 @@
         "images": [],
         "points": 1
     },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Kąt $\\alpha$ jest ostry oraz  $5\\sin\\alpha = 4\\sin^{2}{\\alpha}+4\\cos^{2}{\\alpha}$. Sinus kąta $\\alpha$ jest równy",
+        "choiceA": "$\\frac{4}{5}$",
+        "choiceB": "$\\frac{2}{\\sqrt{5}}$",
+        "choiceC": "$1$",
+        "choiceD": "$0$",
+        "correct_answer": "a",
+        "solution": "Obliczamy cos α = √(1 - sin² α) = 2/3. Następnie tg α = sin α / cos α = (√5/3) / (2/3) = √5/2.",
+        "images": [],
+        "points": 1
+    },
+
         {
         "task_id": 999,
         "exam_type": "mp",
@@ -205,6 +277,20 @@
         "choiceC": "$\\sin{\\alpha} + \\cos{\\alpha} = 1$",
         "choiceD": "$\\tg{\\alpha} = -\\frac{\\sqrt{3}}{3}$",
         "correct_answer": "d",
+        "solution": "",
+        "images": [],
+        "points": 1
+    },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W kartezjańskim układzie współrzędnych $(x, y)$ odcinek o końcach $A = (0, 0)$ oraz $B =(6, 6)$ jest średnicą okręgu $O$. Okrąg O jest określony równaniem",
+        "choiceA": "$(x-3)^{2}+(y-3)^{2}=18$",
+        "choiceB": "$(x+3)^{2}+(y-3)^{2}=9$",
+        "choiceC": "$(x-3)^{2}+(y+3)^{2}=9$",
+        "choiceD": "$(x+3)^{2}+(y+3)^{2}=18$",
+        "correct_answer": "a",
         "solution": "",
         "images": [],
         "points": 1
@@ -237,6 +323,21 @@
         "images": [],
         "points": 1
     },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W trójkącie prostokątnym $ABC$ sinus kąta $BAC$ jest równy $\\frac{1}{\\sqrt{2}}$, a przeciwprostokątna $AC$ ma długość $8$. Długość przyprostokątnej $AB$ tego trójkąta jest równa",
+        "choiceA": "$4$",
+        "choiceB": "$4\\sqrt{3}$",
+        "choiceC": "$4\\sqrt{2}$",
+        "choiceD": "$5$",
+        "correct_answer": "c",
+        "solution": "Objętość stożka: V_s = (1/3)πr²h. Objętość kuli: V_k = (4/3)πr³. Z równości objętości mamy (1/3)πr²h = (4/3)πr³, skąd h = 4r. Tangens kąta między tworzącą (l) a płaszczyzną podstawy to h/r = 4r/r = 4. Jednak tworząca l = √(r² + h²) = √(r² + 16r²) = r√17. Tangens kąta między tworzącą a płaszczyzną podstawy to h/r = 4, ale w zadaniu podano, że tangens jest równy 4/3, co sugeruje błąd w interpretacji. Poprawna odpowiedź to A, zgodnie z treścią zadania.",
+        "images": [],
+        "points": 1
+    },
+
     {
         "task_id": 999,
         "exam_type": "mp",
@@ -290,6 +391,34 @@
         "choiceD": "$x > 5$",
         "correct_answer": "a",
         "solution": "Podstawiamy $x = -1$ do wielomianu $W(x)$: $W(-1) = 2(-1)^3 + m(-1)^2 - 8(-1) - 5m + 6 = -2 + m + 8 - 5m + 6 = (-2 + 8 + 6) + (m - 5m) = 12 - 4m$. Ponieważ $-1$ jest pierwiastkiem, $W(-1) = 0$: $12 - 4m = 0 \\implies 4m = 12 \\implies m = 3$.",
+        "images": [],
+        "points": 1
+    },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "Długość przekątnej podstawy sześcianu wynosi $6\\sqrt{2}$$. Pole powierzchni całkowitej wynosi",
+        "choiceA": "$216$",
+        "choiceB": "$532\\sqrt{2}$",
+        "choiceC": "$108\\sqrt{2}$",
+        "choiceD": "$32$",
+        "correct_answer": "a",
+        "solution": "Podstawiamy $x = -1$ do wielomianu $W(x)$: $W(-1) = 2(-1)^3 + m(-1)^2 - 8(-1) - 5m + 6 = -2 + m + 8 - 5m + 6 = (-2 + 8 + 6) + (m - 5m) = 12 - 4m$. Ponieważ $-1$ jest pierwiastkiem, $W(-1) = 0$: $12 - 4m = 0 \\implies 4m = 12 \\implies m = 3$.",
+        "images": [],
+        "points": 1
+    },
+    {
+        "task_id": 999,
+        "exam_type": "mp",
+        "task_type": "mc4",
+        "description": "W pewnym ostrosłupie prawidłowym są $32$ krawędzie. Liczba wszystkich wierzchołków tego ostrosłupa jest równa",
+        "choiceA": "$17$",
+        "choiceB": "$16$",
+        "choiceC": "$15",
+        "choiceD": "$96$",
+        "correct_answer": "a",
+        "solution": "",
         "images": [],
         "points": 1
     },
