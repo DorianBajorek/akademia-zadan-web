@@ -60,33 +60,33 @@ const Question: React.FC<QuestionProps> = ({
     : answers.map((answer, index) => <strong key={index}>{renderText(answer)}</strong>);
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-lg border border-gray-400 relative flex flex-col">
-      <h3 className="text-xl text-gray-800">{renderText(text)}</h3>
-      {question1 && <h5 className="text-xl text-gray-800">Oceń prawdziwość podanych zdań:</h5>}
+    <div className="bg-white shadow-lg p-4 md:p-6 rounded-lg border border-gray-400 relative flex flex-col">
+      <h3 className="text-lg md:text-xl text-gray-800">{renderText(text)}</h3>
+      {question1 && <h5 className="text-lg md:text-xl text-gray-800">Oceń prawdziwość podanych zdań:</h5>}
       {question1 && (
-        <p className="mt-2 text-gray-700">
+        <p className="mt-1 md:mt-2 text-sm md:text-base text-gray-700">
           <span className="font-bold">Pytanie 1: </span>
           {renderText(question1)}
         </p>
       )}
       {question2 && (
-        <p className="mt-2 text-gray-700">
+        <p className="mt-1 md:mt-2 text-sm md:text-base text-gray-700">
           <span className="font-bold">Pytanie 2: </span>
           {renderText(question2)}
         </p>
       )}
       {images && images.map((image, index) => (
-        <img 
-          key={index}
-          src={image} 
-          alt={`Image ${index + 1}`} 
-          width={500} 
-          height={500} 
-          className="mt-4 self-center"
-        />
+        <div key={index} className="mt-2 md:mt-4 flex justify-center">
+          <img 
+            src={image} 
+            alt={`Image ${index + 1}`}
+            className="max-w-full max-h-[60vh] w-auto h-auto object-contain"
+            style={{ maxWidth: "70%", height: "auto" }}
+          />
+        </div>
       ))}
 
-      <div className="mt-4 space-y-3 flex-grow">
+      <div className="mt-3 md:mt-4 space-y-2 md:space-y-3 flex-grow">
         {displayAnswers.map((answer, index) => {
           let buttonClass = "border-gray-300 hover:border-blue-400";
           if ((taskType === "mc4" && selectedAnswer === letterMap[index]) || (taskType === "tf2" && selectedAnswer?.toLowerCase() === tf2Map[index])) {
@@ -104,21 +104,21 @@ const Question: React.FC<QuestionProps> = ({
           return (
             <button
               key={index}
-              className={`w-full flex items-center p-3 rounded-lg text-gray-800 font-medium border-2 transition ${buttonClass}`}
+              className={`w-full flex items-center p-2 md:p-3 rounded-lg text-sm md:text-base text-gray-800 font-medium border-2 transition ${buttonClass}`}
               onClick={() => onAnswerSelect(id, index)}
               disabled={isCorrect != null}
             >
-              <span className="font-bold text-blue-600 mr-3">ODPOWIEDŹ {answerLabels[index]}</span>
+              <span className="font-bold text-blue-600 mr-2 md:mr-3 text-xs md:text-sm">ODP. {answerLabels[index]}</span>
               {answer}
             </button>
           );
         })}
       </div>
 
-      <div className="mt-4 flex justify-end">
+      <div className="mt-3 md:mt-4 flex justify-end">
         {isCorrect != undefined && isCorrect != null && (
           <button
-            className={`px-4 py-2 rounded-lg shadow-md transition ${
+            className={`px-3 py-1 md:px-4 md:py-2 rounded-lg shadow-md transition text-sm md:text-base ${
               solutionsMap.hasOwnProperty(taskId.toString())
                 ? "bg-blue-500 text-white hover:bg-blue-600"
                 : "bg-gray-400 text-gray-200 cursor-not-allowed"
