@@ -88,7 +88,7 @@ const Matura1: React.FC = () => {
         setLoading(true);
         setError(null);
         
-        const response = await fetch('/matura/matura2.json');
+        const response = await fetch('/matura/matura1.json');
         
         if (!response.ok) {
           throw new Error(`Nie można załadować danych. Status: ${response.status}`);

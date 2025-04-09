@@ -76,6 +76,9 @@ const Matura1Result: React.FC = () => {
             <p className="text-gray-600">Wynik procentowy</p>
           </div>
         </div>
+        <p className="text-center text-sm text-gray-500 mt-4">
+          Ten wynik został obliczony na podstawie 10 przykładowych zadań. Jeśli chcesz uzyskać dostęp do pełnego arkusza, sprawdź informacje na dole strony.
+        </p>
       </div>
 
         <div className="space-y-8">
