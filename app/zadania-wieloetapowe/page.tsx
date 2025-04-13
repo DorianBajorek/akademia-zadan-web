@@ -333,7 +333,38 @@ const tasksByCategory = [
       title: "Zadanie 69",
       img: "/problemImages/problem609.png",
     }]
-  }
+  },
+    {
+    category : "Długość odcinka",
+  tasks : [
+    {
+      id: "700",
+      title: "Zadanie 70",
+      img: "/problemImages/problem700.png",
+    },
+    {
+      id: "701",
+      title: "Zadanie 71",
+      img: "/problemImages/problem700.png",
+    },
+    {
+      id: "702",
+      title: "Zadanie 72",
+      img: "/problemImages/problem700.png",
+    },
+    {
+      id: "703",
+      title: "Zadanie 73",
+      img: "/problemImages/problem700.png",
+    },
+    {
+      id: "704",
+      title: "Zadanie 74",
+      img: "/problemImages/problem700.png",
+    }
+  ]
+}
+  
 ];
 
 const SolutionsPage = () => {
