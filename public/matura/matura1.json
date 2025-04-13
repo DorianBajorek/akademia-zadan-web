@@ -11,7 +11,8 @@
         "correct_answer": "d",
         "solution": "Brak",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/XN55qCr47Qo"
     },
     {
         "task_id": 999,
@@ -25,7 +26,8 @@
         "correct_answer": "b",
         "solution": "Brak",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/90Tp27zkRPE"
     },
     {
         "task_id": 999,
@@ -39,7 +41,8 @@
         "correct_answer": "a",
         "solution": "Brak",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/pTF2InqGiV0"
     },
     {
         "task_id": 999,
@@ -53,7 +56,8 @@
         "correct_answer": "b",
         "solution": "Brak",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/hLF0Temr8Kw"
     },
     {
         "task_id": 999,
@@ -67,7 +71,8 @@
         "correct_answer": "b",
         "solution": "Brak",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/wCceQfXkdWI"
     },
     {
         "task_id": 999,
@@ -81,7 +86,8 @@
         "correct_answer": "c",
         "solution": "Podstawiamy $x = -1$ do wielomianu $W(x)$: $W(-1) = 2(-1)^3 + m(-1)^2 - 8(-1) - 5m + 6 = -2 + m + 8 - 5m + 6 = (-2 + 8 + 6) + (m - 5m) = 12 - 4m$. Ponieważ $-1$ jest pierwiastkiem, $W(-1) = 0$: $12 - 4m = 0 \\implies 4m = 12 \\implies m = 3$.",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/fI7Omyf9y-k"
     },
     {
         "task_id": 999,
@@ -95,7 +101,8 @@
         "correct_answer": "c",
         "solution": "Brak",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/k5EP2-cwwUQ"
     },
     {
         "task_id": 999,
@@ -109,7 +116,8 @@
         "correct_answer": "b",
         "solution": "Brak",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/5Y4aB_5iiGw"
     },
     {
         "task_id": 999,
@@ -123,7 +131,8 @@
         "correct_answer": "a",
         "solution": "",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/Lg62LgLVj8o"
     },
     {
         "task_id": 999,
@@ -137,9 +146,9 @@
         "correct_answer": "d",
         "solution": "",
         "images": [],
-        "points": 1
+        "points": 1,
+        "youtubeVideoId": "https://youtu.be/GxnQEO-JVhI"
     },
-
     {
         "task_id": 999,
         "exam_type": "mp",
@@ -155,7 +164,7 @@
         "points": 1
     },
     {
-        "task_id": 13,
+        "task_id": 999,
         "exam_type": "mp",
         "task_type": "mc4",
         "description": "$\\textbf{Zadanie 12.}$ Funkcja liniowa $f(x) = -2x + kx + 7$ jest malejąca dla:",

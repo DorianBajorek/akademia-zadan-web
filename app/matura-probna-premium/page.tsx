@@ -16,6 +16,7 @@ interface QuestionType {
   taskType: string;
   images: string[];
   content?: string;
+  youtubeVideoId?: string;
 }
 
 interface OpneQuestion {
@@ -121,7 +122,8 @@ const Matura1: React.FC = () => {
                 replaceHashes(item.choiceC),
                 replaceHashes(item.choiceD)
               ],
-              correctAnswer: item.correct_answer
+              correctAnswer: item.correct_answer,
+              youtubeVideoId: item.youtubeVideoId
             });
           }
         });
