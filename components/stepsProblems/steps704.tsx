@@ -29,20 +29,20 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Jak obliczyć pierwszą współrzędną środka odcinka?
+            
             </p>
             <ChoiceQuestion
-              question="Który wzór jest poprawny?"
+              question="Jeśli $$S=(x_S,y_S)$$ jest środkiem odcinka $$KL$$ to który wzór jest poprawny?"
               choices={[
-                { label: "\\frac{x_K + x_L}{2}", value: "a" },
-                { label: "\\frac{x_K - x_L}{2}", value: "b" },
-                { label: "x_K + x_L", value: "c" },
-                { label: "\\frac{x_L - x_K}{2}", value: "d" },
+                { label: "x_S=\\frac{x_K + x_L}{2}", value: "a" },
+                { label: "x_S=\\frac{x_K - x_L}{2}", value: "b" },
+                { label: "x_S=x_K + x_L", value: "c" },
+                { label: "x_S=\\frac{x_L - x_K}{2}", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Pierwsza współrzędna środka odcinka to średnia arytmetyczna pierwszych współrzędnych końców: $$\\frac{4 + b}{2}$$"
+              explanation="Pierwsza współrzędna środka odcinka to średnia arytmetyczna pierwszych współrzędnych końców."
               onComplete={() => handleStageComplete(1)}
-              img="/steps-images/dlugosc_odcinka.png"
+              img="/steps-images/srodek_odcinka.png"
             />
           </>
         )}
@@ -51,18 +51,18 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie dla pierwszej współrzędnej środka
+             Ułóż równanie na podstawie wzoru <InlineMath math="X_S=\frac{x_K + x_L}{2}"/>
             </p>
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "\\frac{4 + b}{2} = -12", value: "a" },
-                { label: "\\frac{b - 4}{2} = -12", value: "b" },
-                { label: "4 + b = -12", value: "c" },
-                { label: "\\frac{4 - b}{2} = -12", value: "d" }
+                { label: "-12 = \\frac{b - 4}{2} ", value: "a" },
+                { label: "-12 =4 + b ", value: "b" },
+                { label: "-12 =\\frac{4 + b}{2} ", value: "c" },
+                { label: "-12 =\\frac{4 - b}{2}", value: "d" }
               ]}
-              correctAnswer="a"
-              explanation="Poprawne równanie to: $$\\frac{4 + b}{2} = -12$$"
+              correctAnswer="c"
+              explanation="Poprawne równanie to: $$\frac{4 + b}{2} = -12$$"
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -77,16 +77,16 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaki jest wynik?"
               choices={[
-                { label: "b = -28", value: "a" },
-                { label: "b = -14", value: "b" },
-                { label: "b = -24", value: "c" },
-                { label: "b = -10", value: "d" }
+                { label: "b = -14", value: "a" },
+                { label: "b = -24", value: "b" },
+                { label: "b = -10", value: "c" },
+                { label: "b = -28", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Kolejne kroki rozwiązania: <br>
-              1. $$\\frac{4 + b}{2} = -12$$ <br>
-              2. Mnożymy obie strony przez 2: $$4 + b = -24$$ <br>
-              3. Odejmujemy 4 od obu stron: $$b = -28$$"
+              1. $$\frac{4 + b}{2} = -12$$ <br>
+              2. Mnożymy obie strony przez $$2$$: $$4 + b = -24$$ <br>
+              3. Odejmujemy $$4$$ od obu stron: $$b = -28$$"
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -107,7 +107,7 @@ const Page = () => {
                 { label: "D. b = -10", value: "d" }
               ]}
               correctAnswer="a"
-              explanation="Poprawną odpowiedzią jest A. b = -28, co potwierdza nasze obliczenia."
+              explanation="Poprawną odpowiedzią jest $$A. b = -28$$, co potwierdza nasze obliczenia."
               onComplete={() => handleStageComplete(4)}
             />
           </>
@@ -116,7 +116,8 @@ const Page = () => {
         {/* Podsumowanie */}
         {completedStages.length === 4 && (
           <StudentNotes
-            equation="\\text{Wyznaczenie współrzędnej } b \\text{ punktu } L = (b, 2) \\text{ dla środka odcinka } KL \\text{ w punkcie } (-12, y)"
+          equation="\text{Pierwsza współrzędna środka odcinka} K=(4,-10), L=(b,2) \text{jest równa} -12. Wyznacz b "
+           // equation="\text{Wyznaczenie współrzędnej } b \text{ punktu } L = (b, 2) \text{ dla środka odcinka } KL \text{ w punkcie } (-12, y)"
             steps={[
               { step: "\\text{Wzór na pierwszą współrzędną środka: } \\frac{4 + b}{2} = -12" },
               { step: "\\text{Rozwiązanie równania: } 4 + b = -24" },

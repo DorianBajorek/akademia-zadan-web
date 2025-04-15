@@ -40,7 +40,7 @@ const Page = () => {
                 { label: "\\frac{(x_C - x_A) + (y_C - y_A)}{2}", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Długość przekątnej AC obliczamy ze wzoru na odległość między punktami: $$\\sqrt{(3 - (-1))^2 + (-3 - 5)^2} = \\sqrt{4^2 + (-8)^2} = \\sqrt{16 + 64} = \\sqrt{80} = 4\\sqrt{5}$$"
+              explanation="Długość przekątnej $$AC$$ obliczamy ze wzoru na odległość między punktami: $$\sqrt{(3 - (-1))^2 + (-3 - 5)^2} = \sqrt{4^2 + (-8)^2} = \sqrt{16 + 64} = \sqrt{80} = 4\sqrt{5}$$"
               onComplete={() => handleStageComplete(1)}
               img="/steps-images/dlugosc_odcinka.png"
             />
@@ -62,20 +62,43 @@ const Page = () => {
                 { label: "P = \\frac{d}{2}", value: "d" }
               ]}
               correctAnswer="a"
-              explanation="Pole kwadratu można obliczyć znając długość przekątnej ze wzoru: $$P = \\frac{d^2}{2} = \\frac{(4\\sqrt{5})^2}{2} = \\frac{16 \cdot 5}{2} = \\frac{80}{2} = 40$$"
+              explanation="Pole kwadratu można obliczyć znając długość przekątnej ze wzoru: $$P = \frac{d^2}{2}$$"
               onComplete={() => handleStageComplete(2)}
             />
           </>
         )}
-        
-        {/* Krok 3 - Obliczenie pola kwadratu */}
+
+        {/* Krok 3 - Podstawienie do wzoru na pole */}
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Oblicz pole kwadratu
+              Mając obliczoną przekątną <InlineMath math="d = 4\sqrt{5}"/>, podstaw do wzoru na pole kwadratu:
+              <InlineMath math="P = \frac{d^2}{2}"/>
             </p>
             <ChoiceQuestion
-              question="Jaki jest wynik końcowy?"
+              question="Jakie jest poprawne podstawienie?"
+              choices={[
+
+                { label: "P = \\frac{4\\sqrt{5}}{2} = 2\\sqrt{5}", value: "a" },
+                { label: "P = (4\\sqrt{5})^2 = 80", value: "b" },
+                { label: "P = 2 \\cdot (4\\sqrt{5}) = 8\\sqrt{5}", value: "d" },
+                { label: "P = \\frac{(4\\sqrt{5})^2}{2} = \\frac{80}{2} = 40", value: "d" },
+              ]}
+              correctAnswer="d"
+              explanation="Poprawne podstawienie to: $$P = \frac{(4\sqrt{5})^2}{2} = \frac{16 \cdot 5}{2} = \frac{80}{2} = 40$$"
+              onComplete={() => handleStageComplete(3)}
+            />
+          </>
+        )}
+        
+        {/* Krok 4 - Weryfikacja wyniku */}
+        {completedStages.includes(3) && (
+          <>
+            <p className="text-lg text-gray-700 mt-6">
+              Jaka jest ostateczna wartość pola kwadratu?
+            </p>
+            <ChoiceQuestion
+              question="Wybierz właściwą odpowiedź:"
               choices={[
                 { label: "8\\sqrt{10}", value: "a" },
                 { label: "16\\sqrt{5}", value: "b" },
@@ -83,31 +106,7 @@ const Page = () => {
                 { label: "80", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Kolejne kroki obliczeń: <br>
-              1. Długość przekątnej: $$4\\sqrt{5}$$ <br>
-              2. Wzór na pole: $$P = \\frac{d^2}{2}$$ <br>
-              3. Podstawienie: $$P = \\frac{(4\\sqrt{5})^2}{2} = \\frac{80}{2} = 40$$"
-              onComplete={() => handleStageComplete(3)}
-            />
-          </>
-        )}
-        
-        {/* Krok 4 - Weryfikacja odpowiedzi */}
-        {completedStages.includes(3) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Która z podanych opcji jest poprawna?
-            </p>
-            <ChoiceQuestion
-              question="Wybierz właściwą odpowiedź:"
-              choices={[
-                { label: "A. 8\\sqrt{10}", value: "a" },
-                { label: "B. 16\\sqrt{5}", value: "b" },
-                { label: "C. 40", value: "c" },
-                { label: "D. 80", value: "d" }
-              ]}
-              correctAnswer="c"
-              explanation="Poprawną odpowiedzią jest C. 40, co potwierdza nasze obliczenia."
+              explanation="Ostateczny wynik to 40, co potwierdza nasze obliczenia."
               onComplete={() => handleStageComplete(4)}
             />
           </>
@@ -116,11 +115,12 @@ const Page = () => {
         {/* Podsumowanie */}
         {completedStages.length === 4 && (
           <StudentNotes
-            equation="\\text{Pole kwadratu } ABCD \\text{ o przeciwległych wierzchołkach } A = (-1, 5) \\text{ i } C = (3, -3)"
+            equation="\\text{Pole kwadratu } ABCD \\text{ o przeciwległych wierzchołkach } A = (-1, 5) \text{ i } C = (3, -3)"
             steps={[
               { step: "\\text{Obliczenie długości przekątnej: } AC = \\sqrt{(3 - (-1))^2 + (-3 - 5)^2} = 4\\sqrt{5}" },
               { step: "\\text{Wzór na pole kwadratu: } P = \\frac{d^2}{2}" },
-              { step: "\\text{Obliczenie pola: } P = \\frac{(4\\sqrt{5})^2}{2} = 40" },
+              { step: "\\text{Podstawienie: } P = \\frac{(4\\sqrt{5})^2}{2}" },
+              { step: "\\text{Obliczenie pola: } P = 40" },
             ]}
             solutions={[
               "40 \\text{ (Odpowiedź C)}", 

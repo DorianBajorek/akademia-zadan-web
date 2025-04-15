@@ -34,21 +34,42 @@ const Page = () => {
             <ChoiceQuestion
               question="Który wzór jest poprawny do obliczenia środka odcinka?"
               choices={[
-                { label: "\\left( \\frac{x_A + x_C}{2}, \\frac{y_A + y_C}{2} \\right)", value: "a" },
-                { label: "\\left( \\frac{x_A - x_C}{2}, \\frac{y_A - y_C}{2} \\right)", value: "b" },
-                { label: "\\left( x_A + x_C, y_A + y_C \\right)", value: "c" },
-                { label: "\\left( \\frac{x_C - x_A}{2}, \\frac{y_C - y_A}{2} \\right)", value: "d" },
+                { label: "S=\\left( \\frac{x_A + x_C}{2}, \\frac{y_A + y_C}{2} \\right)", value: "a" },
+                { label: "S=\\left( \\frac{x_A - x_C}{2}, \\frac{y_A - y_C}{2} \\right)", value: "b" },
+                { label: "S=\\left( x_A + x_C, y_A + y_C \\right)", value: "c" },
+                { label: "S=\\left( \\frac{x_C - x_A}{2}, \\frac{y_C - y_A}{2} \\right)", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Środek odcinka obliczamy jako średnią arytmetyczną współrzędnych końców: $$S = \\left( \\frac{1 + (-2)}{2}, \\frac{-3 + 4}{2} \\right) = \\left( -\\frac{1}{2}, \\frac{1}{2} \\right)$$"
+              explanation="Współrzędne środka odcinka do średnia arytmetyczna współrzędnych końców odcinka."
               onComplete={() => handleStageComplete(1)}
-              img="/steps-images/dlugosc_odcinka.png"
+              img="/steps-images/srodek_odcinka.png"
+            />
+          </>
+        )}
+
+{completedStages.includes(1) && (
+          <>
+            <p className="text-lg text-gray-700 mt-6">
+              Oblicz środek odcinka  <InlineMath math="S"/> przekątnej <InlineMath math="AC"/>.
+            </p>
+            <ChoiceQuestion
+              question="Które stwierdzenie jest prawdziwe?"
+              choices={[
+                { label: "S=\\left( \\frac{3}{2}, \\frac{7}{2} \\right)", value: "a" },
+                { label: "S=\\left( -\\frac{1}{2}, \\frac{1}{2} \\right)", value: "b" },
+                { label: "S=\( -1, 1)", value: "c" },
+                { label: "S=\\left( \\frac{1}{2}, -\\frac{1}{2} \\right)", value: "d" }
+              ]}
+              correctAnswer="b"
+              explanation=" Podstawiamy do wzoru: <br> 
+              $$S = \left( \frac{1 + (-2)}{2}, \frac{-3 + 4}{2} \right) = \left( -\frac{1}{2}, \frac{1}{2} \right)$$"
+              onComplete={() => handleStageComplete(2)}
             />
           </>
         )}
         
         {/* Krok 2 - Właściwości rombu */}
-        {completedStages.includes(1) && (
+        {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
               Jaka jest właściwość przekątnych w rombie?
@@ -56,20 +77,20 @@ const Page = () => {
             <ChoiceQuestion
               question="Które stwierdzenie jest prawdziwe?"
               choices={[
-                { label: "Przekątne rombu przecinają się w swoich środkach pod kątem prostym", value: "a" },
-                { label: "Przekątne rombu są równej długości", value: "b" },
-                { label: "Środki przekątnych rombu pokrywają się z jego wierzchołkami", value: "c" },
-                { label: "Przekątne rombu są równoległe", value: "d" }
+                { label: "\\text{Przekątne rombu przecinają się w swoich środkach pod kątem prostym}", value: "a" },
+                { label: "\\text{Przekątne rombu są równej długości}", value: "b" },
+                { label: "\\text{Środki przekątnych rombu pokrywają się z jego wierzchołkami}", value: "c" },
+                { label: "\\text{Przekątne rombu są równoległe}", value: "d" }
               ]}
               correctAnswer="a"
               explanation="W rombie przekątne przecinają się w swoich środkach pod kątem prostym, więc środek przekątnej BD pokrywa się ze środkiem przekątnej AC."
-              onComplete={() => handleStageComplete(2)}
+              onComplete={() => handleStageComplete(3)}
             />
           </>
         )}
         
         {/* Krok 3 - Wybór właściwej odpowiedzi */}
-        {completedStages.includes(2) && (
+        {completedStages.includes(3) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
               Która z podanych odpowiedzi jest poprawna?
@@ -83,16 +104,16 @@ const Page = () => {
                 { label: "D. (-1, 1)", value: "d" }
               ]}
               correctAnswer="a"
-              explanation="Środek przekątnej BD musi być taki sam jak środek przekątnej AC, który obliczyliśmy jako $$\\left( -\\frac{1}{2}, \\frac{1}{2} \\right)$$. Poprawna odpowiedź to A."
-              onComplete={() => handleStageComplete(3)}
+              explanation="Środek przekątnej BD musi być taki sam jak środek przekątnej AC, który obliczyliśmy jako $$S  = \left( -\frac{1}{2}, \frac{1}{2} \right)$$. Poprawna odpowiedź to A."
+              onComplete={() => handleStageComplete(4)}
             />
           </>
         )}
         
         {/* Podsumowanie */}
-        {completedStages.length === 3 && (
+        {completedStages.length === 4 && (
           <StudentNotes
-            equation="\\text{Środek przekątnej rombu } ABCD \\text{ o końcach przekątnej } A = (1, -3) \\text{ i } C = (-2, 4)"
+            equation="\text{Środek przekątnej rombu } BD \text{ jeśli } A = (1, -3) \text{ i } C = (-2, 4)"
             steps={[
               { step: "\\text{Obliczenie środka AC: } S = \\left( \\frac{1 + (-2)}{2}, \\frac{-3 + 4}{2} \\right) = \\left( -\\frac{1}{2}, \\frac{1}{2} \\right)" },
               { step: "\\text{Właściwość rombu: środki przekątnych pokrywają się}" },

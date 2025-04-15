@@ -40,7 +40,7 @@ const Page = () => {
                 { label: "(x_B - x_A) + (y_B - y_A)", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Długość odcinka między punktami A i B oblicza się ze wzoru: $$\\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$$."
+              explanation="Długość odcinka między punktami A i B oblicza się ze wzoru: $$\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$$."
               onComplete={() => handleStageComplete(1)}
               img="/steps-images/dlugosc_odcinka.png"
             />
@@ -63,7 +63,7 @@ const Page = () => {
               ]}
               correctAnswer="a"
               explanation={`Poprawne podstawienie: $$\\sqrt{(2 - 1)^2 + (3 - (-4))^2}$$ <br>
-              Wynika to z różnicy współrzędnych x i y punktów A i B.`}
+              Wynika to z różnicy współrzędnych $$x$$ i $$y$$ punktów $$A$$ i $$B$$.`}
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -78,17 +78,17 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaki jest wynik obliczeń?"
               choices={[
-                { label: "\\sqrt{1 + 49} = \\sqrt{50} = 5\\sqrt{2}", value: "a" },
-                { label: "\\sqrt{1 + 7} = \\sqrt{8}", value: "b" },
-                { label: "\\sqrt{9 + 49} = \\sqrt{58}", value: "c" },
-                { label: "1 + 7 = 8", value: "d" }
+                { label: "\\sqrt{(2 - 1)^2 + (3 - (-4))^2} = \\sqrt{1 + 7} = \\sqrt{8}", value: "a" },
+                { label: "\\sqrt{(2 - 1)^2 + (3 - (-4))^2} = \\sqrt{1 + 49} = \\sqrt{50} = 5\\sqrt{2}", value: "b" },
+                { label: "\\sqrt{(2 - 1)^2 + (3 - (-4))^2} = \\sqrt{9 + 49} = \\sqrt{58}", value: "c" },
+                { label: "\\sqrt{(2 - 1)^2 + (3 - (-4))^2} = 1 + 7 = 8", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Kolejne kroki obliczeń: <br>
               1. $$(2 - 1)^2 = 1^2 = 1$$ <br>
               2. $$(3 - (-4))^2 = 7^2 = 49$$ <br>
               3. $$1 + 49 = 50$$ <br>
-              4. $$\\sqrt{50} = 5\\sqrt{2}$$"
+              4. $$\sqrt{50} = 5\sqrt{2}$$"
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -109,7 +109,7 @@ const Page = () => {
                 { label: "D. 7", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Poprawnym wynikiem jest $$5\\sqrt{2}$$, co odpowiada opcji C."
+              explanation="Poprawnym wynikiem jest $$5\sqrt{2}$$, co odpowiada opcji C."
               onComplete={() => handleStageComplete(4)}
             />
           </>
@@ -118,7 +118,7 @@ const Page = () => {
         {/* Podsumowanie */}
         {completedStages.length === 4 && (
           <StudentNotes
-            equation="\\text{Długość odcinka } AB \\text{ między punktami } A = (1, -4) \\text{ i } B = (2, 3)"
+            equation="\text{Długość odcinka } AB \text{ między punktami } A = (1, -4) \text{ i } B = (2, 3)"
             steps={[
               { step: "\\text{Wzór: } \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}" },
               { step: "\\sqrt{(2 - 1)^2 + (3 - (-4))^2}" },
