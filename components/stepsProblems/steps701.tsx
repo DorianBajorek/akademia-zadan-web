@@ -14,7 +14,7 @@ const Page = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen p-5">
-      <div className="max-w-5xl w-full bg-white p-10 rounded-lg shadow-md border border-gray-300 mx-auto mt-10">
+      <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Zliczanie liczb</h2>
         <p className="text-lg text-gray-800">Oblicz liczbę wszystkich kodów czterocyfrowych utworzonych tylko z cyfr 1, 3, 6, 8, gdy
         w każdym kodzie każda z tych cyfr występuje dokładnie jeden raz.</p>

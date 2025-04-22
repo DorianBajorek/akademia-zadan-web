@@ -106,7 +106,7 @@ const NumericQuestion: React.FC<NumericQuestionProps> = ({
         {isCorrect && showExplanation && (
           <div className="mt-4 p-4 border-t border-gray-200">
             <h4 className="font-bold text-gray-700">Wyjaśnienie:</h4>
-            <p className="text-gray-700 mt-2 leading-relaxed">
+            <p className="text-sm md:text-base text-gray-700 mt-2 leading-relaxed">
               {renderTextWithMath(explanation)}
             </p>
 

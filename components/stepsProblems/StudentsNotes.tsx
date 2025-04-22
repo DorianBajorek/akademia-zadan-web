@@ -23,8 +23,8 @@ const renderExplanation = (text: string) => {
 const StudentNotes = ({ equation, steps, solutions }: StudentNotesProps) => {
   return (
     <div className="mt-8 p-6 rounded-lg shadow-md border border-gray-300 bg-cover bg-center" style={{ backgroundImage: "url('/kratka.png')" }}>
-      <h3 className="text-2xl font-bold text-gray-800 mb-4">Notatki maturzysty</h3>
-      <div className="text-lg text-gray-700 space-y-4">
+      <h3 className="text-xl font-bold text-gray-800 mb-4">Notatki maturzysty</h3>
+      <div className="text-sm md:text-lg text-gray-700 space-y-4">
         <InlineMath math={equation} />
         <div>
           {steps.map((step, index) => (

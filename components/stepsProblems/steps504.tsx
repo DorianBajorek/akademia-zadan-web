@@ -14,7 +14,7 @@ const Page = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen p-5">
-      <div className="max-w-5xl w-full bg-white p-10 rounded-lg shadow-md border border-gray-300 mx-auto mt-10">
+      <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Obliczanie wyrażenia wykładniczego</h2>
         <p className="text-lg text-gray-800">Oblicz wartość wyrażenia:</p>
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
