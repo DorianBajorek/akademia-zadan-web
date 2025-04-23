@@ -18,7 +18,6 @@ const Nav: React.FC = () => {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6">
           <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors">
             Strona główna
@@ -37,7 +36,6 @@ const Nav: React.FC = () => {
           </Link>
         </div>
 
-        {/* Mobile Hamburger Button */}
         <button 
           className="md:hidden text-gray-700 focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -51,7 +49,6 @@ const Nav: React.FC = () => {
           </svg>
         </button>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-50 py-4 px-6">
             <div className="flex flex-col space-y-4">
