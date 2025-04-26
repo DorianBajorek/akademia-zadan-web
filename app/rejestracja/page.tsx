@@ -6,25 +6,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FcGoogle } from 'react-icons/fc';
 import { useState } from 'react';
+import { register } from "@/service";
+
 const Register: React.FC = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Dane rejestracji:', formData);
+  const handleSubmit = async () => {
+    const data = await register(email, username, password)
+    console.log(data)
   };
 
   return (
@@ -50,10 +42,10 @@ const Register: React.FC = () => {
               <div className="bg-blue-50 p-4 sm:p-6 rounded-lg border border-blue-100">
                 <h3 className="text-lg sm:text-xl font-bold text-blue-800 mb-2 sm:mb-3">Korzyści z rejestracji:</h3>
                 <ul className="space-y-2 sm:space-y-3 list-disc pl-4 sm:pl-5">
-                  <li><span className="font-medium">Dostęp do próbnej wersji nowoczesnego kursu maturalnego</span> - innowacyjne podejście do nauki matematyki</li>
-                  <li><span className="font-medium">Śledzenie postępów</span> - szczegółowe statystyki i analizy Twoich wyników</li>
-                  <li><span className="font-medium">System odznaczeń</span> - zdobywaj osiągnięcia, które zmotywują Cię do regularnej nauki</li>
-                  <li><span className="font-medium">Odznaki za naukę</span> - stała motywacja do nauki matematyki</li>
+                  <li><span className="font-medium">Dostęp do próbnej wersji nowoczesnego kursu maturalnego</span></li>
+                  <li><span className="font-medium">Śledzenie postępów</span></li>
+                  <li><span className="font-medium">System odznaczeń</span></li>
+                  <li><span className="font-medium">Odznaki za naukę</span></li>
                 </ul>
               </div>
             </div>
@@ -89,11 +81,11 @@ const Register: React.FC = () => {
                     Nazwa użytkownika
                   </label>
                   <input
-                    type="input"
+                    type="text"
                     id="username"
                     name="username"
-                    value={formData.username}
-                    onChange={handleChange}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                     className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Wprowadź nazwę użytkownika"
@@ -105,11 +97,11 @@ const Register: React.FC = () => {
                     Adres email
                   </label>
                   <input
-                    type="input"
+                    type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                     className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Wprowadź email"
@@ -124,8 +116,8 @@ const Register: React.FC = () => {
                     type="password"
                     id="password"
                     name="password"
-                    value={formData.password}
-                    onChange={handleChange}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                     className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Wprowadź hasło (min. 8 znaków)"
@@ -140,8 +132,8 @@ const Register: React.FC = () => {
                     type="password"
                     id="confirmPassword"
                     name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                     className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Powtórz hasło"

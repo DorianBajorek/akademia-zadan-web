@@ -47,3 +47,30 @@ export const getProblems = async(numberOfProblems: number) => {
       console.error("Error adding problem:", error);
     }
 }
+
+export const login = async(email: string, password: string) => {
+  const payload = {
+    email: email,
+    password: password
+  }
+  try {
+      const response = await axios.post(`https://akademiazadan.pl/api/v1/login`, payload);
+      return response.data;
+    } catch (error) {
+      console.error("Error while login:", error);
+    }
+}
+
+export const register = async(email: string, username: string, password: string) => {
+  const payload = {
+    email: email,
+    username: username,
+    password: password
+  }
+  try {
+      const response = await axios.post(`https://akademiazadan.pl/api/v1/register`, payload);
+      return response.data;
+    } catch (error) {
+      console.error("Error while register", error);
+    }
+}
