@@ -61,14 +61,16 @@ export const login = async(email: string, password: string) => {
     }
 }
 
-export const register = async(email: string, username: string, password: string) => {
+export const register = async(email: string, username: string, password: string, confirmPassword: string) => {
   const payload = {
     email: email,
     username: username,
-    password: password
+    password1: password,
+    password2: confirmPassword,
+    phone: "997"
   }
   try {
-      const response = await axios.post(`https://akademiazadan.pl/api/v1/register`, payload);
+      const response = await axios.post(`https://akademiazadan.pl/api/auth/registration/`, payload);
       return response.data;
     } catch (error) {
       console.error("Error while register", error);

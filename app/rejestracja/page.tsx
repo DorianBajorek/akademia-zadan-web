@@ -15,7 +15,8 @@ const Register: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = async () => {
-    const data = await register(email, username, password)
+    console.log("SIEMA1")
+    const data = await register(email, username, password, confirmPassword)
     console.log(data)
   };
 
@@ -75,7 +76,7 @@ const Register: React.FC = () => {
                 <div className="flex-1 border-t border-gray-300"></div>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
                   <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Nazwa użytkownika
@@ -143,10 +144,11 @@ const Register: React.FC = () => {
                 <button
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 rounded-md transition duration-200 text-sm sm:text-base"
+                  onClick={handleSubmit}
                 >
                   Zarejestruj się
                 </button>
-              </form>
+                </div>
               
               <div className="mt-4 sm:mt-6 text-center">
                 <p className="text-sm sm:text-base text-gray-600">
