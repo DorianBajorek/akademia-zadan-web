@@ -16,32 +16,42 @@ const MainCourse: React.FC = () => {
     "Geometria analityczna": 0,
     "Stereometria": 0
   };
-
+ 
   const courses = [
     {
       title: "Liczby rzeczywiste",
       description: "Poznaj podstawy matematyki - działania na liczbach, przedziały, wartość bezwzględną i pierwiastki.",
-      image: "/problemImages/chapter1.png"
+      image: "/fieldCovers/liczbyRzeczywiste.png"
     },
     {
       title: "Wyrażenia algebraiczne",
       description: "Naucz się przekształcać wyrażenia algebraiczne, wzory skróconego mnożenia i działań na potęgach.",
-      image: "/problemImages/chapter1.png"
+      image: "/fieldCovers/wyrazeniaAlgebraiczne.png"
     },
     {
-      title: "Równania i nierówności",
-      description: "Rozwiązuj równania i nierówności liniowe, kwadratowe oraz z wartością bezwzględną.",
-      image: "/problemImages/chapter1.png"
+      title: "Równania i nierówności liniowe",
+      description: "Rozwiązuj równania i nierówności liniowe - podstawa każdego maturzysty.",
+      image: "/fieldCovers/rownaniaNierownosci.png"
     },
     {
       title: "Układy równań",
       description: "Poznaj metody rozwiązywania układów równań - podstawianie, przeciwnych współczynników i graficzną.",
-      image: "/problemImages/chapter1.png"
+      image: "/fieldCovers/uklady.png"
     },
     {
       title: "Funkcje",
-      description: "Badaj własności funkcji liniowych, kwadratowych, wielomianowych, wymiernych i wykładniczych.",
-      image: "/problemImages/chapter1.png"
+      description: "Badaj własności funkcji. Dziedzina, zbiór wartości oraz miejsca zerowe",
+      image: "/fieldCovers/funkcje.png"
+    },
+    {
+      title: "Funkcje liniowe",
+      description: "Badaj własności funkcji liniowych. Wyznaczanie miejsc zerowych",
+      image: "/fieldCovers/funkcjaLiniowa.png"
+    },
+    {
+      title: "Funkcje kwadratowe",
+      description: "Rozwiązywanie równań kwadratowych, własności funkcji, nierówności oraz wierzchołek.",
+      image: "/fieldCovers/funkcjaKwadratowa.png"
     },
     {
       title: "Ciągi",

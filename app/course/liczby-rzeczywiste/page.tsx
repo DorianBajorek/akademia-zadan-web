@@ -6,9 +6,9 @@ import Image from 'next/image';
 const RealNumbersCourse: React.FC = () => {
   const topicProgress = {
     "Działania na liczbach rzeczywistych": 90,
-    "Potęgi o wykładnikach całkowitych": 0,
+    "Obliczanie na potęg": 0,
     "Pierwiastki i działania na pierwiastkach": 0,
-    "Własności logarytmów": 0,
+    "Obliczanie logarytmu": 0,
     "Przekształcanie wyrażeń": 0,
     "Zaokrąglanie i szacowanie": 0,
     "Notacja wykładnicza": 0,
@@ -25,9 +25,10 @@ const RealNumbersCourse: React.FC = () => {
       icon: "➕"
     },
     {
-      title: "Potęgi o wykładnikach całkowitych",
-      shortDesc: "Wymierne i rzeczywiste potęgi",
-      icon: "🔢"
+      title: "Obliczanie na potęg",
+      shortDesc: "Potęgi o wykładnikach całkowitych oraz wymiernych - podstawowe własności",
+      icon: "🔢",
+      slug: "/liczby-rzeczywiste/potegi"
     },
     {
       title: "Pierwiastki i działania na pierwiastkach",
@@ -35,8 +36,8 @@ const RealNumbersCourse: React.FC = () => {
       icon: "√"
     },
     {
-      title: "Własności logarytmów",
-      shortDesc: "Działania na logarytmach",
+      title: "Obliczanie logarytmu",
+      shortDesc: "Obliczanie podstawowych logarytmów",
       icon: "㏒"
     },
     {
@@ -121,7 +122,7 @@ const RealNumbersCourse: React.FC = () => {
           {topics.map((topic, index) => (
             <Link 
               key={index}
-              href={`/course/real-numbers/${topic.title.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/course/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-start">
