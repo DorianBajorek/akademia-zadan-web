@@ -38,7 +38,8 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Obliczanie logarytmu",
       shortDesc: "Obliczanie podstawowych logarytmów",
-      icon: "㏒"
+      icon: "㏒",
+      slug: "/liczby-rzeczywiste/logarytmy"
     },
     {
       title: "Przekształcanie wyrażeń",
@@ -83,7 +84,7 @@ const RealNumbersCourse: React.FC = () => {
       
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1">
         <div className="flex items-center mb-8">
-          <Link href="/kurs-strona-glowna" className="mr-4 text-blue-600 hover:text-blue-800">
+          <Link href="/kurs" className="mr-4 text-blue-600 hover:text-blue-800">
             ← Wróć do kursu
           </Link>
           <h1 className="text-4xl font-bold text-gray-800">Liczby rzeczywiste</h1>
@@ -122,7 +123,7 @@ const RealNumbersCourse: React.FC = () => {
           {topics.map((topic, index) => (
             <Link 
               key={index}
-              href={`/course/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/kurs-matura-podstawowa/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-start">
