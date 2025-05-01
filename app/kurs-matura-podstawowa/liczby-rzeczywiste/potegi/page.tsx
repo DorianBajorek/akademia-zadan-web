@@ -71,11 +71,19 @@ const tasks = [
     description: "Uprość wyrażenia z pierwiastkami",
     img: "/problemImages/problem508.png",
     isCompleted: false,
-  },  {
+  },
+  {
     id: "509",
     title: "Podstawowe działania",
     description: "Uprość wyrażenia z pierwiastkami",
     img: "/problemImages/problem509.png",
+    isCompleted: false,
+  },
+  {
+    id: "510",
+    title: "Podstawowe działania",
+    description: "Uprość wyrażenia z pierwiastkami",
+    img: "/problemImages/problem510.png",
     isCompleted: false,
   },
 ];
@@ -104,7 +112,7 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="ube5Fcgkm4Q" />
+        <VideoSection youtubeId="U6Il0yWVfy4" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na potęgach"} />

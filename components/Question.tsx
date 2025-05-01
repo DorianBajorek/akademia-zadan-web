@@ -38,6 +38,7 @@ const Question: React.FC<QuestionProps> = ({
   youtubeVideoId,
 }) => {
   const renderText = (text: string) => {
+    console.log("SIEMA: " + text)
     const parts = text?.split(/\$(.*?)\$/g);
     return parts?.map((part, index) =>
       index % 2 === 0 ? (

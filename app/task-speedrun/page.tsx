@@ -123,6 +123,7 @@ const TaskSpeedrun: React.FC = () => {
       setCorrectAnswer(undefined);
       setShowNextTask(false);
       setQuestions(newQuestions);
+      console.log("SIEMA:" + JSON.stringify(newQuestions, null, 2))
       startTimer();
     };
   
