@@ -2,11 +2,10 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Image from "next/image";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import VideoSection from "@/components/VideoSection";
 import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
+import React from "react";
 
 const tasks = [
   {
@@ -86,10 +85,49 @@ const tasks = [
     img: "/problemImages/problem510.png",
     isCompleted: false,
   },
+  {
+    id: "511",
+    title: "Podstawowe działania",
+    description: "Uprość wyrażenia z pierwiastkami",
+    img: "/problemImages/problem511.png",
+    isCompleted: false,
+  },
+  {
+    id: "512",
+    title: "Podstawowe działania",
+    description: "Uprość wyrażenia z pierwiastkami",
+    img: "/problemImages/problem512.png",
+    isCompleted: false,
+  },
+  {
+    id: "513",
+    title: "Podstawowe działania",
+    description: "Uprość wyrażenia z pierwiastkami",
+    img: "/problemImages/problem513.png",
+    isCompleted: false,
+  },
+  {
+    id: "514",
+    title: "Podstawowe działania",
+    description: "Uprość wyrażenia z pierwiastkami",
+    img: "/problemImages/problem514.png",
+    isCompleted: false,
+  },
+  {
+    id: "515",
+    title: "Podstawowe działania",
+    description: "Uprość wyrażenia z pierwiastkami",
+    img: "/problemImages/problem515.png",
+    isCompleted: false,
+  },
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
+
+  const firstGroup = tasks.filter(task => parseInt(task.id) <= 509);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 510);
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 516);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -117,9 +155,56 @@ const TopicTasksPage = () => {
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na potęgach"} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <TaskCards tasks={tasks} />   
+        <div className="col-span-full py-8 text-center">
+          <div className="border-t-2 border-b-2 border-gray-300 py-4">
+            <h2 className="text-xl font-bold text-gray-700">
+              Zadania wieloetapowe
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Do samodzielnej nauki
+            </p>
+          </div>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {firstGroup.map((task) => (
+            <TaskCards key={task.id} tasks={[task]} />
+          ))}
+        </div>
+
+        <div className="col-span-full py-8 text-center">
+          <div className="border-t-2 border-b-2 border-gray-300 py-4">
+            <h2 className="text-xl font-bold text-gray-700">
+              Zadania zamknięte
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Prosto z matury
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {secondGroup.map((task) => (
+            <TaskCards key={task.id} tasks={[task]} />
+          ))}
+        </div>
+
+        <div className="col-span-full py-8 text-center">
+          <div className="border-t-2 border-b-2 border-gray-300 py-4">
+            <h2 className="text-xl font-bold text-gray-700">
+              Zadania otwarte
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Zadania autorskie i maturalne
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {thirdGroup.map((task) => (
+            <TaskCards key={task.id} tasks={[task]} />
+          ))}
+        </div>
+
       </main>
 
       <Footer />

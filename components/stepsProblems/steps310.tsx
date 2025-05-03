@@ -10,14 +10,14 @@ const HardcodedTask: React.FC = () => {
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 510,
+    "task_id": 24,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Dla każdej liczby rzeczywistej $a$ wyrażenie $\\left( \\sqrt[5]{5} \\cdot \\frac{1}{5} \\right)^{-5}$ jest równe",
-    "choiceA": "$5^4$",
-    "choiceB": "$5^{-4}$",
-    "choiceC": "$5^{0,25}$",
-    "choiceD": "$5^{-0,25}$",
+    "description": "Liczba $\\log_{\\sqrt{7}}7$ jest równa",
+    "choiceA": "$2$",
+    "choiceB": "$7$",
+    "choiceC": "$\\sqrt{7}$",
+    "choiceD": "$\\frac{1}{2}$",
     "correct_answer": "a"
   };
 

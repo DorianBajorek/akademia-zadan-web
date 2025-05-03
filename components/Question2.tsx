@@ -1,33 +1,37 @@
 import { InlineMath } from "react-katex";
+import 'katex/dist/katex.min.css';
 
-interface QuestionProps {
-  id: number;
-  text: string;
-  answers: string[];
+interface Question2Props {
+  description: string;
+  choiceA: string;
+  choiceB: string;
+  choiceC: string;
+  choiceD: string;
+  correctAnswer: string;
   selectedAnswer: string | null;
-  onAnswerSelect: (questionId: number, answerIndex: number) => void;
+  onAnswerSelect: (answerIndex: number) => void;
   isCorrect?: boolean | null;
-  correctAnswer?: string | null;
-  images?: string[];
 }
 
 const answerLabels = ["A", "B", "C", "D"];
 const letterMap = ["a", "b", "c", "d"];
 
-const Question2: React.FC<QuestionProps> = ({
-  id,
-  text,
-  answers,
+const Question2: React.FC<Question2Props> = ({
+  description,
+  choiceA,
+  choiceB,
+  choiceC,
+  choiceD,
+  correctAnswer,
   selectedAnswer,
   onAnswerSelect,
   isCorrect,
-  correctAnswer,
-  images,
 }) => {
-  const  renderText = (text: string) => {
-    const parts = text?.split(/\$(.*?)\$/g);
-    console.log("SIEMA: " + parts)
-    return parts?.map((part, index) =>
+  const answers = [choiceA, choiceB, choiceC, choiceD];
+
+  const renderText = (text: string) => {
+    const parts = text.split(/\$(.*?)\$/g);
+    return parts.map((part, index) =>
       index % 2 === 0 ? (
         <span key={index}>{part}</span>
       ) : (
@@ -36,51 +40,47 @@ const Question2: React.FC<QuestionProps> = ({
     );
   };
 
-  const getButtonClass = (index: number) => {
-    if (selectedAnswer?.toLowerCase() === letterMap[index]) {
-      if (isCorrect === undefined || isCorrect === null) {
-        return "border-blue-500 bg-blue-100";
-      }
-      return isCorrect ? "border-green-500 bg-green-100" : "border-red-500 bg-red-100";
-    }
-    
-    if (isCorrect === false && correctAnswer?.toLowerCase() === letterMap[index]) {
-      return "border-green-500 bg-green-100";
-    }
-    
-    return "border-gray-300 hover:border-blue-400";
-  };
+  const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
   return (
-    <div className="bg-white shadow-lg p-4 md:p-6 rounded-lg border border-gray-400 relative flex flex-col">
-      <div className="text-lg md:text-xl text-gray-800 mb-4">
-        {renderText(text)}
-      </div>
+    <div className="bg-white shadow-lg p-4 md:p-6 rounded-lg border border-gray-200">
+      <h3 className="text-lg md:text-xl text-gray-800 mb-4">
+        {renderText(description)}
+      </h3>
 
-      {images?.map((image, index) => (
-        <div key={index} className="mt-2 md:mt-4 flex justify-center">
-          <img 
-            src={image} 
-            alt={`Image ${index + 1}`}
-            className="max-w-full max-h-[60vh] w-auto h-auto object-contain"
-          />
-        </div>
-      ))}
+      <div className="space-y-3">
+        {answers.map((answer, index) => {
+          let buttonStyle = "border-gray-200 hover:border-blue-400";
+          const isSelected = selectedAnswer === letterMap[index];
+          const isActuallyCorrect = index === correctAnswerIndex;
 
-      <div className="mt-3 md:mt-4 space-y-2 md:space-y-3">
-        {answers.map((answer, index) => (
-          <button
-            key={index}
-            className={`w-full flex items-start p-2 md:p-3 rounded-lg text-sm md:text-base text-gray-800 font-medium border-2 transition ${getButtonClass(index)}`}
-            onClick={() => onAnswerSelect(id, index)}
-            disabled={isCorrect !== undefined && isCorrect !== null}
-          >
-            <span className="font-bold text-blue-600 mr-2 md:mr-3 text-xs md:text-sm min-w-[50px]">
-              {answerLabels[index]}
-            </span>
-            <div className="text-left">{renderText(answer)}</div>
-          </button>
-        ))}
+          if (isSelected) {
+            buttonStyle =
+              isCorrect === undefined || isCorrect === null
+                ? "border-blue-500 bg-blue-50"
+                : isCorrect
+                ? "border-green-500 bg-green-50"
+                : "border-red-500 bg-red-50";
+          }
+
+          if (!isSelected && isCorrect === false && isActuallyCorrect) {
+            buttonStyle = "border-green-500 bg-green-50";
+          }
+
+          return (
+            <button
+              key={index}
+              onClick={() => onAnswerSelect(index)}
+              className={`w-full text-left p-3 rounded-lg border-2 transition-colors ${buttonStyle}`}
+              disabled={isCorrect !== null && isCorrect !== undefined}
+            >
+              <span className="font-bold text-blue-600 mr-2">
+                {answerLabels[index]}.
+              </span>
+              {renderText(answer)}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

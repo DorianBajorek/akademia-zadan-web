@@ -38,8 +38,6 @@ const TaskSpeedrun: React.FC = () => {
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
-    console.log(questions[0].correct);
-    console.log(answerIndex);
     setIsCorrect(answerIndex === questions[0].correct);
     setCorrectAnswer(questions[0].taskType === "tf2" ? tf2Map[questions[0].correct] : letterMap[questions[0].correct])
     setShowNextTask(true);
