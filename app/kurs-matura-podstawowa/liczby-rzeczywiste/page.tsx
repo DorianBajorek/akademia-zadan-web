@@ -84,7 +84,7 @@ const RealNumbersCourse: React.FC = () => {
       
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1">
         <div className="flex items-center mb-8">
-          <Link href="/kurs" className="mr-4 text-blue-600 hover:text-blue-800">
+          <Link href="/kurs-matura-podstawowa" className="mr-4 text-blue-600 hover:text-blue-800">
             ← Wróć do kursu
           </Link>
           <h1 className="text-4xl font-bold text-gray-800">Liczby rzeczywiste</h1>
@@ -147,16 +147,6 @@ const RealNumbersCourse: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-12 bg-yellow-50 p-6 rounded-xl border border-yellow-200">
-          <h2 className="text-xl font-semibold text-yellow-800 mb-3">Jak efektywnie uczyć się tego działu?</h2>
-          <ul className="list-disc pl-5 text-gray-700 space-y-2">
-            <li>Zacznij od podstawowych działań arytmetycznych</li>
-            <li>Naucz się wzorów na potęgi i pierwiastki na pamięć</li>
-            <li>Rozwiązuj zadania w kolejności od najłatwiejszych</li>
-            <li>Wartość bezwzględna i logarytmy wymagają szczególnej uwagi</li>
-            <li>Procenty ćwicz na praktycznych przykładach</li>
-          </ul>
-        </div>
       </main>
 
       <Footer />
