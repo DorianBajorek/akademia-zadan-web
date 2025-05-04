@@ -80,6 +80,7 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Procenty",
       shortDesc: "Procent składany, zmiany cen",
+      slug: "/liczby-rzeczywiste/procenty",
       icon: "%"
     }
   ];
