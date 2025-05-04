@@ -7,7 +7,6 @@ import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { useAuth } from './UserData';
 
 const Home: React.FC = () => {
-  const { token } = useAuth();
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
       <Nav />
@@ -15,7 +14,6 @@ const Home: React.FC = () => {
         <div className="flex justify-center mb-6">
           <Image src="/logoGrayBackground.svg" alt="Smok" width={200} height={200} />
         </div>
-        {console.log("SIEMA: " + token)}
         <h2 className="text-5xl font-bold text-blue-600 mb-6">
           Witamy w Akademii Zadań!
         </h2>
