@@ -9,6 +9,13 @@ import React from "react";
 
 const tasks = [
   {
+    id: "900",
+    title: "Równanie procentowe",
+    description: "30% liczby x jest o 2730 mniejsze od liczby x.",
+    img: "/problemImages/problem900.png",
+    isCompleted: true,
+  },
+  {
     id: "910",
     title: "Kwota kapitału po trzech latach",
     description: "Oblicz kwotę kapitału na koncie po trzech latach przy oprocentowaniu 6%",
