@@ -1,19 +1,21 @@
+"use client";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { useAuth } from './UserData';
 
 const Home: React.FC = () => {
+  const { token } = useAuth();
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
       <Nav />
-      
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 text-center">
         <div className="flex justify-center mb-6">
           <Image src="/logoGrayBackground.svg" alt="Smok" width={200} height={200} />
         </div>
-        
+        {console.log("SIEMA: " + token)}
         <h2 className="text-5xl font-bold text-blue-600 mb-6">
           Witamy w Akademii Zadań!
         </h2>

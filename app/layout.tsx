@@ -1,5 +1,6 @@
 import Script from "next/script";
 import "./globals.css";
+import { AuthProvider } from "./UserData";
 
 export default function RootLayout({
   children,
@@ -34,7 +35,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <AuthProvider> {/* Przeniesione na zewnątrz body */}
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   );
 }

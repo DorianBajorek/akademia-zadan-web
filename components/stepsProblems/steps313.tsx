@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Footer from "@/components/Footer";
 import Question2 from "../Question2";
 
 const letterMap = ["a", "b", "c", "d"];
@@ -10,15 +9,15 @@ const HardcodedTask: React.FC = () => {
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 26,
+    "task_id": 27,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Liczba $\\log_{32}{16}$ jest równa",
-    "choiceA": "$\\frac{1}{2}$",
-    "choiceB": "$\\frac{4}{5}$",
-    "choiceC": "$\\frac{5}{4}$",
-    "choiceD": "$\\frac{2}{3}$",
-    "correct_answer": "b"
+    "description": "Liczba $\\log_{\\frac{1}{4}}{\\sqrt[3]{4}}$ jest równa",
+    "choiceA": "$-\\frac{2}{3}$",
+    "choiceB": "$\\frac{2}{3}$",
+    "choiceC": "$\\frac{1}{6}$",
+    "choiceD": " $-\\frac{1}{6}$",
+    "correct_answer": "d"
   };
 
   const handleCheckAnswer = () => {
@@ -70,7 +69,6 @@ const HardcodedTask: React.FC = () => {
           </div>
         )}
       </main>
-      <Footer />
     </div>
   );
 };

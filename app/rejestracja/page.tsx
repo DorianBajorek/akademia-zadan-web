@@ -15,7 +15,6 @@ const Register: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = async () => {
-    console.log("SIEMA1")
     const data = await register(email, username, password, confirmPassword)
     console.log(data)
   };
