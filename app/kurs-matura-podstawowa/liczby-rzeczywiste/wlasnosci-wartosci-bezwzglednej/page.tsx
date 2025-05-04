@@ -5,100 +5,87 @@ import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
 import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
+import React from "react";
 
 const tasks = [
   {
-    id: "800",
-    title: "Zadanie 1",
-    description: "Dodawanie ułamków zwykłych",
-    img: "/problemImages/problem800.png",
-    isCompleted: false,
+    id: "1000",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1000.png",
+    isCompleted: true,
   },
   {
-    id: "801",
-    title: "Zadanie 2",
-    description: "Odejmowanie ułamków zwykłych",
-    img: "/problemImages/problem801.png",
-    isCompleted: false,
+    id: "1001",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1001.png",
+    isCompleted: true,
   },
   {
-    id: "802",
-    title: "Zadanie 3",
-    description: "Mnożenie ułamków zwykłych",
-    img: "/problemImages/problem802.png",
-    isCompleted: false,
+    id: "1002",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1002.png",
+    isCompleted: true,
   },
   {
-    id: "803",
-    title: "Zadanie 4",
-    description: "Dzielenie ułamków zwykłych",
-    img: "/problemImages/problem803.png",
-    isCompleted: false,
+    id: "1003",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1003.png",
+    isCompleted: true,
   },
   {
-    id: "804",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem804.png",
-    isCompleted: false,
+    id: "1004",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1004.png",
+    isCompleted: true,
   },
   {
-    id: "805",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem805.png",
-    isCompleted: false,
+    id: "1005",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1005.png",
+    isCompleted: true,
   },
   {
-    id: "806",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem806.png",
-    isCompleted: false,
+    id: "1006",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1006.png",
+    isCompleted: true,
   },
   {
-    id: "807",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem807.png",
-    isCompleted: false,
+    id: "1007",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1007.png",
+    isCompleted: true,
   },
   {
-    id: "808",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem808.png",
-    isCompleted: false,
+    id: "1008",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1008.png",
+    isCompleted: true,
   },
   {
-    id: "809",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem809.png",
-    isCompleted: false,
-  },
-  {
-    id: "810",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem810.png",
-    isCompleted: false,
-  },
-  {
-    id: "811",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułakach",
-    img: "/problemImages/problem811.png",
-    isCompleted: false,
+    id: "1009",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem1009.png",
+    isCompleted: true,
   },
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 800 && parseInt(task.id) <= 804);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 805 && parseInt(task.id) <= 809);
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 810);
+  const firstGroup = tasks.filter(task => parseInt(task.id) <= 1005 && parseInt(task.id) >= 1000);
+  const secondGroup = tasks.filter(task => parseInt(task.id) <= 1009 && parseInt(task.id) >= 1005);
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1010);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -121,18 +108,18 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="DlC-AfObAOM" />
+        <VideoSection youtubeId="2Kx1SzFHF5E" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na ułamkach"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na potęgach"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">
             <h2 className="text-xl font-bold text-gray-700">
-              Zadania podstawowe
+              Zadania wieloetapowe
             </h2>
             <p className="text-gray-600 mt-2">
-              Ćwiczenia wprowadzające
+              Do samodzielnej nauki
             </p>
           </div>
         </div>
@@ -165,7 +152,7 @@ const TopicTasksPage = () => {
               Zadania otwarte
             </h2>
             <p className="text-gray-600 mt-2">
-              Warte więcej punktów
+              Zadania autorskie i maturalne
             </p>
           </div>
         </div>
@@ -175,6 +162,7 @@ const TopicTasksPage = () => {
             <TaskCards key={task.id} tasks={[task]} />
           ))}
         </div>
+
       </main>
 
       <Footer />

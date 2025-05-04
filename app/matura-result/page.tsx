@@ -85,7 +85,6 @@ const Matura1Result: React.FC = () => {
           <h3 className="text-2xl font-bold text-blue-600 mb-6">Zadania zamknięte</h3>
           {storedResults.questions.map((q, index) => {
             const result = storedResults.results.find(r => r.questionId === q.id);
-            {console.log("SIEMA: " + JSON.stringify(q, null, 2))}
             return (
               <Question
                 key={index}

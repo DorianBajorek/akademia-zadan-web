@@ -63,8 +63,9 @@ const RealNumbersCourse: React.FC = () => {
     },
     {
       title: "Wartość bezwzględna",
-      shortDesc: "Równania z wartością bezwzględną",
-      icon: "|x|"
+      shortDesc: "Właściwości i zastosowania wartości bezwzględnej",
+      slug: "/liczby-rzeczywiste/wlasnosci-wartosci-bezwzglednej",
+      icon: "|-2+√2|"
     },
     {
       title: "Porównywanie liczb",

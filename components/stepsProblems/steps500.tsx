@@ -18,7 +18,6 @@ const Page = () => {
   useEffect(() => {
     if (completedStages.length === 3) {
       solveProblem("500", token)
-      console.log("Hello World: " + token);
     }
   }, [completedStages]);
 

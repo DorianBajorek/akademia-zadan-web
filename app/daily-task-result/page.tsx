@@ -15,7 +15,6 @@ const DailyTaskResult: React.FC = () => {
   
   useEffect(() => {
     const storedResults = localStorage.getItem("dailyResults");
-    console.log(JSON.stringify(storedResults, null, 2));
     if (storedResults) {
       const { results, summary, questions } = JSON.parse(storedResults);
       setResults(results);

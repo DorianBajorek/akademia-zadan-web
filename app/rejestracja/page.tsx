@@ -16,7 +16,6 @@ const Register: React.FC = () => {
 
   const handleSubmit = async () => {
     const data = await register(email, username, password, confirmPassword)
-    console.log(data)
   };
 
   return (
