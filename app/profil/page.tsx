@@ -36,8 +36,9 @@ const UserProfile: React.FC = () => {
   
   const [badges] = useState([
     { src: "/badges/mistrzPoteg.png", title: "Mistrz Potęg", description: "Rozwiązałeś 50 zadań z potęgowania" },
-    { src: "/badges/mistrzPoteg.png", title: "Mistrz Potęg", description: "Rozwiązałeś 50 zadań z potęgowania" },
-    { src: "/badges/mistrzPoteg.png", title: "Mistrz Potęg", description: "Rozwiązałeś 50 zadań z potęgowania" },
+    { src: "/badges/ekspertRzeczywistosci.png", title: "Mistrz Potęg", description: "Rozwiązałeś 50 zadań z potęgowania" },
+    { src: "/badges/wladcaUlamkow.png", title: "Mistrz Potęg", description: "Rozwiązałeś 50 zadań z potęgowania" },
+    { src: "/badges/wladcaParabol.png", title: "Władca Parabol", description: "Rozwiązałeś 50 zadań z funkcji kwadratowej" },
   ]);
 
   const [currentDate, setCurrentDate] = useState(dayjs());
@@ -174,10 +175,10 @@ const UserProfile: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {badges.map((badge, index) => (
                 <div key={index} className="flex flex-col items-center bg-gray-50 hover:bg-gray-100 p-4 rounded-xl transition-colors group">
-                  <div className="relative w-24 h-24 mb-3">
+                  <div className="relative w-40 h-40 mb-3">
                     <Image 
                       src={badge.src} 
-                      alt={badge.title} 
+                      alt={badge.title}
                       fill
                       className="object-contain group-hover:scale-105 transition-transform"
                     />

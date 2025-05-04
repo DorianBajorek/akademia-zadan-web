@@ -33,7 +33,6 @@ const TaskContent: React.FC<TaskContentProps> = ({
   const handleCompleteTask = () => {
     const newState = !isCompleted;
     setIsCompleted(newState);
-    // Możesz zastąpić console.log własną implementacją (np. toast notification)
     console.log(newState ? "Zadanie oznaczone jako rozwiązane" : "Anulowano rozwiązanie zadania");
   };
 

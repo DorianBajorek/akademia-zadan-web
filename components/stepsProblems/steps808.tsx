@@ -5,20 +5,20 @@ import Question2 from "../Question2";
 
 const letterMap = ["a", "b", "c", "d"];
 
-const HardcodedTask: React.FC = () => {
+const FractionTask4: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 311,
+    "task_id": 26,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Liczba $\\log_{\\sqrt{2}} 4^8$ jest równa",
-    "choiceA": "$2$",
-    "choiceB": "$4$",
-    "choiceC": "$32$",
-    "choiceD": "$16$",
-    "correct_answer": "c"
+    "description": "Oblicz wartość wyrażenia: $\\frac{7}{8} - \\left( \\frac{2}{3} + \\frac{1}{4} \\right) \\cdot \\frac{3}{5}$",
+    "choiceA": "$\\frac{13}{40}$",
+    "choiceB": "$\\frac{13}{60}$",
+    "choiceC": "$\\frac{17}{120}$",
+    "choiceD": "$\\frac{7}{24}$",
+    "correct_answer": "a"
   };
 
   const handleCheckAnswer = () => {
@@ -75,4 +75,4 @@ const HardcodedTask: React.FC = () => {
   );
 };
 
-export default HardcodedTask;
+export default FractionTask4;

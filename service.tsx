@@ -111,7 +111,6 @@ export const getTopicsProgress = async (field: string, token: string) => {
 
 export const solveProblem = async (taskId: string, token: string) => {
   try {
-    console.log(taskId + " " + token);
     const response = await axios.post(
       `https://akademiazadan.pl/api/matura-podstawowa/v1/problem/${taskId}/complete/`,
       {},
