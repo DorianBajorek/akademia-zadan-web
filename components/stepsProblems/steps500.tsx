@@ -1,16 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import { useAuth } from "@/app/UserData";
+import { solveProblem } from "@/service";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
+  const {token} = useAuth()
 
   const handleStageComplete = (stage: number) => {
     setCompletedStages((prev) => [...prev, stage]);
   };
+
+  useEffect(() => {
+    if (completedStages.length === 3) {
+      solveProblem("500", token)
+      console.log("Hello World: " + token);
+    }
+  }, [completedStages]);
 
   return (
     <div className="bg-gray-50 min-h-screen p-5">

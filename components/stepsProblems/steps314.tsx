@@ -10,15 +10,15 @@ const HardcodedTask: React.FC = () => {
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 26,
+    "task_id": 28,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Liczba $\\log_{32}{16}$ jest równa",
-    "choiceA": "$\\frac{1}{2}$",
-    "choiceB": "$\\frac{4}{5}$",
-    "choiceC": "$\\frac{5}{4}$",
+    "description": "Liczba $\\log_{3}{\\sqrt[4]{27}}$ jest równa",
+    "choiceA": "$\\frac{3}{2}$",
+    "choiceB": "$\\frac{4}{3}$",
+    "choiceC": "$\\frac{3}{4}$",
     "choiceD": "$\\frac{2}{3}$",
-    "correct_answer": "b"
+    "correct_answer": "c"
   };
 
   const handleCheckAnswer = () => {
@@ -70,7 +70,6 @@ const HardcodedTask: React.FC = () => {
           </div>
         )}
       </main>
-      <Footer />
     </div>
   );
 };

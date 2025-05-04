@@ -6,14 +6,19 @@ import Image from 'next/image';
 import { FcGoogle } from 'react-icons/fc';
 import { useState } from 'react';
 import { login } from "@/service";
+import { useAuth } from "../UserData";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { updateToken } = useAuth();
 
   const handleSubmit = async () => {
     const data = await login(email, password)
-    console.log(data)
+    if (data.key) {
+      updateToken(data.key);
+      window.location.href = '/';
+    }
   };
 
   return (
@@ -71,10 +76,10 @@ const Login: React.FC = () => {
                 <div className="flex-1 border-t border-gray-300"></div>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
                   <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
-                    Adres email
+                    Nazwa Użytkownika 
                   </label>
                   <input
                     type="email"
@@ -112,11 +117,12 @@ const Login: React.FC = () => {
                 
                 <button
                   type="submit"
+                  onClick={handleSubmit}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 rounded-md transition duration-200 text-sm sm:text-base"
                 >
                   Zaloguj się
                 </button>
-              </form>
+              </div>
               
               <div className="mt-4 sm:mt-6 text-center">
                 <p className="text-sm sm:text-base text-gray-600">

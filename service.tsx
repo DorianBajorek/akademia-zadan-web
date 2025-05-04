@@ -48,13 +48,13 @@ export const getProblems = async(numberOfProblems: number) => {
     }
 }
 
-export const login = async(email: string, password: string) => {
+export const login = async(username: string, password: string) => {
   const payload = {
-    email: email,
+    username: username,
     password: password
   }
   try {
-      const response = await axios.post(`https://akademiazadan.pl/api/v1/login`, payload);
+      const response = await axios.post(`https://akademiazadan.pl/api/auth/login/`, payload);
       return response.data;
     } catch (error) {
       console.error("Error while login:", error);
@@ -75,4 +75,55 @@ export const register = async(email: string, username: string, password: string,
     } catch (error) {
       console.error("Error while register", error);
     }
+}
+
+export const getFieldsProgress = async (token: string) => {
+  try {
+    const response = await axios.get(
+      `https://akademiazadan.pl/api/matura-podstawowa/v1/fields-progress/`,
+      {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error while fetching fields progress", error);
+  }
+};
+
+export const getTopicsProgress = async (field: string, token: string) => {
+  try {
+    const response = await axios.get(
+      `https://akademiazadan.pl/api/matura-podstawowa/v2/topics-progress/${field}/`,
+      {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error while fetching fields progress", error);
+  }
+};
+
+export const solveProblem = async (taskId: string, token: string) => {
+  try {
+    console.log(taskId + " " + token);
+    const response = await axios.post(
+      `https://akademiazadan.pl/api/matura-podstawowa/v1/problem/${taskId}/complete/`,
+      {},
+      {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error while fetching fields progress", error);
+    throw error;
+  }
 }

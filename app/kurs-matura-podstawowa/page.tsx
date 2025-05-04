@@ -1,84 +1,132 @@
+"use client";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect } from "react";
+import { getFieldsProgress } from "@/service";
+import { useAuth } from "../UserData";
 
 const MainCourse: React.FC = () => {
   const courseProgress = {
-    "Liczby rzeczywiste": 60,
-    "Wyrażenia algebraiczne": 0,
-    "Równania i nierówności": 0,
-    "Układy równań": 0,
-    "Funkcje": 0,
-    "Ciągi": 0,
-    "Trygonometria": 0,
-    "Planimetria": 0,
-    "Geometria analityczna": 0,
-    "Stereometria": 0
-  };
+    "liczby-rzeczywiste": 60.5,
+    "wyrazenia-algebraiczne": 0,
+    "rownania-i-nierownosci-liniowe": 0,
+    "uklady-rownan": 0,
+    "funkcje-liniowe": 0,
+    "funkcje-kwadratowe": 0,
+    "ciagi": 0,
+    "trygonometria": 0,
+    "planimetria": 0,
+    "geometria-analityczna": 0,
+    "stereometria": 0,
+    "kombinatoryka": 0,
+    "prawdopodobiensto-statystyka": 0
+  };  
  
   const courses = [
     {
+      id: "liczby-rzeczywiste",
       title: "Liczby rzeczywiste",
       description: "Poznaj podstawy matematyki - działania na liczbach, przedziały, wartość bezwzględną i pierwiastki.",
       image: "/fieldCovers/liczbyRzeczywiste.png"
     },
     {
+      id: "wyrazenia-algebraiczne",
       title: "Wyrażenia algebraiczne",
       description: "Naucz się przekształcać wyrażenia algebraiczne, wzory skróconego mnożenia i działań na potęgach.",
       image: "/fieldCovers/wyrazeniaAlgebraiczne.png"
     },
     {
+      id: "rownania-i-nierownosci-liniowe",
       title: "Równania i nierówności liniowe",
       description: "Rozwiązuj równania i nierówności liniowe - podstawa każdego maturzysty.",
       image: "/fieldCovers/rownaniaNierownosci.png"
     },
     {
+      id: "uklady-rownan",
       title: "Układy równań",
       description: "Poznaj metody rozwiązywania układów równań - podstawianie, przeciwnych współczynników i graficzną.",
       image: "/fieldCovers/uklady.png"
     },
     {
+      id: "funkcje",
       title: "Funkcje",
       description: "Badaj własności funkcji. Dziedzina, zbiór wartości oraz miejsca zerowe",
       image: "/fieldCovers/funkcje.png"
     },
     {
+      id: "funkcje-liniowe",
       title: "Funkcje liniowe",
       description: "Badaj własności funkcji liniowych. Wyznaczanie miejsc zerowych",
       image: "/fieldCovers/funkcjaLiniowa.png"
     },
     {
+      id: "funkcje-kwadratowe",
       title: "Funkcje kwadratowe",
       description: "Rozwiązywanie równań kwadratowych, własności funkcji, nierówności oraz wierzchołek.",
       image: "/fieldCovers/funkcjaKwadratowa.png"
     },
     {
+      id: "ciagi",
       title: "Ciągi",
       description: "Poznaj ciągi arytmetyczne i geometryczne, ich monotoniczność oraz sumy wyrazów.",
       image: "/problemImages/chapter1.png"
     },
     {
+      id: "trygonometria",
       title: "Trygonometria",
       description: "Funkcje trygonometryczne, tożsamości trygonometryczne i równania trygonometryczne.",
       image: "/problemImages/chapter1.png"
     },
     {
+      id: "planimetria",
       title: "Planimetria",
       description: "Geometria płaska - własności figur, twierdzenie Pitagorasa, podobieństwo i pola figur.",
       image: "/problemImages/chapter1.png"
     },
     {
+      id: "geometria-analityczna",
       title: "Geometria analityczna",
       description: "Równania prostych, odległość punktów, wektory i figury geometryczne na płaszczyźnie kartezjańskiej.",
       image: "/problemImages/chapter1.png"
     },
     {
+      id: "stereometria",
       title: "Stereometria",
       description: "Geometria przestrzenna - graniastosłupy, ostrosłupy, walce, stożki, kule i ich objętości.",
       image: "/problemImages/chapter1.png"
+    },
+    {
+      id: "kombinatoryka",
+      title: "Kombinatoryka",
+      description: "Dowiedz się, jak liczyć permutacje, wariacje i kombinacje. Kluczowy dział rachunku prawdopodobieństwa.",
+      image: "/problemImages/chapter1.png"
+    },
+    {
+      id: "prawdopodobiensto-statystyka",
+      title: "Prawdopodobieństwo i Statystyka",
+      description: "Obliczanie prawdopodobieństwa, średniej, mediany, wariancji i odchylenia standardowego.",
+      image: "/problemImages/chapter1.png"
     }
   ];
+  
+  const {token} = useAuth()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getFieldsProgress(token);
+        if (data) {
+        }
+      } catch (error) {
+        console.error("Error fetching topics progress", error);
+      }
+    };
+    if(token) {
+      fetchData();
+    }
+  }, [token]);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -130,12 +178,12 @@ const MainCourse: React.FC = () => {
                 <div className="mb-4">
                   <div className="flex justify-between text-sm text-gray-600 mb-1">
                     <span>Postęp:</span>
-                    <span>{courseProgress[course.title as keyof typeof courseProgress]}%</span>
+                    <span>{courseProgress[course.id as keyof typeof courseProgress]}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
                     <div 
                       className="bg-blue-600 h-2.5 rounded-full" 
-                      style={{ width: `${courseProgress[course.title as keyof typeof courseProgress]}%` }}
+                      style={{ width: `${courseProgress[course.id as keyof typeof courseProgress]}%` }}
                     ></div>
                   </div>
                 </div>

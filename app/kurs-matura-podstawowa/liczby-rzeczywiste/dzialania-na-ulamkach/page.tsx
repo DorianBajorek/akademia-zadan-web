@@ -8,101 +8,31 @@ import TopicStats from "@/components/TopicStats";
 
 const tasks = [
   {
-    id: "300",
-    title: "Zadanie 21",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem300.png",
+    id: "800",
+    title: "Zadanie 1",
+    description: "Dodawanie ułamków zwykłych",
+    img: "/problemImages/problem800.png",
     isCompleted: false,
   },
   {
-    id: "301",
-    title: "Zadanie 22",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem301.png",
+    id: "801",
+    title: "Zadanie 2",
+    description: "Odejmowanie ułamków zwykłych",
+    img: "/problemImages/problem801.png",
     isCompleted: false,
   },
   {
-    id: "302",
-    title: "Zadanie 23",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem302.png",
+    id: "802",
+    title: "Zadanie 3",
+    description: "Mnożenie ułamków zwykłych",
+    img: "/problemImages/problem802.png",
     isCompleted: false,
   },
   {
-    id: "303",
-    title: "Zadanie 24",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem303.png",
-    isCompleted: false,
-  },
-  {
-    id: "304",
-    title: "Zadanie 25",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem304.png",
-    isCompleted: false,
-  },
-  {
-    id: "305",
-    title: "Zadanie 26",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem305.png",
-    isCompleted: false,
-  },
-  {
-    id: "306",
-    title: "Zadanie 27",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem306.png",
-    isCompleted: false,
-  },
-  {
-    id: "307",
-    title: "Zadanie 28",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem307.png",
-    isCompleted: false,
-  },
-  {
-    id: "308",
-    title: "Zadanie 29",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem308.png",
-    isCompleted: false,
-  },
-  {
-    id: "309",
-    title: "Zadanie 30",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem309.png",
-    isCompleted: false,
-  },
-  {
-    id: "311",
-    title: "Zadanie 30",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem311.png",
-    isCompleted: false,
-  },
-  {
-    id: "312",
-    title: "Zadanie 30",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem312.png",
-    isCompleted: false,
-  },
-  {
-    id: "313",
-    title: "Zadanie 30",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem313.png",
-    isCompleted: false,
-  },
-  {
-    id: "314",
-    title: "Zadanie 30",
-    description: "Obliczenie podstawowego logarytmu",
-    img: "/problemImages/problem314.png",
+    id: "803",
+    title: "Zadanie 4",
+    description: "Dzielenie ułamków zwykłych",
+    img: "/problemImages/problem803.png",
     isCompleted: false,
   },
 ];
@@ -111,8 +41,8 @@ const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
   // Podział zadań na grupy
-  const firstGroup = tasks.filter(task => parseInt(task.id) <= 309);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 310);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 800);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 810);
   // Można dodać trzecią grupę jeśli będzie potrzebna
 
   return (
@@ -139,7 +69,7 @@ const TopicTasksPage = () => {
         <VideoSection youtubeId="2WGFkYAbT5w" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Logarytmy"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na ułamkach"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">

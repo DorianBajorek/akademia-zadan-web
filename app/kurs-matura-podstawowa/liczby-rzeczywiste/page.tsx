@@ -1,9 +1,13 @@
+"use client";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect } from "react";
+import { useAuth } from "@/app/UserData";
+import { getTopicsProgress } from "@/service";
 
 const RealNumbersCourse: React.FC = () => {
+  const field = "liczby-rzeczywiste"
   const topicProgress = {
     "Działania na liczbach rzeczywistych": 90,
     "Obliczanie na potęg": 0,
@@ -20,8 +24,9 @@ const RealNumbersCourse: React.FC = () => {
 
   const topics = [
     {
-      title: "Działania na liczbach rzeczywistych",
+      title: "Działania na ułamkach",
       shortDesc: "Dodawanie, odejmowanie, mnożenie, dzielenie",
+      slug: "/liczby-rzeczywiste/dzialania-na-ulamkach",
       icon: "➕"
     },
     {
@@ -78,6 +83,23 @@ const RealNumbersCourse: React.FC = () => {
     }
   ];
 
+  const {token} = useAuth()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getTopicsProgress(field, token);
+        if (data) {
+        }
+      } catch (error) {
+        console.error("Error fetching topics progress", error);
+      }
+    };
+  
+    if(token) {
+      fetchData();
+    }
+  }, [token]);
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
       <Nav />

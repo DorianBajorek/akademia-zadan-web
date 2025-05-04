@@ -120,13 +120,20 @@ const tasks = [
     img: "/problemImages/problem515.png",
     isCompleted: false,
   },
+  {
+    id: "516",
+    title: "Podstawowe działania",
+    description: "Uprość wyrażenia z pierwiastkami",
+    img: "/problemImages/problem516.png",
+    isCompleted: false,
+  },
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
   const firstGroup = tasks.filter(task => parseInt(task.id) <= 509);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 510);
+  const secondGroup = tasks.filter(task => parseInt(task.id) <= 515);
   const thirdGroup = tasks.filter(task => parseInt(task.id) >= 516);
 
   return (
@@ -177,7 +184,7 @@ const TopicTasksPage = () => {
               Zadania zamknięte
             </h2>
             <p className="text-gray-600 mt-2">
-              Prosto z matury
+              Sprwadź się!
             </p>
           </div>
         </div>
