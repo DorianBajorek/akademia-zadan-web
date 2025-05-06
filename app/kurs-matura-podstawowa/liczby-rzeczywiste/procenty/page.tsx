@@ -16,6 +16,13 @@ const tasks = [
     isCompleted: true,
   },
   {
+    id: "901",
+    title: "Równanie procentowe",
+    description: "Zarząd firmy wydzielił z budżetu kwotę 1200000 złotych",
+    img: "/problemImages/problem901.png",
+    isCompleted: true,
+  },
+  {
     id: "910",
     title: "Kwota kapitału po trzech latach",
     description: "Oblicz kwotę kapitału na koncie po trzech latach przy oprocentowaniu 6%",
