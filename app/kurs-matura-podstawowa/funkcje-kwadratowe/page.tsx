@@ -24,72 +24,97 @@ const RealNumbersCourse: React.FC = () => {
 
   const topics = [
     {
-      title: "Działania na ułamkach",
-      shortDesc: "Dodawanie, odejmowanie, mnożenie, dzielenie",
-      slug: "/liczby-rzeczywiste/dzialania-na-ulamkach",
-      icon: "➕"
+      title: "Definicja funkcji kwadratowej",
+      shortDesc: "Wprowadzenie do funkcji kwadratowej i jej podstawowych właściwości",
+      slug: "/funkcje-kwadratowe/definicja",
+      icon: "📘"
     },
     {
-      title: "Obliczanie na potęg",
-      shortDesc: "Potęgi o wykładnikach całkowitych oraz wymiernych - podstawowe własności",
-      icon: "🔢",
-      slug: "/liczby-rzeczywiste/potegi"
+      title: "Postać ogólna funkcji kwadratowej",
+      shortDesc: "Analiza funkcji w postaci ogólnej: \( f(x) = ax^2 + bx + c \)",
+      slug: "/funkcje-kwadratowe/postac-ogolna",
+      icon: "🧮"
     },
     {
-      title: "Pierwiastki i działania na pierwiastkach",
-      shortDesc: "Właściwości i operacje na pierwiastkach",
-      icon: "√"
+      title: "Postać kanoniczna funkcji kwadratowej",
+      shortDesc: "Przekształcanie funkcji do postaci kanonicznej: \( f(x) = a(x - p)^2 + q \)",
+      slug: "/funkcje-kwadratowe/postac-kanoniczna",
+      icon: "🔧"
     },
     {
-      title: "Obliczanie logarytmu",
-      shortDesc: "Obliczanie podstawowych logarytmów",
-      icon: "㏒",
-      slug: "/liczby-rzeczywiste/logarytmy"
+      title: "Postać iloczynowa funkcji kwadratowej",
+      shortDesc: "Funkcja w postaci iloczynowej: \( f(x) = a(x - x_1)(x - x_2) \)",
+      slug: "/funkcje-kwadratowe/postac-iloczynowa",
+      icon: "✖️"
     },
     {
-      title: "działania na logarytmach",
-      shortDesc: "Działania na logarytmach, podstawowe wzory",
-      icon: "2㏒",
-      slug: "/liczby-rzeczywiste/dzialania-na-logarytmach"
+      title: "Miejsca zerowe funkcji kwadratowej",
+      shortDesc: "Obliczanie miejsc zerowych za pomocą delty i wzorów kwadratowych",
+      slug: "/funkcje-kwadratowe/miejsca-zerowe",
+      icon: "0️⃣"
     },
     {
-      title: "Przekształcanie wyrażeń",
-      shortDesc: "Potęgowe, pierwiastkowe i logarytmiczne",
-      icon: "⇄"
+      title: "Wierzchołek paraboli",
+      shortDesc: "Wyznaczanie współrzędnych wierzchołka paraboli",
+      slug: "/funkcje-kwadratowe/wierzcholek",
+      icon: "📍"
     },
     {
-      title: "Zaokrąglanie i szacowanie",
-      shortDesc: "Przybliżenia wartości liczbowych",
-      icon: "≈"
+      title: "Oś symetrii paraboli",
+      shortDesc: "Określanie osi symetrii wykresu funkcji kwadratowej",
+      slug: "/funkcje-kwadratowe/os-symetrii",
+      icon: "🧭"
     },
     {
-      title: "Notacja wykładnicza",
-      shortDesc: "Zapisywanie dużych i małych liczb",
-      icon: "⨯10ⁿ"
+      title: "Monotoniczność funkcji kwadratowej",
+      shortDesc: "Analiza przedziałów monotoniczności funkcji",
+      slug: "/funkcje-kwadratowe/monotonicznosc",
+      icon: "📈"
     },
     {
-      title: "Wartość bezwzględna",
-      shortDesc: "Właściwości i zastosowania wartości bezwzględnej",
-      slug: "/liczby-rzeczywiste/wlasnosci-wartosci-bezwzglednej",
-      icon: "|-2+√2|"
+      title: "Zbiór wartości funkcji kwadratowej",
+      shortDesc: "Określanie zbioru wartości funkcji w zależności od współczynnika \( a \)",
+      slug: "/funkcje-kwadratowe/zbior-wartosci",
+      icon: "📊"
     },
     {
-      title: "Porównywanie liczb",
-      shortDesc: "Relacje między liczbami rzeczywistymi",
-      icon: "⚖️"
+      title: "Wykres funkcji kwadratowej",
+      shortDesc: "Szkicowanie wykresu funkcji i analiza jego właściwości",
+      slug: "/funkcje-kwadratowe/wykres",
+      icon: "🖼️"
     },
     {
-      title: "Oś liczbowa",
-      shortDesc: "Zaznaczanie liczb na osi",
-      icon: "---"
+      title: "Rozwiązywanie równań kwadratowych",
+      shortDesc: "Metody rozwiązywania równań kwadratowych: faktoryzacja, delta",
+      slug: "/funkcje-kwadratowe/rownania",
+      icon: "🧩"
     },
     {
-      title: "Procenty",
-      shortDesc: "Procent składany, zmiany cen",
-      slug: "/liczby-rzeczywiste/procenty",
-      icon: "%"
+      title: "Rozwiązywanie nierówności kwadratowych",
+      shortDesc: "Techniki rozwiązywania nierówności kwadratowych i interpretacja graficzna",
+      slug: "/funkcje-kwadratowe/nierownosci-kwadratowe",
+      icon: "🔍"
+    },
+    {
+      title: "Wzory Viète’a",
+      shortDesc: "Zastosowanie wzorów Viète’a do analizy miejsc zerowych",
+      slug: "/funkcje-kwadratowe/wzory-viete",
+      icon: "📐"
+    },
+    {
+      title: "Zadania optymalizacyjne",
+      shortDesc: "Rozwiązywanie zadań optymalizacyjnych z wykorzystaniem funkcji kwadratowej",
+      slug: "/funkcje-kwadratowe/optymalizacja",
+      icon: "🎯"
+    },
+    {
+      title: "Zadania maturalne z funkcji kwadratowej",
+      shortDesc: "Przegląd i rozwiązania zadań maturalnych dotyczących funkcji kwadratowej",
+      slug: "/funkcje-kwadratowe/zadania-maturalne",
+      icon: "📝"
     }
   ];
+  
 
   const {token} = useAuth()
 
