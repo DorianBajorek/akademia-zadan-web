@@ -23,6 +23,13 @@ const tasks = [
     isCompleted: true,
   },
   {
+    id: "902",
+    title: "Równanie procentowe",
+    description: "Liczba 78 stanowi 150% liczby",
+    img: "/problemImages/problem902.png",
+    isCompleted: true,
+  },
+  {
     id: "910",
     title: "Kwota kapitału po trzech latach",
     description: "Oblicz kwotę kapitału na koncie po trzech latach przy oprocentowaniu 6%",
@@ -56,7 +63,8 @@ const tasks = [
     description: "Cena sandałów wzrosła a potem zmalała",
     img: "/problemImages/problem914.png",
     isCompleted: true,
-  }
+  },
+  
 ];
 
 const TopicTasksPage = () => {
