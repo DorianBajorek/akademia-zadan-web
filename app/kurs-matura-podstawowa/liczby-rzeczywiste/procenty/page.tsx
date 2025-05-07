@@ -37,6 +37,27 @@ const tasks = [
     isCompleted: true,
   },
   {
+    id: "904",
+    title: "Równanie procentowe",
+    description: "Cena maseczki zdrożała o 40%",
+    img: "/problemImages/problem904.png",
+    isCompleted: true,
+  },
+  {
+    id: "905",
+    title: "Równanie procentowe",
+    description: "Cena maseczki zdrożała o 40%",
+    img: "/problemImages/problem905.png",
+    isCompleted: true,
+  },
+  {
+    id: "906",
+    title: "Obniżka ceny roweru",
+    description: "Cena roweru po obniżce",
+    img: "/problemImages/problem906.png",
+    isCompleted: true,
+  },
+  {
     id: "910",
     title: "Kwota kapitału po trzech latach",
     description: "Oblicz kwotę kapitału na koncie po trzech latach przy oprocentowaniu 6%",
