@@ -38,7 +38,8 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Pierwiastki i działania na pierwiastkach",
       shortDesc: "Właściwości i operacje na pierwiastkach",
-      icon: "√"
+      icon: "√",
+      slug: "/liczby-rzeczywiste/dzialania-na-pierwiastkach"
     },
     {
       title: "Obliczanie logarytmu",
@@ -53,42 +54,28 @@ const RealNumbersCourse: React.FC = () => {
       slug: "/liczby-rzeczywiste/dzialania-na-logarytmach"
     },
     {
-      title: "Przekształcanie wyrażeń",
-      shortDesc: "Potęgowe, pierwiastkowe i logarytmiczne",
-      icon: "⇄"
-    },
-    {
-      title: "Zaokrąglanie i szacowanie",
-      shortDesc: "Przybliżenia wartości liczbowych",
-      icon: "≈"
-    },
-    {
-      title: "Notacja wykładnicza",
-      shortDesc: "Zapisywanie dużych i małych liczb",
-      icon: "⨯10ⁿ"
-    },
-    {
-      title: "Wartość bezwzględna",
+      title: "Własności wartości bezwzględnej",
       shortDesc: "Właściwości i zastosowania wartości bezwzględnej",
       slug: "/liczby-rzeczywiste/wlasnosci-wartosci-bezwzglednej",
       icon: "|-2+√2|"
-    },
-    {
-      title: "Porównywanie liczb",
-      shortDesc: "Relacje między liczbami rzeczywistymi",
-      icon: "⚖️"
-    },
-    {
-      title: "Oś liczbowa",
-      shortDesc: "Zaznaczanie liczb na osi",
-      icon: "---"
+    },{
+      title: "Równania z wartością bezwzględną",
+      shortDesc: "Rozwiązywanie równań z wartością bezwzględną",
+      slug: "/liczby-rzeczywiste/wlasnosci-wartosci-bezwzglednej",
+      icon: "|x+2|"
     },
     {
       title: "Procenty",
       shortDesc: "Procent składany, zmiany cen",
       slug: "/liczby-rzeczywiste/procenty",
       icon: "%"
-    }
+    },
+    {
+      title: "Dowody podzielności",
+      shortDesc: "Dowody podzielności liczb całkowitych",
+      slug: "/liczby-rzeczywiste/dowody-podzielnosci",
+      icon: "a | b"
+    },
   ];
 
   const {token} = useAuth()
