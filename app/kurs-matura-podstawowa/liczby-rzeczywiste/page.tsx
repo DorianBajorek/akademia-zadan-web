@@ -61,7 +61,7 @@ const RealNumbersCourse: React.FC = () => {
     },{
       title: "Równania z wartością bezwzględną",
       shortDesc: "Rozwiązywanie równań z wartością bezwzględną",
-      slug: "/liczby-rzeczywiste/wlasnosci-wartosci-bezwzglednej",
+      slug: "/liczby-rzeczywiste/rownania-z-wartoscia-bezwzgledna",
       icon: "|x+2|"
     },
     {

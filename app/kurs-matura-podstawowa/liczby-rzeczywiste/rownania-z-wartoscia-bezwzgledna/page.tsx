@@ -14,62 +14,6 @@ const tasks = [
     img: "/problemImages/problem1100.png",
     isCompleted: false,
   },
-  {
-    id: "1101",
-    title: "Zadanie 1",
-    description: "Dodawanie logarytmów o tej samej podstawie",
-    img: "/problemImages/problem1101.png",
-    isCompleted: false,
-  },
-  {
-    id: "1102",
-    title: "Zadanie 1",
-    description: "Odejmowanie logarytmów o tej samej podstawie",
-    img: "/problemImages/problem1102.png",
-    isCompleted: false,
-  },
-  {
-    id: "1103",
-    title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
-    img: "/problemImages/problem1103.png",
-    isCompleted: false,
-  },
-  {
-    id: "1104",
-    title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
-    img: "/problemImages/problem1104.png",
-    isCompleted: false,
-  },
-  {
-    id: "1105",
-    title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
-    img: "/problemImages/problem1105.png",
-    isCompleted: false,
-  },
-  {
-    id: "1106",
-    title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
-    img: "/problemImages/problem1106.png",
-    isCompleted: false,
-  },
-  {
-    id: "1107",
-    title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
-    img: "/problemImages/problem1107.png",
-    isCompleted: false,
-  },
-  {
-    id: "1108",
-    title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
-    img: "/problemImages/problem1108.png",
-    isCompleted: false,
-  }
 ];
 
 const TopicTasksPage = () => {
@@ -100,7 +44,7 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="-yHhd1aTV3c" />
+        <VideoSection youtubeId="rbVJjkcwMkk" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na ułamkach"} />
