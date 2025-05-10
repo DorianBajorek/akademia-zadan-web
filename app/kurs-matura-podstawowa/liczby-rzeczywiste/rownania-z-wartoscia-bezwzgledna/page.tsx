@@ -8,10 +8,66 @@ import TopicStats from "@/components/TopicStats";
 
 const tasks = [
   {
-    id: "1100",
+    id: "1300",
     title: "Zadanie 1",
     description: "Dodawanie logarytmów o tej samej podstawie",
-    img: "/problemImages/problem1100.png",
+    img: "/problemImages/problem1300.png",
+    isCompleted: false,
+  },
+    {
+    id: "1301",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1301.png",
+    isCompleted: false,
+  },
+    {
+    id: "1302",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1302.png",
+    isCompleted: false,
+  },
+    {
+    id: "1303",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1303.png",
+    isCompleted: false,
+  },
+    {
+    id: "1304",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1304.png",
+    isCompleted: false,
+  },
+    {
+    id: "1305",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1305.png",
+    isCompleted: false,
+  },
+    {
+    id: "1306",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1306.png",
+    isCompleted: false,
+  },
+    {
+    id: "1307",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1307.png",
+    isCompleted: false,
+  },
+  {
+    id: "1308",
+    title: "Zadanie 1",
+    description: "Dodawanie logarytmów o tej samej podstawie",
+    img: "/problemImages/problem1308.png",
     isCompleted: false,
   },
 ];
@@ -19,9 +75,8 @@ const tasks = [
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 1100 && parseInt(task.id) <= 1103);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 1104 && parseInt(task.id) <= 1107)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1108);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 1300 && parseInt(task.id) <= 1303);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 1305 && parseInt(task.id) <= 1308)
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -47,7 +102,7 @@ const TopicTasksPage = () => {
         <VideoSection youtubeId="rbVJjkcwMkk" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na ułamkach"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Równania z wartością bezwzględną"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">
@@ -78,23 +133,6 @@ const TopicTasksPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {secondGroup.map((task) => (
-            <TaskCards key={task.id} tasks={[task]} />
-          ))}
-        </div>
-
-        <div className="col-span-full py-8 text-center">
-          <div className="border-t-2 border-b-2 border-gray-300 py-4">
-            <h2 className="text-xl font-bold text-gray-700">
-              Zadania otwarte
-            </h2>
-            <p className="text-gray-600 mt-2">
-              Warte więcej punktów
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {thirdGroup.map((task) => (
             <TaskCards key={task.id} tasks={[task]} />
           ))}
         </div>

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useEffect } from "react";
 import { getFieldsProgress } from "@/service";
 import { useAuth } from "../UserData";
+import { s } from "framer-motion/client";
 
 const MainCourse: React.FC = () => {
   const courseProgress = {
@@ -29,85 +30,99 @@ const MainCourse: React.FC = () => {
       id: "liczby-rzeczywiste",
       title: "Liczby rzeczywiste",
       description: "Poznaj podstawy matematyki - działania na liczbach, przedziały, wartość bezwzględną i pierwiastki.",
-      image: "/fieldCovers/liczbyRzeczywiste.png"
+      image: "/fieldCovers/liczbyRzeczywiste.png",
+      slug: "/liczby-rzeczywiste"
     },
     {
       id: "wyrazenia-algebraiczne",
       title: "Wyrażenia algebraiczne",
       description: "Naucz się przekształcać wyrażenia algebraiczne, wzory skróconego mnożenia i działań na potęgach.",
-      image: "/fieldCovers/wyrazeniaAlgebraiczne.png"
+      image: "/fieldCovers/wyrazeniaAlgebraiczne.png",
+      slug: "/wyrazenia-algebraiczne"
     },
     {
       id: "rownania-i-nierownosci-liniowe",
       title: "Równania i nierówności liniowe",
       description: "Rozwiązuj równania i nierówności liniowe - podstawa każdego maturzysty.",
-      image: "/fieldCovers/rownaniaNierownosci.png"
+      image: "/fieldCovers/rownaniaNierownosci.png",
+      slug: "/rownania-i-nierownosci-liniowe"
     },
     {
       id: "uklady-rownan",
       title: "Układy równań",
       description: "Poznaj metody rozwiązywania układów równań - podstawianie, przeciwnych współczynników i graficzną.",
-      image: "/fieldCovers/uklady.png"
+      image: "/fieldCovers/uklady.png",
+      slug: "/uklady-rownan"
     },
     {
       id: "funkcje",
       title: "Funkcje",
       description: "Badaj własności funkcji. Dziedzina, zbiór wartości oraz miejsca zerowe",
-      image: "/fieldCovers/funkcje.png"
+      image: "/fieldCovers/funkcje.png",
+      slug: "/funkcje"
     },
     {
       id: "funkcje-liniowe",
       title: "Funkcje liniowe",
       description: "Badaj własności funkcji liniowych. Wyznaczanie miejsc zerowych",
-      image: "/fieldCovers/funkcjaLiniowa.png"
+      image: "/fieldCovers/funkcjaLiniowa.png",
+      slug: "/funkcje-liniowe"
     },
     {
       id: "funkcje-kwadratowe",
       title: "Funkcje kwadratowe",
       description: "Rozwiązywanie równań kwadratowych, własności funkcji, nierówności oraz wierzchołek.",
-      image: "/fieldCovers/funkcjaKwadratowa.png"
+      image: "/fieldCovers/funkcjaKwadratowa.png",
+      slug: "/funkcje-kwadratowe"
     },
     {
       id: "ciagi",
       title: "Ciągi",
       description: "Poznaj ciągi arytmetyczne i geometryczne, ich monotoniczność oraz sumy wyrazów.",
-      image: "/problemImages/chapter1.png"
+      image: "/problemImages/chapter1.png",
+      slug: "/ciagi"
     },
     {
       id: "trygonometria",
       title: "Trygonometria",
       description: "Funkcje trygonometryczne, tożsamości trygonometryczne i równania trygonometryczne.",
-      image: "/problemImages/chapter1.png"
+      image: "/problemImages/chapter1.png",
+      slug: "/trygonometria"
     },
     {
       id: "planimetria",
       title: "Planimetria",
       description: "Geometria płaska - własności figur, twierdzenie Pitagorasa, podobieństwo i pola figur.",
-      image: "/problemImages/chapter1.png"
+      image: "/problemImages/chapter1.png",
+      slug: "/planimetria"
     },
     {
       id: "geometria-analityczna",
       title: "Geometria analityczna",
       description: "Równania prostych, odległość punktów, wektory i figury geometryczne na płaszczyźnie kartezjańskiej.",
-      image: "/problemImages/chapter1.png"
+      image: "/problemImages/chapter1.png",
+      slug: "/geometria-analityczna"
     },
     {
       id: "stereometria",
       title: "Stereometria",
       description: "Geometria przestrzenna - graniastosłupy, ostrosłupy, walce, stożki, kule i ich objętości.",
-      image: "/problemImages/chapter1.png"
+      image: "/problemImages/chapter1.png",
+      slug: "/stereometria"
     },
     {
       id: "kombinatoryka",
       title: "Kombinatoryka",
       description: "Dowiedz się, jak liczyć permutacje, wariacje i kombinacje. Kluczowy dział rachunku prawdopodobieństwa.",
-      image: "/problemImages/chapter1.png"
+      image: "/problemImages/chapter1.png",
+      slug: "/kombinatoryka"
     },
     {
       id: "prawdopodobiensto-statystyka",
       title: "Prawdopodobieństwo i Statystyka",
       description: "Obliczanie prawdopodobieństwa, średniej, mediany, wariancji i odchylenia standardowego.",
-      image: "/problemImages/chapter1.png"
+      image: "/problemImages/chapter1.png",
+      slug: "/prawdopodobiensto-statystyka"
     }
   ];
   
@@ -189,7 +204,7 @@ const MainCourse: React.FC = () => {
                 </div>
                 
                 <Link 
-                  href={`/kurs-matura-podstawowa/${course.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={`/kurs-matura-podstawowa/${course.slug}`}
                   className="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
                 >
                   Rozpocznij naukę
