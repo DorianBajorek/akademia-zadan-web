@@ -24,54 +24,18 @@ const RealNumbersCourse: React.FC = () => {
 
   const topics = [
     {
-      title: "Własności współczynników a, b, c",
-      shortDesc: "Analiza wpływu współczynników a, b, c na wykres funkcji oraz wierzchołek paraboli",
-      slug: "/funkcje-kwadratowe/wlasnosci-wspolczynnikow-funkcji-kwadratowej",
-      icon: "📘"
-    },
-    {
-      title: "Miejsca zerowe funkcji kwadratowej",
-      shortDesc: "Obliczanie miejsc zerowych z wykorzystaniem delty i wzorów kwadratowych",
-      slug: "/funkcje-kwadratowe/miejsca-zerowe-funkcji-kwadratowej",
-      icon: "0️⃣"
-    },
-    {
-      title: "Rozwiązywanie równań kwadratowych",
-      shortDesc: "Metody rozwiązywania równań kwadratowych: faktoryzacja, delta, wzory Viète’a",
-      slug: "/funkcje-kwadratowe/rownania-kwadratowe",
-      icon: "🧩"
-    },
-    {
-      title: "Postać iloczynowa funkcji kwadratowej",
-      shortDesc: "Zapis funkcji kwadratowej w postaci iloczynowej: \( f(x) = a(x - x_1)(x - x_2) \)",
-      slug: "/funkcje-kwadratowe/postac-iloczynowa-funkcji-kwadratowej",
-      icon: "✖️"
-    },
-    {
-      title: "Postać kanoniczna funkcji kwadratowej",
-      shortDesc: "Przekształcanie funkcji do postaci kanonicznej: \( f(x) = a(x - p)^2 + q \)",
-      slug: "/funkcje-kwadratowe/postac-kanoniczna-funkcji-kwadratowej",
-      icon: "🔧"
-    },
-    {
-      title: "Rozwiązywanie nierówności kwadratowych",
-      shortDesc: "Techniki rozwiązywania nierówności kwadratowych i interpretacja graficzna",
-      slug: "/funkcje-kwadratowe/nierownosci-kwadratowe",
+      title: "Sprawdzenia spełnialności układów równań",
+      shortDesc: "Jak sprawdzić, czy układ równań ma rozwiązanie? Poznamy jak to zrobić i jak wykorzsytać to w praktyce.",
+      slug: "/liczby-rzeczywiste/sprawdzenie-ukladow-rownan",
       icon: "🔍"
     },
     {
-      title: "Oś symetrii paraboli",
-      shortDesc: "Wyznaczanie osi symetrii wykresu funkcji kwadratowej",
-      slug: "/funkcje-kwadratowe/os-symetrii-paraboli",
-      icon: "🧭"
+      title: "Rozwiązywanie układów równań",
+      shortDesc: "W tym dziale poznamy sposoby rozwiązywania układów równań.",
+      slug: "/liczby-rzeczywiste/rozwiazanie-ukladow-rownan",
+      icon: "🔑"
     },
-    {
-      title: "Zadania optymalizacyjne",
-      shortDesc: "Zastosowanie funkcji kwadratowej do rozwiązywania problemów optymalizacyjnych",
-      slug: "/funkcje-kwadratowe/optymalizacja-funkcji-kwadratowej",
-      icon: "🎯"
-    }
-  ]; 
+  ];
 
   const {token} = useAuth()
 
@@ -99,14 +63,13 @@ const RealNumbersCourse: React.FC = () => {
           <Link href="/kurs-matura-podstawowa" className="mr-4 text-blue-600 hover:text-blue-800">
             ← Wróć do kursu
           </Link>
-          <h1 className="text-4xl font-bold text-gray-800">Liczby rzeczywiste</h1>
+          <h1 className="text-4xl font-bold text-gray-800">Układy równań</h1>
         </div>
 
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            Dział "Liczby rzeczywiste" to fundament matematyki. Opanowanie tych zagadnień jest kluczowe dla zrozumienia bardziej zaawansowanych tematów.
-            W tym dziale poznasz podstawowe operacje, własności liczb i ich reprezentacje.
+           W tym dziale nauczysz się, jak sprawdzić, czy układ równań ma rozwiązanie, oraz jak skutecznie je znaleźć. Poznasz różne metody rozwiązywania układów równań – graficzną, podstawiania i przeciwnych współczynników. To praktyczne narzędzie, które często pojawia się zarówno na lekcjach, jak i na egzaminach.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">
