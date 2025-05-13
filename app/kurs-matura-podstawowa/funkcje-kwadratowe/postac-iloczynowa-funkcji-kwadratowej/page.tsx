@@ -7,25 +7,25 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
-    {
-    id: "1500",
-    title: "Zadanie 1",
-    description: "Wskaż miejsca zerowe funkcji",
-    img: "/problemImages/problem1500.png",
-    isCompleted: false,
-  },
   {
-    id: "1510",
+    id: "1710",
     title: "Zadanie 1",
-    description: "Wskaż miejsca zerowe funkcji",
-    img: "/problemImages/problem1510.png",
+    description: "Zapisz funkcję w postaci iloczynowej",
+    img: "/problemImages/problem1710.png",
     isCompleted: false,
   },
     {
-    id: "1511",
+    id: "1711",
     title: "Zadanie 2",
-    description: "Wskaż wzór funkcji kwadratowej",
-    img: "/problemImages/problem1511.png",
+    description: "Miejsca zerowe funkcji kwadratowej",
+    img: "/problemImages/problem1711.png",
+    isCompleted: false,
+  },
+      {
+    id: "1712",
+    title: "Zadanie 3",
+    description: "Miejsca zerowe funkcji kwadratowej",
+    img: "/problemImages/problem1712.png",
     isCompleted: false,
   },
 ];
@@ -33,9 +33,9 @@ const tasks = [
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 1500 && parseInt(task.id) <= 1509);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 1510 && parseInt(task.id) <= 1520)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1530);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 1700 && parseInt(task.id) <= 1709);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 1710 && parseInt(task.id) <= 1720)
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1720);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -61,7 +61,7 @@ const TopicTasksPage = () => {
         <VideoSection youtubeId="DlC-AfObAOM" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Miejsca zerowe funkcji kwadratowej"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Nierówności kwadratowe"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">
