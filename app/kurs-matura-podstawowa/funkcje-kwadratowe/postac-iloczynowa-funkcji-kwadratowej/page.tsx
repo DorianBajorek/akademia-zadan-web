@@ -7,6 +7,13 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
+    {
+    id: "1700",
+    title: "Zadanie 1",
+    description: "Oblicz wartość funkcji wykorzystując postać iloczynową",
+    img: "/problemImages/problem1700.png",
+    isCompleted: false,
+  },
   {
     id: "1710",
     title: "Zadanie 1",
