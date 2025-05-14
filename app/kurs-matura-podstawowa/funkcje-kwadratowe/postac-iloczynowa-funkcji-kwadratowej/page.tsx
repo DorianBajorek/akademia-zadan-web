@@ -15,6 +15,20 @@ const tasks = [
     isCompleted: false,
   },
   {
+    id: "1701",
+    title: "Zadanie 1",
+    description: "Oblicz wartość funkcji wykorzystując postać iloczynową",
+    img: "/problemImages/problem1701.png",
+    isCompleted: false,
+  },
+    {
+    id: "1702",
+    title: "Zadanie 1",
+    description: "Oblicz wartość funkcji wykorzystując postać iloczynową",
+    img: "/problemImages/problem1701.png",
+    isCompleted: false,
+  },
+  {
     id: "1710",
     title: "Zadanie 1",
     description: "Zapisz funkcję w postaci iloczynowej",
