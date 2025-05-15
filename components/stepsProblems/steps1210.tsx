@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Footer from "@/components/Footer";
 import Question2 from "../Question2";
 
 const letterMap = ["a", "b", "c", "d"];
@@ -70,7 +69,6 @@ const HardcodedTask: React.FC = () => {
           </div>
         )}
       </main>
-      <Footer />
     </div>
   );
 };

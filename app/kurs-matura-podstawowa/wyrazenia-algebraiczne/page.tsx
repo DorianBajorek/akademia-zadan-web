@@ -26,13 +26,13 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Działania na podstawowych wyrażeniach algebraicznych",
       shortDesc: "W tym dziale skupimy się na działaniach na literkach. Poznamy zasady dodawania, odejmowania, mnożenia i dzielenia wyrażeń algebraicznych.",
-      slug: "/liczby-rzeczywiste/dzialania-na-wyrazeniach-algebraicznych",
+      slug: "/wyrazenia-algebraiczne/dzialania-na-wyrazeniach-algebraicznych",
       icon: "xyz"
     },
     {
       title: "Wzory skróconego mnożenia",
       shortDesc: "Poznaj wzory skróconego mnożenia i ich zastosowanie w uproszczeniach wyrażeń algebraicznych. Pojawią się również w kontekscie liczb rzeczywistych.",
-      slug: "/liczby-rzeczywiste/wzory-skroconego-mnozenia",
+      slug: "/wyrazenia-algebraiczne/wzory-skroconego-mnozenia",
       icon: "()²"
     },
   ];
