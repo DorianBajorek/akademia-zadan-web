@@ -37,9 +37,9 @@ const Page = () => {
                 { label: "f(x) = -2(x + 2)(x - 0.5)", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Postać iloczynowa to $$f(x) = a(x - x_1)(x - x_2)$$. Podstawiając $$a = -1$$, $$x_1 = -2$$ (czyli $$(x + 2)$$), $$x_2 = \frac{1}{2}$$ (czyli $$(x - 0.5)$$) otrzymujemy $$f(x) = -(x + 2)(x - 0.5)$$."
+              explanation="Postać iloczynowa to $$f(x) = a(x - x_1)(x - x_2)$$. Podstawiając $$a = -1$$, $$x_1 = -2$$ (czyli $$(x + 2)$$), $$x_2 = \frac{1}{2}$$ (czyli $$(x - 0.5)$$git ) otrzymujemy $$f(x) = -(x + 2)(x - 0.5)$$."
               onComplete={() => handleStageComplete(1)}
-              img="/steps-images/postac-iloczynowa.png"
+              img="/steps-images/postac-iloczynowa-funkcji.png"
             />
           </>
         )}

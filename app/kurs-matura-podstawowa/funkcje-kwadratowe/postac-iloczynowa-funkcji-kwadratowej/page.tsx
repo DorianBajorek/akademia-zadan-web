@@ -16,16 +16,23 @@ const tasks = [
   },
   {
     id: "1701",
-    title: "Zadanie 1",
+    title: "Zadanie 2",
     description: "Oblicz wartość funkcji wykorzystując postać iloczynową",
     img: "/problemImages/problem1701.png",
     isCompleted: false,
   },
     {
     id: "1702",
-    title: "Zadanie 1",
+    title: "Zadanie 3",
     description: "Oblicz wartość funkcji wykorzystując postać iloczynową",
-    img: "/problemImages/problem1701.png",
+    img: "/problemImages/problem1702.png",
+    isCompleted: false,
+  },
+  {
+    id: "1703",
+    title: "Zadanie 3",
+    description: "Jedno miejsce zerowe funkcji kwadratowej",
+    img: "/problemImages/problem1703.png",
     isCompleted: false,
   },
   {
