@@ -35,6 +35,13 @@ const tasks = [
     img: "/problemImages/problem1703.png",
     isCompleted: false,
   },
+    {
+    id: "1704",
+    title: "Zadanie 4",
+    description: "Jedno miejsce zerowe funkcji kwadratowej",
+    img: "/problemImages/problem1703.png",
+    isCompleted: false,
+  },
   {
     id: "1710",
     title: "Zadanie 1",
