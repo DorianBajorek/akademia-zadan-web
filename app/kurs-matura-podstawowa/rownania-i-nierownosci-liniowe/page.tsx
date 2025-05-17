@@ -26,13 +26,13 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Równania liniowe",
       shortDesc: "Nauczymy się rozwiązywać równania liniowe z jedną niewiadomą. Jest to podstawowa wiedza każdego maturzysty.",
-      slug: "/liczby-rzeczywiste/dzialania-na-wyrazeniach-algebraicznych",
+      slug: "/rownania-i-nierownosci-liniowe/rownania-liniowe",
       icon: "x"
     },
     {
       title: "Nierówności liniowe",
       shortDesc: "Temat podobny do równania liniowego, ale z dodatkowymi zasadami. Poznamy również sposoby graficznego przedstawiania rozwiązań.",
-      slug: "/liczby-rzeczywiste/dzialania-na-wyrazeniach-algebraicznych",
+      slug: "/rownania-i-nierownosci-liniowe/nierownosci-liniowe",
       icon: "≤"
     },
   ];
