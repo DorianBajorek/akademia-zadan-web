@@ -9,10 +9,66 @@ import React from "react";
 
 const tasks = [
   {
-    id: "1000",
+    id: "2400",
     title: "Podstawowe działania",
     description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem1000.png",
+    img: "/problemImages/problem2400.png",
+    isCompleted: true,
+  },
+    {
+    id: "2401",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2401.png",
+    isCompleted: true,
+  },
+    {
+    id: "2402",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2402.png",
+    isCompleted: true,
+  },
+    {
+    id: "2403",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2403.png",
+    isCompleted: true,
+  },
+    {
+    id: "2404",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2404.png",
+    isCompleted: true,
+  },
+    {
+    id: "2405",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2405.png",
+    isCompleted: true,
+  },
+    {
+    id: "2406",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2406.png",
+    isCompleted: true,
+  },
+    {
+    id: "2407",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2407.png",
+    isCompleted: true,
+  },
+    {
+    id: "2408",
+    title: "Podstawowe działania",
+    description: "Skorzystaj z własności wartosci bezwzględnej",
+    img: "/problemImages/problem2408.png",
     isCompleted: true,
   },
 ];
@@ -20,9 +76,8 @@ const tasks = [
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) <= 1005 && parseInt(task.id) >= 1000);
-  const secondGroup = tasks.filter(task => parseInt(task.id) <= 1009 && parseInt(task.id) >= 1005);
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1010);
+  const firstGroup = tasks.filter(task => parseInt(task.id) <= 2405 && parseInt(task.id) >= 2400);
+  const secondGroup = tasks.filter(task => parseInt(task.id) <= 2409 && parseInt(task.id) >= 2406);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -79,23 +134,6 @@ const TopicTasksPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {secondGroup.map((task) => (
-            <TaskCards key={task.id} tasks={[task]} />
-          ))}
-        </div>
-
-        <div className="col-span-full py-8 text-center">
-          <div className="border-t-2 border-b-2 border-gray-300 py-4">
-            <h2 className="text-xl font-bold text-gray-700">
-              Zadania otwarte
-            </h2>
-            <p className="text-gray-600 mt-2">
-              Zadania autorskie i maturalne
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {thirdGroup.map((task) => (
             <TaskCards key={task.id} tasks={[task]} />
           ))}
         </div>
