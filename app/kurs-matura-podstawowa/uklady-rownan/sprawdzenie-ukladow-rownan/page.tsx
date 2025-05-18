@@ -86,7 +86,7 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="2Kx1SzFHF5E" />
+        <VideoSection youtubeId="CrTWBy7rv0A" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Sprwadzenia spełnialności układów równań"} />

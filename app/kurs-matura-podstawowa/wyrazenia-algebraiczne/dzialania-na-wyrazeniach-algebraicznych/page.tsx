@@ -114,7 +114,7 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="-yHhd1aTV3c" />
+        <VideoSection youtubeId="RjEfUhdSDB0" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Działania na wyrażeniach algebraicznych"} />
