@@ -120,8 +120,8 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                 <img
                   src={explanationImage}
                   alt="Tablice maturalne"
-                  width={300}
-                  height={150}
+                  width={400}
+                  height={200}
                   className="rounded-lg shadow-md mb-3 sm:mb-4 mx-auto max-w-full h-auto"
                 />
               </div>
