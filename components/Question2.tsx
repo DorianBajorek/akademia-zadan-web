@@ -3,6 +3,7 @@ import 'katex/dist/katex.min.css';
 
 interface Question2Props {
   description: string;
+  descriptionImg?: string;
   choiceA: string;
   choiceB: string;
   choiceC: string;
@@ -18,6 +19,7 @@ const letterMap = ["a", "b", "c", "d"];
 
 const Question2: React.FC<Question2Props> = ({
   description,
+  descriptionImg,
   choiceA,
   choiceB,
   choiceC,
@@ -40,13 +42,33 @@ const Question2: React.FC<Question2Props> = ({
     );
   };
 
+  const isImage = (text: string) => {
+    return /\.(jpeg|jpg|gif|png|webp|svg)$/.test(text) || text.startsWith("http");
+  };
+
+  const renderAnswerContent = (text: string) => {
+    return isImage(text) ? (
+      <img src={text} alt="answer option" className="max-w-full h-auto my-2 rounded" />
+    ) : (
+      renderText(text)
+    );
+  };
+
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
   return (
     <div className="bg-white shadow-lg p-4 md:p-6 rounded-lg border border-gray-200">
-      <h3 className="text-lg md:text-xl text-gray-800 mb-4">
+      <h3 className="text-base sm:text-lg md:text-xl text-gray-800 mb-4">
         {renderText(description)}
       </h3>
+
+      {descriptionImg && (
+        <img
+          src={descriptionImg}
+          alt="description illustration"
+          className="w-[500px] h-[350px] mb-4 rounded mx-auto object-contain"
+        />
+      )}
 
       <div className="space-y-3">
         {answers.map((answer, index) => {
@@ -77,7 +99,7 @@ const Question2: React.FC<Question2Props> = ({
               <span className="font-bold text-blue-600 mr-2">
                 {answerLabels[index]}.
               </span>
-              {renderText(answer)}
+              {renderAnswerContent(answer)}
             </button>
           );
         })}

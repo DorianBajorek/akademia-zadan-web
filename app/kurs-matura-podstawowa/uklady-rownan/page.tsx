@@ -26,13 +26,13 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Sprawdzenia spełnialności układów równań",
       shortDesc: "Jak sprawdzić, czy układ równań ma rozwiązanie? Poznamy jak to zrobić i jak wykorzsytać to w praktyce.",
-      slug: "/liczby-rzeczywiste/sprawdzenie-ukladow-rownan",
+      slug: "/uklady-rownan/sprawdzenie-ukladow-rownan",
       icon: "🔍"
     },
     {
       title: "Rozwiązywanie układów równań",
       shortDesc: "W tym dziale poznamy sposoby rozwiązywania układów równań.",
-      slug: "/liczby-rzeczywiste/rozwiazanie-ukladow-rownan",
+      slug: "/uklady-rownan/rozwiazanie-ukladow-rownan",
       icon: "🔑"
     },
   ];

@@ -40,8 +40,8 @@ const StudentNotes = ({ equation, steps, solutions }: StudentNotesProps) => {
                   <Image
                     src={step.image}
                     alt={`Step ${index + 1} image`}
-                    width={300}
-                    height={150}
+                    width={400}
+                    height={200}
                     className="rounded-lg"
                   />
                 </div>
