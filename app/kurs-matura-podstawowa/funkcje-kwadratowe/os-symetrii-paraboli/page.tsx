@@ -8,73 +8,73 @@ import TopicStats from "@/components/TopicStats";
 
 const tasks = [
       {
-    id: "2500",
+    id: "2800",
     title: "Zadanie 1",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2500.png",
+    img: "/problemImages/problem2800.png",
     isCompleted: false,
   },
     {
-    id: "2510",
+    id: "2810",
     title: "Zadanie 1",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2510.png",
+    img: "/problemImages/problem2810.png",
     isCompleted: false,
   },
   {
-    id: "2511",
+    id: "2811",
     title: "Zadanie 2",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2511.png",
+    img: "/problemImages/problem2811.png",
     isCompleted: false,
   },
   {
-    id: "2512",
+    id: "2812",
     title: "Zadanie 3",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2512.png",
+    img: "/problemImages/problem2812.png",
     isCompleted: false,
   },
   {
-    id: "2513",
+    id: "2813",
     title: "Zadanie 4",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2513.png",
+    img: "/problemImages/problem2813.png",
     isCompleted: false,
   },
   {
-    id: "2514",
+    id: "2814",
     title: "Zadanie 5",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2514.png",
+    img: "/problemImages/problem2814.png",
     isCompleted: false,
   },
   {
-    id: "2515",
+    id: "2815",
     title: "Zadanie 6",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2515.png",
+    img: "/problemImages/problem2815.png",
     isCompleted: false,
   },
   {
-    id: "2516",
+    id: "2816",
     title: "Zadanie 7",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2516.png",
+    img: "/problemImages/problem2816.png",
     isCompleted: false,
   },
   {
-    id: "2517",
+    id: "2817",
     title: "Zadanie 7",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2517.png",
+    img: "/problemImages/problem2817.png",
     isCompleted: false,
   },
   {
-    id: "2518",
+    id: "2818",
     title: "Zadanie 8",
     description: "Wyznacz oś symetrii paraboli",
-    img: "/problemImages/problem2518.png",
+    img: "/problemImages/problem2818.png",
     isCompleted: false,
   },
 ];
@@ -82,9 +82,9 @@ const tasks = [
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2500 && parseInt(task.id) <= 2509);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2510 && parseInt(task.id) <= 2520)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 2520);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2800 && parseInt(task.id) <= 2809);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2810 && parseInt(task.id) <= 2820)
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 2820);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
