@@ -14,6 +14,13 @@ const tasks = [
     img: "/problemImages/problem1500.png",
     isCompleted: false,
   },
+      {
+    id: "1501",
+    title: "Zadanie 1",
+    description: "Wyznacz drugie miejsce zerowe funkcji kwadratowej",
+    img: "/problemImages/problem1501.png",
+    isCompleted: false,
+  },
   {
     id: "1510",
     title: "Zadanie 1",
