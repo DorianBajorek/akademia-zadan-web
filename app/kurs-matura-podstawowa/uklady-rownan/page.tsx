@@ -32,7 +32,7 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Rozwiązywanie układów równań",
       shortDesc: "W tym dziale poznamy sposoby rozwiązywania układów równań.",
-      slug: "/uklady-rownan/rozwiazanie-ukladow-rownan",
+      slug: "/uklady-rownan/rozwiazywanie-ukladow-rownan",
       icon: "🔑"
     },
   ];
