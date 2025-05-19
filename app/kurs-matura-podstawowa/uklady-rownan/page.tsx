@@ -32,8 +32,14 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Rozwiązywanie układów równań",
       shortDesc: "W tym dziale poznamy sposoby rozwiązywania układów równań.",
-      slug: "/uklady-rownan/rozwiazanie-ukladow-rownan",
+      slug: "/uklady-rownan/rozwiazywanie-ukladow-rownan",
       icon: "🔑"
+    },
+        {
+      title: "Układy równań w zadaniach tekstowych",
+      shortDesc: "Jak wykorzystać układy równań w zadaniach tekstowych? Poznamy jak to zrobić i jak wykorzsytać to w praktyce.",
+      slug: "/uklady-rownan/uklady-w-zadaniach-tekstowych",
+      icon: "📖"
     },
   ];
 
