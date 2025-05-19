@@ -7,11 +7,18 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
+  {
+    id: "3100",
+    title: "Zadanie 1",
+    description: "Ciąg arytmetyczny",
+    img: "/problemImages/problem3110.png",
+    isCompleted: false,
+  },
     {
-    id: "2913",
-    title: "Zadanie 4",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2912.png",
+    id: "3110",
+    title: "Zadanie 1",
+    description: "Ciąg arytmetyczny",
+    img: "/problemImages/problem3110.png",
     isCompleted: false,
   }
 ];
@@ -19,9 +26,9 @@ const tasks = [
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2900 && parseInt(task.id) <= 2909);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2910 && parseInt(task.id) <= 2920)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 2930);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 3100 && parseInt(task.id) <= 3109);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 3110 && parseInt(task.id) <= 3120)
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 3130);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -47,7 +54,7 @@ const TopicTasksPage = () => {
         <VideoSection youtubeId="DlC-AfObAOM" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Równania kwadratowe"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Miejsca zerowe funkcji kwadratowej"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">
