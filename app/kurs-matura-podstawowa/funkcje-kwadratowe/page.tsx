@@ -70,6 +70,12 @@ const RealNumbersCourse: React.FC = () => {
       shortDesc: "Zastosowanie funkcji kwadratowej do rozwiązywania problemów optymalizacyjnych",
       slug: "/funkcje-kwadratowe/optymalizacja-funkcji-kwadratowej",
       icon: "🎯"
+    },
+    {
+      title: "Wykres funkcji kwadratowej",
+      shortDesc: "Odczytywanie informacji z wykresu funkcji kwadratowej",
+      slug: "/funkcje-kwadratowe/wykres-funkcji-kwadratowej",
+      icon: "🎯"
     }
   ]; 
 

@@ -7,88 +7,32 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
-    {
-    id: "2000",
+  {
+    id: "2910",
     title: "Zadanie 1",
     description: "Równanie kwadratowe",
-    img: "/problemImages/problem2000.png",
+    img: "/problemImages/problem2910.png",
     isCompleted: false,
   },
-    {
-    id: "2001",
+  {
+    id: "2911",
     title: "Zadanie 2",
     description: "Równanie kwadratowe",
-    img: "/problemImages/problem2001.png",
+    img: "/problemImages/problem2911.png",
     isCompleted: false,
   },
-    {
-    id: "2002",
+  {
+    id: "2912",
     title: "Zadanie 3",
     description: "Równanie kwadratowe",
-    img: "/problemImages/problem2002.png",
+    img: "/problemImages/problem2912.png",
     isCompleted: false,
   },
     {
-    id: "2003",
+    id: "2913",
     title: "Zadanie 4",
     description: "Równanie kwadratowe",
-    img: "/problemImages/problem2003.png",
-    isCompleted: false,
-  },
-    {
-    id: "2004",
-    title: "Zadanie 5",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2004.png",
-    isCompleted: false,
-  },
-    {
-    id: "2005",
-    title: "Zadanie 6",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2005.png",
-    isCompleted: false,
-  },
-    {
-    id: "2006",
-    title: "Zadanie 7",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2006.png",
-    isCompleted: false,
-  },
-    {
-    id: "2007",
-    title: "Zadanie 8",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2007.png",
-    isCompleted: false,
-  },
-  {
-    id: "2010",
-    title: "Zadanie 9",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2010.png",
-    isCompleted: false,
-  },
-  {
-    id: "2011",
-    title: "Zadanie 9",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2011.png",
-    isCompleted: false,
-  },
-    {
-    id: "2012",
-    title: "Zadanie 10",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2012.png",
-    isCompleted: false,
-  },
-  {
-    id: "2013",
-    title: "Zadanie 11",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2013.png",
+    img: "/problemImages/problem2912.png",
     isCompleted: false,
   }
 ];
@@ -96,9 +40,9 @@ const tasks = [
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2000 && parseInt(task.id) <= 2009);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2010 && parseInt(task.id) <= 2020)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 2030);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2900 && parseInt(task.id) <= 2909);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2910 && parseInt(task.id) <= 2920)
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 2930);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">

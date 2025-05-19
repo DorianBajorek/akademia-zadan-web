@@ -14,13 +14,20 @@ const tasks = [
     img: "/problemImages/problem1600.png",
     isCompleted: false,
   },
-    {
+  {
     id: "1601",
     title: "Zadanie 2",
     description: "Znajdź najmniejszą wartość wyrażenia",
     img: "/problemImages/problem1601.png",
     isCompleted: false,
-  }
+  },
+  {
+    id: "1602",
+    title: "Zadanie 2",
+    description: "Znajdź najmniejszą wartość wyrażenia",
+    img: "/problemImages/problem1602.png",
+    isCompleted: false,
+  },
 ];
 
 const TopicTasksPage = () => {
@@ -28,7 +35,7 @@ const TopicTasksPage = () => {
 
   const firstGroup = tasks.filter(task => parseInt(task.id) >= 1600 && parseInt(task.id) <= 1609);
   const secondGroup = tasks.filter(task => parseInt(task.id) >= 1610 && parseInt(task.id) <= 1620)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1108);
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1608);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
