@@ -11,7 +11,21 @@ const tasks = [
     id: "3100",
     title: "Zadanie 1",
     description: "Ciąg arytmetyczny",
-    img: "/problemImages/problem3110.png",
+    img: "/problemImages/problem3100.png",
+    isCompleted: false,
+  },
+  {
+    id: "3101",
+    title: "Zadanie 2",
+    description: "Ciąg arytmetyczny",
+    img: "/problemImages/problem3101.png",
+    isCompleted: false,
+  },
+    {
+    id: "3102",
+    title: "Zadanie 3",
+    description: "Ciąg arytmetyczny",
+    img: "/problemImages/problem3102.png",
     isCompleted: false,
   },
     {
