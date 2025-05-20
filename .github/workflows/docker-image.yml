@@ -39,7 +39,6 @@ jobs:
       run: |
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
           cd /home/ubuntu/akademia-zadan-web &&
-          docker builder prune --all --force && 
           docker build -t akademia-zadan-web .
         "
         
