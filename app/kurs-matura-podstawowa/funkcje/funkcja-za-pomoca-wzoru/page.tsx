@@ -5,72 +5,65 @@ import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
 import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
-import React from "react";
 
 const tasks = [
-  {
-    id: "2200",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2200.png",
-    isCompleted: true,
-  },
     {
-    id: "2201",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2201.png",
-    isCompleted: true,
-  },
-    {
-    id: "2202",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2202.png",
-    isCompleted: true,
+    id: "2300",
+    title: "Zadanie 1",
+    description: "Obliczenie wartości dla zadanego argumentu",
+    img: "/problemImages/problem2300.png",
+    isCompleted: false,
   },
       {
-    id: "2203",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2203.png",
-    isCompleted: true,
+    id: "2301",
+    title: "Zadanie 2",
+    description: "Obliczenie wartości dla zadanego argumentu",
+    img: "/problemImages/problem2301.png",
+    isCompleted: false,
   },
       {
-    id: "2204",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2204.png",
-    isCompleted: true,
+    id: "2302",
+    title: "Zadanie 3",
+    description: "Obliczenie wartości dla zadanego argumentu",
+    img: "/problemImages/problem2302.png",
+    isCompleted: false,
   },
       {
-    id: "2205",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2205.png",
-    isCompleted: true,
+    id: "2303",
+    title: "Zadanie 4",
+    description: "Obliczenie wartości dla zadanego argumentu",
+    img: "/problemImages/problem2303.png",
+    isCompleted: false,
   },
       {
-    id: "2206",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2206.png",
-    isCompleted: true,
+    id: "2304",
+    title: "Zadanie 5",
+    description: "Obliczenie wartości dla zadanego argumentu",
+    img: "/problemImages/problem2304.png",
+    isCompleted: false,
   },
-  {
-    id: "2207",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2207.png",
-    isCompleted: true,
+      {
+    id: "2305",
+    title: "Zadanie 6",
+    description: "Obliczenie wartości dla zadanego argumentu",
+    img: "/problemImages/problem2305.png",
+    isCompleted: false,
+  },
+      {
+    id: "2306",
+    title: "Zadanie 7",
+    description: "Obliczenie wartości dla zadanego argumentu",
+    img: "/problemImages/problem2306.png",
+    isCompleted: false,
   },
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) <= 2202 && parseInt(task.id) >= 2200);
-  const secondGroup = tasks.filter(task => parseInt(task.id) <= 2207 && parseInt(task.id) >= 2204);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2300 && parseInt(task.id) <= 2302);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2303 && parseInt(task.id) <= 2306)
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 3230);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -78,7 +71,7 @@ const TopicTasksPage = () => {
       <div className="max-w-7xl mx-auto w-full px-6 pt-8">
         <div className="mb-6">
           <Link 
-            href="/kurs-matura-podstawowa/uklady-rownan/" 
+            href="/kurs-matura-podstawowa/funkcje/" 
             className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors group"
           >
             <svg 
@@ -93,10 +86,10 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="CrTWBy7rv0A" />
+        <VideoSection youtubeId="DlC-AfObAOM" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Układy równań w zadaniach tekstowych"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Funkcja za pomocą wzoru"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">
@@ -104,7 +97,7 @@ const TopicTasksPage = () => {
               Zadania wieloetapowe
             </h2>
             <p className="text-gray-600 mt-2">
-              Do samodzielnej nauki
+              Wytłuamczenie krok po kroku
             </p>
           </div>
         </div>
@@ -131,6 +124,22 @@ const TopicTasksPage = () => {
           ))}
         </div>
 
+        <div className="col-span-full py-8 text-center">
+          <div className="border-t-2 border-b-2 border-gray-300 py-4">
+            <h2 className="text-xl font-bold text-gray-700">
+              Zadania otwarte
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Warte więcej punktów
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {thirdGroup.map((task) => (
+            <TaskCards key={task.id} tasks={[task]} />
+          ))}
+        </div>
       </main>
 
       <Footer />

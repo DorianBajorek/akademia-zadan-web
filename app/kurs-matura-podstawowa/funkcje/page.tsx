@@ -24,21 +24,27 @@ const RealNumbersCourse: React.FC = () => {
 
   const topics = [
     {
-      title: "Definicja funkcji",
-      shortDesc: "W tym dziale poznamy definicję funkcji oraz jej zastosowanie w matematyce.",
-      slug: "/liczby-rzeczywiste/definicja-funkcji",
+      title: "Stosowanie definicji funkcji w zadaniach",
+      shortDesc: "W tym dziale poznasz definicję funkcji oraz jej zastosowanie w zadaniach. Dowiesz się, jak funkcja opisuje zależności między zmiennymi w kontekście mateamatyki i życia codziennego.",
+      slug: "/funkcje/stosowanie-definicji-funkcji",
       icon: "🧠"
+    },
+    {
+      title: "Funkcja za pomocą wzoru",
+      shortDesc: "Jak zapisać funkcję za pomocą wzoru? Poznamy zasady i przykłady. Zastosowanie wzorów w praktyce.",
+      slug: "/funkcje/funkcja-za-pomoca-wzoru",
+      icon: "✏️"
     },
     {
       title: "Odczytywanie własności funkcji",
       shortDesc: "Jak odczytać własności funkcji z wykresu? Poznamy zasady i przykłady. Zbiór wartości, dziedzina, monotoniczność.",
-      slug: "/liczby-rzeczywiste/odczytywanie-wlasnosci-funkcji",
+      slug: "/funkcje/odczytywanie-wlasnosci-funkcji",
       icon: "📊"
     },
     {
       title: "Przesuwanie wykresu funkcji",
       shortDesc: "Jak przesunąć wykres funkcji wzdłuż osi X i Y? Poznamy zasady i przykłady.",
-      slug: "/liczby-rzeczywiste/przesuwanie-wykresu-funkcji",
+      slug: "/funkcje/przesuwanie-wykresu-funkcji",
       icon: "↔️"
     },
   ];
