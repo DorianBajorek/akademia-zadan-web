@@ -7,42 +7,42 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
-  {
-    id: "2910",
+    {
+    id: "3310",
     title: "Zadanie 1",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2910.png",
+    description: "Ciąg",
+    img: "/problemImages/problem3310.png",
     isCompleted: false,
   },
   {
-    id: "2911",
-    title: "Zadanie 2",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2911.png",
+    id: "3311",
+    title: "Zadanie 1",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3311.png",
     isCompleted: false,
   },
   {
-    id: "2912",
-    title: "Zadanie 3",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2912.png",
+    id: "3312",
+    title: "Zadanie 1",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3312.png",
     isCompleted: false,
   },
     {
-    id: "2913",
-    title: "Zadanie 4",
-    description: "Równanie kwadratowe",
-    img: "/problemImages/problem2913.png",
+    id: "3313",
+    title: "Zadanie 1",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3313.png",
     isCompleted: false,
-  }
+  },
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2900 && parseInt(task.id) <= 2909);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2910 && parseInt(task.id) <= 2920)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 2930);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 3300 && parseInt(task.id) <= 3309);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 3310 && parseInt(task.id) <= 3320)
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 3330);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -68,7 +68,7 @@ const TopicTasksPage = () => {
         <VideoSection youtubeId="DlC-AfObAOM" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Równania kwadratowe"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Miejsca zerowe funkcji kwadratowej"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">

@@ -11,7 +11,21 @@ const tasks = [
     id: "3200",
     title: "Zadanie 1",
     description: "Ciąg geometryczny",
-    img: "/problemImages/problem3210.png",
+    img: "/problemImages/problem3200.png",
+    isCompleted: false,
+  },
+  {
+    id: "3201",
+    title: "Zadanie 2",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3201.png",
+    isCompleted: false,
+  },
+  {
+    id: "3202",
+    title: "Zadanie 3",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3202.png",
     isCompleted: false,
   },
   {
@@ -19,6 +33,20 @@ const tasks = [
     title: "Zadanie 2",
     description: "Ciąg geometryczny",
     img: "/problemImages/problem3210.png",
+    isCompleted: false,
+  },
+  {
+    id: "3211",
+    title: "Zadanie 3",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3211.png",
+    isCompleted: false,
+  },
+    {
+    id: "3212",
+    title: "Zadanie 3",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3211.png",
     isCompleted: false,
   }
 ];
