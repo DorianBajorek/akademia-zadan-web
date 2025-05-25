@@ -3,6 +3,7 @@ import 'katex/dist/katex.min.css';
 
 interface TrueFalseQuestionProps {
   question: string;
+  questionImg?: string;
   statements: {
     text: string;
     isTrue: boolean;
@@ -14,6 +15,7 @@ interface TrueFalseQuestionProps {
 
 const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
   question,
+  questionImg,
   statements,
   selectedAnswers,
   onAnswerSelect,
@@ -48,6 +50,15 @@ const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
       <h3 className="text-base sm:text-lg md:text-xl text-gray-800 mb-4">
         {renderText(question)}
       </h3>
+
+      {/* Dodane wyświetlanie zdjęcia pytania */}
+      {questionImg && (
+        <img
+          src={questionImg}
+          alt="question illustration"
+          className="w-full max-w-[500px] h-auto mb-4 rounded mx-auto object-contain"
+        />
+      )}
 
       <div className="space-y-4">
         {statements.map((statement, index) => (
