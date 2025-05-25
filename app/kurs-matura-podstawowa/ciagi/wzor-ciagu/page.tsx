@@ -7,6 +7,13 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
+  {
+    id: "3300",
+    title: "Zadanie 1",
+    description: "Ciąg",
+    img: "/problemImages/problem3310.png",
+    isCompleted: false,
+  },
     {
     id: "3310",
     title: "Zadanie 1",
@@ -33,6 +40,13 @@ const tasks = [
     title: "Zadanie 1",
     description: "Ciąg geometryczny",
     img: "/problemImages/problem3313.png",
+    isCompleted: false,
+  },
+  {
+    id: "3314",
+    title: "Zadanie 1",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3314.png",
     isCompleted: false,
   },
 ];
