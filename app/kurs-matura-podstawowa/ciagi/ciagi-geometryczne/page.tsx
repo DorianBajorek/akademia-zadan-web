@@ -42,11 +42,25 @@ const tasks = [
     img: "/problemImages/problem3211.png",
     isCompleted: false,
   },
-    {
+  {
     id: "3212",
     title: "Zadanie 3",
     description: "Ciąg geometryczny",
-    img: "/problemImages/problem3211.png",
+    img: "/problemImages/problem3212.png",
+    isCompleted: false,
+  },
+  {
+    id: "3213",
+    title: "Zadanie 4",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3213.png",
+    isCompleted: false,
+  },
+  {
+    id: "3214",
+    title: "Zadanie 5",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem3214.png",
     isCompleted: false,
   }
 ];
