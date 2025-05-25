@@ -3,61 +3,53 @@ on:
     branches:
       - main
   workflow_dispatch:
-  
+
 jobs:
-  run_pull:
-    name: run pull
+  build_and_push:
     runs-on: ubuntu-latest
-    
-
     steps:
-    - name: Install SSH keys
-      # Ustawienie kluczy SSH dla połączenia
-      run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
-        
-    - name: Configure SSH to prevent timeout
-      run: |
-        echo "Host *" >> ~/.ssh/config
-        echo "  ServerAliveInterval 60" >> ~/.ssh/config
-        echo "  ServerAliveCountMax 5" >> ~/.ssh/config
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Pull latest changes
-      # Pobierz najnowszy kod z repozytorium
-      run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-          git config --global --add safe.directory /home/ubuntu/akademia-zadan-web &&
-          cd /home/ubuntu/akademia-zadan-web &&
-          git checkout main &&
-          git pull
-        "
-        
-    - name: Build new Docker image
-      # Zbuduj nowy obraz Dockera
-      run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-          cd /home/ubuntu/akademia-zadan-web &&
-          docker build -t akademia-zadan-web .
-        "
-        
-    - name: Stop and remove old container
-      # Zatrzymaj i usuń stary kontener
-      run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-          if docker ps -a --format '{{.Names}}' | grep -q '^akademia-zadan-web$'; then
-            docker stop akademia-zadan-web || true &&
-            docker rm akademia-zadan-web || true
-          fi
-        "
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_LOGIN }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-    - name: Run new container
-      # Uruchom nowy kontener
-      run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-          docker run -d --name akademia-zadan-web -p 3000:3000 akademia-zadan-web 
-        "
-    - name: cleanup
-      run: rm -rf ~/.ssh
-      
+      - name: Build Docker image
+        run: |
+          docker build -t akademiazadan/akademiazadan:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push akademiazadan/akademiazadan:latest
+
+  deploy:
+    needs: build_and_push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH keys
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+
+      - name: Configure SSH to prevent timeout
+        run: |
+          echo "Host *" >> ~/.ssh/config
+          echo "  ServerAliveInterval 60" >> ~/.ssh/config
+          echo "  ServerAliveCountMax 5" >> ~/.ssh/config
+
+      - name: Pull latest Docker image and restart container on VPS
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            docker pull akademiazadan/akademiazadan:latest &&
+            if docker ps -a --format '{{.Names}}' | grep -q '^akademia-zadan-web$'; then
+              docker stop akademia-zadan-web || true &&
+              docker rm akademia-zadan-web || true
+            fi &&
+            docker run -d --name akademia-zadan-web -p 3000:3000 akademiazadan/akademiazadan:latest
+          "
+      - name: Cleanup
+        run: rm -rf ~/.ssh
