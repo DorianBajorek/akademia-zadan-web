@@ -28,8 +28,15 @@ const tasks = [
     img: "/problemImages/problem3102.png",
     isCompleted: false,
   },
-    {
+  {
     id: "3110",
+    title: "Zadanie 1",
+    description: "Ciąg arytmetyczny",
+    img: "/problemImages/problem3110.png",
+    isCompleted: false,
+  },
+  {
+    id: "3111",
     title: "Zadanie 1",
     description: "Ciąg arytmetyczny",
     img: "/problemImages/problem3110.png",

@@ -11,10 +11,24 @@ const tasks = [
     id: "3300",
     title: "Zadanie 1",
     description: "Ciąg",
-    img: "/problemImages/problem3310.png",
+    img: "/problemImages/problem3300.png",
     isCompleted: false,
   },
-    {
+  {
+    id: "3301",
+    title: "Zadanie 1",
+    description: "Ciąg",
+    img: "/problemImages/problem3301.png",
+    isCompleted: false,
+  },
+  {
+    id: "3302",
+    title: "Zadanie 1",
+    description: "Ciąg",
+    img: "/problemImages/problem3302.png",
+    isCompleted: false,
+  },
+  {
     id: "3310",
     title: "Zadanie 1",
     description: "Ciąg",

@@ -26,7 +26,7 @@ const Page = () => {
         {/* ETAP 1: Przekształcenie wzoru i warunek na n */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <ChoiceQuestion
-            question="Jak można przekształcić wyraz $a_n = \frac{24-4n}{n}$?"
+            question="Jak można przekształcić wyraz $$a_n = \frac{24-4n}{n}$$?"
             choices={[
               { label: "a_n = \\frac{24}{n} - 4", value: "a" },
               { label: "a_n = \\frac{24}{n} + 4", value: "b" },
@@ -34,7 +34,7 @@ const Page = () => {
               { label: "a_n = \\frac{24}{n-4}", value: "d" },
             ]}
             correctAnswer="a"
-            explanation="Rozdzielamy licznik: $\\frac{24-4n}{n} = \\frac{24}{n} - 4$."
+            explanation="Rozdzielamy licznik: $$\frac{24-4n}{n} = \frac{24}{n} - 4$$."
             onComplete={() => handleStageComplete(1)}
           />
         )}
@@ -42,15 +42,15 @@ const Page = () => {
         {/* ETAP 2: Dla jakich n wyraz jest całkowity? */}
         {completedStages.includes(1) && (
           <ChoiceQuestion
-            question="Dla jakich wartości $n$ wyraz $a_n = \\frac{24}{n} - 4$ jest liczbą całkowitą?"
+            question="Dla jakich wartości $$n$$ wyraz $$a_n = \frac{24}{n} - 4$$ jest liczbą całkowitą?"
             choices={[
-              { label: "Dla $n$ będących dzielnikami $24$", value: "a" },
-              { label: "Dla $n$ będących dzielnikami $4$", value: "b" },
-              { label: "Dla wszystkich $n$", value: "c" },
-              { label: "Dla $n$ parzystych", value: "d" },
+              { label: "\\text{ Dla n będących dzielnikami 24 }", value: "a" },
+              { label: "\\text{ Dla $n$ będących dzielnikami 4}", value: "b" },
+              { label: "\\text{ Dla wszystkich n}", value: "c" },
+              { label: "\\text{ Dla $n$ parzystych}", value: "d" },
             ]}
             correctAnswer="a"
-            explanation="Aby $a_n$ był całkowity, $n$ musi dzielić $24$ – wtedy $\\frac{24}{n}$ jest liczbą całkowitą."
+            explanation="Aby $$a_n$$ był całkowity, $$n$$ musi dzielić $$24$$ - wtedy $$\frac{24}{n}$$ jest liczbą całkowitą."
             onComplete={() => handleStageComplete(2)}
           />
         )}
@@ -58,7 +58,7 @@ const Page = () => {
         {/* ETAP 3: Wyznacz dzielniki 24 */}
         {completedStages.includes(2) && (
           <ChoiceQuestion
-            question="Które z poniższych to wszystkie dzielniki liczby $24$ większe lub równe $1$?"
+            question="Które z poniższych to wszystkie dzielniki liczby $$24$$ większe lub równe $$1$$?"
             choices={[
               { label: "1, 2, 3, 4, 6, 8, 12, 24", value: "a" },
               { label: "1, 2, 4, 8, 12, 24", value: "b" },
@@ -66,7 +66,7 @@ const Page = () => {
               { label: "1, 3, 9, 24", value: "d" },
             ]}
             correctAnswer="a"
-            explanation="Dzielniki liczby $24$ to: $1, 2, 3, 4, 6, 8, 12, 24$."
+            explanation="Dzielniki liczby $$24$$ to: $$1, 2, 3, 4, 6, 8, 12, 24$$."
             onComplete={() => handleStageComplete(3)}
           />
         )}
@@ -74,19 +74,23 @@ const Page = () => {
         {/* ETAP 4: Dla których n wyraz jest nieujemny? */}
         {completedStages.includes(3) && (
           <ChoiceQuestion
-            question="Dla których z tych $n$ wyraz $a_n = \\frac{24}{n} - 4$ jest nieujemny?"
+            question="Dla których z tych $$n$$ wyraz $$a_n = \frac{24-4n}{n} = \frac{24}{n} - 4$$ jest nieujemny?"
             choices={[
-              { label: "Dla $n = 1, 2, 3, 4, 6$", value: "a" },
-              { label: "Dla $n = 1, 2, 3, 4, 6, 8$", value: "b" },
-              { label: "Dla $n = 1, 2, 3, 4, 6, 8, 12$", value: "c" },
-              { label: "Dla $n = 1, 2, 3, 4$", value: "d" },
+              { label: " n = 1, 2, 3, 4, 6", value: "a" },
+              { label: " n = 1, 2, 3, 4, 6, 8", value: "b" },
+              { label: " n = 1, 2, 3, 4, 6, 8, 12", value: "c" },
+              { label: " n = 1, 2, 3, 4", value: "d" },
             ]}
             correctAnswer="a"
-            explanation="Dla $n \\leq 6$ licznik $24-4n$ jest nieujemny, a $n$ jest dzielnikiem $24$."
+            explanation={
+              "Aby $$a_n$$ był nieujemny, zarówno licznik jak i mianownik muszą być dodatnie lub równe zero.<br/>" +
+              "Z warunków zadania: $$n \\geq 1$$ (bo $$n$$ to liczba naturalna) i $$24-4n \\geq 0$$.<br/>" +
+              "Rozwiązujemy nierówność: $$24-4n \\geq 0 \\implies 4n \\leq 24 \\implies n \\leq 6$$.<br/>" +
+              "Bierzemy więc tylko te dzielniki 24, które są nie większe niż 6: $$n = 1, 2, 3, 4, 6$$."
+            }
             onComplete={() => handleStageComplete(4)}
           />
         )}
-
         {/* ETAP 5: Ile jest wszystkich nieujemnych całkowitych wyrazów tego ciągu? */}
         {completedStages.includes(4) && (
           <ChoiceQuestion
@@ -106,15 +110,15 @@ const Page = () => {
         {/* NOTATKI KOŃCOWE */}
         {completedStages.includes(5) && (
           <StudentNotes
-            equation="a_n = \\frac{24-4n}{n} = \\frac{24}{n} - 4"
+            equation="a_n = \frac{24-4n}{n} = \frac{24}{n} - 4"
             steps={[
-              { step: "Przekształcamy: $a_n = \\frac{24}{n} - 4$" },
-              { step: "$n$ musi być dzielnikiem $24$" },
-              { step: "Dzielniki $24$: $1, 2, 3, 4, 6, 8, 12, 24$" },
-              { step: "Dla $n = 1, 2, 3, 4, 6$ wyraz nieujemny" }
+              { step: "a_n = \\frac{24}{n} - 4" },
+              { step: "\\text{n musi być dzielnikiem 24 }" },
+              { step: "\\text{Dzielniki 24 }: 1, 2, 3, 4, 6, 8, 12, 24" },
+              { step: "\\text{Dla }n = 1, 2, 3, 4, 6 \\text{ wyraz nieujemny }" }
             ]}
             solutions={[
-              "Liczba takich wyrazów: 5"
+              "5"
             ]}
           />
         )}
