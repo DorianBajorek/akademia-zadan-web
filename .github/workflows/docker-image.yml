@@ -41,19 +41,19 @@ jobs:
           echo "  ServerAliveInterval 60" >> ~/.ssh/config
           echo "  ServerAliveCountMax 5" >> ~/.ssh/config
 
-- name: Pull latest Docker image and restart container on VPS
-  env:
-    DOCKER_HUB_LOGIN: ${{ secrets.DOCKER_HUB_LOGIN }}
-    DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-  run: |
-    ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-      echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_LOGIN --password-stdin &&
-      docker pull akademiazadan/akademiazadan:latest &&
-      if docker ps -a --format '{{.Names}}' | grep -q '^akademia-zadan-web$'; then
-        docker stop akademia-zadan-web || true &&
-        docker rm akademia-zadan-web || true
-      fi &&
-      docker run -d --name akademia-zadan-web -p 3000:3000 akademiazadan/akademiazadan:latest
-    "
+      - name: Pull latest Docker image and restart container on VPS
+        env:
+          DOCKER_HUB_LOGIN: ${{ secrets.DOCKER_HUB_LOGIN }}
+          DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_LOGIN --password-stdin &&
+            docker pull akademiazadan/akademiazadan:latest &&
+            if docker ps -a --format '{{.Names}}' | grep -q '^akademia-zadan-web$'; then
+              docker stop akademia-zadan-web || true &&
+              docker rm akademia-zadan-web || true
+            fi &&
+            docker run -d --name akademia-zadan-web -p 3000:3000 akademiazadan/akademiazadan:latest
+          "
       - name: Cleanup
         run: rm -rf ~/.ssh
