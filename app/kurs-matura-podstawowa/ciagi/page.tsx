@@ -40,6 +40,12 @@ const RealNumbersCourse: React.FC = () => {
       shortDesc: "Zadania dotyczące wzorów ciągów",
       slug: "/ciagi/wzor-ciagu",
       icon: "📘"
+    },
+    {
+      title: "ciagi trzywyrazowe",
+      shortDesc: "Zadania dotyczące wzorów ciągów",
+      slug: "/ciagi/ciagi-trzywyrazowe",
+      icon: "📘"
     }
   ]; 
 

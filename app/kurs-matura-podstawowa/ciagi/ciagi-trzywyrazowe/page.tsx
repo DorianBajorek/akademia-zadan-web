@@ -8,55 +8,84 @@ import TopicStats from "@/components/TopicStats";
 
 const tasks = [
   {
-    id: "3100",
+    id: "400",
     title: "Zadanie 1",
-    description: "Ciąg arytmetyczny",
-    img: "/problemImages/problem3100.png",
+    description: "Trzywyrazowy ciąg arytmetyczny",
+    img: "/problemImages/problem400.png",
     isCompleted: false,
   },
   {
-    id: "3101",
+    id: "401",
     title: "Zadanie 2",
-    description: "Ciąg arytmetyczny",
-    img: "/problemImages/problem3101.png",
+    description: "Trzywyrazowy ciąg arytmetyczny",
+    img: "/problemImages/problem401.png",
+    isCompleted: false,
+  },
+  {
+    id: "402",
+    title: "Zadanie 3",
+    description: "Ciąg",
+    img: "/problemImages/problem402.png",
+    isCompleted: false,
+  },
+  {
+    id: "403",
+    title: "Zadanie 4",
+    description: "Ciąg",
+    img: "/problemImages/problem403.png",
+    isCompleted: false,
+  },
+  {
+    id: "404",
+    title: "Zadanie 5",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem404.png",
+    isCompleted: false,
+  },
+  {
+    id: "405",
+    title: "Zadanie 6",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem405.png",
     isCompleted: false,
   },
     {
-    id: "3102",
-    title: "Zadanie 3",
-    description: "Ciąg arytmetyczny",
-    img: "/problemImages/problem3102.png",
+    id: "406",
+    title: "Zadanie 7",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem406.png",
     isCompleted: false,
   },
   {
-    id: "3103",
-    title: "Zadanie 3",
-    description: "Ciąg arytmetyczny",
-    img: "/problemImages/problem3102.png",
+    id: "407",
+    title: "Zadanie 8",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem407.png",
     isCompleted: false,
   },
-  {
-    id: "3110",
-    title: "Zadanie 1",
-    description: "Ciąg arytmetyczny",
-    img: "/problemImages/problem3110.png",
+    {
+    id: "408",
+    title: "Zadanie 9",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem408.png",
     isCompleted: false,
   },
-  {
-    id: "3111",
-    title: "Zadanie 1",
-    description: "Ciąg arytmetyczny",
-    img: "/problemImages/problem3110.png",
+    {
+    id: "409",
+    title: "Zadanie 10",
+    description: "Ciąg geometryczny",
+    img: "/problemImages/problem409.png",
     isCompleted: false,
   }
+
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 3100 && parseInt(task.id) <= 3109);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 3110 && parseInt(task.id) <= 3120)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 3130);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 400 && parseInt(task.id) <= 410);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 410 && parseInt(task.id) <= 420)
+  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 430);
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
