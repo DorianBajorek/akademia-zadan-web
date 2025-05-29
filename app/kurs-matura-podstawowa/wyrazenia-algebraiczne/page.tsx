@@ -35,6 +35,12 @@ const RealNumbersCourse: React.FC = () => {
       slug: "/wyrazenia-algebraiczne/wzory-skroconego-mnozenia",
       icon: "()²"
     },
+    {
+      title: "Równania wielomianowe",
+      shortDesc: "Poznaj wzory skróconego mnożenia i ich zastosowanie w uproszczeniach wyrażeń algebraicznych. Pojawią się również w kontekscie liczb rzeczywistych.",
+      slug: "/wyrazenia-algebraiczne/rownania-wielomianowe",
+      icon: "()²"
+    },
   ];
 
   const {token} = useAuth()
