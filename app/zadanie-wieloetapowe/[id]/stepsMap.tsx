@@ -329,4 +329,9 @@ export const stepsMap: Record<string, any> = {
   '4111': dynamic(() => import('@/components/stepsProblems/steps4111')),
   '4112': dynamic(() => import('@/components/stepsProblems/steps4112')),
   '4113': dynamic(() => import('@/components/stepsProblems/steps4113')),
+  '4200': dynamic(() => import('@/components/stepsProblems/steps4200')),
+  '4201': dynamic(() => import('@/components/stepsProblems/steps4201')),
+  '4202': dynamic(() => import('@/components/stepsProblems/steps4202')),
+  '4203': dynamic(() => import('@/components/stepsProblems/steps4203')),
+  '4204': dynamic(() => import('@/components/stepsProblems/steps4204')),
 };
