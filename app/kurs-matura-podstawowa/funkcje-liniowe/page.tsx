@@ -7,7 +7,7 @@ import { useAuth } from "@/app/UserData";
 import { getTopicsProgress } from "@/service";
 
 const RealNumbersCourse: React.FC = () => {
-  const field = "liczby-rzeczywiste"
+  const field = "funkcje-liniowe"
   const topicProgress = {
     "Działania na liczbach rzeczywistych": 90,
     "Obliczanie na potęg": 0,
@@ -38,7 +38,7 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Miejsca zerowe funkcji liniowej",
       shortDesc: "Jak znaleźć miejsca zerowe funkcji liniowej? Poznamy zasady i przykłady.",
-      slug: "/liczby-rzeczywiste/miejsca-zerowe-funkcji-liniowej",
+      slug: "/funkcje-liniowe/miejsca-zerowe-funkcji-liniowej",
       icon: "0️⃣"
     },
   ];
