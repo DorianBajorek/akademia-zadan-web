@@ -26,13 +26,13 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: "Współczynniki funkcji liniowej",
       shortDesc: "Poznaj współczynniki funkcji liniowej i ich znaczenie w kontekście wykresu funkcji.",
-      slug: "/liczby-rzeczywiste/wspolczynniki-funkcji-liniowej",
+      slug: "/funkcje-liniowe/wspolczynniki-funkcji-liniowej",
       icon: "📈"
     },
     {
       title: "Równoleżność funkcji liniowych",
       shortDesc: "Jak rozpoznać równoleżność funkcji liniowych? Poznamy zasady i przykłady.",
-      slug: "/liczby-rzeczywiste/rownoleznosc-funkcji-liniowych",
+      slug: "/funkcje-liniowe/rownoleznosc-funkcji-liniowych",
       icon: "🔄"
     },
     {

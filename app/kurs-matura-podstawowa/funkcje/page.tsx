@@ -23,12 +23,12 @@ const RealNumbersCourse: React.FC = () => {
   };
 
   const topics = [
-    {
-      title: "Stosowanie definicji funkcji w zadaniach",
-      shortDesc: "W tym dziale poznasz definicję funkcji oraz jej zastosowanie w zadaniach. Dowiesz się, jak funkcja opisuje zależności między zmiennymi w kontekście mateamatyki i życia codziennego.",
-      slug: "/funkcje/stosowanie-definicji-funkcji",
-      icon: "🧠"
-    },
+    // {
+    //   title: "Stosowanie definicji funkcji w zadaniach",
+    //   shortDesc: "W tym dziale poznasz definicję funkcji oraz jej zastosowanie w zadaniach. Dowiesz się, jak funkcja opisuje zależności między zmiennymi w kontekście mateamatyki i życia codziennego.",
+    //   slug: "/funkcje/stosowanie-definicji-funkcji",
+    //   icon: "🧠"
+    // },
     {
       title: "Funkcja za pomocą wzoru",
       shortDesc: "Jak zapisać funkcję za pomocą wzoru? Poznamy zasady i przykłady. Zastosowanie wzorów w praktyce.",

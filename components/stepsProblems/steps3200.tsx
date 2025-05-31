@@ -40,7 +40,6 @@ const Page = () => {
           />
         )}
 
-        {/* ETAP 2: Jaką postać ma równanie na q */}
         {completedStages.includes(1) && (
           <ChoiceQuestion
             question="Podstaw $$S_1 = 2$$ i $$S_2 = 12$$. Jaką postać ma równanie na $$q$$?"

@@ -29,18 +29,18 @@ const RealNumbersCourse: React.FC = () => {
       slug: "/uklady-rownan/sprawdzenie-ukladow-rownan",
       icon: "🔍"
     },
-    {
-      title: "Rozwiązywanie układów równań",
-      shortDesc: "W tym dziale poznamy sposoby rozwiązywania układów równań.",
-      slug: "/uklady-rownan/rozwiazywanie-ukladow-rownan",
-      icon: "🔑"
-    },
-        {
-      title: "Układy równań w zadaniach tekstowych",
-      shortDesc: "Jak wykorzystać układy równań w zadaniach tekstowych? Poznamy jak to zrobić i jak wykorzsytać to w praktyce.",
-      slug: "/uklady-rownan/uklady-w-zadaniach-tekstowych",
-      icon: "📖"
-    },
+    // {
+    //   title: "Rozwiązywanie układów równań",
+    //   shortDesc: "W tym dziale poznamy sposoby rozwiązywania układów równań.",
+    //   slug: "/uklady-rownan/rozwiazywanie-ukladow-rownan",
+    //   icon: "🔑"
+    // },
+    //     {
+    //   title: "Układy równań w zadaniach tekstowych",
+    //   shortDesc: "Jak wykorzystać układy równań w zadaniach tekstowych? Poznamy jak to zrobić i jak wykorzsytać to w praktyce.",
+    //   slug: "/uklady-rownan/uklady-w-zadaniach-tekstowych",
+    //   icon: "📖"
+    // },
   ];
 
   const {token} = useAuth()
