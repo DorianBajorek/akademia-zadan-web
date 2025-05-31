@@ -7,7 +7,7 @@ import { useAuth } from "@/app/UserData";
 import { getTopicsProgress } from "@/service";
 
 const RealNumbersCourse: React.FC = () => {
-  const field = "liczby-rzeczywiste"
+  const field = "funkcje-liniowe"
   const topicProgress = {
     "Działania na liczbach rzeczywistych": 90,
     "Obliczanie na potęg": 0,

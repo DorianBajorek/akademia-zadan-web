@@ -24,23 +24,11 @@ const RealNumbersCourse: React.FC = () => {
 
   const topics = [
     {
-      title: "Działania na podstawowych wyrażeniach algebraicznych",
-      shortDesc: "W tym dziale skupimy się na działaniach na literkach. Poznamy zasady dodawania, odejmowania, mnożenia i dzielenia wyrażeń algebraicznych.",
-      slug: "/wyrazenia-algebraiczne/dzialania-na-wyrazeniach-algebraicznych",
-      icon: "xyz"
-    },
-    {
-      title: "Wzory skróconego mnożenia",
-      shortDesc: "Poznaj wzory skróconego mnożenia i ich zastosowanie w uproszczeniach wyrażeń algebraicznych. Pojawią się również w kontekscie liczb rzeczywistych.",
-      slug: "/wyrazenia-algebraiczne/wzory-skroconego-mnozenia",
-      icon: "()²"
-    },
-    {
-      title: "Równania wielomianowe",
-      shortDesc: "Poznaj wzory skróconego mnożenia i ich zastosowanie w uproszczeniach wyrażeń algebraicznych. Pojawią się również w kontekscie liczb rzeczywistych.",
-      slug: "/wyrazenia-algebraiczne/rownania-wielomianowe",
-      icon: "()²"
-    },
+      title: "Środek i dłogość odcinka",
+      shortDesc: "Dodawanie, odejmowanie, mnożenie, dzielenie",
+      slug: "/geometria-analityczna/dlugosc-srodek-odcinka",
+      icon: "➕"
+    }
   ];
 
   const {token} = useAuth()
@@ -69,13 +57,14 @@ const RealNumbersCourse: React.FC = () => {
           <Link href="/kurs-matura-podstawowa" className="mr-4 text-blue-600 hover:text-blue-800">
             ← Wróć do kursu
           </Link>
-          <h1 className="text-4xl font-bold text-gray-800">Wyrażenia Algebraiczne</h1>
+          <h1 className="text-4xl font-bold text-gray-800">Geometria Analityczna</h1>
         </div>
 
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            W tym dziale poznasz podstawy pracy z literami w matematyce – od działań na wyrażeniach algebraicznych po zastosowanie wzorów skróconego mnożenia. To fundament, który pomoże Ci swobodnie poruszać się w dalszych tematach algebry, takich jak równania, funkcje czy wyrażenia z wartością bezwzględną.
+            Dział "Geometria Analityczna" to fundament matematyki. Opanowanie tych zagadnień jest kluczowe dla zrozumienia bardziej zaawansowanych tematów.
+            W tym dziale poznasz podstawowe operacje, własności liczb i ich reprezentacje.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">
