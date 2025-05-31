@@ -49,6 +49,7 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_LOGIN --password-stdin &&
             docker pull akademiazadan/akademiazadan:latest &&
+            docker image prune -af &&
             if docker ps -a --format '{{.Names}}' | grep -q '^akademia-zadan-web$'; then
               docker stop akademia-zadan-web || true &&
               docker rm akademia-zadan-web || true
