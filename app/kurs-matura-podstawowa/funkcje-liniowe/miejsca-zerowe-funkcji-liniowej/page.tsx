@@ -23,14 +23,21 @@ const tasks = [
   },
   {
     id: "4310",
-    title: "Zadanie 1",
+    title: "Zadanie 3",
     description: "Równanie iloczynowe - liczba rozwiązań",
     img: "/problemImages/problem4310.png",
     isCompleted: false,
   },
   {
     id: "4311",
-    title: "Zadanie 2",
+    title: "Zadanie 4",
+    description: "Równanie iloczynowe - liczba rozwiązań",
+    img: "/problemImages/problem4311.png",
+    isCompleted: false,
+  },
+  {
+    id: "4312",
+    title: "Zadanie 5",
     description: "Równanie iloczynowe - liczba rozwiązań",
     img: "/problemImages/problem4311.png",
     isCompleted: false,
