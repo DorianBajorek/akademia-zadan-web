@@ -36,11 +36,10 @@ const Page = () => {
                 { label: "12", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Najmniejszy wspólny mianownik to 6, ponieważ jest to najmniejsza liczba, 
-              która dzieli się przez oba stare mianowniki (2 i 3). 
-              Inne wspólne mianowniki jak 12 też by działały, ale 6 jest najmniejszy."
+              explanation="Najmniejszy wspólny mianownik to $$6$$, ponieważ jest to najmniejsza liczba, 
+              która dzieli się przez oba stare mianowniki ($$2$$ i $$3$$). 
+              Inne wspólne mianowniki jak $$12$$ też by działały, ale $$6$$ jest najmniejszy."
               onComplete={() => handleStageComplete(1)}
-              img="/steps-images/nww.png"
             />
           </>
         )}
@@ -86,7 +85,6 @@ const Page = () => {
                 $$\frac{3}{6} + \frac{2}{6} = \frac{3+2}{6} = \frac{5}{6}$$ <br>
                 Mianownik pozostaje bez zmian."
               onComplete={() => handleStageComplete(3)}
-              img="/steps-images/dodawanie.png"
             />
           </>
         )}
@@ -105,10 +103,9 @@ const Page = () => {
                 { label: "\\text{Tak, przez 2}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Ułamek 5/6 nie może być skrócony, ponieważ 5 i 6 nie mają wspólnych dzielników 
+              explanation="Ułamek $$\frac{5}{6}$$ nie może być skrócony, ponieważ $$5$$ i $$6$$ nie mają wspólnych dzielników 
               (poza 1). Jest to już najprostsza postać tego ułamka."
               onComplete={() => handleStageComplete(4)}
-              img="/steps-images/uproszczenie.png"
             />
           </>
         )}

@@ -27,7 +27,7 @@ const Page = () => {
               Jaki jest najmniejszy wspólny mianownik dla tych ułamków?
             </p>
             <ChoiceQuestion
-              question="Wybierz najmniejszą liczbę, która dzieli się przez oba mianowniki (5 i 2):"
+              question="Wybierz najmniejszą liczbę, która dzieli się przez oba mianowniki $$5$$ i $$2$$:"
               choices={[
                 { label: "5", value: "a" },
                 { label: "10", value: "b" },
@@ -35,11 +35,10 @@ const Page = () => {
                 { label: "20", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Najmniejszy wspólny mianownik to 10, ponieważ jest to najmniejsza liczba, 
-              która dzieli się przez oba stare mianowniki (5 i 2). 
-              Inne wspólne mianowniki jak 20 też by działały, ale 10 jest najmniejszy."
+              explanation="Najmniejszy wspólny mianownik to $$10$$, ponieważ jest to najmniejsza liczba, 
+              która dzieli się przez oba stare mianowniki $$5$$ i $$2$$. 
+              Inne wspólne mianowniki jak $$20$$ też by działały, ale $$10$$ jest najmniejszy."
               onComplete={() => handleStageComplete(1)}
-              img="/steps-images/nww.png"
             />
           </>
         )}
@@ -50,7 +49,7 @@ const Page = () => {
               Teraz rozszerz oba ułamki do wspólnego mianownika (10).
             </p>
             <ChoiceQuestion
-              question="Jak prawidłowo rozszerzyć ułamki do mianownika 10?"
+              question="Jak prawidłowo rozszerzyć ułamki do mianownika $$10$$?"
               choices={[
                 { label: "\\frac{3}{5} = \\frac{6}{10}, \\frac{1}{2} = \\frac{5}{10}", value: "a" },
                 { label: "\\frac{3}{5} = \\frac{3}{10}, \\frac{1}{2} = \\frac{1}{10}", value: "b" },
@@ -85,7 +84,6 @@ const Page = () => {
                 $$\frac{6}{10} - \frac{5}{10} = \frac{6-5}{10} = \frac{1}{10}$$ <br>
                 Mianownik pozostaje bez zmian."
               onComplete={() => handleStageComplete(3)}
-              img="/steps-images/odejmowanie.png"
             />
           </>
         )}
@@ -104,10 +102,9 @@ const Page = () => {
                 { label: "\\text{Tak, przez 2}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Ułamek 1/10 nie może być skrócony, ponieważ 1 i 10 nie mają wspólnych dzielników 
-              (poza 1). Jest to już najprostsza postać tego ułamka."
+              explanation="Ułamek $$\frac{1}{10}$$ nie może być skrócony, ponieważ $$1$$ i $$10$$ nie mają wspólnych dzielników 
+              (poza $$1$$). Jest to już najprostsza postać tego ułamka."
               onComplete={() => handleStageComplete(4)}
-              img="/steps-images/uproszczenie.png"
             />
           </>
         )}

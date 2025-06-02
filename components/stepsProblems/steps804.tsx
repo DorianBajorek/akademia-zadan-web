@@ -29,12 +29,12 @@ const SubtractionPage = () => {
             <ChoiceQuestion
               question="Jaki jest wspólny mianownik dla ułamków $$\frac{3}{4}$$ i $$\frac{2}{3}$$?"
               choices={[
-                { label: "12", value: "a" },
+                { label: "24", value: "a" },
                 { label: "6", value: "b" },
                 { label: "8", value: "c" },
-                { label: "24", value: "d" },
+                { label: "12", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="$$12$$ jest wspólnym mianownikie ponieważ jest to liczba, która dzieli się przez stare mianowniki ($$12$$ można podzielić przez $$4$$ oraz $$3$$)."
               onComplete={() => handleStageComplete(1)}
             />
@@ -70,12 +70,12 @@ const SubtractionPage = () => {
             <ChoiceQuestion
               question="Ile wynosi $$\frac{9}{12} - \frac{8}{12}$$?"
               choices={[
-                { label: "\\frac{1}{12}", value: "a" },
-                { label: "\\frac{17}{12}", value: "b" },
+                { label: "\\frac{17}{12}", value: "a" },
+                { label: "\\frac{1}{12}", value: "b" },
                 { label: "\\frac{1}{0}", value: "c" },
                 { label: "\\frac{1}{24}", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Odejmujemy tylko liczniki, mianownik pozostaje bez zmian: $$\frac{9}{12} - \frac{8}{12} = \frac{1}{12}$$"
               onComplete={() => handleStageComplete(3)}
             />
@@ -90,12 +90,12 @@ const SubtractionPage = () => {
             <ChoiceQuestion
               question="Jaki jest wspólny mianownik dla ułamków $$\frac{2}{3}$$ i $$\frac{1}{2}$$?"
               choices={[
-                { label: "6", value: "a" },
+                { label: "3", value: "a" },
                 { label: "12", value: "b" },
-                { label: "3", value: "c" },
+                { label: "6", value: "c" },
                 { label: "2", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="$$6$$ jest wspólnym mianownikie ponieważ jest to liczba, która dzieli się przez stare mianowniki ($$6$$ można podzielić przez $$3$$ oraz $$2$$)."
               onComplete={() => handleStageComplete(4)}
             />
@@ -129,14 +129,14 @@ const SubtractionPage = () => {
               Wykonaj odejmowanie liczników
             </p>
             <ChoiceQuestion
-              question="Ile wynosi 4/6 - 3/6?"
+              question="Ile wynosi $$\frac{4}{6} - \frac{3}{6}$$?"
               choices={[
-                { label: "\\frac{1}{6}", value: "a" },
+                { label: "\\frac{1}{12}", value: "a" },
                 { label: "\\frac{7}{6}", value: "b" },
                 { label: "\\frac{1}{0}", value: "c" },
-                { label: "\\frac{1}{12}", value: "d" },
+                { label: "\\frac{1}{6}", value: "d" },
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Odejmujemy tylko liczniki, mianownik pozostaje bez zmian: $$\frac{4}{6} - \frac{3}{6} = \frac{1}{6}$$"
               onComplete={() => handleStageComplete(6)}
             />

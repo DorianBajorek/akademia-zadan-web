@@ -35,7 +35,7 @@ const Page = () => {
                 { label: "\\frac{1}{2} \\text{ i } \\frac{1}{4}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Żeby wrzucić całości, należy całość pomnożyć z mianownikiem i dodać licznik. Mianownik się nie zmiania <br> <br>
+              explanation="Żeby zmienić całości, należy całość pomnożyć z mianownikiem i dodać licznik. Mianownik się nie zmiania <br> <br>
               $$2\frac{1}{2} = \frac{5}{2}$$, Bo $$2 \cdot 2  + 1 = 5$$ (to jest nasz licznik) <br> <br>
               $$1\frac{1}{4} = \frac{5}{4}$$, Bo $$1 \cdot 2  + 1 = 5$$ (to jest nasz licznik)
               "
@@ -54,11 +54,11 @@ const Page = () => {
               question="Jakie jest prawidłowe mnożenie tych ułamków?"
               choices={[
                 { label: "\\frac{12}{8}", value: "a" },
-                { label: "\\frac{27}{8}", value: "b" },
+                { label: "\\frac{9}{8}", value: "b" },
                 { label: "\\frac{6}{6}", value: "c" },
-                { label: "\\frac{9}{8}", value: "d" },
+                { label: "\\frac{27}{8}", value: "d" },
               ]}
-              correctAnswer="b"
+              correctAnswer="d"
               explanation="W celu wyznaczenia ostatecznego wyniku musimy pomnożyć licznik z licznikim oraz mianownik z mianownikiem.  <br> <br>
                 $$\frac{3}{2} \cdot \frac{9}{4} = \frac{27}{8}$$
               "
@@ -81,33 +81,13 @@ const Page = () => {
                 { label: "3\\frac{5}{8}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="$$\frac{27}{8} = 3\frac{3}{8}$$, liczbę $$27$$ podzielić przez $$8$$ możemy $$3$$ razy u zostają nam jeszcze reszta równa $$3$$ "
+              explanation="$$\frac{27}{8} = 3\frac{3}{8}$$, liczbę $$27$$ podzielić przez $$8$$ możemy $$3$$ razy i zostaje nam jeszcze reszta równa $$3$$ "
               onComplete={() => handleStageComplete(3)}
             />
           </>
         )}
 
-        {completedStages.includes(3) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Czy można uprościć wynik?
-            </p>
-            <ChoiceQuestion
-              question="Czy ułamek $$\frac{3}{8}$$ da się skrócić?"
-              choices={[
-                { label: "\\text{Tak, przez 3}", value: "a" },
-                { label: "\\text{Tak, przez 2}", value: "b" },
-                { label: "\\text{Nie, jest już w najprostszej postaci}", value: "c" },
-                { label: "\\text{Tak, przez 4}", value: "d" },
-              ]}
-              correctAnswer="c"
-              explanation="Ułamek $$\frac{3}{8}$$ nie może być skrócony, ponieważ $$3$$ i $$8$$ nie mają wspólnych dzielników (poza 1)."
-              onComplete={() => handleStageComplete(4)}
-            />
-          </>
-        )}
-
-        {completedStages.length === 4 && (
+        {completedStages.length === 3 && (
           <StudentNotes
             equation="1\frac{1}{2} \cdot 2\frac{1}{4}"
             steps={[
