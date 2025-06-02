@@ -48,7 +48,6 @@ const GeometricSequenceRatioTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-            descriptionImg={taskData.descriptionImg}
           />
 
           <button
