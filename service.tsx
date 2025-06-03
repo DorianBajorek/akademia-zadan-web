@@ -55,6 +55,7 @@ export const login = async(username: string, password: string) => {
   }
   try {
       const response = await axios.post(`https://akademiazadan.pl/api/auth/login/`, payload);
+      console.log(response.data)
       return response.data;
     } catch (error) {
       console.error("Error while login:", error);
@@ -71,6 +72,20 @@ export const register = async(email: string, username: string, password: string,
   }
   try {
       const response = await axios.post(`https://akademiazadan.pl/api/auth/registration/`, payload);
+      return response.data;
+    } catch (error) {
+      console.error("Error while register", error);
+    }
+}
+
+export const google = async(code: string | null) => {
+  const payload = {
+      code: code
+  }
+  try {
+      const response = await axios.post(`https://akademiazadan.pl/api/auth/social/signup/`, payload, {
+  withCredentials: true
+});
       return response.data;
     } catch (error) {
       console.error("Error while register", error);

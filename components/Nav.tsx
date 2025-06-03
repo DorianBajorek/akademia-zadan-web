@@ -28,11 +28,11 @@ const Nav: React.FC = () => {
           <Link href="/task-speedrun" className="text-gray-700 hover:text-blue-500 transition-colors">
             Zadaniowy speedrun
           </Link>
-          <Link href="/posty" className="text-gray-700 hover:text-blue-500 transition-colors">
-            Blog
+          <Link href="/logowanie" className="text-gray-700 hover:text-blue-500 transition-colors">
+            Logowanie
           </Link>
-          <Link href="/rozwiazania" className="text-gray-700 hover:text-blue-500 transition-colors">
-            Rozwiązania
+          <Link href="/rejestracja" className="text-gray-700 hover:text-blue-500 transition-colors">
+            Rejestracja
           </Link>
         </div>
 
@@ -74,18 +74,18 @@ const Nav: React.FC = () => {
                 Zadaniowy speedrun
               </Link>
               <Link 
-                href="/posty" 
+                href="/logowanie" 
                 className="text-gray-700 hover:text-blue-500 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Blog
+                Logowanie
               </Link>
               <Link 
-                href="/rozwiazania" 
+                href="/rejestracja" 
                 className="text-gray-700 hover:text-blue-500 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Rozwiązania
+                Rejestracja
               </Link>
             </div>
           </div>

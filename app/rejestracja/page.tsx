@@ -4,9 +4,9 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from 'next/link';
 import Image from 'next/image';
-import { FcGoogle } from 'react-icons/fc';
+import { GoogleLogin } from '@react-oauth/google';
 import { useState } from 'react';
-import { register } from "@/service";
+import { google, register } from "@/service";
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -60,13 +60,19 @@ const Register: React.FC = () => {
                 Zarejestruj się
               </h2>
               
-              <button
-                type="button"
-                className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-white border border-gray-300 rounded-md py-2 sm:py-3 px-4 mb-4 sm:mb-6 text-sm sm:text-base text-gray-700 font-medium hover:bg-gray-50 transition"
-              >
-                <FcGoogle className="text-lg sm:text-xl" />
-                Zarejestruj się przez Google
-              </button>
+              <div className="w-full mb-4 sm:mb-6 flex justify-center">
+                <GoogleLogin
+                  onSuccess={async credentialResponse => {
+                    const resp = await google(credentialResponse.credential ?? null)
+                    console.log("Google token:", credentialResponse.credential);
+                    console.log("Backend token:", resp.data);
+                  }}
+                  onError={() => {
+                    console.log('Logowanie przez Google nie powiodło się');
+                  }}
+                />
+              </div>
+
               
               <div className="flex items-center mb-4 sm:mb-6">
                 <div className="flex-1 border-t border-gray-300"></div>
