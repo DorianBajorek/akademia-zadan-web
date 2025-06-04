@@ -37,7 +37,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {/* Providerzy muszą być wewnątrz body */}
         <GoogleOAuthProvider clientId="472693082590-oqjfospp3bd29g72ghgfr9fs3hdj31r8.apps.googleusercontent.com">
           <AuthProvider>
             {children}
