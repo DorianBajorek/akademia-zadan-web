@@ -3,21 +3,37 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from 'next/link';
 import Image from 'next/image';
-import { FcGoogle } from 'react-icons/fc';
+import { GoogleLogin } from '@react-oauth/google';
 import { useState } from 'react';
 import { login } from "@/service";
 import { useAuth } from "../UserData";
+import { Eye, EyeOff } from 'lucide-react'; // Jeśli używasz lucide-react lub dowolnej ikony
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
   const { updateToken } = useAuth();
 
   const handleSubmit = async () => {
-    const data = await login(email, password)
-    if (data.key) {
-      updateToken(data.key);
-      window.location.href = '/';
+    setError('');
+    try {
+      const data = await login(email, password);
+      if (data.key) {
+        updateToken(data.key);
+        window.location.href = '/';
+      } else {
+        setError('Nieprawidłowy email lub hasło.');
+      }
+    } catch (err) {
+      setError('Wystąpił błąd podczas logowania. Spróbuj ponownie.');
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
     }
   };
 
@@ -40,13 +56,12 @@ const Login: React.FC = () => {
               <p>
                 <span className="font-semibold text-blue-700">Zaloguj się</span>, aby kontynuować naukę i śledzić swoje postępy.
               </p>
-              
               <div className="bg-blue-50 p-4 sm:p-6 rounded-lg border border-blue-100">
                 <h3 className="text-lg sm:text-xl font-bold text-blue-800 mb-2 sm:mb-3">Korzyści z konta:</h3>
                 <ul className="space-y-2 sm:space-y-3 list-disc pl-4 sm:pl-5">
-                  <li><span className="font-medium">Dostęp do pełnej wersji kursu maturalnego</span> - innowacyjne podejście do nauki matematyki</li>
-                  <li><span className="font-medium">Historia rozwiązywanych zadań</span> - wracaj do swoich rozwiązań w każdej chwili</li>
-                  <li><span className="font-medium">Odznaki za naukę</span> - stała motywacja do nauki matematyki</li>
+                  <li><span className="font-medium">Dostęp do pełnej wersji kursu maturalnego</span></li>
+                  <li><span className="font-medium">Historia rozwiązywanych zadań</span></li>
+                  <li><span className="font-medium">Odznaki za naukę</span></li>
                 </ul>
               </div>
             </div>
@@ -62,21 +77,30 @@ const Login: React.FC = () => {
                 Zaloguj się
               </h2>
               
-              <button
-                type="button"
-                className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-white border border-gray-300 rounded-md py-2 sm:py-3 px-4 mb-4 sm:mb-6 text-sm sm:text-base text-gray-700 font-medium hover:bg-gray-50 transition"
-              >
-                <FcGoogle className="text-lg sm:text-xl" />
-                Zaloguj się przez Google
-              </button>
+              <div className="w-full mb-4 sm:mb-6 flex justify-center">
+                <GoogleLogin
+                  onSuccess={credentialResponse => {
+                    console.log("Google token:", credentialResponse.credential);
+                  }}
+                  onError={() => {
+                    console.log('Logowanie przez Google nie powiodło się');
+                  }}
+                />
+              </div>
               
               <div className="flex items-center mb-4 sm:mb-6">
                 <div className="flex-1 border-t border-gray-300"></div>
                 <span className="mx-3 sm:mx-4 text-sm sm:text-base text-gray-500">lub</span>
                 <div className="flex-1 border-t border-gray-300"></div>
               </div>
-              
-              <div className="space-y-4 sm:space-y-6">
+
+              {error && (
+                <div className="mb-4 text-sm text-red-600 font-semibold text-center">
+                  {error}
+                </div>
+              )}
+
+              <div className="space-y-4 sm:space-y-6" onKeyDown={handleKeyDown}>
                 <div>
                   <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Nazwa Użytkownika 
@@ -97,16 +121,26 @@ const Login: React.FC = () => {
                   <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Hasło
                   </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Wprowadź hasło"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      className="w-full px-3 sm:px-4 py-2 pr-10 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Wprowadź hasło"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label="Pokaż hasło"
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="text-right">

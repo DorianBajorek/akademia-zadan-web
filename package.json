@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@react-oauth/google": "^0.12.2",
     "autoprefixer": "^10.4.20",
     "axios": "^1.8.1",
     "dayjs": "^1.11.13",

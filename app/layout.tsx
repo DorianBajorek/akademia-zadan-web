@@ -1,6 +1,7 @@
 import Script from "next/script";
 import "./globals.css";
 import { AuthProvider } from "./UserData";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export default function RootLayout({
   children,
@@ -36,9 +37,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <AuthProvider> {/* Przeniesione na zewnątrz body */}
-          {children}
-        </AuthProvider>
+        <GoogleOAuthProvider clientId="472693082590-oqjfospp3bd29g72ghgfr9fs3hdj31r8.apps.googleusercontent.com">
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );
