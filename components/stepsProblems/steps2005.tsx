@@ -13,7 +13,7 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen p-5">
+    <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
           Wyznaczanie współczynnika q

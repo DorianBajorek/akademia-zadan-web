@@ -19,7 +19,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Nav />
       
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex-1 w-full">
@@ -63,6 +63,7 @@ const Register: React.FC = () => {
               <div className="w-full mb-4 sm:mb-6 flex justify-center">
                 <GoogleLogin
                   onSuccess={async credentialResponse => {
+                    console.log("WYNIK", credentialResponse);
                     const resp = await google(credentialResponse.credential ?? null)
                     console.log("Google token:", credentialResponse.credential);
                     console.log("Backend token:", resp.data);

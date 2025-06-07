@@ -5,10 +5,27 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { useAuth } from './UserData';
+import { motion } from 'framer-motion';
+
+// Animacje
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 const Home: React.FC = () => {
   const { token, username } = useAuth();
-
+  console.log("Token:", token);
   return (
     <div className="min-h-screen flex flex-col">
       <Nav />
@@ -18,42 +35,64 @@ const Home: React.FC = () => {
         </div>
         
         {token ? (
-          <>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-5xl font-bold text-blue-600 mb-2">
               Witaj z powrotem, {username}!
             </h2>
             <p className="text-lg text-gray-700 mb-10">
               Kontynuuj swoją naukę matematyki z Akademią Zadań! Twoje postępy są już zapisane.
             </p>
-          </>
+          </motion.div>
         ) : (
-          <>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-5xl font-bold text-blue-600 mb-6">
               Witamy w Akademii Zadań!
             </h2>
             <p className="text-lg text-gray-700 mb-10">
               Nauka matematyki jeszcze nigdy nie była tak prosta i przyjemna! Codzienne zadania, analiza wyników i prognozy egzaminacyjne w jednym miejscu.
             </p>
-          </>
+          </motion.div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <Link href="/task-speedrun" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
-            <h3 className="text-2xl font-semibold text-blue-500">Zadaniowy speedrun</h3>
-            <p className="text-gray-600 mt-4">
-              Sprawdź się w matematycznym speedrunie! Rozwiązuj zadania jedno po drugim! Szybkość, precyzja i trening – to klucz do sukcesu na maturze!
-            </p>
-          </Link>
-          <Link href="/barometr-opis" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
-            <h3 className="text-2xl font-semibold text-blue-500">Barometr</h3>
-            <p className="text-gray-600 mt-4">
-              Sprawdź swoją prognozę wyników na egzaminie i śledź postępy. Dowiedz się, które zagadnienia wymagają jeszcze pracy!
-            </p>
-          </Link>
-        </div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+        >
+          <motion.div variants={item}>
+            <Link href="/task-speedrun" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
+              <h3 className="text-2xl font-semibold text-blue-500">Zadaniowy speedrun</h3>
+              <p className="text-gray-600 mt-4">
+                Sprawdź się w matematycznym speedrunie! Rozwiązuj zadania jedno po drugim! Szybkość, precyzja i trening – to klucz do sukcesu na maturze!
+              </p>
+            </Link>
+          </motion.div>
+          <motion.div variants={item}>
+            <Link href="/barometr-opis" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
+              <h3 className="text-2xl font-semibold text-blue-500">Barometr</h3>
+              <p className="text-gray-600 mt-4">
+                Sprawdź swoją prognozę wyników na egzaminie i śledź postępy. Dowiedz się, które zagadnienia wymagają jeszcze pracy!
+              </p>
+            </Link>
+          </motion.div>
+        </motion.div>
 
         {!token && (
-          <div className="bg-blue-50 p-8 rounded-xl border border-blue-100 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-blue-50 p-8 rounded-xl border border-blue-100 mb-12"
+          >
             <h3 className="text-3xl font-bold text-blue-800 mb-6 text-center">Zarejestruj się, aby odblokować pełne funkcje!</h3>
             <p className="text-lg text-gray-700 mb-6 text-center">
               Tylko zalogowani użytkownicy mają dostęp do pełnych statystyk, śledzenia postępów i personalizowanych rekomendacji.
@@ -72,35 +111,49 @@ const Home: React.FC = () => {
                 Zaloguj się
               </Link>
             </div>
-          </div>
+          </motion.div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <Link href="/kurs-matura-podstawowa" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
-            <h3 className="text-2xl font-semibold text-blue-500">Kurs maturalny</h3>
-            <p className="text-gray-600 mt-4">
-              Kompleksowe przygotowanie do matury z matematyki na poziomie podstawowym. Przejdź przez wszystkie działy krok po kroku {token ? "ze śledzeniem postępów" : ""}!
-            </p>
-            {token && (
-              <div className="mt-4 text-sm text-blue-600 font-medium">
-                Twój postęp: 0% (rozpocznij kurs)
-              </div>
-            )}
-          </Link>
-          <Link href="/matura-probna" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
-            <h3 className="text-2xl font-semibold text-blue-500">Próbna matura</h3>
-            <p className="text-gray-600 mt-4">
-              Sprawdź się w warunkach egzaminacyjnych! Rozwiąż próbny arkusz maturalny przygotowany na podstawie analizy ostatnich lat.
-            </p>
-            {token && (
-              <div className="mt-4 text-sm text-blue-600 font-medium">
-                Ostatni wynik: nie rozwiązałeś jeszcze próbnej matury
-              </div>
-            )}
-          </Link>
-        </div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+        >
+          <motion.div variants={item}>
+            <Link href="/kurs-matura-podstawowa" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
+              <h3 className="text-2xl font-semibold text-blue-500">Kurs maturalny</h3>
+              <p className="text-gray-600 mt-4">
+                Kompleksowe przygotowanie do matury z matematyki na poziomie podstawowym. Przejdź przez wszystkie działy krok po kroku {token ? "ze śledzeniem postępów" : ""}!
+              </p>
+              {token && (
+                <div className="mt-4 text-sm text-blue-600 font-medium">
+                  Twój postęp: 0% (rozpocznij kurs)
+                </div>
+              )}
+            </Link>
+          </motion.div>
+          <motion.div variants={item}>
+            <Link href="/matura-probna" className="block bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:scale-105">
+              <h3 className="text-2xl font-semibold text-blue-500">Próbna matura</h3>
+              <p className="text-gray-600 mt-4">
+                Sprawdź się w warunkach egzaminacyjnych! Rozwiąż próbny arkusz maturalny przygotowany na podstawie analizy ostatnich lat.
+              </p>
+              {token && (
+                <div className="mt-4 text-sm text-blue-600 font-medium">
+                  Ostatni wynik: nie rozwiązałeś jeszcze próbnej matury
+                </div>
+              )}
+            </Link>
+          </motion.div>
+        </motion.div>
 
-        <div className="bg-blue-50 p-8 rounded-xl border border-blue-100 mb-12 text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="bg-blue-50 p-8 rounded-xl border border-blue-100 mb-12 text-left"
+        >
           <h3 className="text-3xl font-bold text-blue-800 mb-6 text-center">
             {token ? "Twoje korzyści jako zalogowanego użytkownika" : "Dlaczego warto skorzystać z naszych materiałów?"}
           </h3>
@@ -147,14 +200,24 @@ const Home: React.FC = () => {
               </Link>
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className="text-center mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="text-center mb-6"
+        >
           <h3 className="text-2xl font-semibold text-gray-800">Dołącz do naszej społeczności!</h3>
           <p className="text-gray-600 mt-2">Śledź nas na social mediach, aby być na bieżąco z nowymi zadaniami i materiałami edukacyjnymi.</p>
-        </div>
+        </motion.div>
 
-        <div className="flex justify-center space-x-6 mt-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          className="flex justify-center space-x-6 mt-4"
+        >
           <a href="https://www.youtube.com/@AkademiaZada%C5%84" target="_blank" rel="noopener noreferrer" className="text-red-500 text-3xl hover:text-red-700">
             <FaYoutube />
           </a>
@@ -164,7 +227,7 @@ const Home: React.FC = () => {
           <a href="https://www.instagram.com/akademiazadan/" target="_blank" rel="noopener noreferrer" className="text-pink-500 text-3xl hover:text-pink-700">
             <FaInstagram />
           </a>
-        </div>
+        </motion.div>
       </main>
 
       <Footer />

@@ -4,7 +4,10 @@ import Footer from "@/components/Footer";
 import { useState } from "react";
 import Image from "next/image";
 import dayjs from "dayjs";
+import "dayjs/locale/pl";
 import { CheckCircle } from "lucide-react";
+
+dayjs.locale("pl");
 
 const UserProfile: React.FC = () => {
   const user = {
@@ -90,7 +93,7 @@ const UserProfile: React.FC = () => {
   const formattedMonthYear = currentDate.format("MMMM YYYY");
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Nav />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
@@ -138,16 +141,6 @@ const UserProfile: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-            <h2 className="text-xl font-bold text-gray-800 mb-2 sm:mb-0">Kalendarz aktywności</h2>
-            <div className="flex flex-wrap gap-2 items-center text-xs sm:text-sm">
-              <span className="flex items-center"><span className="inline-block w-3 h-3 rounded-sm bg-gray-100 mr-1"></span> Brak</span>
-              <span className="flex items-center"><span className="inline-block w-3 h-3 rounded-sm bg-green-100 mr-1"></span> 1-2</span>
-              <span className="flex items-center"><span className="inline-block w-3 h-3 rounded-sm bg-green-300 mr-1"></span> 3-4</span>
-              <span className="flex items-center"><span className="inline-block w-3 h-3 rounded-sm bg-green-500 mr-1"></span> 5+</span>
-            </div>
-          </div>
-
           <div className="mb-3 flex justify-center items-center gap-4">
             <button onClick={prevMonth} className="text-sm px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300">← Poprzedni</button>
             <span className="text-sm font-medium text-gray-700">{formattedMonthYear}</span>

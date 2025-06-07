@@ -38,7 +38,7 @@ const Matura1Result: React.FC = () => {
 
   if (!storedResults) {
     return (
-      <div className="bg-gray-50 min-h-screen">
+      <div className="min-h-screen">
         <Nav />
         <main className="max-w-4xl mx-auto px-6 py-12">
           <p className="text-center mt-10 text-xl font-semibold text-gray-600">
@@ -51,7 +51,7 @@ const Matura1Result: React.FC = () => {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="min-h-screen">
       <Nav />
       <main className="max-w-4xl mx-auto px-6 py-12">
         <h2 className="text-5xl font-extrabold text-center text-blue-600 mb-10">

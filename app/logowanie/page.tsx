@@ -5,9 +5,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { GoogleLogin } from '@react-oauth/google';
 import { useState } from 'react';
-import { login } from "@/service";
+import { google, login } from "@/service";
 import { useAuth } from "../UserData";
-import { Eye, EyeOff } from 'lucide-react'; // Jeśli używasz lucide-react lub dowolnej ikony
+import { Eye, EyeOff } from 'lucide-react';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -20,6 +20,7 @@ const Login: React.FC = () => {
     setError('');
     try {
       const data = await login(email, password);
+      console.log("Zalogowano pomyślnie:", data);
       if (data.key) {
         updateToken(data.key);
         window.location.href = '/';
@@ -38,7 +39,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Nav />
       
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex-1 w-full">
@@ -79,11 +80,14 @@ const Login: React.FC = () => {
               
               <div className="w-full mb-4 sm:mb-6 flex justify-center">
                 <GoogleLogin
-                  onSuccess={credentialResponse => {
+                  onSuccess={async (credentialResponse) => {
                     console.log("Google token:", credentialResponse.credential);
+                    const resp = await google(credentialResponse.credential ?? null)
+                    console.log("Odpowiedź backendu po Google login:", resp);
                   }}
                   onError={() => {
                     console.log('Logowanie przez Google nie powiodło się');
+                    setError('Logowanie przez Google nie powiodło się.');
                   }}
                 />
               </div>

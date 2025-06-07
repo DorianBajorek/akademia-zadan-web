@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useEffect } from "react";
 import { getFieldsProgress } from "@/service";
 import { useAuth } from "../UserData";
-import { s } from "framer-motion/client";
+import { motion } from "framer-motion";
 
 const MainCourse: React.FC = () => {
   const courseProgress = {
@@ -126,13 +126,14 @@ const MainCourse: React.FC = () => {
     }
   ];
   
-  const {token} = useAuth()
+   const {token} = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getFieldsProgress(token);
         if (data) {
+          // Obsługa danych
         }
       } catch (error) {
         console.error("Error fetching topics progress", error);
@@ -143,19 +144,45 @@ const MainCourse: React.FC = () => {
     }
   }, [token]);
 
+  // Animacje
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Nav />
       
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h1 className="text-5xl font-bold text-blue-600 mb-4">Kurs Maturalny z Matematyki</h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Kompleksowe przygotowanie do matury z matematyki na poziomie podstawowym. Przejdź przez wszystkie działy krok po kroku!
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mb-12 bg-blue-50 p-8 rounded-xl border border-blue-100">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-12 bg-blue-50 p-8 rounded-xl border border-blue-100"
+        >
           <h2 className="text-3xl font-bold text-blue-800 mb-4">Jak korzystać z kursu?</h2>
           <ul className="list-disc pl-6 text-lg text-gray-700 space-y-2">
             <li>Rozwiązuj zadania w kolejności lub wybieraj działy, które wymagają najwięcej pracy</li>
@@ -163,15 +190,32 @@ const MainCourse: React.FC = () => {
             <li>Wracaj do trudnych zagadnień dzięki systemowi powtórek</li>
             <li>Korzystaj z podpowiedzi i szczegółowych rozwiązań</li>
           </ul>
-        </div>
+        </motion.div>
 
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Wybierz dział do nauki</h2>
+        <motion.h2 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-3xl font-bold text-gray-800 mb-8 text-center"
+        >
+          Wybierz dział do nauki
+        </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {courses.map((course, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1"
+              variants={item}
+              whileHover={{ 
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+              }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
             >
               <div className="h-48 relative">
                 <Image 
@@ -196,10 +240,12 @@ const MainCourse: React.FC = () => {
                     <span>{courseProgress[course.id as keyof typeof courseProgress]}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div 
+                    <motion.div 
                       className="bg-blue-600 h-2.5 rounded-full" 
-                      style={{ width: `${courseProgress[course.id as keyof typeof courseProgress]}%` }}
-                    ></div>
+                      initial={{ width: 0 }}
+                      animate={{ width: `${courseProgress[course.id as keyof typeof courseProgress]}%` }}
+                      transition={{ duration: 0.8, delay: 0.5 + index * 0.05 }}
+                    ></motion.div>
                   </div>
                 </div>
                 
@@ -210,9 +256,9 @@ const MainCourse: React.FC = () => {
                   Rozpocznij naukę
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </main>
 
       <Footer />

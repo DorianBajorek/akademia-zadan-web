@@ -80,10 +80,10 @@ export const register = async(email: string, username: string, password: string,
 
 export const google = async(code: string | null) => {
   const payload = {
-      code: code
+      id_token: code,
   }
   try {
-      const response = await axios.post(`https://akademiazadan.pl/api/auth/social/signup/`, payload, {
+      const response = await axios.post(`https://akademiazadan.pl/api/auth/v1/google/`, payload, {
   withCredentials: true
 });
       return response.data;

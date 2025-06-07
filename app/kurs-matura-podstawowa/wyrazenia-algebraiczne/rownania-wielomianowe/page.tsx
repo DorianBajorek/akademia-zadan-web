@@ -72,7 +72,7 @@ const TopicTasksPage = () => {
   const secondGroup = tasks.filter(task => parseInt(task.id) >= 4110 && parseInt(task.id) <= 4120)
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Nav />
       <div className="max-w-7xl mx-auto w-full px-6 pt-8">
         <div className="mb-6">
