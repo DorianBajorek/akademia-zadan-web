@@ -16,11 +16,10 @@ const Nav: React.FC = () => {
   const navLinks = (
   <>
     <Link href="/" className="text-gray-700 hover:text-blue-500 transition-colors">Strona główna</Link>
-    <Link href="/barometr-opis" className="text-gray-700 hover:text-blue-500 transition-colors">Barometr</Link>
-    <Link href="/task-speedrun" className="text-gray-700 hover:text-blue-500 transition-colors">Zadaniowy speedrun</Link>
 
     {token ? (
       <>
+        <Link href="/kurs-matura-podstawowa" className="text-gray-700 hover:text-blue-500 transition-colors">Kurs maturalny</Link>
         <Link href="/profil" className="text-gray-700 hover:text-blue-500 transition-colors">Profil</Link>
         <button
           onClick={handleLogout}
