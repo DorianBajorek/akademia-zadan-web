@@ -24,17 +24,17 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Pierwszy krok: przenieś wyrażenia z x na lewą stronę, a liczby na prawą:
+              Pierwszy krok: przenieś wyrażenia z <InlineMath math="x"/> na lewą stronę, a liczby na prawą:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "2x - 3x > 1 - 2", value: "a" },
+                { label: "-2x - 3x > 1 - 2", value: "a" },
                 { label: "2x + 3x > 1 + 2", value: "b" },
-                { label: "-2x - 3x > 1 - 2", value: "c" },
+                { label: "2x - 3x > 1 - 2", value: "c" },
                 { label: "2x - 3x > -1 + 2", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne przekształcenie to $$2x - 3x > 1 - 2$$. <br>
                 Dlaczego? Przenosimy $$3x$$ na lewą stronę (zmieniając znak na minus) i $$2$$ na prawą stronę (zmieniając znak na minus)."
               onComplete={() => handleStageComplete(1)}
@@ -66,17 +66,17 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Trzeci krok: pomnóż obie strony przez -1 (pamiętaj o zmianie znaku nierówności!):
+              Trzeci krok: pomnóż obie strony przez <InlineMath math="-1"/> (pamiętaj o zmianie znaku nierówności!):
             </p>
             <ChoiceQuestion
               question="Jakie jest rozwiązanie nierówności?"
               choices={[
-                { label: "x < 1", value: "a" },
-                { label: "x > 1", value: "b" },
+                { label: "x > 1", value: "a" },
+                { label: "x < 1", value: "b" },
                 { label: "x < -1", value: "c" },
                 { label: "x > -1", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne rozwiązanie to $$x < 1$$. <br>
                 Dlaczego? Mnożymy obie strony przez -1 i zmieniamy znak nierówności: <br>
                 $$-x > -1$$<br>
@@ -102,7 +102,7 @@ const Page = () => {
                 image: "/steps-images/nierownosc-liniowa1.png",
               },
             ]}
-            solutions={["(-∞, 1)"]}
+            solutions={["x \\in(-∞, 1)"]}
           />
         )}
       </div>

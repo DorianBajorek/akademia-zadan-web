@@ -44,17 +44,17 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Drugi krok: pomnóż obie strony nierówności przez 6 aby pozbyć się ułamków:
+              Drugi krok: pomnóż obie strony nierówności przez  <InlineMath math="6"/> aby pozbyć się ułamków:
             </p>
             <ChoiceQuestion
               question="Jak wygląda nierówność po pomnożeniu przez 6?"
               choices={[
-                { label: "3x + 2 < 4x - 1", value: "a" },
+                { label: "2x + 3 < 4x - 2", value: "a" },
                 { label: "6x + 6 < 12x - 6", value: "b" },
-                { label: "2x + 3 < 4x - 2", value: "c" },
-                { label: "x + 2 < 2x - 1", value: "d" }
+                { label: "3x + 2 < 4x - 1", value: "c" },
+                { label: "x + 2 < 2x + 1", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne przekształcenie to $$3x + 2 < 4x - 1$$. <br>
                 Obliczenia:<br>
                 $$6 \cdot \frac{1}{2}x = 3x$$<br>
@@ -95,12 +95,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczona nierówność?"
               choices={[
-                { label: "-x < -3", value: "a" },
+                { label: "x < 3", value: "a" },
                 { label: "7x < 1", value: "b" },
                 { label: "-7x < -1", value: "c" },
-                { label: "x < 3", value: "d" }
+                { label: "-x < -3", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne uproszczenie to $$-x < -3$$. <br>
                 Obliczenia:<br>
                 Lewa strona: $$3x - 4x = -x$$<br>
@@ -155,7 +155,7 @@ const Page = () => {
                 image: "/steps-images/nierownosc-liniowa3.png",
               },
             ]}
-            solutions={["(3, ∞)"]}
+            solutions={["x \\in (3, ∞)"]}
           />
         )}
       </div>

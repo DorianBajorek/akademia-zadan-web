@@ -19,7 +19,7 @@ const GeometricSequenceRatioTask: React.FC = () => {
     choiceB: "$\\langle5;7\\rangle$",
     choiceC: "$\\langle1;5\\rangle$",
     choiceD: "$\\langle-1;5\\rangle$",
-    correct_answer: "a",
+    correct_answer: "b",
     descriptionImg: "/problemImages/problem3908.png",
   };
 

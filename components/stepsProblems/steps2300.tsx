@@ -25,14 +25,14 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak należy obliczyć wartość funkcji dla danego argumentu?"
               choices={[
-                { label: "\\text{Podstawić argument do wzoru funkcji i obliczyć}", value: "a" },
+                { label: "\\text{Podstawić argument do wzoru funkcji i obliczyć jej wartość}", value: "a" },
                 { label: "\\text{Znaleźć miejsce zerowe funkcji}", value: "b" },
                 { label: "\\text{Obliczyć pochodną funkcji}", value: "c" },
                 { label: "\\text{Narysować wykres funkcji}", value: "d" }
               ]}
               correctAnswer="a"
               explanation="Poprawna odpowiedź to: Podstawić argument do wzoru funkcji i obliczyć. <br>
-              Aby obliczyć wartość funkcji dla konkretnego argumentu, należy podstawić tę wartość w miejsce x we wzorze funkcji i wykonać obliczenia."
+              Aby obliczyć wartość funkcji dla konkretnego argumentu, należy podstawić tę wartość w miejsce $$x$$ we wzorze funkcji i wykonać obliczenia."
               onComplete={() => handleStageComplete(0)}
             />
           </>
@@ -41,14 +41,14 @@ const Page = () => {
         {(completedStages.includes(0) && (completedStages.includes(1) || completedStages.length === 1)) && (
           <>
             <ChoiceQuestion
-              question="Jak poprawnie podstawić wartość x = -2 do wzoru funkcji?"
+              question="Jak poprawnie podstawić wartość $$x = -2$$ do wzoru funkcji?"
               choices={[
-                { label: "f(-2) = 2 \\cdot (-2)^2 - 3 \\cdot (-2) + 5", value: "a" },
+                { label: "f(-2) = 2 \\cdot -2^2 - 3 \\cdot -2 + 5", value: "a" },
                 { label: "f(-2) = 2 \\cdot -2^2 - 3 \\cdot -2 + 5", value: "b" },
-                { label: "f(-2) = 2(-2)^2 - 3(-2) + 5", value: "c" },
-                { label: "f(-2) = 2 \\cdot -2^2 - 3 \\cdot -2 + 5", value: "d" }
+                { label: "f(-2) = 2(-2)^2 + 3(-2) + 5", value: "c" },
+                { label: "f(-2) = 2 \\cdot (-2)^2 - 3 \\cdot (-2) + 5", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawna odpowiedź to: $$f(-2) = 2 \cdot (-2)^2 - 3 \cdot (-2) + 5$$. <br>
               Ważne jest prawidłowe podstawienie wartości ujemnej, pamiętając o nawiasach: <br>
               $$(-2)^2 = 4$$, a $$-2^2 = -4$$ (co byłoby błędem)"

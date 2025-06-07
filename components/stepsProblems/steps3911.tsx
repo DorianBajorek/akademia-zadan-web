@@ -13,8 +13,8 @@ const InequalityTrueFalseTask: React.FC = () => {
     "description": "Na rysunku przedstawione jest funkcja $f$ w układzi współrzędnym $(x, y)$. Odpowiedz na poniższe pytania prawda fałsz.",
     "statements": [
       {
-        "text": "Dla kazdego arguemntu z przedziału $(-4;-2)$ funckja $f$ przyjmuje wartości ujemne.",
-        "isTrue": true
+        "text": "Dla kazdego arguemntu z przedziału $(-4;-2)$ funkcja $f$ przyjmuje wartości ujemne.",
+        "isTrue": false
       },
       {
         "text": "Funkcja ma trzy miejsca zerowe.",

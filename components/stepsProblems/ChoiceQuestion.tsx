@@ -108,13 +108,12 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
           </p>
         )}
 
-        {isCorrect && showExplanation && (
+        {isCorrect && showExplanation && explanation && (
           <div className="mt-3 sm:mt-4 p-3 sm:p-4 border-t border-gray-200">
             <h4 className="font-bold text-gray-700">Wyjaśnienie:</h4>
             <p className="text-sm md:text-base text-gray-700 mt-2 leading-relaxed">
               {renderTextWithMath(explanation)}
             </p>
-
             {explanationImage && (
               <div className="mt-3 sm:mt-4 flex justify-center">
                 <img
@@ -126,8 +125,8 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                 />
               </div>
             )}
-          </div>
-        )}
+        </div>
+      )}
       </div>
     </div>
   );

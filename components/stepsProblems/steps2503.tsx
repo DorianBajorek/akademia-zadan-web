@@ -24,18 +24,18 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Krok 1: Znajdź wspólny mianownik dla ułamków (3, 4, 6):
+              Krok 1: Znajdź wspólny mianownik dla ułamków  <InlineMath math="(3, 4, 6)"/>:
             </p>
             <ChoiceQuestion
               question="Jaki jest najmniejszy wspólny mianownik?"
               choices={[
-                { label: "12", value: "a" },
+                { label: "6", value: "a" },
                 { label: "24", value: "b" },
-                { label: "6", value: "c" },
+                { label: "12", value: "c" },
                 { label: "36", value: "d" }
               ]}
-              correctAnswer="a"
-              explanation="NWW(3, 4, 6) = 12. To najmniejsza liczba podzielna przez wszystkie mianowniki."
+              correctAnswer="c"
+              explanation="$$NWW(3, 4, 6) = 12$$. To najmniejsza liczba podzielna przez wszystkie mianowniki."
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -49,12 +49,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda nierówność po pomnożeniu przez 12?"
               choices={[
-                { label: "4(2x - 1) - 3(x + 2) ≤ 10(x - 1)", value: "a" },
+                { label: "4(2x - 1) + 3(x + 2) ≤ 10(x - 1)  ", value: "a" },
                 { label: "12(2x - 1) - 12(x + 2) ≤ 12·\\frac{5}{6}(x - 1)", value: "b" },
-                { label: "4(2x - 1) + 3(x + 2) ≤ 10(x - 1)", value: "c" },
-                { label: "8x - 4 - 3x - 6 ≤ 10x - 10", value: "d" }
+                { label: "4(2x - 1) - 3(x + 2) ≤ 10(x - 1)", value: "c" },
+                { label: "8x - 4 - 3x + 6 ≤ 10x - 10", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation={`
                 Każdy składnik mnożymy przez 12:<br>
                 $$12 \\cdot \\frac{2x-1}{3} = 4(2x-1)$$<br>
@@ -98,12 +98,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Po uproszczeniu otrzymamy:"
               choices={[
-                { label: "5x - 10 ≤ 10x - 10", value: "a" },
+                { label: "5x - 10 ≤ 10x - 5", value: "a" },
                 { label: "11x - 10 ≤ 10x - 10", value: "b" },
                 { label: "5x + 2 ≤ 10x - 10", value: "c" },
-                { label: "5x - 10 ≤ 10x - 5", value: "d" }
+                { label: "5x - 10 ≤ 10x - 10 ", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation={`
                 $$8x - 3x = 5x$$<br>
                 $$-4 - 6 = -10$$<br>
@@ -129,7 +129,7 @@ const Page = () => {
               ]}
               correctAnswer="a"
               explanation={`
-                Przenosimy 10x na lewo (zmieniając znak) i -10 na prawo (zmieniając znak):<br>
+                Przenosimy $$10x$$ na lewo (zmieniając znak) i $$-10$$ na prawo (zmieniając znak):<br>
                 $$5x - 10 ≤ 10x - 10$$<br>
                 $$5x - 10x ≤ -10 + 10$$
               `}
@@ -146,12 +146,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Ostateczne rozwiązanie to:"
               choices={[
-                { label: "x ≥ 0", value: "a" },
-                { label: "x ≤ 0", value: "b" },
+                { label: "x ≤ 0", value: "a" },
+                { label: "x ≥ 0", value: "b" },
                 { label: "x ≥ 4", value: "c" },
                 { label: "x ≤ -4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation={`
                 $$-5x ≤ 0$$<br>
                 Dzielimy obie strony przez -5 (pamiętając o zmianie znaku nierówności):<br>
@@ -174,7 +174,7 @@ const Page = () => {
               { step: "5x - 10x ≤ -10 + 10" },
               { step: "-5x ≤ 0 → x ≥ 0", image: "/steps-images/nierownosc-liniowa4.png" },
             ]}
-            solutions={["[0, ∞)"]}
+            solutions={["x \\in [0, ∞)"]}
           />
         )}
       </div>

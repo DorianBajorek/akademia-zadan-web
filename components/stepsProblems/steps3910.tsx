@@ -13,7 +13,7 @@ const GeometricSequenceRatioTask: React.FC = () => {
     exam_type: "mp",
     task_type: "mc4",
     description: `
-      W kartezjańskim układzie współrzędnych $(x, y)$ narysowano wykres funkcji $y = f(x)$ (zobacz rysune). Wyznacz przdział dla których funckja jest malejąca.
+      W kartezjańskim układzie współrzędnych $(x, y)$ narysowano wykres funkcji $y = f(x)$ (zobacz rysune). Wyznacz przdział dla których funkcja jest malejąca.
     `,
     choiceA: "$\\langle-6;3\\rangle$",
     choiceB: "$\\langle-3;1\\rangle$",

@@ -17,7 +17,7 @@ const InequalityNumberLineTask: React.FC = () => {
     "choiceB": "/steps-images/problem2508B.png",
     "choiceC": "/steps-images/problem2508C.png",
     "choiceD": "/steps-images/problem2508D.png",
-    "correct_answer": "c"
+    "correct_answer": "d"
   };
 
   const handleCheckAnswer = () => {

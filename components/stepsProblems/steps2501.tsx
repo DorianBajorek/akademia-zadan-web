@@ -52,12 +52,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczona nierówność?"
               choices={[
-                { label: "5x + 7 \\geq x - 7", value: "a" },
-                { label: "5x + 11 \\geq x - 7", value: "b" },
+                { label: "5x + 11 \\geq x - 7", value: "a" },
+                { label: "5x + 7 \\geq x - 7", value: "b" },
                 { label: "6x + 7 \\geq x - 7", value: "c" },
                 { label: "5x + 5 \\geq x - 7", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne uproszczenie to $$5x + 7 \geq x - 7$$. <br>
                 Dlaczego? <br>
                 $$2x + 3x = 5x$$ <br>
@@ -70,17 +70,17 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Trzeci krok: przenieś wyrażenia z x na lewą stronę, a liczby na prawą:
+              Trzeci krok: przenieś wyrażenia z <InlineMath math="x"/> na lewą stronę, a liczby na prawą:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "5x - x \\geq -7 - 7", value: "a" },
+                { label: "5x - x \\geq 7 - 7", value: "a" },
                 { label: "5x + x \\geq -7 + 7", value: "b" },
-                { label: "5x - x \\geq 7 - 7", value: "c" },
+                { label: "5x - x \\geq -7 - 7", value: "c" },
                 { label: "5x + x \\geq 7 + 7", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne przekształcenie to $$5x - x \geq -7 - 7$$. <br>
                 Dlaczego? Przenosimy $$x$$ na lewą stronę (zmieniając znak na minus) i $$7$$ na prawą stronę (zmieniając znak na minus)."
               onComplete={() => handleStageComplete(3)}
@@ -96,12 +96,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczona nierówność?"
               choices={[
-                { label: "4x \\geq -14", value: "a" },
-                { label: "6x \\geq 0", value: "b" },
+                { label: "6x \\geq 0", value: "a" },
+                { label: "4x \\geq -14", value: "b" },
                 { label: "4x \\geq 0", value: "c" },
                 { label: "6x \\geq 14", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne uproszczenie to $$4x \geq -14$$. <br>
                 Dlaczego? <br>
                 Po lewej: $$5x - x = 4x$$ <br>
@@ -119,12 +119,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie jest rozwiązanie nierówności?"
               choices={[
-                { label: "x \\geq -3.5", value: "a" },
-                { label: "x \\geq 0", value: "b" },
+                { label: "x \\geq 0", value: "a" },
+                { label: "x \\geq -3.5", value: "b" },
                 { label: "x \\geq 3.5", value: "c" },
                 { label: "x \\leq -3.5", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne rozwiązanie to $$x \geq -3.5$$. <br>
                 Dlaczego? Dzielimy obie strony przez 4 (liczba dodatnia, więc nie zmieniamy znaku nierówności): <br>
                 $$4x \geq -14$$ <br>
@@ -157,7 +157,7 @@ const Page = () => {
                 image: "/steps-images/nierownosc-liniowa2.png",
               },
             ]}
-            solutions={["[-3.5, ∞)"]}
+            solutions={["x \\in [-3.5, ∞)"]}
           />
         )}
       </div>

@@ -21,48 +21,48 @@ const tasks = [
     img: "/problemImages/problem2301.png",
     isCompleted: false,
   },
-      {
+  {
     id: "2302",
     title: "Zadanie 3",
     description: "Obliczenie wartości dla zadanego argumentu",
     img: "/problemImages/problem2302.png",
     isCompleted: false,
   },
-      {
-    id: "2303",
-    title: "Zadanie 4",
-    description: "Obliczenie wartości dla zadanego argumentu",
-    img: "/problemImages/problem2303.png",
-    isCompleted: false,
-  },
-      {
+  // {
+  //   id: "2303",
+  //   title: "Zadanie 4",
+  //   description: "Obliczenie wartości dla zadanego argumentu",
+  //   img: "/problemImages/problem2303.png",
+  //   isCompleted: false,
+  // },
+  {
     id: "2304",
     title: "Zadanie 5",
     description: "Obliczenie wartości dla zadanego argumentu",
     img: "/problemImages/problem2304.png",
     isCompleted: false,
   },
-      {
+  {
     id: "2305",
     title: "Zadanie 6",
     description: "Obliczenie wartości dla zadanego argumentu",
     img: "/problemImages/problem2305.png",
     isCompleted: false,
   },
-      {
-    id: "2306",
-    title: "Zadanie 7",
-    description: "Obliczenie wartości dla zadanego argumentu",
-    img: "/problemImages/problem2306.png",
-    isCompleted: false,
-  },
+  // {
+  //   id: "2306",
+  //   title: "Zadanie 7",
+  //   description: "Obliczenie wartości dla zadanego argumentu",
+  //   img: "/problemImages/problem2306.png",
+  //   isCompleted: false,
+  // },
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2300 && parseInt(task.id) <= 2302);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2303 && parseInt(task.id) <= 2306)
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 2300 && parseInt(task.id) <= 2303);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 2304 && parseInt(task.id) <= 2306)
   const thirdGroup = tasks.filter(task => parseInt(task.id) >= 3230);
 
   return (

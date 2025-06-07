@@ -22,14 +22,14 @@ const Page = () => {
 
         {(completedStages.includes(0) || completedStages.length === 0) && (
           <ChoiceQuestion
-            question="Jak poprawnie podstawić x=2 do wzoru funkcji?"
+            question="Jak poprawnie podstawić $$x=2$$ do wzoru funkcji?"
             choices={[
-              { label: "f(2) = \\frac{2 \\cdot 2^3 - 2}{2^2 + 1} - \\frac{5}{2}", value: "a" },
+              { label: "f(2) = \\frac{-2 \\cdot 2^3 + 2}{2^2 + 1} - \\frac{5}{2}", value: "a" },
               { label: "f(2) = \\frac{-2 \\cdot 2^3 - 2}{2^2 + 1} - \\frac{5}{2}", value: "b" },
-              { label: "f(2) = \\frac{-2 \\cdot 2^3 + 2}{2^2 + 1} - \\frac{5}{2}", value: "c" },
+              { label: "f(2) = \\frac{2 \\cdot 2^3 - 2}{2^2 + 1} - \\frac{5}{2}", value: "c" },
               { label: "f(2) = \\frac{2 \\cdot 2^3 - 2}{2^2 + 1} + \\frac{5}{2}", value: "d" }
             ]}
-            correctAnswer="a"
+            correctAnswer="c"
             explanation="Poprawna odpowiedź to pierwsza opcja, która pokazuje pełne podstawienie przed jakimikolwiek obliczeniami."
             onComplete={() => handleStageComplete(0)}
           />
@@ -37,7 +37,7 @@ const Page = () => {
 
         {(completedStages.includes(0) && (completedStages.includes(1) || completedStages.length === 1)) && (
           <ChoiceQuestion
-            question="Jaki jest ostateczny wynik f(2)?"
+            question="Jaka jest wartość $$f(2)$$?"
             choices={[
               { label: "0.3", value: "a" },
               { label: "1.5", value: "b" },
@@ -46,12 +46,12 @@ const Page = () => {
             ]}
             correctAnswer="a"
             explanation={`
-              Poprawny wynik to 0.3. Obliczenia:
-              <br>1. Licznik pierwszego ułamka: 2·8 - 2 = 14
-              <br>2. Mianownik pierwszego ułamka: 4 + 1 = 5
-              <br>3. Pierwszy ułamek: 14/5 = 2.8
-              <br>4. Drugi ułamek: 5/2 = 2.5
-              <br>5. Wynik: 2.8 - 2.5 = 0.3
+              Poprawny wynik to $$0.3$$. Obliczenia:
+              <br>1. Licznik pierwszego ułamka: $$2·8 - 2 = 14$$
+              <br>2. Mianownik pierwszego ułamka: $$4 + 1 = 5$$
+              <br>3. Pierwszy ułamek: $$\\frac{14}{5} = 2.8$$
+              <br>4. Drugi ułamek: $$\\frac{5}{2} = 2.5$$
+              <br>5. Wynik: $$2.8 - 2.5 = 0.3$$
             `}
             onComplete={() => handleStageComplete(1)}
           />

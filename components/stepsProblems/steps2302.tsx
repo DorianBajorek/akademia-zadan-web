@@ -27,13 +27,13 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak poprawnie podstawić $$x=\sqrt{2}$$ do wzoru funkcji?"
             choices={[
-              { label: "f(\\sqrt{2}) = \\frac{2\\sqrt{2} - 8}{\\sqrt{2}}", value: "a" },
-              { label: "f(\\sqrt{2}) = 2 - \\frac{8}{\\sqrt{2}}", value: "b" },
+              { label: "f(\\sqrt{2}) = 2 - \\frac{8}{2}", value: "a" },
+              { label: "f(\\sqrt{2}) = \\frac{2\\sqrt{2} - 8}{\\sqrt{2}}  ", value: "b" },
               { label: "f(\\sqrt{2}) = \\frac{2\\sqrt{2}}{\\sqrt{2}} - 8", value: "c" },
               { label: "f(\\sqrt{2}) = 2\\sqrt{2} - \\frac{8}{\\sqrt{2}}", value: "d" }
             ]}
-            correctAnswer="a"
-            explanation="Poprawna odpowiedź to pierwsza opcja, która pokazuje pełne podstawienie przed jakimikolwiek przekształceniami."
+            correctAnswer="b"
+            explanation="Poprawna odpowiedź to druga opcja, która pokazuje pełne podstawienie przed jakimikolwiek przekształceniami."
             onComplete={() => handleStageComplete(0)}
           />
         )}
@@ -42,15 +42,15 @@ const Page = () => {
           <ChoiceQuestion
             question="Jaki jest ostateczny wynik $$f(\sqrt{2})$$ po uproszczeniu?"
             choices={[
-              { label: "2 - 4\\sqrt{2}", value: "a" },
+              { label: "2 + 4\\sqrt{2}", value: "a" },
               { label: "1 - 2\\sqrt{2}", value: "b" },
               { label: "1 + 2\\sqrt{2}", value: "c" },
-              { label: "2 + 4\\sqrt{2}", value: "d" }
+              { label: "2 - 4\\sqrt{2}", value: "d" }
             ]}
-            correctAnswer="a"
+            correctAnswer="d"
             explanation={`
-              Poprawny wynik to A $$(2 - 4\\sqrt{2})$$. Obliczenia:
-              <br>1. Podstawienie: $$f(\\sqrt{2}) = (2\\sqrt{2} - 8)/\\sqrt{2}$$
+              Poprawny wynik to $$(2 - 4\\sqrt{2})$$. Obliczenia:
+              <br>1. Podstawienie: $$f(\\sqrt{2}) = \\frac{(2\\sqrt{2} - 8)}{\\sqrt{2}}$$
               <br>2. Rozbicie na dwa ułamki: $$\\frac{2\\sqrt{2}}{\\sqrt{2}\} - \\frac{8}{\\sqrt{2}}$$
               <br>3. Uproszczenie pierwszego ułamka: $$2 - \\frac{8}{\\sqrt{2}}$$
               <br>4. Usunięcie niewymierności z mianownika: $$2 - \\frac{8\\sqrt{2}}{2}$$

@@ -31,7 +31,7 @@ const Page = () => {
               { label: "\\text{Obliczyć średnią z wartości funkcji }", value: "d" }
             ]}
             correctAnswer="a"
-            explanation="Poprawna odpowiedź to pierwsza opcja. Należy obliczyć każdą wartość funkcji osobno, a następnie pomnożyć wyniki."
+            explanation=""
             onComplete={() => handleStageComplete(0)}
           />
         )}

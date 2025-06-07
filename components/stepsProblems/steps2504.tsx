@@ -13,11 +13,11 @@ const InequalityTask: React.FC = () => {
     "exam_type": "mp",
     "task_type": "mc4",
     "description": "Zbiorem wszystkich rozwiązań nierówności $3(1 - x) > 2(3x - 1) - 12x$ jest przedział",
-    "choiceA": "$( -\\frac{5}{3}, +\\infty)$",
+    "choiceA": "$( -\\infty, -\\frac{5}{3})$",
     "choiceB": "$( -\\infty, \\frac{5}{3})$",
     "choiceC": "$( \\frac{5}{3}, +\\infty)$",
-    "choiceD": "$( -\\infty, -\\frac{5}{3})$",
-    "correct_answer": "a"
+    "choiceD": "$( -\\frac{5}{3}, +\\infty)$",
+    "correct_answer": "d"
   };
 
   const handleCheckAnswer = () => {

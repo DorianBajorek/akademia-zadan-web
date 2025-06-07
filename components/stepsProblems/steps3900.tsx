@@ -24,10 +24,10 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Krok 1: Określ najniższą wartość funkcji na wykresie:
+              Krok 1: Określ najmniejszą wartość funkcji na wykresie:
             </p>
             <ChoiceQuestion
-              question="Jaka jest minimalna wartość funkcji widoczna na wykresie?"
+              question="Jaka jest najmniejsza wartość funkcji widoczna na wykresie?"
               choices={[
                 { label: "0", value: "a" },
                 { label: "-2", value: "b" },
@@ -45,10 +45,10 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Krok 2: Określ najwyższą wartość funkcji na wykresie:
+              Krok 2: Określ największą wartość funkcji na wykresie:
             </p>
             <ChoiceQuestion
-              question="Jaka jest maksymalna wartość funkcji widoczna na wykresie?"
+              question="Jaka jest największa wartość funkcji widoczna na wykresie?"
               choices={[
                 { label: "3", value: "a" },
                 { label: "4", value: "b" },
@@ -77,7 +77,7 @@ const Page = () => {
                 { label: "ZW = (0;3)", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Zbiór wartości to wszystkie $$y$$ od minimum $$0$$ do maximum $$4$$, włącznie z tymi wartościami."
+              explanation="Zbiór wartości to wszystkie $$y$$ od minimum $$0$$ do maximum $$3$$, włącznie z tymi wartościami."
               onComplete={() => handleStageComplete(4)}
             />
           </>

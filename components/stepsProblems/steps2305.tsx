@@ -14,10 +14,10 @@ const CompositeFunctionTask: React.FC = () => {
     task_type: "mc4",
     description: "Dana jest funkcja $f(x) = (x - 1)^2 + \\sqrt{x}$ Oblicz wartość wyrażenia: $f(4)$",
     choiceA: "9",
-    choiceB: "11",
+    choiceB: "8",
     choiceC: "6",
-    choiceD: "8",
-    correct_answer: "b"
+    choiceD: "11",
+    correct_answer: "d"
   };
 
   const handleCheckAnswer = () => {
@@ -65,9 +65,6 @@ const CompositeFunctionTask: React.FC = () => {
               {selectedAnswer === taskData.correct_answer
                 ? "Poprawna odpowiedź!"
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
-            </p>
-            <p className="text-red-600 font-semibold">
-              UWAGA: W podanych odpowiedziach brak poprawnego wyniku (11)!
             </p>
           </div>
         )}

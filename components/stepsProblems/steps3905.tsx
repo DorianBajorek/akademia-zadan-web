@@ -88,7 +88,7 @@ const Page = () => {
             equation=""
             steps={[
             ]}
-            solutions={["D = (0; 4⟩"]}
+            solutions={["D = (-4; -3)"]}
           />
         )}
       </div>

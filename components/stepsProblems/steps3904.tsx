@@ -19,8 +19,6 @@ const Page = () => {
         <p className="text-lg text-gray-800">Wyznacz dziedzinę poniższej funkcji</p>
         <img src="/steps-images/steps3904.jpeg" alt="Wykres funkcji" className="mx-auto my-4 w-full max-w-2xl rounded-lg shadow-md" />
         
-        <p className="text-lg text-gray-800">Na podstawie powyższego wykresu wyznacz dziedzinę funkcji f.</p>
-        
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -71,7 +69,7 @@ const Page = () => {
             <ChoiceQuestion
               question="Który zapis poprawnie opisuje dziedzinę funkcji f?"
               choices={[
-                { label: "D = ⟨-3, -1⟩ ∪ (1, 3)", value: "a" },
+                { label: "D = ⟨-3, -1⟩ \\cup (1, 3)", value: "a" },
                 { label: "D = \\langle-4, 5\\rangle", value: "b" },
                 { label: "D = (-4, 5)", value: "c" },
                 { label: "D = (0; 5⟩", value: "d" }
@@ -88,7 +86,7 @@ const Page = () => {
             equation=""
             steps={[
             ]}
-            solutions={["D = \\langle-3, -1\\rangle \\cup (1, 3)"]}
+            solutions={["D = \\langle-4, 5\\rangle"]}
           />
         )}
       </div>
