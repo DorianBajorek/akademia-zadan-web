@@ -108,7 +108,7 @@ const TopicTasksPage = () => {
         );
 
         const mergedTasks = response.tasks.map((taskFromApi: any) => {
-          const meta = LOCAL_TASKS_META.find((m) => m.id === taskFromApi.id);
+          const meta = LOCAL_TASKS_META.find((m) => m.id === String(taskFromApi.id));
           return {
             id: taskFromApi.id,
             title: meta?.title || `Zadanie ${taskFromApi.id}`,
