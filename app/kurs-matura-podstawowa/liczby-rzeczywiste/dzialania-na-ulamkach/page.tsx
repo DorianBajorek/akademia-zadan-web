@@ -9,6 +9,15 @@ import TopicStats from "@/components/TopicStats";
 import { getProblemProgress } from "@/service";
 import { useAuth } from "@/app/UserData";
 
+  type Task = {
+    id: string;
+    title: string;
+    description: string;
+    img: string;
+    isCompleted: boolean;
+  };
+
+
 const LOCAL_TASKS_META = [
   {
     id: "800",
@@ -85,14 +94,6 @@ const LOCAL_TASKS_META = [
 ];
 
 const TopicTasksPage = () => {
-  type Task = {
-    id: string;
-    title: string;
-    description: string;
-    img: string;
-    isCompleted: boolean;
-  };
-
   const [tasks, setTasks] = useState<Task[]>([]);
   const { token } = useAuth();
   useEffect(() => {
@@ -179,7 +180,15 @@ const TopicTasksPage = () => {
   );
 };
 
-const Section = ({ title, description, tasks }) => (
+const Section = ({
+  title,
+  description,
+  tasks,
+}: {
+  title: string;
+  description: string;
+  tasks: Task[];
+}) => (
   <>
     <div className="col-span-full py-8 text-center">
       <div className="border-t-2 border-b-2 border-gray-300 py-4">
