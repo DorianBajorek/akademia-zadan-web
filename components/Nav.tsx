@@ -3,14 +3,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useAuth } from '../app/UserData';
+import { useRouter } from 'next/navigation';
 
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { token, logout } = useAuth();
+  const router = useRouter();
 
   const handleLogout = () => {
     logout();
-    window.location.href = '/';
+    router.push('/');
   };
 
   const navLinks = (

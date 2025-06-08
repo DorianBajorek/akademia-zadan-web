@@ -150,7 +150,15 @@ const MainCourse: React.FC = () => {
       <Nav />
 
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1">
-        {/* ...intro section and how-to section remain unchanged... */}
+        <div className="text-center mb-12">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            Kompletny kurs matury podstawowej z matematyki
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Wybierz dział, który Cię interesuje i rozpocznij naukę. Śledź swoje postępy
+            i systematycznie przygotowuj się do egzaminu.
+          </p>
+        </div>
 
         <motion.div
           variants={container}
