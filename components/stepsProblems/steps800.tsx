@@ -1,17 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
+import { solveProblem } from "@/service";
+import { useAuth } from "@/app/UserData";
 
 const Page = () => {
+  const {token} = useAuth();
+  const taskId = "800";
   const [completedStages, setCompletedStages] = useState<number[]>([]);
+  const [problemSolved, setProblemSolved] = useState(false);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) => [...prev, stage]);
+    setCompletedStages((prev) => {
+      const updated = [...prev, stage];
+      if (updated.length === 4 && !problemSolved) {
+        setProblemSolved(true);
+      }
+      return updated;
+    });
   };
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log("Problem marked as completed"))
+        .catch((err) => console.error("Problem completion failed", err));
+    }
+  }, [problemSolved, taskId, token]);
 
   return (
     <div className="min-h-screen p-5">
@@ -21,7 +39,7 @@ const Page = () => {
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
           <InlineMath math="\frac{1}{2} + \frac{1}{3}" />
         </p>
-        
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -36,19 +54,15 @@ const Page = () => {
                 { label: "12", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Najmniejszy wspólny mianownik to $$6$$, ponieważ jest to najmniejsza liczba, 
-              która dzieli się przez oba stare mianowniki ($$2$$ i $$3$$). 
-              Inne wspólne mianowniki jak $$12$$ też by działały, ale $$6$$ jest najmniejszy."
+              explanation="Najmniejszy wspólny mianownik to $$6$$..."
               onComplete={() => handleStageComplete(1)}
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Teraz rozszerz oba ułamki do wspólnego mianownika (6).
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Teraz rozszerz oba ułamki...</p>
             <ChoiceQuestion
               question="Jak prawidłowo rozszerzyć ułamki do mianownika 6?"
               choices={[
@@ -58,10 +72,7 @@ const Page = () => {
                 { label: "\\frac{1}{2} = \\frac{1}{6}, \\frac{1}{3} = \\frac{1}{6}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Aby rozszerzyć ułamki: <br><br>
-                $$\frac{1}{2}$$ mnożymy licznik i mianownik przez $$3$$: $$\frac{1×3}{2×3} = \frac{3}{6}$$ <br><br>
-                $$\frac{1}{3}$$ mnożymy licznik i mianownik przez $$2$$: $$\frac{1×2}{3×2} = \frac{3}{6}$$ <br><br>
-                Teraz oba ułamki mają ten sam mianownik."
+              explanation="Aby rozszerzyć ułamki..."
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -69,9 +80,7 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Wykonaj dodawanie ułamków o tym samym mianowniku.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Wykonaj dodawanie...</p>
             <ChoiceQuestion
               question="Ile wynosi $$\frac{3}{6}+ \frac{2}{6}$$?"
               choices={[
@@ -81,9 +90,7 @@ const Page = () => {
                 { label: "\\frac{2}{6}", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Gdy ułamki mają ten sam mianownik, dodajemy tylko liczniki: <br>
-                $$\frac{3}{6} + \frac{2}{6} = \frac{3+2}{6} = \frac{5}{6}$$ <br>
-                Mianownik pozostaje bez zmian."
+              explanation="Dodajemy liczniki: ..."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -91,9 +98,7 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Czy można uprościć wynik 5/6?
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Czy można uprościć wynik...</p>
             <ChoiceQuestion
               question="Czy ułamek $$\frac{5}{6}$$ da się skrócić?"
               choices={[
@@ -103,8 +108,7 @@ const Page = () => {
                 { label: "\\text{Tak, przez 2}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Ułamek $$\frac{5}{6}$$ nie może być skrócony, ponieważ $$5$$ i $$6$$ nie mają wspólnych dzielników 
-              (poza 1). Jest to już najprostsza postać tego ułamka."
+              explanation="Nie da się skrócić, bo 5 i 6 nie mają wspólnych dzielników..."
               onComplete={() => handleStageComplete(4)}
             />
           </>
@@ -117,7 +121,6 @@ const Page = () => {
               {
                 step: "\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}",
               },
-
             ]}
             solutions={["\\frac{5}{6}"]}
           />
