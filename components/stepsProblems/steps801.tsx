@@ -1,16 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import { solveProblem } from "@/service";
+import { useAuth } from "@/app/UserData";
 
 const Page = () => {
+  const { token } = useAuth();
+  const taskId = "801";
   const [completedStages, setCompletedStages] = useState<number[]>([]);
+  const [problemSolved, setProblemSolved] = useState(false);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) => [...prev, stage]);
+    setCompletedStages((prev) => {
+      const updated = [...prev, stage];
+      if (updated.length === 4 && !problemSolved) {
+        setProblemSolved(true);
+      }
+      return updated;
+    });
   };
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log("Problem marked as completed"))
+        .catch((err) => console.error("Problem completion failed", err));
+    }
+  }, [problemSolved, taskId, token]);
 
   return (
     <div className="min-h-screen p-5">

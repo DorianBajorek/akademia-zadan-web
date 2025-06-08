@@ -1,8 +1,11 @@
 import axios from "axios";
 
+const prefix  = "https://akademiazadan.pl"
+const local = "http://127.0.0.1:8000"
+
 export const getBarometerProblems = async() => {
     try {
-        const response = await axios.get(`https://akademiazadan.pl/api/v2/get_barometr_problems/`);
+        const response = await axios.get(`${prefix}/api/v2/get_barometr_problems/`);
         return response.data;
       } catch (error) {
         console.error("Error adding problem:", error);
@@ -11,7 +14,7 @@ export const getBarometerProblems = async() => {
 
 export const checkBarometerAnswers = async (problems: { task_id: number; user_answer: string }[]) => {
   try {
-    const response = await fetch("https://akademiazadan.pl/api/v1/validate_barometr_problems/", {
+    const response = await fetch("${prefix}/api/v1/validate_barometr_problems/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +35,7 @@ export const checkBarometerAnswers = async (problems: { task_id: number; user_an
 
 export const getCurrentDailyProblem = async() => {
   try {
-      const response = await axios.get(`https://akademiazadan.pl/api/v1/get_current_daily_problem/`);
+      const response = await axios.get(`${prefix}/api/v1/get_current_daily_problem/`);
       return response.data;
     } catch (error) {
       console.error("Error getting daily problem:", error);
@@ -41,7 +44,7 @@ export const getCurrentDailyProblem = async() => {
 
 export const getProblems = async(numberOfProblems: number) => {
   try {
-      const response = await axios.get(`https://akademiazadan.pl/api/v1/get_problems/?size=${numberOfProblems}`);
+      const response = await axios.get(`${prefix}/api/v1/get_problems/?size=${numberOfProblems}`);
       return response.data;
     } catch (error) {
       console.error("Error adding problem:", error);
@@ -54,7 +57,7 @@ export const login = async(username: string, password: string) => {
     password: password
   }
   try {
-      const response = await axios.post(`https://akademiazadan.pl/api/auth/login/`, payload);
+      const response = await axios.post(`${prefix}/api/auth/login/`, payload);
       console.log(response.data)
       return response.data;
     } catch (error) {
@@ -71,7 +74,7 @@ export const register = async(email: string, username: string, password: string,
     phone: "997"
   }
   try {
-      const response = await axios.post(`https://akademiazadan.pl/api/auth/registration/`, payload);
+      const response = await axios.post(`${prefix}/api/auth/registration/`, payload);
       return response.data;
     } catch (error) {
       console.error("Error while register", error);
@@ -83,7 +86,7 @@ export const google = async(code: string | null) => {
       id_token: code,
   }
   try {
-      const response = await axios.post(`https://akademiazadan.pl/api/auth/v1/google/`, payload, {
+      const response = await axios.post(`${prefix}/api/auth/v1/google/`, payload, {
   withCredentials: true
 });
       return response.data;
@@ -95,7 +98,7 @@ export const google = async(code: string | null) => {
 export const getFieldsProgress = async (token: string) => {
   try {
     const response = await axios.get(
-      `https://akademiazadan.pl/api/matura-podstawowa/v1/fields-progress/`,
+      `${prefix}/api/matura-podstawowa/v1/fields-progress/`,
       {
         headers: {
           Authorization: `Token ${token}`,
@@ -111,7 +114,7 @@ export const getFieldsProgress = async (token: string) => {
 export const getTopicsProgress = async (field: string, token: string) => {
   try {
     const response = await axios.get(
-      `https://akademiazadan.pl/api/matura-podstawowa/v2/topics-progress/${field}/`,
+      `${prefix}/api/matura-podstawowa/v1/topics-progress/`,
       {
         headers: {
           Authorization: `Token ${token}`,
@@ -127,8 +130,25 @@ export const getTopicsProgress = async (field: string, token: string) => {
 export const solveProblem = async (taskId: string, token: string) => {
   try {
     const response = await axios.post(
-      `https://akademiazadan.pl/api/matura-podstawowa/v1/problem/${taskId}/complete/`,
+      `${prefix}/api/matura-podstawowa/v1/problem/${taskId}/complete/`,
       {},
+      {
+        headers: {
+          Authorization: `Token ${"ff6254177b60549244930302003e4fbc8935ab15"}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error while fetching fields progress", error);
+    throw error;
+  }
+}
+
+export const getProblemProgress = async (field: string, topic: string, token: string) => {
+  try {
+    const response = await axios.get(
+      `${prefix}/api/matura-podstawowa/v2/problems-status/${field}/${topic}/`,
       {
         headers: {
           Authorization: `Token ${token}`,

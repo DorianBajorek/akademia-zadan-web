@@ -1,13 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import Question2 from "../Question2";
+import { useAuth } from "@/app/UserData";
+import { solveProblem } from "@/service";
 
 const letterMap = ["a", "b", "c", "d"];
 
 const FractionTask2: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [problemSolved, setProblemSolved] = useState(false);
+  const { token } = useAuth();
+  const taskId = "806";
 
   const taskData = {
     "task_id": 24,
@@ -24,8 +29,19 @@ const FractionTask2: React.FC = () => {
   const handleCheckAnswer = () => {
     if (selectedAnswer !== null) {
       setShowResult(true);
+      if (selectedAnswer === taskData.correct_answer && !problemSolved) {
+        setProblemSolved(true);
+      }
     }
   };
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log("Problem marked as completed"))
+        .catch((err) => console.error("Problem completion failed", err));
+    }
+  }, [problemSolved, taskId, token]);
 
   return (
     <div className="min-h-screen">

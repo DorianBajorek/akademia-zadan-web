@@ -2,103 +2,84 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from 'next/link';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/app/UserData";
 import { getTopicsProgress } from "@/service";
 
 const RealNumbersCourse: React.FC = () => {
-  const field = "liczby-rzeczywiste"
-  const topicProgress = {
-    "Działania na liczbach rzeczywistych": 90,
-    "Obliczanie na potęg": 0,
-    "Pierwiastki i działania na pierwiastkach": 0,
-    "Obliczanie logarytmu": 0,
-    "Przekształcanie wyrażeń": 0,
-    "Zaokrąglanie i szacowanie": 0,
-    "Notacja wykładnicza": 0,
-    "Wartość bezwzględna": 0,
-    "Porównywanie liczb": 0,
-    "Oś liczbowa": 0,
-    "Procenty": 0
-  };
+  const { token } = useAuth();
+  const field = "liczby-rzeczywiste";
+
+  const [topicProgress, setTopicProgress] = useState<Record<string, number>>({});
 
   const topics = [
     {
       title: "Działania na ułamkach",
       shortDesc: "Dodawanie, odejmowanie, mnożenie, dzielenie",
-      slug: "/liczby-rzeczywiste/dzialania-na-ulamkach",
+      slug: "dzialania-na-ulamkach",
       icon: "➕"
     },
     {
       title: "Obliczanie na potęg",
       shortDesc: "Potęgi o wykładnikach całkowitych oraz wymiernych - podstawowe własności",
       icon: "🔢",
-      slug: "/liczby-rzeczywiste/potegi"
+      slug: "potegi"
     },
     {
       title: "Pierwiastki i działania na pierwiastkach",
       shortDesc: "Właściwości i operacje na pierwiastkach",
       icon: "√",
-      slug: "/liczby-rzeczywiste/dzialania-na-pierwiastkach"
+      slug: "dzialania-na-pierwiastkach"
     },
     {
       title: "Obliczanie logarytmu",
       shortDesc: "Obliczanie podstawowych logarytmów",
       icon: "㏒",
-      slug: "/liczby-rzeczywiste/logarytmy"
+      slug: "logarytmy"
     },
     {
       title: "działania na logarytmach",
       shortDesc: "Działania na logarytmach, podstawowe wzory",
       icon: "2㏒",
-      slug: "/liczby-rzeczywiste/dzialania-na-logarytmach"
+      slug: "dzialania-na-logarytmach"
     },
     {
       title: "Własności wartości bezwzględnej",
       shortDesc: "Właściwości i zastosowania wartości bezwzględnej",
-      slug: "/liczby-rzeczywiste/wlasnosci-wartosci-bezwzglednej",
+      slug: "wlasnosci-wartosci-bezwzglednej",
       icon: "|-2+√2|"
-    },{
+    },
+    {
       title: "Równania z wartością bezwzględną",
       shortDesc: "Rozwiązywanie równań z wartością bezwzględną",
-      slug: "/liczby-rzeczywiste/rownania-z-wartoscia-bezwzgledna",
+      slug: "rownania-z-wartoscia-bezwzgledna",
       icon: "|x+2|"
     },
-    // {
-    //   title: "Procenty",
-    //   shortDesc: "Procent składany, zmiany cen",
-    //   slug: "/liczby-rzeczywiste/procenty",
-    //   icon: "%"
-    // },
-    // {
-    //   title: "Dowody podzielności",
-    //   shortDesc: "Dowody podzielności liczb całkowitych",
-    //   slug: "/liczby-rzeczywiste/dowody-podzielnosci",
-    //   icon: "a | b"
-    // },
   ];
-
-  const {token} = useAuth()
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getTopicsProgress(field, token);
         if (data) {
+          setTopicProgress(data);
         }
       } catch (error) {
         console.error("Error fetching topics progress", error);
       }
     };
-  
-    if(token) {
-      fetchData();
-    }
+
+    fetchData();
   }, [token]);
+
+  const overallProgress = Math.round(
+    topics.reduce((sum, topic) => sum + (topicProgress[topic.slug] || 0), 0) / topics.length
+  );
+
   return (
     <div className="min-h-screen flex flex-col">
       <Nav />
-      
+
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1">
         <div className="flex items-center mb-8">
           <Link href="/kurs-matura-podstawowa" className="mr-4 text-blue-600 hover:text-blue-800">
@@ -110,37 +91,29 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            Dział "Liczby rzeczywiste" to fundament matematyki. Opanowanie tych zagadnień jest kluczowe dla zrozumienia bardziej zaawansowanych tematów.
-            W tym dziale poznasz podstawowe operacje, własności liczb i ich reprezentacje.
+            Dział "Liczby rzeczywiste" to fundament matematyki...
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">
               <span>Ogólny postęp w dziale:</span>
-              <span>{
-                Math.round(
-                  Object.values(topicProgress).reduce((a, b) => a + b, 0) / 
-                  Object.keys(topicProgress).length
-                )
-              }%</span>
+              <span>{overallProgress}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div 
                 className="bg-blue-600 h-2.5 rounded-full" 
-                style={{ 
-                  width: `${Object.values(topicProgress).reduce((a, b) => a + b, 0) / Object.keys(topicProgress).length}%` 
-                }}
+                style={{ width: `${overallProgress}%` }}
               ></div>
             </div>
           </div>
         </div>
 
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Tematy w dziale</h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {topics.map((topic, index) => (
             <Link 
               key={index}
-              href={`/kurs-matura-podstawowa/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/kurs-matura-podstawowa/liczby-rzeczywiste/${topic.slug}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-start">
@@ -152,18 +125,17 @@ const RealNumbersCourse: React.FC = () => {
                   <div className="w-full bg-gray-100 rounded-full h-2">
                     <div 
                       className="bg-green-500 h-2 rounded-full" 
-                      style={{ width: `${topicProgress[topic.title as keyof typeof topicProgress]}%` }}
+                      style={{ width: `${topicProgress[topic.slug] || 0}%` }}
                     ></div>
                   </div>
                   <div className="text-right text-xs text-gray-500 mt-1">
-                    {topicProgress[topic.title as keyof typeof topicProgress]}% ukończono
+                    {(topicProgress[topic.slug] || 0)}% ukończono
                   </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
-
       </main>
 
       <Footer />

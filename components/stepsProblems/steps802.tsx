@@ -1,16 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import { solveProblem } from "@/service";
+import { useAuth } from "@/app/UserData";
 
 const Page = () => {
+  const { token } = useAuth();
+  const taskId = "802";
   const [completedStages, setCompletedStages] = useState<number[]>([]);
+  const [problemSolved, setProblemSolved] = useState(false);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) => [...prev, stage]);
+    setCompletedStages((prev) => {
+      const updated = [...prev, stage];
+      if (updated.length === 3 && !problemSolved) {
+        setProblemSolved(true);
+      }
+      return updated;
+    });
   };
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log("Problem marked as completed"))
+        .catch((err) => console.error("Problem completion failed", err));
+    }
+  }, [problemSolved, taskId, token]);
 
   return (
     <div className="min-h-screen p-5">
@@ -20,7 +39,7 @@ const Page = () => {
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
           <InlineMath math="1\frac{1}{2} \cdot 2\frac{1}{4}" />
         </p>
-        
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -35,15 +54,14 @@ const Page = () => {
                 { label: "\\frac{1}{2} \\text{ i } \\frac{1}{4}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Żeby zmienić całości, należy całość pomnożyć z mianownikiem i dodać licznik. Mianownik się nie zmiania <br> <br>
-              $$2\frac{1}{2} = \frac{5}{2}$$, Bo $$2 \cdot 2  + 1 = 5$$ (to jest nasz licznik) <br> <br>
-              $$1\frac{1}{4} = \frac{5}{4}$$, Bo $$1 \cdot 2  + 1 = 5$$ (to jest nasz licznik)
-              "
+              explanation="Żeby zmienić całości, należy całość pomnożyć z mianownikiem i dodać licznik. Mianownik się nie zmienia <br> <br>
+                $$2\\frac{1}{2} = \\frac{5}{2}$$, Bo $$2 \\cdot 2 + 1 = 5$$ <br> <br>
+                $$1\\frac{1}{4} = \\frac{5}{4}$$, Bo $$1 \\cdot 4 + 1 = 5$$"
               onComplete={() => handleStageComplete(1)}
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -59,9 +77,8 @@ const Page = () => {
                 { label: "\\frac{27}{8}", value: "d" },
               ]}
               correctAnswer="d"
-              explanation="W celu wyznaczenia ostatecznego wyniku musimy pomnożyć licznik z licznikim oraz mianownik z mianownikiem.  <br> <br>
-                $$\frac{3}{2} \cdot \frac{9}{4} = \frac{27}{8}$$
-              "
+              explanation="W celu wyznaczenia ostatecznego wyniku musimy pomnożyć licznik z licznikiem oraz mianownik z mianownikiem. <br> <br>
+                $$\\frac{3}{2} \\cdot \\frac{9}{4} = \\frac{27}{8}$$"
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -81,7 +98,7 @@ const Page = () => {
                 { label: "3\\frac{5}{8}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="$$\frac{27}{8} = 3\frac{3}{8}$$, liczbę $$27$$ podzielić przez $$8$$ możemy $$3$$ razy i zostaje nam jeszcze reszta równa $$3$$ "
+              explanation="$$\\frac{27}{8} = 3\\frac{3}{8}$$, bo $$27 \\div 8 = 3$$ i reszta $$3$$."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -89,10 +106,10 @@ const Page = () => {
 
         {completedStages.length === 3 && (
           <StudentNotes
-            equation="1\frac{1}{2} \cdot 2\frac{1}{4}"
+            equation="1\\frac{1}{2} \\cdot 2\\frac{1}{4}"
             steps={[
               {
-                step: "1\\frac{1}{2} \\cdot 2\\frac{1}{4} =  \\frac{3}{2} \\cdot \\frac{9}{4} = \\frac{27}{8} = 3\\frac{3}{8}",
+                step: "1\\frac{1}{2} \\cdot 2\\frac{1}{4} = \\frac{3}{2} \\cdot \\frac{9}{4} = \\frac{27}{8} = 3\\frac{3}{8}",
               },
             ]}
             solutions={["3\\frac{3}{8}"]}
