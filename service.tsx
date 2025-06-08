@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const prefix  = "https://akademiazadan.pl"
+const prefix  = "http://127.0.0.1:8000"
 const local = "http://127.0.0.1:8000"
 
 export const getBarometerProblems = async() => {
@@ -134,7 +134,7 @@ export const solveProblem = async (taskId: string, token: string) => {
       {},
       {
         headers: {
-          Authorization: `Token ${"ff6254177b60549244930302003e4fbc8935ab15"}`,
+          Authorization: `Token ${token}`,
         },
       }
     );

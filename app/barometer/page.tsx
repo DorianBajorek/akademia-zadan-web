@@ -159,8 +159,7 @@ const Barometer: React.FC = () => {
             Wyślij odpowiedzi
           </button>
         </div>
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

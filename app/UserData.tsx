@@ -12,7 +12,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [token, setToken] = useState<string>('');
+  const [token, setToken] = useState<string>('ff6254177b60549244930302003e4fbc8935ab15');
   const [username, setUsername] = useState<string>('');
 
   useEffect(() => {

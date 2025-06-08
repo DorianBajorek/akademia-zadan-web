@@ -77,8 +77,7 @@ const ArithmeticSequence6thTermTask: React.FC = () => {
         {/* <div className="flex justify-center mt-8">
           <img src="/images/453a0068-d8b4-479c-a28a-53217c35e34d.png" alt="Treść zadania" className="max-w-md rounded shadow"/>
         </div> */}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

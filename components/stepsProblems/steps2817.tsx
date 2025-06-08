@@ -69,8 +69,7 @@ const QuadraticSymmetryAxisFactoredTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

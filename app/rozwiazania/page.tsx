@@ -27,8 +27,7 @@ const SolutionsPage = () => {
             </Link>
           ))}
         </div>
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

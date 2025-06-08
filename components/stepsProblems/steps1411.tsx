@@ -69,8 +69,7 @@ const EquationMatchingTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

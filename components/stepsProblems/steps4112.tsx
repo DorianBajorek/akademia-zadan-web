@@ -67,8 +67,7 @@ const taskData = {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

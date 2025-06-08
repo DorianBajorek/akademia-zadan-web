@@ -69,8 +69,7 @@ const QuadraticAxisRoot2Task: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

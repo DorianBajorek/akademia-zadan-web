@@ -68,8 +68,7 @@ const ParallelLinesTask3: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

@@ -160,8 +160,7 @@ const DailyTask: React.FC = () => {
             Sprawdź odpowiedź
           </button>
         </div>
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

@@ -69,8 +69,7 @@ const QuadraticSymmetryFromZerosTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

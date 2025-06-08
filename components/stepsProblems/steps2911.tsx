@@ -69,8 +69,7 @@ const QuadraticBfromFactoredTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

@@ -72,8 +72,7 @@ const GeometricSequence4thTermTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

@@ -85,8 +85,7 @@ const FractionTask5: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

@@ -214,8 +214,7 @@ const Matura1: React.FC = () => {
             </div>
           </>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

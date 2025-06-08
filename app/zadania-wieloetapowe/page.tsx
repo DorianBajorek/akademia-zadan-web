@@ -417,8 +417,7 @@ const SolutionsPage = () => {
             </div>
           </div>
         ))}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

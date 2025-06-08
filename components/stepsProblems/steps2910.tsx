@@ -69,8 +69,7 @@ const QuadraticTranslationCTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };
