@@ -229,8 +229,7 @@ const TaskSpeedrun: React.FC = () => {
             </button>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

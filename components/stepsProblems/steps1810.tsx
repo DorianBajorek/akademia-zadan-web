@@ -69,8 +69,7 @@ const PolynomialMultiplicationTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

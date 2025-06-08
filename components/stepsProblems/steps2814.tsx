@@ -69,8 +69,7 @@ const QuadraticBTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

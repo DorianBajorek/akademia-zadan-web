@@ -138,8 +138,7 @@ const Matura1Result: React.FC = () => {
             Nasi konsultanci są dostępni przez całą dobę.
           </p>
         </div>
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

@@ -89,8 +89,7 @@ const DailyTaskResult: React.FC = () => {
           <h2 className="text-xl font-bold text-center text-blue-600 mb-8">
           </h2>
         </div>
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

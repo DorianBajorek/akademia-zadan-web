@@ -84,8 +84,7 @@ const HardcodedTask: React.FC = () => {
             )}
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

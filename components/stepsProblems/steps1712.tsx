@@ -69,8 +69,7 @@ const QuadraticRootsTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

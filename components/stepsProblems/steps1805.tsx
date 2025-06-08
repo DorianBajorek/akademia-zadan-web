@@ -89,8 +89,7 @@ const MultiplyBracketsTask: React.FC = () => {
             )}
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

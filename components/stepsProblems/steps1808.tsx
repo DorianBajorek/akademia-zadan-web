@@ -70,8 +70,7 @@ const AlgebraTask: React.FC = () => {
         
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

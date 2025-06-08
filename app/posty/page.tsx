@@ -54,8 +54,7 @@ const PostsPage = () => {
             </Link>
           ))}
         </div>
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

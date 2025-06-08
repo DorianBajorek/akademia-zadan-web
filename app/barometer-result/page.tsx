@@ -125,8 +125,7 @@ const BarometerResult: React.FC = () => {
             );
           })}
         </div>
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

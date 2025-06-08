@@ -72,8 +72,7 @@ const SequenceA4Task: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

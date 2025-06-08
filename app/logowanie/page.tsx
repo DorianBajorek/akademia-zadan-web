@@ -23,7 +23,7 @@ const Login: React.FC = () => {
       console.log("Zalogowano pomyślnie:", data);
       if (data.key) {
         updateToken(data.key);
-        window.location.href = '/';
+        // window.location.href = '/';
       } else {
         setError('Nieprawidłowy email lub hasło.');
       }

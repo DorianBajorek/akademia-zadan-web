@@ -69,8 +69,7 @@ const QuadraticZerosTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

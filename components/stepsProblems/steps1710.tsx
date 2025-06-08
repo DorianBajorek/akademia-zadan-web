@@ -69,8 +69,7 @@ const FactoredFormTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };

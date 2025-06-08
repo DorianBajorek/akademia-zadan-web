@@ -69,8 +69,7 @@ const EquationSolutionsTask: React.FC = () => {
             </p>
           </div>
         )}
-      </main>
-      <Footer />
+</main>
     </div>
   );
 };
