@@ -85,7 +85,15 @@ const LOCAL_TASKS_META = [
 ];
 
 const TopicTasksPage = () => {
-  const [tasks, setTasks] = useState([]);
+  type Task = {
+    id: string;
+    title: string;
+    description: string;
+    img: string;
+    isCompleted: boolean;
+  };
+
+  const [tasks, setTasks] = useState<Task[]>([]);
   const { token } = useAuth();
   useEffect(() => {
     const fetchTasks = async () => {
