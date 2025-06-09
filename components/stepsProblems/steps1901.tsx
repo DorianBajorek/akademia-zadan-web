@@ -29,12 +29,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Który wzór zastosujesz?"
               choices={[
-                { label: "(a - b)^2 = a^2 - 2ab + b^2", value: "a" },
+                { label: "(a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3", value: "a" },
                 { label: "(a + b)^2 = a^2 + 2ab + b^2", value: "b" },
                 { label: "a^2 - b^2 = (a - b)(a + b)", value: "c" },
-                { label: "(a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3", value: "d" }
+                { label: "(a - b)^2 = a^2 - 2ab + b^2", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawny wzór to $$(a - b)^2 = a^2 - 2ab + b^2$$. <br>
                 Dlaczego? Mamy do czynienia z kwadratem różnicy dwóch wyrażeń $$(2x,  3y)$$, więc stosujemy właśnie ten wzór."
               onComplete={() => handleStageComplete(1)}
@@ -50,12 +50,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które uproszczenie jest poprawne?"
               choices={[
-                { label: "4x^2 - 12xy + 9y^2", value: "a" },
-                { label: "4x^2 - 6xy + 9y^2", value: "b" },
+                { label: "4x^2 - 6xy + 9y^2", value: "a" },
+                { label: "4x^2 - 12xy + 9y^2", value: "b" },
                 { label: "2x^2 - 12xy + 3y^2", value: "c" },
                 { label: "4x^2 + 12xy + 9y^2", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne uproszczenie to $$4x^2 - 12xy + 9y^2$$. <br>
                 Dlaczego? Podstawiamy do wzoru:<br>
                 1. $$a = 2x$$, $$b = 3y$$<br>

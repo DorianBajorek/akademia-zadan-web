@@ -13,12 +13,12 @@ const AlgebraTask: React.FC = () => {
     "task_id": 28,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Dla każdej liczby rzeczywistej a wyrażenie $5 - (4 + 2a)(4 - 2a)$ jest równe",
-    "choiceA": "$-4a^2 - 16a - 11$",
-    "choiceB": "$4a^2 - 11$",
+    "description": "Dla każdej liczby rzeczywistej $a$ wyrażenie $5 - (4 + 2a)(4 - 2a)$ jest równe",
+    "choiceA": "$4a^2 - 11$",
+    "choiceB": "$-4a^2 - 16a - 11$",
     "choiceC": "$-4a^2 - 11$",
     "choiceD": "$4a^2 + 16a - 11$",
-    "correct_answer": "c",
+    "correct_answer": "a",
   };
 
   const handleCheckAnswer = () => {

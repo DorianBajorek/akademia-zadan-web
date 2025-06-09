@@ -27,14 +27,14 @@ const Page = () => {
               Pierwszy krok: zastosuj wzór skróconego mnożenia do pierwszego nawiasu:
             </p>
             <ChoiceQuestion
-              question="Jak poprawnie rozwinąć pierwsze wyrażenie?"
+              question="Jak poprawnie rozwinąć wyrażenie?"
               choices={[
-                { label: "3 - 5 - 4", value: "a" },
+                { label: "9 - 25 - 4", value: "a" },
                 { label: "3 + 5 - 4", value: "b" },
-                { label: "9 - 25 - 4", value: "c" },
+                { label: "3 - 5 - 4", value: "c" },
                 { label: "3 - 5 + 4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne rozwinięcie:<br>
                 $$(\sqrt{3} - \sqrt{5})(\sqrt{3}+\sqrt{5}) = (\sqrt{3})^2 - (\sqrt{5})^2 = 3 - 5$$<br>
                 (wzór na różnicę kwadratów $$a^2 - b^2 = (a-b)(a+b)$$"
@@ -51,12 +51,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które uproszczenie jest poprawne?"
               choices={[
-                { label: "-6", value: "a" },
+                { label: "4", value: "a" },
                 { label: "2", value: "b" },
                 { label: "-2 - 4", value: "c" },
-                { label: "4", value: "d" }
+                { label: "-6", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne uproszczenie:<br>
                 1. $$3 - 5 = -2$$<br>
                 2. $$-2 - 4 = -6$$"

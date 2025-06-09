@@ -14,11 +14,11 @@ const PolynomialExpressionTask: React.FC = () => {
     "exam_type": "mp",
     "task_type": "mc4",
     "description": "Dla każdej liczby rzeczywistej $x$ wartość wyrażenie $(3x + 2)^2 - (2x - 3)^2$ jest równa wartości wyrażenia",
-    "choiceA": "$5x^2 - 5$",
+    "choiceA": "$5x^2 + 24x - 5$",
     "choiceB": "$5x^2 + 13$",
-    "choiceC": "$5x^2 + 24x - 5$",
+    "choiceC": "$5x^2 - 5$",
     "choiceD": "$5x^2 + 24x - 13$",
-    "correct_answer": "c",
+    "correct_answer": "a",
   };
 
   const handleCheckAnswer = () => {

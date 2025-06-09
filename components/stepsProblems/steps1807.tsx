@@ -16,7 +16,7 @@ const QuadraticExpressionTask: React.FC = () => {
     "description": "Dla każdej liczby rzeczywistej $x$, wyrażenie $4x² - 12x + 9$ jest równe",
     "choiceA": "$(4x + 3)(x + 3)$",
     "choiceB": "$(2x - 3)(2x + 3)$",
-    "choiceC": "$(2x - 3)(2x-3)$",
+    "choiceC": "$(2x - 3)^2$",
     "choiceD": "$(x - 3)(4x - 3)$",
     "correct_answer": "c",
   };

@@ -52,12 +52,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które uproszczenie jest poprawne?"
               choices={[
-                { label: "2x^2 - 2x + 13", value: "a" },
+                { label: "x^4 - 2x + 13", value: "a" },
                 { label: "2x^2 + 10x + 13", value: "b" },
                 { label: "2x^2 - 2x - 5", value: "c" },
-                { label: "x^4 - 2x + 13", value: "d" }
+                { label: "2x^2 - 2x + 13", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne uproszczenie: <br>
                 $$x^2 + x^2 = 2x^2$$<br>
                 $$4x - 6x = -2x$$<br>

@@ -14,11 +14,11 @@ const AlgebraExpressionTask: React.FC = () => {
     "exam_type": "mp",
     "task_type": "mc4",
     "description": "Dla każdej liczby rzeczywistej $a$ i dla każdej liczby rzeczywistej $b$ wartość wyrażenia $(2a + b)^2 - (2a - b)^2$ jest równa wartości wyrażenia",
-    "choiceA": "$8a^2$",
-    "choiceB": "$8ab$",
+    "choiceA": "$8ab$",
+    "choiceB": "$8a^2$",
     "choiceC": "$-8ab$",
     "choiceD": "$2b^2$",
-    "correct_answer": "b",
+    "correct_answer": "a",
   };
 
   const handleCheckAnswer = () => {

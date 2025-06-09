@@ -36,7 +36,7 @@ const Page = () => {
               ]}
               correctAnswer="a"
               explanation="Poprawny wzór to $$(a + b)^2 = a^2 + 2ab + b^2$$. <br>
-                Dlaczego? Mamy do czynienia z kwadratem sumy dwóch wyrażeń (x i 2), więc stosujemy właśnie ten wzór."
+                Dlaczego? Mamy do czynienia z kwadratem sumy dwóch wyrażeń $$x$$ i $$2$$, więc stosujemy właśnie ten wzór."
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -50,16 +50,16 @@ const Page = () => {
             <ChoiceQuestion
               question="Które uproszczenie jest poprawne?"
               choices={[
-                { label: "x^2 + 4x + 4", value: "a" },
+                { label: "x^2 + 2x + 2", value: "a" },
                 { label: "x^2 + 2x + 4", value: "b" },
                 { label: "x^2 + 4x + 2", value: "c" },
-                { label: "x^2 + 2x + 2", value: "d" }
+                { label: "x^2 + 4x + 4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne uproszczenie to $$x^2 + 4x + 4$$. <br>
                 Dlaczego? Podstawiamy do wzoru:<br>
                 1. $$a = x$$, $$b = 2$$<br>
-                2. $$(x + 2)^2 = x^2 + 2 \\cdot x \\cdot 2 + 2^2 = x^2 + 4x + 4$$"
+                2. $$(x + 2)^2 = x^2 + 2 \cdot x \cdot 2 + 2^2 = x^2 + 4x + 4$$"
               onComplete={() => handleStageComplete(2)}
             />
           </>

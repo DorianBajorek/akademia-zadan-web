@@ -16,9 +16,9 @@ const AlgebraTransformTask: React.FC = () => {
     "description": "Dla każdych liczb rzeczywistych $a, b$ wyrażenie $a - b + ab - 1$ jest równe",
     "choiceA": "$(a + 1)(b - 1)$",
     "choiceB": "$(1 - b)(1 + a)$",
-    "choiceC": "$(a - 1)(b + 1)$",
-    "choiceD": "$(a + b)(1 + a)$",
-    "correct_answer": "c",
+    "choiceC": "$(a + b)(1 + a)$",
+    "choiceD": "$(a - 1)(b + 1)$",
+    "correct_answer": "d",
   };
 
   const handleCheckAnswer = () => {

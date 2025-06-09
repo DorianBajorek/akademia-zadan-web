@@ -15,9 +15,9 @@ const PolynomialSimplificationTask: React.FC = () => {
     "description": "Dla każdej liczby rzeczywistej $x$ wyrażenie $(3x - 2)^2 - (2x - 3)(2x + 3)$ jest po uproszczeniu równe",
     "choiceA": "$5x^2 - 12x - 5$",
     "choiceB": "$5x^2 - 13$",
-    "choiceC": "$5x^2 - 12x + 13$",
-    "choiceD": "$5x^2 + 5$",
-    "correct_answer": "c",
+    "choiceC": "$5x^2 + 5$",
+    "choiceD": "$5x^2 - 12x + 13$",
+    "correct_answer": "d",
   };
 
   const handleCheckAnswer = () => {

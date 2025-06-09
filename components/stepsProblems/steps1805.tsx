@@ -13,21 +13,12 @@ const MultiplyBracketsTask: React.FC = () => {
     "task_id": 25,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Wykonaj mnożenie i uprość wyrażenie: $(x + 5)(2x - 3)$",
-    "choiceA": "$2x^2 + 7x - 15$",
-    "choiceB": "$2x^2 - 7x - 15$",
+    "description": "Dla każdej liczby rzeczywistej $x$ wyrażenie  $(x+5)(2x-3)$ jest równe",
+    "choiceA": "$2x^2 - 7x - 15$",
+    "choiceB": "$2x^2 + 7x - 15$",
     "choiceC": "$2x^2 + 13x - 15$",
     "choiceD": "$2x^2 - 13x - 15$",
-    "correct_answer": "a",
-    "solution_steps": [
-      "Rozpoczynamy od zastosowania metody FOIL:",
-      "1. First (pierwsze wyrazy): $x \\cdot 2x = 2x^2$",
-      "2. Outer (zewnętrzne wyrazy): $x \\cdot (-3) = -3x$",
-      "3. Inner (wewnętrzne wyrazy): $5 \\cdot 2x = 10x$",
-      "4. Last (ostatnie wyrazy): $5 \\cdot (-3) = -15$",
-      "Łączymy wszystkie wyrazy: $2x^2 - 3x + 10x - 15$",
-      "Redukujemy wyrazy podobne: $2x^2 + 7x - 15$"
-    ]
+    "correct_answer": "b"
   };
 
   const handleCheckAnswer = () => {

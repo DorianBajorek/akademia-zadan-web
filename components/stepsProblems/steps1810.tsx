@@ -18,7 +18,7 @@ const PolynomialMultiplicationTask: React.FC = () => {
     "choiceB": "$-9x^6 + 6x^3 - 6x^2 + 4x$",
     "choiceC": "$-9x^5 + 6x^3 - 6x^2 + 4x$",
     "choiceD": "$-9x^6 + 4x$",
-    "correct_answer": "c",
+    "correct_answer": "a",
   };
 
   const handleCheckAnswer = () => {

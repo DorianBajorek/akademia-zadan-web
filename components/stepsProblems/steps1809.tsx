@@ -13,7 +13,7 @@ const PolynomialTask: React.FC = () => {
     "task_id": 29,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Dla każdej liczby rzeczywistej x wyrażenie $x⁶ - 2x³ - 3$ jest równe",
+    "description": "Dla każdej liczby rzeczywistej $x$ wyrażenie $x^6 - 2x^3 - 3$ jest równe",
     "choiceA": "$(x^3 + 1)(x^2 - 3)$",
     "choiceB": "$(x^3 - 3)(x^3 + 1)$",
     "choiceC": "$(x^2 + 3)(x^4 - 1)$",

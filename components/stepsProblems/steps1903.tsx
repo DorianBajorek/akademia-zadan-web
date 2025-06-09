@@ -29,12 +29,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Który wzór zastosujesz?"
               choices={[
-                { label: "(a - b)^2 = a^2 - 2ab + b^2", value: "a" },
+                { label: "a^2 - b^2 = (a - b)(a + b)", value: "a" },
                 { label: "(a + b)^2 = a^2 + 2ab + b^2", value: "b" },
-                { label: "a^2 - b^2 = (a - b)(a + b)", value: "c" },
+                { label: "(a - b)^2 = a^2 - 2ab + b^2", value: "c" },
                 { label: "(a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawny wzór to $$(a - b)^2 = a^2 - 2ab + b^2$$. <br>
                 Dlaczego? Mamy do czynienia z kwadratem różnicy dwóch wyrażeń $$(\sqrt{2},  3)$$, więc stosujemy właśnie ten wzór."
               onComplete={() => handleStageComplete(1)}
@@ -50,12 +50,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które uproszczenie jest poprawne?"
               choices={[
-                { label: "11 - 6\\sqrt{2}", value: "a" },
-                { label: "5 - 6\\sqrt{2}", value: "b" },
+                { label: "5 - 6\\sqrt{2}", value: "a" },
+                { label: "11 - 6\\sqrt{2}", value: "b" },
                 { label: "11 + 6\\sqrt{2}", value: "c" },
                 { label: "2 - 6\\sqrt{2} + 9", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne uproszczenie to $$11 - 6\sqrt{2}$$. <br>
                 Obliczenia krok po kroku:<br>
                 1. $$a = \sqrt{2}$$, $$b = 3$$<br>
