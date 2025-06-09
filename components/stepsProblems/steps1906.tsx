@@ -53,7 +53,7 @@ const Page = () => {
               choices={[
                 { label: "4", value: "a" },
                 { label: "2", value: "b" },
-                { label: "-2 - 4", value: "c" },
+                { label: "-2 + 4", value: "c" },
                 { label: "-6", value: "d" }
               ]}
               correctAnswer="d"
