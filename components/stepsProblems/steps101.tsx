@@ -50,12 +50,12 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Oblicz deltę (Δ) dla tej nierówności.
+              Oblicz wyróżnik  <InlineMath math="\Delta"/> dla tej nierówności.
             </p>
             <NumericQuestion
-              question="Która wartość jest poprawną deltą (Δ) dla tej nierówności?"
+              question="Oblicz wartość $$\Delta$$ i wpisz poniżej"
               correctAnswer="0"
-              explanation="Delta (Δ) jest obliczana ze wzoru:
+              explanation="Mamy wzór:
                 $$\Delta = b^2 - 4ac$$.
                 Podstawiając wartości współczynników:
                 $$\Delta = 6^2 - 4 \cdot 1 \cdot 9 = 36 - 36 = 0$$.
@@ -80,7 +80,7 @@ const Page = () => {
                 $$x_0 = \frac{-6}{2} = -3$$.
                 Poprawna wartość pierwiastka to $$x_0 = -3$$."
               onComplete={() => handleStageComplete(3)}
-              img="/steps-images/jednoMIejsceZerowe.png"
+              img="/steps-images/jedno-miejsce-zerowe.png"
             />
           </>
         )}
@@ -101,7 +101,8 @@ const Page = () => {
               correctAnswer="a"
               explanation="Rozwiązaniem nierówności $$x^2 + 6x + 9 \geq 0$$ jest cały zbiór liczb rzeczywistych:
                 $$x \in \mathbb{R}$$.
-                Wynika to z faktu, że parabola skierowana jest ramionami do góry (a > 0), a nierówność jest typu '≥', więc parabola jest zawsze powyżej lub na poziomie osi x."
+                Wynika to z faktu, że parabola skierowana jest ramionami do góry $$(a > 0)$$, 
+                a nierówność jest typu  $$\geq$$, więc parabola jest zawsze powyżej lub na poziomie osi x."
               onComplete={() => handleStageComplete(4)}
               img="/steps-images/ramionaParaboli.png"
               explanationImage="/steps-images/fun2.png"

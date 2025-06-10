@@ -51,16 +51,17 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Oblicz deltę (Δ) dla tej nierówności.
+              Oblicz  <InlineMath math="\Delta"/> dla tej nierówności.
             </p>
             <NumericQuestion
-              question="Która wartość jest poprawną deltą (Δ) dla tej nierówności?"
+           //   question="Która wartość jest poprawną deltą (Δ) dla tej nierówności?"
+           question="Wpisz poniżej obliczoną wartość $$\Delta$$"
               correctAnswer="0"
-              explanation="Delta (Δ) jest obliczana ze wzoru:
+              explanation="Wyróżnik $$\Delta$$ jest obliczana ze wzoru:
                 $$\Delta = b^2 - 4ac$$.
                 Podstawiając wartości współczynników:
                 $$\Delta = (-4)^2 - 4 \cdot 1 \cdot 4 = 16 - 16 = 0$$.
-                Poprawna wartość delty to $$\Delta = 0$$."
+                Poprawna wartość to $$\Delta = 0$$."
               onComplete={() => handleStageComplete(2)}
               img="/steps-images/delta.png"
             />
@@ -81,13 +82,13 @@ const Page = () => {
                 { label: "x₀ = 0", value: "d" }
               ]}
               correctAnswer="a"
-              explanation="Ponieważ delta wynosi 0, równanie ma dokładnie jeden pierwiastek podwójny:
+              explanation="Ponieważ $$\Delta$$ wynosi 0, równanie ma dokładnie jeden pierwiastek podwójny:
                 $$x_0 = \frac{-b}{2a}$$.
                 Podstawiając wartości:
                 $$x_0 = \frac{4}{2} = 2$$.
                 Poprawna wartość pierwiastka to $$x_0 = 2$$."
               onComplete={() => handleStageComplete(3)}
-              img="/steps-images/jednoMIejsceZerowe.png"
+              img="/steps-images/jedno-miejsce-zerowe.png"
             />
           </>
         )}
@@ -100,7 +101,7 @@ const Page = () => {
             <ChoiceQuestion
               question="Który przedział jest rozwiązaniem nierówności $$x^2 - 4x + 4 \leq 0$$?"
               choices={[
-                { label: "x ∈ (-∞, 2\\rangle ∪ \\langle2, ∞)", value: "a" },
+                { label: "x ∈ (-∞, 2\\rangle \\cup \\langle2, ∞)", value: "a" },
                 { label: "x ∈ (2, ∞)", value: "b" },
                 { label: "x ∈ (-∞, 2)", value: "c" },
                 { label: "x = 2", value: "d" },
@@ -108,7 +109,7 @@ const Page = () => {
               correctAnswer="d"
               explanation="Rozwiązaniem nierówności $$x^2 - 4x + 4 \leq 0$$ jest dokładnie jedna wartość:
                 $$x = 2$$.
-                Wynika to z faktu, że parabola skierowana jest ramionami do góry (a > 0), a nierówność jest typu '≤', więc rozwiązanie obejmuje tylko punkt, w którym parabola dotyka osi x."
+                Wynika to z faktu, że parabola skierowana jest ramionami do góry $$(a > 0)$$, a nierówność jest typu $$\leq$$, więc rozwiązanie obejmuje tylko punkt, w którym parabola dotyka osi x."
               onComplete={() => handleStageComplete(4)}
               img="/steps-images/ramionaParaboli.png"
               explanationImage="/steps-images/fun1.png"

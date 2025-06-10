@@ -49,10 +49,10 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Oblicz deltę (Δ) dla tej nierówności.
+              Oblicz  <InlineMath math="\Delta"/> dla tej nierówności.
             </p>
             <ChoiceQuestion
-              question="Która wartość jest poprawną deltą (Δ) dla tej nierówności?"
+              question="Która wartość jest poprawną  $$\Delta$$ dla tej nierówności?"
               choices={[
                 { label: "Δ = 36", value: "a" },
                 { label: "Δ = 64", value: "b" },
@@ -60,11 +60,11 @@ const Page = () => {
                 { label: "Δ = 16", value: "d" }
               ]}
               correctAnswer="b"
-              explanation="Delta (Δ) jest obliczana ze wzoru:
+              explanation="Mamy wzór:
                 $$\Delta = b^2 - 4ac$$.
                 Podstawiając wartości współczynników:
                 $$\Delta = 6^2 - 4 \cdot 1 \cdot (-7) = 36 + 28 = 64$$.
-                Poprawna wartość delty to $$\Delta = 64$$."
+                Poprawna wartość to $$\Delta = 64$$."
               onComplete={() => handleStageComplete(2)}
               img="/steps-images/delta.png"
             />
@@ -79,12 +79,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
               choices={[
-                { label: "x₁ = -7, x₂ = 1", value: "a" },
-                { label: "x₁ = 7, x₂ = -1", value: "b" },
-                { label: "x₁ = 3, x₂ = -3", value: "c" },
-                { label: "x₁ = 0, x₂ = 6", value: "d" }
+                { label: "x_1 = 0, x_2 = 6", value: "a" },
+                { label: "x_1 = 7, x_2 = -1", value: "b" },
+                { label: "x_1 = 3, x_2 = -3", value: "c" },
+                { label: "x_1 = -7, x_2 = 1", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Ponieważ delta jest dodatnia, równanie ma dwa pierwiastki:
                 $$x_1 = \frac{-b - \sqrt{\Delta}}{2a}$$,
                 $$x_2 = \frac{-b + \sqrt{\Delta}}{2a}$$.
@@ -114,7 +114,7 @@ const Page = () => {
               correctAnswer="a"
               explanation="Rozwiązaniem nierówności $$x^2 + 6x - 7 \leq 0$$ jest przedział:
                 $$x \in \langle-7, 1\rangle$$.
-                Wynika to z faktu, że parabola skierowana jest ramionami do góry (a > 0), a nierówność jest typu '≤', więc rozwiązanie obejmuje wartości między pierwiastkami, włącznie z nimi."
+                Wynika to z faktu, że parabola skierowana jest ramionami do góry $$(a > 0)$$, a nierówność jest typu $$\leq$$, więc rozwiązanie obejmuje wartości między pierwiastkami, włącznie z nimi."
               onComplete={() => handleStageComplete(4)}
               img="/steps-images/ramionaParaboli.png"
               explanationImage="/steps-images/fun3.png"
