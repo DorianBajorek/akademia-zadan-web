@@ -67,17 +67,7 @@ const MultiplyBracketsTask: React.FC = () => {
                 ? "Poprawna odpowiedź!"
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
-            
-            {selectedAnswer !== taskData.correct_answer && (
-              <div className="mt-4 p-4 bg-blue-50 rounded-lg text-left">
-                <h3 className="font-bold text-lg mb-2">Rozwiązanie krok po kroku:</h3>
-                <ol className="list-decimal pl-5 space-y-2">
-                  {taskData.solution_steps.map((step, index) => (
-                    <li key={index} dangerouslySetInnerHTML={{ __html: step }} />
-                  ))}
-                </ol>
-              </div>
-            )}
+    
           </div>
         )}
 </main>
