@@ -53,12 +53,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczone równanie?"
               choices={[
-                { label: "5x - 14 = 6x - 18", value: "a" },
+                { label: "-x - 14 = -18", value: "a" },
                 { label: "5x - 2 = 6x - 18", value: "b" },
                 { label: "5x - 14 = 6x + 18", value: "c" },
-                { label: "-x - 14 = -18", value: "d" }
+                { label: "5x - 14 = 6x - 18", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne uproszczenie to $$5x - 14 = 6x - 18$$. <br>
                 Dlaczego?<br>
                 Lewa strona: $$2x + 3x - 8 - 6 = 5x - 14$$<br>
@@ -71,17 +71,17 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Trzeci krok: przenieś wyrażenia z x na jedną stronę, a liczby na drugą:
+              Trzeci krok: przenieś wyrażenia z <InlineMath math="x"/> na jedną stronę, a liczby na drugą:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "-x = -4", value: "a" },
+                { label: "11x = 4", value: "a" },
                 { label: "11x = 32", value: "b" },
-                { label: "x = 4", value: "c" },
+                { label: "-x = -4", value: "c" },
                 { label: "-x = 4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne przekształcenie to $$-x = -4$$. <br>
                 Dlaczego?<br>
                 $$5x - 6x = -18 + 14$$<br>
@@ -99,12 +99,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie jest rozwiązanie równania?"
               choices={[
-                { label: "x = 4", value: "a" },
+                { label: "x = -\\frac{1}{4}", value: "a" },
                 { label: "x = -4", value: "b" },
-                { label: "x = 1/4", value: "c" },
-                { label: "x = -1/4", value: "d" }
+                { label: "x = \\frac{1}{4}", value: "c" },
+                { label: "x = 4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne rozwiązanie to $$x = 4$$. <br>
                 Dlaczego? Mnożymy obie strony przez $$-1$$:<br>
                 $$-x = -4$$ → $$x = 4$$"
@@ -133,7 +133,7 @@ const Page = () => {
                 step: "x = 4",
               },
             ]}
-            solutions={["4"]}
+            solutions={["x=4"]}
           />
         )}
       </div>

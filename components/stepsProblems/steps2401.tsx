@@ -24,7 +24,7 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Pierwszy krok: przenieś wyrażenia z x na lewą stronę, a liczby na prawą:
+              Pierwszy krok: przenieś wyrażenia z <InlineMath math="x"/> na lewą stronę, a liczby na prawą:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
@@ -50,12 +50,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczone równanie?"
               choices={[
-                { label: "2x = 4", value: "a" },
+                { label: "2x = -2", value: "a" },
                 { label: "6x = -2", value: "b" },
-                { label: "2x = -2", value: "c" },
+                { label: "2x = 4", value: "c" },
                 { label: "-6x = 4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne uproszczenie to $$2x = 4$$. <br>
                 Dlaczego? Po lewej stronie mamy $$4x - 2x = 2x$$, a po prawej $$1 + 3 = 4$$."
               onComplete={() => handleStageComplete(2)}
@@ -71,12 +71,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie jest rozwiązanie równania?"
               choices={[
-                { label: "x = 2", value: "a" },
-                { label: "x = -1", value: "b" },
+                { label: "x = -1", value: "a" },
+                { label: "x = 2", value: "b" },
                 { label: "x = -\\frac{1}{3}", value: "c" },
                 { label: "x = \\frac{2}{3}", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne rozwiązanie to $$x = 2$$. <br>
                 Dlaczego? Dzielimy obie strony przez 2: <br>
                 $$2x = 4$$<br>
@@ -101,7 +101,7 @@ const Page = () => {
                 step: "x = 2",
               },
             ]}
-            solutions={["2"]}
+            solutions={["x=2"]}
           />
         )}
       </div>

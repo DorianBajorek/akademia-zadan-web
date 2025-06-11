@@ -29,12 +29,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "2x - 2 + x = x - 6 + 9x", value: "a" },
+                { label: "2x - 2 + x = x - 6 - 9x", value: "a" },
                 { label: "2x - 1 + x = x - 6 - 9x", value: "b" },
-                { label: "2x - 2 + x = x - 6 - 9x", value: "c" },
+                { label: "2x - 2 + x = x - 6 + 9x", value: "c" },
                 { label: "2x - 1 + x = x - 6 + 9x", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne wymnożenie to $$2x - 2 + x = x - 6 + 9x$$. <br>
                 Dlaczego?<br>
                 $$2(x - 1) = 2x - 2$$<br>
@@ -52,12 +52,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczone równanie?"
               choices={[
-                { label: "3x - 2 = 10x - 6", value: "a" },
+                { label: "3x - 1 = 10x - 6", value: "a" },
                 { label: "3x - 2 = -8x - 6", value: "b" },
-                { label: "3x - 1 = 10x - 6", value: "c" },
+                { label: "3x - 2 = 10x - 6", value: "c" },
                 { label: "2x - 2 = -8x - 6", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne uproszczenie to $$3x - 2 = 10x - 6$$. <br>
                 Dlaczego?<br>
                 Lewa strona: $$2x + x - 2 = 3x - 2$$<br>
@@ -70,7 +70,7 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Trzeci krok: przenieś wyrażenia z x na jedną stronę, a liczby na drugą:
+              Trzeci krok: przenieś wyrażenia z <InlineMath math="x"/> na jedną stronę, a liczby na drugą:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
@@ -132,7 +132,7 @@ const Page = () => {
                 step: "x = \\frac{4}{7}",
               },
             ]}
-            solutions={["\\frac{4}{7}"]}
+            solutions={["x=\\frac{4}{7}"]}
           />
         )}
       </div>

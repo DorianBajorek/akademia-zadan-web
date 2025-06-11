@@ -64,13 +64,13 @@ const tasks = [
     img: "/problemImages/problem2407.png",
     isCompleted: true,
   },
-    {
-    id: "2408",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2408.png",
-    isCompleted: true,
-  },
+  //   {
+  //   id: "2408",
+  //   title: "Podstawowe działania",
+  //   description: "Skorzystaj z własności wartosci bezwzględnej",
+  //   img: "/problemImages/problem2408.png",
+  //   isCompleted: true,
+  // },
 ];
 
 const TopicTasksPage = () => {

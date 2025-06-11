@@ -24,7 +24,7 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Pierwszy krok: przenieś wyrażenia z x na lewą stronę, a liczby na prawą:
+              Pierwszy krok: przenieś wyrażenia z <InlineMath math="x"/> na lewą stronę, a liczby na prawą:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
@@ -50,12 +50,12 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczone równanie?"
               choices={[
-                { label: "x = 4", value: "a" },
+                { label: "x = -2", value: "a" },
                 { label: "5x = -2", value: "b" },
-                { label: "x = -2", value: "c" },
+                { label: "x = 4", value: "c" },
                 { label: "-5x = 4", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="c"
               explanation="Poprawne uproszczenie to $$x = 4$$. <br>
                 Dlaczego? Po lewej stronie mamy $$3x - 2x = x$$, a po prawej $$1 + 3 = 4$$."
               onComplete={() => handleStageComplete(2)}
@@ -74,7 +74,7 @@ const Page = () => {
                 step: "x = 4",
               },
             ]}
-            solutions={["4"]}
+            solutions={["x=4"]}
           />
         )}
       </div>
