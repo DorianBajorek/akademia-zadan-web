@@ -1,19 +1,24 @@
 import { InlineMath } from "react-katex";
 import { useState } from "react";
+import { solveProblem } from "@/service";
+import { useAuth } from "@/app/UserData";
 
 interface TaskContentProps {
   content: string;
   image?: string;
   youtubeId?: string;
+  taskId?: string;
 }
 
 const TaskContent: React.FC<TaskContentProps> = ({ 
   content, 
   image, 
-  youtubeId 
+  youtubeId, 
+  taskId 
 }) => {
   const [showSolution, setShowSolution] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
+  const { token } = useAuth();
 
   const renderText = (text: string) => {
     const parts = text.split(/\$(.*?)\$/g);
@@ -30,10 +35,19 @@ const TaskContent: React.FC<TaskContentProps> = ({
     setShowSolution(!showSolution);
   };
 
-  const handleCompleteTask = () => {
+  const handleCompleteTask = async () => {
     const newState = !isCompleted;
     setIsCompleted(newState);
     console.log(newState ? "Zadanie oznaczone jako rozwiązane" : "Anulowano rozwiązanie zadania");
+
+    if (newState && taskId && token) {
+      try {
+        await solveProblem(taskId, token);
+        console.log("Problem marked as completed (manual)");
+      } catch (err) {
+        console.error("Problem completion failed", err);
+      }
+    }
   };
 
   return (

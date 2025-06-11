@@ -99,7 +99,7 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="DlC-AfObAOM" />
+        <VideoSection youtubeId="" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Współczynniki funkcji liniowej"} />

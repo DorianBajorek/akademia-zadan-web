@@ -71,10 +71,10 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="ah14ixiKFw4" />
+        <VideoSection youtubeId="" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Wzory skróconego mnożenia"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Miejsce zerowe funkcji liniowej"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">

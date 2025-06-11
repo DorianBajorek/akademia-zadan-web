@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { GoogleLogin } from '@react-oauth/google';
 import { useState } from 'react';
-import { google, login } from "@/service";
+import { getAuthUserData, google, login } from "@/service";
 import { useAuth } from "../UserData";
 import { Eye, EyeOff } from 'lucide-react';
 
@@ -14,7 +14,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
-  const { updateToken } = useAuth();
+  const { updateToken, updateUsername } = useAuth();
 
   const handleSubmit = async () => {
     setError('');
@@ -22,12 +22,16 @@ const Login: React.FC = () => {
       const data = await login(email, password);
       console.log("Zalogowano pomyślnie:", data);
       if (data.key) {
+        console.log("Token:", data.key);
         updateToken(data.key);
+        const userData = await getAuthUserData(data.key)
+        updateUsername(userData.username);
         // window.location.href = '/';
       } else {
         setError('Nieprawidłowy email lub hasło.');
       }
     } catch (err) {
+      console.error("Błąd podczas logowania:", err);
       setError('Wystąpił błąd podczas logowania. Spróbuj ponownie.');
     }
   };
