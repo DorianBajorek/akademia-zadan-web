@@ -43,7 +43,7 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Jaki jest najmniejszy wspólny mianownik dla tych ułamków?
+              Pierwszym krokiem tego zadani jest znalezienie najmniejszego wspólnego mianownika.
             </p>
             <ChoiceQuestion
               question="Wybierz najmniejszą liczbę, która dzieli się przez oba mianowniki (2 i 3):"
@@ -54,7 +54,8 @@ const Page = () => {
                 { label: "12", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Najmniejszy wspólny mianownik to $$6$$..."
+              explanation="Najmniejszy wspólny mianownik $$(NWW)$$ to najmniejsza liczba, przez którą dzielą się oba mianowniki. W tym przypadku: 
+                $$2$$ i $$3$$ dzielą się przez $$6$$."
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -62,7 +63,7 @@ const Page = () => {
 
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">Teraz rozszerz oba ułamki...</p>
+            <p className="text-lg text-gray-700 mt-6">Teraz jeśli znamy wspólny mianownik należy rozszerzyć ułamki tak aby uzyskać oczekiwany wspólny mianownik.</p>
             <ChoiceQuestion
               question="Jak prawidłowo rozszerzyć ułamki do mianownika 6?"
               choices={[
@@ -72,7 +73,9 @@ const Page = () => {
                 { label: "\\frac{1}{2} = \\frac{1}{6}, \\frac{1}{3} = \\frac{1}{6}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Aby rozszerzyć ułamki..."
+              explanation="Aby rozszerzyć ułamek, mnożymy licznik i mianownik przez tę samą liczbę. <br/> <br/>
+              $$\frac{1}{2} = \frac{1 \cdot 3}{2 \cdot 3} = \frac{3}{6}$$<br/> <br/>
+              $$\frac{1}{3} = \frac{1 \cdot 2}{3 \cdot 2} = \frac{2}{6}$$."
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -90,7 +93,8 @@ const Page = () => {
                 { label: "\\frac{2}{6}", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Dodajemy liczniki: ..."
+              explanation="Gdy ułamki mają ten sam mianownik, dodajemy tylko liczniki. 
+        $$3 + 2 = 5$$, więc $$\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$$."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -108,7 +112,7 @@ const Page = () => {
                 { label: "\\text{Tak, przez 2}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Nie da się skrócić, bo 5 i 6 nie mają wspólnych dzielników..."
+              explanation="Nie da się skrócić, bo $$5$$ i $$6$$ nie mają wspólnych dzielników, czyli  liczb które dzielą jednocześnie $$5$$ i $$6$$. (oczywiście oprócz $$1$$, ale nie skracamy przez $$1$$, bo to nie zmiania wartości liczby)."
               onComplete={() => handleStageComplete(4)}
             />
           </>

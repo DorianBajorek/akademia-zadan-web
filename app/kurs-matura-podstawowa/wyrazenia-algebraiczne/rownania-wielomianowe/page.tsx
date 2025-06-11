@@ -92,7 +92,7 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="ah14ixiKFw4" />
+        <VideoSection youtubeId="" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Wzory skróconego mnożenia"} />

@@ -65,18 +65,24 @@ const RealNumbersCourse: React.FC = () => {
       slug: "/funkcje-kwadratowe/os-symetrii-paraboli",
       icon: "🧭"
     },
-    {
-      title: "Zadania optymalizacyjne",
-      shortDesc: "Zastosowanie funkcji kwadratowej do rozwiązywania problemów optymalizacyjnych",
-      slug: "/funkcje-kwadratowe/optymalizacja-funkcji-kwadratowej",
-      icon: "🎯"
-    },
+    // {
+    //   title: "Zadania optymalizacyjne",
+    //   shortDesc: "Zastosowanie funkcji kwadratowej do rozwiązywania problemów optymalizacyjnych",
+    //   slug: "/funkcje-kwadratowe/optymalizacja-funkcji-kwadratowej",
+    //   icon: "🎯"
+    // },
     {
       title: "Wykres funkcji kwadratowej",
       shortDesc: "Odczytywanie informacji z wykresu funkcji kwadratowej",
       slug: "/funkcje-kwadratowe/wykres-funkcji-kwadratowej",
       icon: "🎯"
-    }
+    },
+    {
+      title: "Równania wielomianowe",
+      shortDesc: "Poznaj wzory skróconego mnożenia i ich zastosowanie w uproszczeniach wyrażeń algebraicznych. Pojawią się również w kontekscie liczb rzeczywistych.",
+      slug: "/wyrazenia-algebraiczne/rownania-wielomianowe",
+      icon: "()²"
+    },
   ]; 
 
   const {token} = useAuth()

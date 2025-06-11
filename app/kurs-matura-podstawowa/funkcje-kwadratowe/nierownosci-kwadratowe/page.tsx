@@ -92,7 +92,7 @@ const TopicTasksPage = () => {
       <div className="max-w-7xl mx-auto w-full px-6 pt-8">
         <div className="mb-6">
           <Link 
-            href="/kurs-matura-podstawowa/liczby-rzeczywiste/" 
+            href="/kurs-matura-podstawowa/funkcje-kwadratowe/" 
             className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors group"
           >
             <svg 
@@ -107,7 +107,7 @@ const TopicTasksPage = () => {
           </Link>
         </div>
 
-        <VideoSection youtubeId="DlC-AfObAOM" />
+        <VideoSection youtubeId="" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Nierówności kwadratowe"} />

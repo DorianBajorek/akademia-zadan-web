@@ -7,97 +7,7 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
-  //   {
-  //   id: "3900",
-  //   title: "Zadanie 1",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3900.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3901",
-  //   title: "Zadanie 2",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3901.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3902",
-  //   title: "Zadanie 3",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3902.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3903",
-  //   title: "Zadanie 4",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3903.png",
-  //   isCompleted: false,
-  // },
-      {
-    id: "3904",
-    title: "Zadanie 5",
-    description: "Wyznaczanie dziedziny funkcji",
-    img: "/problemImages/problem3904.png",
-    isCompleted: false,
-  },
-  //     {
-  //   id: "3905",
-  //   title: "Zadanie 6",
-  //   description: "Wyznaczanie dziedziny funkcji",
-  //   img: "/problemImages/problem3905.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3906",
-  //   title: "Zadanie 7",
-  //   description: "Wyznaczanie dziedziny funkcji",
-  //   img: "/problemImages/problem3906.png",
-  //   isCompleted: false,
-  // },
-  {
-    id: "3907",
-    title: "Zadanie 8",
-    description: "Wyznaczanie dziedziny funkcji",
-    img: "/problemImages/problem3907.png",
-    isCompleted: false,
-  },
-    {
-    id: "3908",
-    title: "Zadanie 9",
-    description: "Wyznaczanie dziedziny funkcji",
-    img: "/problemImages/problem3908.png",
-    isCompleted: false,
-  },
-    {
-    id: "3909",
-    title: "Zadanie 10",
-    description: "Wyznaczanie dziedziny funkcji",
-    img: "/problemImages/problem3909.png",
-    isCompleted: false,
-  },
-    {
-    id: "3910",
-    title: "Zadanie 11",
-    description: "Wyznaczanie dziedziny funkcji",
-    img: "/problemImages/problem3910.png",
-    isCompleted: false,
-  },
-    {
-    id: "3911",
-    title: "Zadanie 12",
-    description: "Wyznaczanie dziedziny funkcji",
-    img: "/problemImages/problem3911.png",
-    isCompleted: false,
-  },
-      {
-    id: "3912",
-    title: "Zadanie 13",
-    description: "Wyznaczanie dziedziny funkcji",
-    img: "/problemImages/problem3912.png",
-    isCompleted: false,
-  },
+    {}
 ];
 
 const TopicTasksPage = () => {
@@ -129,7 +39,7 @@ const TopicTasksPage = () => {
         <VideoSection youtubeId="" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Odczytywanie własności funkcji"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Przesuwanie wykresów funkcji"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">

@@ -6,13 +6,14 @@ interface AuthContextType {
   token: string;
   username: string;
   updateToken: (token: string) => void;
+  updateUsername: (username: string) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [token, setToken] = useState<string>('ff6254177b60549244930302003e4fbc8935ab15');
+  const [token, setToken] = useState<string>('');
   const [username, setUsername] = useState<string>('');
 
   useEffect(() => {
@@ -27,6 +28,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem('token', newToken);
   };
 
+  const updateUsername = (newUsername: string) => {
+    setUsername(newUsername);
+    localStorage.setItem('userName', newUsername);
+  }
+
   const logout = () => {
     setToken('');
     setUsername('');
@@ -35,7 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ token, username, updateToken, logout }}>
+    <AuthContext.Provider value={{ token, username, updateToken, updateUsername, logout }}>
       {children}
     </AuthContext.Provider>
   );

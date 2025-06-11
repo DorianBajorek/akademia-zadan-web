@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const prefix  = "https://www.akademiazadan.pl"
+// const prefix  = "https://www.akademiazadan.pl"
+const prefix  = "http://127.0.0.1:8000"
 const local = "http://127.0.0.1:8000"
 
 export const getBarometerProblems = async() => {
@@ -80,6 +81,48 @@ export const register = async(email: string, username: string, password: string,
       console.error("Error while register", error);
     }
 }
+
+export const getAuthUserData = async(token: string) => {
+  try {
+      const response = await axios.get(`${prefix}/api/auth/v1/current_user_details/`, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+      console.log("User data:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Error while fetching user data", error);
+    }
+}
+
+export const getUserData = async(token: string) => {
+    const res = await axios.get(`${local}/api/users/v1/user_data/`, {
+    headers: { Authorization: `Token ${token}` },
+  });
+  return res.data;
+}
+
+export const getStreak = async (token: string) => {
+  const res = await axios.get(`${local}/api/users/v1/streak/`, {
+    headers: { Authorization: `Token ${token}` },
+  });
+  return res.data;
+};
+
+export const getTotalSolved = async (token: string) => {
+  const res = await axios.get(`${local}/api/users/v1/solved_problems/`, {
+    headers: { Authorization: `Token ${token}` },
+  });
+  return res.data;
+};
+
+export const getActivityDays = async (token: string) => {
+  const res = await axios.get(`${local}/api/users/v1/activity_days/`, {
+    headers: { Authorization: `Token ${token}` },
+  });
+  return res.data;
+};
 
 export const google = async(code: string | null) => {
   const payload = {
