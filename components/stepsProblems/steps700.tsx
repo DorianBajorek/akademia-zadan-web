@@ -4,6 +4,7 @@ import { useState } from "react";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
 import NumericQuestion from "./NumericQuestion";
+import { InlineMath } from "react-katex";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -17,7 +18,7 @@ const Page = () => {
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Zliczanie liczb</h2>
         <p className="text-lg text-gray-800">Ile jest wszystkich liczb naturalnych czterocyfrowych <u>parzystych</u>, 
-        w których zapisie dziesiętnym występują tylko cyfry 2, 4, 7 (np.: 7272, 2222, 7244)?</p>
+        w których zapisie dziesiętnym występują tylko cyfry <InlineMath math="2, 4, 7"/> (np.: <InlineMath math="7272, 2222, 7244"/>)?</p>
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -35,7 +36,7 @@ const Page = () => {
                 { label: "\\text{4 cyfry}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Na pierwszej pozycji mogą znaleźć się wszystkie 3 rozważane cyfry (2, 4, 7), 
+              explanation="Na pierwszej pozycji mogą znaleźć się wszystkie $$3$$ rozważane cyfry $$(2, 4, 7)$$, 
               gdyż nie ma to wpływu na parzystość wynikowej liczby."
               onComplete={() => handleStageComplete(1)}
             />
@@ -52,7 +53,7 @@ const Page = () => {
                 { label: "\\text{4 cyfry}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Na drugiej pozycji także mogą znaleźć się wszystkie 3 rozważane cyfry (2, 4, 7), 
+              explanation="Na drugiej pozycji także mogą znaleźć się wszystkie $$3$$ rozważane cyfry $$(2, 4, 7)$$, 
               gdyż nie ma to wpływu na parzystość wynikowej liczby."
               onComplete={() => handleStageComplete(2)}
             />
@@ -69,7 +70,7 @@ const Page = () => {
                 { label: "\\text{4 cyfry}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Na trzeciej pozycji także mogą znaleźć się wszystkie 3 rozważane cyfry (2, 4, 7), 
+              explanation="Na trzeciej pozycji także mogą znaleźć się wszystkie $$3$$ rozważane cyfry $$(2, 4, 7)$$, 
               gdyż nie ma to wpływu na parzystość wynikowej liczby."
               onComplete={() => handleStageComplete(3)}
             />
@@ -86,9 +87,9 @@ const Page = () => {
                 { label: "\\text{4 cyfry}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Na ostatniej pozycji (będącej cyfrą jedności) mogą znaleźć się jedynie cyfry 2 i 4. 
+              explanation="Na ostatniej pozycji (będącej cyfrą jedności) mogą znaleźć się jedynie cyfry $$2$$ i $$4$$. 
               Jest tak ponieważ, to od parzystości tej ostatniej cyfry zależy parzystość całej liczby, 
-              a spośród cyfr 2, 4 i 7 jedynie cyfry 2 i 4 symbolizują liczby parzyste."
+              a spośród cyfr $$2, 4$$ i $$7$$ jedynie cyfry $$2$$ i $$4$$ symbolizują liczby parzyste."
               onComplete={() => handleStageComplete(4)}
             />
           </>
@@ -117,7 +118,7 @@ const Page = () => {
               question="Podaj ostateczny wynik - liczbę rozważanych liczb:"
               correctAnswer="54"
               explanation="Jak ustaliliśmy wcześniej - szukana wartość wyraża się wzorem $$3 \cdot 3 \cdot 3 \cdot 2$$, 
-              więc wynosi ona 54. Jest to ostateczny wynik - liczba szukanych liczb."
+              więc wynosi ona $$54$$. Jest to ostateczny wynik - liczba szukanych liczb."
               onComplete={() => handleStageComplete(6)}
             />
           </>

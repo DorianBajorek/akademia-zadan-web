@@ -52,14 +52,14 @@ const tasks = [
   {
     id: "1106",
     title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
+    description: "Obliczanie wartości logarytmu",
     img: "/problemImages/problem1106.png",
     isCompleted: false,
   },
   {
     id: "1107",
     title: "Zadanie 1",
-    description: "Użycie wzoru na mnożenie logarytmu przez liczbę",
+    description: "Użycie wzoru na różnicę logarytmów",
     img: "/problemImages/problem1107.png",
     isCompleted: false,
   },
