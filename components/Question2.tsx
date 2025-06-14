@@ -1,4 +1,6 @@
+"use client";
 import { InlineMath } from "react-katex";
+import { motion } from "framer-motion";
 import 'katex/dist/katex.min.css';
 
 interface Question2Props {
@@ -48,7 +50,7 @@ const Question2: React.FC<Question2Props> = ({
 
   const renderAnswerContent = (text: string) => {
     return isImage(text) ? (
-      <img src={text} alt="answer option" className="max-w-full h-auto my-2 rounded" />
+      <img src={text} alt="answer option" className="max-w-full h-auto my-2 rounded-lg" />
     ) : (
       renderText(text)
     );
@@ -57,54 +59,87 @@ const Question2: React.FC<Question2Props> = ({
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
   return (
-    <div className="bg-white shadow-lg p-4 md:p-6 rounded-lg border border-gray-200">
-      <h3 className="text-base sm:text-lg md:text-xl text-gray-800 mb-4">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="bg-white p-6 rounded-2xl shadow-lg border-2 border-gray-100"
+    >
+      <motion.h3 
+        className="text-xl font-medium text-gray-800 mb-6 leading-relaxed"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.1 }}
+      >
         {renderText(description)}
-      </h3>
+      </motion.h3>
 
       {descriptionImg && (
-        <img
-          src={descriptionImg}
-          alt="description illustration"
-          className="w-[500px] h-[350px] mb-4 rounded mx-auto object-contain"
-        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="mb-6 overflow-hidden rounded-xl border-2 border-gray-100 shadow-sm"
+        >
+          <img
+            src={descriptionImg}
+            alt="description illustration"
+            className="w-full h-auto max-h-[400px] object-contain mx-auto"
+          />
+        </motion.div>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         {answers.map((answer, index) => {
-          let buttonStyle = "border-gray-200 hover:border-blue-400";
+          let buttonStyle = "border-gray-200 hover:border-blue-300 bg-white hover:bg-blue-50";
           const isSelected = selectedAnswer === letterMap[index];
           const isActuallyCorrect = index === correctAnswerIndex;
 
           if (isSelected) {
             buttonStyle =
               isCorrect === undefined || isCorrect === null
-                ? "border-blue-500 bg-blue-50"
+                ? "border-blue-500 bg-blue-50 shadow-md"
                 : isCorrect
-                ? "border-green-500 bg-green-50"
-                : "border-red-500 bg-red-50";
+                ? "border-emerald-500 bg-emerald-50 shadow-md"
+                : "border-rose-500 bg-rose-50 shadow-md";
           }
 
           if (!isSelected && isCorrect === false && isActuallyCorrect) {
-            buttonStyle = "border-green-500 bg-green-50";
+            buttonStyle = "border-emerald-500 bg-emerald-50 shadow-md";
           }
 
           return (
-            <button
+            <motion.button
               key={index}
               onClick={() => onAnswerSelect(index)}
-              className={`w-full text-left p-3 rounded-lg border-2 transition-colors ${buttonStyle}`}
+              className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-300 ${buttonStyle}`}
               disabled={isCorrect !== null && isCorrect !== undefined}
+              whileHover={{ scale: isCorrect === null ? 1.02 : 1 }}
+              whileTap={{ scale: isCorrect === null ? 0.98 : 1 }}
             >
-              <span className="font-bold text-blue-600 mr-2">
-                {answerLabels[index]}.
-              </span>
-              {renderAnswerContent(answer)}
-            </button>
+              <div className="flex items-start">
+                <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-3 font-bold ${
+                  isSelected 
+                    ? isCorrect === true 
+                      ? "bg-emerald-500 text-white" 
+                      : isCorrect === false 
+                        ? "bg-rose-500 text-white" 
+                        : "bg-blue-500 text-white"
+                    : isCorrect === false && isActuallyCorrect
+                      ? "bg-emerald-500 text-white"
+                      : "bg-gray-100 text-gray-700"
+                }`}>
+                  {answerLabels[index]}
+                </span>
+                <div className="text-gray-700">
+                  {renderAnswerContent(answer)}
+                </div>
+              </div>
+            </motion.button>
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
