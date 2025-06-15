@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { InlineMath } from "react-katex";
+import TaskDescription from "@/components/TaskDescription";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
 
@@ -15,10 +15,13 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Wyznaczanie dziedziny funkcji na podstawie wykresu</h2>
-        <p className="text-lg text-gray-800">Wyznacz dziedzinę poniższej funkcji</p>
-        <img src="/steps-images/steps3904.jpeg" alt="Wykres funkcji" className="mx-auto my-4 w-full max-w-2xl rounded-lg shadow-md" />
         
+        <TaskDescription
+          title="Wyznaczanie dziedziny funkcji na podstawie wykresu"
+          description="Wyznacz dziedzine poniższego wykresu."
+          imageUrl="/steps-images/steps3904.jpeg"
+        />
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -39,7 +42,7 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -54,7 +57,7 @@ const Page = () => {
                 { label: "\\text{Funkcja jest określona dla wszystkich } x", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Wykres kończy się w punkcie $$(5, 2)$$ z zamkniętym kółkiem, co oznacza że $$x = 5$$ nie należy do dziedziny."
+              explanation="Wykres kończy się w punkcie $$(5, 2)$$ z zamkniętym kółkiem, co oznacza że $$x = 5$$ należy do dziedziny."
               onComplete={() => handleStageComplete(2)}
               explanationImage="/steps-images/steps3904b.jpeg"
             />
@@ -64,7 +67,7 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Krok 4: Wybierz poprawny zapis dziedziny funkcji:
+              Krok 3: Wybierz poprawny zapis dziedziny funkcji:
             </p>
             <ChoiceQuestion
               question="Który zapis poprawnie opisuje dziedzinę funkcji f?"
@@ -75,17 +78,16 @@ const Page = () => {
                 { label: "D = (0; 5⟩", value: "d" }
               ]}
               correctAnswer="b"
-              explanation="Dziedzina funkcji to zbiór wszystkich argumentów, dla których funckcja jest określona. W przypadku tej funkcji, dziedzina obejmuje wszystkie wartości od $$-4$$ do $$5$$, włącznie z tymi wartościami. Ostateczny zapis to $$D = \langle-4, 5\rangle$$."
+              explanation="Dziedzina funkcji to zbiór wszystkich argumentów, dla których funkcja jest określona. W tym przypadku obejmuje wszystkie wartości od $$-4$$ do $$5$$, włącznie. Ostateczny zapis to $$D = \\langle-4, 5\\rangle$$."
               onComplete={() => handleStageComplete(4)}
             />
           </>
         )}
-        
+
         {completedStages.length === 3 && (
           <StudentNotes
             equation=""
-            steps={[
-            ]}
+            steps={[]}
             solutions={["D = \\langle-4, 5\\rangle"]}
           />
         )}
