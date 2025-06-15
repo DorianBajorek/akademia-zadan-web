@@ -47,7 +47,8 @@ const Page = () => {
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
-                Rozwiąż równanie wykładnicze
+                W tym przypadku mamy do czynienia z równaniem, które możemy rozwiązać
+                poprzez zastosowanie własności potęg. Pamiętaj, że każda liczba różna od zera podniesiona do potęgi 0 daje 1. Obliczamy x.
               </StepDescription>
               <ChoiceQuestion
                 question="Dla jakiego x równanie jest spełnione?"

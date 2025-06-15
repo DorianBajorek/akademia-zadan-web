@@ -114,7 +114,7 @@ const Page = () => {
           {completedStages.length === 4 && (
             <div className="mt-8">
               <StudentNotes
-                equation="\\log_{3\\sqrt{3}} 27 \\sqrt[3]{3}"
+                equation="\log_{3\sqrt{3}} 27 \sqrt[3]{3}"
                 steps={[
                   {
                     step: "\\log_{3\\sqrt{3}} 27\\sqrt[3]{3} = x \\Rightarrow (3\\sqrt{3})^x = 27\\sqrt[3]{3}",

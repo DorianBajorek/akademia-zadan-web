@@ -72,7 +72,7 @@ const Page = () => {
           {completedStages.includes(2) && (
             <div>
               <StepDescription stepNumber={3}>
-                Rozwiąż równanie liniowe
+                Mając równe podstawy, wyrażenie jest równe, gdy mają równe wykładniki. Porównajmy je rozwiązując równanie liniowe. Obliczmy wartość x.
               </StepDescription>
               <NumericQuestion
                 question="Jaka jest wartość x?"
