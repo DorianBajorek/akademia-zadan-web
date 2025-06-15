@@ -17,11 +17,9 @@ const TaskDescription = ({ title, description, equation }: TaskDescriptionProps)
       transition={{ duration: 0.5 }}
       className="mb-10 p-8 rounded-2xl bg-gradient-to-br from-blue-50/80 to-indigo-50/80 border-2 border-blue-100 relative overflow-hidden shadow-lg"
     >
-      {/* Subtle decorative elements */}
       <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-200/20 rounded-full blur-xl"></div>
       <div className="absolute -bottom-5 -left-5 w-20 h-20 bg-indigo-200/20 rounded-full blur-xl"></div>
       
-      {/* Animated border */}
       <motion.div 
         className="absolute inset-0 rounded-2xl border-2 border-transparent"
         animate={{
@@ -33,7 +31,7 @@ const TaskDescription = ({ title, description, equation }: TaskDescriptionProps)
           ease: "linear"
         }}
       />
-      
+
       <div className="relative z-10">
         <div className="flex items-center gap-4 mb-6">
           <motion.div 
@@ -51,7 +49,7 @@ const TaskDescription = ({ title, description, equation }: TaskDescriptionProps)
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text"
+            className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text"
           >
             {title}
           </motion.h2>

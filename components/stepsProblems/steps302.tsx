@@ -14,7 +14,7 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen p-5 bg-gray-50">
+    <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-200 mx-auto mt-6 md:mt-10">
         <TaskDescription
           title="Równanie logarytmiczne"

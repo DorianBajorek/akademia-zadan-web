@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { InlineMath } from "react-katex";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 import NumericQuestion from "./NumericQuestion";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
@@ -16,42 +17,36 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Równanie z wartością bezwzględną
-        </h2>
-        <p className="text-lg text-gray-800">Rozwiąż równanie:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="|x - 8| = 0" />
-        </p>
+        <TaskDescription
+          title="Równanie z wartością bezwzględną"
+          description="Rozwiąż równanie:"
+          equation="|x - 8| = 0"
+        />
 
-        {/*
-          Stage 1: Rozwiąż równanie wewnątrz wartości bezwzględnej.
-        */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie: <InlineMath math="x - 8 = 0" />
-            </p>
+            <StepDescription stepNumber={1}>
+              Równanie z wartością bezwzględną w przypadku równości do zera, można opuścić wartość bezwzględną bez konseekwencji. Rozwiążmy to równanie.
+            </StepDescription>
             <NumericQuestion
-              question="Oblicz wartość x, dla której x - 8 = 0:"
+              question="Oblicz wartość x, dla której $$x - 8 = 0$$:"
               correctAnswer="8"
               explanation={`Rozwiązujemy równanie:  
-x - 8 = 0  
-Dodajemy 8 do obu stron:  
-x = 8.`}
+              $$x - 8 = 0$$  
+              Dodajemy 8 do obu stron:  
+              $$x = 8$$.`}
               onComplete={() => handleStageComplete(1)}
-              img="/steps-images/rozwiazanie-pierwsze.png"
             />
           </>
         )}
 
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Wskaż prawidłowy zbiór rozwiązań równania <InlineMath math="|x - 8| = 0" />.
-            </p>
+            <StepDescription stepNumber={2}>
+              Wskaż prawidłowy zbiór rozwiązań równania.
+            </StepDescription>
             <ChoiceQuestion
-              question="Który zbiór jest rozwiązaniem równania |x - 8| = 0?"
+              question="Który zbiór jest rozwiązaniem równania $$|x - 8| = 0$$?"
               choices={[
                 { label: "x = 8", value: "a" },
                 { label: "x ∈ ℝ", value: "b" },
@@ -60,7 +55,7 @@ x = 8.`}
               ]}
               correctAnswer="a"
               explanation={`Wartość bezwzględna jest równa zero tylko wtedy, gdy jej argument jest równy zero.  
-Z równania x - 8 = 0 otrzymujemy x = 8.`}
+              Z równania $$x - 8 = 0$$ otrzymujemy $$x = 8$$.`}
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -70,8 +65,8 @@ Z równania x - 8 = 0 otrzymujemy x = 8.`}
           <StudentNotes
             equation="|x - 8| = 0"
             steps={[
-              { step: "Ustalamy, że |x - 8| = 0 ⇔ x - 8 = 0" },
-              { step: "x - 8 = 0 → x = 8" }
+              { step: "|x - 8| = 0 \\ \\Leftrightarrow \\ x - 8 = 0" },
+              { step: "x = 8" }
             ]}
             solutions={["x = 8"]}
           />

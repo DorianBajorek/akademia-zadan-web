@@ -71,7 +71,7 @@ const Page = () => {
           {completedStages.includes(2) && (
             <div>
               <StepDescription stepNumber={3}>
-                Porównaj wykładniki po obu stronach równania
+                Mając równe podstawy, wyrażenie jest równe, gdy mają równe wykładniki. Jakie równanie wynika z porównania wykładników?
               </StepDescription>
               <ChoiceQuestion
                 question="Które równanie wynika z porównania wykładników?"

@@ -19,7 +19,7 @@ const Page = () => {
         <TaskDescription
           title="Równanie logarytmiczne"
           description="Oblicz wartość logarytmu:"
-          equation="\log_{10} \sqrt[4]{10}"
+          equation="\log_{} \sqrt[4]{10}"
         />
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
@@ -36,7 +36,7 @@ const Page = () => {
                 { label: "10^x = \\sqrt[4]{10}", value: "d" },
               ]}
               correctAnswer="d"
-              explanation="Z definicji logarytmu wiemy, że $$\log_{10} \sqrt[4]{10} = x$$ oznacza $$10^x = \sqrt[4]{10}$$."
+              explanation="Oczywiście jeśli podstawia nie jest podana, oznacza, że podstawą jest liczba $$10$$. Z definicji logarytmu wiemy, że $$\log_{10} \sqrt[4]{10} = x$$ oznacza $$10^x = \sqrt[4]{10}$$."
               onComplete={() => handleStageComplete(1)}
               img="/steps-images/definicjaLogarytmu.png"
             />
