@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -14,18 +16,18 @@ const Page = () => {
 
   return (
     <div className="min-h-screen p-5">
-      <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Obliczanie wyrażenia wykładniczego</h2>
-        <p className="text-lg text-gray-800">Zapisz w postaci jednej potęgi o podstawie 3:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="3^{-3} \cdot \sqrt{27}" />
-        </p>
-        
+      <div className="max-w-5xl w-full bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-200 mx-auto mt-6 md:mt-10">
+        <TaskDescription
+          title="Obliczanie wyrażenia wykładniczego"
+          description="Zapisz w postaci jednej potęgi o podstawie 3:"
+          equation="3^{-3} \cdot \sqrt{27}"
+        />
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Przedstaw wszystkie liczby jako potęgi o podstawie 3:
-            </p>
+          <div>
+            <StepDescription stepNumber={1}>
+              Przedstaw wszystkie liczby jako potęgi o podstawie 3. Zacznijmy od liczby 27.
+            </StepDescription>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne dla liczby 27?"
               choices={[
@@ -35,18 +37,18 @@ const Page = () => {
                 { label: "27 = 3^5", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Poprawne przekształcenie to $$27 = 3^3$$, ponieważ $$3^3 = 27$$."
+              explanation="Poprawne przekształcenie to $$27 = 3^3$$."
               onComplete={() => handleStageComplete(1)}
               img="/steps-images/definicjaPotegi.png"
             />
-          </>
+          </div>
         )}
-        
+
         {completedStages.includes(1) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Przekształć pierwiastek na potęgę o wykładniku ułamkowym:
-            </p>
+          <div>
+            <StepDescription stepNumber={2}>
+              Zapiszmy teraz pierwiastek jako wykładnik potęgi.
+            </StepDescription>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne dla wyrażenia $$\sqrt{27}$$?"
               choices={[
@@ -56,18 +58,18 @@ const Page = () => {
                 { label: "\\sqrt{27} = 27^{\\frac{1}{2}} = (3^3)^{\\frac{1}{2}}", value: "d" },
               ]}
               correctAnswer="d"
-              explanation="Poprawne przekształcenie to $$\sqrt{27} = 27^{\frac{1}{2}} = (3^3)^{\frac{1}{2}}$$, ponieważ pierwiastek kwadratowy to potęga o wykładniku 1/2."
+              explanation="Poprawne przekształcenie to $$\sqrt{27} = 27^{\frac{1}{2}} = (3^3)^{\frac{1}{2}}$$, ponieważ pierwiastek kwadratowy to potęga o wykładniku $$\frac{1}{2}$$."
               onComplete={() => handleStageComplete(2)}
               img="/steps-images/pierwiastekPotega.png"
             />
-          </>
+          </div>
         )}
-        
+
         {completedStages.includes(2) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              {/* Zastosuj prawo potęgowania do wyrażenia $$(3^3)^{\frac{1}{2}}$$: */}
-            </p>
+          <div>
+            <StepDescription stepNumber={3}>
+              Zastosuj prawo potęgowania do wyrażenia
+            </StepDescription>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
@@ -81,33 +83,33 @@ const Page = () => {
               onComplete={() => handleStageComplete(3)}
               img="/steps-images/potegiWlasnosci.png"
             />
-          </>
+          </div>
         )}
-        
+
         {completedStages.includes(3) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
+          <div>
+            <StepDescription stepNumber={4}>
               Wykonaj mnożenie potęg o tej samej podstawie:
-            </p>
+            </StepDescription>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne dla wyrażenia $$3^{-3} \cdot 3^{\frac{3}{2}}$$?"
               choices={[
-                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 + \\frac{3}{2}} = 3^{-\\frac{3}{2}}", value: "a" },
-                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 \\cdot \\frac{3}{2}} = 3^{-\\frac{9}{2}}", value: "b" },
+                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 \\cdot \\frac{3}{2}} = 3^{-\\frac{9}{2}}", value: "a" },
+                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 + \\frac{3}{2}} = 3^{-\\frac{3}{2}}", value: "b" },
                 { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 - \\frac{3}{2}} = 3^{-\\frac{9}{2}}", value: "c" },
                 { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{3 + \\frac{3}{2}} = 3^{\\frac{9}{2}}", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="b"
               explanation="Poprawne przekształcenie to $$3^{-3} \cdot 3^{\frac{3}{2}} = 3^{-3 + \frac{3}{2}} = 3^{-\frac{3}{2}}$$. Gdy mnożymy potęgi o tej samej podstawie, dodajemy wykładniki."
               onComplete={() => handleStageComplete(4)}
               img="/steps-images/potegiWlasnosci.png"
             />
-          </>
+          </div>
         )}
 
         {completedStages.length === 4 && (
           <StudentNotes
-            equation=""
+            equation="3^{-3} \cdot \sqrt{27}"
             steps={[
               {
                 step: "3^{-3} \\cdot \\sqrt{27} = 3^{-3} \\cdot \\sqrt{3^3} = 3^{-3} \\cdot (3^3)^{\\frac{1}{2}}= 3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 + \\frac{3}{2}} = 3^{-\\frac{3}{2}}",
