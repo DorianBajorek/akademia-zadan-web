@@ -13,7 +13,7 @@ const HardcodedTask: React.FC = () => {
     "task_id": 510,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Dla każdej liczby rzeczywistej $a$ wyrażenie $\\left( \\sqrt[5]{5} \\cdot \\frac{1}{5} \\right)^{-5}$ jest równe",
+    "description": "Jaka jest wartość wyrażenia $\\left( \\sqrt[5]{5} \\cdot \\frac{1}{5} \\right)^{-5}$ ? ",
     "choiceA": "$5^4$",
     "choiceB": "$5^{-4}$",
     "choiceC": "$5^{0,25}$",
