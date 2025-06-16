@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,17 +17,17 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Złożona nierówność liniowa</h2>
-        <p className="text-lg text-gray-800">Rozwiąż nierówność:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="\frac{2x - 1}{3} - \frac{x + 2}{4} \leq \frac{5}{6}(x - 1)" />
-        </p>
-        
+        <TaskDescription
+          title="Złożona nierówność liniowa"
+          description="Rozwiąż nierówność:"
+          equation="\frac{2x - 1}{3} - \frac{x + 2}{4} \leq \frac{5}{6}(x - 1)"
+        />
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 1: Znajdź wspólny mianownik dla ułamków  <InlineMath math="(3, 4, 6)"/>:
-            </p>
+            <StepDescription stepNumber={1}>
+              Znajdź wspólny mianownik dla ułamków <InlineMath math="(3, 4, 6)" />:
+            </StepDescription>
             <ChoiceQuestion
               question="Jaki jest najmniejszy wspólny mianownik?"
               choices={[
@@ -40,16 +42,16 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 2: Pomnóż obie strony przez 12 aby wyeliminować ułamki:
-            </p>
+            <StepDescription stepNumber={2}>
+              Pomnóż obie strony przez 12 aby wyeliminować ułamki:
+            </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda nierówność po pomnożeniu przez 12?"
               choices={[
-                { label: "4(2x - 1) + 3(x + 2) ≤ 10(x - 1)  ", value: "a" },
+                { label: "4(2x - 1) + 3(x + 2) ≤ 10(x - 1)", value: "a" },
                 { label: "12(2x - 1) - 12(x + 2) ≤ 12·\\frac{5}{6}(x - 1)", value: "b" },
                 { label: "4(2x - 1) - 3(x + 2) ≤ 10(x - 1)", value: "c" },
                 { label: "8x - 4 - 3x + 6 ≤ 10x - 10", value: "d" }
@@ -68,9 +70,9 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 3: Wymnóż nawiasy:
-            </p>
+            <StepDescription stepNumber={3}>
+              Wymnóż nawiasy:
+            </StepDescription>
             <ChoiceQuestion
               question="Poprawnie wymnożona nierówność to:"
               choices={[
@@ -92,16 +94,16 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 4: Uprość lewą stronę:
-            </p>
+            <StepDescription stepNumber={4}>
+              Uprość lewą stronę:
+            </StepDescription>
             <ChoiceQuestion
               question="Po uproszczeniu otrzymamy:"
               choices={[
                 { label: "5x - 10 ≤ 10x - 5", value: "a" },
                 { label: "11x - 10 ≤ 10x - 10", value: "b" },
                 { label: "5x + 2 ≤ 10x - 10", value: "c" },
-                { label: "5x - 10 ≤ 10x - 10 ", value: "d" }
+                { label: "5x - 10 ≤ 10x - 10", value: "d" }
               ]}
               correctAnswer="d"
               explanation={`
@@ -116,9 +118,9 @@ const Page = () => {
 
         {completedStages.includes(4) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 5: Przenieś wyrażenia z x na lewą stronę, a liczby na prawą:
-            </p>
+            <StepDescription stepNumber={5}>
+              Przenieś wyrażenia z x na lewą stronę, a liczby na prawą:
+            </StepDescription>
             <ChoiceQuestion
               question="Poprawne przekształcenie to:"
               choices={[
@@ -140,9 +142,9 @@ const Page = () => {
 
         {completedStages.includes(5) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 6: Uprość i rozwiąż:
-            </p>
+            <StepDescription stepNumber={6}>
+              Uprość i rozwiąż:
+            </StepDescription>
             <ChoiceQuestion
               question="Ostateczne rozwiązanie to:"
               choices={[
@@ -162,7 +164,7 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {completedStages.length === 6 && (
           <StudentNotes
             equation="\frac{2x - 1}{3} - \frac{x + 2}{4} \leq \frac{5}{6}(x - 1)"
