@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,22 +17,23 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Równoległość prostych</h2>
-        <p className="text-lg text-gray-800">W kartezjańskim układzie współrzędnych <InlineMath math="(x, y)"/> dane są proste <InlineMath math="k"/> oraz <InlineMath math="l"/> o równaniach</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="k: y = -\frac{1}{2}x - 7"/> 
+        <TaskDescription
+          title="Równoległość prostych"
+          description="W kartezjańskim układzie współrzędnych $$(x, y)$$ dane są proste $$k$$ oraz $$l$$ o równaniach: 
+          <br> <br> $$k: y = -\frac{1}{2}x - 7 \\ l: y = (2m - 1)x + 13$$
+          <br> <br>
+          Proste $$k$$  oraz $$l$$ są równoległe, gdy:
+          "
+        />
+        <p className="text-lg text-gray-800 mt-4">
+          
         </p>
-        <p className="text-2xl font-bold text-gray-900 text-center">
-          <InlineMath math="l: y = (2m - 1)x + 13"/> 
-        </p>
-        <p className="text-lg text-gray-800 mt-4">Proste <InlineMath math="k"/> oraz <InlineMath math="l"/> są równoległe, gdy:</p>
-        
-        {/* Krok 1 - Warunek równoległości prostych */}
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
+            <StepDescription stepNumber={1}>
               Kiedy dwie proste są równoległe?
-            </p>
+            </StepDescription>
             <ChoiceQuestion
               question="Który warunek musi być spełniony, aby proste były równoległe?"
               choices={[
@@ -46,20 +49,19 @@ const Page = () => {
             />
           </>
         )}
-        
-        {/* Krok 2 - Przyrównanie współczynników */}
+
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="k"/> i <InlineMath math="l"/>
-            </p>
+            <StepDescription stepNumber={2}>
+              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="k" /> i <InlineMath math="l" />
+            </StepDescription>
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: `2m - 1 = -\\frac{1}{2}`, value: "a" },
-                { label: `2m - 1 = \\frac{1}{2}`, value: "b" },
-                { label: `-\\frac{1}{2}(2m - 1) = -1`, value: "c" },
-                { label: `-\\frac{1}{2} + (2m-1)=0`, value: "d" }
+                { label: "2m - 1 = -\\frac{1}{2}", value: "a" },
+                { label: "2m - 1 = \\frac{1}{2}", value: "b" },
+                { label: "-\\frac{1}{2}(2m - 1) = -1", value: "c" },
+                { label: "-\\frac{1}{2} + (2m-1)=0", value: "d" }
               ]}
               correctAnswer="a"
               explanation={`Poprawne równanie to: $$2m - 1 = -\\frac{1}{2}$$ <br>
@@ -68,13 +70,12 @@ const Page = () => {
             />
           </>
         )}
-        
-        {/* Krok 3 - Rozwiązanie równania */}
+
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="2m - 1 = -\frac{1}{2}"/>
-            </p>
+            <StepDescription stepNumber={3}>
+              Rozwiąż równanie <InlineMath math="2m - 1 = -\frac{1}{2}" />
+            </StepDescription>
             <ChoiceQuestion
               question="Jaka jest wartość m?"
               choices={[
@@ -94,19 +95,16 @@ const Page = () => {
             />
           </>
         )}
-        
-        {/* Podsumowanie */}
+
         {completedStages.length === 3 && (
           <StudentNotes
-            equation="\text{Proste k i l są równoległe} \newline k: y=-\frac{1}{2}x-7 \newline l:y=(2m-1)x+13"
+            equation="\text{Proste k i l są równoległe} \\ k: y=-\frac{1}{2}x-7 \\ l:y=(2m-1)x+13"
             steps={[
               { step: "\\text{Warunek równoległości: współczynniki kierunkowe równe } a_{1}=a_{2}" },
               { step: "2m - 1 = -\\frac{1}{2}" },
               { step: "m = \\frac{1}{4}" },
             ]}
-            solutions={[
-              "m = \\frac{1}{4}", 
-            ]}
+            solutions={["m = \\frac{1}{4}"]}
           />
         )}
       </div>

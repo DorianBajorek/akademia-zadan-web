@@ -10,14 +10,14 @@ const tasks = [
     {
     id: "4500",
     title: "Zadanie 1",
-    description: "Wskaż miejsca zerowe funkcji",
+    description: "Określ znak współczynnika kierunkowego  i wyrazu wolnego funkcji liniowej na podstawie wykresu.",
     img: "/problemImages/problem4500.png",
     isCompleted: false,
   },
       {
     id: "4501",
-    title: "Zadanie 1",
-    description: "Wskaż miejsca zerowe funkcji",
+    title: "Zadanie 2",
+    description: "Określ znak współczynnika kierunkowego  i wyrazu wolnego funkcji liniowej na podstawie wykresu.",
     img: "/problemImages/problem4501.png",
     isCompleted: false,
   },

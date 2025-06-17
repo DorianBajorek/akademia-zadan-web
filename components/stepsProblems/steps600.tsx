@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,22 +17,21 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Równoległość prostych</h2>
-        <p className="text-lg text-gray-800">W kartezjańskim układzie współrzędnych <InlineMath math="(x, y)"/> proste <InlineMath math="k"/> oraz <InlineMath math="l"/> są określone równaniami:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="k: y = (3m - 2)x - 2"/> 
-        </p>
-        <p className="text-2xl font-bold text-gray-900 text-center">
-          <InlineMath math="l: y = (2m + 4)x + 2"/> 
-        </p>
-        <p className="text-lg text-gray-800 mt-4">Proste <InlineMath math="k"/> oraz <InlineMath math="l"/> są równoległe, gdy liczba <InlineMath math="m"/> jest równa:</p>
-        
+        <TaskDescription
+          title="Równoległość prostych"
+          description="W kartezjańskim układzie współrzędnych ($$x$$, $$y$$) proste $$k$$ oraz $$l$$ są określone równaniami:
+          <br> <br> $$k: y = (3m - 2)x - 2 \\ l: y = (2m + 4)x + 2$$
+          <br> <br> 
+          Proste $$k$$ oraz $$l$$ są równoległe, gdy liczba $$m$$  jest równa:
+          "
+        />
+
         {/* Krok 1 - Warunek równoległości prostych */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
+            <StepDescription stepNumber={1}>
               Kiedy dwie proste są równoległe?
-            </p>
+            </StepDescription>
             <ChoiceQuestion
               question="Który warunek musi być spełniony, aby proste były równoległe?"
               choices={[
@@ -46,13 +47,13 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* Krok 2 - Przyrównanie współczynników */}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="k"/> i <InlineMath math="l"/>
-            </p>
+            <StepDescription stepNumber={2}>
+              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="k" /> i <InlineMath math="l" />
+            </StepDescription>
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
@@ -63,18 +64,18 @@ const Page = () => {
               ]}
               correctAnswer="c"
               explanation={`Poprawne równanie to: $$3m - 2 = 2m + 4$$ <br>
-              Porównujemy współczynniki kierunkowe prostych, które są równe $$3m-2$$ dla prostej k i $$2m+4$$ dla prostej l`}
+              Porównujemy współczynniki kierunkowe prostych, które są równe $$3m-2$$ dla prostej $$k$$ i $$2m+4$$ dla prostej $$l$$`}
               onComplete={() => handleStageComplete(2)}
             />
           </>
         )}
-        
+
         {/* Krok 3 - Rozwiązanie równania */}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie <InlineMath math="3m - 2 = 2m + 4"/>
-            </p>
+            <StepDescription stepNumber={3}>
+              Rozwiąż równanie <InlineMath math="3m - 2 = 2m + 4" />
+            </StepDescription>
             <ChoiceQuestion
               question="Jaka jest wartość m?"
               choices={[
@@ -94,19 +95,17 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* Podsumowanie */}
         {completedStages.length === 3 && (
           <StudentNotes
-            equation="\text{Proste k i l są równoległe}  \newline  k: y=(3m-2)x-2 \newline l:y=(2m+4)x+2"
+            equation="\text{Proste k i l są równoległe}  \\ k: y=(3m-2)x-2 \\ l:y=(2m+4)x+2"
             steps={[
               { step: "\\text{Warunek równoległości: współczynniki kierunkowe równe } a_{1}=a_{2}" },
               { step: "3m - 2 = 2m + 4" },
               { step: "m = 6" },
             ]}
-            solutions={[
-              "m = 6", 
-            ]}
+            solutions={["m = 6"]}
           />
         )}
       </div>

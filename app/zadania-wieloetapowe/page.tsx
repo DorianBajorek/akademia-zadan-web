@@ -293,21 +293,21 @@ const tasksByCategory = [
       title: "Zadanie 61",
       img: "/problemImages/problem601.png",
     },
-    {
-      id: "602",
-      title: "Zadanie 62",
-      img: "/problemImages/problem602.png",
-    },
+    // {
+    //   id: "602",
+    //   title: "Zadanie 62",
+    //   img: "/problemImages/problem602.png",
+    // },
     {
       id: "603",
       title: "Zadanie 63",
       img: "/problemImages/problem603.png",
     },
-    {
-      id: "604",
-      title: "Zadanie 64",
-      img: "/problemImages/problem604.png",
-    },
+    // {
+    //   id: "604",
+    //   title: "Zadanie 64",
+    //   img: "/problemImages/problem604.png",
+    // },
     {
       id: "605",
       title: "Zadanie 65",
@@ -328,11 +328,12 @@ const tasksByCategory = [
       title: "Zadanie 68",
       img: "/problemImages/problem608.png",
     },
-    {
-      id: "609",
-      title: "Zadanie 69",
-      img: "/problemImages/problem609.png",
-    }]
+    // {
+    //   id: "609",
+    //   title: "Zadanie 69",
+    //   img: "/problemImages/problem609.png",
+    // }
+  ]
   },
   {
   category : "Kombinatoryka",
