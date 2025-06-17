@@ -5,6 +5,8 @@ import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
 import NumericQuestion from "./NumericQuestion";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,141 +17,166 @@ const Page = () => {
 
   return (
     <div className="min-h-screen p-5">
-      <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Trzywyrazowy ciąg arytmetyczny</h2>
-        <p className="text-lg text-gray-800">Trzywyrazowy ciąg </p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="(27, 9, a-1)"/> 
-        </p>
-        <p className="text-lg text-gray-800">jest arytmetyczny. Wyznacz wartość <InlineMath math="a"/> i określ monotoniczność ciągu</p>
+      <div className="max-w-5xl w-full bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-200 mx-auto mt-6 md:mt-10">
+        <TaskDescription
+          title="Trzywyrazowy ciąg geometryczny"
+          description="Trzywyrazowy ciąg $$(4, a, 36)$$ jest geometryczny. Wyznacz wartość $$a$$ i określ monotoniczność ciągu."
+          equation="(4, a, 36)"
+        />
         
-        {(completedStages.includes(1) || completedStages.length === 0) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              
-            </p>
-            <ChoiceQuestion
-              question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
-              choices={[
-                { label: "a+b+c=0", value: "a" },
-                { label: "b-c=2a", value: "b" },
-                { label: "b = \\frac{a+c}{2}", value: "c" },
-                { label: "2c=a+b", value: "d" },
-              ]}
-              correctAnswer="c"
-              explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
-              onComplete={() => handleStageComplete(1)}
-              img={"/steps-images/warunek_ciag_arytmetyczny.png"}
-            />
-          </>
-        )}
-        
-        {completedStages.includes(1) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Zastosuj własność ciągu arytmetycznego do podanego ciągu
-            </p>
-            <ChoiceQuestion
-              question="Które równanie jest poprawne?"
-              choices={[
-                { label: "2·27 = 9 + (a-1)", value: "a" },
-                { label: "2·9 = 27 + (a-1)", value: "b" },
-                { label: "2(a-1) = 27 + 9", value: "c" },
-                { label: "9 = \\frac{27 + a - 1}{2}", value: "d" }
-              ]}
-              correctAnswer="d"
-              explanation="Poprawne równanie to: $$9 = \frac{27 + a - 1}{2}$$ <br>
-              Z własności ciągu: $$b = \frac{a+c}{2}$$ <br>
-              Gdzie: <br>
-              $$a = 27, b = 9, c = a-1$$ <br>
-              "
-              onComplete={() => handleStageComplete(2)}
-            />
-          </>
-        )}
-        
-        {completedStages.includes(2) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-             Przekształć  równanie <InlineMath math="9 = \frac{27 + a - 1}{2}"/>
-            </p>
-            <ChoiceQuestion
-              question="Które przekształcenie jest poprawne?"
-              choices={[
-                { label: "18 = 26 + a", value: "a" },
-                { label: "a = 18 - 26", value: "b" },
-                { label: "a = -8", value: "c" },
-                { label: "\\text{Wszystkie powyższe}", value: "a" }
-              ]}
-              correctAnswer="d"
-              explanation="Kolejne kroki rozwiązania: <br>
-              1. $$9 = \frac{27 + a - 1}{2}$$ <br>
-              2. $$9 = \frac{26 + a}{2}$$ <br>
-              3. $$18 = 26+a$$ <br>"
-              onComplete={() => handleStageComplete(3)}
-            />
-          </>
-        )}
-        
-        {completedStages.includes(3) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równananie <InlineMath math="18 = 26+a"/>
-            </p>
-            <NumericQuestion
-              question="Podaj wartość a"
-              correctAnswer="-8"
-              explanation="Ostateczne rozwiązanie: <br>
-              $$a = -8$$ <br>
-              $$a=18-26$$ <br>
-              $$a=-8$$"
-              onComplete={() => handleStageComplete(4)}
-            />
-          </>
-        )}
+        <div className="mt-8 space-y-8">
+          {(completedStages.includes(1) || completedStages.length === 0) && (
+            <div>
+              <StepDescription stepNumber={1}>
+                Warunek na ciąg geometryczny
+              </StepDescription>
+              <ChoiceQuestion
+                question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest geometryczny, to które równanie jest spełnione?"
+                choices={[
+                  { label: "a·b·c=0", value: "a" },
+                  { label: "b^2 = a·c", value: "b" },
+                  { label: "b = \\frac{a+c}{2}", value: "c" },
+                  { label: "c^2 = a·b", value: "d" },
+                ]}
+                correctAnswer="b"
+                explanation="Z definicji ciągu geometrycznego wiemy, że $$b^2 = a·c$$"
+                onComplete={() => handleStageComplete(1)}
+                img={"/steps-images/warunek_ciag_geometryczny.png"}
+              />
+            </div>
+          )}
+          
+          {completedStages.includes(1) && (
+            <div>
+              <StepDescription stepNumber={2}>
+                Zastosowanie warunku do naszego ciągu
+              </StepDescription>
+              <ChoiceQuestion
+                question="Które równanie jest poprawne?"
+                choices={[
+                  { label: "a^2 = 4·36", value: "a" },
+                  { label: "36^2 = 4·a", value: "b" },
+                  { label: "4^2 = a·36", value: "c" },
+                  { label: "a^2 = 4 + 36", value: "d" }
+                ]}
+                correctAnswer="a"
+                explanation="Poprawne równanie to: $$a^2 = 4·36$$ <br>
+                Z własności ciągu: $$b^2 = a·c$$ <br>
+                Gdzie: <br>
+                $$a = 4, b = a, c = 36$$ <br>"
+                onComplete={() => handleStageComplete(2)}
+              />
+            </div>
+          )}
+          
+          {completedStages.includes(2) && (
+            <div>
+              <StepDescription stepNumber={3}>
+                Uproszczenie równania
+              </StepDescription>
+              <ChoiceQuestion
+                question="Które przekształcenie jest poprawne?"
+                choices={[
+                  { label: "a^2 = 144", value: "a" },
+                  { label: "a = 4 + 36", value: "b" },
+                  { label: "a = 4·36", value: "c" },
+                  { label: "a^2 = 40", value: "d" }
+                ]}
+                correctAnswer="a"
+                explanation="Kolejne kroki rozwiązania: <br>
+                1. $$a^2 = 4·36$$ <br>
+                2. $$a^2 = 144$$ <br>"
+                onComplete={() => handleStageComplete(3)}
+              />
+            </div>
+          )}
+          
+          {completedStages.includes(3) && (
+            <div>
+              <StepDescription stepNumber={4}>
+                Rozwiązanie równania
+              </StepDescription>
+              <NumericQuestion
+                question="Rozwiąż równanie $$a^2 = 144$$. Podaj wszystkie możliwe wartości a (oddzielone przecinkami, od największej do najmniejszej)"
+                correctAnswer="12,-12"
+                explanation="Ostateczne rozwiązanie: <br>
+                $$a^2 = 144$$ <br>
+                $$a = 12$$ lub $$a = -12$$"
+                onComplete={() => handleStageComplete(4)}
+              />
+            </div>
+          )}
 
-        {completedStages.includes(4) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-             Dla <InlineMath math="a=-8"/> nasz ciąg ma postać <InlineMath math="(27,9,-9)"/>. 
-            </p>
-            <ChoiceQuestion
-              question="Wskaż monotoniczność ciągu"
-              choices={[
-                { label: "\\text{Ciąg jest rosnący}", value: "a" },
-                { label: "\\text{Ciąg jest malejący}", value: "b" },
-                { label: "\\text{Ciąg jest stały}", value: "c" },
-                { label: "\\text{Ciąg nie jest monotoniczny}", value: "d" }
-              ]}
-              correctAnswer="b"
-              explanation="Ciąg jest malejący, ponieważ: <br>
-              $$27 > 9 > -9$$ <br>
-              Różnica ciągu: $$r = -18$$ (ujemna, więc ciąg maleje)"
-              onComplete={() => handleStageComplete(5)}
-            />
-          </>
-        )}
-        
-        {completedStages.length === 5 && (
-          <StudentNotes
-            equation="(27, 9, a-1) \rightarrow \text{ciąg arytmetyczny}"
-            steps={[
-              {
-                step: "2y = x + z \\Rightarrow 2·9 = 27 + (a-1)",
-              },
-              {
-                step: "18 = 27 + a - 1",
-              },
-              {
-                step: "a = 18 - 26 = -8",
-              },
-              {
-                step: "\\text{Ciąg } (27, 9, -9) \\text{ jest malejący (r = -18)}"
-              }
-            ]}
-            solutions={["a = -8", "(27, 9, -9) \\text{ - ciąg malejący}"]}
-          />
-        )}
+          {completedStages.includes(4) && (
+            <div>
+              <StepDescription stepNumber={5}>
+                Określenie monotoniczności ciągu
+              </StepDescription>
+              <ChoiceQuestion
+                question="Jaki jest pełny ciąg i jego monotoniczność dla a=12?"
+                choices={[
+                  { label: "\\text{Ciąg jest rosnący}", value: "a" },
+                  { label: "\\text{Ciąg jest malejący}", value: "b" },
+                  { label: "\\text{Ciąg jest stały}", value: "c" },
+                  { label: "\\text{Ciąg nie jest monotoniczny}", value: "d" }
+                ]}
+                correctAnswer="a"
+                explanation="Dla a=12 ciąg jest rosnący, ponieważ: <br>
+                $$4 < 12 < 36$$ <br>
+                Iloraz ciągu: $$q = 3$$ (dodatni i większy od 1, więc ciąg rośnie)"
+                onComplete={() => handleStageComplete(5)}
+              />
+            </div>
+          )}
+          
+          {completedStages.includes(5) && (
+            <div>
+              <StepDescription stepNumber={6}>
+                Określenie monotoniczności ciągu dla drugiego rozwiązania
+              </StepDescription>
+              <ChoiceQuestion
+                question="Jaki jest pełny ciąg i jego monotoniczność dla a=-12?"
+                choices={[
+                  { label: "\\text{Ciąg jest rosnący}", value: "a" },
+                  { label: "\\text{Ciąg jest malejący}", value: "b" },
+                  { label: "\\text{Ciąg nie jest monotoniczny}", value: "c" },
+                  { label: "\\text{Ciąg jest stały}", value: "d" }
+                ]}
+                correctAnswer="c"
+                explanation="Dla a=-12 ciąg nie jest monotoniczny, ponieważ: <br>
+                $$4 > -12 < 36$$ <br>
+                Iloraz ciągu: $$q = -3$$ (ujemny, więc ciąg nie jest monotoniczny)"
+                onComplete={() => handleStageComplete(6)}
+              />
+            </div>
+          )}
+          
+          {completedStages.length === 6 && (
+            <div className="mt-8">
+              <StudentNotes
+                equation="(4, a, 36) \rightarrow \text{ciąg geometryczny}"
+                steps={[
+                  {
+                    step: "b^2 = a·c \\Rightarrow a^2 = 4·36",
+                  },
+                  {
+                    step: "a^2 = 144",
+                  },
+                  {
+                    step: "a = 12 \\quad \\text{lub} \\quad a = -12",
+                  },
+                  {
+                    step: "\\text{Dla } a=12: \\text{ ciąg } (4, 12, 36) \\text{ rosnący (q = 3)}"
+                  },
+                  {
+                    step: "\\text{Dla } a=-12: \\text{ ciąg } (4, -12, 36) \\text{ niemonotoniczny (q = -3)}"
+                  }
+                ]}
+                solutions={["a = 12 \\quad \\text{lub} \\quad a = -12", "(4, 12, 36) \\text{ - rosnący}", "(4, -12, 36) \\text{ - niemonotoniczny}"]}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
