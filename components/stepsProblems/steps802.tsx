@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 import { solveProblem } from "@/service";
 import { useAuth } from "@/app/UserData";
 
@@ -34,17 +36,17 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Mnożenie ułamków mieszanych</h2>
-        <p className="text-lg text-gray-800">Wykonaj mnożenie:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="1\frac{1}{2} \cdot 2\frac{1}{4}" />
-        </p>
+
+        <TaskDescription
+          title="Mnożenie ułamków mieszanych"
+          description="Wykonaj mnożenie: $$1\frac{1}{2} \cdot 2\frac{1}{4}$$"
+        />
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Pierwszy krok: Zamiana obu ułamków mieszanych na niewłaściwe
-            </p>
+            <StepDescription stepNumber={1}>
+              Zamień ułamki mieszane na niewłaściwe.
+            </StepDescription>
             <ChoiceQuestion
               question="Jak przedstawić w postaci ułamków niewłaściwych?"
               choices={[
@@ -54,9 +56,9 @@ const Page = () => {
                 { label: "\\frac{1}{2} \\text{ i } \\frac{1}{4}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Żeby zmienić całości, należy całość pomnożyć z mianownikiem i dodać licznik. Mianownik się nie zmienia <br> <br>
-                $$2\\frac{1}{2} = \\frac{5}{2}$$, Bo $$2 \\cdot 2 + 1 = 5$$ <br> <br>
-                $$1\\frac{1}{4} = \\frac{5}{4}$$, Bo $$1 \\cdot 4 + 1 = 5$$"
+              explanation="Aby zamienić liczbę mieszaną na ułamek niewłaściwy, mnożymy całość przez mianownik i dodajemy licznik. <br><br/>
+              $$1\frac{1}{2} = \frac{3}{2}$$, ponieważ $$1 \cdot 2 + 1 = 3$$ <br/>
+              $$2\frac{1}{4} = \frac{9}{4}$$, ponieważ $$2 \cdot 4 + 1 = 9$$"
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -64,10 +66,9 @@ const Page = () => {
 
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Teraz wykonaj mnożenie ułamków niewłaściwych:
-              <InlineMath math="\frac{3}{2} \cdot \frac{9}{4}" />
-            </p>
+            <StepDescription stepNumber={2}>
+              Wykonaj mnożenie ułamków niewłaściwych: <InlineMath math="\frac{3}{2} \cdot \frac{9}{4}" />
+            </StepDescription>
             <ChoiceQuestion
               question="Jakie jest prawidłowe mnożenie tych ułamków?"
               choices={[
@@ -77,8 +78,8 @@ const Page = () => {
                 { label: "\\frac{27}{8}", value: "d" },
               ]}
               correctAnswer="d"
-              explanation="W celu wyznaczenia ostatecznego wyniku musimy pomnożyć licznik z licznikiem oraz mianownik z mianownikiem. <br> <br>
-                $$\\frac{3}{2} \\cdot \\frac{9}{4} = \\frac{27}{8}$$"
+              explanation="Mnożymy licznik przez licznik i mianownik przez mianownik: <br/>
+              $$\frac{3}{2} \cdot \frac{9}{4} = \frac{3 \cdot 9}{2 \cdot 4} = \frac{27}{8}$$"
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -86,9 +87,9 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Zamiana ułamka niewłaściwego na liczbę mieszaną
-            </p>
+            <StepDescription stepNumber={3}>
+              Zamień ułamek niewłaściwy na liczbę mieszaną.
+            </StepDescription>
             <ChoiceQuestion
               question="Jak przedstawić $$\frac{27}{8}$$ jako liczbę mieszaną?"
               choices={[
@@ -98,7 +99,8 @@ const Page = () => {
                 { label: "3\\frac{5}{8}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="$$\\frac{27}{8} = 3\\frac{3}{8}$$, bo $$27 \\div 8 = 3$$ i reszta $$3$$."
+              explanation="$$\frac{27}{8} = 3\frac{3}{8}$$, bo $$27 \div 8 = 3$$ i reszta $$3$$, czyli: <br/>
+              $$\frac{27}{8} = 3 + \frac{3}{8} = 3\frac{3}{8}$$"
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -106,7 +108,7 @@ const Page = () => {
 
         {completedStages.length === 3 && (
           <StudentNotes
-            equation="1\\frac{1}{2} \\cdot 2\\frac{1}{4}"
+            equation="1\frac{1}{2} \cdot 2\frac{1}{4}"
             steps={[
               {
                 step: "1\\frac{1}{2} \\cdot 2\\frac{1}{4} = \\frac{3}{2} \\cdot \\frac{9}{4} = \\frac{27}{8} = 3\\frac{3}{8}",

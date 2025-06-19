@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 import { solveProblem } from "@/service";
 import { useAuth } from "@/app/UserData";
 
 const Page = () => {
-  const {token} = useAuth();
+  const { token } = useAuth();
   const taskId = "800";
   const [completedStages, setCompletedStages] = useState<number[]>([]);
   const [problemSolved, setProblemSolved] = useState(false);
@@ -34,19 +36,19 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Dodawanie ułamków</h2>
-        <p className="text-lg text-gray-800">Wykonaj dodawanie ułamków:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="\frac{1}{2} + \frac{1}{3}" />
-        </p>
+
+        <TaskDescription
+          title="Dodawanie ułamków"
+          description="Wykonaj dodawanie: $$\frac{1}{2} + \frac{1}{3}$$"
+        />
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Pierwszym krokiem tego zadani jest znalezienie najmniejszego wspólnego mianownika.
-            </p>
+            <StepDescription stepNumber={1}>
+              Znajdź najmniejszy wspólny mianownik ułamków.
+            </StepDescription>
             <ChoiceQuestion
-              question="Wybierz najmniejszą liczbę, która dzieli się przez oba mianowniki (2 i 3):"
+              question="Wybierz najmniejszą liczbę, która dzieli się przez oba mianowniki $$(2$$ i $$3)$$:"
               choices={[
                 { label: "4", value: "a" },
                 { label: "5", value: "b" },
@@ -54,8 +56,7 @@ const Page = () => {
                 { label: "12", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Najmniejszy wspólny mianownik $$(NWW)$$ to najmniejsza liczba, przez którą dzielą się oba mianowniki. W tym przypadku: 
-                $$2$$ i $$3$$ dzielą się przez $$6$$."
+              explanation="Najmniejszy wspólny mianownik $$(NWW)$$ dla $$2$$ i $$3$$ to $$6$$."
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -63,9 +64,11 @@ const Page = () => {
 
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">Teraz jeśli znamy wspólny mianownik należy rozszerzyć ułamki tak aby uzyskać oczekiwany wspólny mianownik.</p>
+            <StepDescription stepNumber={2}>
+              Rozszerz ułamki tak, aby miały wspólny mianownik równy <InlineMath math="6" />.
+            </StepDescription>
             <ChoiceQuestion
-              question="Jak prawidłowo rozszerzyć ułamki do mianownika 6?"
+              question="Jak prawidłowo rozszerzyć ułamki do mianownika $$6$$?"
               choices={[
                 { label: "\\frac{1}{2} = \\frac{2}{6}, \\frac{1}{3} = \\frac{2}{6}", value: "a" },
                 { label: "\\frac{1}{2} = \\frac{3}{6}, \\frac{1}{3} = \\frac{2}{6}", value: "b" },
@@ -73,9 +76,8 @@ const Page = () => {
                 { label: "\\frac{1}{2} = \\frac{1}{6}, \\frac{1}{3} = \\frac{1}{6}", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Aby rozszerzyć ułamek, mnożymy licznik i mianownik przez tę samą liczbę. <br/> <br/>
-              $$\frac{1}{2} = \frac{1 \cdot 3}{2 \cdot 3} = \frac{3}{6}$$<br/> <br/>
-              $$\frac{1}{3} = \frac{1 \cdot 2}{3 \cdot 2} = \frac{2}{6}$$."
+              explanation="$$\frac{1}{2} = \frac{3}{6}, \quad \frac{1}{3} = \frac{2}{6}$$, bo: <br />
+              $$\frac{1 \cdot 3}{2 \cdot 3} = \frac{3}{6}, \quad \frac{1 \cdot 2}{3 \cdot 2} = \frac{2}{6}$$."
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -83,7 +85,9 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">Wykonaj dodawanie...</p>
+            <StepDescription stepNumber={3}>
+              Dodaj ułamki o wspólnym mianowniku.
+            </StepDescription>
             <ChoiceQuestion
               question="Ile wynosi $$\frac{3}{6}+ \frac{2}{6}$$?"
               choices={[
@@ -93,8 +97,7 @@ const Page = () => {
                 { label: "\\frac{2}{6}", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Gdy ułamki mają ten sam mianownik, dodajemy tylko liczniki. 
-        $$3 + 2 = 5$$, więc $$\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$$."
+              explanation="Dodajemy liczniki: $$3 + 2 = 5$$, więc wynik to $$\frac{5}{6}$$."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -102,7 +105,9 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">Czy można uprościć wynik...</p>
+            <StepDescription stepNumber={4}>
+              Sprawdź, czy wynik można uprościć.
+            </StepDescription>
             <ChoiceQuestion
               question="Czy ułamek $$\frac{5}{6}$$ da się skrócić?"
               choices={[
@@ -112,7 +117,7 @@ const Page = () => {
                 { label: "\\text{Tak, przez 2}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Nie da się skrócić, bo $$5$$ i $$6$$ nie mają wspólnych dzielników, czyli  liczb które dzielą jednocześnie $$5$$ i $$6$$. (oczywiście oprócz $$1$$, ale nie skracamy przez $$1$$, bo to nie zmiania wartości liczby)."
+              explanation="$$5$$ i $$6$$ nie mają wspólnych dzielników większych niż $$1$$, więc ułamek jest nieskracalny."
               onComplete={() => handleStageComplete(4)}
             />
           </>

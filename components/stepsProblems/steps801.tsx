@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 import { solveProblem } from "@/service";
 import { useAuth } from "@/app/UserData";
 
@@ -34,17 +36,17 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Odejmowanie ułamków</h2>
-        <p className="text-lg text-gray-800">Wykonaj odejmowanie ułamków:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="\frac{3}{5} - \frac{1}{2}" />
-        </p>
-        
+
+        <TaskDescription
+          title="Odejmowanie ułamków"
+          description="Wykonaj odejmowanie: $$\frac{3}{5} - \frac{1}{2}$$"
+        />
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Jaki jest najmniejszy wspólny mianownik dla tych ułamków?
-            </p>
+            <StepDescription stepNumber={1}>
+              Znajdź najmniejszy wspólny mianownik dla  <InlineMath math="\frac{3}{5}"/> i <InlineMath math="\frac{1}{2}"/>.
+            </StepDescription>
             <ChoiceQuestion
               question="Wybierz najmniejszą liczbę, która dzieli się przez oba mianowniki $$5$$ i $$2$$:"
               choices={[
@@ -54,19 +56,17 @@ const Page = () => {
                 { label: "20", value: "d" },
               ]}
               correctAnswer="b"
-              explanation="Najmniejszy wspólny mianownik to $$10$$, ponieważ jest to najmniejsza liczba, 
-              która dzieli się przez oba stare mianowniki $$5$$ i $$2$$. 
-              Inne wspólne mianowniki jak $$20$$ też by działały, ale $$10$$ jest najmniejszy."
+              explanation="Najmniejszy wspólny mianownik to $$10$$, ponieważ jest to najmniejsza liczba, która dzieli się przez oba stare mianowniki $$5$$ i $$2$$."
               onComplete={() => handleStageComplete(1)}
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Teraz rozszerz oba ułamki do wspólnego mianownika (10).
-            </p>
+            <StepDescription stepNumber={2}>
+              Rozszerz oba ułamki do wspólnego mianownika <InlineMath math="10"/>.
+            </StepDescription>
             <ChoiceQuestion
               question="Jak prawidłowo rozszerzyć ułamki do mianownika $$10$$?"
               choices={[
@@ -77,9 +77,8 @@ const Page = () => {
               ]}
               correctAnswer="a"
               explanation="Aby rozszerzyć ułamki: <br><br>
-                $$\frac{3}{5}$$ mnożymy licznik i mianownik przez $$2$$: $$\frac{3×2}{5×2} = \frac{6}{10}$$ <br><br>
-                $$\frac{1}{2}$$ mnożymy licznik i mianownik przez $$5$$: $$\frac{1×5}{2×5} = \frac{5}{10}$$ <br><br>
-                Teraz oba ułamki mają ten sam mianownik."
+              $$\frac{3}{5} = \frac{3 \cdot 2}{5 \cdot 2} = \frac{6}{10}$$ <br><br>
+              $$\frac{1}{2} = \frac{1 \cdot 5}{2 \cdot 5} = \frac{5}{10}$$"
               onComplete={() => handleStageComplete(2)}
             />
           </>
@@ -87,9 +86,9 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Wykonaj odejmowanie ułamków o tym samym mianowniku.
-            </p>
+            <StepDescription stepNumber={3}>
+              Odejmij rozszerzone ułamki.
+            </StepDescription>
             <ChoiceQuestion
               question="Ile wynosi $$\frac{6}{10} - \frac{5}{10}$$?"
               choices={[
@@ -99,9 +98,7 @@ const Page = () => {
                 { label: "\\frac{5}{10}", value: "d" },
               ]}
               correctAnswer="a"
-              explanation="Gdy ułamki mają ten sam mianownik, odejmujemy tylko liczniki: <br>
-                $$\frac{6}{10} - \frac{5}{10} = \frac{6-5}{10} = \frac{1}{10}$$ <br>
-                Mianownik pozostaje bez zmian."
+              explanation="Odejmujemy liczniki, mianownik zostaje: $$\frac{6}{10} - \frac{5}{10} = \frac{1}{10}$$"
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -109,9 +106,9 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Czy można uprościć wynik 1/10?
-            </p>
+            <StepDescription stepNumber={4}>
+              Sprawdź, czy wynik można uprościć.
+            </StepDescription>
             <ChoiceQuestion
               question="Czy ułamek $$\frac{1}{10}$$ da się skrócić?"
               choices={[
@@ -121,8 +118,7 @@ const Page = () => {
                 { label: "\\text{Tak, przez 2}", value: "d" },
               ]}
               correctAnswer="c"
-              explanation="Ułamek $$\frac{1}{10}$$ nie może być skrócony, ponieważ $$1$$ i $$10$$ nie mają wspólnych dzielników 
-              (poza $$1$$). Jest to już najprostsza postać tego ułamka."
+              explanation="Ułamek $$\frac{1}{10}$$ jest już w najprostszej postaci – licznik i mianownik nie mają wspólnych dzielników oprócz $$1$$."
               onComplete={() => handleStageComplete(4)}
             />
           </>
