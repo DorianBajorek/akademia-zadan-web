@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription"; // Dodany import
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,18 +15,15 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Podwyżka ceny
-        </h2>
-        <p className="text-lg text-gray-800">
-          Medyczna maseczka ochronna wielokrotnego użytku z wymiennymi filtrami wskutek
-          podwyżki zdrożała o <InlineMath math="40\%" /> i kosztuje obecnie <InlineMath math="106{,}40" /> zł.
-          Cena maseczki przed podwyżką była równa:
-        </p>
+        <TaskDescription
+          title="Podwyżka ceny"
+          description="Medyczna maseczka ochronna wielokrotnego użytku z wymiennymi filtrami wskutek podwyżki zdrożała o $$40\%$$ i kosztuje obecnie $$106{,}40$$ zł. 
+          Cena maseczki przed podwyżką była równa?"
+        />
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <ChoiceQuestion
-            question="Jak zapisać zależność między ceną przed podwyżką x a ceną po podwyżce?"
+            question="Jak zapisać zależność między ceną przed podwyżką $$x$$ a ceną po podwyżce?"
             choices={[
               { label: "x - 0,4x = 106,40", value: "a" },
               { label: "0,4x = 106,40", value: "b" },
@@ -58,13 +55,13 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak obliczyć $$x$$ z równania $$1,4x = 106,40$$?"
             choices={[
-                { label: "x = \\frac{106,40}{1,4}", value: "a" },
+              { label: "x = \\frac{106,40}{1,4}", value: "a" },
               { label: "x = 106,40 \\cdot 1,4", value: "b" },
               { label: "x = 1,4 \\cdot 106,40", value: "c" },
               { label: "x = 106,40 - 1,4", value: "d" },
             ]}
             correctAnswer="a"
-            explanation="Aby obliczyć $$x$$, należy podzielić obie strony przez $$1,4$$: x = \\frac{106,40}{1,4}."
+            explanation="Aby obliczyć $$x$$, należy podzielić obie strony przez $$1,4$$: $$x = \frac{106,40}{1,4}.$$"
             onComplete={() => handleStageComplete(3)}
           />
         )}
@@ -88,18 +85,10 @@ const Page = () => {
           <StudentNotes
             equation="1,4x = 106,40"
             steps={[
-              {
-                step: "x + 0,4x = 106,40",
-              },
-              {
-                step: "1,4x = 106,40",
-              },
-              {
-                step: "x = \\frac{106,40}{1,4}",
-              },
-              {
-                step: "x = 76",
-              },
+              { step: "x + 0,4x = 106,40" },
+              { step: "1,4x = 106,40" },
+              { step: "x = \\frac{106,40}{1,4}" },
+              { step: "x = 76" },
             ]}
             solutions={["76 zł"]}
           />

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription"; // Dodano import komponentu
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,19 +15,16 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Obniżka ceny roweru
-        </h2>
-        <p className="text-lg text-gray-800">
-          Cena roweru po obniżce o <InlineMath math="15\%" /> była równa <InlineMath math="850" /> zł.
-          Przed obniżką ten rower kosztował:
-        </p>
+        <TaskDescription
+          title="Obniżka ceny roweru"
+          description="Cena roweru po obniżce o $$15\%$$ była równa $$850$$ zł. Przed obniżką ten rower kosztował:"
+        />
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <ChoiceQuestion
             question="Jak zapisać zależność między ceną przed obniżką $$x$$ a ceną po obniżce?"
             choices={[
-              { label: "x - 0,15x = 850", value: "a" },
+              { label: "2x - 0,15x = 850", value: "a" },
               { label: "x + 0,15x = 850", value: "b" },
               { label: "0,15x = 850", value: "c" },
               { label: "0,85x = 850", value: "d" },
@@ -44,7 +41,7 @@ const Page = () => {
             choices={[
               { label: "x = \\frac{850}{0,85}", value: "a" },
               { label: "x = 850 + 0,15 \\cdot 850", value: "b" },
-              { label: " x = 850 \\cdot 0,85", value: "c" },
+              { label: "x = 850 \\cdot 0,85", value: "c" },
               { label: "x = 850 - 0,15 \\cdot 850", value: "d" },
             ]}
             correctAnswer="a"
@@ -72,15 +69,9 @@ const Page = () => {
           <StudentNotes
             equation="0,85x = 850"
             steps={[
-              {
-                step: "0,85x = 850",
-              },
-              {
-                step: "x = \\frac{850}{0,85}",
-              },
-              {
-                step: "x = 1000",
-              },
+              { step: "0,85x = 850" },
+              { step: "x = \\frac{850}{0,85}" },
+              { step: "x = 1000" },
             ]}
             solutions={["1000 zł"]}
           />
