@@ -65,7 +65,7 @@ const StudentNotes = ({ equation, steps, solutions }: StudentNotesProps) => {
                           alt={`Step ${index + 1} image`}
                           width={600}
                           height={300}
-                          className="w-full h-auto object-cover"
+                          className="w-full h-auto object-cover max-w-[400px] mx-auto"
                         />
                       </div>
                     )}

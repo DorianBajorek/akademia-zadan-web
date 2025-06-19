@@ -8,83 +8,68 @@ import TopicStats from "@/components/TopicStats";
 
 const tasks = [
   {
-    id: "100",
+    id: "700",
     title: "Zadanie 1",
-    description: "Łatwa nierówność kwadratowa",
-    img: "/problemImages/problem100.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem700.png",
     isCompleted: false,
   },
   {
-    id: "101",
+    id: "701",
     title: "Zadanie 1",
-    description: "Łatwa nierówność kwadratowa",
-    img: "/problemImages/problem101.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem701.png",
     isCompleted: false,
   },
   {
-    id: "102",
+    id: "702",
     title: "Zadanie 1",
-    description: "Łatwa nierówność kwadratowa",
-    img: "/problemImages/problem102.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem702.png",
     isCompleted: false,
   },
   {
-    id: "103",
+    id: "703",
     title: "Zadanie 1",
-    description: "Łatwa nierówność kwadratowa",
-    img: "/problemImages/problem103.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem703.png",
     isCompleted: false,
   },
   {
-    id: "104",
+    id: "704",
     title: "Zadanie 1",
-    description: "Łatwa nierówność kwadratowa",
-    img: "/problemImages/problem104.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem704.png",
     isCompleted: false,
   },
   {
-    id: "105",
+    id: "705",
     title: "Zadanie 1",
-    description: "Łatwa nierówność kwadratowa",
-    img: "/problemImages/problem105.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem705.png",
     isCompleted: false,
   },
   {
-    id: "106",
+    id: "706",
     title: "Zadanie 1",
-    description: "Łatwa nierówność kwadratowa",
-    img: "/problemImages/problem106.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem706.png",
     isCompleted: false,
   },
   {
-    id: "107",
+    id: "707",
     title: "Zadanie 1",
-    description: "Trudniejsza nierówność kwadratowa",
-    img: "/problemImages/problem107.png",
+    description: "Zliczanie liter",
+    img: "/problemImages/problem707.png",
     isCompleted: false,
   },
-  {
-    id: "108",
-    title: "Zadanie 1",
-    description: "Trudniejsza nierówność kwadratowa",
-    img: "/problemImages/problem108.png",
-    isCompleted: false,
-  },
-  {
-    id: "109",
-    title: "Zadanie 1",
-    description: "Trudniejsza nierówność kwadratowa",
-    img: "/problemImages/problem109.png",
-    isCompleted: false,
-  }
 ];
 
 const TopicTasksPage = () => {
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
-  const firstGroup = tasks.filter(task => parseInt(task.id) >= 100 && parseInt(task.id) <= 109);
-  const secondGroup = tasks.filter(task => parseInt(task.id) >= 1104 && parseInt(task.id) <= 1107)
-  const thirdGroup = tasks.filter(task => parseInt(task.id) >= 1108);
+  const firstGroup = tasks.filter(task => parseInt(task.id) >= 700 && parseInt(task.id) < 706);
+  const secondGroup = tasks.filter(task => parseInt(task.id) >= 4210 && parseInt(task.id) <= 4220)
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -92,7 +77,7 @@ const TopicTasksPage = () => {
       <div className="max-w-7xl mx-auto w-full px-6 pt-8">
         <div className="mb-6">
           <Link 
-            href="/kurs-matura-podstawowa/funkcje-kwadratowe/" 
+            href="/kurs-matura-podstawowa/kombinatoryka-prawdopodobienstwo-statystyka/" 
             className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors group"
           >
             <svg 
@@ -110,7 +95,7 @@ const TopicTasksPage = () => {
         <VideoSection youtubeId="" />
       </div>
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
-        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Nierówności kwadratowe"} />
+        <TopicStats completedCount={completedCount} totalCount={tasks.length} topicTitle={"Zliczanie liczb"} />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">
@@ -141,23 +126,6 @@ const TopicTasksPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {secondGroup.map((task) => (
-            <TaskCards key={task.id} tasks={[task]} />
-          ))}
-        </div>
-
-        <div className="col-span-full py-8 text-center">
-          <div className="border-t-2 border-b-2 border-gray-300 py-4">
-            <h2 className="text-xl font-bold text-gray-700">
-              Zadania otwarte
-            </h2>
-            <p className="text-gray-600 mt-2">
-              Warte więcej punktów
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {thirdGroup.map((task) => (
             <TaskCards key={task.id} tasks={[task]} />
           ))}
         </div>
