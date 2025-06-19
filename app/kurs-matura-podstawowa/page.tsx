@@ -115,19 +115,12 @@ const MainCourse: React.FC = () => {
       slug: "/stereometria"
     },
     {
-      id: "kombinatoryka",
-      title: "Kombinatoryka",
+      id: "kombinatoryka-prawdopodobienstwo-statystyka",
+      title: "Kombinatoryka, Prawdopodobieństwo i elementy statystyki",
       description: "Dowiedz się, jak liczyć permutacje, wariacje i kombinacje. Kluczowy dział rachunku prawdopodobieństwa.",
       image: "/problemImages/chapter1.png",
-      slug: "/kombinatoryka"
+      slug: "/kombinatoryka-prawdopodobienstwo-statystyka"
     },
-    {
-      id: "prawdopodobiensto-statystyka",
-      title: "Prawdopodobieństwo i Statystyka",
-      description: "Obliczanie prawdopodobieństwa, średniej, mediany, wariancji i odchylenia standardowego.",
-      image: "/problemImages/chapter1.png",
-      slug: "/prawdopodobiensto-statystyka"
-    }
   ];
 
   const container = {
