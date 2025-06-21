@@ -14,7 +14,7 @@ const QuadraticZerosTask: React.FC = () => {
     "exam_type": "mp",
     "task_type": "mc4",
     "description": "Wskaż funkcję której miejscami zerowymi są $x_1=\\frac{1}{2}$ i $x_2={3}$",
-    "choiceA": "$x^2-\\frac{7}{2}x+\\frac{3}{2}$",
+    "choiceA": "$x^2-\\frac{7}{2}x+\\frac{3}{4}$",
     "choiceB": "$x^2-4x+3$",
     "choiceC": "$2x^2-7x+3$",
     "choiceD": "$x^2-4x+3$",
