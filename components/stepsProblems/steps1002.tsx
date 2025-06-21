@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import TaskDescription from "../TaskDescription";
+import StepDescription from "../StepDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -14,90 +16,91 @@ const Page = () => {
 
   return (
     <div className="min-h-screen p-5">
-      <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Wartość bezwzględna</h2>
-        <p className="text-lg text-gray-800">Oblicz wartość wyrażenia:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="|\sqrt{7} - 2|" />
-        </p>
-        
-        {(completedStages.includes(1) || completedStages.length === 0) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Oszacuj wartość pierwiastka:
-            </p>
-            <ChoiceQuestion
-              question="Ile wynosi w przybliżeniu $$\sqrt{7}$$?"
-              choices={[
-                { label: "\\text{około 2,65}", value: "a" },
-                { label: "\\text{około 2,50}", value: "b" },
-                { label: "\\text{około 2,83}", value: "c" },
-                { label: "\\text{około 3,00}", value: "d" },
-              ]}
-              correctAnswer="c"
-              explanation="$$\sqrt{7} ≈ 2.64575131$$, więc najbardziej precyzyjne przybliżenie to około $$2,65$$."
-              onComplete={() => handleStageComplete(1)}
-              img={"/steps-images/wartosc_pierwiastka7.png"}
-            />
-          </>
-        )}
-        
-        {completedStages.includes(1) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Sprawdź znak wyrażenia pod wartością bezwzględną:
-            </p>
-            <ChoiceQuestion
-              question="Czy wyrażenie $$\sqrt{7} - 2$$ jest dodatnie czy ujemne?"
-              choices={[
-                { label: "\\text{Dodatnie}", value: "a" },
-                { label: "\\text{Ujemne}", value: "b" },
-                { label: "\\text{Równe zero}", value: "c" },
-              ]}
-              correctAnswer="a"
-              explanation="Ponieważ $$\sqrt{7} ≈ 2.65$$, to $$\sqrt{7} - 2 ≈ 2.65 - 2 = 0.65$$, czyli wynik jest dodatni."
-              onComplete={() => handleStageComplete(2)}
-            />
-          </>
-        )}
-        
-        {completedStages.includes(2) && (
-          <>
-            <p className="text-lg text-gray-700 mt-6">
-              Oblicz wartość bezwzględną:
-            </p>
-            <ChoiceQuestion
-              question="Jak obliczyć $$|\sqrt{7} - 2|$$?"
-              choices={[
-                { label: "\\sqrt{7} - 2", value: "a" },
-                { label: "2 - \\sqrt{7}", value: "b" },
-                { label: "0", value: "c" },
-              ]}
-              correctAnswer="a"
-              explanation="Z definicji wartości bezwzględnej: jeśli wyrażenie jest dodatnie, to pozostaje bez zmian. <br>
-              $$|\sqrt{7} - 2| = \sqrt{7} - 2$$"
-              onComplete={() => handleStageComplete(3)}
-            />
-          </>
-        )}
-        
-        {completedStages.length === 3 && (
-          <StudentNotes
-            equation="|\sqrt{7} - 2|"
-            steps={[
-              {
-                step: "\\sqrt{7} \\approx 2.6458",
-              },
-              {
-                step: "\\sqrt{7} - 2 \\approx 2.6458 - 2 = 0.6458 > 0",
-              },
-              {
-                step: "|\\sqrt{7} - 2| = \\sqrt{7} - 2",
-              }
-            ]}
-            solutions={["\\sqrt{7} - 2"]}
-          />
-        )}
+      <div className="max-w-5xl w-full bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-200 mx-auto mt-6 md:mt-10">
+        <TaskDescription
+          title="Potęgowanie i pierwiastki"
+          description="Oblicz wartość wyrażenia:"
+          equation="\left(\frac{1}{2}\right)^{-3} + \sqrt[3]{27}"
+        />
+
+        <div className="mt-8 space-y-8">
+          {(completedStages.includes(1) || completedStages.length === 0) && (
+            <div>
+              <StepDescription stepNumber={1}>
+                Oblicz pierwszą część wyrażenia - potęgowanie
+              </StepDescription>
+              <ChoiceQuestion
+                question="Ile wynosi $$\left(\frac{1}{2}\right)^{-3}$$?"
+                choices={[
+                  { label: "\\frac{1}{8}", value: "a" },
+                  { label: "8", value: "b" },
+                  { label: "-\\frac{3}{2}", value: "c" },
+                  { label: "\\frac{3}{2}", value: "d" },
+                ]}
+                correctAnswer="b"
+                explanation="Podnosząc ułamek do potęgi ujemnej, odwracamy go i podnosimy do potęgi dodatniej: <br>
+                $$\left(\frac{1}{2}\right)^{-3} = \left(\frac{2}{1}\right)^{3} = 2^3 = 8$$"
+                onComplete={() => handleStageComplete(1)}
+              />
+            </div>
+          )}
+
+          {completedStages.includes(1) && (
+            <div>
+              <StepDescription stepNumber={2}>
+                Oblicz drugą część wyrażenia - pierwiastek sześcienny
+              </StepDescription>
+              <ChoiceQuestion
+                question="Ile wynosi $$\sqrt[3]{27}$$?"
+                choices={[
+                  { label: "9", value: "a" },
+                  { label: "3", value: "b" },
+                  { label: "81", value: "c" },
+                  { label: "\\sqrt{27}", value: "d" },
+                ]}
+                correctAnswer="b"
+                explanation="Pierwiastek sześcienny z 27 to liczba, która podniesiona do potęgi trzeciej daje 27: <br>
+                $$3^3 = 27$$, więc $$\sqrt[3]{27} = 3$$"
+                onComplete={() => handleStageComplete(2)}
+              />
+            </div>
+          )}
+
+          {completedStages.includes(2) && (
+            <div>
+              <StepDescription stepNumber={3}>
+                Dodaj obie części wyrażenia
+              </StepDescription>
+              <ChoiceQuestion
+                question="Jaki jest wynik końcowy wyrażenia $$8 + 3$$?"
+                choices={[
+                  { label: "11", value: "a" },
+                  { label: "5", value: "b" },
+                  { label: "24", value: "c" },
+                  { label: "\\frac{11}{1}", value: "d" },
+                ]}
+                correctAnswer="a"
+                explanation="Po obliczeniu obu części wyrażenia wystarczy je dodać: <br>
+                $$8 + 3 = 11$$"
+                onComplete={() => handleStageComplete(3)}
+              />
+            </div>
+          )}
+
+          {completedStages.length === 3 && (
+            <div className="mt-8">
+              <StudentNotes
+                equation="\left(\frac{1}{2}\right)^{-3} + \sqrt[3]{27}"
+                steps={[
+                  { step: "\\left(\\frac{1}{2}\\right)^{-3} = 8" },
+                  { step: "\\sqrt[3]{27} = 3" },
+                  { step: "8 + 3 = 11" }
+                ]}
+                solutions={["11"]}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

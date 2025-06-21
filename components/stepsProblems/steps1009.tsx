@@ -14,10 +14,10 @@ const HardcodedTask: React.FC = () => {
     "task_type": "mc4",
     "description": "Liczba $|\\sqrt{5} - 5| - 3|\\sqrt{5} - 2|$ jest równa",
     "choiceA": "$-3$",
-    "choiceB": "$-5$",
+    "choiceB": "$11-4\\sqrt{5}$",
     "choiceC": "$-4$",
     "choiceD": "$-6$",
-    "correct_answer": "d"
+    "correct_answer": "b"
   };
 
   const handleCheckAnswer = () => {

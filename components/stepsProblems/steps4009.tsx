@@ -8,7 +8,7 @@ const GeometricSequenceRatioTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
-    const taskData = {
+  const taskData = {
     task_id: 52,
     exam_type: "mp",
     task_type: "mc4",
@@ -17,12 +17,13 @@ const GeometricSequenceRatioTask: React.FC = () => {
         a kąt wpisany $ACB$ ma miarę $β$. Wiadomo, że $α + β = 180°$. Oblicz miarę kąta $α$.  
         Oblicz miarę kąta $β$.
     `,
-    choiceA: "$α = 80^{\\circ}$",
-    choiceB: "$α = 90^{\\circ}$",
-    choiceC: "$α = 100^{\\circ}$",
-    choiceD: "$α = 120^{\\circ}$",
+    choiceA: "$α = 80^{\\circ},\\ \\beta = 100^{\\circ}$",
+    choiceB: "$α = 90^{\\circ},\\ \\beta = 90^{\\circ}$",
+    choiceC: "$α = 100^{\\circ},\\ \\beta = 80^{\\circ}$",
+    choiceD: "$α = 120^{\\circ},\\ \\beta = 60^{\\circ}$",
     correct_answer: "d",
-    };
+};
+
 
   const handleCheckAnswer = () => {
     if (selectedAnswer !== null) {
