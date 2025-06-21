@@ -4,7 +4,7 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
-
+import TaskDescription from "../TaskDescription"; 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
@@ -15,13 +15,13 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Miejsca zerowe funkcji kwadratowej
-        </h2>
-        <p className="text-lg text-gray-800">
-          Funkcja kwadratowa <InlineMath math="f"/> jest określona wzorem <InlineMath math="f(x)=(x-2)^2-9"/>. 
-          Jednym z jej miejsc zerowych jest liczba 5. Drugim miejscem zerowym funkcji <InlineMath math="f"/> jest liczba:
-        </p>
+               <TaskDescription
+          title="Funkcja kwadratowa z parametrem"
+          description=" Funkcja kwadratowa $$f$$ jest określona wzorem $$f(x)=(x-2)^2-9$$. 
+          Jednym z jej miejsc zerowych jest liczba $$5.$$ Wskaż drugie miejsce zerowe funkcji $$f$$"
+        />
+       
+
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
@@ -59,7 +59,7 @@ const Page = () => {
 
                 {completedStages.includes(2)  && (
           <ChoiceQuestion
-            question="Jakie jest drugie miejsce zerowe funkcji, skoro wiemy że pierwsze to x=5?"
+            question="Jakie jest drugie miejsce zerowe funkcji, skoro wiemy że pierwsze to $$x_1=5$$?"
             choices={[
               { label: "x = 2", value: "a" },
               { label: "x = -1", value: "b" },

@@ -18,7 +18,7 @@ const QuadraticIncreasingTask: React.FC = () => {
     "choiceB": "$(-\\infty; 5\\rangle$",
     "choiceC": "$(-\\infty; -5\\rangle$",
     "choiceD": "$\\langle-5; \\infty)$",
-    "correct_answer": "b"
+    "correct_answer": "a"
   };
 
   const handleCheckAnswer = () => {
