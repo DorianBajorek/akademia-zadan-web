@@ -78,7 +78,7 @@ const Page = () => {
                 { label: "D = (0; 5⟩", value: "d" }
               ]}
               correctAnswer="b"
-              explanation="Dziedzina funkcji to zbiór wszystkich argumentów, dla których funkcja jest określona. W tym przypadku obejmuje wszystkie wartości od $$-4$$ do $$5$$, włącznie. Ostateczny zapis to $$D = \\langle-4, 5\\rangle$$."
+              explanation="Dziedzina funkcji to zbiór wszystkich argumentów, dla których funkcja jest określona. W tym przypadku obejmuje wszystkie wartości od $$-4$$ do $$5$$, włącznie. Ostateczny zapis to $$D = \langle-4, 5\rangle$$."
               onComplete={() => handleStageComplete(4)}
             />
           </>
@@ -87,7 +87,11 @@ const Page = () => {
         {completedStages.length === 3 && (
           <StudentNotes
             equation=""
-            steps={[]}
+            steps={[
+              {
+                step: "\\text{Funkcja zaczyna się po lewej stronie na -4 a kończy po prawej na 5.}",
+              },
+            ]}
             solutions={["D = \\langle-4, 5\\rangle"]}
           />
         )}
