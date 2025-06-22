@@ -19,7 +19,7 @@ const Page = () => {
         <TaskDescription
           title="Wyznaczanie zbioru wartości funkcji na podstawie wykresu"
           description="Wyznacz zbiór wartości poniższej funkcji"
-          imageUrl="/steps-images/chartSteps3903.jpeg"
+          imageUrl="/steps-images/steps3903av2.jpeg"
         />
 
         <div className="mt-8 space-y-8">
@@ -32,14 +32,14 @@ const Page = () => {
                 question="Jaka jest minimalna wartość funkcji widoczna na wykresie?"
                 choices={[
                   { label: "0", value: "a" },
-                  { label: "3", value: "b" },
+                  { label: "-2", value: "b" },
                   { label: "-4", value: "c" },
                   { label: "\\text{Funkcja nie ma wartości minimalnej}", value: "d" }
                 ]}
-                correctAnswer="d"
-                explanation="Przedstawiona funkcja nie osiąga najmniejszej wartości, ponieważ na najniższych poziomach -2 ma puste kółko. Oznacza to, że funkcja nie przyjmuje wartości $$-2$$, a jedynie zbliża się do niej. Wartość ta jest widoczna na poniższej fotografii."
+                correctAnswer="b"
+                explanation="Funkcja przedstawiona na rysunku osiąga wartość minimalną dla $$x = -2$$. To jest początek przedziału wartości funkcji, który jest zamknięty."
                 onComplete={() => handleStageComplete(1)}
-                explanationImage="/steps-images/steps3903a.jpeg"
+                explanationImage="/steps-images/steps3903bv2.jpeg"
               />
             </div>
           )}
@@ -58,8 +58,8 @@ const Page = () => {
                   { label: "0", value: "d" }
                 ]}
                 correctAnswer="a"
-                explanation="Maksymalna wartość funkcji to $$3$$, co widać w punktach $$(-1, 3)$$ i $$(1, 3)$$ na wykresie. Wartość ta jest osiągana przez funkcję."
-                explanationImage="/steps-images/steps3903b.jpeg"
+                explanation="Maksymalna wartość funkcji to $$3$$. W tym punkcie kółko jest pełne, co oznacza, że funkcja osiąga tę wartość. W konsekwencji przedział na koniec będzie domknięty."
+                explanationImage="/steps-images/steps3903cv2.jpeg"
                 onComplete={() => handleStageComplete(2)}
               />
             </div>
@@ -73,13 +73,13 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który zbiór poprawnie opisuje wartości funkcji f?"
                 choices={[
-                  { label: "ZW = (-2, -1\\rangle \\cup (1, 3\\rangle", value: "a" },
-                  { label: "ZW = \\langle-3;3\\rangle", value: "b" },
-                  { label: "ZW = (-2, -1) \\cup (1, 3\\rangle", value: "c" },
-                  { label: "ZW = (-3;2)", value: "d" }
+                  { label: "ZW = \\lbrace-2\\rbrace \\cup (-1;2) \\cup \\langle2;3\\rangle", value: "a" },
+                  { label: "ZW = \\lbrace-2\\rbrace \\cup (-1;2\\rangle \\cup (2;3\\rangle", value: "b" },
+                  { label: "ZW = \\lbrace-2\\rbrace \\cup \\langle-1;2) \\cup (2;3\\rangle", value: "c" },
+                  { label: "ZW = \\lbrace-2\\rbrace \\cup (-1;2) \\cup (2;3\\rangle", value: "d" }
                 ]}
-                correctAnswer="a"
-                explanation="Zbiór wartości funkcji składa się z dwóch przedziałów: od $$-2$$ (otwarty nawias, wartość nieosiągana) do $$-1$$ (zamknięty nawias, wartość osiągana) oraz od $$1$$ (otwarty nawias) do $$3$$ (zamknięty nawias, wartość osiągana)."
+                correctAnswer="d"
+                explanation="Ustaliliśmy, wczęśniej, że nasza funkcja zaczyna się na poziomie $$-2$$. Widać na rysunku, że funkcja ma przerwę do momentu $$-1$$ i w tym miejscu zaczyna się na nowo (kółko puste więc nawias otwarty). Następnie na poziomie $$2$$ funkcja ma przerwę (kółko puste) i zaczyna się na nowo na poziomie $$2$$ (kółko puste). Nasza funkcja idzie do poziomu $$3$$ i tam kończy się pełnym kółkiem (nawias domknięty). Dlatego poprawny zapis to $$ZW = \lbrace-2\rbrace \cup (-1;2) \cup (2;3\rangle$$."
                 onComplete={() => handleStageComplete(3)}
               />
             </div>
@@ -90,11 +90,8 @@ const Page = () => {
               <StudentNotes
                 equation=""
                 steps={[
-                  { step: "\\text{Funkcja nie osiąga wartości } -2 \\text{ (puste kółko)}" },
-                  { step: "\\text{Osiąga wartości od } -1 \\text{ do } 3" },
-                  { step: "\\text{Z przerwą w przedziale } (-1, 1)" }
                 ]}
-                solutions={["ZW = (-2, -1\\rangle \\cup (1, 3\\rangle"]}
+                solutions={["ZW = \\lbrace-2\\rbrace \\cup (-1;2) \\cup (2;3\\rangle"]}
               />
             </div>
           )}
