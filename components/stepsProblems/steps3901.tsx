@@ -75,7 +75,7 @@ const Page = () => {
                 { label: "ZW = (0;3)", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Zbiór wartości to wszystkie $$y$$ od minimum $$0$$ do maximum $$4$$, włącznie z tymi wartościami."
+              explanation="Zbiór wartości to wszystkie $$y$$ od minimum $$0$$ do maximum $$3$$, włącznie z tymi wartościami."
               onComplete={() => handleStageComplete(4)}
             />
           </>

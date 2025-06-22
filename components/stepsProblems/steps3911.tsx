@@ -21,7 +21,7 @@ const InequalityTrueFalseTask: React.FC = () => {
         "isTrue": true
       },
       {
-        "text": "Największa wartość ten funckj to -1.",
+        "text": "Największa wartość tej funkcji to -1.",
         "isTrue": false
       },
       {
