@@ -1,8 +1,6 @@
 import axios from "axios";
 
-// const prefix  = "https://www.akademiazadan.pl"
-const prefix  = "http://127.0.0.1:8000"
-const local = "http://127.0.0.1:8000"
+const prefix  = "https://www.akademiazadan.pl"
 
 export const getBarometerProblems = async() => {
     try {
@@ -97,28 +95,28 @@ export const getAuthUserData = async(token: string) => {
 }
 
 export const getUserData = async(token: string) => {
-    const res = await axios.get(`${local}/api/users/v1/user_data/`, {
+    const res = await axios.get(`${prefix}/api/users/v1/user_data/`, {
     headers: { Authorization: `Token ${token}` },
   });
   return res.data;
 }
 
 export const getStreak = async (token: string) => {
-  const res = await axios.get(`${local}/api/users/v1/streak/`, {
+  const res = await axios.get(`${prefix}/api/users/v1/streak/`, {
     headers: { Authorization: `Token ${token}` },
   });
   return res.data;
 };
 
 export const getTotalSolved = async (token: string) => {
-  const res = await axios.get(`${local}/api/users/v1/solved_problems/`, {
+  const res = await axios.get(`${prefix}/api/users/v1/solved_problems/`, {
     headers: { Authorization: `Token ${token}` },
   });
   return res.data;
 };
 
 export const getActivityDays = async (token: string) => {
-  const res = await axios.get(`${local}/api/users/v1/activity_days/`, {
+  const res = await axios.get(`${prefix}/api/users/v1/activity_days/`, {
     headers: { Authorization: `Token ${token}` },
   });
   return res.data;
