@@ -7,7 +7,6 @@ import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { useAuth } from './UserData';
 import { motion } from 'framer-motion';
 
-// Animacje
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -25,6 +24,7 @@ const item = {
 
 const Home: React.FC = () => {
   const { token, username } = useAuth();
+  
   console.log("Token:", token);
   return (
     <div className="min-h-screen flex flex-col">
