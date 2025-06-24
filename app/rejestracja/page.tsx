@@ -7,16 +7,34 @@ import Image from 'next/image';
 import { GoogleLogin } from '@react-oauth/google';
 import { useState } from 'react';
 import { google, register } from "@/service";
+import { useAuth } from "../UserData";
+import { Eye, EyeOff } from 'lucide-react';
 
 const Register: React.FC = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const { updateToken, updateUsername } = useAuth();
 
   const handleSubmit = async () => {
-    const data = await register(email, username, password, confirmPassword)
+    try {
+      const data = await register(email, username, password, confirmPassword);
+      console.log("Rejestracja pomyślna:", data);
+      if (data?.key && data?.username) {
+        updateToken(data.token);
+        updateUsername(data.username);
+        window.location.href = '/';
+      } else {
+        console.error("Rejestracja nieudana. Brak tokena lub nazwy użytkownika.");
+      }
+    } catch (error) {
+      console.error("Błąd podczas rejestracji:", error);
+    }
   };
+
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -63,15 +81,27 @@ const Register: React.FC = () => {
               <div className="w-full mb-4 sm:mb-6 flex justify-center">
                 <GoogleLogin
                   onSuccess={async credentialResponse => {
-                    console.log("WYNIK", credentialResponse);
-                    const resp = await google(credentialResponse.credential ?? null)
-                    console.log("Google token:", credentialResponse.credential);
-                    console.log("Backend token:", resp.data);
+                    try {
+                      const resp = await google(credentialResponse.credential ?? null);
+                      console.log("Google token:", credentialResponse.credential);
+                      console.log("Backend token:", resp);
+
+                      if (resp.token && resp.user?.username) {
+                        updateToken(resp.token);
+                        updateUsername(resp.user.username);
+                        window.location.href = '/';
+                      } else {
+                        console.error("Rejestracja przez Google nieudana.");
+                      }
+                    } catch (error) {
+                      console.error("Błąd rejestracji przez Google:", error);
+                    }
                   }}
                   onError={() => {
-                    console.log('Logowanie przez Google nie powiodło się');
+                    console.log('Rejestracja przez Google nie powiodła się');
                   }}
                 />
+
               </div>
 
               
@@ -118,34 +148,53 @@ const Register: React.FC = () => {
                   <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Hasło
                   </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Wprowadź hasło (min. 8 znaków)"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      className="w-full px-3 sm:px-4 py-2 pr-10 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Wprowadź hasło (min. 8 znaków)"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label="Pokaż hasło"
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Powtórz hasło
                   </label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Powtórz hasło"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                      className="w-full px-3 sm:px-4 py-2 pr-10 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Powtórz hasło"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      aria-label="Pokaż hasło"
+                    >
+                      {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
                 </div>
-                
                 <button
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 rounded-md transition duration-200 text-sm sm:text-base"

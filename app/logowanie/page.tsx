@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { GoogleLogin } from '@react-oauth/google';
 import { useState } from 'react';
-import { getAuthUserData, google, login } from "@/service";
+import { google, login } from "@/service";
 import { useAuth } from "../UserData";
 import { Eye, EyeOff } from 'lucide-react';
 
@@ -21,12 +21,11 @@ const Login: React.FC = () => {
     try {
       const data = await login(email, password);
       console.log("Zalogowano pomyślnie:", data);
-      if (data.key) {
+      if (data?.key && data?.username) {
         console.log("Token:", data.key);
         updateToken(data.key);
-        const userData = await getAuthUserData(data.key)
-        updateUsername(userData.username);
-        // window.location.href = '/';
+        updateUsername(data.username);
+        window.location.href = '/';
       } else {
         setError('Nieprawidłowy email lub hasło.');
       }
@@ -85,9 +84,21 @@ const Login: React.FC = () => {
               <div className="w-full mb-4 sm:mb-6 flex justify-center">
                 <GoogleLogin
                   onSuccess={async (credentialResponse) => {
-                    console.log("Google token:", credentialResponse.credential);
-                    const resp = await google(credentialResponse.credential ?? null)
-                    console.log("Odpowiedź backendu po Google login:", resp);
+                    try {
+                      const resp = await google(credentialResponse.credential ?? null);
+                      console.log("Odpowiedź backendu po Google login:", resp);
+
+                      if (resp.token && resp.user?.username) {
+                        updateToken(resp.token);
+                        updateUsername(resp.user.username);
+                        window.location.href = '/';
+                      } else {
+                        setError("Nie udało się zalogować przez Google.");
+                      }
+                    } catch (error) {
+                      console.error("Błąd logowania Google:", error);
+                      setError("Wystąpił błąd podczas logowania przez Google.");
+                    }
                   }}
                   onError={() => {
                     console.log('Logowanie przez Google nie powiodło się');
