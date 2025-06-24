@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-    const storedUsername = localStorage.getItem('username');
+    const storedUsername = localStorage.getItem('userName');
     if (storedToken) setToken(storedToken);
     if (storedUsername) setUsername(storedUsername);
   }, []);
@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateUsername = (newUsername: string) => {
+    console.log("Updating username:", newUsername);
     setUsername(newUsername);
     localStorage.setItem('userName', newUsername);
   }
