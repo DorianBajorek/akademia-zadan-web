@@ -81,7 +81,7 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-           W tym dziale poznasz, czym jest funkcja i jak ją interpretować. Nauczysz się rozpoznawać oraz opisywać jej własności, takie jak dziedzina, zbiór wartości czy monotoniczność. Dowiesz się także, jak analizować wykres funkcji i jak go przesuwać w układzie współrzędnych. To kluczowa wiedza, która pomoże Ci lepiej rozumieć zależności między wielkościami w matematyce.
+           Dział „Funkcje” wprowadza pojęcie funkcji oraz uczy, jak odczytywać ich własności z wykresów. Nauczysz się rozpoznawać kluczowe cechy funkcji, takie jak dziedzina, zbiór wartości, miejsca zerowe czy monotoniczność. Poznasz również sposoby opisywania funkcji za pomocą wzorów oraz interpretowania tych wzorów w kontekście wykresu. Zdobyte umiejętności pozwolą Ci lepiej zrozumieć zależności między zmiennymi i przygotują do dalszej pracy z bardziej zaawansowanymi funkcjami.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">

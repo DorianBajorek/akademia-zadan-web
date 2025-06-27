@@ -54,21 +54,21 @@ const MainCourse: React.FC = () => {
     {
       id: "uklady-rownan",
       title: "Układy równań",
-      description: "Poznaj metody rozwiązywania układów równań - podstawianie, przeciwnych współczynników i graficzną.",
+      description: "Poznaj sprytną metodę na układy równań w zadaniach zamkniętnych.",
       image: "/fieldCovers/uklady.png",
       slug: "/uklady-rownan"
     },
     {
       id: "funkcje",
       title: "Funkcje",
-      description: "Badaj własności funkcji. Dziedzina, zbiór wartości oraz miejsca zerowe",
+      description: "Badaj własności funkcji. Dziedzina, zbiór wartości oraz miejsca zerowe.",
       image: "/fieldCovers/funkcje.png",
       slug: "/funkcje"
     },
     {
       id: "funkcje-liniowe",
       title: "Funkcje liniowe",
-      description: "Badaj własności funkcji liniowych. Wyznaczanie miejsc zerowych",
+      description: "Badaj własności funkcji liniowych. Wyznaczanie miejsc zerowych.",
       image: "/fieldCovers/funkcjaLiniowa.png",
       slug: "/funkcje-liniowe"
     },
@@ -83,42 +83,42 @@ const MainCourse: React.FC = () => {
       id: "ciagi",
       title: "Ciągi",
       description: "Poznaj ciągi arytmetyczne i geometryczne, ich monotoniczność oraz sumy wyrazów.",
-      image: "/problemImages/chapter1.png",
+      image: "/fieldCovers/ciagi.png",
       slug: "/ciagi"
     },
     {
       id: "trygonometria",
       title: "Trygonometria",
-      description: "Funkcje trygonometryczne, tożsamości trygonometryczne i równania trygonometryczne.",
-      image: "/problemImages/chapter1.png",
+      description: "Funkcje trygonometryczne, podstawa każdego maturzysty.",
+      image: "/fieldCovers/trygonometria.png",
       slug: "/trygonometria"
     },
     {
       id: "planimetria",
       title: "Planimetria",
       description: "Geometria płaska - własności figur, twierdzenie Pitagorasa, podobieństwo i pola figur.",
-      image: "/problemImages/chapter1.png",
+      image: "/fieldCovers/planimetria.png",
       slug: "/planimetria"
     },
     {
       id: "geometria-analityczna",
       title: "Geometria analityczna",
-      description: "Równania prostych, odległość punktów, wektory i figury geometryczne na płaszczyźnie kartezjańskiej.",
-      image: "/problemImages/chapter1.png",
+      description: "Proste i figury w układzie współrzędne. Środki prostych - to co maturzsyta musi znać.",
+      image: "/fieldCovers/geometria-analityczna.png",
       slug: "/geometria-analityczna"
     },
     {
       id: "stereometria",
       title: "Stereometria",
-      description: "Geometria przestrzenna - graniastosłupy, ostrosłupy, walce, stożki, kule i ich objętości.",
-      image: "/problemImages/chapter1.png",
+      description: "Geometria przestrzenna - figury przestrzenne, objętości i pola powierzchni.",
+      image: "/fieldCovers/stereometria.png",
       slug: "/stereometria"
     },
     {
       id: "kombinatoryka-prawdopodobienstwo-statystyka",
       title: "Kombinatoryka, Prawdopodobieństwo i elementy statystyki",
-      description: "Dowiedz się, jak liczyć permutacje, wariacje i kombinacje. Kluczowy dział rachunku prawdopodobieństwa.",
-      image: "/problemImages/chapter1.png",
+      description: "Obliczenia kombinatoryczne, prawdopodobieństwo zdarzeń losowych i podstawy statystyki. Zadania z życia codziennego.",
+      image: "/fieldCovers/prawdop.png",
       slug: "/kombinatoryka-prawdopodobienstwo-statystyka"
     },
   ];

@@ -117,8 +117,7 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            Dział "Liczby rzeczywiste" to fundament matematyki. Opanowanie tych zagadnień jest kluczowe dla zrozumienia bardziej zaawansowanych tematów.
-            W tym dziale poznasz podstawowe operacje, własności liczb i ich reprezentacje.
+           Dział „Funkcja kwadratowa” omawia funkcje zapisane wzorem kwadratowym, gdzie kluczową rolę odgrywają współczynniki a, b i c. Nauczysz się wyznaczać miejsca zerowe, czyli punkty, w których wykres przecina oś OX, oraz wierzchołek paraboli, który określa jej najwyższy lub najniższy punkt. Poznasz różne formy zapisu funkcji kwadratowej, takie jak kanoniczna i iloczynowa, oraz nauczysz się rozwiązywać nierówności kwadratowe. Opanowanie tych zagadnień jest niezbędne do analizy i szkicowania wykresów funkcji kwadratowych.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">
