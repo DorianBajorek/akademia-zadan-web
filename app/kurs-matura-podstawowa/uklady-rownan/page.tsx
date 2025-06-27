@@ -75,7 +75,7 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-           W tym dziale nauczysz się, jak sprawdzić, czy układ równań ma rozwiązanie, oraz jak skutecznie je znaleźć. Poznasz różne metody rozwiązywania układów równań – graficzną, podstawiania i przeciwnych współczynników. To praktyczne narzędzie, które często pojawia się zarówno na lekcjach, jak i na egzaminach.
+           Dział „Układy równań” skupia się na sprawdzaniu, czy dana para liczb jest rozwiązaniem układu równań, bez konieczności pełnego rozwiązywania go. Nauczysz się podstawowej metody podstawiania wartości do każdego równania, aby szybko zweryfikować poprawność rozwiązania. Ta umiejętność jest szczególnie przydatna w zadaniach zamkniętych, gdzie liczy się czas i precyzja. Dzięki niej łatwiej ocenisz, które pary spełniają warunki układu, co ułatwia dalszą pracę z równaniami.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">

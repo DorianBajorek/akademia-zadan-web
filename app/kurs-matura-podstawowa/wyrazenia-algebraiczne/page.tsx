@@ -69,7 +69,7 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            W tym dziale poznasz podstawy pracy z literami w matematyce – od działań na wyrażeniach algebraicznych po zastosowanie wzorów skróconego mnożenia. To fundament, który pomoże Ci swobodnie poruszać się w dalszych tematach algebry, takich jak równania, funkcje czy wyrażenia z wartością bezwzględną.
+            Dział „Wyrażenia algebraiczne” skupia się na operacjach na liczbach rzeczywistych oraz przekształcaniu wyrażeń z użyciem liter (zmiennych). Nauczysz się tu dodawać, odejmować, mnożyć i dzielić wyrażenia algebraiczne, a także upraszczać je poprzez redukowanie wyrazów podobnych. Szczególny nacisk położony jest na opanowanie wzorów skróconego mnożenia, które pozwalają szybko i sprawnie przekształcać wyrażenia kwadratowe i sześcienne. Umiejętność ich stosowania znacznie ułatwia późniejsze rozwiązywanie równań i analizowanie funkcji.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">

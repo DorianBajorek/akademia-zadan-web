@@ -69,7 +69,8 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            W tym dziale nauczysz się rozwiązywać równania i nierówności liniowe z jedną niewiadomą. To kluczowa umiejętność w matematyce szkolnej, która pozwala opisywać i analizować proste zależności. Poznasz także sposoby graficznego przedstawiania rozwiązań, co pomoże Ci lepiej zrozumieć ich znaczenie.
+            Dział „Równania i nierówności liniowe” wprowadza podstawowe metody rozwiązywania równań oraz nierówności o pierwszym stopniu. Nauczysz się, jak przekształcać i rozwiązywać równania liniowe, a także jak interpretować i rozwiązywać nierówności liniowe z jedną niewiadomą. Poznasz zasady pracy z nierównościami, w tym zmianę kierunku znaku nierówności przy mnożeniu przez liczby ujemne. Opanowanie tych umiejętności jest kluczowe do rozwiązywania prostych problemów algebraicznych i analizy zależności między zmiennymi.
+
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">

@@ -81,8 +81,7 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            Dział "Liczby rzeczywiste" to fundament matematyki. Opanowanie tych zagadnień jest kluczowe dla zrozumienia bardziej zaawansowanych tematów.
-            W tym dziale poznasz podstawowe operacje, własności liczb i ich reprezentacje.
+           Dział „Ciągi” wprowadza różne typy ciągów liczbowych, takie jak arytmetyczny, geometryczny oraz ciąg rekurencyjny. Nauczysz się, jak wyznaczać kolejne wyrazy ciągu oraz korzystać ze wzorów ogólnych dla każdego typu. Poznasz też własności trzech kolejnych wyrazów, które pomagają rozpoznać i analizować ciągi. Zdobyta wiedza umożliwi Ci rozwiązywanie zadań związanych z ciągami i ich zastosowaniami w matematyce.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">

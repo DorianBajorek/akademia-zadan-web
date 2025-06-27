@@ -9,13 +9,13 @@ import { getTopicsProgress } from "@/service";
 const RealNumbersCourse: React.FC = () => {
   const field = "liczby-rzeczywiste";
   const topicProgress = {
-    "Kąty w okręgu": 30,
+    "": 30,
   };
 
   const topics = [
     {
-      title: "Kąty w okręgu",
-      shortDesc: "Obliczanie miar kątów wpisanych i środkowych w okręgu",
+      title: "",
+      shortDesc: "",
       slug: "/planimetria/katy-w-okregu",
       icon: "°"
     },
@@ -48,13 +48,13 @@ const RealNumbersCourse: React.FC = () => {
           <Link href="/kurs-matura-podstawowa" className="mr-4 text-blue-600 hover:text-blue-800">
             ← Wróć do kursu
           </Link>
-          <h1 className="text-4xl font-bold text-gray-800">Planimetria</h1>
+          <h1 className="text-4xl font-bold text-gray-800">Stereometria</h1>
         </div>
 
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            Dział „Planimetria – kąty w okręgu” dotyczy właściwości kątów związanych z okręgiem i jego elementami. Nauczysz się rozpoznawać kąty wpisane, środkowe oraz kąty między cięciami i stycznymi. Poznasz zależności między tymi kątami oraz ich zastosowanie w rozwiązywaniu zadań geometrycznych. Ta wiedza jest kluczowa do zrozumienia geometrii okręgów i figur na nich opartych.
+            Dział „Stereometria – figury przestrzenne” wprowadza podstawowe pojęcia związane z figurami trójwymiarowymi, takimi jak prostopadłościany, sześciany, graniastosłupy czy ostrosłupy. Nauczysz się rozpoznawać ich elementy, takie jak krawędzie, ściany i wierzchołki, oraz poznasz podstawowe własności tych figur. Dział obejmuje także obliczanie pól powierzchni i objętości wybranych brył. Zdobyta wiedza pozwoli Ci lepiej rozumieć przestrzenne struktury i rozwiązywać zadania geometryczne w trzech wymiarach.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">
