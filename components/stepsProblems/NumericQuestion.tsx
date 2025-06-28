@@ -89,12 +89,12 @@ const NumericQuestion: React.FC<NumericQuestionProps> = ({
           </div>
         )}
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-3">
           <input
             type="text"
             value={userAnswer}
             onChange={(e) => setUserAnswer(e.target.value)}
-            className={`flex-1 p-4 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300 ${
+            className={`w-full p-4 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300 ${
               isCorrect === null
                 ? "border-gray-200 focus:border-blue-400 focus:ring-blue-100 hover:border-blue-300"
                 : isCorrect
@@ -106,8 +106,8 @@ const NumericQuestion: React.FC<NumericQuestionProps> = ({
           />
           <button
             onClick={handleCheckAnswer}
-            disabled={isCorrect !== null && isCorrect || !userAnswer.trim()}
-            className={`p-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 ${
+            disabled={(isCorrect !== null && isCorrect) || !userAnswer.trim()}
+            className={`w-full sm:w-auto p-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 ${
               isCorrect === null
                 ? "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700"
                 : isCorrect
