@@ -56,6 +56,33 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
     });
   };
 
+    const wrapTextWithBreaks = (label: string, maxLength = 25): string => {
+      const match = label.match(/^\\text\{(.+)\}$/);
+      if (!match) return label;
+
+      const text = match[1];
+      const words = text.split(" ");
+
+      const lines: string[] = [];
+      let currentLine = "";
+
+      for (const word of words) {
+        if ((currentLine + " " + word).trim().length > maxLength) {
+          lines.push(currentLine.trim());
+          currentLine = word;
+        } else {
+          currentLine += " " + word;
+        }
+      }
+
+      if (currentLine.trim()) {
+        lines.push(currentLine.trim());
+      }
+
+      return lines.map((line) => `\\text{${line}}`).join(" \\\\ ");
+    };
+
+
   return (
     <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg border border-gray-200 mt-6 transition-all duration-300 hover:shadow-xl">
       <div className="flex flex-col space-y-4">
@@ -151,7 +178,7 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                   </svg>
                 )}
               </span>
-              <InlineMath math={choice.label} />
+              <InlineMath math={wrapTextWithBreaks(choice.label)} />
             </button>
           ))}
         </div>
