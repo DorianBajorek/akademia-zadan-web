@@ -110,7 +110,7 @@ const UserProfile: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col">
       <Nav />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">

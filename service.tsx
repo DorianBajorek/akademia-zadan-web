@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const prefix  = "https://www.akademiazadan.pl"
+const local = "http://127.0.0.1:8000"
 
 export const getBarometerProblems = async() => {
     try {
@@ -210,3 +211,21 @@ export const getProblemProgress = async (field: string, topic: string, token: st
     throw error;
   }
 }
+
+export const solveWithAI = async (prompt: string) => {
+  try {
+    const response = await axios.post(
+      `${prefix}/api/v1/solve_ai/`,
+      { prompt },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error while solving with AI:", error);
+    throw error;
+  }
+};
