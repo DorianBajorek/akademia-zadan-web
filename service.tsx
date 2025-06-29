@@ -122,6 +122,14 @@ export const getActivityDays = async (token: string) => {
   return res.data;
 };
 
+export const getBadges = async (token: string) => {
+  const res = await axios.get(`${prefix}/api/users/v1/user/badges/`, {
+    headers: { Authorization: `Token ${token}` },
+  });
+  console.log("Badges data:", res.data);
+  return res.data;
+}
+
 export const google = async(code: string | null) => {
   const payload = {
       id_token: code,
