@@ -1,0 +1,140 @@
+[
+  {
+    "task_id": 1,
+    "exam_type": "mp",
+    "task_type": "mc4",
+    "description": "Liczba $(\\sqrt{32} - \\sqrt{2})^2$ jest równa",
+    "choiceA": "$16$",
+    "choiceB": "$18$",
+    "choiceC": "$30$",
+    "choiceD": "$34$",
+    "correct_answer": "b",
+    "solution": "$(\\sqrt{32} - \\sqrt{2})^2 = (\\sqrt{16\\cdot2} - \\sqrt{2})^2 = (4\\sqrt{2} - \\sqrt{2})^2 = (3\\sqrt{2})^2 = 9\\cdot2 = 18$<br>Prawidłowa odpowiedź: B. $18$"
+  },
+  {
+    "task_id": 2,
+    "exam_type": "mp",
+    "task_type": "mc4",
+    "description": "Liczba $\\frac{5^{12} + 5^{13} + 5^{14}}{5^{12}}$ jest równa",
+    "choiceA": "$30$",
+    "choiceB": "$31$",
+    "choiceC": "$5^{12}$",
+    "choiceD": "$5^{27}$",
+    "correct_answer": "b",
+    "solution": "$\\frac{5^{12} + 5^{13} + 5^{14}}{5^{12}} = \\frac{5^{12}(1 + 5 + 5^2)}{5^{12}} = 1 + 5 + 25 = 31$<br>Prawidłowa odpowiedź: B. $31$"
+  },
+  {
+    "task_id": 3,
+    "exam_type": "mp",
+    "task_type": "mc4",
+    "description": "Liczba $\\log_3 108 - 2\\log_3 2$ jest równa",
+    "choiceA": "$3$",
+    "choiceB": "$9$",
+    "choiceC": "$\\log_3 104$",
+    "choiceD": "$2\\log_3 54$",
+    "correct_answer": "a",
+    "solution": "$\\log_3 108 - 2\\log_3 2 = \\log_3 108 - \\log_3 4 = \\log_3 \\left(\\frac{108}{4}\\right) = \\log_3 27 = 3$<br>Prawidłowa odpowiedź: A. $3$"
+  },
+  {
+    "task_id": 4,
+    "exam_type": "mp",
+    "task_type": "mc4",
+    "description": "Dla każdej liczby rzeczywistej $x$ wartość wyrażenia $(3x + 2)^2 - (2x - 3)^2$ jest równa wartości wyrażenia",
+    "choiceA": "$5x^2 - 5$",
+    "choiceB": "$5x^2 + 13$",
+    "choiceC": "$5x^2 + 24x - 5$",
+    "choiceD": "$5x^2 + 24x - 13$",
+    "correct_answer": "c",
+    "solution": "Korzystamy ze wzoru $a^2 - b^2 = (a-b)(a+b)$:<br>$(3x+2)^2 - (2x-3)^2 = [(3x+2)-(2x-3)]\\cdot[(3x+2)+(2x-3)]<br>= (x+5)(5x-1) = 5x^2 - x + 25x - 5 = 5x^2 + 24x - 5<br>Prawidłowa odpowiedź: C. $5x^2 + 24x - 5$"
+  },
+  {
+    "task_id": 5,
+    "exam_type": "mp",
+    "task_type": "open",
+    "description": "Wykaż, że dla każdej nieparzystej liczby naturalnej $n$ liczba $3n^2 + 2n + 7$ jest podzielna przez $4$.",
+    "solution": "Niech $n = 2k + 1$ gdzie $k \\in \\mathbb{N}$ (postać liczby nieparzystej)<br><br>$3n^2 + 2n + 7 = 3(2k+1)^2 + 2(2k+1) + 7$<br>$= 3(4k^2 + 4k + 1) + 4k + 2 + 7$<br>$= 12k^2 + 12k + 3 + 4k + 9$<br>$= 12k^2 + 16k + 12$<br>$= 4(3k^2 + 4k + 3)$<br><br>Wyrażenie w nawiasie jest liczbą całkowitą, więc całość jest podzielna przez $4$."
+  },
+  {
+    "task_id": 6,
+    "exam_type": "mp",
+    "task_type": "mc4",
+    "description": "Dana jest nierówność <br>$3 - 2(1 - 2x) \\geq 2x - 17$<br>Na którym rysunku poprawnie zaznaczono na osi liczbowej zbiór wszystkich liczb rzeczywistych spełniających powyższą nierówność? Wybierz właściwą odpowiedź spośród podanych.",
+    "choiceA": "/matura2025nowa/zad6a.png",
+    "choiceB": "/matura2025nowa/zad6b.png",
+    "choiceC": "/matura2025nowa/zad6c.png",
+    "choiceD": "/matura2025nowa/zad6d.png",
+    "correct_answer": "d",
+    "solution": "Rozwiązujemy nierówność:<br>$3 - 2(1 - 2x) \\geq 2x - 17$<br>$3 - 2 + 4x \\geq 2x - 17$<br>$1 + 4x \\geq 2x - 17$<br>$2x \\geq -18$<br>$x \\geq -9$<br><br>Poprawny zbiór rozwiązań to wszystkie liczby rzeczywiste większe lub równe $-9$, co odpowiada rysunkowi D."
+  },
+  {
+    "task_id": 7,
+    "exam_type": "mp",
+    "task_type": "mc4",
+    "description": "Równanie:  $2x(x + 3)(x^2 + 25) = 0$ w zbiorze liczb rzeczywistych ma dokładnie",
+    "choiceA": "dwa rozwiązania: $-3$ oraz $0$",
+    "choiceB": "dwa rozwiązania: $-3$ oraz $2$",
+    "choiceC": "trzy rozwiązania: $-5$, $-3$ oraz $0$",
+    "choiceD": "cztery rozwiązania: $-5$, $-3$, $0$ oraz $5$",
+    "correct_answer": "a",
+    "solution": "Rozwiązujemy równanie:<br>$2x(x + 3)(x^2 + 25) = 0$<br>Czynniki równania:<br>1) $2x = 0 \\Rightarrow x = 0$<br>2) $x + 3 = 0 \\Rightarrow x = -3$<br>3) $x^2 + 25 = 0$ - brak rozwiązań rzeczywistych<br><br>Równanie ma tylko dwa rozwiązania rzeczywiste: $x = 0$ i $x = -3$<br>Prawidłowa odpowiedź: A. dwa rozwiązania: $-3$ oraz $0$"
+  },
+  {
+    "task_id": 8,
+    "exam_type": "mp",
+    "task_type": "mc4",
+    "description": "Dla każdej liczby rzeczywistej $x$ różnej od $-2$ oraz różnej od $0$ wartość wyrażenia<br>$\\frac{x^2 + x}{x^2 + 4x + 4} \\cdot \\frac{x + 2}{x}$ jest równa wartości wyrażenia",
+    "choiceA": "$\\frac{x + 2}{4x + 4}$",
+    "choiceB": "$\\frac{x + 1}{4x + 5}$",
+    "choiceC": "$\\frac{x + 1}{x + 2}$",
+    "choiceD": "$\\frac{2x}{x + 2}$",
+    "correct_answer": "c",
+    "solution": "Uproszczenie wyrażenia:<br>$\\frac{x^2 + x}{x^2 + 4x + 4} \\cdot \\frac{x + 2}{x} = \\frac{x(x + 1)}{(x + 2)^2} \\cdot \\frac{x + 2}{x}$<br>Skracamy $x$ i $(x + 2)$:<br>$= \\frac{x + 1}{x + 2}$<br><br>Prawidłowa odpowiedź: C. $\\frac{x + 1}{x + 2}$"
+  },
+  {
+    "task_id": 9,
+    "exam_type": "mp",
+    "task_type": "open",
+    "description": "Zarząd firmy wydzielił z budżetu kwotę $1\\,200\\,000$ złotych łącznie na projekty badawcze dla dwóch zespołów: A i B. W pierwszym półroczu realizacji tych projektów oba zespoły wykorzystały łącznie $146\\,700$ złotych - zespół A wykorzystał $13\\%$ przyznanych mu środków, a zespół B wykorzystał $11\\%$ przyznanych mu środków.<br><br>Oblicz kwotę przyznaną zespołowi A na realizację projektu badawczego.<br>Zapisz obliczenia.",
+    "solution": "Oznaczmy:<br>$x$ - kwota przyznana zespołowi A (w zł)<br>$1\\,200\\,000 - x$ - kwota przyznana zespołowi B (w zł)<br><br>Z warunków zadania mamy:<br>$0.13x + 0.11(1\\,200\\,000 - x) = 146\\,700$<br><br>Rozwiązujemy równanie:<br>$0.13x + 132\\,000 - 0.11x = 146\\,700$<br>$0.02x = 14\\,700$<br>$x = \\frac{14\\,700}{0.02} = 735\\,000$<br><br>Odpowiedź: Zespół A otrzymał $735\\,000$ zł."
+  },
+  {
+    "task_id": 10,
+    "exam_type": "mp",
+    "task_type": "open",
+    "description": "Rozwiąż nierówność<br>$3(2x^2 + 1) < 11x$<br>Zapisz obliczenia.",
+    "solution": "Rozwiązujemy nierówność:<br>$3(2x^2 + 1) < 11x$<br>$6x^2 + 3 < 11x$<br>$6x^2 - 11x + 3 < 0$<br><br>Rozwiązujemy równanie kwadratowe:<br>$6x^2 - 11x + 3 = 0$<br>$\\Delta = (-11)^2 - 4 \\cdot 6 \\cdot 3 = 121 - 72 = 49$<br>$x_1 = \\frac{11 - \\sqrt{49}}{12} = \\frac{4}{12} = \\frac{1}{3}$<br>$x_2 = \\frac{11 + \\sqrt{49}}{12} = \\frac{18}{12} = \\frac{3}{2}$<br><br>Szkicujemy parabolę ($a = 6 > 0$ - ramiona skierowane w górę):<br>Miejsca zerowe: $x_1 = \\frac{1}{3}$, $x_2 = \\frac{3}{2}$<br><br>Rozwiązanie nierówności:<br>$x \\in \\left(\\frac{1}{3}, \\frac{3}{2}\\right)$"
+  },
+{
+  "task_id": 11,
+  "exam_type": "mp",
+  "task_type": "open",
+  "description": "Funkcja $f$ jest określona następująco:<br>$f(x) = \\begin{cases}   x + 5 & \\text{ dla } x \\in [-4, -2] \\\\   3 & \\text{ dla } x \\in (-2, 2] \\\\   -3x + 9 & \\text{ dla } x \\in (2, 4) \\end{cases}$<br><br> <br>Wykres funkcji $y = f(x)$ przedstawiono w kartezjańskim układzie współrzędnych $(x, y)$ na rysunku poniżej <br> <img src='/matura2025nowa/zad11.png' /> <br> Uzupełnij zdania. Wpisz odpowiednie przedziały w wykropkowanych miejscach, aby zdania były prawdziwe. <br> 1. Dziedziną funkcji $f$ jest przedział: <br> 2. Zbiorem wartości funkcji $f$ jest przedział:  <br> 3. Zbiorem wszystkich argumentów, dla których funkcja $f$ przyjmuje wartości dodatnie, jest przedział: <br> 4. Zbiorem wszystkich rozwiązań równania $f(x) = 3$ jest przedział: ",
+     "solution": "Krok 1. Rozwiązanie pierwszej części zadania.<br> Dziedzinę funkcji odczytujemy z osi $x$. Funkcja jest określona dla argumentów z przedziałów $[-4, -2]$, $(-2, 2]$ oraz $(2, 4)$, więc dziedziną funkcji jest przedział<br> $[-4, 4)$.<br><br> Krok 2. Rozwiązanie drugiej części zadania.<br> Zbiór wartości funkcji odczytujemy z osi $y$. Funkcja przyjmuje wartości od $-3$ (dla $x$ bliskich 4) do $3$ (dla argumentów z przedziału $[-2, 2]$). Zauważamy, że wartość $3$ jest przyjmowana dla wielu argumentów, dlatego zbiorem wartości jest przedział<br> $[-3, 3]$.<br><br> Krok 3. Rozwiązanie trzeciej części zadania.<br> Z wykresu lub definicji funkcji odczytujemy, że funkcja przyjmuje wartości dodatnie dla argumentów z przedziału<br> $[-4, 2] \\cup (2, 3)$.<br><br> Krok 4. Rozwiązanie czwartej części zadania.<br> Równanie $f(x) = 3$ jest spełnione przez wszystkie argumenty z przedziału $[-2, 2]$, ponieważ na tym przedziale funkcja jest stała i równa 3. Dodatkowo punkt $x = -2$ należy do dziedziny i funkcja tam również przyjmuje wartość 3. Zatem zbiorem rozwiązań równania jest przedział<br> $[-2, 2]$."
+},
+{
+"task_id": 12,
+"exam_type": "mp",
+"task_type": "open",
+"description": "W kartezjańskim układzie współrzędnych $(x, y)$ przedstawiono fragment paraboli, która jest wykresem funkcji kwadratowej f (zobacz rysunek). Wierzchołek tej paraboli ma współrzędne $(3, 6)$. Ta parabola przecina oś $Oy$ w punkcie o współrzędnych $(0, 3)$. <br> <img src='/matura2025nowa/zad12.png' /> <br> Zad12.1 <br> Wyznacz wzór funkcji $f$ w postaci kanonicznej. Zapisz obliczenia.",
+  "solution": "<strong>Krok 1:</strong> Podstawiamy współrzędne wierzchołka do wzoru:<br>$f(x) = a(x-3)^2 + 6$<br><br><strong>Krok 2:</strong> Wykorzystujemy punkt przecięcia z osią OY $(0, 3)$:<br>$3 = a(0-3)^2 + 6$<br>$3 = 9a + 6$<br><br><strong>Krok 3:</strong> Rozwiązujemy równanie:<br>$9a = 3 - 6$<br>$9a = -3$<br>$a = -\\frac{1}{3}$<br><br><strong>Krok 4:</strong> Zapisujemy ostateczny wzór:<br>$f(x) = -\\frac{1}{3}(x-3)^2 + 6$<br><br><strong>Krok 5:</strong> Przekształcamy do postaci ogólnej:<br>$f(x) = -\\frac{1}{3}(x^2 - 6x + 9) + 6$<br>$f(x) = -\\frac{1}{3}x^2 + 2x - 3 + 6$<br>$f(x) = -\\frac{1}{3}x^2 + 2x + 3$"
+},
+{
+"task_id": 12.2,
+"exam_type": "mp",
+"task_type": "mc4",
+"description": "Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych. <br> Osią symetrii wykresu funkcji $f$ jest prosta o równaniu",
+"choiceA": "$x = 3$",
+"choiceB": "$x = -3$",
+"choiceC": "$y = 6$",
+"choiceD": "$y = -6$",
+"correct_answer": "a",
+"solution": "Oś symetrii paraboli to linia równoległa do osi $Oy$, która przechodzi przez wierzchołek. W naszym przypadku osią symetrii będzie więc prosta opisana równaniem $x=3$."
+},
+{
+"task_id": 12.3,
+"exam_type": "mp",
+"task_type": "open",
+"description": "Funkcja $g$ jest określona dla każdej liczby rzeczywistej $x$ wzorem <br> $g(x) = f(x) - 3$. Liczby $x_1$ oraz $x_2$ są różnymi miejscami zerowymi funkcji $g$. Uzupełnij zdanie. Wpis zodpowiednią liczbę w wykropkowanym miejscu, aby zdanie było prawdziwe. <br> Suma $x_1 + x_2$ jest równa ...",
+  "solution": "Miejsca zerowe funkcji to takie wartości argumentów $x$, dla których funkcja przyjmuje wartość zero. Ponieważ funkcja $g(x) = f(x) - 3$ powstaje przez przesunięcie wykresu funkcji $f(x)$ o 3 jednostki w dół, jej miejsca zerowe odpowiadają punktom, gdzie $f(x) = 3$. Z analizy funkcji wynika, że takimi punktami są $x_1 = 0$ oraz $x_2 = 6$. Suma tych miejsc zerowych wynosi więc<br> $x_1 + x_2 = 6$."
+}
+]
