@@ -2,6 +2,7 @@
 import { InlineMath } from "react-katex";
 import { motion } from "framer-motion";
 import 'katex/dist/katex.min.css';
+import AIExplanation from "./AIExplantation";
 
 interface Question2Props {
   description: string;
@@ -34,12 +35,12 @@ const Question2: React.FC<Question2Props> = ({
   const answers = [choiceA, choiceB, choiceC, choiceD];
 
   const renderText = (text: string) => {
-    const parts = text.split(/\$(.*?)\$/g);
+    const parts = text.split(/(\$.*?\$)/g);
     return parts.map((part, index) =>
-      index % 2 === 0 ? (
-        <span key={index}>{part}</span>
+      part.startsWith('$') && part.endsWith('$') ? (
+        <InlineMath key={index} math={part.slice(1, -1)} />
       ) : (
-        <InlineMath key={index} math={part} />
+        <span key={index}>{part}</span>
       )
     );
   };
@@ -55,7 +56,6 @@ const Question2: React.FC<Question2Props> = ({
       renderText(text)
     );
   };
-
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
   return (
@@ -139,6 +139,15 @@ const Question2: React.FC<Question2Props> = ({
           );
         })}
       </div>
+
+      <AIExplanation
+        description={description}
+        choiceA={choiceA}
+        choiceB={choiceB}
+        choiceC={choiceC}
+        choiceD={choiceD}
+        correctAnswer={correctAnswer}
+      />
     </motion.div>
   );
 };
