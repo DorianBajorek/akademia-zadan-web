@@ -123,6 +123,16 @@ const MainCourse: React.FC = () => {
     },
   ];
 
+   const exams = [
+    {
+      id: "matura-maj-2025-nowy",
+      title: "Egzamin maturalny 2025",
+      description: "Spróbuj swoich sił w próbnym najnowszym arkuszu maturalnym.",
+      image: "/fieldCovers/egzaminMaj2025.png",
+      slug: "/matura-maj-2025-nowy"
+    },
+  ];
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -215,6 +225,73 @@ const MainCourse: React.FC = () => {
             );
           })}
         </motion.div>
+        <div className="my-16 border-t border-gray-300">
+          <h2 className="text-2xl font-bold text-gray-800 text-center mt-10 mb-6">
+            Egzamin maturalny
+          </h2>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {exams.map((exam, index) => {
+              const progress = progressData[exam.id] ?? 0;
+
+              return (
+                <Link 
+                  href={`/kurs-matura-podstawowa${exam.slug}`} 
+                  key={exam.id}
+                  className="block"
+                >
+                  <motion.div 
+                    variants={item}
+                    whileHover={{ 
+                      scale: 1.03,
+                      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                    }}
+                    className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer h-full"
+                  >
+                    <div className="h-48 relative">
+                      <Image 
+                        src={exam.image} 
+                        alt={exam.title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="opacity-90"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-800 to-transparent opacity-70"></div>
+                      <h3 className="absolute bottom-4 left-4 text-2xl font-bold text-white">
+                        {exam.title}
+                      </h3>
+                    </div>
+
+                    <div className="p-6">
+                      <p className="text-gray-600 mb-4">{exam.description}</p>
+                      
+                      <div className="mb-4">
+                        <div className="flex justify-between text-sm text-gray-600 mb-1">
+                          <span>Postęp:</span>
+                          <span>{progress.toFixed(1)}%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <motion.div 
+                            className="bg-blue-600 h-2.5 rounded-full" 
+                            initial={{ width: 0 }}
+                            animate={{ width: `${progress}%` }}
+                            transition={{ duration: 0.8, delay: 0.5 + index * 0.05 }}
+                          ></motion.div>
+                        </div>
+                      </div>
+
+                      <div className="text-center text-blue-600 font-medium">Rozpocznij egzamin</div>
+                    </div>
+                  </motion.div>
+                </Link>
+              );
+            })}
+          </motion.div>
+        </div>
       </main>
 
       <Footer />
