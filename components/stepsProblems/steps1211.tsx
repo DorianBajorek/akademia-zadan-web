@@ -18,7 +18,7 @@ const HardcodedTask: React.FC = () => {
     "choiceB": "$5\\sqrt{7}$",
     "choiceC": "$2\\sqrt{2}$",
     "choiceD": "$4\\sqrt{2}$",
-    "correct_answer": ""
+    "correct_answer": "b"
   };
 
   const handleCheckAnswer = () => {

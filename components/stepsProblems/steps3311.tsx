@@ -18,10 +18,10 @@ const SequenceFifthTermTask: React.FC = () => {
       Piąty wyraz tego ciągu jest równy
     `,
     choiceA: "$\\left(-\\frac{1}{10}\\right)$",
-    choiceB: "$\\frac{3}{50}$",
+    choiceB: "$\\left(-\\frac{1}{5}\\right)$",
     choiceC: "$\\frac{3}{100}$",
-    choiceD: "$\\left(-\\frac{1}{5}\\right)$",
-    correct_answer: "b"
+    choiceD: "$\\frac{3}{50}$",
+    correct_answer: "d"
   };
 
   const handleCheckAnswer = () => {
