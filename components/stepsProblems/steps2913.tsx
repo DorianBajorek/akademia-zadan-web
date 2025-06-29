@@ -18,7 +18,7 @@ const QuadraticBfromFactoredTask: React.FC = () => {
     choiceB: "$a>0, c<0$",
     choiceC: "$a<0, c>0$",
     choiceD: "$a<0, c<0$",
-    correct_answer: "b",
+    correct_answer: "a",
     descriptionImg: "/problemImages/wykres_2913.png",
   };
 
