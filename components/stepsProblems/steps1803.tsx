@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import StepDescription from "../StepDescription";
+import TaskDescription from "../TaskDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,27 +17,28 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Mnożenie nawiasu przez liczbę</h2>
-        <p className="text-lg text-gray-800">Wykonaj działania i uprość wyrażenie:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="4(3x - 5) - 2(2x + 7) + 3(-x + 4)" />
-        </p>
-        
+        <TaskDescription
+          title="Mnożenie nawiasu przez liczbę"
+          description="Wykonaj działania i uprość wyrażenie:"
+          equation="4(3x - 5) - 2(2x + 7) + 3(-x + 4)"
+        />
+
+        {/* ETAP 1: Mnożenie pierwszego nawiasu */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 1: Pomnóż pierwszy nawias przez 4
-            </p>
+            <StepDescription stepNumber={1}>
+              Zacznij od wymnożenia pierwszego nawiasu przez liczbę stojącą przed nim: <InlineMath math="4(3x - 5)"/>.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które mnożenie jest poprawne?"
+              question="Jaki jest wynik mnożenia $$4(3x - 5)$$?"
               choices={[
-                { label: "12x - 20", value: "a" },
+                { label: "12x - 5", value: "a" },
                 { label: "12x + 20", value: "b" },
-                { label: "12x - 5", value: "c" },
+                { label: "12x - 20", value: "c" },
                 { label: "3x - 20", value: "d" }
               ]}
-              correctAnswer="a"
-              explanation="Poprawnie wymnożony nawias to $$12x - 20$$. <br>
+              correctAnswer="c"
+              explanation="Poprawny wynik to $$12x - 20$$. <br>
                 Mnożymy każdy wyraz w nawiasie przez 4:<br>
                 $$4 \cdot 3x = 12x$$<br>
                 $$4 \cdot (-5) = -20$$"
@@ -43,14 +46,15 @@ const Page = () => {
             />
           </>
         )}
-        
+
+        {/* ETAP 2: Mnożenie drugiego nawiasu */}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 2: Pomnóż drugi nawias przez -2
-            </p>
+            <StepDescription stepNumber={2}>
+              Teraz wymnóż drugi nawias, pamiętając o znaku minus: <InlineMath math="-2(2x + 7)"/>.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które mnożenie jest poprawne?"
+              question="Jaki jest wynik mnożenia $$-2(2x + 7)$$?"
               choices={[
                 { label: "-4x - 14", value: "a" },
                 { label: "4x + 14", value: "b" },
@@ -58,7 +62,7 @@ const Page = () => {
                 { label: "-4x - 7", value: "d" }
               ]}
               correctAnswer="a"
-              explanation="Poprawnie wymnożony nawias to $$-4x - 14$$. <br>
+              explanation="Poprawny wynik to $$-4x - 14$$. <br>
                 Mnożymy każdy wyraz w nawiasie przez -2:<br>
                 $$-2 \cdot 2x = -4x$$<br>
                 $$-2 \cdot 7 = -14$$"
@@ -66,22 +70,23 @@ const Page = () => {
             />
           </>
         )}
-        
+
+        {/* ETAP 3: Mnożenie trzeciego nawiasu */}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 3: Pomnóż trzeci nawias przez 3
-            </p>
+            <StepDescription stepNumber={3}>
+              Wymnóż trzeci nawias przez liczbę, która go poprzedza: <InlineMath math="3(-x + 4)"/>.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które mnożenie jest poprawne?"
+              question="Jaki jest wynik mnożenia $$3(-x + 4)$$?"
               choices={[
-                { label: "-3x + 12", value: "a" },
+                { label: "-3x + 4", value: "a" },
                 { label: "3x + 12", value: "b" },
-                { label: "-3x + 4", value: "c" },
+                { label: "-3x + 12", value: "c" },
                 { label: "3x - 12", value: "d" }
               ]}
-              correctAnswer="a"
-              explanation="Poprawnie wymnożony nawias to $$-3x + 12$$. <br>
+              correctAnswer="c"
+              explanation="Poprawny wynik to $$-3x + 12$$. <br>
                 Mnożymy każdy wyraz w nawiasie przez 3:<br>
                 $$3 \cdot (-x) = -3x$$<br>
                 $$3 \cdot 4 = 12$$"
@@ -89,39 +94,45 @@ const Page = () => {
             />
           </>
         )}
-        
+
+        {/* ETAP 4: Połączenie i uproszczenie */}
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 4: Połącz wszystkie wyrazy i uprość
-            </p>
+            <StepDescription stepNumber={4}>
+              Połącz wszystkie otrzymane jednomiany i zredukuj wyrazy podobne, aby uzyskać ostateczny wynik.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które uproszczenie jest poprawne?"
+              question="Jak wygląda końcowe wyrażenie po uproszczeniu?"
               choices={[
-                { label: "5x - 22", value: "a" },
-                { label: "11x - 22", value: "b" },
+                { label: "11x - 22", value: "a" },
+                { label: "5x - 22", value: "b" },
                 { label: "5x + 6", value: "c" },
                 { label: "11x + 6", value: "d" }
               ]}
-              correctAnswer="a"
-              explanation="Poprawne uproszczenie to $$5x - 22$$. <br>
-                Kroki rozwiązania:<br>
+              correctAnswer="b"
+              explanation="Poprawny wynik to $$5x - 22$$. <br>
                 1. Połącz wszystkie wyrazy: $$12x - 20 - 4x - 14 - 3x + 12$$<br>
-                2. Zredukuj wyrazy podobne: <br>
-                   $$(12x - 4x - 3x) + (-20 - 14 + 12)$$<br>
-                   $$5x - 22$$"
+                2. Zgrupuj wyrazy podobne: $$(12x - 4x - 3x) + (-20 - 14 + 12)$$<br>
+                3. Zredukuj wyrazy: $$5x - 22$$"
               onComplete={() => handleStageComplete(4)}
             />
           </>
         )}
-        
+
+        {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 4 && (
           <StudentNotes
             equation="4(3x - 5) - 2(2x + 7) + 3(-x + 4)"
             steps={[
               {
-                step: "12x - 20 -4x - 14 - 3x + 12 = 5x - 22",
+                step: "12x - 20 - 4x - 14 - 3x + 12",
               },
+              {
+                step: "(12x - 4x - 3x) + (-20 - 14 + 12)",
+              },
+              {
+                step: "5x - 22"
+              }
             ]}
             solutions={["5x - 22"]}
           />

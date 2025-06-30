@@ -13,11 +13,11 @@ const ModuloFunctionTask: React.FC = () => {
     exam_type: "mp",
     task_type: "mc4",
     description: "Funkcja $f$ każdej liczbie naturalnej $n \\geq 1$ przyporządkowuje resztę z dzielenia tej liczby przez $4$. Zbiorem wartości funkcji $f$ jest",
-    choiceA: "$0, 1, 2, 3$",      // poprawna
+    choiceA: "$0, 1, 2, 3, 4$",      // poprawna
     choiceB: "$1, 2, 3, 4$",      // błędna (reszta nigdy nie będzie 4)
-    choiceC: "$0, 1, 2, 3, 4$",   // błędna (zawiera niepoprawną wartość 4)
+    choiceC: "$0, 1, 2, 3$",   // błędna (zawiera niepoprawną wartość 4)
     choiceD: "$0, 2$",            // błędna (brakuje 1 i 3)
-    correct_answer: "a"
+    correct_answer: "c"
   };
 
   const handleCheckAnswer = () => {

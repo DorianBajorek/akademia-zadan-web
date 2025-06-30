@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import StepDescription from "../StepDescription";
+import TaskDescription from "../TaskDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,26 +17,27 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Upraszczanie wyrażeń algebraicznych</h2>
-        <p className="text-lg text-gray-800">Uprość wyrażenie:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="3x^2y + 5xy^2 - 2x^2y + 4xy - 6xy^2" />
-        </p>
-        
+        <TaskDescription
+          title="Upraszczanie wyrażeń algebraicznych"
+          description="Uprość następujące wyrażenie algebraiczne:"
+          equation="3x^2y + 5xy^2 - 2x^2y + 4xy - 6xy^2"
+        />
+
+        {/* ETAP 1: Grupowanie wyrazów podobnych */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Pierwszy krok: pogrupuj wyrazy podobne:
-            </p>
+            <StepDescription stepNumber={1}>
+              Pogrupuj wyrazy podobne. Wyrazy podobne to takie, które mają te same zmienne podniesione do tych samych potęg.
+            </StepDescription>
             <ChoiceQuestion
               question="Które grupowanie jest poprawne?"
               choices={[
-                { label: "(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy", value: "a" },
+                { label: "(3x^2y - 5xy^2) + (-2x^2y - 4xy) + 6xy^2", value: "a" },
                 { label: "(3x^2y + 5xy^2) + (-2x^2y + 4xy) - 6xy^2", value: "b" },
                 { label: "(3x^2y + 2x^2y) + (5xy^2 + 6xy^2) + 4xy", value: "c" },
-                { label: "(3x^2y - 5xy^2) + (-2x^2y - 4xy) + 6xy^2", value: "d" }
+                { label: "(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne grupowanie to $$(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy$$. <br>
                 Dlaczego? Wyrazy podobne to takie, które mają te same zmienne w tej samej potędze. W tym przypadku grupujemy:<br> 
                 - wyrazy z $$x^2y$$: $$3x^2y$$ i $$-2x^2y$$<br>
@@ -45,11 +48,12 @@ const Page = () => {
           </>
         )}
         
+        {/* ETAP 2: Redukcja wyrazów podobnych */}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Drugi krok: wykonaj redukcję wyrazów podobnych:
-            </p>
+            <StepDescription stepNumber={2}>
+              Wykonaj redukcję (dodawanie lub odejmowanie) w każdej z grup wyrazów podobnych.
+            </StepDescription>
             <ChoiceQuestion
               question="Które uproszczenie jest poprawne?"
               choices={[
@@ -69,13 +73,17 @@ const Page = () => {
           </>
         )}
         
+        {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 2 && (
           <StudentNotes
             equation="3x^2y + 5xy^2 - 2x^2y + 4xy - 6xy^2"
             steps={[
               {
-                step: "3x^2y + 5xy^2 - 2x^2y + 4xy - 6xy^2 = (3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy = x^2y - xy^2 + 4xy",
+                step: "(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy",
               },
+              {
+                step: "x^2y - xy^2 + 4xy"
+              }
             ]}
             solutions={["x^2y - xy^2 + 4xy"]}
           />

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import StepDescription from "../StepDescription";
+import TaskDescription from "../TaskDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,27 +17,28 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Mnożenie trzech nawiasów</h2>
-        <p className="text-lg text-gray-800">Wykonaj działania i uprość wyrażenie:</p>
-        <p className="text-2xl font-bold text-gray-900 text-center mt-4">
-          <InlineMath math="(x + 2)(x - 3)(2x + 1)" />
-        </p>
-        
+        <TaskDescription
+          title="Mnożenie trzech nawiasów"
+          description="Wykonaj działania i uprość wyrażenie:"
+          equation="(x + 2)(x - 3)(2x + 1)"
+        />
+
+        {/* ETAP 1: Mnożenie pierwszych dwóch nawiasów */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 1: Pomnóż pierwsze dwa nawiasy (x + 2)(x - 3)
-            </p>
+            <StepDescription stepNumber={1}>
+              Zacznij od pomnożenia dwóch pierwszych nawiasów: <InlineMath math="(x + 2)(x - 3)"/>.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które mnożenie jest poprawne?"
+              question="Jaki jest wynik mnożenia $$(x + 2)(x - 3)$$?"
               choices={[
-                { label: "x^2 - 3x + 2x - 6", value: "a" },
+                { label: "x^2 + x - 6", value: "a" },
                 { label: "x^2 + 3x - 2x - 6", value: "b" },
-                { label: "x^2 - x - 6", value: "c" },
-                { label: "x^2 + x - 6", value: "d" }
+                { label: "x^2 - 3x + 2x - 6", value: "c" },
+                { label: "x^2 - x - 6", value: "d" }
               ]}
-              correctAnswer="a"
-              explanation="Poprawnie wymnożone pierwsze dwa nawiasy to $$x^2 - 3x + 2x - 6$$. <br>
+              correctAnswer="c"
+              explanation="Poprawny wynik to $$x^2 - 3x + 2x - 6$$. <br>
                 $$x \cdot x = x^2$$<br>
                 $$x \cdot (-3) = -3x$$<br>
                 $$2 \cdot x = 2x$$<br>
@@ -44,44 +47,46 @@ const Page = () => {
             />
           </>
         )}
-        
+
+        {/* ETAP 2: Uproszczenie wyniku */}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 2: Uprość wynik mnożenia dwóch pierwszych nawiasów
-            </p>
+            <StepDescription stepNumber={2}>
+              Uprość otrzymany wielomian, redukując wyrazy podobne.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które uproszczenie jest poprawne?"
+              question="Jak wygląda wyrażenie $$x^2 - 3x + 2x - 6$$ po uproszczeniu?"
               choices={[
-                { label: "x^2 - x - 6", value: "a" },
+                { label: "x^2 + 5x - 6", value: "a" },
                 { label: "x^2 + x - 6", value: "b" },
                 { label: "x^2 - 5x - 6", value: "c" },
-                { label: "x^2 + 5x - 6", value: "d" }
+                { label: "x^2 - x - 6", value: "d" }
               ]}
-              correctAnswer="a"
+              correctAnswer="d"
               explanation="Poprawne uproszczenie to $$x^2 - x - 6$$. 
-                Wystarczy dodać wyrazy podobne: $$-3x + 2x = -x$$"
+                Wystarczy dodać wyrazy podobne: $$-3x + 2x = -x$$."
               onComplete={() => handleStageComplete(2)}
             />
           </>
         )}
-        
+
+        {/* ETAP 3: Mnożenie przez trzeci nawias */}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 3: Pomnóż wynik przez trzeci nawias (x^2 - x - 6)(2x + 1)
-            </p>
+            <StepDescription stepNumber={3}>
+              Otrzymany wynik pomnóż przez trzeci nawias: <InlineMath math="(x^2 - x - 6)(2x + 1)"/>.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które mnożenie jest poprawne?"
+              question="Jaki jest wynik tego mnożenia?"
               choices={[
                 { label: "2x^3 + x^2 - 2x^2 - x - 12x - 6", value: "a" },
                 { label: "2x^3 - x^2 - 12x - 6", value: "b" },
                 { label: "2x^3 - 2x^2 - 13x - 6", value: "c" },
-                { label: "2x^3 - x^2 - 13x - 6", value: "d" }
+                { label: "2x^3 + x^2 - 13x - 6", value: "d" }
               ]}
               correctAnswer="a"
-              explanation="Poprawnie wymnożone wyrażenie to $$2x^3 + x^2 - 2x^2 - x - 12x - 6$$. <br>
-                Stosujemy mnożenie każdego wyrazu pierwszego wielomianu przez każdy wyraz drugiego:<br>
+              explanation="Poprawny wynik to $$2x^3 + x^2 - 2x^2 - x - 12x - 6$$. <br>
+                Mnożymy każdy wyraz z pierwszego wielomianu przez każdy wyraz z drugiego:<br>
                 $$x^2 \cdot 2x = 2x^3$$<br>
                 $$x^2 \cdot 1 = x^2$$<br>
                 $$-x \cdot 2x = -2x^2$$<br>
@@ -92,14 +97,15 @@ const Page = () => {
             />
           </>
         )}
-        
+
+        {/* ETAP 4: Ostateczne uproszczenie */}
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 4: Uprość końcowe wyrażenie
-            </p>
+            <StepDescription stepNumber={4}>
+              Dokonaj ostatecznej redukcji wyrazów podobnych, aby uzyskać końcowy wynik.
+            </StepDescription>
             <ChoiceQuestion
-              question="Które uproszczenie jest poprawne?"
+              question="Jak wygląda końcowe wyrażenie po uproszczeniu?"
               choices={[
                 { label: "2x^3 - x^2 - 13x - 6", value: "a" },
                 { label: "2x^3 + x^2 - 13x - 6", value: "b" },
@@ -116,15 +122,22 @@ const Page = () => {
           </>
         )}
         
+        {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 4 && (
           <StudentNotes
             equation="(x + 2)(x - 3)(2x + 1)"
             steps={[
               {
-                step: "(x + 2)(x - 3)(2x + 1) = (x^2 - x - 6)(2x + 1) = 2x^3 + x^2 - 2x^2 - x - 12x - 6 = ",
+                step: "(x^2 - 3x + 2x - 6)(2x + 1)",
               },
               {
-                step: " = 2x^3 - x^2 - 13x - 6",
+                step: "(x^2 - x - 6)(2x + 1)",
+              },
+              {
+                step: "2x^3 + x^2 - 2x^2 - x - 12x - 6",
+              },
+              {
+                step: "2x^3 - x^2 - 13x - 6"
               }
             ]}
             solutions={["2x^3 - x^2 - 13x - 6"]}

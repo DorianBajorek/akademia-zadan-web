@@ -14,11 +14,11 @@ const AlgebraTask: React.FC = () => {
     "exam_type": "mp",
     "task_type": "mc4",
     "description": "Uprość wyrażenie algebraiczne: $3(2x - 5) - 2(x + 4) + 5(3 - x)$",
-    "choiceA": "$-x - 8$",
+    "choiceA": "$x - 8$",
     "choiceB": "$5x + 2$",
-    "choiceC": "$x - 8$",
+    "choiceC": "$-x - 8$",
     "choiceD": "$-x + 8$",
-    "correct_answer": "a"
+    "correct_answer": "c"
   };
 
   const handleCheckAnswer = () => {

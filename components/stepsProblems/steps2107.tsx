@@ -12,12 +12,12 @@ const BallHeightFunctionTask: React.FC = () => {
     task_id: 47,
     exam_type: "mp",
     task_type: "mc4",
-    description: "Funkcja $f$ opisuje wysokość piłki (w metrach) w czasie skoku, gdzie: - Piłka została podrzucona pionowo w górę, - Wznosiła się przez $2$ sekundy do wysokości $8$ metrów, - Następnie opadała przez kolejne $2$ sekundy, aż wróciła na ziemię. Jaki jest zbiór wartości funkcji $f$?",
-    choiceA: "$[0, 8]$",      // poprawna (wysokość zmienia się od 0 do 8 metrów)
-    choiceB: "$(−∞, 8]$",     // błędna (nie ma wysokości ujemnych)
+    description: "Funkcja $f$ opisuje wysokość piłki (w metrach) w czasie lotu, gdzie: - Piłka została podrzucona pionowo w górę, - Wznosiła się przez $2$ sekundy do wysokości $8$ metrów, - Następnie opadała przez kolejne $2$ sekundy, aż wróciła na ziemię. Jaki jest zbiór wartości funkcji $f$?",
+    choiceA: "$(−∞, 8]$",      // poprawna (wysokość zmienia się od 0 do 8 metrów)
+    choiceB: "$[0, 8]$",     // błędna (nie ma wysokości ujemnych)
     choiceC: "$[0, 4]$",      // błędna (maksymalna wysokość to 8 m)
     choiceD: "$(0, 8)$",      // błędna (zbiór zawiera 0 i 8)
-    correct_answer: "a"
+    correct_answer: "b"
   };
 
   const handleCheckAnswer = () => {

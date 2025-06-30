@@ -45,7 +45,7 @@ const MilkCanTask: React.FC = () => {
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
         <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie 11.1
+          Zadanie matematyczne
         </h2>
 
         <div className="space-y-6">
