@@ -17,9 +17,9 @@ const GeometricSequenceRatioTask: React.FC = () => {
     `,
     choiceA: "jedno rozwiązanie: $x = 1$.",
     choiceB: "dwa rozwiązania: $x = 1$ i $x = -1$.",
-    choiceC: "dwa rozwiązania: $x = -\\frac{1}{5}$ i $x = 1$.",
-    choiceD: "dwa rozwiązania: $x = \\frac{1}{5}$ i $x = -1$.",
-    correct_answer: "c"
+    choiceC: "dwa rozwiązania: $x = \\frac{1}{5}$ i $x = -1$.",
+    choiceD: "dwa rozwiązania: $x = -\\frac{1}{5}$ i $x = 1$.",
+    correct_answer: "d"
   };
 
   const handleCheckAnswer = () => {

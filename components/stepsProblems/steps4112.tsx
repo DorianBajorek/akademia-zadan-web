@@ -13,11 +13,11 @@ const taskData = {
   exam_type: "mp",
   task_type: "mc4",
   description: "Suma wszystkich pierwiastków równania $(x+3)(x+7)(x-11)=0$ jest równa",
-  choiceA: "$-1$",
+  choiceA: "$1$",
   choiceB: "$21$",
-  choiceC: "$1$",
+  choiceC: "$-1$",
   choiceD: "$-21$",
-  correct_answer: "c"
+  correct_answer: "a"
 };
   const handleCheckAnswer = () => {
     if (selectedAnswer !== null) {
