@@ -34,8 +34,7 @@ const TransportPricingTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2
-            description={taskData.description}
+          <Question2 description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +43,7 @@ const TransportPricingTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-          />
+  taskId={ 2106 } />
 
           <button
             onClick={handleCheckAnswer}

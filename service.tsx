@@ -212,17 +212,32 @@ export const getProblemProgress = async (field: string, topic: string, token: st
   }
 }
 
-export const solveWithAI = async (prompt: string) => {
+export const solveWithAI = async (prompt: string, taskId?: number) => {
+  const payload = {
+    prompt: prompt,
+    task_id: taskId?.toString(),
+  };
+
+  const startTime = Date.now();
+
   try {
     const response = await axios.post(
       `${prefix}/api/v1/solve_ai/`,
-      { prompt },
+      payload,
       {
         headers: {
           "Content-Type": "application/json",
         },
       }
     );
+
+    const elapsed = Date.now() - startTime;
+
+    if (elapsed < 3000) {
+      const remainingDelay = 5000 - elapsed;
+      await new Promise(resolve => setTimeout(resolve, remainingDelay));
+    }
+
     return response.data;
   } catch (error) {
     console.error("Error while solving with AI:", error);

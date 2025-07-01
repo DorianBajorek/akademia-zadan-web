@@ -17,65 +17,60 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
 }) => {
   const [showSolution, setShowSolution] = useState(false);
 
-const renderText = (text: string) => {
-  // Rozbijamy tekst po kolejnych elementach: matematyka ($...$), <br>, <img>, <strong> i </strong>
-  const parts = text.split(/(\$.*?\$|<br\s*\/?>|<img[^>]*?>|<\/?strong>)/gi);
+  const renderText = (text: string) => {
+    const parts = text.split(/(\$.*?\$|<br\s*\/?>|<img[^>]*?>|<\/?strong>)/gi);
 
-  // Flaga do śledzenia, czy aktualnie jesteśmy w <strong>
-  let strongOpen = false;
+    let strongOpen = false;
 
-  return parts.map((part, index) => {
-    if (part.toLowerCase() === '<strong>') {
-      strongOpen = true;
-      // Nie renderujemy samego tagu, tylko zmieniamy flagę
-      return null;
-    }
-    if (part.toLowerCase() === '</strong>') {
-      strongOpen = false;
-      return null;
-    }
-
-    let element;
-
-    if (/^\$.*\$$/.test(part)) {
-      element = <InlineMath key={index} math={part.slice(1, -1)} />;
-    } else if (/<br\s*\/?>/i.test(part)) {
-      element = <br key={index} />;
-    } else if (/<img[^>]*?>/i.test(part)) {
-      const srcMatch = part.match(/src=['"]([^'"]+)['"]/i);
-      if (srcMatch) {
-        element = (
-          <img
-            key={index}
-            src={srcMatch[1]}
-            alt=""
-            className="max-w-[90%] sm:max-w-[70%] md:max-w-[50%] h-auto mx-auto block"
-          />
-        );
+    return parts.map((part, index) => {
+      if (part.toLowerCase() === '<strong>') {
+        strongOpen = true;
+        return null;
       }
-    } else {
-      element = <span key={index}>{part}</span>;
-    }
+      if (part.toLowerCase() === '</strong>') {
+        strongOpen = false;
+        return null;
+      }
 
-    // Jeśli flaga strongOpen jest true, owijamy w <strong>
-    return strongOpen ? <strong key={index}>{element}</strong> : element;
-  });
-};
+      let element;
 
+      if (/^\$.*\$$/.test(part)) {
+        element = <InlineMath key={index} math={part.slice(1, -1)} />;
+      } else if (/<br\s*\/?>/i.test(part)) {
+        element = <br key={index} />;
+      } else if (/<img[^>]*?>/i.test(part)) {
+        const srcMatch = part.match(/src=['"]([^'"]+)['"]/i);
+        if (srcMatch) {
+          element = (
+            <img
+              key={index}
+              src={srcMatch[1]}
+              alt=""
+              className="max-w-[95%] sm:max-w-[80%] md:max-w-[60%] lg:max-w-[50%] h-auto mx-auto block my-3"
+            />
+          );
+        }
+      } else {
+        element = <span key={index}>{part}</span>;
+      }
+
+      return strongOpen ? <strong key={index}>{element}</strong> : element;
+    });
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="bg-white p-6 rounded-2xl shadow-lg border-2 border-gray-100"
+      className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border-2 border-gray-100 max-w-3xl mx-auto"
     >
-      <h3 className="text-xl font-medium text-gray-800 mb-6 leading-relaxed">
+      <h3 className="text-lg sm:text-xl font-medium text-gray-800 mb-4 sm:mb-6 leading-relaxed">
         {renderText(description)}
       </h3>
 
       {descriptionImg && (
-        <div className="mb-6 overflow-hidden rounded-xl border-2 border-gray-100 shadow-sm">
+        <div className="mb-4 sm:mb-6 overflow-hidden rounded-xl border-2 border-gray-100 shadow-sm">
           <img
             src={descriptionImg}
             alt="description illustration"
@@ -87,7 +82,7 @@ const renderText = (text: string) => {
       <div className="text-right">
         <button
           onClick={() => setShowSolution(!showSolution)}
-          className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-sm sm:text-base"
         >
           {showSolution ? "Ukryj rozwiązanie" : "Pokaż rozwiązanie"}
         </button>
@@ -98,7 +93,7 @@ const renderText = (text: string) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800"
+          className="mt-3 sm:mt-4 p-3 sm:p-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 text-sm sm:text-base"
         >
           {renderText(solution)}
         </motion.div>
