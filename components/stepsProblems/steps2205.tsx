@@ -9,7 +9,6 @@ const BookstoreTask: React.FC = () => {
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 43,
     "exam_type": "mp",
     "task_type": "mc4",
     "description": "W księgarni sprzedano pewną liczbę książek i zeszytów. Książka kosztuje 25 zł, a zeszyt 8 zł. Łącznie sprzedano 80 przedmiotów za 1360 zł. Ile sprzedano książek, a ile zeszytów? Który z poniższych układów równań pozwala obliczyć liczbę sprzedanych książek i zeszytów?",
@@ -34,8 +33,7 @@ const BookstoreTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2
-            description={taskData.description}
+          <Question2 description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +42,7 @@ const BookstoreTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-          />
+  taskId={ 2205 } />
 
           <button
             onClick={handleCheckAnswer}

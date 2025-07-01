@@ -48,8 +48,7 @@ const HardcodedTask: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <Question2
-              description={taskData.description}
+            <Question2 description={taskData.description}
               choiceA={taskData.choiceA}
               choiceB={taskData.choiceB}
               choiceC={taskData.choiceC}
@@ -58,7 +57,7 @@ const HardcodedTask: React.FC = () => {
               selectedAnswer={selectedAnswer}
               onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
               isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-            />
+  taskId={ 1305 } />
           </motion.div>
 
           <motion.div

@@ -34,8 +34,7 @@ const ParallelLinesTask4: React.FC = () => {
       <main className="max-w-4xl mx-auto px-6 py-12">
 
         <div className="space-y-6">
-          <Question2
-            description={taskData.description}
+          <Question2 description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +43,7 @@ const ParallelLinesTask4: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-          />
+  taskId={ 4604 } />
 
           <button
             onClick={handleCheckAnswer}
