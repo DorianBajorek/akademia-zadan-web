@@ -7,41 +7,41 @@ import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
 
 const tasks = [
-  {
-    id: "1200",
-    title: "Zadanie 1",
-    description: "Wyciągania czynnika przed pierwiastek 2-go stopnia",
-    img: "/problemImages/problem1200.png",
-    isCompleted: false,
-  },
-  {
-    id: "1201",
-    title: "Zadanie 2",
-    description: "Wyciągania czynnika przed pierwiastek 2-go stopnia",
-    img: "/problemImages/problem1201.png",
-    isCompleted: false,
-  },
-  {
-    id: "1202",
-    title: "Zadanie 3",
-    description: "Wyciągania czynnika przed pierwiastek 3-go stopnia",
-    img: "/problemImages/problem1202.png",
-    isCompleted: false,
-  },
-  {
-    id: "1203",
-    title: "Zadanie 4",
-    description: "Usuwanie niewymierności z mianownika",
-    img: "/problemImages/problem1203.png",
-    isCompleted: false,
-  },
-  {
-    id: "1204",
-    title: "Zadanie 5",
-    description: "Usuwanie niewymierności z mianownika",
-    img: "/problemImages/problem1204.png",
-    isCompleted: false,
-  },
+  // {
+  //   id: "1200",
+  //   title: "Zadanie 1",
+  //   description: "Wyciągania czynnika przed pierwiastek 2-go stopnia",
+  //   img: "/problemImages/problem1200.png",
+  //   isCompleted: false,
+  // },
+  // {
+  //   id: "1201",
+  //   title: "Zadanie 2",
+  //   description: "Wyciągania czynnika przed pierwiastek 2-go stopnia",
+  //   img: "/problemImages/problem1201.png",
+  //   isCompleted: false,
+  // },
+  // {
+  //   id: "1202",
+  //   title: "Zadanie 3",
+  //   description: "Wyciągania czynnika przed pierwiastek 3-go stopnia",
+  //   img: "/problemImages/problem1202.png",
+  //   isCompleted: false,
+  // },
+  // {
+  //   id: "1203",
+  //   title: "Zadanie 4",
+  //   description: "Usuwanie niewymierności z mianownika",
+  //   img: "/problemImages/problem1203.png",
+  //   isCompleted: false,
+  // },
+  // {
+  //   id: "1204",
+  //   title: "Zadanie 5",
+  //   description: "Usuwanie niewymierności z mianownika",
+  //   img: "/problemImages/problem1204.png",
+  //   isCompleted: false,
+  // },
   {
     id: "1205",
     title: "Zadanie 6",

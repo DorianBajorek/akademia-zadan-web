@@ -12,11 +12,11 @@ const BookstoreTask: React.FC = () => {
     "task_id": 43,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "W księgarni sprzedano pewną liczbę książek i zeszytów. Książka kosztuje 25 zł, a zeszyt 8 zł. Łącznie sprzedano 80 przedmiotów za 1360 zł. Ile sprzedano książek, a ile zeszytów? Który z poniższych układów równań pozwala obliczyć liczbę sprzedanych książek i zeszytów?",
-    "choiceA": "$\\begin{cases} x + y = 80 \\\\ 25x + 8y = 1360 \\end{cases}$",
-    "choiceB": "$\\begin{cases} x + y = 1360 \\\\ 25x + 8y = 80 \\end{cases}$",
-    "choiceC": "$\\begin{cases} x - y = 80 \\\\ 25x - 8y = 1360 \\end{cases}$",
-    "choiceD": "$\\begin{cases} x + y = 80 \\\\ 8x + 25y = 1360 \\end{cases}$",
+    "description": "W księgarni sprzedano pewną liczbę książek i zeszytów. Książka kosztuje 25 zł, a zeszyt 8 zł. Łącznie sprzedano 80 przedmiotów za 980 zł. Ile sprzedano książek, a ile zeszytów? Który z poniższych układów równań pozwala obliczyć liczbę sprzedanych książek i zeszytów?",
+    "choiceA": "$\\begin{cases} x + y = 80 \\\\ 25x + 8y = 980 \\end{cases}$",
+    "choiceB": "$\\begin{cases} x + y = 980 \\\\ 25x + 8y = 80 \\end{cases}$",
+    "choiceC": "$\\begin{cases} x - y = 80 \\\\ 25x - 8y = 980 \\end{cases}$",
+    "choiceD": "$\\begin{cases} x + y = 80 \\\\ 8x + 25y = 80 \\end{cases}$",
     "correct_answer": "a",
   };
 

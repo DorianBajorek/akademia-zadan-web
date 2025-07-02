@@ -22,13 +22,13 @@ const tasks = [
     img: "/problemImages/problem2201.png",
     isCompleted: true,
   },
-    {
-    id: "2202",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2202.png",
-    isCompleted: true,
-  },
+  //   {
+  //   id: "2202",
+  //   title: "Podstawowe działania",
+  //   description: "Skorzystaj z własności wartosci bezwzględnej",
+  //   img: "/problemImages/problem2202.png",
+  //   isCompleted: true,
+  // },
       {
     id: "2203",
     title: "Podstawowe działania",
@@ -57,13 +57,13 @@ const tasks = [
     img: "/problemImages/problem2206.png",
     isCompleted: true,
   },
-  {
-    id: "2207",
-    title: "Podstawowe działania",
-    description: "Skorzystaj z własności wartosci bezwzględnej",
-    img: "/problemImages/problem2207.png",
-    isCompleted: true,
-  },
+  // {
+  //   id: "2207",
+  //   title: "Podstawowe działania",
+  //   description: "Skorzystaj z własności wartosci bezwzględnej",
+  //   img: "/problemImages/problem2207.png",
+  //   isCompleted: true,
+  // },
 ];
 
 const TopicTasksPage = () => {

@@ -21,13 +21,13 @@ const tasks = [
     img: "/problemImages/problem2101.png",
     isCompleted: false,
   },
-      {
-    id: "2102",
-    title: "Zadanie 1",
-    description: "Ciąg geometryczny",
-    img: "/problemImages/problem2102.png",
-    isCompleted: false,
-  },
+  //     {
+  //   id: "2102",
+  //   title: "Zadanie 1",
+//   description: "Ciąg geometryczny",
+  //   img: "/problemImages/problem2102.png",
+  //   isCompleted: false,
+  // },
       {
     id: "2103",
     title: "Zadanie 1",

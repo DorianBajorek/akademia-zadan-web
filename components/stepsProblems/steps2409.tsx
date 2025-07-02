@@ -12,7 +12,7 @@ const LinearEquationTask: React.FC = () => {
     "task_id": 517,
     "exam_type": "mp",
     "task_type": "mc4",
-    "description": "Rozwiązaniem równania $\\frac{3x - 2}{3} - 2x = -\\frac{2}{3} - x$ jest",
+    "description": "Rozwiązaniem równania $\\frac{3x - 2}{3} - 2x = -\\frac{2}{3} - 3x$ jest",
     "choiceA": "$x = -1$",
     "choiceB": "$x = 0$",
     "choiceC": "$x = \\frac{1}{2}$",

@@ -21,13 +21,13 @@ const tasks = [
     img: "/problemImages/problem1601.png",
     isCompleted: false,
   },
-  {
-    id: "1602",
-    title: "Zadanie 2",
-    description: "Znajdź najmniejszą wartość wyrażenia",
-    img: "/problemImages/problem1602.png",
-    isCompleted: false,
-  },
+  // {
+  //   id: "1602",
+  //   title: "Zadanie 2",
+  //   description: "Znajdź najmniejszą wartość wyrażenia",
+  //   img: "/problemImages/problem1602.png",
+  //   isCompleted: false,
+  // },
 ];
 
 const TopicTasksPage = () => {

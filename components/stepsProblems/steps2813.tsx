@@ -18,7 +18,7 @@ const QuadraticAxisRoot2Task: React.FC = () => {
     choiceB: "$x = -\\frac{1-\\sqrt{2}}{2\\sqrt{2}}$",
     choiceC: "$x = -\\frac{1+\\sqrt{2}}{2\\sqrt{2}}$",
     choiceD: "$x = \\frac{1-\\sqrt{2}}{2\\sqrt{2}}$",
-    correct_answer: "d"
+    correct_answer: "b"
   };
 
   const handleCheckAnswer = () => {

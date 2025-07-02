@@ -4,6 +4,8 @@ import { useState } from "react";
 import { InlineMath } from "react-katex";
 import ChoiceQuestion from "./ChoiceQuestion";
 import StudentNotes from "./StudentsNotes";
+import StepDescription from "../StepDescription";
+import TaskDescription from "../TaskDescription";
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,25 +17,19 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Wyznaczanie równania prostej</h2>
+        <TaskDescription
+          title="Wyznaczanie równania prostej"
+          description="Wyznacz równanie funkcji liniowej, która tworzy z osią OX kąt $$30^\circ$$ i przecina oś OY w punkcie $$(0, 2)$$."
+        />
         
-        <div className="mb-6">
-          <p className="text-lg text-gray-800 mb-4">Dana jest funkcja liniowa o następujących właściwościach:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li className="text-gray-700">Tworzy z osią OX kąt <InlineMath math="30^\circ" /></li>
-            <li className="text-gray-700">Przecina oś OY w punkcie <InlineMath math="(0, 2)" /></li>
-          </ul>
-          <br></br>
-          <p className="text-lg text-gray-800 mb-4">Wyznacz równanie tej prostej</p>
-        </div>
-        
+        {/* ETAP 1: Wyznaczenie współczynnika kierunkowego a */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 1: Wyznacz współczynnik kierunkowy <InlineMath math="a" /> na podstawie kąta nachylenia.
-            </p>
+            <StepDescription stepNumber={1}>
+              Współczynnik kierunkowy <InlineMath math="a"/> prostej jest równy tangensowi jej kąta nachylenia do osi OX. Oblicz jego wartość.
+            </StepDescription>
             <ChoiceQuestion
-              question="Jak obliczyć współczynnik kierunkowy a znając kąt nachylenia?"
+              question="Jaką wartość ma współczynnik kierunkowy $$a$$?"
               choices={[
                 { label: "a = \\sin(30^\\circ) = \\frac{1}{2}", value: "a" },
                 { label: "a = \\cos(30^\\circ) = \\frac{\\sqrt{3}}{2}", value: "b" },
@@ -41,19 +37,20 @@ const Page = () => {
                 { label: "a = \\ctg(30^\\circ) = \\sqrt{3}", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Współczynnik kierunkowy to tggens kąta nachylenia prostej do osi OX: $$a = \tg(\alpha) = \tg(30^\circ) = \frac{\sqrt{3}}{3}$$"
+              explanation="Współczynnik kierunkowy prostej to tangens kąta jej nachylenia do osi OX: $$a = \tg(\alpha)$$. Zatem: $$a = \tg(30^\circ) = \frac{\sqrt{3}}{3}$$."
               onComplete={() => handleStageComplete(1)}
             />
           </>
         )}
 
+        {/* ETAP 2: Wyznaczenie wyrazu wolnego b */}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 2: Wyznacz wyraz wolny <InlineMath math="b" /> na podstawie punktu przecięcia z osią OY.
-            </p>
+            <StepDescription stepNumber={2}>
+              Wyraz wolny <InlineMath math="b"/> w równaniu prostej <InlineMath math="y=ax+b"/> to rzędna (współrzędna y) punktu przecięcia z osią OY. Wyznacz jego wartość.
+            </StepDescription>
             <ChoiceQuestion
-              question="Jaka jest wartość współczynnika b?"
+              question="Jaka jest wartość wyrazu wolnego $$b$$?"
               choices={[
                 { label: "b = 0", value: "a" },
                 { label: "b = 1", value: "b" },
@@ -61,18 +58,18 @@ const Page = () => {
                 { label: "b = 3", value: "d" }
               ]}
               correctAnswer="c"
-              explanation="Wyraz wolny $$b$$ to wartość $$y$$ w punkcie przecięcia z osią $$OY$$: <br>
-              Punkt $$(0, 2)$$ więc $$ b = 2$$"
+              explanation="Wyraz wolny $$b$$ odpowiada wartości $$y$$ w punkcie przecięcia prostej z osią OY. Skoro punkt ten to $$(0, 2)$$, to $$b = 2$$."
               onComplete={() => handleStageComplete(2)}
             />
           </>
         )}
 
+        {/* ETAP 3: Sformułowanie równania prostej */}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Krok 3: Wybierz poprawne równanie funkcji.
-            </p>
+            <StepDescription stepNumber={3}>
+              Podstaw obliczone wartości <InlineMath math="a"/> i <InlineMath math="b"/> do wzoru ogólnego prostej <InlineMath math="y=ax+b"/>.
+            </StepDescription>
             <ChoiceQuestion
               question="Które równanie opisuje daną funkcję?"
               choices={[
@@ -82,24 +79,25 @@ const Page = () => {
                 { label: "y = 2x + \\frac{\\sqrt{3}}{3}", value: "d" }
               ]}
               correctAnswer="b"
-              explanation="Poprawne równanie łączy obliczone wartości współczynników: $$y = \tg(30^\circ)x + 2 = \frac{\sqrt{3}}{3}x + 2$$"
+              explanation="Poprawne równanie łączy obliczone wartości współczynników $$a = \frac{\sqrt{3}}{3}$$ i $$b=2$$, co daje: $$y = \frac{\sqrt{3}}{3}x + 2$$."
               onComplete={() => handleStageComplete(3)}
             />
           </>
         )}
 
+        {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 3 && (
           <StudentNotes
-            equation=""
+            equation="y = ax + b"
             steps={[
               {
-                step: "\\text{Obliczamy współczynnik kierunkowy: } a = \\tg(30^\\circ) = \\frac{\\sqrt{3}}{3}",
+                step: "\\text{1. Obliczenie współczynnika kierunkowego: } a = \\tg(30^\\circ) = \\frac{\\sqrt{3}}{3}",
               },
               {
-                step: "\\text{Wyznaczamy wyraz wolny: } b = 2",
+                step: "\\text{2. Wyznaczenie wyrazu wolnego z punktu (0, 2): } b = 2",
               },
               {
-                step: "\\text{Ostateczne równanie: } y = \\frac{\\sqrt{3}}{3}x + 2",
+                step: "\\text{3. Ostateczne równanie prostej: } y = \\frac{\\sqrt{3}}{3}x + 2",
               }
             ]}
             solutions={["y = \\frac{\\sqrt{3}}{3}x + 2"]}

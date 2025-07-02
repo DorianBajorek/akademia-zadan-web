@@ -85,12 +85,12 @@ const LOCAL_TASKS_META = [
     description: "Skracanie i rozszerzanie ułamków",
     img: "/problemImages/problem810.png",
   },
-  {
-    id: "811",
-    title: "Zadanie 12",
-    description: "Zastosowania ułamków w praktyce",
-    img: "/problemImages/problem811.png",
-  },
+  // {
+  //   id: "811",
+  //   title: "Zadanie 12",
+  //   description: "Zastosowania ułamków w praktyce",
+  //   img: "/problemImages/problem811.png",
+  // },
 ];
 
 const TopicTasksPage = () => {
