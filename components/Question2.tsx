@@ -15,6 +15,7 @@ interface Question2Props {
   selectedAnswer: string | null;
   onAnswerSelect: (answerIndex: number) => void;
   isCorrect?: boolean | null;
+  taskId?: number
 }
 
 const answerLabels = ["A", "B", "C", "D"];
@@ -31,6 +32,7 @@ const Question2: React.FC<Question2Props> = ({
   selectedAnswer,
   onAnswerSelect,
   isCorrect,
+  taskId
 }) => {
   const answers = [choiceA, choiceB, choiceC, choiceD];
 
@@ -147,6 +149,7 @@ const Question2: React.FC<Question2Props> = ({
         choiceC={choiceC}
         choiceD={choiceD}
         correctAnswer={correctAnswer}
+        taskId={taskId}
       />
     </motion.div>
   );

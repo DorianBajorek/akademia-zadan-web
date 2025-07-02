@@ -35,8 +35,7 @@ const QuadraticSymmetryFromZerosTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2
-            description={taskData.description}
+          <Question2 description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -45,7 +44,7 @@ const QuadraticSymmetryFromZerosTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-          />
+  taskId={ 2818 } />
 
           <button
             onClick={handleCheckAnswer}

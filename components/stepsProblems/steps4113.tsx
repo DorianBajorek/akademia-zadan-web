@@ -33,8 +33,7 @@ const taskData = {
         </h2>
 
         <div className="space-y-6">
-          <Question2
-            description={taskData.description}
+          <Question2 description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -43,7 +42,7 @@ const taskData = {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-          />
+  taskId={ 4113 } />
 
           <button
             onClick={handleCheckAnswer}

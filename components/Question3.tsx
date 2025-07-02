@@ -38,19 +38,19 @@ const Question3: React.FC<Question3Props> = ({
   const answers = [choiceA, choiceB, choiceC, choiceD];
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
-    const renderText = (text: string) => {
-        const parts = text.split(/(\$.*?\$|<br\s*\/?>)/gi);
+  const renderText = (text: string) => {
+    const parts = text.split(/(\$.*?\$|<br\s*\/?>)/gi);
 
-        return parts.map((part, index) => {
-            if (part.match(/^\$.*\$$/)) {
-            return <InlineMath key={index} math={part.slice(1, -1)} />;
-            } else if (part.toLowerCase().startsWith('<br')) {
-            return <br key={index} />;
-            } else {
-            return <span key={index}>{part}</span>;
-            }
-        });
-    };
+    return parts.map((part, index) => {
+      if (part.match(/^\$.*\$$/)) {
+        return <InlineMath key={index} math={part.slice(1, -1)} />;
+      } else if (part.toLowerCase().startsWith('<br')) {
+        return <br key={index} />;
+      } else {
+        return <span key={index}>{part}</span>;
+      }
+    });
+  };
 
   const isImage = (text: string) => {
     return /\.(jpeg|jpg|gif|png|webp|svg)$/.test(text) || text.startsWith("http");
@@ -69,10 +69,10 @@ const Question3: React.FC<Question3Props> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="bg-white p-6 rounded-2xl shadow-lg border-2 border-gray-100"
+      className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border-2 border-gray-100 max-w-3xl mx-auto"
     >
       <motion.h3 
-        className="text-xl font-medium text-gray-800 mb-6 leading-relaxed"
+        className="text-lg sm:text-xl font-medium text-gray-800 mb-4 sm:mb-6 leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
@@ -85,7 +85,7 @@ const Question3: React.FC<Question3Props> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mb-6 overflow-hidden rounded-xl border-2 border-gray-100 shadow-sm"
+          className="mb-4 sm:mb-6 overflow-hidden rounded-xl border-2 border-gray-100 shadow-sm"
         >
           <img
             src={descriptionImg}
@@ -95,7 +95,7 @@ const Question3: React.FC<Question3Props> = ({
         </motion.div>
       )}
 
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {answers.map((answer, index) => {
           let buttonStyle = "border-gray-200 hover:border-blue-300 bg-white hover:bg-blue-50";
           const isSelected = selectedAnswer === letterMap[index];
@@ -118,13 +118,13 @@ const Question3: React.FC<Question3Props> = ({
             <motion.button
               key={index}
               onClick={() => onAnswerSelect(index)}
-              className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-300 ${buttonStyle}`}
+              className={`w-full text-left p-3 sm:p-4 rounded-xl border-2 transition-all duration-300 ${buttonStyle}`}
               disabled={isCorrect !== null && isCorrect !== undefined}
               whileHover={{ scale: isCorrect === null ? 1.02 : 1 }}
               whileTap={{ scale: isCorrect === null ? 0.98 : 1 }}
             >
               <div className="flex items-start">
-                <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-3 font-bold ${
+                <span className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 text-sm sm:text-base rounded-full flex items-center justify-center mr-3 font-bold ${
                   isSelected 
                     ? isCorrect === true 
                       ? "bg-emerald-500 text-white" 
@@ -137,7 +137,7 @@ const Question3: React.FC<Question3Props> = ({
                 }`}>
                   {answerLabels[index]}
                 </span>
-                <div className="text-gray-700">
+                <div className="text-gray-700 text-sm sm:text-base">
                   {renderAnswerContent(answer)}
                 </div>
               </div>
@@ -146,10 +146,10 @@ const Question3: React.FC<Question3Props> = ({
         })}
       </div>
 
-      <div className="mt-6 text-right">
+      <div className="mt-4 sm:mt-6 text-right">
         <button
           onClick={() => setShowSolution(!showSolution)}
-          className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-sm sm:text-base"
         >
           {showSolution ? "Ukryj rozwiązanie" : "Pokaż rozwiązanie"}
         </button>
@@ -160,7 +160,7 @@ const Question3: React.FC<Question3Props> = ({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800"
+          className="mt-3 sm:mt-4 p-3 sm:p-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 text-sm sm:text-base"
         >
           {renderText(solution)}
         </motion.div>
