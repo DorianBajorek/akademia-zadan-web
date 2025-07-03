@@ -3,22 +3,13 @@ import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import Question3 from "@/components/Question3";
 import OpenQuestion from "@/components/OpenQuestion";
+import { Info } from "lucide-react"; // Ikonka typu zadania
 
 const letterMap = ["a", "b", "c", "d"];
 
 const ExamPage: React.FC = () => {
-  const [selectedAnswers, setSelectedAnswers] = useState<{[key: number]: string | null}>({
-    0: null,
-    1: null,
-    2: null,
-    3: null
-  });
-  const [showResults, setShowResults] = useState<{[key: number]: boolean}>({
-    0: false,
-    1: false,
-    2: false,
-    3: false
-  });
+  const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: string | null }>({});
+  const [showResults, setShowResults] = useState<{ [key: number]: boolean }>({});
   const [tasksData, setTasksData] = useState<any[]>([]);
 
   useEffect(() => {
@@ -31,9 +22,9 @@ const ExamPage: React.FC = () => {
         const initialResults: { [key: number]: boolean } = {};
 
         data.forEach((_: string, index: number) => {
-            initialAnswers[index] = null;
-            initialResults[index] = false;
-            });
+          initialAnswers[index] = null;
+          initialResults[index] = false;
+        });
 
         setSelectedAnswers(initialAnswers);
         setShowResults(initialResults);
@@ -59,29 +50,38 @@ const ExamPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-center text-blue-800 mb-4">
+        <h1 className="text-4xl font-bold text-center text-blue-800 mb-2">
           Matura maj 2025
         </h1>
-        
+        <p className="text-center text-gray-600 mb-10 text-lg max-w-2xl mx-auto">
+          Poniżej znajdziesz zadania z matury 2025. Sprawdź swoje umiejętności, klikając w odpowiedzi zadań zamknietych i weryfikując, czy są poprawne. Powodzenia!
+        </p>
+
         <div className="space-y-12">
           {tasksData.map((task, index) => (
-            <div key={task.task_id} className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold text-blue-600 mb-6">
-                Zadanie {task.task_id} {task.task_type === "open" && "(0-2)"}
-              </h2>
+            <div key={task.task_id} className="bg-white p-6 rounded-xl border-l-8 border-blue-400 shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold text-blue-600">
+                  Zadanie {task.task_id} {task.task_type === "open" && "(0-2)"}
+                </h2>
+                <div className="flex items-center text-sm text-gray-600 gap-1">
+                  <Info className="w-4 h-4 text-blue-500" />
+                  {task.task_type === "mc4" ? "Wielokrotny wybór (1 z 4)" : "Pytanie otwarte"}
+                </div>
+              </div>
 
               {task.task_type === "mc4" ? (
                 <div className="space-y-6">
                   <Question3
                     description={task.description}
                     choiceA={task.choiceA || ""}
-                    choiceB={task.choiceB|| ""}
+                    choiceB={task.choiceB || ""}
                     choiceC={task.choiceC || ""}
                     choiceD={task.choiceD || ""}
                     correctAnswer={task.correct_answer || ""}
                     selectedAnswer={selectedAnswers[index]}
                     onAnswerSelect={(answerIndex) => handleAnswerSelect(index, answerIndex)}
-                    isCorrect={showResults[index] ? selectedAnswers[index] === task.correct_answer : undefined} 
+                    isCorrect={showResults[index] ? selectedAnswers[index] === task.correct_answer : undefined}
                     solution={task.solution}
                   />
 
@@ -96,8 +96,8 @@ const ExamPage: React.FC = () => {
                   {showResults[index] && (
                     <div className="mt-4 text-center">
                       <p className={`text-xl mb-2 font-bold ${
-                        selectedAnswers[index] === task.correct_answer 
-                          ? 'text-green-600' 
+                        selectedAnswers[index] === task.correct_answer
+                          ? 'text-green-600'
                           : 'text-red-600'
                       }`}>
                         {selectedAnswers[index] === task.correct_answer
