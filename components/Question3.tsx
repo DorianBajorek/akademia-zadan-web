@@ -38,19 +38,29 @@ const Question3: React.FC<Question3Props> = ({
   const answers = [choiceA, choiceB, choiceC, choiceD];
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
-  const renderText = (text: string) => {
-    const parts = text.split(/(\$.*?\$|<br\s*\/?>)/gi);
-
+  const renderText = (text: string): React.ReactNode[] => {
+    const parts = text.split(/(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$)/gi);
+  
     return parts.map((part, index) => {
-      if (part.match(/^\$.*\$$/)) {
+      if (!part) return null;
+  
+      if (part.toLowerCase().startsWith("<center>") && part.toLowerCase().endsWith("</center>")) {
+        const content = part.replace(/<\/?center>/gi, "");
+        return (
+          <div key={index} className="text-center">
+            {renderText(content)}
+          </div>
+        );
+      } else if (part.match(/^\$.*\$$/)) {
         return <InlineMath key={index} math={part.slice(1, -1)} />;
-      } else if (part.toLowerCase().startsWith('<br')) {
+      } else if (part.toLowerCase().startsWith("<br")) {
         return <br key={index} />;
       } else {
         return <span key={index}>{part}</span>;
       }
     });
   };
+  
 
   const isImage = (text: string) => {
     return /\.(jpeg|jpg|gif|png|webp|svg)$/.test(text) || text.startsWith("http");

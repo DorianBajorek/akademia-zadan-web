@@ -17,12 +17,14 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
 }) => {
   const [showSolution, setShowSolution] = useState(false);
 
-  const renderText = (text: string) => {
-    const parts = text.split(/(\$.*?\$|<br\s*\/?>|<img[^>]*?>|<\/?strong>)/gi);
-
+  const renderText = (text: string): React.ReactNode[] => {
+    const parts = text.split(/(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi);
+  
     let strongOpen = false;
-
+  
     return parts.map((part, index) => {
+      if (!part) return null;
+  
       if (part.toLowerCase() === '<strong>') {
         strongOpen = true;
         return null;
@@ -31,10 +33,17 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
         strongOpen = false;
         return null;
       }
-
-      let element;
-
-      if (/^\$.*\$$/.test(part)) {
+  
+      let element: React.ReactNode = null;
+  
+      if (part.toLowerCase().startsWith("<center>") && part.toLowerCase().endsWith("</center>")) {
+        const content = part.replace(/<\/?center>/gi, "");
+        return (
+          <div key={index} className="text-center">
+            {renderText(content)}
+          </div>
+        );
+      } else if (/^\$.*\$$/.test(part)) {
         element = <InlineMath key={index} math={part.slice(1, -1)} />;
       } else if (/<br\s*\/?>/i.test(part)) {
         element = <br key={index} />;
@@ -53,10 +62,11 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
       } else {
         element = <span key={index}>{part}</span>;
       }
-
+  
       return strongOpen ? <strong key={index}>{element}</strong> : element;
     });
   };
+  
 
   return (
     <motion.div
