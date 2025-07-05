@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const prefix  = "https://www.akademiazadan.pl"
-const local = "http://127.0.0.1:8000"
+const prefix = "http://127.0.0.1:8000"
+// const prefix  = "https://www.akademiazadan.pl"
 
 export const getBarometerProblems = async() => {
     try {
@@ -14,7 +14,7 @@ export const getBarometerProblems = async() => {
 
 export const checkBarometerAnswers = async (problems: { task_id: number; user_answer: string }[]) => {
   try {
-    const response = await fetch("${prefix}/api/v1/validate_barometr_problems/", {
+    const response = await fetch(`${prefix}/api/v1/validate_barometr_problems/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -84,9 +84,7 @@ export const register = async(email: string, username: string, password: string,
 export const getAuthUserData = async(token: string) => {
   try {
       const response = await axios.get(`${prefix}/api/auth/v1/current_user_details/`, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
+        headers: authHeader(token),
       });
       console.log("User data:", response.data);
       return response.data;
@@ -97,47 +95,48 @@ export const getAuthUserData = async(token: string) => {
 
 export const getUserData = async(token: string) => {
     const res = await axios.get(`${prefix}/api/users/v1/user_data/`, {
-    headers: { Authorization: `Token ${token}` },
+    headers: authHeader(token),
   });
   return res.data;
 }
 
 export const getStreak = async (token: string) => {
   const res = await axios.get(`${prefix}/api/users/v1/streak/`, {
-    headers: { Authorization: `Token ${token}` },
+    headers: authHeader(token),
   });
   return res.data;
 };
 
 export const getTotalSolved = async (token: string) => {
+  console.log("Token wysyłany do getTotalSolved:", token);
   const res = await axios.get(`${prefix}/api/users/v1/solved_problems/`, {
-    headers: { Authorization: `Token ${token}` },
+    headers: authHeader(token),
   });
   return res.data;
 };
 
 export const getActivityDays = async (token: string) => {
   const res = await axios.get(`${prefix}/api/users/v1/activity_days/`, {
-    headers: { Authorization: `Token ${token}` },
+    headers: authHeader(token),
   });
   return res.data;
 };
 
 export const getBadges = async (token: string) => {
   const res = await axios.get(`${prefix}/api/users/v1/user/badges/`, {
-    headers: { Authorization: `Token ${token}` },
+    headers: authHeader(token),
   });
   console.log("Badges data:", res.data);
   return res.data;
 }
 
 export const google = async(code: string | null) => {
+  console.log("Google code:", code);
   const payload = {
       id_token: code,
   }
   try {
       const response = await axios.post(`${prefix}/api/auth/v1/google/`, payload, {
-  withCredentials: true
 });
       return response.data;
     } catch (error) {
@@ -150,9 +149,7 @@ export const getFieldsProgress = async (token: string) => {
     const response = await axios.get(
       `${prefix}/api/matura-podstawowa/v1/fields-progress/`,
       {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
+        headers: authHeader(token),
       }
     );
     return response.data;
@@ -166,9 +163,7 @@ export const getTopicsProgress = async (field: string, token: string) => {
     const response = await axios.get(
       `${prefix}/api/matura-podstawowa/v1/topics-progress/`,
       {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
+        headers: authHeader(token),
       }
     );
     return response.data;
@@ -183,9 +178,7 @@ export const solveProblem = async (taskId: string, token: string) => {
       `${prefix}/api/matura-podstawowa/v1/problem/${taskId}/complete/`,
       {},
       {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
+        headers: authHeader(token),
       }
     );
     return response.data;
@@ -200,9 +193,7 @@ export const getProblemProgress = async (field: string, topic: string, token: st
     const response = await axios.get(
       `${prefix}/api/matura-podstawowa/v2/problems-status/${field}/${topic}/`,
       {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
+        headers: authHeader(token),
       }
     );
     return response.data;
@@ -244,3 +235,16 @@ export const solveWithAI = async (prompt: string, taskId?: number) => {
     throw error;
   }
 };
+
+
+function authHeader(token: string) {
+  if (!token) return {};
+
+  if (token.split(".").length === 3) {
+    // prawdopodobnie JWT (zawiera 2 kropki)
+    return { Authorization: `Bearer ${token}` };
+  } else {
+    // klasyczny token DRF
+    return { Authorization: `Token ${token}` };
+  }
+}
