@@ -24,7 +24,7 @@ const Register: React.FC = () => {
       const data = await register(email, username, password, confirmPassword);
       console.log("Rejestracja pomyślna:", data);
       if (data?.key && data?.username) {
-        updateToken(data.token);
+        updateToken(data.key);
         updateUsername(data.username);
         window.location.href = '/';
       } else {
@@ -83,11 +83,9 @@ const Register: React.FC = () => {
                   onSuccess={async credentialResponse => {
                     try {
                       const resp = await google(credentialResponse.credential ?? null);
-                      console.log("Google token:", credentialResponse.credential);
-                      console.log("Backend token:", resp);
 
-                      if (resp.token && resp.user?.username) {
-                        updateToken(resp.token);
+                      if (resp.access && resp.user?.username) {
+                        updateToken(resp.access);
                         updateUsername(resp.user.username);
                         window.location.href = '/';
                       } else {

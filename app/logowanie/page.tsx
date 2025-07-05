@@ -20,9 +20,7 @@ const Login: React.FC = () => {
     setError('');
     try {
       const data = await login(email, password);
-      console.log("Zalogowano pomyślnie:", data);
       if (data?.key && data?.username) {
-        console.log("Token:", data.key);
         updateToken(data.key);
         updateUsername(data.username);
         window.location.href = '/';
@@ -86,10 +84,9 @@ const Login: React.FC = () => {
                   onSuccess={async (credentialResponse) => {
                     try {
                       const resp = await google(credentialResponse.credential ?? null);
-                      console.log("Odpowiedź backendu po Google login:", resp);
 
-                      if (resp.token && resp.user?.username) {
-                        updateToken(resp.token);
+                      if (resp.access && resp.user?.username) {;
+                        updateToken(resp.access);
                         updateUsername(resp.user.username);
                         window.location.href = '/';
                       } else {
