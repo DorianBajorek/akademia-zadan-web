@@ -21,7 +21,6 @@ const Page = () => {
         <TaskDescription
           title="Trzywyrazowy ciąg arytmetyczny"
           description="Trzywyrazowy ciąg $$(k^2, 2k^2, 4k-1)$$ jest arytmetyczny. Wyznacz wartość $$k$$."
-          equation="(k², 2k², 4k-1)"
         />
         
         <div className="mt-8 space-y-8">

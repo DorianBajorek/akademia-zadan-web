@@ -21,7 +21,6 @@ const Page = () => {
         <TaskDescription
           title="Trzywyrazowy ciąg arytmetyczny"
           description="Trzywyrazowy ciąg $$(-4 + x, x^2 - 4, 11)$$ jest arytmetyczny. Wyznacz wartość $$x$$."
-          equation="(-4 + x, x^2 - 4, 11)"
         />
         
         <div className="mt-8 space-y-8">

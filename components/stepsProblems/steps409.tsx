@@ -20,7 +20,6 @@ const Page = () => {
         <TaskDescription
           title="Trzywyrazowy ciąg arytmetyczny"
           description="Trzywyrazowy ciąg $$(k, 2k+3, 36)$$ jest arytmetyczny. Wyznacz wartość $$k$$ i określ monotoniczność ciągu."
-          equation="(k, 2k+3, 36)"
         />
         
         <div className="mt-8 space-y-8">

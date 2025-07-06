@@ -21,7 +21,6 @@ const Page = () => {
         <TaskDescription
           title="Trzywyrazowy ciąg arytmetyczny"
           description="Trzywyrazowy ciąg $$(1, 4, a+5)$$ jest arytmetyczny. Wyznacz wartość $$a$$ i określ monotoniczność ciągu."
-          equation="(1, 4, a+5)"
         />
         
         <div className="mt-8 space-y-8">

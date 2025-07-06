@@ -21,7 +21,6 @@ const Page = () => {
         <TaskDescription
           title="Trzywyrazowy ciąg geometryczny"
           description="Trzywyrazowy ciąg $$(4, a, 36)$$ jest geometryczny. Wyznacz wartość $$a$$ i określ monotoniczność ciągu."
-          equation="(4, a, 36)"
         />
         
         <div className="mt-8 space-y-8">
