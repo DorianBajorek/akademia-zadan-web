@@ -108,14 +108,21 @@
   "task_id": 11,
   "exam_type": "mp",
   "task_type": "open",
-  "description": "Funkcja $f$ jest określona następująco:<br>$f(x) = \\begin{cases}   x + 5 & \\text{ dla } x \\in [-4, -2] \\\\   3 & \\text{ dla } x \\in (-2, 2] \\\\   -3x + 9 & \\text{ dla } x \\in (2, 4) \\end{cases}$<br><br> <br>Wykres funkcji $y = f(x)$ przedstawiono w kartezjańskim układzie współrzędnych $(x, y)$ na rysunku poniżej <br> <img src='/matura2025Nowa/zad11.png' /> <br> Uzupełnij zdania. Wpisz odpowiednie przedziały w wykropkowanych miejscach, aby zdania były prawdziwe. <br> 1. Dziedziną funkcji $f$ jest przedział: <br> 2. Zbiorem wartości funkcji $f$ jest przedział:  <br> 3. Zbiorem wszystkich argumentów, dla których funkcja $f$ przyjmuje wartości dodatnie, jest przedział: <br> 4. Zbiorem wszystkich rozwiązań równania $f(x) = 3$ jest przedział: ",
+  "description": "Funkcja $f$ jest określona następująco:<br>$f(x) = \\begin{cases}   x + 5 & \\text{ dla } x \\in [-4, -2] \\\\   3 & \\text{ dla } x \\in (-2, 2] \\\\   -3x + 9 & \\text{ dla } x \\in (2, 4) \\end{cases}$<br><br> <br>Wykres funkcji $y = f(x)$ przedstawiono w kartezjańskim układzie współrzędnych $(x, y)$ na rysunku poniżej <br> <img src='/matura2025Nowa/zad11.png' /> <br> Uzupełnij zdania. Wpisz odpowiednie przedziały w wykropkowanych miejscach, aby zdania były prawdziwe.<br> <br> 1. Dziedziną funkcji $f$ jest przedział: <br><br> 2. Zbiorem wartości funkcji $f$ jest przedział:  <br><br> 3. Zbiorem wszystkich argumentów, dla których funkcja $f$ przyjmuje wartości dodatnie, jest przedział: <br><br> 4. Zbiorem wszystkich rozwiązań równania $f(x) = 3$ jest przedział: ",
      "solution": "Krok 1. Rozwiązanie pierwszej części zadania.<br> Dziedzinę funkcji odczytujemy z osi $x$. Funkcja jest określona dla argumentów z przedziałów $[-4, -2]$, $(-2, 2]$ oraz $(2, 4)$, więc dziedziną funkcji jest przedział<br> $[-4, 4)$.<br><br> Krok 2. Rozwiązanie drugiej części zadania.<br> Zbiór wartości funkcji odczytujemy z osi $y$. Funkcja przyjmuje wartości od $-3$ (dla $x$ bliskich 4) do $3$ (dla argumentów z przedziału $[-2, 2]$). Zauważamy, że wartość $3$ jest przyjmowana dla wielu argumentów, dlatego zbiorem wartości jest przedział<br> $[-3, 3]$.<br><br> Krok 3. Rozwiązanie trzeciej części zadania.<br> Z wykresu lub definicji funkcji odczytujemy, że funkcja przyjmuje wartości dodatnie dla argumentów z przedziału<br> $[-4, 2] \\cup (2, 3)$.<br><br> Krok 4. Rozwiązanie czwartej części zadania.<br> Równanie $f(x) = 3$ jest spełnione przez wszystkie argumenty z przedziału $[-2, 2]$, ponieważ na tym przedziale funkcja jest stała i równa 3. Dodatkowo punkt $x = -2$ należy do dziedziny i funkcja tam również przyjmuje wartość 3. Zatem zbiorem rozwiązań równania jest przedział<br> $[-2, 2]$."
 },
 {
 "task_id": 12,
 "exam_type": "mp",
 "task_type": "open",
-"description": "W kartezjańskim układzie współrzędnych $(x, y)$ przedstawiono fragment paraboli, która jest wykresem funkcji kwadratowej f (zobacz rysunek). Wierzchołek tej paraboli ma współrzędne $(3, 6)$. Ta parabola przecina oś $Oy$ w punkcie o współrzędnych $(0, 3)$. <br> <img src='/matura2025Nowa/zad12.png' /> <br> Zad12.1 <br> Wyznacz wzór funkcji $f$ w postaci kanonicznej. Zapisz obliczenia.",
+"description": "W kartezjańskim układzie współrzędnych $(x, y)$ przedstawiono fragment paraboli, która jest wykresem funkcji kwadratowej f (zobacz rysunek). Wierzchołek tej paraboli ma współrzędne $(3, 6)$. Ta parabola przecina oś $Oy$ w punkcie o współrzędnych $(0, 3)$. <br> <img src='/matura2025Nowa/zad12.png' /> ",
+  "solution": ""
+},
+{
+"task_id": 12.1,
+"exam_type": "mp",
+"task_type": "open",
+"description": "Wyznacz wzór funkcji $f$ w postaci kanonicznej. Zapisz obliczenia.",
   "solution": "<strong>Krok 1:</strong> Podstawiamy współrzędne wierzchołka do wzoru:<br>$f(x) = a(x-3)^2 + 6$<br><br><strong>Krok 2:</strong> Wykorzystujemy punkt przecięcia z osią OY $(0, 3)$:<br>$3 = a(0-3)^2 + 6$<br>$3 = 9a + 6$<br><br><strong>Krok 3:</strong> Rozwiązujemy równanie:<br>$9a = 3 - 6$<br>$9a = -3$<br>$a = -\\frac{1}{3}$<br><br><strong>Krok 4:</strong> Zapisujemy ostateczny wzór:<br>$f(x) = -\\frac{1}{3}(x-3)^2 + 6$<br><br><strong>Krok 5:</strong> Przekształcamy do postaci ogólnej:<br>$f(x) = -\\frac{1}{3}(x^2 - 6x + 9) + 6$<br>$f(x) = -\\frac{1}{3}x^2 + 2x - 3 + 6$<br>$f(x) = -\\frac{1}{3}x^2 + 2x + 3$"
 },
 {
@@ -162,17 +169,28 @@
   "solution": "Obliczamy kolejne wyrazy ciągu:<br><br>$a_1 = 2$ (dane)<br>$a_2 = 2a_1 + 1 = 2\\cdot2 + 1 = 5$<br>$a_3 = 2a_2 + 1 = 2\\cdot5 + 1 = 11$<br><br>Prawidłowa odpowiedź: D. $11$"
 },
 {
+  "task_id": 14.2,
+  "exam_type": "mp",
+  "task_type": "truefalse",
+  "description": "Oceń prawdziwość poniższych stwierdzeń dotyczących ciągu (aₙ).  Wybierz P, jeśli stwierdzenie jest prawdziwe, albo F – jeśli jest fałszywe.",
+  "statements": [
+    { "text": "Ciąg (aₙ) jest arytmetyczny.", "isTrue": false },
+    { "text": "Ciąg (aₙ) jest geometryczny.", "isTrue": false }
+  ],
+  "solution": "1. Ciąg nie jest arytmetyczny, ponieważ różnica między wyrazami nie jest stała <br>(np. $a₂ - a₁ = 3, a₃ - a₂ = 6$). Odpowiedź: F.<br>2. Ciąg nie jest geometryczny, ponieważ iloraz między wyrazami nie jest stały <br>(np. $\\frac{a_2}{a_1} = 2.5$, $\\frac{a_3}{a_{2}} = 2.2$). Odpowiedź: F."
+},
+{
   "task_id": 15,
   "exam_type": "mp",
   "task_type": "open",
-  "description": "Wyznacz wartość $m$, dla której trzywyrazowy ciąg<br>$(2m + 11, m^2 + 3, 5 - m)$<br>jest arytmetyczny i malejący. Zapisz obliczenia.",
+  "description": "Wyznacz wartość $m$, dla której trzywyrazowy ciąg<br><br><center>$(2m + 11, m^2 + 3, 5 - m)$</center><br>jest arytmetyczny i malejący. Zapisz obliczenia.",
   "solution": "Krok 1: Warunek na ciąg arytmetyczny:<br>$(m^2 + 3) - (2m + 11) = (5 - m) - (m^2 + 3)$<br><br>Krok 2: Uproszczenie równania:<br>$m^2 - 2m - 8 = -m^2 - m + 2$<br>$2m^2 - m - 10 = 0$<br><br>Krok 3: Rozwiązanie równania kwadratowego:<br>$\\Delta = (-1)^2 - 4 \\cdot 2 \\cdot (-10) = 1 + 80 = 81$<br>$m_1 = \\frac{1 - \\sqrt{81}}{4} = \\frac{1 - 9}{4} = -2$<br>$m_2 = \\frac{1 + \\sqrt{81}}{4} = \\frac{1 + 9}{4} = 2.5$<br><br>Krok 4: Sprawdzenie warunku malejącości ciągu:<br>Dla $m = -2$:<br>$(7, 7, 7)$ - ciąg stały (odrzucamy)<br>Dla $m = 2.5$:<br>$(16, 9.25, 2.5)$ - ciąg malejący<br><br>Odpowiedź: $m = 2.5$"
 },
 {
   "task_id": 16,
   "exam_type": "mp",
   "task_type": "mc4",
-  "description": "Dany jest ciąg geometryczny $(a_n)$ określony dla każdej liczby naturalnej $n \\geq 1$, w którym $a_1 = 27$ oraz $a_2 = 9$.<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych. <br> Czwarty wyraz ciągu ($a_{n}$) jest równ",
+  "description": "Dany jest ciąg geometryczny $(a_n)$ określony dla każdej liczby naturalnej <br> $n \\geq 1$, w którym $a_1 = 27$ oraz $a_2 = 9$.<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych. <br> Czwarty wyraz ciągu ($a_{n}$) jest równ",
   "choiceA": "$\\frac{1}{3}$",
   "choiceB": "$1$",
   "choiceC": "$3$",
@@ -193,10 +211,17 @@
   "solution": "Krok 1: Przekształcenie równania korzystając z fakty $\\tg{\\alpha} = \\frac{sin{\\alpha}}{cos{\\alpha}}$:<br>$\\sqrt{3} \\cdot \\frac{\\sin \\alpha}{\\cos \\alpha} = 2 \\sin \\alpha$<br><br>Krok 2: Dzielimy obie strony przez $\\sin \\alpha$ (dla $\\alpha$ ostrego $\\sin \\alpha \\neq 0$):<br>$\\frac{\\sqrt{3}}{\\cos \\alpha} = 2$<br><br>Krok 3: Rozwiązujemy względem $\\cos \\alpha$:<br>$\\cos \\alpha = \\frac{\\sqrt{3}}{2}$<br><br>Prawidłowa odpowiedź: C. $\\frac{\\sqrt{3}}{2}$"
 },
 {
+  "task_id": 18,
+  "exam_type": "mp",
+  "task_type": "open",
+  "description": "Dany jest trójkąt prostokątny $ABC$, w którym bok $BC$ jest przeciwprostokątną, przyprostokątna $AB$ ma długość $6$, a środkowa $CD$ ma długość $5$. Oznaczmy kąt $ADC$ przez $\\alpha$ (zobacz rysunek). <br> <img src='/matura2025Nowa/zad18.png' />",
+  "solution": ""
+},
+{
   "task_id": 18.1,
   "exam_type": "mp",
   "task_type": "mc4",
-  "description": "Dany jest trójkąt prostokątny $ABC$, w którym bok $BC$ jest przeciwprostokątną, przyprostokątna $AB$ ma długość $6$, a środkowa $CD$ ma długość $5$. Oznaczmy kąt $ADC$ przez $\\alpha$ (zobacz rysunek).<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.",
+  "description": "Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.",
   "choiceA": "$\\frac{2}{3}$",
   "choiceB": "$\\frac{3}{4}$",
   "choiceC": "$\\frac{4}{5}$",
@@ -208,7 +233,7 @@
   "task_id": 18.2,
   "exam_type": "mp",
   "task_type": "mc4",
-  "description": "W trójkącie prostokątnym $ABC$ z kątem $\\beta = ABC$, gdzie $AB = 6$, $BC = 10$ i $AC = 8$.<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.",
+  "description": "Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych. <br><br> Sinus kąta $\\beta$ jest równy",
   "choiceA": "$\\frac{2}{\\sqrt{13}}$",
   "choiceB": "$\\frac{3}{\\sqrt{13}}$",
   "choiceC": "$\\frac{5}{2\\sqrt{13}}$",
@@ -220,7 +245,7 @@
   "task_id": 19,
   "exam_type": "mp",
   "task_type": "mc4",
-  "description": "Punkty $A$, $B$ oraz $C$ leżą na okręgu o środku w punkcie $O$. Miara kąta $BCA$ jest równa $50^\\circ$ (zobacz rysunek).<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.",
+  "description": "Punkty $A$, $B$ oraz $C$ leżą na okręgu o środku w punkcie $O$. Miara kąta $BCA$ jest równa $50^\\circ$ (zobacz rysunek). <img src='/matura2025Nowa/zad19.png' /> <br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.",
   "choiceA": "$20^\\circ$",
   "choiceB": "$35^\\circ$",
   "choiceC": "$40^\\circ$",
@@ -232,7 +257,7 @@
   "task_id": 20,
   "exam_type": "mp",
   "task_type": "mc4",
-  "description": "W trójkącie równoramiennym $ABC$ dane są: $|AC| = |BC| = 4$ i $|AB| = 3$. Na boku $BC$, między punktami $B$ i $C$, wybrano taki punkt $D$, że trójkąty $ABC$ i $BDA$ są podobne (zobacz rysunek).<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.",
+  "description": "W trójkącie równoramiennym $ABC$ dane są: $|AC| = |BC| = 4$ i $|AB| = 3$. Na boku $BC$, między punktami $B$ i $C$, wybrano taki punkt $D$, że trójkąty $ABC$ i $BDA$ są podobne (zobacz rysunek). <br><br>Dokończ zdanie. <img src='/matura2025Nowa/zad20.png' /> Wybierz właściwą odpowiedź spośród podanych.",
   "choiceA": "$2$",
   "choiceB": "$2.25$",
   "choiceC": "$2.5$",
@@ -241,10 +266,21 @@
   "solution": "Krok 1: Ustalamy cechę podobieństwa trójkątów:<br>Trójkąty $ABC$ i $BDA$ są podobne przez cechę (kąt-kąt-kąt), gdyż:<br>- $\\angle ABC$ jest wspólny<br>- $\\angle BAC = \\angle BDA$ (z warunków podobieństwa)<br><br>Krok 2: Układamy proporcję odpowiednich boków:<br>$\\frac{AB}{BC} = \\frac{BD}{AB}$<br>$\\frac{3}{4} = \\frac{BD}{3}$<br><br>Krok 3: Rozwiązujemy proporcję:<br>$BD = \\frac{3 \\cdot 3}{4} = \\frac{9}{4} = 2.25$<br><br>Prawidłowa odpowiedź: B. $2.25$"
 },
 {
+  "task_id": 21,
+  "exam_type": "mp",
+  "task_type": "truefalse",
+  "description": "Dany jest trójkąt ABC, w którym $|AB| = 11, |BC| = 12$ oraz $|∠ABC| = 60°$ (zobacz rysunek). <img src='/matura2025Nowa/zad21.png' /> Oceń prawdziwość poniższych stwierdzeń. Wybierz P, jeśli stwierdzenie jest prawdziwe, albo F – jeśli jest fałszywe.",
+  "statements": [
+    { "text": "Trójkąt ABC jest równoramienny.", "isTrue": false },
+    { "text": "Pole trójkąta ABC jest równe 33√3.", "isTrue": true }
+  ],
+  "solution": "1. Trójkąt nie jest równoramienny, ponieważ |AB| = 11 ≠ |BC| = 12. Odpowiedź: F.<br>2. Pole trójkąta obliczone ze wzoru P = ½·a·b·sinα = ½·11·12·sin60° = 66·(√3/2) = 33√3. Odpowiedź: P."
+},
+{
   "task_id": 22,
   "exam_type": "mp",
   "task_type": "mc4",
-  "description": "W kartezjańskim układzie współrzędnych $(x, y)$ dany jest kwadrat $ABCD$, w którym $A = (4, -1)$. Przekątne tego kwadratu przecinają się w punkcie $S = (1, 3)$.<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.",
+  "description": "W kartezjańskim układzie współrzędnych $(x, y)$ dany jest kwadrat $ABCD$, w którym $A = (4, -1)$. Przekątne tego kwadratu przecinają się w punkcie $S = (1, 3)$.<br><br>Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych. <br><br>Przekątna kwadratu $𝐴𝐵𝐶𝐷$ ma długość ",
   "choiceA": "$5$",
   "choiceB": "$7$",
   "choiceC": "$10$",
@@ -335,14 +371,14 @@
   "task_id": 30,
   "exam_type": "mp",
   "task_type": "open",
-  "description": "Na diagramie przedstawiono wyniki sprawdzianu z matematyki w pewnej klasie maturalnej liczącej 24 uczniów. Na osi poziomej podano oceny, które uzyskali uczniowie tej klasy, a na osi pionowej podano liczbę uczniów, którzy otrzymali daną ocenę.<br><br>Uzupełnij zdania. Wpisz odpowiednie liczby w wykropkowanych miejscach, aby zdania były prawdziwe.",
+  "description": "Na diagramie przedstawiono wyniki sprawdzianu z matematyki w pewnej klasie maturalnej liczącej 24 uczniów. Na osi poziomej podano oceny, które uzyskali uczniowie tej klasy, a na osi pionowej podano liczbę uczniów, którzy otrzymali daną ocenę. <img src='/matura2025Nowa/zad30.png' /> Uzupełnij zdania. Wpisz odpowiednie liczby w wykropkowanych miejscach, aby zdania były prawdziwe.",
   "solution": "1. Mediana ocen:<br>Dla 24 uczniów (liczba parzysta) mediana to średnia arytmetyczna 12. i 13. wartości w uporządkowanym ciągu. Zakładając rozkład z diagramu (np. 4 uczniów z oceną 3, 6 z oceną 4, 8 z oceną 5, 4 z oceną 6, 2 z oceną 1):<br>12. i 13. uczeń mają ocenę 5 → mediana = 5<br><br>2. Dominanta ocen:<br>Najczęściej występująca ocena to ta z najwyższym słupkiem na diagramie (np. 8 uczniów z oceną 5) → dominanta = 5<br><br>Uwaga: Dokładne wartości zależą od pełnych danych z diagramu, które nie są widoczne na obrazku. Przykładowe rozwiązanie zakłada typowy rozkład ocen."
 },
 {
   "task_id": 31,
   "exam_type": "mp",
   "task_type": "open",
-  "description": "Rozważamy wszystkie prostopadłościany $ABCDEFGH$, w których krawędź $BC$ ma długość 4 oraz suma długości wszystkich krawędzi wychodzących z wierzchołka $B$ jest równa 15 (zobacz rysunek).<br><br>Wyznacz wzór i dziedzinę funkcji $P(x)$ pola powierzchni całkowitej w zależności od długości $x$ krawędzi $AB$. Oblicz długość $x$ krawędzi $AB$ tego z rozważanych prostopadłościanów, którego pole powierzchni całkowitej jest największe. Zapisz obliczenia.",
+  "description": "Rozważamy wszystkie prostopadłościany $ABCDEFGH$, w których krawędź $BC$ ma długość 4 oraz suma długości wszystkich krawędzi wychodzących z wierzchołka $B$ jest równa 15 (zobacz rysunek). <img src='/matura2025Nowa/zad31.png' /> Wyznacz wzór i dziedzinę funkcji $P(x)$ pola powierzchni całkowitej w zależności od długości $x$ krawędzi $AB$. Oblicz długość $x$ krawędzi $AB$ tego z rozważanych prostopadłościanów, którego pole powierzchni całkowitej jest największe. Zapisz obliczenia.",
   "solution": "Krok 1: Określenie zmiennych i warunków:<br>Niech:<br>- $AB = x$<br>- $BC = 4$ (dane)<br>- $BE = y$ (wysokość prostopadłościanu)<br><br>Suma krawędzi z wierzchołka $B$: $x + 4 + y = 15 \\Rightarrow y = 11 - x$<br><br>Krok 2: Wyznaczenie wzoru na pole powierzchni całkowitej:<br>$P(x) = 2(x \\cdot 4 + x \\cdot y + 4 \\cdot y) = 2(4x + xy + 4y)$<br>Podstawiamy $y = 11 - x$:<br>$P(x) = 2[4x + x(11-x) + 4(11-x)] = 2(-x^2 + 11x + 44)$<br>$P(x) = -2x^2 + 22x + 88$<br><br>Krok 3: Wyznaczenie dziedziny funkcji:<br>$x > 0$ i $y = 11 - x > 0 \\Rightarrow x \\in (0, 11)$<br><br>Krok 4: Znalezienie maksimum funkcji kwadratowej:<br>Funkcja $P(x) = -2x^2 + 22x + 88$ osiąga maksimum w wierzchołku:<br>$x_w = -\\frac{b}{2a} = -\\frac{22}{2 \\cdot (-2)} = 5.5$<br><br>Sprawdzenie czy $x_w$ należy do dziedziny: $5.5 \\in (0, 11)$<br><br>Odpowiedź:<br>- Wzór funkcji: $P(x) = -2x^2 + 22x + 88$<br>- Dziedzina: $x \\in (0, 11)$<br>- Długość $AB$ dla maksymalnego pola: $x = 5.5$"
 }
 ]
