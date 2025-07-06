@@ -24,8 +24,8 @@ const RealNumbersCourse: React.FC = () => {
 
   const topics = [
     {
-      title: "Środek i dłogość odcinka",
-      shortDesc: "Dodawanie, odejmowanie, mnożenie, dzielenie",
+      title: "Środek i dłigość odcinka",
+      shortDesc: "Obliczanie środka i długości odcinka w układzie współrzędnych.",
       slug: "/geometria-analityczna/dlugosc-srodek-odcinka",
       icon: "➕"
     }
