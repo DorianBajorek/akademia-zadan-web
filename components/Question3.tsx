@@ -38,11 +38,24 @@ const Question3: React.FC<Question3Props> = ({
   const answers = [choiceA, choiceB, choiceC, choiceD];
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
-  const renderText = (text: string): React.ReactNode[] => {
-    const parts = text.split(/(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$)/gi);
+const renderText = (text: string): React.ReactNode[] => {
+    const parts = text.split(/(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi);
+  
+    let strongOpen = false;
   
     return parts.map((part, index) => {
       if (!part) return null;
+  
+      if (part.toLowerCase() === '<strong>') {
+        strongOpen = true;
+        return null;
+      }
+      if (part.toLowerCase() === '</strong>') {
+        strongOpen = false;
+        return null;
+      }
+  
+      let element: React.ReactNode = null;
   
       if (part.toLowerCase().startsWith("<center>") && part.toLowerCase().endsWith("</center>")) {
         const content = part.replace(/<\/?center>/gi, "");
@@ -51,13 +64,27 @@ const Question3: React.FC<Question3Props> = ({
             {renderText(content)}
           </div>
         );
-      } else if (part.match(/^\$.*\$$/)) {
-        return <InlineMath key={index} math={part.slice(1, -1)} />;
-      } else if (part.toLowerCase().startsWith("<br")) {
-        return <br key={index} />;
+      } else if (/^\$.*\$$/.test(part)) {
+        element = <InlineMath key={index} math={part.slice(1, -1)} />;
+      } else if (/<br\s*\/?>/i.test(part)) {
+        element = <br key={index} />;
+      } else if (/<img[^>]*?>/i.test(part)) {
+        const srcMatch = part.match(/src=['"]([^'"]+)['"]/i);
+        if (srcMatch) {
+          element = (
+            <img
+              key={index}
+              src={srcMatch[1]}
+              alt=""
+              className="max-w-[95%] sm:max-w-[80%] md:max-w-[60%] lg:max-w-[50%] h-auto mx-auto block my-3"
+            />
+          );
+        }
       } else {
-        return <span key={index}>{part}</span>;
+        element = <span key={index}>{part}</span>;
       }
+  
+      return strongOpen ? <strong key={index}>{element}</strong> : element;
     });
   };
   

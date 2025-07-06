@@ -77,51 +77,97 @@ const Home: React.FC = () => {
         </motion.div>
 
         {/* Sekcja o kursie */}
-<motion.section 
+        <motion.section 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-white p-8 rounded-xl shadow-lg mb-16"
+        >
+          <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">Dlaczego nasz kurs jest skuteczny?</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">Zadania wieloetapowe</h3>
+              <p className="text-gray-700">Zadania podzielone na logiczne etapy z dokładnymi wyjaśnieniami każdego kroku.</p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">Pomoc AI w zadaniach</h3>
+              <p className="text-gray-700">Sztuczna inteligencja dokładnie tłumaczy rozwiązania zadań zamkniętych, krok po kroku.</p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">Skupiamy się na pewniakach</h3>
+              <p className="text-gray-700">Tylko najważniejsze zagadnienia, które na 100% pojawią się na maturze.</p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">Zadania z poprzednich lat</h3>
+              <p className="text-gray-700">Autentyczne zadania maturalne z dokładnymi analizami rozwiązań.</p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">Filmy instruktażowe</h3>
+              <p className="text-gray-700">Każdy temat ma nagrany film z krok-po-krokowym tłumaczeniem.</p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">System motywacyjny</h3>
+              <p className="text-gray-700">Odznaki i kalendarz aktywności pomagają utrzymać regularność nauki.</p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link 
+              href="/kurs-matura-podstawowa" 
+              className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105"
+            >
+              Zobacz pełną zawartość kursu
+            </Link>
+          </div>
+        </motion.section>
+<motion.section
   initial={{ opacity: 0, y: 50 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
-  className="bg-white p-8 rounded-xl shadow-lg mb-16"
+  className="bg-blue-50 text-gray-900 p-8 rounded-xl shadow-lg mb-16"
 >
-  <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">Dlaczego nasz kurs jest skuteczny?</h2>
-  
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-    <div className="bg-blue-50 p-6 rounded-lg">
-      <h3 className="text-xl font-semibold text-blue-700 mb-3">Zadania wieloetapowe</h3>
-      <p className="text-gray-700">Zadania zostały podzielone na logiczne etapy, tak abyś zrozumiał schemat rozwiązywania i potrafił go samodzielnie odtworzyć na maturze. Uczysz się krok po kroku – bez zgadywania!</p>
+  <div className="flex flex-col md:flex-row items-center gap-8">
+    <div className="flex-1">
+      <h2 className="text-3xl font-bold mb-4 text-blue-800">Barometr Maturalny</h2>
+      <p className="text-xl mb-4">Sprawdź swój aktualny poziom przygotowania do matury w zaledwie 25-35 minut!</p>
+      <ul className="space-y-2 mb-6">
+        <li className="flex items-start">
+          <span className="text-green-600 mr-2">✓</span>
+          <span>Precyzyjna prognoza Twojego wyniku maturalnego</span>
+        </li>
+        <li className="flex items-start">
+          <span className="text-green-600 mr-2">✓</span>
+          <span>Porównanie z wynikami tysięcy zdających</span>
+        </li>
+        <li className="flex items-start">
+          <span className="text-green-600 mr-2">✓</span>
+          <span>Personalizowane wskazówki do poprawy</span>
+        </li>
+      </ul>
+      <Link 
+        href="/barometr-opis" 
+        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition transform hover:scale-105"
+      >
+        Dowiedz się więcej
+      </Link>
     </div>
-    <div className="bg-blue-50 p-6 rounded-lg">
-      <h3 className="text-xl font-semibold text-blue-700 mb-3">Skupiamy się na pewniakach</h3>
-      <p className="text-gray-700">Tylko najważniejsze zagadnienia, które na 100% pojawią się na maturze poprawkowej. Żadnej zbędnej teorii!</p>
-    </div>
-    <div className="bg-blue-50 p-6 rounded-lg">
-      <h3 className="text-xl font-semibold text-blue-700 mb-3">Zadania z poprzednich lat</h3>
-      <p className="text-gray-700">Pracujesz na autentycznych zadaniach maturalnych z ostatnich lat, dokładnie analizując każde rozwiązanie.</p>
-    </div>
-    <div className="bg-blue-50 p-6 rounded-lg">
-      <h3 className="text-xl font-semibold text-blue-700 mb-3">Filmy instruktażowe</h3>
-      <p className="text-gray-700">Każdy temat ma nagrany film, gdzie krok po kroku tłumaczymy rozwiązania zadań.</p>
-    </div>
-    <div className="bg-blue-50 p-6 rounded-lg">
-      <h3 className="text-xl font-semibold text-blue-700 mb-3">Odznaki i motywacja</h3>
-      <p className="text-gray-700">Za każde rozwiązane zadanie otrzymujesz odznaki, które motywują do regularnej nauki i dają poczucie postępu.</p>
-    </div>
-    <div className="bg-blue-50 p-6 rounded-lg">
-      <h3 className="text-xl font-semibold text-blue-700 mb-3">Kalendarz aktywności</h3>
-      <p className="text-gray-700">Specjalny kalendarz śledzi Twoją aktywność, pomagając utrzymać rytm nauki i sprawiając, że cały proces staje się przyjemniejszy.</p>
-    </div>
-  </div>
+    <div className="flex-1 relative">
+  <div className="absolute inset-0 bg-blue-50 opacity-20 rounded-lg"></div>
+  <Image 
+    src="/barometrImage.png" 
+    alt="Wizualizacja Barometru Matematycznego" 
+    width={500} 
+    height={300}
+    className="rounded-lg shadow-md relative z-10"
+  />
+</div>
 
-  <div className="text-center">
-    <Link 
-      href="/kurs-matura-podstawowa" 
-      className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105"
-    >
-      Zobacz pełną zawartość kursu
-    </Link>
   </div>
 </motion.section>
 
+
+        {/* Sekcja jak wygląda nauka */}
         <motion.section 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -161,24 +207,24 @@ const Home: React.FC = () => {
               </div>
             </motion.div>
 
-              <motion.div variants={item}>
-                <div className="bg-white p-6 rounded-lg shadow-lg min-h-[400px] flex flex-col">
-                  <h3 className="text-2xl font-semibold text-blue-600 mb-4">2. Oglądaj filmy instruktażowe</h3>
-                  <p className="text-gray-700 mb-4">
-                    Każdy temat zaczyna się od nagrania wideo, gdzie tłumaczymy krok po kroku jak rozwiązywać typowe zadania.
-                  </p>
-                  <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden mt-auto">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/qbgdORRmyjk"
-                      title="Przykładowy film instruktażowy"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
+            <motion.div variants={item}>
+              <div className="bg-white p-6 rounded-lg shadow-lg min-h-[400px] flex flex-col">
+                <h3 className="text-2xl font-semibold text-blue-600 mb-4">2. Oglądaj filmy instruktażowe</h3>
+                <p className="text-gray-700 mb-4">
+                  Każdy temat zaczyna się od nagrania wideo, gdzie tłumaczymy krok po kroku jak rozwiązywać typowe zadania.
+                </p>
+                <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden mt-auto">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/qbgdORRmyjk"
+                    title="Przykładowy film instruktażowy"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
 
             <motion.div variants={item}>
               <div className="bg-white p-6 rounded-lg shadow-lg h-full">

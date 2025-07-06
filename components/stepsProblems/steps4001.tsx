@@ -13,7 +13,7 @@ const GeometricSequenceRatioTask: React.FC = () => {
     exam_type: "mp",
     task_type: "mc4",
     description: `
-      Miara kąta $\\alpha$ wynosi?
+      Jaka jest miara kąta $\\alpha$, jeśli $O$ jest środkiem okręgu oraz $\\angle ACB = 40^{\\circ}$?
     `,
     choiceA: "$30^{\\circ}$",
     choiceB: "$50^{\\circ}$",

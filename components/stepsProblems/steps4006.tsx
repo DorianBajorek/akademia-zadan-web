@@ -13,14 +13,14 @@ const GeometricSequenceRatioTask: React.FC = () => {
     exam_type: "mp",
     task_type: "mc4",
     description: `
-      Na rysunku zaznaczono jeden odcinek literką $r$. Odcinek ten jest równy promieniowi tego okręgu. Wyznacz miarę zaznaczonych kątków.
+      Na rysunku zaznaczono jeden odcinek literką $r$. Odcinek ten jest równy promieniowi tego okręgu. Wyznacz miarę zaznaczonych kątków, jeśli $O$ to środek okręgu.
     `,
     choiceA: "$\\alpha = 60^{\\circ}, \\beta = 30^{\\circ}$, $\\gamma = 30^{\\circ}$",
     choiceB: "$\\alpha = 60^{\\circ}, \\beta = 40^{\\circ}$, $\\gamma = 40^{\\circ}$",
     choiceC: "$\\alpha = 70^{\\circ}, \\beta = 20^{\\circ}$, $\\gamma = 20^{\\circ}$",
     choiceD: "$\\alpha = 30^{\\circ}, \\beta = 60^{\\circ}$, $\\gamma = 60^{\\circ}$",
     correct_answer: "a",
-    descriptionImg: "/problemImages/problem4006.jpeg",
+    descriptionImg: "/problemImages/problem4006.png",
   };
 
   const handleCheckAnswer = () => {

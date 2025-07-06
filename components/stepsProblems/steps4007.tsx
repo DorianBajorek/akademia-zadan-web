@@ -13,14 +13,14 @@ const GeometricSequenceRatioTask: React.FC = () => {
     exam_type: "mp",
     task_type: "mc4",
     description: `
-      Jak jest suma wartości kątków $\\alpha$ i $\\beta$. Jeśli zaznaczony punkt jest środkiem okręgu.
+      Jak jest suma wartości kątków $\\alpha$ i $\\beta$. Jeśli zaznaczony punkt $O$ jest środkiem okręgu.
     `,
     choiceA: "$\\alpha + \\beta = 120^{\\circ}$",
     choiceB: "$\\alpha + \\beta = 160^{\\circ}$",
     choiceC: "$\\alpha + \\beta = 140^{\\circ}$",
     choiceD: "$\\alpha + \\beta = 155^{\\circ}$",
     correct_answer: "b",
-    descriptionImg: "/problemImages/problem4007.jpeg",
+    descriptionImg: "/problemImages/problem4007.png",
   };
 
   const handleCheckAnswer = () => {

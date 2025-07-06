@@ -13,14 +13,14 @@ const GeometricSequenceRatioTask: React.FC = () => {
     exam_type: "mp",
     task_type: "mc4",
     description: `
-      Na rysunku przedstawionym niżej jeden z kątów ma miarę $53^{\\circ}$. Wyzancz miarę kąta $\\alpha$?
+      Na rysunku przedstawionym niżej jeden z kątów ma miarę $53^{\\circ}$ oraz $O$ to środek okręgu. Wyzancz miarę kąta $\\alpha$?
     `,
     choiceA: "$\\alpha = 120^{\\circ}$",
     choiceB: "$\\alpha = 53^{\\circ}$",
     choiceC: "$\\alpha = 103^{\\circ}$",
     choiceD: "$\\alpha = 106^{\\circ}$",
     correct_answer: "d",
-    descriptionImg: "/problemImages/problem4005.jpeg",
+    descriptionImg: "/problemImages/problem4005.png",
   };
 
   const handleCheckAnswer = () => {

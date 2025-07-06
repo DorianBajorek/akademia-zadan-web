@@ -89,14 +89,16 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
         </div>
       )}
 
-      <div className="text-right">
-        <button
-          onClick={() => setShowSolution(!showSolution)}
-          className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-sm sm:text-base"
-        >
-          {showSolution ? "Ukryj rozwiązanie" : "Pokaż rozwiązanie"}
-        </button>
-      </div>
+      {solution.trim() && (
+        <div className="text-right">
+          <button
+            onClick={() => setShowSolution(!showSolution)}
+            className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-sm sm:text-base"
+          >
+            {showSolution ? "Ukryj rozwiązanie" : "Pokaż rozwiązanie"}
+          </button>
+        </div>
+      )}
 
       {showSolution && (
         <motion.div
