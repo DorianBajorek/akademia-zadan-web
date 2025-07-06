@@ -10,28 +10,28 @@ const tasks = [
   {
     id: "2910",
     title: "Zadanie 1",
-    description: "Równanie kwadratowe",
+    description: "Przesunięcie funkcji kwadratowej",
     img: "/problemImages/problem2910.png",
     isCompleted: false,
   },
   {
     id: "2911",
     title: "Zadanie 2",
-    description: "Równanie kwadratowe",
+    description: "Współcznnik b z postaci iloczynowej",
     img: "/problemImages/problem2911.png",
     isCompleted: false,
   },
   {
     id: "2912",
     title: "Zadanie 3",
-    description: "Równanie kwadratowe",
+    description: "Analiza współczynników funkcji kwadratowej na podstawie jej wykresu",
     img: "/problemImages/problem2912.png",
     isCompleted: false,
   },
     {
     id: "2913",
     title: "Zadanie 4",
-    description: "Równanie kwadratowe",
+    description: "Analiza współczynników funkcji kwadratowej na podstawie jej wykresu",
     img: "/problemImages/problem2913.png",
     isCompleted: false,
   }

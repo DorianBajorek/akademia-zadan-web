@@ -59,21 +59,21 @@ const tasks = [
     {
     id: "1410",
     title: "Zadanie 11",
-    description: "Równanie kwadratowe",
+    description: "Liczba rozwiązań równania kwadratowego",
     img: "/problemImages/problem1410.png",
     isCompleted: false,
   },
     {
     id: "1411",
     title: "Zadanie 12",
-    description: "Równanie kwadratowe",
+    description: "Rozwiązanie równania kwadratowego",
     img: "/problemImages/problem1411.png",
     isCompleted: false,
   },
     {
     id: "1412",
     title: "Zadanie 12",
-    description: "Równanie kwadratowe",
+    description: "Rozwiązania równania kwadratowego",
     img: "/problemImages/problem1412.png",
     isCompleted: false,
   }

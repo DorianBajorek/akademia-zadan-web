@@ -24,21 +24,21 @@ const tasks = [
   {
     id: "4102",
     title: "Zadanie 3",
-    description: "Równanie iloczynowe",
+    description: "Równanie iloczynowe - liczba rozwiązań",
     img: "/problemImages/problem4102.png",
     isCompleted: false,
   },
   {
     id: "4103",
     title: "Zadanie 4",
-    description: "Równanie iloczynowe",
+    description: "Równanie iloczynowe - liczba rozwiązań",
     img: "/problemImages/problem4102.png",
     isCompleted: false,
   },
   {
     id: "4110",
     title: "Zadanie 5",
-    description: "Równanie iloczynowe",
+    description: "Równanie iloczynowe - rozwiązania",
     img: "/problemImages/problem4110.png",
     isCompleted: false,
   },
@@ -52,7 +52,7 @@ const tasks = [
   {
     id: "4112",
     title: "Zadanie 7",
-    description: "Równanie iloczynowe",
+    description: "Suma rozwiązań równania iloczynowego",
     img: "/problemImages/problem4112.png",
     isCompleted: false,
   },
