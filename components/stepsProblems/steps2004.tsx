@@ -19,8 +19,7 @@ const Page = () => {
       <div className="max-w-5xl w-full bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-200 mx-auto mt-6 md:mt-10">
         <TaskDescription
           title="Wyznaczanie wzoru funkcji kwadratowej"
-          description="Zbiorem wartości funkcji kwadratowej jest przedział $$[-2, ∞)$$. Wyznacz współczynnik $$c$$ funckje przedstawionej niej i zapisz ją w postaci kanonicznej."
-          equation="f(x) = x² + 2x + c"
+          description="Zbiorem wartości funkcji kwadratowej  $$f(x) = x^2+2x+c $$ jest przedział $$[-2, ∞)$$. Wyznacz współczynnik $$c$$ i zapisz wzór funkcji w postaci kanonicznej."
         />
 
         <div className="mt-8 space-y-8">
