@@ -195,6 +195,7 @@ export const getProblemProgress = async (field: string, topic: string, token: st
         headers: authHeader(token),
       }
     );
+    console.log("Problem progress response:", response.data);
     return response.data;
   } catch (error) {
     console.error("Error while fetching fields progress", error);
