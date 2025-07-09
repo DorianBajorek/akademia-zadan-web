@@ -31,9 +31,9 @@ const Page = () => {
             <ChoiceQuestion
               question="Czy pierwsze równanie jest spełnione?"
               choices={[
-                { label: "\\text{Tak, bo } \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} = \\frac{1}{2}", value: "a" },
-                { label: "\\text{Tak, bo } \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}", value: "b" },
-                { label: "\\text{Nie, bo } \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}", value: "c" },
+                { label: "Tak,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} \\ne \\frac{1}{2}", value: "a" },
+                { label: "Tak,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}", value: "b" },
+                { label: "Nie,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}", value: "c" },
                 { label: "\\text{Nie można tego stwierdzić}", value: "d" }
               ]}
               correctAnswer="c"
