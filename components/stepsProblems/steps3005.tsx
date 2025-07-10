@@ -1,24 +1,25 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const FractionalEquationSystemTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 36,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Rozwiąż układ równań: $\\begin{cases} \\frac{1}{2}x + \\frac{2}{3}y = 3 \\\\ \\frac{3}{4}x - \\frac{1}{2}y = 1 \\end{cases}$",
-    "choiceA": "$\\left(\\frac{14}{5}, \\frac{6}{5}\\right)$",
-    "choiceB": "$\\left(4, \\frac{3}{2}\\right)$",
-    "choiceC": "$\\left(\\frac{10}{3}, \\frac{7}{4}\\right)$",
-    "choiceD": "$\\left(\\frac{16}{7}, \\frac{15}{7}\\right)$",
-    "correct_answer": "d",
-    "explanation": "" // Celowo puste - nie pokazujemy rozwiązania
+    task_id: 36,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Rozwiąż układ równań: $\\begin{cases} \\frac{1}{2}x + \\frac{2}{3}y = 3 \\\\ \\frac{3}{4}x - \\frac{1}{2}y = 1 \\end{cases}$',
+    choiceA: '$\\left(\\frac{14}{5}, \\frac{6}{5}\\right)$',
+    choiceB: '$\\left(4, \\frac{3}{2}\\right)$',
+    choiceC: '$\\left(\\frac{10}{3}, \\frac{7}{4}\\right)$',
+    choiceD: '$\\left(\\frac{16}{7}, \\frac{15}{7}\\right)$',
+    correct_answer: 'd',
+    explanation: '', // Celowo puste - nie pokazujemy rozwiązania
   };
 
   const handleCheckAnswer = () => {
@@ -35,7 +36,8 @@ const FractionalEquationSystemTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +46,8 @@ const FractionalEquationSystemTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 3005 } />
+            taskId={3005}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -57,13 +60,13 @@ const FractionalEquationSystemTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź! ✓"
+                ? 'Poprawna odpowiedź! ✓'
                 : `Błędna odpowiedź! Poprawnie: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

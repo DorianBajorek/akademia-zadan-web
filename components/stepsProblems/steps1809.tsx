@@ -1,24 +1,24 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const PolynomialTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 29,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Dla każdej liczby rzeczywistej $x$ wyrażenie $x^6 - 2x^3 - 3$ jest równe",
-    "choiceA": "$(x^3 + 1)(x^2 - 3)$",
-    "choiceB": "$(x^3 - 3)(x^3 + 1)$",
-    "choiceC": "$(x^2 + 3)(x^4 - 1)$",
-    "choiceD": "$(x^4 + 1)(x^2 - 3)$",
-    "correct_answer": "b",
+    task_id: 29,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description: 'Dla każdej liczby rzeczywistej $x$ wyrażenie $x^6 - 2x^3 - 3$ jest równe',
+    choiceA: '$(x^3 + 1)(x^2 - 3)$',
+    choiceB: '$(x^3 - 3)(x^3 + 1)$',
+    choiceC: '$(x^2 + 3)(x^4 - 1)$',
+    choiceD: '$(x^4 + 1)(x^2 - 3)$',
+    correct_answer: 'b',
   };
 
   const handleCheckAnswer = () => {
@@ -35,7 +35,8 @@ const PolynomialTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +45,8 @@ const PolynomialTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 1809 } />
+            taskId={1809}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -57,19 +59,18 @@ const PolynomialTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
-            
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

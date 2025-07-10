@@ -1,22 +1,23 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const BookstoreTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "W księgarni sprzedano pewną liczbę książek i zeszytów. Książka kosztuje 25 zł, a zeszyt 8 zł. Łącznie sprzedano 80 przedmiotów za 980 zł. Ile sprzedano książek, a ile zeszytów? Który z poniższych układów równań pozwala obliczyć liczbę sprzedanych książek i zeszytów?",
-    "choiceA": "$\\begin{cases} x + y = 80 \\\\ 25x + 8y = 980 \\end{cases}$",
-    "choiceB": "$\\begin{cases} x + y = 980 \\\\ 25x + 8y = 80 \\end{cases}$",
-    "choiceC": "$\\begin{cases} x - y = 80 \\\\ 25x - 8y = 980 \\end{cases}$",
-    "choiceD": "$\\begin{cases} x + y = 80 \\\\ 8x + 25y = 80 \\end{cases}$",
-    "correct_answer": "a",
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'W księgarni sprzedano pewną liczbę książek i zeszytów. Książka kosztuje 25 zł, a zeszyt 8 zł. Łącznie sprzedano 80 przedmiotów za 980 zł. Ile sprzedano książek, a ile zeszytów? Który z poniższych układów równań pozwala obliczyć liczbę sprzedanych książek i zeszytów?',
+    choiceA: '$\\begin{cases} x + y = 80 \\\\ 25x + 8y = 980 \\end{cases}$',
+    choiceB: '$\\begin{cases} x + y = 980 \\\\ 25x + 8y = 80 \\end{cases}$',
+    choiceC: '$\\begin{cases} x - y = 80 \\\\ 25x - 8y = 980 \\end{cases}$',
+    choiceD: '$\\begin{cases} x + y = 80 \\\\ 8x + 25y = 80 \\end{cases}$',
+    correct_answer: 'a',
   };
 
   const handleCheckAnswer = () => {
@@ -33,7 +34,8 @@ const BookstoreTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -42,7 +44,8 @@ const BookstoreTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 2205 } />
+            taskId={2205}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -55,13 +58,13 @@ const BookstoreTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź! ✓"
+                ? 'Poprawna odpowiedź! ✓'
                 : `Błędna odpowiedź! Poprawnie: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

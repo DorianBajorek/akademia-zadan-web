@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,10 +30,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^2(x^3 - x) = 0", value: "a" },
-                { label: "x(x^4 - x^2) = 0", value: "b" },
-                { label: "x^3(x^2 - 1) = 0", value: "c" },
-                { label: "x^3(x^2 + 1) = 0", value: "d" }
+                { label: 'x^2(x^3 - x) = 0', value: 'a' },
+                { label: 'x(x^4 - x^2) = 0', value: 'b' },
+                { label: 'x^3(x^2 - 1) = 0', value: 'c' },
+                { label: 'x^3(x^2 + 1) = 0', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne przekształcenie to $$x^3(x^2 - 1) = 0$$. 
@@ -51,10 +51,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które rozłożenie jest poprawne?"
               choices={[
-                { label: "x^3(x - 1)(x + 1) = 0", value: "a" },
-                { label: "x^3(x^2 - 1) = 0", value: "b" },
-                { label: "x^3(x - 1)^2 = 0", value: "c" },
-                { label: "x^3(x + 1)^2 = 0", value: "d" }
+                { label: 'x^3(x - 1)(x + 1) = 0', value: 'a' },
+                { label: 'x^3(x^2 - 1) = 0', value: 'b' },
+                { label: 'x^3(x - 1)^2 = 0', value: 'c' },
+                { label: 'x^3(x + 1)^2 = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne rozłożenie to $$x^3(x - 1)(x + 1) = 0$$. 
@@ -72,10 +72,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie są wszystkie rozwiązania równania?"
               choices={[
-                { label: "x = 0, x = 1, x = -1", value: "a" },
-                { label: "x = 0, x = 1, x = -1", value: "b" },
-                { label: "x = 0, x = 1", value: "c" },
-                { label: "x = 1, x = -1", value: "d" }
+                { label: 'x = 0, x = 1, x = -1', value: 'a' },
+                { label: 'x = 0, x = 1, x = -1', value: 'b' },
+                { label: 'x = 0, x = 1', value: 'c' },
+                { label: 'x = 1, x = -1', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Rozwiązujemy równanie $$x^3(x - 1)(x + 1) = 0$$: <br>
@@ -93,22 +93,22 @@ const Page = () => {
             equation="x^5 - x^3 = 0"
             steps={[
               {
-                step: "x^3(x^2 - 1) = 0",
+                step: 'x^3(x^2 - 1) = 0',
               },
               {
-                step: "x^3(x - 1)(x + 1) = 0",
+                step: 'x^3(x - 1)(x + 1) = 0',
               },
               {
-                step: "x^3 = 0 \\Rightarrow x = 0",
+                step: 'x^3 = 0 \\Rightarrow x = 0',
               },
               {
-                step: "x - 1 = 0 \\Rightarrow x = 1",
+                step: 'x - 1 = 0 \\Rightarrow x = 1',
               },
               {
-                step: "x + 1 = 0 \\Rightarrow x = -1",
-              }
+                step: 'x + 1 = 0 \\Rightarrow x = -1',
+              },
             ]}
-            solutions={["x = 0", "x = 1", "x = -1"]}
+            solutions={['x = 0', 'x = 1', 'x = -1']}
           />
         )}
       </div>

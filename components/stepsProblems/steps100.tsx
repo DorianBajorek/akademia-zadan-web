@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Będziemy liczyć deltę. Wypiszmy współczynniki <InlineMath math="a,b,c" /> dla tej nierówności.
+                Będziemy liczyć deltę. Wypiszmy współczynniki <InlineMath math="a,b,c" /> dla tej
+                nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 2, b = -4, c = 4", value: "a" },
-                  { label: "a = 1, b = 4, c = -4", value: "b" },
-                  { label: "a = -1, b = 4, c = -4", value: "c" },
-                  { label: "a = 1, b = -4, c = 4", value: "d" },
+                  { label: 'a = 2, b = -4, c = 4', value: 'a' },
+                  { label: 'a = 1, b = 4, c = -4', value: 'b' },
+                  { label: 'a = -1, b = 4, c = -4', value: 'c' },
+                  { label: 'a = 1, b = -4, c = 4', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Współczynniki dla tej nierówności to $$a = 1, b = -4, c = 4$$. 
@@ -56,7 +57,7 @@ const Page = () => {
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
-                Oblicz <InlineMath math="\Delta"/> dla tej nierówności.
+                Oblicz <InlineMath math="\Delta" /> dla tej nierówności.
               </StepDescription>
               <NumericQuestion
                 question="Wpisz poniżej obliczoną wartość $$\Delta$$"
@@ -75,15 +76,16 @@ const Page = () => {
           {completedStages.includes(2) && (
             <div>
               <StepDescription stepNumber={3}>
-                Delta równa zero oznacza jeden pierwiastek. Oblicz pierwiastek równania kwadratowego <InlineMath math="x_0" />.
+                Delta równa zero oznacza jeden pierwiastek. Oblicz pierwiastek równania kwadratowego{' '}
+                <InlineMath math="x_0" />.
               </StepDescription>
               <ChoiceQuestion
                 question="Która wartość jest poprawna dla pierwiastka $$x_0$$?"
                 choices={[
-                  { label: "x₀ = 2", value: "a" },
-                  { label: "x₀ = -2", value: "b" },
-                  { label: "x₀ = 4", value: "c" },
-                  { label: "x₀ = 0", value: "d" }
+                  { label: 'x₀ = 2', value: 'a' },
+                  { label: 'x₀ = -2', value: 'b' },
+                  { label: 'x₀ = 4', value: 'c' },
+                  { label: 'x₀ = 0', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Ponieważ $$\Delta$$ wynosi 0, równanie ma dokładnie jeden pierwiastek podwójny: <br>
@@ -105,10 +107,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$x^2 - 4x + 4 \leq 0$$?"
                 choices={[
-                  { label: "x ∈ (-∞, 2\\rangle \\cup \\langle2, ∞)", value: "a" },
-                  { label: "x ∈ (2, ∞)", value: "b" },
-                  { label: "x ∈ (-∞, 2)", value: "c" },
-                  { label: "x = 2", value: "d" },
+                  { label: 'x ∈ (-∞, 2\\rangle \\cup \\langle2, ∞)', value: 'a' },
+                  { label: 'x ∈ (2, ∞)', value: 'b' },
+                  { label: 'x ∈ (-∞, 2)', value: 'c' },
+                  { label: 'x = 2', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Rozwiązaniem nierówności $$x^2 - 4x + 4 \leq 0$$ jest dokładnie jedna wartość:
@@ -128,17 +130,17 @@ const Page = () => {
                 equation="x^2 - 4x + 4 \leq 0"
                 steps={[
                   {
-                    step: "a = 1, b = -4, c = 4",
+                    step: 'a = 1, b = -4, c = 4',
                   },
                   {
-                    step: "\\Delta = b^2 - 4ac = (-4)^2 - 4 \\cdot 1 \\cdot 4 = 16 - 16 = 0",
+                    step: '\\Delta = b^2 - 4ac = (-4)^2 - 4 \\cdot 1 \\cdot 4 = 16 - 16 = 0',
                   },
                   {
-                    step: "x_0 = \\frac{-b}{2a} = \\frac{4}{2} = 2",
-                    image: "/steps-images/fun1.png"
+                    step: 'x_0 = \\frac{-b}{2a} = \\frac{4}{2} = 2',
+                    image: '/steps-images/fun1.png',
                   },
                 ]}
-                solutions={["x = 2"]}
+                solutions={['x = 2']}
               />
             </div>
           )}

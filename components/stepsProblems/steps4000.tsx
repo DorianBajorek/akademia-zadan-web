@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,13 +27,14 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Sprawdzenie relacji między kątem <InlineMath math="\alpha" /> a kątem <InlineMath math="60^{\circ}" />
+                Sprawdzenie relacji między kątem <InlineMath math="\alpha" /> a kątem{' '}
+                <InlineMath math="60^{\circ}" />
               </StepDescription>
               <ChoiceQuestion
                 question="Czy kąt $$\alpha$$ jest oparty na tym samym łuku co kąt $$60^{\circ}$$?"
                 choices={[
-                  { label: "\\text{TAK}", value: "a" },
-                  { label: "\\text{NIE}", value: "b" },
+                  { label: '\\text{TAK}', value: 'a' },
+                  { label: '\\text{NIE}', value: 'b' },
                 ]}
                 correctAnswer="a"
                 explanation="Odpowiedź TAK. Widać to na rysunku zaznaczonym niżej, gdzie końce jednego kąta trafiają w te same miejsca na które trafia drugi kąt."
@@ -51,10 +52,22 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które zdanie jest prawdziwe?"
                 choices={[
-                  { label: "\\text{Kąt środkowy: } \\alpha \\text{, Kąt środkowy: }  60^{\\circ}", value: "a" },
-                  { label: "\\text{Kąt wpisany: } \\alpha \\text{, Kąt wpisany: }  60^{\\circ}", value: "b" },
-                  { label: "\\text{Kąt wpisany: } \\alpha \\text{, Kąt środkowy: }  60^{\\circ}", value: "c" },
-                  { label: "\\text{Kąt środkowy: } \\alpha \\text{, Kąt wpisany: }  60^{\\circ}", value: "d" },
+                  {
+                    label: '\\text{Kąt środkowy: } \\alpha \\text{, Kąt środkowy: }  60^{\\circ}',
+                    value: 'a',
+                  },
+                  {
+                    label: '\\text{Kąt wpisany: } \\alpha \\text{, Kąt wpisany: }  60^{\\circ}',
+                    value: 'b',
+                  },
+                  {
+                    label: '\\text{Kąt wpisany: } \\alpha \\text{, Kąt środkowy: }  60^{\\circ}',
+                    value: 'c',
+                  },
+                  {
+                    label: '\\text{Kąt środkowy: } \\alpha \\text{, Kąt wpisany: }  60^{\\circ}',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="d"
                 explanation="Kąt $$\alpha$$ ma swój wierzchołek na łuku okręgu, co oznacza, że jest kątem wpisanym. Kąt $$60^{\circ}$$ ma swój wierzchołek w środku, więc jest kątem środkowym."
@@ -72,10 +85,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest miara kąta $$\alpha$$?"
                 choices={[
-                  { label: "\\alpha = 120^{\\circ}", value: "a" },
-                  { label: "\\alpha = 60^{\\circ}", value: "b" },
-                  { label: "\\alpha = 30^{\\circ}", value: "c" },
-                  { label: "\\alpha = 15^{\\circ}", value: "d" },
+                  { label: '\\alpha = 120^{\\circ}', value: 'a' },
+                  { label: '\\alpha = 60^{\\circ}', value: 'b' },
+                  { label: '\\alpha = 30^{\\circ}', value: 'c' },
+                  { label: '\\alpha = 15^{\\circ}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Kąt środkowy jest dwa razy większy niż kąt wpisany oparty na tym samym łuku. Dzięki tej relacji możemy powiedzieć, że kąt $$\alpha$$ jest dwa razy mniejszy. Mamy więc $$\alpha = 30^{\circ}$$"
@@ -84,18 +97,18 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.length === 3 && (
             <div className="mt-8">
               <StudentNotes
                 equation=""
                 steps={[
                   {
-                    step: "",
-                    image: "/steps-images/steps4000c.png"
+                    step: '',
+                    image: '/steps-images/steps4000c.png',
                   },
                 ]}
-                solutions={["\\alpha = 30^{\\circ}"]}
+                solutions={['\\alpha = 30^{\\circ}']}
               />
             </div>
           )}

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // dodano import
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // dodano import
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,10 +26,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak wygląda wzór funkcji $$f(x)$$ w postaci iloczynowej?"
             choices={[
-              { label: "f(x) = -0.5(x + 2)(x - 1)", value: "a" },
-              { label: "f(x) = (x + 2)(x - 0.5)", value: "b" },
-              { label: "f(x) = -(x + 2)(x - 0.5)", value: "c" },
-              { label: "f(x) = -2(x + 2)(x - 0.5)", value: "d" },
+              { label: 'f(x) = -0.5(x + 2)(x - 1)', value: 'a' },
+              { label: 'f(x) = (x + 2)(x - 0.5)', value: 'b' },
+              { label: 'f(x) = -(x + 2)(x - 0.5)', value: 'c' },
+              { label: 'f(x) = -2(x + 2)(x - 0.5)', value: 'd' },
             ]}
             correctAnswer="c"
             explanation="Postać iloczynowa to $$f(x) = a(x - x_1)(x - x_2)$$.
@@ -45,10 +45,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jaka jest wartość współczynnika $$b$$ w rozwiniętej postaci?"
             choices={[
-              { label: "b = -2.5", value: "a" },
-              { label: "b = -1.5", value: "b" },
-              { label: "b = 1.5", value: "c" },
-              { label: "b = 2.5", value: "d" },
+              { label: 'b = -2.5', value: 'a' },
+              { label: 'b = -1.5', value: 'b' },
+              { label: 'b = 1.5', value: 'c' },
+              { label: 'b = 2.5', value: 'd' },
             ]}
             correctAnswer="b"
             explanation="Rozwijamy postać iloczynową: 
@@ -62,10 +62,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jaka jest wartość współczynnika $$c$$ w rozwiniętej postaci?"
             choices={[
-              { label: "c = -1", value: "a" },
-              { label: "c = 0.5", value: "b" },
-              { label: "c = 1", value: "c" },
-              { label: "c = 2", value: "d" },
+              { label: 'c = -1', value: 'a' },
+              { label: 'c = 0.5', value: 'b' },
+              { label: 'c = 1', value: 'c' },
+              { label: 'c = 2', value: 'd' },
             ]}
             correctAnswer="c"
             explanation="Z rozwiniętej postaci $$-x^2 - 1.5x + 1$$ i porównania z $$-x^2 + bx + c$$ otrzymujemy $$c = 1$$."
@@ -77,12 +77,12 @@ const Page = () => {
           <StudentNotes
             equation="f(x) = -x^2 + bx + c, \quad x_1 = -2, \quad x_2 = \frac{1}{2}"
             steps={[
-              { step: "\\text{Postać iloczynowa: } f(x) = -1(x + 2)(x - 0.5)" },
-              { step: "\\text{Rozwinięcie: } -(x^2 + 1.5x - 1) = -x^2 - 1.5x + 1" },
-              { step: "\\text{Porównanie z } -x^2 + bx + c" },
-              { step: "b = -1.5, \\quad c = 1" },
+              { step: '\\text{Postać iloczynowa: } f(x) = -1(x + 2)(x - 0.5)' },
+              { step: '\\text{Rozwinięcie: } -(x^2 + 1.5x - 1) = -x^2 - 1.5x + 1' },
+              { step: '\\text{Porównanie z } -x^2 + bx + c' },
+              { step: 'b = -1.5, \\quad c = 1' },
             ]}
-            solutions={["b = -1.5", "c = 1"]}
+            solutions={['b = -1.5', 'c = 1']}
           />
         )}
       </div>

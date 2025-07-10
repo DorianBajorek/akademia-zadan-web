@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie są współrzędne środka odcinka $$PR$$?"
                 choices={[
-                  { label: "(1, 2)", value: "a" },
-                  { label: "(1, 5)", value: "b" },
-                  { label: "(3, -1)", value: "c" },
-                  { label: "(1, 7)", value: "d" },
+                  { label: '(1, 2)', value: 'a' },
+                  { label: '(1, 5)', value: 'b' },
+                  { label: '(3, -1)', value: 'c' },
+                  { label: '(1, 7)', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={
-                  "Współrzędne środka to:<br/>" +
-                  "$$\\left( \\frac{4 + (-2)}{2}, \\frac{7 + (-3)}{2} \\right) = (1, 2)$$"
+                  'Współrzędne środka to:<br/>' +
+                  '$$\\left( \\frac{4 + (-2)}{2}, \\frac{7 + (-3)}{2} \\right) = (1, 2)$$'
                 }
                 onComplete={() => handleStageComplete(1)}
               />
@@ -51,10 +51,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaki jest wzór na odległość dwóch punktów $$(x_1, y_1)$$ i $$(x_2, y_2)$$?"
                 choices={[
-                  { label: "\\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}", value: "a" },
-                  { label: "\\sqrt{(x_2 + x_1)^2 + (y_2 + y_1)^2}", value: "b" },
-                  { label: "(x_2 - x_1) + (y_2 - y_1)", value: "c" },
-                  { label: "\\sqrt{|x_2 - x_1| + |y_2 - y_1|}", value: "d" },
+                  { label: '\\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}', value: 'a' },
+                  { label: '\\sqrt{(x_2 + x_1)^2 + (y_2 + y_1)^2}', value: 'b' },
+                  { label: '(x_2 - x_1) + (y_2 - y_1)', value: 'c' },
+                  { label: '\\sqrt{|x_2 - x_1| + |y_2 - y_1|}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Odległość: $$\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$"
@@ -71,15 +71,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Ile wynosi odległość punktu $$T = (3, -1)$$ od środka odcinka $$PR$$?"
                 choices={[
-                  { label: "\\sqrt{3}", value: "a" },
-                  { label: "\\sqrt{13}", value: "b" },
-                  { label: "\\sqrt{17}", value: "c" },
-                  { label: "6\\sqrt{2}", value: "d" },
+                  { label: '\\sqrt{3}', value: 'a' },
+                  { label: '\\sqrt{13}', value: 'b' },
+                  { label: '\\sqrt{17}', value: 'c' },
+                  { label: '6\\sqrt{2}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation={
-                  "Podstawiamy:<br/>" +
-                  "$$\\sqrt{(3-1)^2 + ((-1)-2)^2} = \\sqrt{2^2 + (-3)^2} = \\sqrt{4 + 9} = \\sqrt{13}$$"
+                  'Podstawiamy:<br/>' +
+                  '$$\\sqrt{(3-1)^2 + ((-1)-2)^2} = \\sqrt{2^2 + (-3)^2} = \\sqrt{4 + 9} = \\sqrt{13}$$'
                 }
                 onComplete={() => handleStageComplete(3)}
               />
@@ -91,12 +91,10 @@ const Page = () => {
               <StudentNotes
                 equation="d = \sqrt{(3-1)^2 + ((-1)-2)^2} = \sqrt{13}"
                 steps={[
-                  { step: "Środek: (1, 2)" },
-                  { step: "Odległość: \\sqrt{(3-1)^2 + ((-1)-2)^2} = \\sqrt{4 + 9} = \\sqrt{13}" }
+                  { step: 'Środek: (1, 2)' },
+                  { step: 'Odległość: \\sqrt{(3-1)^2 + ((-1)-2)^2} = \\sqrt{4 + 9} = \\sqrt{13}' },
                 ]}
-                solutions={[
-                  "\\text{Odpowiedź: } \\sqrt{13}"
-                ]}
+                solutions={['\\text{Odpowiedź: } \\sqrt{13}']}
               />
             </div>
           )}

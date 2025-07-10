@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-              Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia delty.
+                Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia
+                delty.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tym równaniu?"
                 choices={[
-                  { label: "a = -1, b = -2, c = 1", value: "a" },
-                  { label: "a = 1, b = 2, c = -1", value: "b" },
-                  { label: "a = 1, b = -2, c = -1", value: "c" },
-                  { label: "a = 1, b = -2, c = 1", value: "d" }
+                  { label: 'a = -1, b = -2, c = 1', value: 'a' },
+                  { label: 'a = 1, b = 2, c = -1', value: 'b' },
+                  { label: 'a = 1, b = -2, c = -1', value: 'c' },
+                  { label: 'a = 1, b = -2, c = 1', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Współczynniki dla tego równania to $$a = 1, b = -2, c = -1$$. 
@@ -52,16 +53,14 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Obliczenie wyróżnika równania (Δ)
-              </StepDescription>
+              <StepDescription stepNumber={2}>Obliczenie wyróżnika równania (Δ)</StepDescription>
               <ChoiceQuestion
                 question="Która wartość jest poprawną deltą (Δ) dla tego równania?"
                 choices={[
-                  { label: "Δ = 4", value: "a" },
-                  { label: "Δ = 8", value: "b" },
-                  { label: "Δ = -4", value: "c" },
-                  { label: "Δ = 0", value: "d" }
+                  { label: 'Δ = 4', value: 'a' },
+                  { label: 'Δ = 8', value: 'b' },
+                  { label: 'Δ = -4', value: 'c' },
+                  { label: 'Δ = 0', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Delta (Δ) jest obliczana ze wzoru:
@@ -77,16 +76,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Wyznaczenie pierwiastków równania
-              </StepDescription>
+              <StepDescription stepNumber={3}>Wyznaczenie pierwiastków równania</StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x₁ = 1 - \\sqrt{2}, x₂ = 1 + \\sqrt{2}", value: "a" },
-                  { label: "x₁ = -1, x₂ = 1 + \\sqrt{2}", value: "b" },
-                  { label: "x₁ = 1 - \\sqrt{2}, x₂ = 1", value: "c" },
-                  { label: "x₁ = -\\sqrt{2}, x₂ = 2", value: "d" }
+                  { label: 'x₁ = 1 - \\sqrt{2}, x₂ = 1 + \\sqrt{2}', value: 'a' },
+                  { label: 'x₁ = -1, x₂ = 1 + \\sqrt{2}', value: 'b' },
+                  { label: 'x₁ = 1 - \\sqrt{2}, x₂ = 1', value: 'c' },
+                  { label: 'x₁ = -\\sqrt{2}, x₂ = 2', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Ponieważ delta jest dodatnia, równanie ma dwa pierwiastki: <br>
@@ -107,12 +104,14 @@ const Page = () => {
               <StudentNotes
                 equation="x^2 - 2x - 1 = 0"
                 steps={[
-                  { step: "a = 1, b = -2, c = -1" },
-                  { step: "Δ = b² - 4ac = (-2)² - 4·1·(-1) = 4 + 4 = 8, \\sqrt{\\Delta} = \\sqrt{8} = 2\\sqrt{2}" },
-                  { step: "x₁ = \\frac{2 + 2\\sqrt{2}}{2} = 1 + \\sqrt{2}" },
-                  { step: "x₂ = \\frac{2 - 2\\sqrt{2}}{2} = 1 - \\sqrt{2}" }
+                  { step: 'a = 1, b = -2, c = -1' },
+                  {
+                    step: 'Δ = b² - 4ac = (-2)² - 4·1·(-1) = 4 + 4 = 8, \\sqrt{\\Delta} = \\sqrt{8} = 2\\sqrt{2}',
+                  },
+                  { step: 'x₁ = \\frac{2 + 2\\sqrt{2}}{2} = 1 + \\sqrt{2}' },
+                  { step: 'x₂ = \\frac{2 - 2\\sqrt{2}}{2} = 1 - \\sqrt{2}' },
                 ]}
-                solutions={["x₁ = 1 - \\sqrt{2}", "x₂ = 1 + \\sqrt{2}"]}
+                solutions={['x₁ = 1 - \\sqrt{2}', 'x₂ = 1 + \\sqrt{2}']}
               />
             </div>
           )}

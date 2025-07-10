@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,16 +26,26 @@ const Page = () => {
         <div className="mt-8 space-y-8">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
-              <StepDescription stepNumber={1}>
-                Oszacuj wartość pierwiastków
-              </StepDescription>
+              <StepDescription stepNumber={1}>Oszacuj wartość pierwiastków</StepDescription>
               <ChoiceQuestion
                 question="Ile wynosi w przybliżeniu $$\sqrt{5}$$ i $$\sqrt{7}$$?"
                 choices={[
-                  { label: "\\sqrt{5} \\approx 2,00 \\text{ i } \\sqrt{7} \\approx 2,50", value: "a" },
-                  { label: "\\sqrt{5} \\approx 2,24 \\text{ i } \\sqrt{7} \\approx 2,80", value: "b" },
-                  { label: "\\sqrt{5} \\approx 2,24 \\text{ i } \\sqrt{7} \\approx 2,65", value: "c" },
-                  { label: "\\sqrt{5} \\approx 2,50 \\text{ i } \\sqrt{7} \\approx 2,65", value: "d" },
+                  {
+                    label: '\\sqrt{5} \\approx 2,00 \\text{ i } \\sqrt{7} \\approx 2,50',
+                    value: 'a',
+                  },
+                  {
+                    label: '\\sqrt{5} \\approx 2,24 \\text{ i } \\sqrt{7} \\approx 2,80',
+                    value: 'b',
+                  },
+                  {
+                    label: '\\sqrt{5} \\approx 2,24 \\text{ i } \\sqrt{7} \\approx 2,65',
+                    value: 'c',
+                  },
+                  {
+                    label: '\\sqrt{5} \\approx 2,50 \\text{ i } \\sqrt{7} \\approx 2,65',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="c"
                 explanation="$$\sqrt{5} ≈ 2.236$$ i $$\sqrt{7} ≈ 2.645$$, więc najbardziej precyzyjne przybliżenie to $$2,24$$ i $$2,65$$."
@@ -43,7 +53,7 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
@@ -52,10 +62,22 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie są wartości $$5 - \sqrt{7}$$ i $$\sqrt{5} - 2$$?"
                 choices={[
-                  { label: "5 - \\sqrt{7} \\approx 2,35 \\text{ i } \\sqrt{5} - 2 \\approx 0,24", value: "a" },
-                  { label: "5 - \\sqrt{7} \\approx 2,50 \\text{ i } \\sqrt{5} - 2 \\approx 0,50", value: "b" },
-                  { label: "5 - \\sqrt{7} \\approx 2,35 \\text{ i } \\sqrt{5} - 2 \\approx 0,50", value: "c" },
-                  { label: "5 - \\sqrt{7} \\approx 2,00 \\text{ i } \\sqrt{5} - 2 \\approx 0,24", value: "d" },
+                  {
+                    label: '5 - \\sqrt{7} \\approx 2,35 \\text{ i } \\sqrt{5} - 2 \\approx 0,24',
+                    value: 'a',
+                  },
+                  {
+                    label: '5 - \\sqrt{7} \\approx 2,50 \\text{ i } \\sqrt{5} - 2 \\approx 0,50',
+                    value: 'b',
+                  },
+                  {
+                    label: '5 - \\sqrt{7} \\approx 2,35 \\text{ i } \\sqrt{5} - 2 \\approx 0,50',
+                    value: 'c',
+                  },
+                  {
+                    label: '5 - \\sqrt{7} \\approx 2,00 \\text{ i } \\sqrt{5} - 2 \\approx 0,24',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="a"
                 explanation="$$5 - \sqrt{7} ≈ 5 - 2.645 = 2.355$$ i $$\sqrt{5} - 2 ≈ 2.236 - 2 = 0.236$$."
@@ -63,19 +85,17 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Oblicz wartości bezwzględne
-              </StepDescription>
+              <StepDescription stepNumber={3}>Oblicz wartości bezwzględne</StepDescription>
               <ChoiceQuestion
                 question="Jak można zapisać wartość wyrażenia $$|5 - \sqrt{7}| + |\sqrt{5} - 2|$$?"
                 choices={[
-                  { label: "(5 - \\sqrt{7}) + (\\sqrt{5} - 2)", value: "a" },
-                  { label: "(5 - \\sqrt{7}) - (\\sqrt{5} - 2)", value: "b" },
-                  { label: "-(5 - \\sqrt{7}) + (\\sqrt{5} - 2)", value: "c" },
-                  { label: "(\\sqrt{7} - 5) + (2 - \\sqrt{5})", value: "d" },
+                  { label: '(5 - \\sqrt{7}) + (\\sqrt{5} - 2)', value: 'a' },
+                  { label: '(5 - \\sqrt{7}) - (\\sqrt{5} - 2)', value: 'b' },
+                  { label: '-(5 - \\sqrt{7}) + (\\sqrt{5} - 2)', value: 'c' },
+                  { label: '(\\sqrt{7} - 5) + (2 - \\sqrt{5})', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="
@@ -90,16 +110,14 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Uprość otrzymane wyrażenie
-              </StepDescription>
+              <StepDescription stepNumber={4}>Uprość otrzymane wyrażenie</StepDescription>
               <ChoiceQuestion
                 question="Jak wygląda ostateczna postać uproszczona?"
                 choices={[
-                  { label: "3 + \\sqrt{5} - \\sqrt{7}", value: "a" },
-                  { label: "3 - \\sqrt{5} + \\sqrt{7}", value: "b" },
-                  { label: "3 + \\sqrt{7} - \\sqrt{5}", value: "c" },
-                  { label: "3 - \\sqrt{7} - \\sqrt{5}", value: "d" },
+                  { label: '3 + \\sqrt{5} - \\sqrt{7}', value: 'a' },
+                  { label: '3 - \\sqrt{5} + \\sqrt{7}', value: 'b' },
+                  { label: '3 + \\sqrt{7} - \\sqrt{5}', value: 'c' },
+                  { label: '3 - \\sqrt{7} - \\sqrt{5}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`$$(5 - \\sqrt{7}) + (\\sqrt{5} - 2) = 3 + \\sqrt{5} - \\sqrt{7}$$`}
@@ -107,17 +125,17 @@ const Page = () => {
               />
             </div>
           )}
-                  
+
           {completedStages.length === 4 && (
             <div className="mt-8">
               <StudentNotes
                 equation="|5 - \sqrt{7}| + |\sqrt{5} - 2|"
                 steps={[
                   {
-                    step: "|5 - \\sqrt{7}| + |\\sqrt{5} - 2| = (5 - \\sqrt{7}) + (\\sqrt{5} - 2) = 3 + \\sqrt{5} - \\sqrt{7}"
-                  }
+                    step: '|5 - \\sqrt{7}| + |\\sqrt{5} - 2| = (5 - \\sqrt{7}) + (\\sqrt{5} - 2) = 3 + \\sqrt{5} - \\sqrt{7}',
+                  },
                 ]}
-                solutions={["3 + \\sqrt{5} - \\sqrt{7}"]}
+                solutions={['3 + \\sqrt{5} - \\sqrt{7}']}
               />
             </div>
           )}

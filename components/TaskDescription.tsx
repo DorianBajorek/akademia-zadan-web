@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { InlineMath } from "react-katex";
-import { motion } from "framer-motion";
+import { InlineMath } from 'react-katex';
+import { motion } from 'framer-motion';
 
 interface TaskDescriptionProps {
   title?: string;
@@ -13,8 +13,8 @@ interface TaskDescriptionProps {
 const renderTextWithMath = (text?: string) => {
   if (!text) return null;
   return text.split(/(\$\$.*?\$\$|<br\s*\/?>|\n)/g).map((part, index) => {
-    if (part.startsWith("$$") && part.endsWith("$$")) {
-      return <InlineMath key={index} math={part.replace(/\$\$/g, "")} />;
+    if (part.startsWith('$$') && part.endsWith('$$')) {
+      return <InlineMath key={index} math={part.replace(/\$\$/g, '')} />;
     } else if (part.match(/<br\s*\/?>|\n/)) {
       return <br key={index} />;
     }
@@ -36,12 +36,12 @@ const TaskDescription = ({ title, description, equation, imageUrl }: TaskDescrip
       <motion.div
         className="absolute inset-0 rounded-2xl border-2 border-transparent"
         animate={{
-          borderColor: ["#93c5fd", "#c7d2fe", "#93c5fd"],
+          borderColor: ['#93c5fd', '#c7d2fe', '#93c5fd'],
         }}
         transition={{
           duration: 6,
           repeat: Infinity,
-          ease: "linear",
+          ease: 'linear',
         }}
       />
 
@@ -50,7 +50,7 @@ const TaskDescription = ({ title, description, equation, imageUrl }: TaskDescrip
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring" }}
+            transition={{ delay: 0.2, type: 'spring' }}
             className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-3 rounded-xl shadow-md"
           >
             <svg

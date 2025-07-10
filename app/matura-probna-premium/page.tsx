@@ -1,11 +1,11 @@
-"use client";
-import "katex/dist/katex.min.css";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import Question from "@/components/Question";
-import TaskContent from "@/components/TaskContent";
+'use client';
+import 'katex/dist/katex.min.css';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import Question from '@/components/Question';
+import TaskContent from '@/components/TaskContent';
 
 interface QuestionType {
   id: number;
@@ -34,8 +34,8 @@ const Matura1: React.FC = () => {
   const router = useRouter();
 
   const replaceHashes = (text: string) => {
-    if (!text) return "";
-    return text.replace(/##/g, "\\");
+    if (!text) return '';
+    return text.replace(/##/g, '\\');
   };
 
   const handleAnswerSelect = (questionId: number, answer: string) => {
@@ -43,44 +43,49 @@ const Matura1: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null);
-  
+    const allAnswered = questions.every(
+      (q) => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null
+    );
+
     if (!allAnswered) {
-      alert("Proszę odpowiedzieć na wszystkie pytania.");
+      alert('Proszę odpowiedzieć na wszystkie pytania.');
       return;
     }
-    
+
     let totalPoints = 0;
     let earnedPoints = 0;
-    
-    const results = questions.map(q => {
-      const taskData = rawData.find(item => item.task_id === q.taskId);
+
+    const results = questions.map((q) => {
+      const taskData = rawData.find((item) => item.task_id === q.taskId);
       const taskPoints = taskData?.points || 1;
       totalPoints += taskPoints;
-      
+
       const isCorrect = selectedAnswers[q.id] === q.correctAnswer;
       if (isCorrect) {
         earnedPoints += taskPoints;
       }
-      
+
       return {
         questionId: q.id,
         userAnswer: selectedAnswers[q.id],
         isCorrect,
-        points: isCorrect ? taskPoints : 0
+        points: isCorrect ? taskPoints : 0,
       };
     });
-  
-    localStorage.setItem("matura1Results", JSON.stringify({
-      questions,
-      answers: selectedAnswers,
-      results,
-      openTasks,
-      totalPoints,
-      earnedPoints
-    }));
-    
-    router.push("/matura-result");
+
+    localStorage.setItem(
+      'matura1Results',
+      JSON.stringify({
+        questions,
+        answers: selectedAnswers,
+        results,
+        openTasks,
+        totalPoints,
+        earnedPoints,
+      })
+    );
+
+    router.push('/matura-result');
   };
 
   useEffect(() => {
@@ -88,9 +93,9 @@ const Matura1: React.FC = () => {
       try {
         setLoading(true);
         setError(null);
-        
+
         const response = await fetch('/matura/matura1.json');
-        
+
         if (!response.ok) {
           throw new Error(`Nie można załadować danych. Status: ${response.status}`);
         }
@@ -104,13 +109,13 @@ const Matura1: React.FC = () => {
             id: index + 1,
             taskId: item.task_id || 0,
             taskType: item.task_type,
-            images: item.images || []
+            images: item.images || [],
           };
 
-          if (item.task_type === "open") {
+          if (item.task_type === 'open') {
             formattedOpenTasks.push({
               content: replaceHashes(item.content || item.description),
-              image: item.image
+              image: item.image,
             });
           } else {
             formattedQuestions.push({
@@ -120,10 +125,10 @@ const Matura1: React.FC = () => {
                 replaceHashes(item.choiceA),
                 replaceHashes(item.choiceB),
                 replaceHashes(item.choiceC),
-                replaceHashes(item.choiceD)
+                replaceHashes(item.choiceD),
               ],
               correctAnswer: item.correct_answer,
-              youtubeVideoId: item.youtubeVideoId
+              youtubeVideoId: item.youtubeVideoId,
             });
           }
         });
@@ -131,8 +136,8 @@ const Matura1: React.FC = () => {
         setQuestions(formattedQuestions);
         setOpenTasks(formattedOpenTasks);
       } catch (err) {
-        console.error("Błąd podczas ładowania zadań:", err);
-        setError("Wystąpił problem podczas ładowania zadań. Spróbuj odświeżyć stronę.");
+        console.error('Błąd podczas ładowania zadań:', err);
+        setError('Wystąpił problem podczas ładowania zadań. Spróbuj odświeżyć stronę.');
       } finally {
         setLoading(false);
       }
@@ -149,11 +154,24 @@ const Matura1: React.FC = () => {
           Matura próbna - przewidywania sztucznej inteligencji
         </h2>
         <p className="text-md text-gray-800 text-center mb-10 max-w-3xl mx-auto leading-relaxed">
-            Ten próbny arkusz maturalny to <span className="font-semibold text-blue-700">coś więcej niż zwykły zestaw zadań</span> – to starannie wyselekcjonowane typy, które <span className="font-semibold">z dużym prawdopodobieństwem pojawią się na prawdziwej maturze z matematyki</span>. 🔥
-            <br /><br />
-            Zadania zostały przygotowane przez <span className="font-semibold text-blue-700">sztuczną inteligencję</span>, która przeanalizowała dziesiątki arkuszy z ostatnich lat, aby wytypować najbardziej prawdopodobne zagadnienia.
-            <br /><br />
-            To lista tzw. <span className="font-bold text-green-700">pewniaków maturalnych</span> – jeśli chcesz mieć realną przewagę i uczyć się tego, co naprawdę się liczy, <span className="font-semibold text-blue-600">zacznij właśnie od tych zadań!</span>
+          Ten próbny arkusz maturalny to{' '}
+          <span className="font-semibold text-blue-700">coś więcej niż zwykły zestaw zadań</span> –
+          to starannie wyselekcjonowane typy, które{' '}
+          <span className="font-semibold">
+            z dużym prawdopodobieństwem pojawią się na prawdziwej maturze z matematyki
+          </span>
+          . 🔥
+          <br />
+          <br />
+          Zadania zostały przygotowane przez{' '}
+          <span className="font-semibold text-blue-700">sztuczną inteligencję</span>, która
+          przeanalizowała dziesiątki arkuszy z ostatnich lat, aby wytypować najbardziej
+          prawdopodobne zagadnienia.
+          <br />
+          <br />
+          To lista tzw. <span className="font-bold text-green-700">pewniaków maturalnych</span> –
+          jeśli chcesz mieć realną przewagę i uczyć się tego, co naprawdę się liczy,{' '}
+          <span className="font-semibold text-blue-600">zacznij właśnie od tych zadań!</span>
         </p>
 
         {loading && (
@@ -171,7 +189,7 @@ const Matura1: React.FC = () => {
         {!loading && !error && (
           <>
             <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-blue-600 mb-6">Zadania zamknięte</h3>
+              <h3 className="text-2xl font-bold text-blue-600 mb-6">Zadania zamknięte</h3>
               {questions.map((q) => (
                 <Question
                   key={q.id}
@@ -180,8 +198,9 @@ const Matura1: React.FC = () => {
                   text={q.text}
                   answers={q.answers}
                   selectedAnswer={selectedAnswers[q.id] || null}
-                  onAnswerSelect={(id, answerIndex) => 
-                    handleAnswerSelect(id, String.fromCharCode(97 + answerIndex))}
+                  onAnswerSelect={(id, answerIndex) =>
+                    handleAnswerSelect(id, String.fromCharCode(97 + answerIndex))
+                  }
                   taskType={q.taskType}
                   images={q.images}
                 />
@@ -193,11 +212,7 @@ const Matura1: React.FC = () => {
                 <h3 className="text-2xl font-bold text-blue-600 mb-6">Zadania otwarte</h3>
                 <div className="space-y-6">
                   {openTasks.map((task, key) => (
-                    <TaskContent
-                      key={key}
-                      content={task.content || ""}
-                      image={task.image}
-                    />
+                    <TaskContent key={key} content={task.content || ''} image={task.image} />
                   ))}
                 </div>
               </div>
@@ -214,7 +229,7 @@ const Matura1: React.FC = () => {
             </div>
           </>
         )}
-</main>
+      </main>
     </div>
   );
 };

@@ -1,23 +1,24 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const PolynomialSimplificationTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 32,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Dla każdej liczby rzeczywistej $x$ wyrażenie $(3x - 2)^2 - (2x - 3)(2x + 3)$ jest po uproszczeniu równe",
-    "choiceA": "$5x^2 - 12x - 5$",
-    "choiceB": "$5x^2 - 13$",
-    "choiceC": "$5x^2 + 5$",
-    "choiceD": "$5x^2 - 12x + 13$",
-    "correct_answer": "d",
+    task_id: 32,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Dla każdej liczby rzeczywistej $x$ wyrażenie $(3x - 2)^2 - (2x - 3)(2x + 3)$ jest po uproszczeniu równe',
+    choiceA: '$5x^2 - 12x - 5$',
+    choiceB: '$5x^2 - 13$',
+    choiceC: '$5x^2 + 5$',
+    choiceD: '$5x^2 - 12x + 13$',
+    correct_answer: 'd',
   };
 
   const handleCheckAnswer = () => {
@@ -29,12 +30,11 @@ const PolynomialSimplificationTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -43,7 +43,8 @@ const PolynomialSimplificationTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 1911 } />
+            taskId={1911}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -56,13 +57,13 @@ const PolynomialSimplificationTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef, JSX } from 'react';
@@ -40,16 +40,16 @@ const Nav: React.FC = () => {
   };
 
   const linksLoggedIn: NavLink[] = [
-    { href: "/", label: "Strona główna" },
-    { href: "/kurs-matura-podstawowa", label: "Kurs maturalny" },
-    { href: "/profil", label: "Profil" },
-    { href: "#", label: "Wyloguj się", onClick: handleLogout },
+    { href: '/', label: 'Strona główna' },
+    { href: '/kurs-matura-podstawowa', label: 'Kurs maturalny' },
+    { href: '/profil', label: 'Profil' },
+    { href: '#', label: 'Wyloguj się', onClick: handleLogout },
   ];
 
   const linksLoggedOut: NavLink[] = [
-    { href: "/", label: "Strona główna" },
-    { href: "/logowanie", label: "Logowanie" },
-    { href: "/rejestracja", label: "Rejestracja" },
+    { href: '/', label: 'Strona główna' },
+    { href: '/logowanie', label: 'Logowanie' },
+    { href: '/rejestracja', label: 'Rejestracja' },
   ];
 
   const navLinks = token ? linksLoggedIn : linksLoggedOut;
@@ -62,7 +62,9 @@ const Nav: React.FC = () => {
             <Image src="/logo.svg" alt="Logo Akademia Zadań" width={50} height={50} />
           </Link>
           <Link href="/" className="hidden sm:block" aria-label="Akademia Zadań">
-            <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 hover:text-blue-500 transition-colors">Akademia Zadań</h1>
+            <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 hover:text-blue-500 transition-colors">
+              Akademia Zadań
+            </h1>
           </Link>
         </div>
 
@@ -101,11 +103,27 @@ const Nav: React.FC = () => {
           aria-label="Toggle menu"
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
             {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>

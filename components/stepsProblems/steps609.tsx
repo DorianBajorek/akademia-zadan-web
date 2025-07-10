@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -23,18 +23,16 @@ const Page = () => {
         />
 
         {completedStages.length === 0 && (
-          <StepDescription stepNumber={1}>
-            Kiedy dwie proste są prostopadłe?
-          </StepDescription>
+          <StepDescription stepNumber={1}>Kiedy dwie proste są prostopadłe?</StepDescription>
         )}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <ChoiceQuestion
             question="Który warunek musi być spełniony, aby proste były prostopadłe?"
             choices={[
-              { label: "\\text{Iloczyn współczynników kierunkowych wynosi -1}", value: "a" },
-              { label: "\\text{Współczynniki kierunkowe są równe}", value: "b" },
-              { label: "\\text{Suma współczynników kierunkowych wynosi 0}", value: "c" },
-              { label: "\\text{Wyrazy wolne są równe}", value: "d" },
+              { label: '\\text{Iloczyn współczynników kierunkowych wynosi -1}', value: 'a' },
+              { label: '\\text{Współczynniki kierunkowe są równe}', value: 'b' },
+              { label: '\\text{Suma współczynników kierunkowych wynosi 0}', value: 'c' },
+              { label: '\\text{Wyrazy wolne są równe}', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Dwie proste są prostopadłe, gdy iloczyn ich współczynników kierunkowych wynosi -1."
@@ -51,10 +49,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "(m + 1) \\cdot (-2) = 1", value: "a" },
-                { label: "(m + 1) \\cdot (-2) = -1", value: "b" },
-                { label: "(m + 1) + (-2) = -1", value: "c" },
-                { label: "(m + 1) = -2", value: "d" }
+                { label: '(m + 1) \\cdot (-2) = 1', value: 'a' },
+                { label: '(m + 1) \\cdot (-2) = -1', value: 'b' },
+                { label: '(m + 1) + (-2) = -1', value: 'c' },
+                { label: '(m + 1) = -2', value: 'd' },
               ]}
               correctAnswer="b"
               explanation={`Poprawne równanie to: $$(m + 1) \\cdot (-2) = -1$$ <br>
@@ -73,10 +71,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaka jest wartość m?"
               choices={[
-                { label: "m = -\\frac{1}{2}", value: "a" },
-                { label: "m = \\frac{1}{2}", value: "b" },
-                { label: "m = -3", value: "c" },
-                { label: "m = 1", value: "d" }
+                { label: 'm = -\\frac{1}{2}', value: 'a' },
+                { label: 'm = \\frac{1}{2}', value: 'b' },
+                { label: 'm = -3', value: 'c' },
+                { label: 'm = 1', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Kolejne kroki rozwiązania: <br>
@@ -92,16 +90,14 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <StepDescription stepNumber={4}>
-              Która z podanych opcji jest poprawna?
-            </StepDescription>
+            <StepDescription stepNumber={4}>Która z podanych opcji jest poprawna?</StepDescription>
             <ChoiceQuestion
               question="Wybierz właściwą odpowiedź:"
               choices={[
-                { label: "A. m = -\\frac{1}{2}", value: "a" },
-                { label: "B. m = \\frac{1}{2}", value: "b" },
-                { label: "C. m = -3", value: "c" },
-                { label: "D. m = 1", value: "d" }
+                { label: 'A. m = -\\frac{1}{2}', value: 'a' },
+                { label: 'B. m = \\frac{1}{2}', value: 'b' },
+                { label: 'C. m = -3', value: 'c' },
+                { label: 'D. m = 1', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawnym rozwiązaniem jest $$m = -\\frac{1}{2}$$, co odpowiada opcji A."
@@ -114,14 +110,12 @@ const Page = () => {
           <StudentNotes
             equation="\\text{Proste } k \\text{ i } l \\text{ są prostopadłe} \\ k: y = (m + 1)x + 7 \\ l: y = -2x + 7"
             steps={[
-              { step: "\\text{Warunek prostopadłości: } a_1 \\cdot a_2 = -1" },
-              { step: "(m + 1) \\cdot (-2) = -1" },
-              { step: "m + 1 = \\frac{1}{2}" },
-              { step: "m = -\\frac{1}{2}" },
+              { step: '\\text{Warunek prostopadłości: } a_1 \\cdot a_2 = -1' },
+              { step: '(m + 1) \\cdot (-2) = -1' },
+              { step: 'm + 1 = \\frac{1}{2}' },
+              { step: 'm = -\\frac{1}{2}' },
             ]}
-            solutions={[
-              "m = -\\frac{1}{2} \\text{ (Odpowiedź A)}"
-            ]}
+            solutions={['m = -\\frac{1}{2} \\text{ (Odpowiedź A)}']}
           />
         )}
       </div>

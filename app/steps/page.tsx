@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "../../components/stepsProblems/ChoiceQuestion";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from '../../components/stepsProblems/ChoiceQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -24,10 +24,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
             choices={[
-              { label: "a = 1, b = -4, c = 4", value: "a" },
-              { label: "a = 2, b = -4, c = 4", value: "b" },
-              { label: "a = 1, b = 4, c = -4", value: "c" },
-              { label: "a = -1, b = 4, c = -4", value: "d" }
+              { label: 'a = 1, b = -4, c = 4', value: 'a' },
+              { label: 'a = 2, b = -4, c = 4', value: 'b' },
+              { label: 'a = 1, b = 4, c = -4', value: 'c' },
+              { label: 'a = -1, b = 4, c = -4', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="..."
@@ -40,10 +40,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Która wartość jest poprawną deltą (Δ) dla tej nierówności?"
             choices={[
-              { label: "Δ = 0", value: "a" },
-              { label: "Δ = 16", value: "b" },
-              { label: "Δ = -8", value: "c" },
-              { label: "Δ = 4", value: "d" }
+              { label: 'Δ = 0', value: 'a' },
+              { label: 'Δ = 16', value: 'b' },
+              { label: 'Δ = -8', value: 'c' },
+              { label: 'Δ = 4', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="..."

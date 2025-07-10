@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,10 +32,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak przekształcić wyrażenie $$\left(\frac{4}{25}\right)^{-0.5}$$ używając minusa z wykładnika?"
                 choices={[
-                  { label: "\\left(\\frac{4}{25}\\right)^{0.5}", value: "a" },
-                  { label: "\\left(\\frac{25}{4}\\right)^{0.5}", value: "b" },
-                  { label: "\\left(\\frac{4}{25}\\right)^{-2}", value: "c" },
-                  { label: "\\left(\\frac{25}{4}\\right)^{-2}", value: "d" },
+                  { label: '\\left(\\frac{4}{25}\\right)^{0.5}', value: 'a' },
+                  { label: '\\left(\\frac{25}{4}\\right)^{0.5}', value: 'b' },
+                  { label: '\\left(\\frac{4}{25}\\right)^{-2}', value: 'c' },
+                  { label: '\\left(\\frac{25}{4}\\right)^{-2}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawne przekształcenie: $$\left(\frac{4}{25}\right)^{-0.5} = \left(\frac{25}{4}\right)^{0.5}$$ (ułamki zamieniają się miejscami przy ujemnym wykładniku)."
@@ -53,10 +53,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak zapisać wyrażenie $$\left(\frac{25}{4}\right)^{0.5}$$ za pomocą pierwiastka?"
                 choices={[
-                  { label: "\\sqrt[5]{\\frac{25}{4}}", value: "a" },
-                  { label: "\\sqrt{\\frac{25}{4}}", value: "b" },
-                  { label: "\\sqrt[0.5]{\\frac{25}{4}}", value: "c" },
-                  { label: "\\sqrt[25]{\\frac{25}{4}}", value: "d" },
+                  { label: '\\sqrt[5]{\\frac{25}{4}}', value: 'a' },
+                  { label: '\\sqrt{\\frac{25}{4}}', value: 'b' },
+                  { label: '\\sqrt[0.5]{\\frac{25}{4}}', value: 'c' },
+                  { label: '\\sqrt[25]{\\frac{25}{4}}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawne przekształcenie: $$\left(\frac{25}{4}\right)^{0.5} = \sqrt{\frac{25}{4}}$$ (potęga  $$0.5$$) odpowiada pierwiastkowi kwadratowemu)."
@@ -68,16 +68,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Obliczenie pierwiastka kwadratowego:
-              </StepDescription>
+              <StepDescription stepNumber={3}>Obliczenie pierwiastka kwadratowego:</StepDescription>
               <ChoiceQuestion
                 question="Jak obliczyć $$\sqrt{\frac{25}{4}}$$?"
                 choices={[
-                  { label: "\\frac{25}{2}", value: "a" },
-                  { label: "\\frac{5}{2}", value: "b" },
-                  { label: "\\frac{5}{4}", value: "c" },
-                  { label: "\\frac{2}{5}", value: "d" },
+                  { label: '\\frac{25}{2}', value: 'a' },
+                  { label: '\\frac{5}{2}', value: 'b' },
+                  { label: '\\frac{5}{4}', value: 'c' },
+                  { label: '\\frac{2}{5}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawne obliczenie: $$\sqrt{\frac{25}{4}} = \frac{\sqrt{25}}{\sqrt{4}} = \frac{5}{2}$$."
@@ -92,10 +90,10 @@ const Page = () => {
                 equation="\left(\frac{4}{25}\right)^{-0.5}"
                 steps={[
                   {
-                    step: "\\left(\\frac{4}{25}\\right)^{-0.5} = \\left(\\frac{25}{4}\\right)^{0.5} = \\sqrt{\\frac{25}{4}} = \\frac{5}{2}",
-                  }
+                    step: '\\left(\\frac{4}{25}\\right)^{-0.5} = \\left(\\frac{25}{4}\\right)^{0.5} = \\sqrt{\\frac{25}{4}} = \\frac{5}{2}',
+                  },
                 ]}
-                solutions={["\\frac{5}{2}"]}
+                solutions={['\\frac{5}{2}']}
               />
             </div>
           )}

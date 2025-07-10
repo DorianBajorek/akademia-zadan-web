@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // Dodano import
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // Dodano import
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -24,10 +24,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak zapisać zdanie '78 stanowi 150% liczby c' jako równanie?"
             choices={[
-              { label: "78 = 1,5 \\cdot c", value: "a" },
-              { label: "c = 1,5 \\cdot 78", value: "b" },
-              { label: "78 = 0,15 \\cdot c", value: "c" },
-              { label: "c = 78 / 150", value: "d" },
+              { label: '78 = 1,5 \\cdot c', value: 'a' },
+              { label: 'c = 1,5 \\cdot 78', value: 'b' },
+              { label: '78 = 0,15 \\cdot c', value: 'c' },
+              { label: 'c = 78 / 150', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="$$150\%$$ liczby $$c$$ to $$1{,}5 \cdot c$$. Równanie to więc $$78 = 1{,}5 \cdot c.$$"
@@ -39,10 +39,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak obliczyć $$c$$ z równania $$78 = 1,5 \cdot c$$?"
             choices={[
-              { label: "\\text{Pomnożyć } 78 \\text{ przez } 1,5", value: "a" },
-              { label: "\\text{Podzielić } 1,5 \\text{ przez } 78", value: "b" },
-              { label: "\\text{Podzielić } 78 \\text{ przez } 1,5", value: "c" },
-              { label: "\\text{Dodać } 1,5 \\text{ do } 78", value: "d" },
+              { label: '\\text{Pomnożyć } 78 \\text{ przez } 1,5', value: 'a' },
+              { label: '\\text{Podzielić } 1,5 \\text{ przez } 78', value: 'b' },
+              { label: '\\text{Podzielić } 78 \\text{ przez } 1,5', value: 'c' },
+              { label: '\\text{Dodać } 1,5 \\text{ do } 78', value: 'd' },
             ]}
             correctAnswer="c"
             explanation="Aby znaleźć $$c$$, należy podzielić obie strony równania przez $$1{,}5$$: $$c = \frac{78}{1{,}5}$$."
@@ -54,10 +54,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Ile wynosi 78 podzielone przez 1,5?"
             choices={[
-              { label: "60", value: "a" },
-              { label: "52", value: "b" },
-              { label: "48", value: "c" },
-              { label: "39", value: "d" },
+              { label: '60', value: 'a' },
+              { label: '52', value: 'b' },
+              { label: '48', value: 'c' },
+              { label: '39', value: 'd' },
             ]}
             correctAnswer="b"
             explanation="$$\frac{78}{1{,}5} = 52$$  Poprawna odpowiedź to $$52$$."
@@ -69,11 +69,11 @@ const Page = () => {
           <StudentNotes
             equation="78 = 1{,}5 \cdot c"
             steps={[
-              { step: "78 = 1{,}5 \\cdot c" },
-              { step: "c = \\frac{78}{1{,}5}" },
-              { step: "c = 52" },
+              { step: '78 = 1{,}5 \\cdot c' },
+              { step: 'c = \\frac{78}{1{,}5}' },
+              { step: 'c = 52' },
             ]}
-            solutions={["52"]}
+            solutions={['52']}
           />
         )}
       </div>

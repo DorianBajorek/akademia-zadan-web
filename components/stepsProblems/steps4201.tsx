@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,16 +28,16 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest długość przekątnej $$AC$$?"
                 choices={[
-                  { label: "5", value: "a" },
-                  { label: "10", value: "b" },
-                  { label: "5\\sqrt{2}", value: "c" },
-                  { label: "\\sqrt{10}", value: "d" },
+                  { label: '5', value: 'a' },
+                  { label: '10', value: 'b' },
+                  { label: '5\\sqrt{2}', value: 'c' },
+                  { label: '\\sqrt{10}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={
-                  "Obliczamy odległość:<br/>" +
-                  "$$AC = \\sqrt{(3 - (-2))^2 + (4 - (-1))^2} = \\sqrt{5^2 + 5^2} = \\sqrt{25 + 25} = \\sqrt{50} = 5\\sqrt{2}$$<br/>" +
-                  "To długość przekątnej kwadratu."
+                  'Obliczamy odległość:<br/>' +
+                  '$$AC = \\sqrt{(3 - (-2))^2 + (4 - (-1))^2} = \\sqrt{5^2 + 5^2} = \\sqrt{25 + 25} = \\sqrt{50} = 5\\sqrt{2}$$<br/>' +
+                  'To długość przekątnej kwadratu.'
                 }
                 onComplete={() => handleStageComplete(1)}
               />
@@ -52,14 +52,14 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak wyrazić długość przekątnej kwadratu o boku $$a$$?"
                 choices={[
-                  { label: "a", value: "a" },
-                  { label: "2a", value: "b" },
-                  { label: "a\\sqrt{2}", value: "c" },
-                  { label: "\\frac{a}{2}", value: "d" },
+                  { label: 'a', value: 'a' },
+                  { label: '2a', value: 'b' },
+                  { label: 'a\\sqrt{2}', value: 'c' },
+                  { label: '\\frac{a}{2}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={
-                  "Przekątna kwadratu to $$a\\sqrt{2}$$, gdzie $$a$$ to długość boku kwadratu."
+                  'Przekątna kwadratu to $$a\\sqrt{2}$$, gdzie $$a$$ to długość boku kwadratu.'
                 }
                 onComplete={() => handleStageComplete(2)}
               />
@@ -74,15 +74,13 @@ const Page = () => {
               <ChoiceQuestion
                 question="Ile wynosi długość boku tego kwadratu?"
                 choices={[
-                  { label: "5", value: "a" },
-                  { label: "10", value: "b" },
-                  { label: "5\\sqrt{2}", value: "c" },
-                  { label: "6", value: "d" },
+                  { label: '5', value: 'a' },
+                  { label: '10', value: 'b' },
+                  { label: '5\\sqrt{2}', value: 'c' },
+                  { label: '6', value: 'd' },
                 ]}
                 correctAnswer="a"
-                explanation={
-                  "Skoro $$a\\sqrt{2} = 5\\sqrt{2}$$, to $$a = 5$$."
-                }
+                explanation={'Skoro $$a\\sqrt{2} = 5\\sqrt{2}$$, to $$a = 5$$.'}
                 onComplete={() => handleStageComplete(3)}
               />
             </div>
@@ -93,13 +91,11 @@ const Page = () => {
               <StudentNotes
                 equation="AC = a\sqrt{2} = 5\sqrt{2}"
                 steps={[
-                  { step: "AC = \\sqrt{(3-(-2))^2 + (4-(-1))^2} = 5\\sqrt{2}" },
-                  { step: "AC = a\\sqrt{2}" },
-                  { step: "a\\sqrt{2} = 5\\sqrt{2} \\implies a = 5" }
+                  { step: 'AC = \\sqrt{(3-(-2))^2 + (4-(-1))^2} = 5\\sqrt{2}' },
+                  { step: 'AC = a\\sqrt{2}' },
+                  { step: 'a\\sqrt{2} = 5\\sqrt{2} \\implies a = 5' },
                 ]}
-                solutions={[
-                  "\\text{Bok kwadratu: } 5"
-                ]}
+                solutions={['\\text{Bok kwadratu: } 5']}
               />
             </div>
           )}

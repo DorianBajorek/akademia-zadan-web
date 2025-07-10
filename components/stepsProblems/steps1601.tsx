@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zacznij od wyrażenia jednej zmiennej za pomocą drugiej. Korzystając z warunku <InlineMath math="2x + z = 1"/>, wyznacz wzór na <InlineMath math="z"/>.
+              Zacznij od wyrażenia jednej zmiennej za pomocą drugiej. Korzystając z warunku{' '}
+              <InlineMath math="2x + z = 1" />, wyznacz wzór na <InlineMath math="z" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda wyrażenie dla $$z$$?"
               choices={[
-                { label: "z = x - 1", value: "a" },
-                { label: "z = 1 + 2x", value: "b" },
-                { label: "z = 2x - 1", value: "c" },
-                { label: "z = 1 - 2x", value: "d" },
+                { label: 'z = x - 1', value: 'a' },
+                { label: 'z = 1 + 2x', value: 'b' },
+                { label: 'z = 2x - 1', value: 'c' },
+                { label: 'z = 1 - 2x', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Z równania $$2x + z = 1$$ wynika, że $$z = 1 - 2x$$."
@@ -47,15 +48,17 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Podstaw uzyskany wzór na <InlineMath math="z"/> do wyrażenia <InlineMath math="x^2 + z^2 + 7xz"/>, aby otrzymać funkcję jednej zmiennej <InlineMath math="x"/>.
+              Podstaw uzyskany wzór na <InlineMath math="z" /> do wyrażenia{' '}
+              <InlineMath math="x^2 + z^2 + 7xz" />, aby otrzymać funkcję jednej zmiennej{' '}
+              <InlineMath math="x" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda wyrażenie po podstawieniu?"
               choices={[
-                { label: "x^2 + (2x - 1)^2 + 7x(2x - 1)", value: "a" },
-                { label: "x^2 + (1 + 2x)^2 + 7x(1 + 2x)", value: "b" },
-                { label: "x^2 + (1 - 2x)^2 + 7x(1 - 2x)", value: "c" },
-                { label: "x^2 + (x - 1)^2 + 7x(x - 1)", value: "d" },
+                { label: 'x^2 + (2x - 1)^2 + 7x(2x - 1)', value: 'a' },
+                { label: 'x^2 + (1 + 2x)^2 + 7x(1 + 2x)', value: 'b' },
+                { label: 'x^2 + (1 - 2x)^2 + 7x(1 - 2x)', value: 'c' },
+                { label: 'x^2 + (x - 1)^2 + 7x(x - 1)', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Podstawiając $$z = 1 - 2x$$, otrzymujemy $$x^2 + (1 - 2x)^2 + 7x(1 - 2x)$$."
@@ -68,15 +71,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Przekształć otrzymaną funkcję do postaci ogólnej funkcji kwadratowej <InlineMath math="f(x) = ax^2 + bx + c"/>.
+              Przekształć otrzymaną funkcję do postaci ogólnej funkcji kwadratowej{' '}
+              <InlineMath math="f(x) = ax^2 + bx + c" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda uproszczone wyrażenie?"
               choices={[
-                { label: "6x^2 - 8x + 1", value: "a" },
-                { label: "10x^2 - 14x + 1", value: "b" },
-                { label: "8x^2 - 10x + 1", value: "c" },
-                { label: "-9x^2 + 3x + 1", value: "d" },
+                { label: '6x^2 - 8x + 1', value: 'a' },
+                { label: '10x^2 - 14x + 1', value: 'b' },
+                { label: '8x^2 - 10x + 1', value: 'c' },
+                { label: '-9x^2 + 3x + 1', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Rozwijamy wyrażenia: $$(1 - 2x)^2 = 1 - 4x + 4x^2$$ oraz $$7x(1 - 2x) = 7x - 14x^2$$. Sumując wszystko, otrzymujemy: $$x^2 + (1 - 4x + 4x^2) + (7x - 14x^2) = -9x^2 + 3x + 1$$."
@@ -89,15 +93,17 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Funkcja kwadratowa z ujemnym współczynnikiem <InlineMath math="a"/> osiąga maksimum w wierzchołku. Oblicz jego pierwszą współrzędną <InlineMath math="p = \frac{-b}{2a}"/>, aby znaleźć <InlineMath math="x_{max}"/>.
+              Funkcja kwadratowa z ujemnym współczynnikiem <InlineMath math="a" /> osiąga maksimum w
+              wierzchołku. Oblicz jego pierwszą współrzędną <InlineMath math="p = \frac{-b}{2a}" />,
+              aby znaleźć <InlineMath math="x_{max}" />.
             </StepDescription>
             <ChoiceQuestion
               question="Wskaż $$x_{max}$$, dla którego wyrażenie osiąga największą wartość."
               choices={[
-                { label: "x_{max} = \\frac{1}{6}", value: "a" },
-                { label: "x_{max} = -\\frac{1}{6}", value: "b" },
-                { label: "x_{max} = -\\frac{1}{3}", value: "c" },
-                { label: "x_{max} = \\frac{1}{3}", value: "d" },
+                { label: 'x_{max} = \\frac{1}{6}', value: 'a' },
+                { label: 'x_{max} = -\\frac{1}{6}', value: 'b' },
+                { label: 'x_{max} = -\\frac{1}{3}', value: 'c' },
+                { label: 'x_{max} = \\frac{1}{3}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Wartość $$x$$, dla której funkcja $$f(x)=-9x^2+3x+1$$ osiąga maksimum, to $$x_{max} = -\frac{b}{2a}$$. Tutaj: $$x_{max} = -\frac{3}{2 \cdot (-9)} = -\frac{3}{-18} = \frac{1}{6}$$."
@@ -111,15 +117,17 @@ const Page = () => {
         {completedStages.includes(4) && (
           <>
             <StepDescription stepNumber={5}>
-              Oblicz największą wartość wyrażenia, podstawiając <InlineMath math="x_{max} = \frac{1}{6}"/> do uproszczonej funkcji <InlineMath math="-9x^2 + 3x + 1"/>.
+              Oblicz największą wartość wyrażenia, podstawiając{' '}
+              <InlineMath math="x_{max} = \frac{1}{6}" /> do uproszczonej funkcji{' '}
+              <InlineMath math="-9x^2 + 3x + 1" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaka jest największa wartość wyrażenia?"
               choices={[
-                { label: "\\frac{3}{2}", value: "a" },
-                { label: "\\frac{7}{6}", value: "b" },
-                { label: "\\frac{5}{4}", value: "c" },
-                { label: "\\frac{25}{36}", value: "d" },
+                { label: '\\frac{3}{2}', value: 'a' },
+                { label: '\\frac{7}{6}', value: 'b' },
+                { label: '\\frac{5}{4}', value: 'c' },
+                { label: '\\frac{25}{36}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Podstawiamy $$x = \frac{1}{6}$$ do $$-9x^2 + 3x + 1$$: $$-9\left(\frac{1}{6}\right)^2 + 3\left(\frac{1}{6}\right) + 1 = -9\left(\frac{1}{36}\right) + \frac{3}{6} + 1 = -\frac{1}{4} + \frac{1}{2} + 1 = \frac{5}{4}$$."
@@ -132,15 +140,16 @@ const Page = () => {
         {completedStages.includes(5) && (
           <>
             <StepDescription stepNumber={6}>
-              Na koniec, oblicz odpowiadającą optymalnemu <InlineMath math="x"/> wartość <InlineMath math="z"/>.
+              Na koniec, oblicz odpowiadającą optymalnemu <InlineMath math="x" /> wartość{' '}
+              <InlineMath math="z" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaka jest wartość $$z$$?"
               choices={[
-                { label: "z = \\frac{1}{6}", value: "a" },
-                { label: "z = \\frac{1}{2}", value: "b" },
-                { label: "z = \\frac{2}{3}", value: "c" },
-                { label: "z = -1", value: "d" },
+                { label: 'z = \\frac{1}{6}', value: 'a' },
+                { label: 'z = \\frac{1}{2}', value: 'b' },
+                { label: 'z = \\frac{2}{3}', value: 'c' },
+                { label: 'z = -1', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Podstawiamy $$x = \frac{1}{6}$$ do wzoru $$z = 1 - 2x$$: $$z = 1 - 2\left(\frac{1}{6}\right) = 1 - \frac{1}{3} = \frac{2}{3}$$."
@@ -148,19 +157,21 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 6 && (
           <StudentNotes
             equation="f(x,z) = x^2 + z^2 + 7xz"
             steps={[
-              { step: "\\text{Warunek: } z = 1 - 2x" },
-              { step: "\\text{Funkcja jednej zmiennej: } f(x) = -9x^2 + 3x + 1" },
-              { step: "\\text{Maksimum dla } x = \\frac{1}{6}" },
-              { step: "\\text{Obliczenie } z = 1 - 2(\\frac{1}{6}) = \\frac{2}{3}" },
-              { step: "\\text{Największa wartość: } f(\\frac{1}{6}) = \\frac{5}{4}" },
+              { step: '\\text{Warunek: } z = 1 - 2x' },
+              { step: '\\text{Funkcja jednej zmiennej: } f(x) = -9x^2 + 3x + 1' },
+              { step: '\\text{Maksimum dla } x = \\frac{1}{6}' },
+              { step: '\\text{Obliczenie } z = 1 - 2(\\frac{1}{6}) = \\frac{2}{3}' },
+              { step: '\\text{Największa wartość: } f(\\frac{1}{6}) = \\frac{5}{4}' },
             ]}
-            solutions={["\\text{Największa wartość: } \\frac{5}{4}, \\text{ dla } x=\\frac{1}{6}, z=\\frac{2}{3}"]}
+            solutions={[
+              '\\text{Największa wartość: } \\frac{5}{4}, \\text{ dla } x=\\frac{1}{6}, z=\\frac{2}{3}',
+            ]}
           />
         )}
       </div>

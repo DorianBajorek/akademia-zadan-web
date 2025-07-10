@@ -1,89 +1,88 @@
-"use client";
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import VideoSection from "@/components/VideoSection";
-import TaskCards from "@/components/TaskCards";
-import TopicStats from "@/components/TopicStats";
-import { getProblemProgress } from "@/service";
-import { useAuth } from "@/app/UserData";
+'use client';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import VideoSection from '@/components/VideoSection';
+import TaskCards from '@/components/TaskCards';
+import TopicStats from '@/components/TopicStats';
+import { getProblemProgress } from '@/service';
+import { useAuth } from '@/app/UserData';
 
-  type Task = {
-    id: string;
-    title: string;
-    description: string;
-    img: string;
-    isCompleted: boolean;
-  };
-
+type Task = {
+  id: string;
+  title: string;
+  description: string;
+  img: string;
+  isCompleted: boolean;
+};
 
 const LOCAL_TASKS_META = [
   {
-    id: "800",
-    title: "Zadanie 1",
-    description: "Dodawanie ułamków",
-    img: "/problemImages/problem800.png",
+    id: '800',
+    title: 'Zadanie 1',
+    description: 'Dodawanie ułamków',
+    img: '/problemImages/problem800.png',
   },
   {
-    id: "801",
-    title: "Zadanie 2",
-    description: "Odejmowanie ułamków",
-    img: "/problemImages/problem801.png",
+    id: '801',
+    title: 'Zadanie 2',
+    description: 'Odejmowanie ułamków',
+    img: '/problemImages/problem801.png',
   },
   {
-    id: "802",
-    title: "Zadanie 3",
-    description: "Mnożenie ułamków",
-    img: "/problemImages/problem802.png",
+    id: '802',
+    title: 'Zadanie 3',
+    description: 'Mnożenie ułamków',
+    img: '/problemImages/problem802.png',
   },
   {
-    id: "803",
-    title: "Zadanie 4",
-    description: "Dzielenie ułamków",
-    img: "/problemImages/problem803.png",
+    id: '803',
+    title: 'Zadanie 4',
+    description: 'Dzielenie ułamków',
+    img: '/problemImages/problem803.png',
   },
   {
-    id: "804",
-    title: "Zadanie 5",
-    description: "Trudniejsze zadanie na ułamkach",
-    img: "/problemImages/problem804.png",
+    id: '804',
+    title: 'Zadanie 5',
+    description: 'Trudniejsze zadanie na ułamkach',
+    img: '/problemImages/problem804.png',
   },
   {
-    id: "805",
-    title: "Zadanie 6",
-    description: "Trudniejsze zadanie na ułamkach",
-    img: "/problemImages/problem805.png",
+    id: '805',
+    title: 'Zadanie 6',
+    description: 'Trudniejsze zadanie na ułamkach',
+    img: '/problemImages/problem805.png',
   },
   {
-    id: "806",
-    title: "Zadanie 7",
-    description: "Ułamek z niewiadomą",
-    img: "/problemImages/problem806.png",
+    id: '806',
+    title: 'Zadanie 7',
+    description: 'Ułamek z niewiadomą',
+    img: '/problemImages/problem806.png',
   },
   {
-    id: "807",
-    title: "Zadanie 8",
-    description: "Porównywanie ułamków",
-    img: "/problemImages/problem807.png",
+    id: '807',
+    title: 'Zadanie 8',
+    description: 'Porównywanie ułamków',
+    img: '/problemImages/problem807.png',
   },
   {
-    id: "808",
-    title: "Zadanie 9",
-    description: "Ułamki dziesiętne i zwykłe",
-    img: "/problemImages/problem808.png",
+    id: '808',
+    title: 'Zadanie 9',
+    description: 'Ułamki dziesiętne i zwykłe',
+    img: '/problemImages/problem808.png',
   },
   {
-    id: "809",
-    title: "Zadanie 10",
-    description: "Ułamki w zadaniach tekstowych",
-    img: "/problemImages/problem809.png",
+    id: '809',
+    title: 'Zadanie 10',
+    description: 'Ułamki w zadaniach tekstowych',
+    img: '/problemImages/problem809.png',
   },
   {
-    id: "810",
-    title: "Zadanie 11",
-    description: "Skracanie i rozszerzanie ułamków",
-    img: "/problemImages/problem810.png",
+    id: '810',
+    title: 'Zadanie 11',
+    description: 'Skracanie i rozszerzanie ułamków',
+    img: '/problemImages/problem810.png',
   },
   // {
   //   id: "811",
@@ -102,8 +101,8 @@ const TopicTasksPage = () => {
 
       try {
         const response = await getProblemProgress(
-          "liczby-rzeczywiste",
-          "dzialania-na-ulamkach",
+          'liczby-rzeczywiste',
+          'dzialania-na-ulamkach',
           token
         );
 
@@ -112,15 +111,15 @@ const TopicTasksPage = () => {
           return {
             id: taskFromApi.id,
             title: meta?.title || `Zadanie ${taskFromApi.id}`,
-            description: meta?.description || "",
-            img: meta?.img || "",
+            description: meta?.description || '',
+            img: meta?.img || '',
             isCompleted: taskFromApi.completed,
           };
         });
 
         setTasks(mergedTasks);
       } catch (error) {
-        console.error("Nie udało się pobrać zadań", error);
+        console.error('Nie udało się pobrać zadań', error);
       }
     };
 
@@ -148,7 +147,12 @@ const TopicTasksPage = () => {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
             <span className="font-medium">Powrót do działu</span>
           </Link>
@@ -161,16 +165,24 @@ const TopicTasksPage = () => {
         <TopicStats
           completedCount={completedCount}
           totalCount={tasks.length}
-          topicTitle={"Działania na ułamkach"}
+          topicTitle={'Działania na ułamkach'}
         />
 
         {tasks.length === 0 ? (
           <p className="text-center text-gray-500 py-12">Ładowanie zadań...</p>
         ) : (
           <>
-            <Section title="Zadania podstawowe" description="Ćwiczenia wprowadzające" tasks={firstGroup} />
+            <Section
+              title="Zadania podstawowe"
+              description="Ćwiczenia wprowadzające"
+              tasks={firstGroup}
+            />
             <Section title="Zadania zamknięte" description="Sprawdź się!" tasks={secondGroup} />
-            <Section title="Zadania otwarte" description="Warte więcej punktów" tasks={thirdGroup} />
+            <Section
+              title="Zadania otwarte"
+              description="Warte więcej punktów"
+              tasks={thirdGroup}
+            />
           </>
         )}
       </main>

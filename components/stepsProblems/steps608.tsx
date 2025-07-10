@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -25,18 +25,16 @@ const Page = () => {
         />
 
         {completedStages.length === 0 && (
-          <StepDescription stepNumber={1}>
-            Kiedy dwie proste są równoległe?
-          </StepDescription>
+          <StepDescription stepNumber={1}>Kiedy dwie proste są równoległe?</StepDescription>
         )}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <ChoiceQuestion
             question="Który warunek musi być spełniony, aby proste były równoległe?"
             choices={[
-              { label: "\\text{Ich współczynniki kierunkowe są równe}", value: "a" },
-              { label: "\\text{Ich wyrazy wolne są równe}", value: "b" },
-              { label: "\\text{Suma współczynników kierunkowych wynosi 0}", value: "c" },
-              { label: "\\text{Iloczyn współczynników kierunkowych wynosi -1}", value: "d" },
+              { label: '\\text{Ich współczynniki kierunkowe są równe}', value: 'a' },
+              { label: '\\text{Ich wyrazy wolne są równe}', value: 'b' },
+              { label: '\\text{Suma współczynników kierunkowych wynosi 0}', value: 'c' },
+              { label: '\\text{Iloczyn współczynników kierunkowych wynosi -1}', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Dwie proste są równoległe, gdy mają równe współczynniki kierunkowe."
@@ -52,10 +50,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "m - 2 + \\frac{3}{4} = 0", value: "a" },
-                { label: "m - 2 = -\\frac{3}{4}", value: "b" },
-                { label: "(m - 2)\\cdot\\frac{3}{4} = -1", value: "c" },
-                { label: "m - 2 = \\frac{3}{4}", value: "d" },
+                { label: 'm - 2 + \\frac{3}{4} = 0', value: 'a' },
+                { label: 'm - 2 = -\\frac{3}{4}', value: 'b' },
+                { label: '(m - 2)\\cdot\\frac{3}{4} = -1', value: 'c' },
+                { label: 'm - 2 = \\frac{3}{4}', value: 'd' },
               ]}
               correctAnswer="d"
               explanation={`Poprawne równanie to: $$m - 2 = \\frac{3}{4}$$ <br>
@@ -73,10 +71,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaka jest wartość m?"
               choices={[
-                { label: "m = -\\frac{5}{4}", value: "a" },
-                { label: "m = \\frac{2}{3}", value: "b" },
-                { label: "m = \\frac{11}{4}", value: "c" },
-                { label: "m = \\frac{10}{3}", value: "d" },
+                { label: 'm = -\\frac{5}{4}', value: 'a' },
+                { label: 'm = \\frac{2}{3}', value: 'b' },
+                { label: 'm = \\frac{11}{4}', value: 'c' },
+                { label: 'm = \\frac{10}{3}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Kolejne kroki rozwiązania: <br>
@@ -94,11 +92,11 @@ const Page = () => {
           <StudentNotes
             equation="\text{Proste} \\ y=(m-2)x \\ y=\frac{3}{4}x+7 \\ \text{są równoległe}"
             steps={[
-              { step: "\\text{Warunek równoległości: } a_1 = a_2" },
-              { step: "m - 2 = \\frac{3}{4}" },
-              { step: "m = \\frac{11}{4}" },
+              { step: '\\text{Warunek równoległości: } a_1 = a_2' },
+              { step: 'm - 2 = \\frac{3}{4}' },
+              { step: 'm = \\frac{11}{4}' },
             ]}
-            solutions={["m = \\frac{11}{4} \\text{ (Odpowiedź C)}"]}
+            solutions={['m = \\frac{11}{4} \\text{ (Odpowiedź C)}']}
           />
         )}
       </div>

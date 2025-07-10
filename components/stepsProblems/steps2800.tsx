@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,10 +30,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Najmniejsza wartość funkcji kwadratowej <br> $$f(x) = 2(x-m)^2 + m^2 + 3$$  <br> to:"
               choices={[
-                { label: "m^2 + 3", value: "a" },
-                { label: "2m^2 + 3", value: "b" },
-                { label: "2 + m^2", value: "c" },
-                { label: "3", value: "d" },
+                { label: 'm^2 + 3', value: 'a' },
+                { label: '2m^2 + 3', value: 'b' },
+                { label: '2 + m^2', value: 'c' },
+                { label: '3', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Wierzchołek funkcji $$f(x) = 2(x-m)^2 + m^2 + 3$$ to $$(m, m^2 + 3)$$. Najmniejsza wartość to $$m^2 + 3$$."
@@ -50,10 +50,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Z równania $$m^2 + 3 = 7$$ wynika, że:"
               choices={[
-                { label: "m = 4, m = -2", value: "a" },
-                { label: "m = -2, m = 4", value: "b" },
-                { label: "m = 2, m = -2", value: "c" },
-                { label: "m = -4, m = 2", value: "d" },
+                { label: 'm = 4, m = -2', value: 'a' },
+                { label: 'm = -2, m = 4', value: 'b' },
+                { label: 'm = 2, m = -2', value: 'c' },
+                { label: 'm = -4, m = 2', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Rozwiązujemy równanie: $$m^2 + 3 = 7 \Rightarrow m^2 = 4 \Rightarrow m = 2$$ lub $$m = -2$$."
@@ -65,15 +65,15 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Wyznacz równanie osi symetrii dla wartości <InlineMath math="m = 2"/>.
+              Wyznacz równanie osi symetrii dla wartości <InlineMath math="m = 2" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jakie jest równanie osi symetrii tej funkcji dla $$m = 2$$?"
               choices={[
-                { label: "x = -2", value: "a" },
-                { label: "x = 2", value: "b" },
-                { label: "y = 2", value: "c" },
-                { label: "x = 0", value: "d" },
+                { label: 'x = -2', value: 'a' },
+                { label: 'x = 2', value: 'b' },
+                { label: 'y = 2', value: 'c' },
+                { label: 'x = 0', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="W postaci kanonicznej $$f(x) = 2(x - m)^2 + ...$$, osią symetrii jest prosta $$x = m$$. Dla $$m = 2$$ mamy $$x = 2$$."
@@ -85,15 +85,15 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Wyznacz równanie osi symetrii dla wartości <InlineMath math="m = -2"/>.
+              Wyznacz równanie osi symetrii dla wartości <InlineMath math="m = -2" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jakie jest równanie osi symetrii tej funkcji dla $$m = -2$$?"
               choices={[
-                { label: "x = -2", value: "a" },
-                { label: "x = 2", value: "b" },
-                { label: "y = 2", value: "c" },
-                { label: "x = 0", value: "d" },
+                { label: 'x = -2', value: 'a' },
+                { label: 'x = 2', value: 'b' },
+                { label: 'y = 2', value: 'c' },
+                { label: 'x = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Osią symetrii jest zawsze $$x = p$$ (pierwsza współrzędna wierzchołka). Dla $$m = -2$$ to $$x = -2$$."
@@ -107,21 +107,21 @@ const Page = () => {
             equation="f(x) = 2(x - m)^2 + m^2 + 3"
             steps={[
               {
-                step: "\\text{Wierzchołek funkcji to } (m,\\, m^2 + 3).",
+                step: '\\text{Wierzchołek funkcji to } (m,\\, m^2 + 3).',
               },
               {
-                step: "\\text{Najmniejsza wartość: } m^2 + 3 = 7",
+                step: '\\text{Najmniejsza wartość: } m^2 + 3 = 7',
               },
-              { step: "m^2 = 4" },
-              { step: "m = 2 \\text{ lub } m = -2" },
+              { step: 'm^2 = 4' },
+              { step: 'm = 2 \\text{ lub } m = -2' },
               {
-                step: "\\text{Oś symetrii funkcji kwadratowej: } x = m",
+                step: '\\text{Oś symetrii funkcji kwadratowej: } x = m',
               },
               {
-                step: "\\text{Możliwe rozwiązania: } x = 2 \\text{ lub } x = -2",
+                step: '\\text{Możliwe rozwiązania: } x = 2 \\text{ lub } x = -2',
               },
             ]}
-            solutions={["x = 2", "x = -2"]}
+            solutions={['x = 2', 'x = -2']}
           />
         )}
       </div>

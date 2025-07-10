@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
+                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej
+                nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 5, b = 0, c = -45", value: "a" },
-                  { label: "a = 5, b = -45, c = 0", value: "b" },
-                  { label: "a = -5, b = 0, c = 45", value: "c" },
-                  { label: "a = 5, b = 45, c = 0", value: "d" }
+                  { label: 'a = 5, b = 0, c = -45', value: 'a' },
+                  { label: 'a = 5, b = -45, c = 0', value: 'b' },
+                  { label: 'a = -5, b = 0, c = 45', value: 'c' },
+                  { label: 'a = 5, b = 45, c = 0', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Współczynniki dla tej nierówności to $$a = 5, b = 0, c = -45$$. 
@@ -78,10 +79,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x₁ = -3, x₂ = 3", value: "a" },
-                  { label: "x₁ = 3, x₂ = -1", value: "b" },
-                  { label: "x₁ = 1, x₂ = -1", value: "c" },
-                  { label: "x₁ = 0, x₂ = 1.5", value: "d" }
+                  { label: 'x₁ = -3, x₂ = 3', value: 'a' },
+                  { label: 'x₁ = 3, x₂ = -1', value: 'b' },
+                  { label: 'x₁ = 1, x₂ = -1', value: 'c' },
+                  { label: 'x₁ = 0, x₂ = 1.5', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Ponieważ delta jest dodatnia, równanie ma dwa pierwiastki: <br>
@@ -104,10 +105,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$5x^2 - 45 \leq 0$$?"
                 choices={[
-                  { label: "x ∈ \\langle-3, 3\\rangle", value: "a" },
-                  { label: "x ∈ (-∞, -3\\rangle ∪ \\langle3, ∞)", value: "b" },
-                  { label: "x ∈ (-3, 3)", value: "c" },
-                  { label: "x ∈ (-∞, -3) ∪ (3, ∞)", value: "d" }
+                  { label: 'x ∈ \\langle-3, 3\\rangle', value: 'a' },
+                  { label: 'x ∈ (-∞, -3\\rangle ∪ \\langle3, ∞)', value: 'b' },
+                  { label: 'x ∈ (-3, 3)', value: 'c' },
+                  { label: 'x ∈ (-∞, -3) ∪ (3, ∞)', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Rozwiązaniem nierówności $$5x^2 - 45 \leq 0$$ jest przedział:
@@ -126,20 +127,20 @@ const Page = () => {
                 equation="5x^2 - 45 \leq 0"
                 steps={[
                   {
-                    step: "a = 5, b = 0, c = -45",
+                    step: 'a = 5, b = 0, c = -45',
                   },
                   {
-                    step: "\\Delta = b^2 - 4ac = 0^2 - 4 \\cdot 5 \\cdot (-45) = 900",
+                    step: '\\Delta = b^2 - 4ac = 0^2 - 4 \\cdot 5 \\cdot (-45) = 900',
                   },
                   {
-                    step: "x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = -3",
+                    step: 'x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = -3',
                   },
                   {
-                    step: "x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = 3",
-                    image: "/steps-images/fun7.png"
+                    step: 'x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = 3',
+                    image: '/steps-images/fun7.png',
                   },
                 ]}
-                solutions={["x \\in \\langle-3, 3\\rangle"]}
+                solutions={['x \\in \\langle-3, 3\\rangle']}
               />
             </div>
           )}

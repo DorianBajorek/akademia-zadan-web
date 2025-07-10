@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zacznij od wymnożenia pierwszego nawiasu przez liczbę stojącą przed nim: <InlineMath math="4(3x - 5)"/>.
+              Zacznij od wymnożenia pierwszego nawiasu przez liczbę stojącą przed nim:{' '}
+              <InlineMath math="4(3x - 5)" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wynik mnożenia $$4(3x - 5)$$?"
               choices={[
-                { label: "12x - 5", value: "a" },
-                { label: "12x + 20", value: "b" },
-                { label: "12x - 20", value: "c" },
-                { label: "3x - 20", value: "d" }
+                { label: '12x - 5', value: 'a' },
+                { label: '12x + 20', value: 'b' },
+                { label: '12x - 20', value: 'c' },
+                { label: '3x - 20', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawny wynik to $$12x - 20$$. <br>
@@ -51,15 +52,15 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Teraz wymnóż drugi nawias, pamiętając o znaku minus: <InlineMath math="-2(2x + 7)"/>.
+              Teraz wymnóż drugi nawias, pamiętając o znaku minus: <InlineMath math="-2(2x + 7)" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wynik mnożenia $$-2(2x + 7)$$?"
               choices={[
-                { label: "-4x - 14", value: "a" },
-                { label: "4x + 14", value: "b" },
-                { label: "-4x + 14", value: "c" },
-                { label: "-4x - 7", value: "d" }
+                { label: '-4x - 14', value: 'a' },
+                { label: '4x + 14', value: 'b' },
+                { label: '-4x + 14', value: 'c' },
+                { label: '-4x - 7', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawny wynik to $$-4x - 14$$. <br>
@@ -75,15 +76,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Wymnóż trzeci nawias przez liczbę, która go poprzedza: <InlineMath math="3(-x + 4)"/>.
+              Wymnóż trzeci nawias przez liczbę, która go poprzedza: <InlineMath math="3(-x + 4)" />
+              .
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wynik mnożenia $$3(-x + 4)$$?"
               choices={[
-                { label: "-3x + 4", value: "a" },
-                { label: "3x + 12", value: "b" },
-                { label: "-3x + 12", value: "c" },
-                { label: "3x - 12", value: "d" }
+                { label: '-3x + 4', value: 'a' },
+                { label: '3x + 12', value: 'b' },
+                { label: '-3x + 12', value: 'c' },
+                { label: '3x - 12', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawny wynik to $$-3x + 12$$. <br>
@@ -99,15 +101,16 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Połącz wszystkie otrzymane jednomiany i zredukuj wyrazy podobne, aby uzyskać ostateczny wynik.
+              Połącz wszystkie otrzymane jednomiany i zredukuj wyrazy podobne, aby uzyskać
+              ostateczny wynik.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda końcowe wyrażenie po uproszczeniu?"
               choices={[
-                { label: "11x - 22", value: "a" },
-                { label: "5x - 22", value: "b" },
-                { label: "5x + 6", value: "c" },
-                { label: "11x + 6", value: "d" }
+                { label: '11x - 22', value: 'a' },
+                { label: '5x - 22', value: 'b' },
+                { label: '5x + 6', value: 'c' },
+                { label: '11x + 6', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawny wynik to $$5x - 22$$. <br>
@@ -125,16 +128,16 @@ const Page = () => {
             equation="4(3x - 5) - 2(2x + 7) + 3(-x + 4)"
             steps={[
               {
-                step: "12x - 20 - 4x - 14 - 3x + 12",
+                step: '12x - 20 - 4x - 14 - 3x + 12',
               },
               {
-                step: "(12x - 4x - 3x) + (-20 - 14 + 12)",
+                step: '(12x - 4x - 3x) + (-20 - 14 + 12)',
               },
               {
-                step: "5x - 22"
-              }
+                step: '5x - 22',
+              },
             ]}
-            solutions={["5x - 22"]}
+            solutions={['5x - 22']}
           />
         )}
       </div>

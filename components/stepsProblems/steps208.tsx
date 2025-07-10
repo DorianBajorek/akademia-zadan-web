@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -20,18 +20,16 @@ const Page = () => {
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
           <InlineMath math="x^2(x+4) - 5 = (x-1)^2" />
         </p>
-        { (
+        {
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Zredukuj wyrazy podobne:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Zredukuj wyrazy podobne:</p>
             <ChoiceQuestion
               question="Która postać jest poprawna po redukcji?"
               choices={[
-                { label: "x^3 + 3x^2 + 2x - 6 = 0", value: "a" },
-                { label: "x^3 + 5x^2 + 2x - 6 = 0", value: "b" },
-                { label: "x^3 + 3x^2 - 2x - 6 = 0", value: "c" },
-                { label: "x^3 + 5x^2 - 2x - 4 = 0", value: "d" }
+                { label: 'x^3 + 3x^2 + 2x - 6 = 0', value: 'a' },
+                { label: 'x^3 + 5x^2 + 2x - 6 = 0', value: 'b' },
+                { label: 'x^3 + 3x^2 - 2x - 6 = 0', value: 'c' },
+                { label: 'x^3 + 5x^2 - 2x - 4 = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawna postać po redukcji to $$x^3 + 3x^2 + 2x - 6 = 0$$. 
@@ -40,7 +38,7 @@ const Page = () => {
               onComplete={() => handleStageComplete(2)}
             />
           </>
-        )}
+        }
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -49,10 +47,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które grupowanie jest poprawne?"
               choices={[
-                { label: "x^2(x + 3) + 2(x - 3) = 0", value: "a" },
-                { label: "x^2(x + 1) + 2(x^2 + x - 3) = 0", value: "b" },
-                { label: "x^2(x + 3) + 2(x + 3) = 0", value: "c" },
-                { label: "x(x^2 + 3x + 2) - 6 = 0", value: "d" }
+                { label: 'x^2(x + 3) + 2(x - 3) = 0', value: 'a' },
+                { label: 'x^2(x + 1) + 2(x^2 + x - 3) = 0', value: 'b' },
+                { label: 'x^2(x + 3) + 2(x + 3) = 0', value: 'c' },
+                { label: 'x(x^2 + 3x + 2) - 6 = 0', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne grupowanie to $$x^2(x + 3) + 2(x + 3) = 0$$. <br>
@@ -67,16 +65,14 @@ const Page = () => {
         )}
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Wyciągnij wspólny czynnik przed nawias:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Wyciągnij wspólny czynnik przed nawias:</p>
             <ChoiceQuestion
               question="Która postać jest poprawna?"
               choices={[
-                { label: "(x + 3)(x^2 + 2) = 0", value: "a" },
-                { label: "(x + 3)(x^2 - 2) = 0", value: "b" },
-                { label: "(x - 3)(x^2 + 2) = 0", value: "c" },
-                { label: "(x + 3)(x^2 + 2x) = 0", value: "d" }
+                { label: '(x + 3)(x^2 + 2) = 0', value: 'a' },
+                { label: '(x + 3)(x^2 - 2) = 0', value: 'b' },
+                { label: '(x - 3)(x^2 + 2) = 0', value: 'c' },
+                { label: '(x + 3)(x^2 + 2x) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawna postać to $$(x + 3)(x^2 + 2) = 0$$. 
@@ -87,53 +83,53 @@ const Page = () => {
           </>
         )}
         {completedStages.includes(4) && (
-        <>
+          <>
             <p className="text-lg text-gray-700 mt-6">
-            Rozwiąż równanie całkowicie (uwzględniając tylko rozwiązania rzeczywiste):
+              Rozwiąż równanie całkowicie (uwzględniając tylko rozwiązania rzeczywiste):
             </p>
             <ChoiceQuestion
-            question="Które rozwiązanie jest poprawne?"
-            choices={[
-                { label: "x = -3", value: "a" },
-                { label: "x = -3, x = \\sqrt2, x = -\\sqrt2", value: "b" },
-                { label: "x = 3", value: "c" },
-                { label: "x = -3, x = 1, x = -1", value: "d" }
-            ]}
-            correctAnswer="a"
-            explanation="Poprawne rozwiązanie to $$x = -3$$. 
+              question="Które rozwiązanie jest poprawne?"
+              choices={[
+                { label: 'x = -3', value: 'a' },
+                { label: 'x = -3, x = \\sqrt2, x = -\\sqrt2', value: 'b' },
+                { label: 'x = 3', value: 'c' },
+                { label: 'x = -3, x = 1, x = -1', value: 'd' },
+              ]}
+              correctAnswer="a"
+              explanation="Poprawne rozwiązanie to $$x = -3$$. 
             Dlaczego? Rozwiązujemy równanie $$(x + 3)(x^2 + 2) = 0$$: <br>
             1. $$x + 3 = 0$$ ⇒ $$x = -3$$ <br>
             2. $$x^2 + 2 = 0$$ ⇒ $$x^2 = -2$$ - to równanie nie ma rozwiązań rzeczywistych
             Dlatego jedynym rzeczywistym rozwiązaniem jest $$x = -3$$."
-            onComplete={() => handleStageComplete(5)}
+              onComplete={() => handleStageComplete(5)}
             />
-        </>
+          </>
         )}
         {completedStages.length === 4 && (
-        <StudentNotes
+          <StudentNotes
             equation="x^2(x+4) - 5 = (x-1)^2"
             steps={[
-            {
-                step: "x^3 + 4x^2 - 5 - x^2 + 2x - 1 = 0",
-            },
-            {
-                step: "x^3 + 3x^2 + 2x - 6 = 0",
-            },
-            {
-                step: "x^2(x + 3) + 2(x + 3) = 0",
-            },
-            {
-                step: "(x + 3)(x^2 + 2) = 0",
-            },
-            {
-                step: "x + 3 = 0 \\Rightarrow x = -3",
-            },
-            {
-                step: "x^2 + 2 = 0 \\Rightarrow x^2 = -2 \\Rightarrow \\text{brak rozwiązań rzeczywistych}",
-            }
+              {
+                step: 'x^3 + 4x^2 - 5 - x^2 + 2x - 1 = 0',
+              },
+              {
+                step: 'x^3 + 3x^2 + 2x - 6 = 0',
+              },
+              {
+                step: 'x^2(x + 3) + 2(x + 3) = 0',
+              },
+              {
+                step: '(x + 3)(x^2 + 2) = 0',
+              },
+              {
+                step: 'x + 3 = 0 \\Rightarrow x = -3',
+              },
+              {
+                step: 'x^2 + 2 = 0 \\Rightarrow x^2 = -2 \\Rightarrow \\text{brak rozwiązań rzeczywistych}',
+              },
             ]}
-            solutions={["x = -3"]}
-        />
+            solutions={['x = -3']}
+          />
         )}
       </div>
     </div>

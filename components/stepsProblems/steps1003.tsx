@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,25 +26,35 @@ const Page = () => {
         <div className="mt-8 space-y-8">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
-              <StepDescription stepNumber={1}>
-                Oszacuj wartość pierwiastków
-              </StepDescription>
+              <StepDescription stepNumber={1}>Oszacuj wartość pierwiastków</StepDescription>
               <ChoiceQuestion
                 question="Ile wynosi w przybliżeniu $$\sqrt{2}$$ i $$\sqrt{3}$$?"
                 choices={[
-                  { label: "\\sqrt{2} \\approx 1,73 \\text{ i } \\sqrt{3} \\approx 2,00", value: "a" },
-                  { label: "\\sqrt{2} \\approx 1,41 \\text{ i } \\sqrt{3} \\approx 1,87", value: "b" },
-                  { label: "\\sqrt{2} \\approx 1,50 \\text{ i } \\sqrt{3} \\approx 1,73", value: "c" },
-                  { label: "\\sqrt{2} \\approx 1,41 \\text{ i } \\sqrt{3} \\approx 1,73", value: "d" },
+                  {
+                    label: '\\sqrt{2} \\approx 1,73 \\text{ i } \\sqrt{3} \\approx 2,00',
+                    value: 'a',
+                  },
+                  {
+                    label: '\\sqrt{2} \\approx 1,41 \\text{ i } \\sqrt{3} \\approx 1,87',
+                    value: 'b',
+                  },
+                  {
+                    label: '\\sqrt{2} \\approx 1,50 \\text{ i } \\sqrt{3} \\approx 1,73',
+                    value: 'c',
+                  },
+                  {
+                    label: '\\sqrt{2} \\approx 1,41 \\text{ i } \\sqrt{3} \\approx 1,73',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="d"
                 explanation="$$\sqrt{2} ≈ 1.414$$ i $$\sqrt{3} ≈ 1.732$$, więc najbardziej precyzyjne przybliżenie to $$1,41$$ i $$1,73$$."
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/wartosc_pierwiastka2_3.png"}
+                img={'/steps-images/wartosc_pierwiastka2_3.png'}
               />
             </div>
           )}
-          
+
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
@@ -53,10 +63,22 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie są wartości $$\sqrt{2} + 2$$ i $$\sqrt{3} - 3$$?"
                 choices={[
-                  { label: "\\sqrt{2} + 2 \\approx 3,00 \\text{ i } \\sqrt{3} - 3 \\approx -1,00", value: "a" },
-                  { label: "\\sqrt{2} + 2 \\approx 3,41 \\text{ i } \\sqrt{3} - 3 \\approx -1,00", value: "b" },
-                  { label: "\\sqrt{2} + 2 \\approx 3,41 \\text{ i } \\sqrt{3} - 3 \\approx -1,27", value: "c" },
-                  { label: "\\sqrt{2} + 2 \\approx 3,50 \\text{ i } \\sqrt{3} - 3 \\approx -1,27", value: "d" },
+                  {
+                    label: '\\sqrt{2} + 2 \\approx 3,00 \\text{ i } \\sqrt{3} - 3 \\approx -1,00',
+                    value: 'a',
+                  },
+                  {
+                    label: '\\sqrt{2} + 2 \\approx 3,41 \\text{ i } \\sqrt{3} - 3 \\approx -1,00',
+                    value: 'b',
+                  },
+                  {
+                    label: '\\sqrt{2} + 2 \\approx 3,41 \\text{ i } \\sqrt{3} - 3 \\approx -1,27',
+                    value: 'c',
+                  },
+                  {
+                    label: '\\sqrt{2} + 2 \\approx 3,50 \\text{ i } \\sqrt{3} - 3 \\approx -1,27',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="c"
                 explanation="$$\sqrt{2} + 2 ≈ 1.41 + 2 = 3.41$$ i $$\sqrt{3} - 3 ≈ 1.73 - 3 = -1.27$$."
@@ -64,19 +86,17 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Oblicz wartości bezwzględne
-              </StepDescription>
+              <StepDescription stepNumber={3}>Oblicz wartości bezwzględne</StepDescription>
               <ChoiceQuestion
                 question="Jak można zapisać wartość wyrażenia $$|\sqrt{2} + 2| - |\sqrt{3} - 3|$$?"
                 choices={[
-                  { label: "(\\sqrt{2} + 2) - (3 - \\sqrt{3})", value: "a" },
-                  { label: "(\\sqrt{2} + 2) + (\\sqrt{3} - 3)", value: "b" },
-                  { label: "-(\\sqrt{2} + 2) - (3 - \\sqrt{3})", value: "c" },
-                  { label: "(\\sqrt{2} - 2) - (3 + \\sqrt{3})", value: "d" },
+                  { label: '(\\sqrt{2} + 2) - (3 - \\sqrt{3})', value: 'a' },
+                  { label: '(\\sqrt{2} + 2) + (\\sqrt{3} - 3)', value: 'b' },
+                  { label: '-(\\sqrt{2} + 2) - (3 - \\sqrt{3})', value: 'c' },
+                  { label: '(\\sqrt{2} - 2) - (3 + \\sqrt{3})', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="
@@ -91,16 +111,14 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Uprość otrzymane wyrażenie
-              </StepDescription>
+              <StepDescription stepNumber={4}>Uprość otrzymane wyrażenie</StepDescription>
               <ChoiceQuestion
                 question="Jak wygląda ostateczna postać uproszczona?"
                 choices={[
-                  { label: "\\sqrt{2} + \\sqrt{3} - 1", value: "a" },
-                  { label: "\\sqrt{2} - \\sqrt{3} + 5", value: "b" },
-                  { label: "\\sqrt{2} + \\sqrt{3} + 5", value: "c" },
-                  { label: "-\\sqrt{2} - \\sqrt{3} - 1", value: "d" },
+                  { label: '\\sqrt{2} + \\sqrt{3} - 1', value: 'a' },
+                  { label: '\\sqrt{2} - \\sqrt{3} + 5', value: 'b' },
+                  { label: '\\sqrt{2} + \\sqrt{3} + 5', value: 'c' },
+                  { label: '-\\sqrt{2} - \\sqrt{3} - 1', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`
@@ -110,17 +128,17 @@ const Page = () => {
               />
             </div>
           )}
-                  
+
           {completedStages.length === 4 && (
             <div className="mt-8">
               <StudentNotes
                 equation="|\sqrt{2} + 2| - |\sqrt{3} - 3|"
                 steps={[
                   {
-                    step: "|\\sqrt{2} + 2| - |\\sqrt{3} - 3| = (\\sqrt{2} + 2) - (3 - \\sqrt{3}) = \\sqrt{2} + \\sqrt{3} - 1"
-                  }
+                    step: '|\\sqrt{2} + 2| - |\\sqrt{3} - 3| = (\\sqrt{2} + 2) - (3 - \\sqrt{3}) = \\sqrt{2} + \\sqrt{3} - 1',
+                  },
                 ]}
-                solutions={["\\sqrt{2} + \\sqrt{3} - 1"]}
+                solutions={['\\sqrt{2} + \\sqrt{3} - 1']}
               />
             </div>
           )}

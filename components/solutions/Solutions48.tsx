@@ -1,5 +1,5 @@
-import { InlineMath, BlockMath } from "react-katex";
-import "katex/dist/katex.min.css";
+import { InlineMath, BlockMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 
 const Solution48 = () => {
   return (
@@ -15,22 +15,37 @@ const Solution48 = () => {
 
       <div className="space-y-3 mb-6">
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> proste <InlineMath math="k" /> oraz <InlineMath math="l" /></p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ A:</strong> proste <InlineMath math="k" /> oraz{' '}
+            <InlineMath math="l" />
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> proste <InlineMath math="k" /> oraz <InlineMath math="n" /></p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ B:</strong> proste <InlineMath math="k" /> oraz{' '}
+            <InlineMath math="n" />
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ C:</strong> proste <InlineMath math="l" /> oraz <InlineMath math="m" /></p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ C:</strong> proste <InlineMath math="l" /> oraz{' '}
+            <InlineMath math="m" />
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ D:</strong> proste <InlineMath math="m" /> oraz <InlineMath math="n" /></p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ D:</strong> proste <InlineMath math="m" /> oraz{' '}
+            <InlineMath math="n" />
+          </p>
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Określenie współczynników kierunkowych</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">
+        Krok 1: Określenie współczynników kierunkowych
+      </h2>
       <p className="mb-2">
-        Dwie proste są prostopadłe, jeśli iloczyn ich współczynników kierunkowych wynosi <InlineMath math="-1" />. Współczynniki kierunkowe prostych to:
+        Dwie proste są prostopadłe, jeśli iloczyn ich współczynników kierunkowych wynosi{' '}
+        <InlineMath math="-1" />. Współczynniki kierunkowe prostych to:
       </p>
       <BlockMath math="k: -1" />
       <BlockMath math="l: \frac{2}{3}" />
@@ -50,7 +65,8 @@ const Solution48 = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
-        Proste <InlineMath math="l" /> oraz <InlineMath math="m" /> są prostopadłe (odpowiedź <strong>C</strong>).
+        Proste <InlineMath math="l" /> oraz <InlineMath math="m" /> są prostopadłe (odpowiedź{' '}
+        <strong>C</strong>).
       </p>
     </div>
   );

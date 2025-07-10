@@ -1,29 +1,30 @@
-"use client";
-import { useState, useEffect } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
-import { useAuth } from "@/app/UserData";
-import { solveProblem } from "@/service";
+'use client';
+import { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const FractionTask4: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [problemSolved, setProblemSolved] = useState(false);
   const { token } = useAuth();
-  const taskId = "808";
+  const taskId = '808';
 
   const taskData = {
-    "task_id": 26,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Oblicz wartość wyrażenia: $\\frac{7}{8} - \\left( \\frac{2}{3} + \\frac{1}{4} \\right) \\cdot \\frac{3}{5}$",
-    "choiceA": "$\\frac{13}{40}$",
-    "choiceB": "$\\frac{13}{60}$",
-    "choiceC": "$\\frac{17}{120}$",
-    "choiceD": "$\\frac{7}{24}$",
-    "correct_answer": "a"
+    task_id: 26,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Oblicz wartość wyrażenia: $\\frac{7}{8} - \\left( \\frac{2}{3} + \\frac{1}{4} \\right) \\cdot \\frac{3}{5}$',
+    choiceA: '$\\frac{13}{40}$',
+    choiceB: '$\\frac{13}{60}$',
+    choiceC: '$\\frac{17}{120}$',
+    choiceD: '$\\frac{7}{24}$',
+    correct_answer: 'a',
   };
 
   const handleCheckAnswer = () => {
@@ -38,20 +39,19 @@ const FractionTask4: React.FC = () => {
   useEffect(() => {
     if (problemSolved) {
       solveProblem(taskId, token)
-        .then(() => console.log("Problem marked as completed"))
-        .catch((err) => console.error("Problem completion failed", err));
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
     }
   }, [problemSolved, taskId, token]);
 
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -60,7 +60,8 @@ const FractionTask4: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 808 } />
+            taskId={808}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -73,18 +74,18 @@ const FractionTask4: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

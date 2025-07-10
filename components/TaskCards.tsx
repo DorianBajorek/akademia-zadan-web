@@ -1,7 +1,7 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid';
 
 interface Task {
   id: string;
@@ -52,9 +52,11 @@ const TaskCards = ({ tasks }: TaskCardsProps) => {
             <p className="text-gray-600 mb-4">{task.description}</p>
 
             <div className="flex items-center justify-between">
-              <div className={`flex items-center space-x-2 ${
-                task.isCompleted ? 'text-green-600' : 'text-gray-400'
-              }`}>
+              <div
+                className={`flex items-center space-x-2 ${
+                  task.isCompleted ? 'text-green-600' : 'text-gray-400'
+                }`}
+              >
                 {task.isCompleted ? (
                   <>
                     <CheckCircleIcon className="w-5 h-5" />
@@ -68,7 +70,7 @@ const TaskCards = ({ tasks }: TaskCardsProps) => {
                 )}
               </div>
               <div className="text-blue-600 group-hover:text-blue-800 transition-colors">
-                {task.isCompleted ? "Sprawdź ponownie →" : "Rozwiąż teraz →"}
+                {task.isCompleted ? 'Sprawdź ponownie →' : 'Rozwiąż teraz →'}
               </div>
             </div>
           </div>

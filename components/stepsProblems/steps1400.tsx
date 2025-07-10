@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-               Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia delty.
+                Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia
+                delty.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tym równaniu?"
                 choices={[
-                  { label: "a = -1, b = 6, c = -9", value: "a" },
-                  { label: "a = 1, b = 6, c = -9", value: "b" },
-                  { label: "a = 2, b = -6, c = 9", value: "c" },
-                  { label: "a = 1, b = -6, c = 9", value: "d" },
+                  { label: 'a = -1, b = 6, c = -9', value: 'a' },
+                  { label: 'a = 1, b = 6, c = -9', value: 'b' },
+                  { label: 'a = 2, b = -6, c = 9', value: 'c' },
+                  { label: 'a = 1, b = -6, c = 9', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Współczynniki dla tego równania to $$a = 1, b = -6, c = 9$$. <br>
@@ -50,9 +51,7 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Obliczenie wyróżnika równania (Δ).
-              </StepDescription>
+              <StepDescription stepNumber={2}>Obliczenie wyróżnika równania (Δ).</StepDescription>
               <NumericQuestion
                 question="Która wartość jest poprawną deltą (Δ) dla tego równania?"
                 correctAnswer="0"
@@ -69,16 +68,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Wyznaczenie pierwiastka równania.
-              </StepDescription>
+              <StepDescription stepNumber={3}>Wyznaczenie pierwiastka równania.</StepDescription>
               <ChoiceQuestion
                 question="Która wartość jest poprawna dla pierwiastka $$x_0$$?"
                 choices={[
-                  { label: "x_0 = -3", value: "a" },
-                  { label: "x_0 = 3", value: "b" },
-                  { label: "x_0 = 6", value: "c" },
-                  { label: "x_0 = 0", value: "d" },
+                  { label: 'x_0 = -3', value: 'a' },
+                  { label: 'x_0 = 3', value: 'b' },
+                  { label: 'x_0 = 6', value: 'c' },
+                  { label: 'x_0 = 0', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Dla $$\Delta = 0$$ mamy jeden pierwiastek podwójny:
@@ -97,11 +94,11 @@ const Page = () => {
               <StudentNotes
                 equation="x^2 - 6x + 9 = 0"
                 steps={[
-                  { step: "a = 1, b = -6, c = 9" },
-                  { step: "\\Delta = b^2 - 4ac = (-6)^2 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0" },
-                  { step: "x_0 = \\frac{-b}{2a} = \\frac{6}{2} = 3" },
+                  { step: 'a = 1, b = -6, c = 9' },
+                  { step: '\\Delta = b^2 - 4ac = (-6)^2 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0' },
+                  { step: 'x_0 = \\frac{-b}{2a} = \\frac{6}{2} = 3' },
                 ]}
-                solutions={["x_0 = 3"]}
+                solutions={['x_0 = 3']}
               />
             </div>
           )}

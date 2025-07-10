@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
+                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej
+                nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = -1, b = 2, c = -1", value: "a" },
-                  { label: "a = 1, b = 2, c = -1", value: "b" },
-                  { label: "a = -1, b = -2, c = -1", value: "c" },
-                  { label: "a = 1, b = -2, c = -1", value: "d" }
+                  { label: 'a = -1, b = 2, c = -1', value: 'a' },
+                  { label: 'a = 1, b = 2, c = -1', value: 'b' },
+                  { label: 'a = -1, b = -2, c = -1', value: 'c' },
+                  { label: 'a = 1, b = -2, c = -1', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Współczynniki dla tej nierówności to $$a = -1, b = 2, c = -1$$. 
@@ -98,10 +99,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który zbiór jest rozwiązaniem nierówności $$-x^2 + 2x - 1 < 0$$?"
                 choices={[
-                  { label: "x ∈ ℝ \\setminus \\Set{-1}", value: "a" },
-                  { label: "x ∈ ℝ \\setminus \\Set{1}", value: "b" },
-                  { label: "x ∈ ∅", value: "c" },
-                  { label: "x ∈ ℝ", value: "d" }
+                  { label: 'x ∈ ℝ \\setminus \\Set{-1}', value: 'a' },
+                  { label: 'x ∈ ℝ \\setminus \\Set{1}', value: 'b' },
+                  { label: 'x ∈ ∅', value: 'c' },
+                  { label: 'x ∈ ℝ', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Rozwiązaniem nierówności $$-x^2 + 2x - 1 < 0$$ jest zbiór:
@@ -120,17 +121,17 @@ const Page = () => {
                 equation="-x^2 + 2x - 1 < 0"
                 steps={[
                   {
-                    step: "a = -1, b = 2, c = -1",
+                    step: 'a = -1, b = 2, c = -1',
                   },
                   {
-                    step: "\\Delta = b^2 - 4ac = 2^2 - 4 \\cdot (-1) \\cdot (-1) = 4 - 4 = 0",
+                    step: '\\Delta = b^2 - 4ac = 2^2 - 4 \\cdot (-1) \\cdot (-1) = 4 - 4 = 0',
                   },
                   {
-                    step: "x_0 = \\frac{-b}{2a} = \\frac{-2}{-2} = 1",
-                    image: "/steps-images/fun6.png"
+                    step: 'x_0 = \\frac{-b}{2a} = \\frac{-2}{-2} = 1',
+                    image: '/steps-images/fun6.png',
                   },
                 ]}
-                solutions={["x \\in ℝ \\setminus \\Set{1}"]}
+                solutions={['x \\in ℝ \\setminus \\Set{1}']}
               />
             </div>
           )}

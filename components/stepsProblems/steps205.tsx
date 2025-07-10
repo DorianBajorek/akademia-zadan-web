@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -29,10 +29,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^2(x - 4) + 4x = 0", value: "a" },
-                { label: "x(x^2 - 4x) = -4", value: "b" },
-                { label: "x(x^2 - 4x + 4) = 0", value: "c" },
-                { label: "x(x^2 + 4x - 4) = 0", value: "d" }
+                { label: 'x^2(x - 4) + 4x = 0', value: 'a' },
+                { label: 'x(x^2 - 4x) = -4', value: 'b' },
+                { label: 'x(x^2 - 4x + 4) = 0', value: 'c' },
+                { label: 'x(x^2 + 4x - 4) = 0', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne przekształcenie to $$x(x^2 - 4x + 4) = 0$$. 
@@ -49,9 +49,9 @@ const Page = () => {
               Drugi krok: oblicz deltę dla trójmianu kwadratowego.
             </p>
             <NumericQuestion
-                    question="Oblicz deltę $$Δ$$ dla trójmianu $$x² - 4x + 4$$"
-                    correctAnswer="0"
-                    explanation="Delta obliczana jest ze wzoru: 
+              question="Oblicz deltę $$Δ$$ dla trójmianu $$x² - 4x + 4$$"
+              correctAnswer="0"
+              explanation="Delta obliczana jest ze wzoru: 
                     $$\Delta = b^2 - 4ac$$
                     
                     Dla trójmianu $$x² - 4x + 4$$ <br>
@@ -63,9 +63,9 @@ const Page = () => {
                     $$\Delta = (-4)^2 - 4 \cdot 1 \cdot 4 = 16 - 16 = 0$$
                     
                     Poprawna wartość delty to $$\Delta = 0$$."
-                    onComplete={() => handleStageComplete(2)}
-                    img="/steps-images/delta-calculation.png"
-                    />
+              onComplete={() => handleStageComplete(2)}
+              img="/steps-images/delta-calculation.png"
+            />
           </>
         )}
 
@@ -77,10 +77,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie są pierwiastki trójmianu $$x² - 4x + 4$$?"
               choices={[
-                { label: "x₀ = 2", value: "a" },
-                { label: "x₁ = 2, x₂ = -2", value: "b" },
-                { label: "x₁ = 4, x₂ = 1", value: "c" },
-                { label: "Brak\\ pierwiastków\\ rzeczywistych", value: "d" }
+                { label: 'x₀ = 2', value: 'a' },
+                { label: 'x₁ = 2, x₂ = -2', value: 'b' },
+                { label: 'x₁ = 4, x₂ = 1', value: 'c' },
+                { label: 'Brak\\ pierwiastków\\ rzeczywistych', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Gdy $$Δ = 0$$, trójmian ma jeden pierwiastek podwójny:
@@ -99,10 +99,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie są wszystkie rozwiązania równania $$x³ - 4x² + 4x = 0$$?"
               choices={[
-                { label: "x = 0, x = 2", value: "a" },
-                { label: "x = 0, x = 2, x = -2", value: "b" },
-                { label: "x = 0, x = 4, x = 1", value: "c" },
-                { label: "x = 2", value: "d" }
+                { label: 'x = 0, x = 2', value: 'a' },
+                { label: 'x = 0, x = 2, x = -2', value: 'b' },
+                { label: 'x = 0, x = 4, x = 1', value: 'c' },
+                { label: 'x = 2', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Pełne rozwiązanie: <br>
@@ -119,23 +119,23 @@ const Page = () => {
             equation="x^3 - 4x^2 + 4x = 0"
             steps={[
               {
-                step: "x(x^2 - 4x + 4) = 0",
+                step: 'x(x^2 - 4x + 4) = 0',
               },
               {
-                step: "x = 0",
-                explanation: "Wynik pierwszego czynniku iloczyny"
+                step: 'x = 0',
+                explanation: 'Wynik pierwszego czynniku iloczyny',
               },
               {
-                step: "Δ = b² - 4ac = (-4)² - 4·1·4 = 0",
+                step: 'Δ = b² - 4ac = (-4)² - 4·1·4 = 0',
               },
               {
-                step: "x₀ = -\\frac{-b}{2a} = \\frac{4}{2} = 2",
+                step: 'x₀ = -\\frac{-b}{2a} = \\frac{4}{2} = 2',
               },
               {
-                step: "x = 2",
-              }
+                step: 'x = 2',
+              },
             ]}
-            solutions={["x = 0", "x = 2"]}
+            solutions={['x = 0', 'x = 2']}
           />
         )}
       </div>

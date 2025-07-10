@@ -1,24 +1,25 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const PolynomialMultiplicationTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 30,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Dane są dwie sumy algebraiczne $3x³ - 2x$ oraz $-3x² - 2$. Iloczyn tych sum jest równy",
-    "choiceA": "$-9x^5 + 4x$",
-    "choiceB": "$-9x^6 + 6x^3 - 6x^2 + 4x$",
-    "choiceC": "$-9x^5 + 6x^3 - 6x^2 + 4x$",
-    "choiceD": "$-9x^6 + 4x$",
-    "correct_answer": "a",
+    task_id: 30,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Dane są dwie sumy algebraiczne $3x³ - 2x$ oraz $-3x² - 2$. Iloczyn tych sum jest równy',
+    choiceA: '$-9x^5 + 4x$',
+    choiceB: '$-9x^6 + 6x^3 - 6x^2 + 4x$',
+    choiceC: '$-9x^5 + 6x^3 - 6x^2 + 4x$',
+    choiceD: '$-9x^6 + 4x$',
+    correct_answer: 'a',
   };
 
   const handleCheckAnswer = () => {
@@ -30,12 +31,11 @@ const PolynomialMultiplicationTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Mnożenie wielomianów
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Mnożenie wielomianów</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +44,8 @@ const PolynomialMultiplicationTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 1810 } />
+            taskId={1810}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -57,18 +58,18 @@ const PolynomialMultiplicationTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

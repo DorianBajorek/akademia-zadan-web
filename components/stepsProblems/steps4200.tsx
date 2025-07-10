@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,15 +30,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest odległość między punktem $$A = (4, -1)$$ a $$S = (1, 3)$$?"
                 choices={[
-                  { label: "5", value: "a" },
-                  { label: "7", value: "b" },
-                  { label: "10", value: "c" },
-                  { label: "4", value: "d" },
+                  { label: '5', value: 'a' },
+                  { label: '7', value: 'b' },
+                  { label: '10', value: 'c' },
+                  { label: '4', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={
-                  "Odległość obliczamy ze wzoru:<br/>" +
-                  "$$AS = \\sqrt{(4-1)^2 + ((-1)-3)^2} = \\sqrt{3^2 + (-4)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$$"
+                  'Odległość obliczamy ze wzoru:<br/>' +
+                  '$$AS = \\sqrt{(4-1)^2 + ((-1)-3)^2} = \\sqrt{3^2 + (-4)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$$'
                 }
                 onComplete={() => handleStageComplete(1)}
               />
@@ -53,14 +53,14 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaką częścią przekątnej kwadratu jest odcinek $$AS$$?"
                 choices={[
-                  { label: "\\text{Całą przekątną}", value: "a" },
-                  { label: "\\text{Połową przekątnej}", value: "b" },
-                  { label: "\\text{Jedną trzecią przekątnej}", value: "c" },
-                  { label: "\\text{Jedną czwartą przekątnej}", value: "d" },
+                  { label: '\\text{Całą przekątną}', value: 'a' },
+                  { label: '\\text{Połową przekątnej}', value: 'b' },
+                  { label: '\\text{Jedną trzecią przekątnej}', value: 'c' },
+                  { label: '\\text{Jedną czwartą przekątnej}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation={
-                  "Punkt $$S$$ jest środkiem kwadratu, więc $$AS$$ to połowa przekątnej kwadratu."
+                  'Punkt $$S$$ jest środkiem kwadratu, więc $$AS$$ to połowa przekątnej kwadratu.'
                 }
                 onComplete={() => handleStageComplete(2)}
               />
@@ -75,14 +75,14 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest długość całej przekątnej kwadratu?"
                 choices={[
-                  { label: "5", value: "a" },
-                  { label: "7", value: "b" },
-                  { label: "10", value: "c" },
-                  { label: "14", value: "d" },
+                  { label: '5', value: 'a' },
+                  { label: '7', value: 'b' },
+                  { label: '10', value: 'c' },
+                  { label: '14', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={
-                  "Jeśli $$AS = 5$$, a jest to połowa przekątnej, to przekątna ma długość $$2 \\cdot 5 = 10$$."
+                  'Jeśli $$AS = 5$$, a jest to połowa przekątnej, to przekątna ma długość $$2 \\cdot 5 = 10$$.'
                 }
                 onComplete={() => handleStageComplete(3)}
               />
@@ -94,13 +94,13 @@ const Page = () => {
               <StudentNotes
                 equation="AS = \sqrt{(4-1)^2 + ((-1)-3)^2} = 5"
                 steps={[
-                  { step: "\\text{Odległość między } A \\text{ i } S: AS = 5" },
-                  { step: "S \\text{ to środek przekątnej } \\to AS = \\frac{1}{2} \\text{ przekątnej}" },
-                  { step: "\\text{Przekątna: } 2 \\cdot 5 = 10" },
+                  { step: '\\text{Odległość między } A \\text{ i } S: AS = 5' },
+                  {
+                    step: 'S \\text{ to środek przekątnej } \\to AS = \\frac{1}{2} \\text{ przekątnej}',
+                  },
+                  { step: '\\text{Przekątna: } 2 \\cdot 5 = 10' },
                 ]}
-                solutions={[
-                  "\\text{Długość przekątnej kwadratu: } 10"
-                ]}
+                solutions={['\\text{Długość przekątnej kwadratu: } 10']}
               />
             </div>
           )}

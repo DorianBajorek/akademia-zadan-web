@@ -1,12 +1,12 @@
-"use client";
-import "katex/dist/katex.min.css";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import Question from "@/components/Question";
-import { motion } from "framer-motion";
-import LoadingSpinner from "@/components/LoadingSpinner";
+'use client';
+import 'katex/dist/katex.min.css';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import Question from '@/components/Question';
+import { motion } from 'framer-motion';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 const BarometerResult: React.FC = () => {
   const router = useRouter();
@@ -15,7 +15,7 @@ const BarometerResult: React.FC = () => {
   const [questions, setQuestions] = useState<any[]>([]);
 
   useEffect(() => {
-    const storedResults = localStorage.getItem("barometerResults");
+    const storedResults = localStorage.getItem('barometerResults');
 
     if (storedResults) {
       const { results, summary, questions } = JSON.parse(storedResults);
@@ -23,18 +23,22 @@ const BarometerResult: React.FC = () => {
       setSummary(summary);
       setQuestions(questions);
     } else {
-      router.push("/barometer");
+      router.push('/barometer');
     }
   }, []);
 
   if (!summary) {
-    return <p className="text-center mt-10 text-xl font-semibold text-gray-600">Ładowanie wyników, proszę czekać...</p>;
+    return (
+      <p className="text-center mt-10 text-xl font-semibold text-gray-600">
+        Ładowanie wyników, proszę czekać...
+      </p>
+    );
   }
 
   const getBarometerColor = (rate: number) => {
-    if (rate >= 80) return "bg-green-500";
-    if (rate >= 50) return "bg-yellow-500";
-    return "bg-red-500";
+    if (rate >= 80) return 'bg-green-500';
+    if (rate >= 50) return 'bg-yellow-500';
+    return 'bg-red-500';
   };
 
   const getResultMessage = (rate: number) => {
@@ -42,10 +46,12 @@ const BarometerResult: React.FC = () => {
       return (
         <>
           <p className="text-lg text-gray-700 mb-4">
-            Gratulacje! Twój wynik sugeruje, że jesteś świetnie przygotowany do matury z matematyki. Tak trzymaj!
+            Gratulacje! Twój wynik sugeruje, że jesteś świetnie przygotowany do matury z matematyki.
+            Tak trzymaj!
           </p>
           <p className="text-md text-gray-600">
-            Twój poziom wiedzy jest naprawdę wysoki. Z takim przygotowaniem na pewno poradzisz sobie na maturze. Kontynuuj regularną naukę, a wyniki będą jeszcze lepsze!
+            Twój poziom wiedzy jest naprawdę wysoki. Z takim przygotowaniem na pewno poradzisz sobie
+            na maturze. Kontynuuj regularną naukę, a wyniki będą jeszcze lepsze!
           </p>
         </>
       );
@@ -53,10 +59,12 @@ const BarometerResult: React.FC = () => {
       return (
         <>
           <p className="text-lg text-gray-700 mb-4">
-            Całkiem nieźle! Masz solidne podstawy, ale warto jeszcze popracować nad trudniejszymi zagadnieniami.
+            Całkiem nieźle! Masz solidne podstawy, ale warto jeszcze popracować nad trudniejszymi
+            zagadnieniami.
           </p>
           <p className="text-md text-gray-600">
-            Widać, że opanowałeś podstawy, ale są jeszcze obszary, które wymagają dopracowania. Skup się na trudniejszych zadaniach, a wyniki z pewnością się poprawią.
+            Widać, że opanowałeś podstawy, ale są jeszcze obszary, które wymagają dopracowania. Skup
+            się na trudniejszych zadaniach, a wyniki z pewnością się poprawią.
           </p>
         </>
       );
@@ -64,10 +72,13 @@ const BarometerResult: React.FC = () => {
       return (
         <>
           <p className="text-lg text-gray-700 mb-4">
-            Nie poddawaj się! Wynik sugeruje, że warto jeszcze poćwiczyć matematykę. Spróbuj rozwiązać więcej zadań i przeanalizować błędy.
+            Nie poddawaj się! Wynik sugeruje, że warto jeszcze poćwiczyć matematykę. Spróbuj
+            rozwiązać więcej zadań i przeanalizować błędy.
           </p>
           <p className="text-md text-gray-600">
-            Chociaż wynik nie jest jeszcze zadowalający, masz jeszcze czas na poprawę. Skup się na ćwiczeniach z matematyki, analizuj błędy, aby uniknąć ich w przyszłości. Praca, którą włożysz, zaprocentuje na maturze!
+            Chociaż wynik nie jest jeszcze zadowalający, masz jeszcze czas na poprawę. Skup się na
+            ćwiczeniach z matematyki, analizuj błędy, aby uniknąć ich w przyszłości. Praca, którą
+            włożysz, zaprocentuje na maturze!
           </p>
         </>
       );
@@ -86,14 +97,16 @@ const BarometerResult: React.FC = () => {
           <div className="relative w-full max-w-md h-16 bg-gray-200 rounded-full overflow-hidden shadow-lg border-4 border-gray-300">
             <motion.div
               className={`h-full ${getBarometerColor(summary.points)} flex items-center justify-center text-white font-bold text-xl rounded-full shadow-md transition-all duration-500 ease-in-out`}
-              initial={{ width: "0%" }}
+              initial={{ width: '0%' }}
               animate={{ width: `${summary.points}%` }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-            >
-            </motion.div>
+              transition={{ duration: 1.5, ease: 'easeOut' }}
+            ></motion.div>
           </div>
           <div className="text-lg text-gray-700 mt-4 text-center font-semibold">
-            Estymowany wynik z matury podstawowej z matematyki: <span className="font-bold text-black">{summary.bot_points}% - {summary.top_points}%</span>
+            Estymowany wynik z matury podstawowej z matematyki:{' '}
+            <span className="font-bold text-black">
+              {summary.bot_points}% - {summary.top_points}%
+            </span>
           </div>
           <div className="text-md text-gray-600 mt-4 text-center max-w-lg font-medium">
             {getResultMessage(summary.points)}
@@ -116,8 +129,8 @@ const BarometerResult: React.FC = () => {
                   onAnswerSelect={() => {}}
                   isCorrect={isCorrect}
                   correctAnswer={correctAnswer}
-                  question1={q.taskType === "tf2" ? q.question1 : undefined}
-                  question2={q.taskType === "tf2" ? q.question2 : undefined}
+                  question1={q.taskType === 'tf2' ? q.question1 : undefined}
+                  question2={q.taskType === 'tf2' ? q.question2 : undefined}
                   taskType={q.taskType}
                   images={q.images}
                 />
@@ -125,7 +138,7 @@ const BarometerResult: React.FC = () => {
             );
           })}
         </div>
-</main>
+      </main>
     </div>
   );
 };

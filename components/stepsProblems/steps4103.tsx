@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Aby równanie iloczynowe było równe zero, co najmniej jeden z jego czynników musi być równy zero. Określ warunki, które muszą spełnić poszczególne czynniki.
+              Aby równanie iloczynowe było równe zero, co najmniej jeden z jego czynników musi być
+              równy zero. Określ warunki, które muszą spełnić poszczególne czynniki.
             </StepDescription>
             <ChoiceQuestion
               question="Kiedy iloczyn $$x(x-3)(x+2)=0$$ jest równy zero?"
               choices={[
-                { label: "\\text{Gdy }x = 0, x - 3 = 0 \\text{ lub }x + 2 = 0", value: "a" },
-                { label: "\\text{Gdy }x = 3, x = 2,\\text{ lub } x = 0", value: "b" },
-                { label: "\\text{Tylko dla } x = 0", value: "c" },
-                { label: "\\text{Gdy }x = 3 \\text{ lub } x = 2", value: "d" },
+                { label: '\\text{Gdy }x = 0, x - 3 = 0 \\text{ lub }x + 2 = 0', value: 'a' },
+                { label: '\\text{Gdy }x = 3, x = 2,\\text{ lub } x = 0', value: 'b' },
+                { label: '\\text{Tylko dla } x = 0', value: 'c' },
+                { label: '\\text{Gdy }x = 3 \\text{ lub } x = 2', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Zgodnie z zasadą iloczynu równego zero, całe wyrażenie jest równe zero, gdy którykolwiek z jego czynników $$x$$, $$x-3$$, lub $$x+2$$ jest równy zero."
@@ -53,10 +54,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie są wszystkie rozwiązania równania $$x(x-3)(x+2)=0$$?"
               choices={[
-                { label: "x = 0,\\ x = -3,\\ x = -2", value: "a" },
-                { label: "x = 0,\\ x = 3,\\ x = 2", value: "b" },
-                { label: "x = 0,\\ x = -3,\\ x = 2", value: "c" },
-                { label: "x = 0,\\ x = 3,\\ x = -2", value: "d" },
+                { label: 'x = 0,\\ x = -3,\\ x = -2', value: 'a' },
+                { label: 'x = 0,\\ x = 3,\\ x = 2', value: 'b' },
+                { label: 'x = 0,\\ x = -3,\\ x = 2', value: 'c' },
+                { label: 'x = 0,\\ x = 3,\\ x = -2', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Rozwiązując każdy warunek osobno, otrzymujemy: $$x = 0$$ (z pierwszego czynnika), $$x - 3 = 0 \implies x = 3$$ oraz $$x + 2 = 0 \implies x = -2$$."
@@ -74,10 +75,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaka jest suma wszystkich rozwiązań?"
               choices={[
-                { label: "0", value: "a" },
-                { label: "1", value: "b" },
-                { label: "2", value: "c" },
-                { label: "3", value: "d" },
+                { label: '0', value: 'a' },
+                { label: '1', value: 'b' },
+                { label: '2', value: 'c' },
+                { label: '3', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Sumujemy znalezione pierwiastki: $$0 + 3 + (-2) = 1$$."
@@ -91,16 +92,14 @@ const Page = () => {
           <StudentNotes
             equation="x(x-3)(x+2)=0"
             steps={[
-              { step: "\\text{1. Znajdź pierwiastki, przyrównując czynniki do zera:}" },
-              { step: "x_1 = 0" },
-              { step: "x_2 - 3 = 0 \\implies x_2 = 3" },
-              { step: "x_3 + 2 = 0 \\implies x_3 = -2" },
-              { step: "\\text{2. Oblicz sumę pierwiastków:}" },
-              { step: "x_1 + x_2 + x_3 = 0 + 3 + (-2) = 1" }
+              { step: '\\text{1. Znajdź pierwiastki, przyrównując czynniki do zera:}' },
+              { step: 'x_1 = 0' },
+              { step: 'x_2 - 3 = 0 \\implies x_2 = 3' },
+              { step: 'x_3 + 2 = 0 \\implies x_3 = -2' },
+              { step: '\\text{2. Oblicz sumę pierwiastków:}' },
+              { step: 'x_1 + x_2 + x_3 = 0 + 3 + (-2) = 1' },
             ]}
-            solutions={[
-              "\\text{Suma rozwiązań jest równa 1.}"
-            ]}
+            solutions={['\\text{Suma rozwiązań jest równa 1.}']}
           />
         )}
       </div>

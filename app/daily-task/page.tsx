@@ -1,11 +1,11 @@
-"use client";
-import "katex/dist/katex.min.css";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import Question from "@/components/Question";
-import { checkBarometerAnswers, getCurrentDailyProblem } from "@/service";
+'use client';
+import 'katex/dist/katex.min.css';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import Question from '@/components/Question';
+import { checkBarometerAnswers, getCurrentDailyProblem } from '@/service';
 
 interface QuestionType {
   id: number;
@@ -24,46 +24,52 @@ const DailyTask: React.FC = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number | null }>({});
   // const [pageEnd, setPageEnd] = useState<>
   const router = useRouter();
-  const letterMap = ["a", "b", "c", "d"];
-  const tf2Map = ["tt", "tf", "ft", "ff"];
+  const letterMap = ['a', 'b', 'c', 'd'];
+  const tf2Map = ['tt', 'tf', 'ft', 'ff'];
 
   const replaceHashes = (text: string) => {
-    if (text == null) return "";
-    return text.replace(/##/g, "\\");
+    if (text == null) return '';
+    return text.replace(/##/g, '\\');
   };
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
     window.scrollTo({
       top: document.documentElement.scrollHeight,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   const handleSubmit = async () => {
-    const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null);
-  
+    const allAnswered = questions.every(
+      (q) => selectedAnswers[q.id] !== undefined && selectedAnswers[q.id] !== null
+    );
+
     if (!allAnswered) {
-      alert("Proszę odpowiedzieć na pytanie daily.");
+      alert('Proszę odpowiedzieć na pytanie daily.');
       return;
     }
-    
-    const answersPayload = questions.map(q => {    
+
+    const answersPayload = questions.map((q) => {
       return {
         task_id: q.taskId,
-        user_answer: q.taskType === "tf2" ? tf2Map[selectedAnswers[q.id]!] : letterMap[selectedAnswers[q.id]!],
+        user_answer:
+          q.taskType === 'tf2' ? tf2Map[selectedAnswers[q.id]!] : letterMap[selectedAnswers[q.id]!],
       };
     });
-  
+
     const result = await checkBarometerAnswers(answersPayload);
     if (result) {
-      localStorage.setItem("dailyResults", JSON.stringify({ results: result.results, summary: result.summary, questions }));
-      router.push("/daily-task-result");
+      localStorage.setItem(
+        'dailyResults',
+        JSON.stringify({ results: result.results, summary: result.summary, questions })
+      );
+      router.push('/daily-task-result');
     } else {
-      alert("Wystąpił błąd podczas wysyłania odpowiedzi.");
+      alert('Wystąpił błąd podczas wysyłania odpowiedzi.');
     }
   };
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getCurrentDailyProblem();
@@ -84,10 +90,10 @@ const DailyTask: React.FC = () => {
           index: number
         ) => ({
           id: index + 1,
-          text: replaceHashes(elem.description || ""),
+          text: replaceHashes(elem.description || ''),
           answers:
-            elem.task_type === "tf2"
-              ? ["tt", "tf", "ft", "ff"]
+            elem.task_type === 'tf2'
+              ? ['tt', 'tf', 'ft', 'ff']
               : [
                   replaceHashes(elem.choiceA),
                   replaceHashes(elem.choiceB),
@@ -97,11 +103,11 @@ const DailyTask: React.FC = () => {
           correct: 0,
           taskId: elem.task_id,
           taskType: elem.task_type,
-          ...(elem.task_type === "tf2" && {
-            question1: replaceHashes(elem.question1 || ""),
-            question2: replaceHashes(elem.question2 || ""),
+          ...(elem.task_type === 'tf2' && {
+            question1: replaceHashes(elem.question1 || ''),
+            question2: replaceHashes(elem.question2 || ''),
           }),
-          images: Array.isArray(elem.images) ? elem.images.map(img => img.image) : [],
+          images: Array.isArray(elem.images) ? elem.images.map((img) => img.image) : [],
         })
       );
       setQuestions(newQuestions);
@@ -122,8 +128,8 @@ const DailyTask: React.FC = () => {
         </p>
 
         <div className="space-y-6">
-          {questions.map((q) => (
-            q.taskType === "tf2" ? 
+          {questions.map((q) =>
+            q.taskType === 'tf2' ? (
               <Question
                 key={q.id}
                 id={q.id}
@@ -137,7 +143,7 @@ const DailyTask: React.FC = () => {
                 taskType="tf2"
                 images={q.images}
               />
-            : (
+            ) : (
               <Question
                 key={q.id}
                 id={q.id}
@@ -150,7 +156,7 @@ const DailyTask: React.FC = () => {
                 images={q.images}
               />
             )
-          ))}
+          )}
         </div>
         <div className="mt-8 text-center">
           <button
@@ -160,7 +166,7 @@ const DailyTask: React.FC = () => {
             Sprawdź odpowiedź
           </button>
         </div>
-</main>
+      </main>
     </div>
   );
 };

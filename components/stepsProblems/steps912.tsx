@@ -1,24 +1,25 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const HardcodedTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 419,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Oprocentowanie na długoterminowej lokacie w pewnym banku wynosi $3\\%$ w skali roku (już po uwzględnieniu podatków). Po każdym roku oszczędzania są doliczane odsetki od aktualnego kapitału znajdującego się na lokacie - zgodnie z procentem składanym. Po $10$ latach oszczędzania w tym banku (i bez wypłacania kapitału ani odsetek w tym okresie) kwota na lokacie będzie większa od kwoty wpłaconej na samym początku o (w zaokrągleniu do $1\\%$)",
-    "choiceA": "30%",
-    "choiceB": "34%",
-    "choiceC": "36%",
-    "choiceD": "43%",
-    "correct_answer": "b"
+    task_id: 419,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Oprocentowanie na długoterminowej lokacie w pewnym banku wynosi $3\\%$ w skali roku (już po uwzględnieniu podatków). Po każdym roku oszczędzania są doliczane odsetki od aktualnego kapitału znajdującego się na lokacie - zgodnie z procentem składanym. Po $10$ latach oszczędzania w tym banku (i bez wypłacania kapitału ani odsetek w tym okresie) kwota na lokacie będzie większa od kwoty wpłaconej na samym początku o (w zaokrągleniu do $1\\%$)',
+    choiceA: '30%',
+    choiceB: '34%',
+    choiceC: '36%',
+    choiceD: '43%',
+    correct_answer: 'b',
   };
 
   const handleCheckAnswer = () => {
@@ -35,7 +36,8 @@ const HardcodedTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +46,8 @@ const HardcodedTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 912 } />
+            taskId={912}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -57,32 +60,42 @@ const HardcodedTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
-            
+
             {selectedAnswer !== taskData.correct_answer && (
               <div className="mt-4 p-4 bg-blue-50 rounded-lg text-left">
                 <h3 className="font-bold text-lg mb-2">Wyjaśnienie:</h3>
-                <p className="mb-2">Wzór na procent składany: <span className="font-math">K<sub>n</sub> = K<sub>0</sub> × (1 + p)<sup>n</sup></span></p>
+                <p className="mb-2">
+                  Wzór na procent składany:{' '}
+                  <span className="font-math">
+                    K<sub>n</sub> = K<sub>0</sub> × (1 + p)<sup>n</sup>
+                  </span>
+                </p>
                 <p className="mb-2">Gdzie:</p>
                 <ul className="list-disc pl-5 mb-2">
                   <li>p = 3% = 0.03</li>
                   <li>n = 10 lat</li>
                 </ul>
-                <p className="mb-2">Wzrost kapitału: <span className="font-math">(1.03)<sup>10</sup> ≈ 1.3439</span></p>
+                <p className="mb-2">
+                  Wzrost kapitału:{' '}
+                  <span className="font-math">
+                    (1.03)<sup>10</sup> ≈ 1.3439
+                  </span>
+                </p>
                 <p>Zatem wzrost wynosi około 34% (zaokrąglone do 1%)</p>
               </div>
             )}
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

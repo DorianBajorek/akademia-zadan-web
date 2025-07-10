@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -29,20 +29,18 @@ const Page = () => {
         {/* Krok 1 - Warunek równoległości prostych */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <StepDescription stepNumber={1}>
-              Kiedy dwie proste są równoległe?
-            </StepDescription>
+            <StepDescription stepNumber={1}>Kiedy dwie proste są równoległe?</StepDescription>
             <ChoiceQuestion
               question="Który warunek musi być spełniony, aby proste były równoległe?"
               choices={[
-                { label: "\\text{Ich współczynniki kierunkowe są równe}", value: "a" },
-                { label: "\\text{Ich wyrazy wolne są równe}", value: "b" },
-                { label: "\\text{Ich współczynniki kierunkowe są przeciwne}", value: "c" },
-                { label: "\\text{Ich iloczyn współczynników kierunkowych wynosi -1}", value: "d" },
+                { label: '\\text{Ich współczynniki kierunkowe są równe}', value: 'a' },
+                { label: '\\text{Ich wyrazy wolne są równe}', value: 'b' },
+                { label: '\\text{Ich współczynniki kierunkowe są przeciwne}', value: 'c' },
+                { label: '\\text{Ich iloczyn współczynników kierunkowych wynosi -1}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Dwie proste są równoległe, gdy mają równe współczynniki kierunkowe."
-              img={"/steps-images/rownoleglosc_prostych.png"}
+              img={'/steps-images/rownoleglosc_prostych.png'}
               onComplete={() => handleStageComplete(1)}
             />
           </>
@@ -52,15 +50,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="k" /> i <InlineMath math="l" />
+              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="k" /> i{' '}
+              <InlineMath math="l" />
             </StepDescription>
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: `(3m - 2)(2m-4) = -1`, value: "a" },
-                { label: `3m - 2 = -(2m + 4)`, value: "b" },
-                { label: `3m-2 = 2m+4`, value: "c" },
-                { label: `3m-2+2m+4 =0 `, value: "d" }
+                { label: `(3m - 2)(2m-4) = -1`, value: 'a' },
+                { label: `3m - 2 = -(2m + 4)`, value: 'b' },
+                { label: `3m-2 = 2m+4`, value: 'c' },
+                { label: `3m-2+2m+4 =0 `, value: 'd' },
               ]}
               correctAnswer="c"
               explanation={`Poprawne równanie to: $$3m - 2 = 2m + 4$$ <br>
@@ -79,10 +78,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaka jest wartość m?"
               choices={[
-                { label: "m = -6", value: "a" },
-                { label: "m = -2", value: "b" },
-                { label: "m = 2", value: "c" },
-                { label: "m = 6", value: "d" }
+                { label: 'm = -6', value: 'a' },
+                { label: 'm = -2', value: 'b' },
+                { label: 'm = 2', value: 'c' },
+                { label: 'm = 6', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Kolejne kroki: <br>
@@ -101,11 +100,13 @@ const Page = () => {
           <StudentNotes
             equation="\text{Proste k i l są równoległe}  \\ k: y=(3m-2)x-2 \\ l:y=(2m+4)x+2"
             steps={[
-              { step: "\\text{Warunek równoległości: współczynniki kierunkowe równe } a_{1}=a_{2}" },
-              { step: "3m - 2 = 2m + 4" },
-              { step: "m = 6" },
+              {
+                step: '\\text{Warunek równoległości: współczynniki kierunkowe równe } a_{1}=a_{2}',
+              },
+              { step: '3m - 2 = 2m + 4' },
+              { step: 'm = 6' },
             ]}
-            solutions={["m = 6"]}
+            solutions={['m = 6']}
           />
         )}
       </div>

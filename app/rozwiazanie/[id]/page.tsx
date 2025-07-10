@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
@@ -16,9 +16,9 @@ const Rozwiazanie = () => {
 
   return (
     <Suspense fallback={<div>Ładowanie rozwiązania...</div>}>
-        <Nav />
-        <Solution />
-        <Footer />
+      <Nav />
+      <Solution />
+      <Footer />
     </Suspense>
   );
 };

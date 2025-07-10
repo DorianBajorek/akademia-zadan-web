@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie równanie powstaje po podstawieniu miejsca zerowego?"
                 choices={[
-                  { label: "0 = a(0 - 2)^2 + 16", value: "a" },
-                  { label: "0 = a(4 + 2)^2 - 16", value: "b" },
-                  { label: "0 = a(4 - 2)^2 + 16", value: "c" },
-                  { label: "0 = a(4 - 2)^2 - 16", value: "d" }
+                  { label: '0 = a(0 - 2)^2 + 16', value: 'a' },
+                  { label: '0 = a(4 + 2)^2 - 16', value: 'b' },
+                  { label: '0 = a(4 - 2)^2 + 16', value: 'c' },
+                  { label: '0 = a(4 - 2)^2 - 16', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Podstawiamy $$x = 4$$ do funkcji i przyrównujemy do $$0$$, bo to miejsce zerowe: <br />$$0 = a(4 - 2)^2 - 16$$"
@@ -51,10 +51,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie jest rozwiązanie równania równania $$0 = a(4 - 2)^2 - 16$$?"
                 choices={[
-                  { label: "a = 4", value: "a" },
-                  { label: "a = 0", value: "b" },
-                  { label: "a = -4", value: "c" },
-                  { label: "a = 2", value: "d" }
+                  { label: 'a = 4', value: 'a' },
+                  { label: 'a = 0', value: 'b' },
+                  { label: 'a = -4', value: 'c' },
+                  { label: 'a = 2', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="
@@ -73,13 +73,13 @@ const Page = () => {
               <StudentNotes
                 equation="f(x) = a(x - 2)^2 - 16"
                 steps={[
-                  { step: "\\text{Wiadomo, że: } f(4) = 0" },
-                  { step: "\\text{Podstawiamy: } 0 = a(4 - 2)^2 - 16" },
-                  { step: "0 = a·4 - 16" },
-                  { step: "0 = 4a - 16" },
-                  { step: "4a = 16 \\Rightarrow a = 4" }
+                  { step: '\\text{Wiadomo, że: } f(4) = 0' },
+                  { step: '\\text{Podstawiamy: } 0 = a(4 - 2)^2 - 16' },
+                  { step: '0 = a·4 - 16' },
+                  { step: '0 = 4a - 16' },
+                  { step: '4a = 16 \\Rightarrow a = 4' },
                 ]}
-                solutions={["a = 4"]}
+                solutions={['a = 4']}
               />
             </div>
           )}

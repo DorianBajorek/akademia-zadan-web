@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,10 +28,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^2(3x-2) + 4(3x-2) = 0", value: "a" },
-                { label: "x^2(3x+2) - 4(3x+2) = 0", value: "b" },
-                { label: "x^2(3x-2) - 4(3x-2) = 0", value: "c" },
-                { label: "x^2(3x+2) + 4(3x+2) = 0", value: "d" }
+                { label: 'x^2(3x-2) + 4(3x-2) = 0', value: 'a' },
+                { label: 'x^2(3x+2) - 4(3x+2) = 0', value: 'b' },
+                { label: 'x^2(3x-2) - 4(3x-2) = 0', value: 'c' },
+                { label: 'x^2(3x+2) + 4(3x+2) = 0', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne przekształcenie to $$x^2(3x-2) - 4(3x-2) = 0$$. 
@@ -42,16 +42,14 @@ const Page = () => {
         )}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Zaznacz poprawną postać po pogrupowaniu:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Zaznacz poprawną postać po pogrupowaniu:</p>
             <ChoiceQuestion
               question="Która postać jest poprawna po pogrupowaniu?"
               choices={[
-                { label: "(3x-2)(x^2-4) = 0", value: "a" },
-                { label: "(3x-2)(x^2+4) = 0", value: "b" },
-                { label: "(3x+2)(x^2-4) = 0", value: "c" },
-                { label: "(3x+2)(x^2+4) = 0", value: "d" }
+                { label: '(3x-2)(x^2-4) = 0', value: 'a' },
+                { label: '(3x-2)(x^2+4) = 0', value: 'b' },
+                { label: '(3x+2)(x^2-4) = 0', value: 'c' },
+                { label: '(3x+2)(x^2+4) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawna postać po pogrupowaniu to $$(3x-2)(x^2-4) = 0$$. 
@@ -62,16 +60,14 @@ const Page = () => {
         )}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie całkowicie.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Rozwiąż równanie całkowicie.</p>
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne dla całego równania?"
               choices={[
-                { label: "x = \\frac{2}{3}, x = 4, x = -4", value: "a" },
-                { label: "x = \\frac{3}{2}, x = 2, x = -2", value: "b" },
-                { label: "x = \\frac{3}{2}, x = 4, x = -4", value: "c" },
-                { label: "x = \\frac{2}{3}, x = 2, x = -2", value: "d" }
+                { label: 'x = \\frac{2}{3}, x = 4, x = -4', value: 'a' },
+                { label: 'x = \\frac{3}{2}, x = 2, x = -2', value: 'b' },
+                { label: 'x = \\frac{3}{2}, x = 4, x = -4', value: 'c' },
+                { label: 'x = \\frac{2}{3}, x = 2, x = -2', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawne rozwiązanie to $$x = \frac{2}{3}, x = 2, x = -2$$. <br>
@@ -79,7 +75,7 @@ const Page = () => {
               1. $$3x-2 = 0$$ przenosimy $$2$$ na drugą stronę i otrzymujemy $$3x=2$$, a następnie dzielimy przez $$3$$, co daje $$x=\frac{2}{3}$$. <br>
               2. $$x^2-4 = 0$$. Rozwiązujemy jak niżej: <br>
               $$x^2 = 4$$ Pierwiastkujemy stronami pamiętając o dwóch rozwiązaniach: <br>
-              $$x=2$$ lub $$x=-2$$."             
+              $$x=2$$ lub $$x=-2$$."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -89,19 +85,19 @@ const Page = () => {
             equation="3x^3 - 2x^2 - 12x + 8 = 0"
             steps={[
               {
-                step: "x^2(3x-2) - 4(3x-2) = 0",
+                step: 'x^2(3x-2) - 4(3x-2) = 0',
               },
               {
-                step: "(3x-2)(x^2-4) = 0",
+                step: '(3x-2)(x^2-4) = 0',
               },
               {
-                step: "3x - 2 = 0 \\Rightarrow x = \\frac{2}{3}",
+                step: '3x - 2 = 0 \\Rightarrow x = \\frac{2}{3}',
               },
               {
-                step: "x^2 - 4 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\text{ lub } x = -2",
-              }
+                step: 'x^2 - 4 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\text{ lub } x = -2',
+              },
             ]}
-            solutions={["x = \\frac{2}{3}", "x = 2", "x = -2"]}
+            solutions={['x = \\frac{2}{3}', 'x = 2', 'x = -2']}
           />
         )}
       </div>

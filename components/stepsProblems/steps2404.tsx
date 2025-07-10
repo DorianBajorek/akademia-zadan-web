@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -24,20 +24,22 @@ const Page = () => {
           description="Rozwiąż poniższe równanie, a następnie uprość wynik, usuwając niewymierność z mianownika:"
           equation="x\sqrt{3} + 2 = 2x - 8"
         />
-        
+
         {/* ETAP 1: Porządkowanie równania */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Pierwszym krokiem w rozwiązaniu równania jest uporządkowanie go. Przenieś wszystkie wyrazy zawierające niewiadomą <InlineMath math="x"/> na jedną stronę, a pozostałe na drugą.
+              Pierwszym krokiem w rozwiązaniu równania jest uporządkowanie go. Przenieś wszystkie
+              wyrazy zawierające niewiadomą <InlineMath math="x" /> na jedną stronę, a pozostałe na
+              drugą.
             </StepDescription>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x \\sqrt{3} - 2x = 8 + 2", value: "a" },
-                { label: "x \\sqrt{3} + 2x = 8 - 2", value: "b" },
-                { label: "x \\sqrt{3} - 2x = -8 - 2", value: "c" },
-                { label: "-x \\sqrt{3} - 2x = -8 - 2", value: "d" }
+                { label: 'x \\sqrt{3} - 2x = 8 + 2', value: 'a' },
+                { label: 'x \\sqrt{3} + 2x = 8 - 2', value: 'b' },
+                { label: 'x \\sqrt{3} - 2x = -8 - 2', value: 'c' },
+                { label: '-x \\sqrt{3} - 2x = -8 - 2', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne przekształcenie to $$x\sqrt{3} - 2x = -8 - 2$$. Przenosimy $$2x$$ na lewą stronę (zmieniając znak na przeciwny) i $$+2$$ na prawą stronę (również zmieniając znak)."
@@ -45,20 +47,20 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* ETAP 2: Wyciągnięcie x przed nawias */}
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Aby wyizolować <InlineMath math="x"/>, wyłącz je jako wspólny czynnik przed nawias.
+              Aby wyizolować <InlineMath math="x" />, wyłącz je jako wspólny czynnik przed nawias.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda przekształcone równanie?"
               choices={[
-                { label: "x(\\sqrt{3} + 2) = 6", value: "a" },
-                { label: "x(\\sqrt{3} - 2) = -10", value: "b" },
-                { label: "x(2 - \\sqrt{3}) = 10", value: "c" },
-                { label: "x(-\\sqrt{3} - 2) = -10", value: "d" }
+                { label: 'x(\\sqrt{3} + 2) = 6', value: 'a' },
+                { label: 'x(\\sqrt{3} - 2) = -10', value: 'b' },
+                { label: 'x(2 - \\sqrt{3}) = 10', value: 'c' },
+                { label: 'x(-\\sqrt{3} - 2) = -10', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawne uproszczenie to $$x(\sqrt{3} - 2) = -10$$.<br/>Lewa strona: $$x\sqrt{3} - 2x = x(\sqrt{3} - 2)$$<br/>Prawa strona: $$-8 - 2 = -10$$"
@@ -71,15 +73,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Podziel obie strony równania przez wyrażenie w nawiasie, aby otrzymać surowe rozwiązanie dla <InlineMath math="x"/>.
+              Podziel obie strony równania przez wyrażenie w nawiasie, aby otrzymać surowe
+              rozwiązanie dla <InlineMath math="x" />.
             </StepDescription>
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne?"
               choices={[
-                { label: "x = \\frac{10}{\\sqrt{3} + 2}", value: "a" },
-                { label: "x = \\frac{-10}{\\sqrt{3} - 2}", value: "b" },
-                { label: "x = \\frac{-10}{2 - \\sqrt{3}}", value: "c" },
-                { label: "x = -\\frac{10}{\\sqrt{3} + 2}", value: "d" }
+                { label: 'x = \\frac{10}{\\sqrt{3} + 2}', value: 'a' },
+                { label: 'x = \\frac{-10}{\\sqrt{3} - 2}', value: 'b' },
+                { label: 'x = \\frac{-10}{2 - \\sqrt{3}}', value: 'c' },
+                { label: 'x = -\\frac{10}{\\sqrt{3} + 2}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawne rozwiązanie to $$x = \frac{-10}{\sqrt{3} - 2}$$. Dzielimy obie strony równania $$x(\sqrt{3} - 2) = -10$$ przez $$(\sqrt{3} - 2)$$."
@@ -92,15 +95,16 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Wynik zawiera niewymierność w mianowniku. Usuń ją, mnożąc licznik i mianownik przez sprzężenie mianownika, czyli <InlineMath math="(\sqrt{3} + 2)"/>.
+              Wynik zawiera niewymierność w mianowniku. Usuń ją, mnożąc licznik i mianownik przez
+              sprzężenie mianownika, czyli <InlineMath math="(\sqrt{3} + 2)" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest ostateczny, uproszczony wynik?"
               choices={[
-                { label: "10(2 + \\sqrt{3})", value: "a" },
-                { label: "10/(\\sqrt{3} - 2)", value: "b" },
-                { label: "10(\\sqrt{3} - 2)", value: "c" },
-                { label: "\\frac{10(2 + \\sqrt{3})}{-1}", value: "d" }
+                { label: '10(2 + \\sqrt{3})', value: 'a' },
+                { label: '10/(\\sqrt{3} - 2)', value: 'b' },
+                { label: '10(\\sqrt{3} - 2)', value: 'c' },
+                { label: '\\frac{10(2 + \\sqrt{3})}{-1}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation={`1. Mnożymy przez sprzężenie: $$\\frac{-10}{\\sqrt{3} - 2} \\cdot \\frac{\\sqrt{3} + 2}{\\sqrt{3} + 2}$$<br>
@@ -111,20 +115,22 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 4 && (
           <StudentNotes
             equation="x \sqrt{3} + 2 = 2x - 8"
             steps={[
-              { step: "x\\sqrt{3} - 2x = -8 - 2" },
-              { step: "x(\\sqrt{3} - 2) = -10" },
-              { step: "x = \\frac{-10}{\\sqrt{3} - 2}" },
-              { step: "x = \\frac{-10}{\\sqrt{3} - 2} \\cdot \\frac{\\sqrt{3} + 2}{\\sqrt{3} + 2}" },
-              { step: "x = \\frac{-10(\\sqrt{3} + 2)}{3 - 4} = \\frac{-10(\\sqrt{3} + 2)}{-1}" },
-              { step: "x = 10(\\sqrt{3} + 2) = 10(2 + \\sqrt{3})" },
+              { step: 'x\\sqrt{3} - 2x = -8 - 2' },
+              { step: 'x(\\sqrt{3} - 2) = -10' },
+              { step: 'x = \\frac{-10}{\\sqrt{3} - 2}' },
+              {
+                step: 'x = \\frac{-10}{\\sqrt{3} - 2} \\cdot \\frac{\\sqrt{3} + 2}{\\sqrt{3} + 2}',
+              },
+              { step: 'x = \\frac{-10(\\sqrt{3} + 2)}{3 - 4} = \\frac{-10(\\sqrt{3} + 2)}{-1}' },
+              { step: 'x = 10(\\sqrt{3} + 2) = 10(2 + \\sqrt{3})' },
             ]}
-            solutions={["10(2 + \\sqrt{3})"]}
+            solutions={['10(2 + \\sqrt{3})']}
           />
         )}
       </div>

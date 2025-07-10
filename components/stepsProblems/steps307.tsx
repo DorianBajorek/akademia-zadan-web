@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -17,7 +17,6 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-
         <TaskDescription
           title="Równanie logarytmiczne"
           description="Oblicz wartość logarytmu:"
@@ -33,10 +32,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^2 = 0{,}125^6 \\cdot \\sqrt{64}", value: "a" },
-                  { label: "2 \\cdot x = 0{,}125^6 \\cdot \\sqrt{64}", value: "b" },
-                  { label: "2^x = 0{,}125^6 \\cdot \\sqrt{64}", value: "c" },
-                  { label: "2 = (0{,}125^6 \\cdot \\sqrt{64})^x", value: "d" },
+                  { label: 'x^2 = 0{,}125^6 \\cdot \\sqrt{64}', value: 'a' },
+                  { label: '2 \\cdot x = 0{,}125^6 \\cdot \\sqrt{64}', value: 'b' },
+                  { label: '2^x = 0{,}125^6 \\cdot \\sqrt{64}', value: 'c' },
+                  { label: '2 = (0{,}125^6 \\cdot \\sqrt{64})^x', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Z definicji logarytmu wiemy, że $$\log_2(0{,}125^6 \cdot \sqrt{64}) = x$$ oznacza $$2^x = 0{,}125^6 \cdot \sqrt{64}$$."
@@ -54,10 +53,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "2^x = (2^{-3})^6 \\cdot 2^3", value: "a" },
-                  { label: "2^x = (2^{-6})^3 \\cdot 2^6", value: "b" },
-                  { label: "2^x = 2^{-18} \\cdot 2^{-3}", value: "c" },
-                  { label: "2^x = 2^{-9} \\cdot 2^6", value: "d" },
+                  { label: '2^x = (2^{-3})^6 \\cdot 2^3', value: 'a' },
+                  { label: '2^x = (2^{-6})^3 \\cdot 2^6', value: 'b' },
+                  { label: '2^x = 2^{-18} \\cdot 2^{-3}', value: 'c' },
+                  { label: '2^x = 2^{-9} \\cdot 2^6', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`Poprawne przekształcenie to $$(2^{-3})^6 \\cdot 2^3$$.<br>
@@ -77,10 +76,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie jest poprawne?"
                 choices={[
-                  { label: "2^x = 2^{-3}", value: "a" },
-                  { label: "2^x = 2^9", value: "b" },
-                  { label: "2^x = 2^{-15}", value: "c" },
-                  { label: "2^x = 2^{-18}", value: "d" },
+                  { label: '2^x = 2^{-3}', value: 'a' },
+                  { label: '2^x = 2^9', value: 'b' },
+                  { label: '2^x = 2^{-15}', value: 'c' },
+                  { label: '2^x = 2^{-18}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={`Poprawne rozwiązanie to $$2^{-15}$$.<br>
@@ -92,9 +91,7 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Oblicz wartość logarytmu:
-              </StepDescription>
+              <StepDescription stepNumber={4}>Oblicz wartość logarytmu:</StepDescription>
               <NumericQuestion
                 question="Jaka jest wartość x?"
                 correctAnswer="-15"
@@ -111,22 +108,22 @@ const Page = () => {
                 equation="\log_2(0{,}125^6 \cdot \sqrt{64})"
                 steps={[
                   {
-                    step: "\\log_2(0{,}125^6 \\cdot \\sqrt{64}) = x \\Rightarrow 2^x = 0{,}125^6 \\cdot \\sqrt{64}",
+                    step: '\\log_2(0{,}125^6 \\cdot \\sqrt{64}) = x \\Rightarrow 2^x = 0{,}125^6 \\cdot \\sqrt{64}',
                   },
                   {
-                    step: "0{,}125 = 2^{-3}, \\\\ \\sqrt{64} = 2^3 \\\\ 2^x = (2^{-3})^6 \\cdot 2^3",
+                    step: '0{,}125 = 2^{-3}, \\\\ \\sqrt{64} = 2^3 \\\\ 2^x = (2^{-3})^6 \\cdot 2^3',
                   },
                   {
-                    step: "2^x = 2^{-18} \\cdot 2^3",
+                    step: '2^x = 2^{-18} \\cdot 2^3',
                   },
                   {
-                    step: "2^x = 2^{-15}",
+                    step: '2^x = 2^{-15}',
                   },
                   {
-                    step: "x = -15",
+                    step: 'x = -15',
                   },
                 ]}
-                solutions={["x = -15"]}
+                solutions={['x = -15']}
               />
             </div>
           )}

@@ -1,5 +1,5 @@
-"use client";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
+'use client';
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid';
 
 interface TopicStatsProps {
   completedCount: number;
@@ -8,19 +8,12 @@ interface TopicStatsProps {
   description?: string;
 }
 
-const TopicStats = ({ 
-  completedCount, 
-  totalCount, 
-  topicTitle,
-  description 
-}: TopicStatsProps) => {
+const TopicStats = ({ completedCount, totalCount, topicTitle, description }: TopicStatsProps) => {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8 mb-10">
       <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">{topicTitle}</h1>
-      {description && (
-        <p className="text-base sm:text-lg text-gray-600 mb-6">{description}</p>
-      )}
-      
+      {description && <p className="text-base sm:text-lg text-gray-600 mb-6">{description}</p>}
+
       <div className="flex flex-col md:flex-row md:items-center md:justify-between bg-blue-50 p-4 rounded-lg space-y-4 md:space-y-0">
         <div>
           <h3 className="text-sm font-semibold text-blue-800">Stan realizacji</h3>

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,18 +30,16 @@ const Page = () => {
         />
 
         {completedStages.length === 0 && (
-          <StepDescription stepNumber={1}>
-            Kiedy dwie proste są równoległe?
-          </StepDescription>
+          <StepDescription stepNumber={1}>Kiedy dwie proste są równoległe?</StepDescription>
         )}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <ChoiceQuestion
             question="Który warunek musi być spełniony, aby proste były równoległe?"
             choices={[
-              { label: "\\text{Ich współczynniki kierunkowe są równe}", value: "a" },
-              { label: "\\text{Ich wyrazy wolne są równe}", value: "b" },
-              { label: "\\text{Suma ich współczynników kierunkowych wynosi 0}", value: "c" },
-              { label: "\\text{Iloczyn ich współczynników kierunkowych wynosi -1}", value: "d" },
+              { label: '\\text{Ich współczynniki kierunkowe są równe}', value: 'a' },
+              { label: '\\text{Ich wyrazy wolne są równe}', value: 'b' },
+              { label: '\\text{Suma ich współczynników kierunkowych wynosi 0}', value: 'c' },
+              { label: '\\text{Iloczyn ich współczynników kierunkowych wynosi -1}', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Dwie proste są równoległe, gdy mają równe współczynniki kierunkowe."
@@ -53,15 +51,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="l"/> i <InlineMath math="k"/> 
+              Przyrównaj współczynniki kierunkowe prostych <InlineMath math="l" /> i{' '}
+              <InlineMath math="k" />
             </StepDescription>
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "m^2 - 4m = 0", value: "a" },
-                { label: "m^2 = -4m + 4", value: "b" },
-                { label: "m^2 + 4m - 4 = 0", value: "c" },
-                { label: "m^2 = 4m - 4", value: "d" },
+                { label: 'm^2 - 4m = 0', value: 'a' },
+                { label: 'm^2 = -4m + 4', value: 'b' },
+                { label: 'm^2 + 4m - 4 = 0', value: 'c' },
+                { label: 'm^2 = 4m - 4', value: 'd' },
               ]}
               correctAnswer="d"
               explanation={`Poprawne równanie to: $$m^2 = 4m - 4$$ <br>
@@ -79,10 +78,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie rozwiązania ma to równanie?"
               choices={[
-                { label: "m = 2", value: "a" },
-                { label: "m = 2 \\text{ lub } m = -2", value: "b" },
-                { label: "m = 2 + 2\\sqrt{2} \\text{ lub }  m = 2 - 2\\sqrt{2}", value: "c" },
-                { label: "m = -2 - 2\\sqrt{2} \\text{ lub } m = -2 + 2\\sqrt{2}", value: "d" },
+                { label: 'm = 2', value: 'a' },
+                { label: 'm = 2 \\text{ lub } m = -2', value: 'b' },
+                { label: 'm = 2 + 2\\sqrt{2} \\text{ lub }  m = 2 - 2\\sqrt{2}', value: 'c' },
+                { label: 'm = -2 - 2\\sqrt{2} \\text{ lub } m = -2 + 2\\sqrt{2}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Kolejne kroki rozwiązania: <br>
@@ -98,16 +97,14 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <StepDescription stepNumber={4}>
-              Która z podanych opcji jest poprawna?
-            </StepDescription>
+            <StepDescription stepNumber={4}>Która z podanych opcji jest poprawna?</StepDescription>
             <ChoiceQuestion
               question="Wybierz właściwą odpowiedź:"
               choices={[
-                { label: "A. \\ m = 2", value: "a" },
-                { label: "B. \\ m = -2", value: "b" },
-                { label: "C. \\ m = -2 - 2√2", value: "c" },
-                { label: "D. \\ m = 2 + 2√2", value: "d" },
+                { label: 'A. \\ m = 2', value: 'a' },
+                { label: 'B. \\ m = -2', value: 'b' },
+                { label: 'C. \\ m = -2 - 2√2', value: 'c' },
+                { label: 'D. \\ m = 2 + 2√2', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Jedynym poprawnym rozwiązaniem jest $$m = 2$$"
@@ -120,12 +117,14 @@ const Page = () => {
           <StudentNotes
             equation="\text{Proste k i l są równoległe} \\ k: y = m^2 x + 3 \\ l:y=(4m-4)x-3"
             steps={[
-              { step: "\\text{Warunek równoległości: współczynniki kierunkowe równe } a_{1}=a_{2}" },
-              { step: "m^2 = 4m - 4" },
-              { step: "m^2 - 4m + 4 = 0" },
-              { step: "Δ = 0 \\Rightarrow m = 2" },
+              {
+                step: '\\text{Warunek równoległości: współczynniki kierunkowe równe } a_{1}=a_{2}',
+              },
+              { step: 'm^2 = 4m - 4' },
+              { step: 'm^2 - 4m + 4 = 0' },
+              { step: 'Δ = 0 \\Rightarrow m = 2' },
             ]}
-            solutions={["m = 2 \\text{ (Odpowiedź A)}"]}
+            solutions={['m = 2 \\text{ (Odpowiedź A)}']}
           />
         )}
       </div>

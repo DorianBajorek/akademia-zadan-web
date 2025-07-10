@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,17 +32,15 @@ const Page = () => {
               question="Które rozbicie równania jest poprawne?"
               choices={[
                 {
-                  label:
-                    "\\frac{1}{2}x + 1 = 3 \\ , \\ \\frac{1}{2}x - 1 = -3",
-                  value: "a",
+                  label: '\\frac{1}{2}x + 1 = 3 \\ , \\ \\frac{1}{2}x - 1 = -3',
+                  value: 'a',
                 },
                 {
-                  label:
-                    "\\frac{1}{2}x - 1 = 3 \\ , \\ \\frac{1}{2}x - 1 = -3",
-                  value: "b",
+                  label: '\\frac{1}{2}x - 1 = 3 \\ , \\ \\frac{1}{2}x - 1 = -3',
+                  value: 'b',
                 },
-                { label: "\\frac{1}{2}x - 1 = 3", value: "c" },
-                { label: "\\frac{1}{2}x - 1 = -3", value: "d" },
+                { label: '\\frac{1}{2}x - 1 = 3', value: 'c' },
+                { label: '\\frac{1}{2}x - 1 = -3', value: 'd' },
               ]}
               correctAnswer="b"
               explanation={`Równanie z wartością bezwzględną $$|\\frac{1}{2}x - 1| = 3$$ 
@@ -56,9 +54,7 @@ $$\\frac{1}{2}x - 1 = 3$$ lub $$\\frac{1}{2}x - 1 = -3$$.`}
 
         {completedStages.includes(1) && (
           <>
-            <StepDescription stepNumber={2}>
-              Rozwiąż pierwsze równanie.
-            </StepDescription>
+            <StepDescription stepNumber={2}>Rozwiąż pierwsze równanie.</StepDescription>
             <NumericQuestion
               question="Jakie jest rozwiązanie równania $$\frac{1}{2}x - 1 = 3$$?"
               correctAnswer="8"
@@ -75,9 +71,7 @@ $$x = 8$$.`}
 
         {completedStages.includes(2) && (
           <>
-            <StepDescription stepNumber={3}>
-              Rozwiąż drugie równanie.
-            </StepDescription>
+            <StepDescription stepNumber={3}>Rozwiąż drugie równanie.</StepDescription>
             <NumericQuestion
               question="Jakie jest rozwiązanie równania $$\frac{1}{2}x - 1 = -3$$?"
               correctAnswer="-4"
@@ -100,10 +94,10 @@ $$x = -4$$.`}
             <ChoiceQuestion
               question="Który zbiór jest rozwiązaniem równania $$|\frac{1}{2}x - 1|= 3$$?"
               choices={[
-                { label: "x ∈ ∅", value: "a" },
-                { label: "x = -4", value: "b" },
-                { label: "x ∈ ℝ", value: "c" },
-                { label: "x = -4 \\ \\ x = 8", value: "d" },
+                { label: 'x ∈ ∅', value: 'a' },
+                { label: 'x = -4', value: 'b' },
+                { label: 'x ∈ ℝ', value: 'c' },
+                { label: 'x = -4 \\ \\ x = 8', value: 'd' },
               ]}
               correctAnswer="d"
               explanation={`Rozwiązaniem równania $$|\\frac{1}{2}x - 1|= 3$$ są dwie liczby:
@@ -118,14 +112,14 @@ $$x=-4$$ oraz $$x=8$$.`}
             equation="|\frac{1}{2}x - 1|= 3"
             steps={[
               {
-                step: "\\frac{1}{2}x - 1 = 3 \\ \\text{lub} \\ \\frac{1}{2}x - 1 = -3",
+                step: '\\frac{1}{2}x - 1 = 3 \\ \\text{lub} \\ \\frac{1}{2}x - 1 = -3',
               },
               {
-                step: "\\frac{1}{2}x = 4 \\ \\text{lub} \\ \\frac{1}{2}x = -2",
+                step: '\\frac{1}{2}x = 4 \\ \\text{lub} \\ \\frac{1}{2}x = -2',
               },
-              { step: "x = 8 \\ \\ \\text{lub} \\ \\ x = -4" },
+              { step: 'x = 8 \\ \\ \\text{lub} \\ \\ x = -4' },
             ]}
-            solutions={["x \\in \\{-4, 8\\}"]}
+            solutions={['x \\in \\{-4, 8\\}']}
           />
         )}
       </div>

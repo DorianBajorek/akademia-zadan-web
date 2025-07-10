@@ -1,19 +1,17 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) =>
-      prev.includes(stage) ? prev : [...prev, stage]
-    );
+    setCompletedStages((prev) => (prev.includes(stage) ? prev : [...prev, stage]));
   };
 
   const resetLesson = () => {
@@ -38,10 +36,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaki jest najmniejszy wspólny mianownik?"
                 choices={[
-                  { label: "6", value: "a" },
-                  { label: "12", value: "b" },
-                  { label: "3", value: "c" },
-                  { label: "2", value: "d" }
+                  { label: '6', value: 'a' },
+                  { label: '12', value: 'b' },
+                  { label: '3', value: 'c' },
+                  { label: '2', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Liczba $$6$$ jest najmniejszą liczbą podzielną przez $$2$$, $$3$$ i $$6$$."
@@ -58,10 +56,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak wygląda nierówność po pomnożeniu przez 6?"
                 choices={[
-                  { label: "2x + 3 < 4x - 2", value: "a" },
-                  { label: "6x + 6 < 12x - 6", value: "b" },
-                  { label: "3x + 2 < 4x - 1", value: "c" },
-                  { label: "x + 2 < 2x + 1", value: "d" }
+                  { label: '2x + 3 < 4x - 2', value: 'a' },
+                  { label: '6x + 6 < 12x - 6', value: 'b' },
+                  { label: '3x + 2 < 4x - 1', value: 'c' },
+                  { label: 'x + 2 < 2x + 1', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Obliczenia:<br>
@@ -83,10 +81,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "3x - 4x < -1 - 2", value: "a" },
-                  { label: "3x + 4x < -1 + 2", value: "b" },
-                  { label: "-3x - 4x < 1 - 2", value: "c" },
-                  { label: "3x - 4x < 1 + 2", value: "d" }
+                  { label: '3x - 4x < -1 - 2', value: 'a' },
+                  { label: '3x + 4x < -1 + 2', value: 'b' },
+                  { label: '-3x - 4x < 1 - 2', value: 'c' },
+                  { label: '3x - 4x < 1 + 2', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Przenosimy $$4x$$ na lewo: $$3x - 4x$$ i $$2$$ na prawo: $$-1 - 2$$."
@@ -97,16 +95,14 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <>
-              <StepDescription stepNumber={4}>
-                Uprość obie strony nierówności.
-              </StepDescription>
+              <StepDescription stepNumber={4}>Uprość obie strony nierówności.</StepDescription>
               <ChoiceQuestion
                 question="Jak wygląda uproszczona nierówność?"
                 choices={[
-                  { label: "x < 3", value: "a" },
-                  { label: "7x < 1", value: "b" },
-                  { label: "-7x < -1", value: "c" },
-                  { label: "-x < -3", value: "d" }
+                  { label: 'x < 3', value: 'a' },
+                  { label: '7x < 1', value: 'b' },
+                  { label: '-7x < -1', value: 'c' },
+                  { label: '-x < -3', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Po uproszczeniu: $$3x - 4x = -x$$ i $$-1 - 2 = -3$$ $$\Rightarrow$$ $$-x < -3$$"
@@ -123,10 +119,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie jest ostateczne rozwiązanie?"
                 choices={[
-                  { label: "x > 3", value: "a" },
-                  { label: "x < 3", value: "b" },
-                  { label: "x > -3", value: "c" },
-                  { label: "x < -3", value: "d" }
+                  { label: 'x > 3', value: 'a' },
+                  { label: 'x < 3', value: 'b' },
+                  { label: 'x > -3', value: 'c' },
+                  { label: 'x < -3', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Mnożymy obie strony przez $$-1$$:<br>
@@ -142,15 +138,15 @@ const Page = () => {
               <StudentNotes
                 equation="\frac{1}{2}x + \frac{1}{3} < \frac{2}{3}x - \frac{1}{6}"
                 steps={[
-                  { step: "\\cdot 6: 3x + 2 < 4x - 1" },
-                  { step: "3x - 4x < -1 - 2" },
-                  { step: "-x < -3" },
+                  { step: '\\cdot 6: 3x + 2 < 4x - 1' },
+                  { step: '3x - 4x < -1 - 2' },
+                  { step: '-x < -3' },
                   {
-                    step: "x > 3",
-                    image: "/steps-images/nierownosc-liniowa3.png",
+                    step: 'x > 3',
+                    image: '/steps-images/nierownosc-liniowa3.png',
                   },
                 ]}
-                solutions={["x \\in (3, \\infty)"]}
+                solutions={['x \\in (3, \\infty)']}
               />
 
               <button

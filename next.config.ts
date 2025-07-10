@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   eslint: {
@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/barometer-exam-selector",
-        destination: "/barometr-opis",
+        source: '/barometer-exam-selector',
+        destination: '/barometr-opis',
         permanent: true,
       },
     ];

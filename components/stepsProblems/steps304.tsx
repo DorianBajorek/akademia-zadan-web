@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,15 +32,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^{(\\sqrt{2})} = 2\\sqrt{2}", value: "a" },
-                  { label: "(\\sqrt{2})^x = 2\\sqrt{2}", value: "b" },
-                  { label: "\\sqrt{2} \\cdot x = 2\\sqrt{2}", value: "c" },
-                  { label: "\\sqrt{2} = (2\\sqrt{2})^x", value: "d" },
+                  { label: 'x^{(\\sqrt{2})} = 2\\sqrt{2}', value: 'a' },
+                  { label: '(\\sqrt{2})^x = 2\\sqrt{2}', value: 'b' },
+                  { label: '\\sqrt{2} \\cdot x = 2\\sqrt{2}', value: 'c' },
+                  { label: '\\sqrt{2} = (2\\sqrt{2})^x', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Z definicji logarytmu wiemy, że $$\log_{\sqrt{2}} (2\sqrt{2}) = x$$ oznacza $$(\sqrt{2})^x = 2\sqrt{2}$$."
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/definicjaLogarytmu.png"}
+                img={'/steps-images/definicjaLogarytmu.png'}
               />
             </div>
           )}
@@ -53,10 +53,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "2^{\\frac{x}{2}} = 2^{\\frac{3}{2}}", value: "a" },
-                  { label: "2^{\\frac{x}{2}} = 2^1", value: "b" },
-                  { label: "2^{x} = 2^{3}", value: "c" },
-                  { label: "2^{\\frac{1}{2}} = 2^{\\frac{x}{2}}", value: "d" },
+                  { label: '2^{\\frac{x}{2}} = 2^{\\frac{3}{2}}', value: 'a' },
+                  { label: '2^{\\frac{x}{2}} = 2^1', value: 'b' },
+                  { label: '2^{x} = 2^{3}', value: 'c' },
+                  { label: '2^{\\frac{1}{2}} = 2^{\\frac{x}{2}}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`Poprawne przekształcenie to $$2^{\\frac{x}{2}} = 2^{\\frac{3}{2}}$$. <br>
@@ -76,10 +76,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie wynika z porównania wykładników?"
                 choices={[
-                  { label: "x = 3", value: "a" },
-                  { label: "\\frac{x}{2} = 1", value: "b" },
-                  { label: "x = \\frac{1}{2}", value: "c" },
-                  { label: "\\frac{x}{2} = \\frac{3}{2}", value: "d" },
+                  { label: 'x = 3', value: 'a' },
+                  { label: '\\frac{x}{2} = 1', value: 'b' },
+                  { label: 'x = \\frac{1}{2}', value: 'c' },
+                  { label: '\\frac{x}{2} = \\frac{3}{2}', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Poprawne równanie to $$\frac{x}{2} = \frac{3}{2}$$. <br>
@@ -91,9 +91,7 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Rozwiąż równanie liniowe
-              </StepDescription>
+              <StepDescription stepNumber={4}>Rozwiąż równanie liniowe</StepDescription>
               <NumericQuestion
                 question="Jaka jest wartość x?"
                 correctAnswer="3"
@@ -111,25 +109,25 @@ const Page = () => {
                 equation="\log_{\sqrt{2}} (2\sqrt{2})"
                 steps={[
                   {
-                    step: "\\log_{\\sqrt{2}} (2\\sqrt{2}) = x \\Rightarrow (\\sqrt{2})^x = 2\\sqrt{2}",
+                    step: '\\log_{\\sqrt{2}} (2\\sqrt{2}) = x \\Rightarrow (\\sqrt{2})^x = 2\\sqrt{2}',
                   },
                   {
-                    step: "\\sqrt{2} = 2^{\\frac{1}{2}} \\text{ i } 2\\sqrt{2} = 2^{\\frac{3}{2}}",
+                    step: '\\sqrt{2} = 2^{\\frac{1}{2}} \\text{ i } 2\\sqrt{2} = 2^{\\frac{3}{2}}',
                   },
                   {
-                    step: "(2^{\\frac{1}{2}})^x = 2^{\\frac{3}{2}}",
+                    step: '(2^{\\frac{1}{2}})^x = 2^{\\frac{3}{2}}',
                   },
                   {
-                    step: "2^{\\frac{x}{2}} = 2^{\\frac{3}{2}} ",
+                    step: '2^{\\frac{x}{2}} = 2^{\\frac{3}{2}} ',
                   },
                   {
-                    step: "\\frac{x}{2} = \\frac{3}{2}",
+                    step: '\\frac{x}{2} = \\frac{3}{2}',
                   },
                   {
-                    step: "x = 3",
-                  }
+                    step: 'x = 3',
+                  },
                 ]}
-                solutions={["x = 3"]}
+                solutions={['x = 3']}
               />
             </div>
           )}

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -25,16 +25,14 @@ const Page = () => {
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozłóż liczbę 104 na czynniki pierwsze.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Rozłóż liczbę 104 na czynniki pierwsze.</p>
             <ChoiceQuestion
               question="Jaki jest poprawny rozkład liczby 104 na czynniki pierwsze?"
               choices={[
-                { label: "104 = 2 \\cdot 2 \\cdot 2 \\cdot 13", value: "a" },
-                { label: "104 = 2 \\cdot 2 \\cdot 13", value: "b" },
-                { label: "104 = 2 \\cdot 52", value: "c" },
-                { label: "104 = 4 \\cdot 26", value: "d" },
+                { label: '104 = 2 \\cdot 2 \\cdot 2 \\cdot 13', value: 'a' },
+                { label: '104 = 2 \\cdot 2 \\cdot 13', value: 'b' },
+                { label: '104 = 2 \\cdot 52', value: 'c' },
+                { label: '104 = 4 \\cdot 26', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawny rozkład liczby $$104$$ to: <br>
@@ -48,15 +46,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Połącz czynniki odpowiadające pierwiastkowi trzeciego stopnia i wyciągnij idealny sześcian.
+              Połącz czynniki odpowiadające pierwiastkowi trzeciego stopnia i wyciągnij idealny
+              sześcian.
             </p>
             <ChoiceQuestion
               question="Które przedstawienie pierwiastka jest poprawne?"
               choices={[
-                { label: "\\sqrt[3]{13}", value: "a" },
-                { label: "2\\sqrt[3]{13}", value: "b" },
-                { label: "4\\sqrt[3]{13}", value: "c" },
-                { label: "8\\sqrt[3]{13}", value: "d" },
+                { label: '\\sqrt[3]{13}', value: 'a' },
+                { label: '2\\sqrt[3]{13}', value: 'b' },
+                { label: '4\\sqrt[3]{13}', value: 'c' },
+                { label: '8\\sqrt[3]{13}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation={`Podczas gdy liczymy pierwiastek stopnia trzeciegiego łączymy w grupę o rozmiarze trzy te same liczby. Jedna grupa istnieje tylko w naszym przypadku i jej reprezentant jest przed pierwiastkiem. To co nie zostało sprowane zostaje pod pierwiastkiem. W naszym przypadku jest to 13`}
@@ -71,10 +70,10 @@ const Page = () => {
             equation="\sqrt[3]{104}"
             steps={[
               {
-                step: "\\sqrt[3]{104} = \\sqrt[3]{2 \\cdot 2 \\cdot 2 \\cdot 13} = 2\\sqrt[3]{13}",
+                step: '\\sqrt[3]{104} = \\sqrt[3]{2 \\cdot 2 \\cdot 2 \\cdot 13} = 2\\sqrt[3]{13}',
               },
             ]}
-            solutions={["2\\sqrt[3]{13}"]}
+            solutions={['2\\sqrt[3]{13}']}
           />
         )}
       </div>

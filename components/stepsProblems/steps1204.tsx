@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -16,12 +16,14 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Usuwanie niewymierności z mianownika</h2>
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
+          Usuwanie niewymierności z mianownika
+        </h2>
         <p className="text-lg text-gray-800">Usuń niewymierność z mianownika:</p>
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
           <InlineMath math="\frac{2}{\sqrt{2}}" />
         </p>
-        
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -30,10 +32,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaką metodę należy zastosować do usunięcia niewymierności z mianownika?"
               choices={[
-                { label: "\\text{Mnożymy licznik i mianownik przez} \\sqrt{2}", value: "a" },
-                { label: "\\text{Mnożymy tylko licznik przez} \\sqrt{2}", value: "b" },
-                { label: "\\text{Mnożymy licznik i mianownik przez} 2", value: "c" },
-                { label: "\\text{Dzielimy licznik przez mianownik}", value: "d" },
+                { label: '\\text{Mnożymy licznik i mianownik przez} \\sqrt{2}', value: 'a' },
+                { label: '\\text{Mnożymy tylko licznik przez} \\sqrt{2}', value: 'b' },
+                { label: '\\text{Mnożymy licznik i mianownik przez} 2', value: 'c' },
+                { label: '\\text{Dzielimy licznik przez mianownik}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Aby usunąć niewymierność z mianownika, należy pomnożyć zarówno licznik jak i mianownik przez \\sqrt{2}. 
@@ -43,7 +45,7 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -52,10 +54,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które wyrażenie jest wynikiem poprawnego mnożenia?"
               choices={[
-                { label: "\\frac{2 \\cdot \\sqrt{2}}{2}", value: "a" },
-                { label: "\\frac{2}{2}", value: "b" },
-                { label: "\\frac{2 \\cdot \\sqrt{2}}{\\sqrt{2} \\cdot \\sqrt{2}}", value: "c" },
-                { label: "\\frac{2}{\\sqrt{2} \\cdot \\sqrt{2}}", value: "d" },
+                { label: '\\frac{2 \\cdot \\sqrt{2}}{2}', value: 'a' },
+                { label: '\\frac{2}{2}', value: 'b' },
+                { label: '\\frac{2 \\cdot \\sqrt{2}}{\\sqrt{2} \\cdot \\sqrt{2}}', value: 'c' },
+                { label: '\\frac{2}{\\sqrt{2} \\cdot \\sqrt{2}}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawnie wykonane mnożenie daje:
@@ -69,9 +71,7 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Oblicz wartość mianownika po mnożeniu.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Oblicz wartość mianownika po mnożeniu.</p>
             <NumericQuestion
               question="Jaka jest wartość mianownika $$\sqrt{2} · \sqrt{2}$$?"
               correctAnswer="2"
@@ -92,10 +92,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które wyrażenie jest poprawnym wynikiem końcowym?"
               choices={[
-                { label: "\\frac{2}{2} = 1", value: "a" },
-                { label: "\\frac{2\\sqrt{2}}{2} = \\sqrt{2}", value: "b" },
-                { label: "2\\sqrt{2}", value: "c" },
-                { label: "\\frac{\\sqrt{2}}{2}", value: "d" }
+                { label: '\\frac{2}{2} = 1', value: 'a' },
+                { label: '\\frac{2\\sqrt{2}}{2} = \\sqrt{2}', value: 'b' },
+                { label: '2\\sqrt{2}', value: 'c' },
+                { label: '\\frac{\\sqrt{2}}{2}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Ostateczny wynik po usunięciu niewymierności to:
@@ -114,10 +114,10 @@ const Page = () => {
             equation="\frac{2}{\sqrt{2}}"
             steps={[
               {
-                step: "\\frac{2}{\\sqrt{2}} = \\frac{2 \\cdot \\sqrt{2}}{\\sqrt{2} \\cdot \\sqrt{2}} = \\frac{2\\sqrt{2}}{2} = \\sqrt{2}",
-              }
+                step: '\\frac{2}{\\sqrt{2}} = \\frac{2 \\cdot \\sqrt{2}}{\\sqrt{2} \\cdot \\sqrt{2}} = \\frac{2\\sqrt{2}}{2} = \\sqrt{2}',
+              },
             ]}
-            solutions={["\\sqrt{2}"]}
+            solutions={['\\sqrt{2}']}
           />
         )}
       </div>

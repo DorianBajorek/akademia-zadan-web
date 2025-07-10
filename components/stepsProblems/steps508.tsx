@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,10 +32,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest wartość wyrażenia podniesionego do potęgi 0?"
                 choices={[
-                  { label: "0", value: "a" },
-                  { label: "1", value: "b" },
-                  { label: "\\text{Nie da się określić}", value: "c" },
-                  { label: "2^{-1} \\cdot 3^1", value: "d" },
+                  { label: '0', value: 'a' },
+                  { label: '1', value: 'b' },
+                  { label: '\\text{Nie da się określić}', value: 'c' },
+                  { label: '2^{-1} \\cdot 3^1', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Każda liczba różna od zera podniesiona do potęgi 0 równa się 1. Zatem: 
@@ -52,10 +52,10 @@ const Page = () => {
                 equation="\left( \frac{2^{-2} \cdot 3^{-1}}{2^{-1} \cdot 3^{-2}} \right)^0"
                 steps={[
                   {
-                    step: "\\left( \\frac{2^{-2} \\cdot 3^{-1}}{2^{-1} \\cdot 3^{-2}} \\right)^0 = 1",
-                  }
+                    step: '\\left( \\frac{2^{-2} \\cdot 3^{-1}}{2^{-1} \\cdot 3^{-2}} \\right)^0 = 1',
+                  },
                 ]}
-                solutions={["1"]}
+                solutions={['1']}
               />
             </div>
           )}

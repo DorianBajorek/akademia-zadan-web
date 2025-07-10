@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Wybierz poprawny wzór ogólny na <InlineMath math="n"/>-ty wyraz ciągu arytmetycznego.
+              Wybierz poprawny wzór ogólny na <InlineMath math="n" />
+              -ty wyraz ciągu arytmetycznego.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wzór ogólny na $$n$$-ty wyraz ciągu arytmetycznego?"
               choices={[
-                { label: "a_n = a_1 + (n-1)r", value: "a" },
-                { label: "a_n = a_1 + nr", value: "b" },
-                { label: "a_n = a_1 \\cdot r^n", value: "c" },
-                { label: "a_n = a_1 + n", value: "d" },
+                { label: 'a_n = a_1 + (n-1)r', value: 'a' },
+                { label: 'a_n = a_1 + nr', value: 'b' },
+                { label: 'a_n = a_1 \\cdot r^n', value: 'c' },
+                { label: 'a_n = a_1 + n', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Wzór ogólny dla ciągu arytmetycznego to $$a_n = a_1 + (n-1)r$$."
@@ -55,10 +56,10 @@ const Page = () => {
               question="Podstaw dane: $$a_8 = 48$$, $$r = 2$$ i $$n=8$$. Oblicz i podaj wartość $$a_1$$."
               correctAnswer="34"
               explanation={
-                "$$a_8 = a_1 + 7r$$<br/>" +
-                "$$48 = a_1 + 7 \\cdot 2$$<br/>" +
-                "$$48 = a_1 + 14$$<br/>" +
-                "$$a_1 = 34$$"
+                '$$a_8 = a_1 + 7r$$<br/>' +
+                '$$48 = a_1 + 7 \\cdot 2$$<br/>' +
+                '$$48 = a_1 + 14$$<br/>' +
+                '$$a_1 = 34$$'
               }
               onComplete={() => handleStageComplete(2)}
             />
@@ -74,15 +75,13 @@ const Page = () => {
             <ChoiceQuestion
               question="Oblicz czwarty wyraz ciągu $$a_4$$."
               choices={[
-                { label: "a_4 = 34 + 8 \\cdot 2 = 50", value: "a" },
-                { label: "a_4 = 34 + 2 \\cdot 2 = 38", value: "b" },
-                { label: "a_4 = 34 + 4 \\cdot 2 = 42", value: "c" },
-                { label: "a_4 = 34 + 3 \\cdot 2 = 40", value: "d" },
+                { label: 'a_4 = 34 + 8 \\cdot 2 = 50', value: 'a' },
+                { label: 'a_4 = 34 + 2 \\cdot 2 = 38', value: 'b' },
+                { label: 'a_4 = 34 + 4 \\cdot 2 = 42', value: 'c' },
+                { label: 'a_4 = 34 + 3 \\cdot 2 = 40', value: 'd' },
               ]}
               correctAnswer="d"
-              explanation={
-                "$$a_4 = a_1 + 3r = 34 + 3 \\cdot 2 = 34 + 6 = 40$$."
-              }
+              explanation={'$$a_4 = a_1 + 3r = 34 + 3 \\cdot 2 = 34 + 6 = 40$$.'}
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -93,14 +92,12 @@ const Page = () => {
           <StudentNotes
             equation="a_n = a_1 + (n-1)r"
             steps={[
-              { step: "\\text{Z treści: } r = 2,\\; a_8 = 48" },
-              { step: "a_8 = a_1 + 7r" },
-              { step: "48 = a_1 + 14 \\implies a_1 = 34" },
-              { step: "a_4 = a_1 + 3r = 34 + 6 = 40" }
+              { step: '\\text{Z treści: } r = 2,\\; a_8 = 48' },
+              { step: 'a_8 = a_1 + 7r' },
+              { step: '48 = a_1 + 14 \\implies a_1 = 34' },
+              { step: 'a_4 = a_1 + 3r = 34 + 6 = 40' },
             ]}
-            solutions={[
-              "\\text{Czwarty wyraz ciągu to } a_4 = 40"
-            ]}
+            solutions={['\\text{Czwarty wyraz ciągu to } a_4 = 40']}
           />
         )}
       </div>

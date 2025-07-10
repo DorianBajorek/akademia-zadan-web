@@ -1,8 +1,8 @@
-"use client";
-import { InlineMath } from "react-katex";
-import { motion } from "framer-motion";
+'use client';
+import { InlineMath } from 'react-katex';
+import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
-import AIExplanation from "./AIExplantation";
+import AIExplanation from './AIExplantation';
 
 interface Question2Props {
   description: string;
@@ -15,11 +15,11 @@ interface Question2Props {
   selectedAnswer: string | null;
   onAnswerSelect: (answerIndex: number) => void;
   isCorrect?: boolean | null;
-  taskId?: number
+  taskId?: number;
 }
 
-const answerLabels = ["A", "B", "C", "D"];
-const letterMap = ["a", "b", "c", "d"];
+const answerLabels = ['A', 'B', 'C', 'D'];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const Question2: React.FC<Question2Props> = ({
   description,
@@ -32,7 +32,7 @@ const Question2: React.FC<Question2Props> = ({
   selectedAnswer,
   onAnswerSelect,
   isCorrect,
-  taskId
+  taskId,
 }) => {
   const answers = [choiceA, choiceB, choiceC, choiceD];
 
@@ -48,7 +48,7 @@ const Question2: React.FC<Question2Props> = ({
   };
 
   const isImage = (text: string) => {
-    return /\.(jpeg|jpg|gif|png|webp|svg)$/.test(text) || text.startsWith("http");
+    return /\.(jpeg|jpg|gif|png|webp|svg)$/.test(text) || text.startsWith('http');
   };
 
   const renderAnswerContent = (text: string) => {
@@ -61,13 +61,13 @@ const Question2: React.FC<Question2Props> = ({
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       className="bg-white p-6 rounded-2xl shadow-lg border-2 border-gray-100"
     >
-      <motion.h3 
+      <motion.h3
         className="text-xl font-medium text-gray-800 mb-6 leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -93,21 +93,21 @@ const Question2: React.FC<Question2Props> = ({
 
       <div className="space-y-4">
         {answers.map((answer, index) => {
-          let buttonStyle = "border-gray-200 hover:border-blue-300 bg-white hover:bg-blue-50";
+          let buttonStyle = 'border-gray-200 hover:border-blue-300 bg-white hover:bg-blue-50';
           const isSelected = selectedAnswer === letterMap[index];
           const isActuallyCorrect = index === correctAnswerIndex;
 
           if (isSelected) {
             buttonStyle =
               isCorrect === undefined || isCorrect === null
-                ? "border-blue-500 bg-blue-50 shadow-md"
+                ? 'border-blue-500 bg-blue-50 shadow-md'
                 : isCorrect
-                ? "border-emerald-500 bg-emerald-50 shadow-md"
-                : "border-rose-500 bg-rose-50 shadow-md";
+                  ? 'border-emerald-500 bg-emerald-50 shadow-md'
+                  : 'border-rose-500 bg-rose-50 shadow-md';
           }
 
           if (!isSelected && isCorrect === false && isActuallyCorrect) {
-            buttonStyle = "border-emerald-500 bg-emerald-50 shadow-md";
+            buttonStyle = 'border-emerald-500 bg-emerald-50 shadow-md';
           }
 
           return (
@@ -120,22 +120,22 @@ const Question2: React.FC<Question2Props> = ({
               whileTap={{ scale: isCorrect === null ? 0.98 : 1 }}
             >
               <div className="flex items-start">
-                <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-3 font-bold ${
-                  isSelected 
-                    ? isCorrect === true 
-                      ? "bg-emerald-500 text-white" 
-                      : isCorrect === false 
-                        ? "bg-rose-500 text-white" 
-                        : "bg-blue-500 text-white"
-                    : isCorrect === false && isActuallyCorrect
-                      ? "bg-emerald-500 text-white"
-                      : "bg-gray-100 text-gray-700"
-                }`}>
+                <span
+                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-3 font-bold ${
+                    isSelected
+                      ? isCorrect === true
+                        ? 'bg-emerald-500 text-white'
+                        : isCorrect === false
+                          ? 'bg-rose-500 text-white'
+                          : 'bg-blue-500 text-white'
+                      : isCorrect === false && isActuallyCorrect
+                        ? 'bg-emerald-500 text-white'
+                        : 'bg-gray-100 text-gray-700'
+                  }`}
+                >
                   {answerLabels[index]}
                 </span>
-                <div className="text-gray-700">
-                  {renderAnswerContent(answer)}
-                </div>
+                <div className="text-gray-700">{renderAnswerContent(answer)}</div>
               </div>
             </motion.button>
           );

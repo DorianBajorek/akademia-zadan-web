@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,10 +30,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Gdzie zaczyna się dziedzina funkcji na osi OX?"
                 choices={[
-                  { label: "x = -3", value: "a" },
-                  { label: "x = -2", value: "b" },
-                  { label: "x = -4", value: "c" },
-                  { label: "\\text{Funkcja jest określona dla wszystkich } x", value: "d" }
+                  { label: 'x = -3', value: 'a' },
+                  { label: 'x = -2', value: 'b' },
+                  { label: 'x = -4', value: 'c' },
+                  { label: '\\text{Funkcja jest określona dla wszystkich } x', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Wykres zaczyna się od punktu $$(-4, 0)$$ z otwartym kółkiem, co oznacza że $$x = -4$$ nie należy do dziedziny. Będziemy ten punkt traktować jako lewą granicę dziedziny ale z otwartym nawiasem."
@@ -42,7 +42,7 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
@@ -51,10 +51,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Gdzie kończy się dziedzina funkcji na osi OX?"
                 choices={[
-                  { label: "x = 0", value: "a" },
-                  { label: "x = 3", value: "b" },
-                  { label: "x = 4", value: "c" },
-                  { label: "\\text{Funkcja jest określona dla wszystkich } x", value: "d" }
+                  { label: 'x = 0', value: 'a' },
+                  { label: 'x = 3', value: 'b' },
+                  { label: 'x = 4', value: 'c' },
+                  { label: '\\text{Funkcja jest określona dla wszystkich } x', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Wykres kończy się w punkcie $$(3, 0)$$ z zamkniętym kółkiem, co oznacza że $$x = 3$$ należy do dziedziny. Miejsce to będziemy traktować jako prawą granicę dziedziny z zamkniętym nawiasem."
@@ -72,10 +72,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który zapis poprawnie opisuje dziedzinę funkcji f?"
                 choices={[
-                  { label: "D = ⟨-3, -1⟩ ∪ (1, 3)", value: "a" },
-                  { label: "D = (-4, 3⟩", value: "b" },
-                  { label: "D = (0; 4⟩", value: "c" },
-                  { label: "D = ⟨-4, 3⟩", value: "d" }
+                  { label: 'D = ⟨-3, -1⟩ ∪ (1, 3)', value: 'a' },
+                  { label: 'D = (-4, 3⟩', value: 'b' },
+                  { label: 'D = (0; 4⟩', value: 'c' },
+                  { label: 'D = ⟨-4, 3⟩', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Dziedzina funkcji to zbiór wszystkich argumentów, dla których funkcja jest określona. W tym przypadku obejmuje wartości od $$-4$$ (bez $$-4$$, otwarty nawias) do $$3$$ (z $$3$$, zamknięty nawias). Ostateczny zapis to $$D = (-4, 3⟩$$."
@@ -83,16 +83,16 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.length === 3 && (
             <div className="mt-8">
               <StudentNotes
                 equation=""
                 steps={[
-                  { step: "\\text{Lewa granica: } x = -4 \\text{ (otwarty nawias)}" },
-                  { step: "\\text{Prawa granica: } x = 3 \\text{ (zamknięty nawias)}" }
+                  { step: '\\text{Lewa granica: } x = -4 \\text{ (otwarty nawias)}' },
+                  { step: '\\text{Prawa granica: } x = 3 \\text{ (zamknięty nawias)}' },
                 ]}
-                solutions={["D = (-4, 3⟩"]}
+                solutions={['D = (-4, 3⟩']}
               />
             </div>
           )}

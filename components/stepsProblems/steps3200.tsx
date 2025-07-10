@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zastanów się, czym jest suma jednego i dwóch początkowych wyrazów ciągu geometrycznego.
+              Zastanów się, czym jest suma jednego i dwóch początkowych wyrazów ciągu
+              geometrycznego.
             </StepDescription>
             <ChoiceQuestion
               question="Jakie równania zapiszesz korzystając z $$S_1$$ i $$S_2$$?"
               choices={[
-                { label: "S_1 = a_1 + a_1 q, S_2 = a_1", value: "a" },
-                { label: "S_1 = a_1 q, S_2 = a_1 + q^2", value: "b" },
-                { label: "S_1 = a_1 + q, S_2 = a_1 q^2", value: "c" },
-                { label: "S_1 = a_1, S_2 = a_1 + a_1 q", value: "d" },
+                { label: 'S_1 = a_1 + a_1 q, S_2 = a_1', value: 'a' },
+                { label: 'S_1 = a_1 q, S_2 = a_1 + q^2', value: 'b' },
+                { label: 'S_1 = a_1 + q, S_2 = a_1 q^2', value: 'c' },
+                { label: 'S_1 = a_1, S_2 = a_1 + a_1 q', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Suma pierwszego wyrazu to $$S_1 = a_1$$, a suma dwóch pierwszych wyrazów to $$S_2 = a_1 + a_2 = a_1 + a_1 q$$."
@@ -47,15 +48,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Wykorzystaj fakt, że <InlineMath math="S_1 = a_1"/> i podstaw znane wartości do równania na <InlineMath math="S_2"/>.
+              Wykorzystaj fakt, że <InlineMath math="S_1 = a_1" /> i podstaw znane wartości do
+              równania na <InlineMath math="S_2" />.
             </StepDescription>
             <ChoiceQuestion
               question="Podstaw $$S_1 = a_1 = 2$$ i $$S_2 =a_1 + a_1 q = 12$$. Jaką postać ma równanie na $$q$$?"
               choices={[
-                { label: "q + 2q = 12", value: "a" },
-                { label: "2q - 2 = 12", value: "b" },
-                { label: "2 + 2q = 12", value: "c" },
-                { label: "2 + q = 12", value: "d" },
+                { label: 'q + 2q = 12', value: 'a' },
+                { label: '2q - 2 = 12', value: 'b' },
+                { label: '2 + 2q = 12', value: 'c' },
+                { label: '2 + q = 12', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Skoro $$S_1 = a_1 = 2$$, podstawiamy tę wartość do równania $$S_2 = a_1 + a_1 q$$. Otrzymujemy: $$12 = 2 + 2q$$."
@@ -68,15 +70,15 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Rozwiąż utworzone równanie, aby znaleźć wartość ilorazu <InlineMath math="q"/>.
+              Rozwiąż utworzone równanie, aby znaleźć wartość ilorazu <InlineMath math="q" />.
             </StepDescription>
             <ChoiceQuestion
               question="Rozwiąż równanie $$2 + 2q = 12$$. Ile wynosi $$q$$?"
               choices={[
-                { label: "q = 5", value: "a" },
-                { label: "q = 6", value: "b" },
-                { label: "q = 10", value: "c" },
-                { label: "q = 12", value: "d" },
+                { label: 'q = 5', value: 'a' },
+                { label: 'q = 6', value: 'b' },
+                { label: 'q = 10', value: 'c' },
+                { label: 'q = 12', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="$$2 + 2q = 12$$<br/>$$2q = 10 \implies q = 5$$"
@@ -89,15 +91,16 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Użyj wzoru na <InlineMath math="n"/>-ty wyraz ciągu geometrycznego, aby obliczyć <InlineMath math="a_5"/>.
+              Użyj wzoru na <InlineMath math="n" />
+              -ty wyraz ciągu geometrycznego, aby obliczyć <InlineMath math="a_5" />.
             </StepDescription>
             <ChoiceQuestion
               question="Oblicz piąty wyraz ciągu $$a_5$$."
               choices={[
-                { label: "a_5 = 2 \\cdot 5^4 = 250", value: "a" },
-                { label: "a_5 = 2 \\cdot 5^4 = 625", value: "b" },
-                { label: "a_5 = 2 \\cdot 5^4 = 1250", value: "c" },
-                { label: "a_5 = 2 \\cdot 5^4 = 3125", value: "d" },
+                { label: 'a_5 = 2 \\cdot 5^4 = 250', value: 'a' },
+                { label: 'a_5 = 2 \\cdot 5^4 = 625', value: 'b' },
+                { label: 'a_5 = 2 \\cdot 5^4 = 1250', value: 'c' },
+                { label: 'a_5 = 2 \\cdot 5^4 = 3125', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="$$a_5 = a_1 q^{4} = 2 \cdot 5^4 = 2 \cdot 625 = 1250$$"
@@ -111,15 +114,13 @@ const Page = () => {
           <StudentNotes
             equation="a_n = a_1 q^{n-1}"
             steps={[
-              { step: "S_1 = a_1 = 2" },
-              { step: "S_2 = a_1 + a_1 q = 12" },
-              { step: "2 + 2q = 12" },
-              { step: "2q = 10 \\implies q = 5" },
-              { step: "a_5 = a_1 q^4 = 2 \\cdot 5^4 = 2 \\cdot 625 = 1250" },
+              { step: 'S_1 = a_1 = 2' },
+              { step: 'S_2 = a_1 + a_1 q = 12' },
+              { step: '2 + 2q = 12' },
+              { step: '2q = 10 \\implies q = 5' },
+              { step: 'a_5 = a_1 q^4 = 2 \\cdot 5^4 = 2 \\cdot 625 = 1250' },
             ]}
-            solutions={[
-              "\\text{Iloraz } q = 5,\\quad a_5 = 1250"
-            ]}
+            solutions={['\\text{Iloraz } q = 5,\\quad a_5 = 1250']}
           />
         )}
       </div>

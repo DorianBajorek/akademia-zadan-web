@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -33,10 +33,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Która postać nierówności jest poprawna po przekształceniu?"
                 choices={[
-                  { label: "x² + 2x + 3 < 0", value: "a" },
-                  { label: "x² + 2x - 3 < 0", value: "b" },
-                  { label: "x² - 2x + 3 < 0", value: "c" },
-                  { label: "x² - 2x - 3 < 0", value: "d" }
+                  { label: 'x² + 2x + 3 < 0', value: 'a' },
+                  { label: 'x² + 2x - 3 < 0', value: 'b' },
+                  { label: 'x² - 2x + 3 < 0', value: 'c' },
+                  { label: 'x² - 2x - 3 < 0', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Przekształcenie krok po kroku: <br>
@@ -57,10 +57,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 1, b = 2, c = 3", value: "a" },
-                  { label: "a = 1, b = -2, c = 3", value: "b" },
-                  { label: "a = 1, b = 2, c = -3", value: "c" },
-                  { label: "a = 1, b = -2, c = -3", value: "d" }
+                  { label: 'a = 1, b = 2, c = 3', value: 'a' },
+                  { label: 'a = 1, b = -2, c = 3', value: 'b' },
+                  { label: 'a = 1, b = 2, c = -3', value: 'c' },
+                  { label: 'a = 1, b = -2, c = -3', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Dla nierówności $$x^2 + 2x + 3 < 0$$: <br>
@@ -93,16 +93,14 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Określ rozwiązanie nierówności.
-              </StepDescription>
+              <StepDescription stepNumber={4}>Określ rozwiązanie nierówności.</StepDescription>
               <ChoiceQuestion
                 question="Określ rozwiązanie nierówności $$x^2 + 2x + 3 < 0$$?"
                 choices={[
-                  { label: "x = -8", value: "a" },
-                  { label: "x ∈ (-8;8)", value: "b" },
-                  { label: "x ∈ ℝ", value: "c" },
-                  { label: "x ∈ ∅", value: "d" }
+                  { label: 'x = -8', value: 'a' },
+                  { label: 'x ∈ (-8;8)', value: 'b' },
+                  { label: 'x ∈ ℝ', value: 'c' },
+                  { label: 'x ∈ ∅', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Rozwiązanie: <br>
@@ -121,12 +119,12 @@ const Page = () => {
               <StudentNotes
                 equation="(x+1)^2 + 2 < 0"
                 steps={[
-                  { step: "x² + 2x + 1 + 2 < 0" },
-                  { step: "x² + 2x + 3 < 0" },
-                  { step: "a = 1, b = 2, c = 3" },
-                  { step: "Δ = 2² - 4·1·3 = -8" },
+                  { step: 'x² + 2x + 1 + 2 < 0' },
+                  { step: 'x² + 2x + 3 < 0' },
+                  { step: 'a = 1, b = 2, c = 3' },
+                  { step: 'Δ = 2² - 4·1·3 = -8' },
                 ]}
-                solutions={["x ∈ ∅"]}
+                solutions={['x ∈ ∅']}
               />
             </div>
           )}

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,10 +28,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^2(5x + 6) + 2(5x + 6) = 0", value: "a" },
-                { label: "x^2(5x + 6) - 2(5x + 6) = 0", value: "b" },
-                { label: "x^2(5x - 6) + 2(5x - 6) = 0", value: "c" },
-                { label: "x^2(5x - 6) - 2(5x - 6) = 0", value: "d" }
+                { label: 'x^2(5x + 6) + 2(5x + 6) = 0', value: 'a' },
+                { label: 'x^2(5x + 6) - 2(5x + 6) = 0', value: 'b' },
+                { label: 'x^2(5x - 6) + 2(5x - 6) = 0', value: 'c' },
+                { label: 'x^2(5x - 6) - 2(5x - 6) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$x^2(5x + 6) + 2(5x + 6) = 0$$. 
@@ -42,16 +42,14 @@ const Page = () => {
         )}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Zaznacz poprawną postać po pogrupowaniu:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Zaznacz poprawną postać po pogrupowaniu:</p>
             <ChoiceQuestion
               question="Która postać jest poprawna po pogrupowaniu?"
               choices={[
-                { label: "(5x + 6)(x^2 + 2) = 0", value: "a" },
-                { label: "(5x + 6)(x^2 - 2) = 0", value: "b" },
-                { label: "(5x - 6)(x^2 + 2) = 0", value: "c" },
-                { label: "(5x - 6)(x^2 - 2) = 0", value: "d" }
+                { label: '(5x + 6)(x^2 + 2) = 0', value: 'a' },
+                { label: '(5x + 6)(x^2 - 2) = 0', value: 'b' },
+                { label: '(5x - 6)(x^2 + 2) = 0', value: 'c' },
+                { label: '(5x - 6)(x^2 - 2) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawna postać po pogrupowaniu to $$(5x + 6)(x^2 + 2) = 0$$. 
@@ -62,16 +60,14 @@ const Page = () => {
         )}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie całkowicie.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Rozwiąż równanie całkowicie.</p>
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne dla całego równania?"
               choices={[
-                { label: "x = -\\frac{6}{5}, x = \\sqrt{2}, x = -\\sqrt{2}", value: "a" },
-                { label: "x = -\\frac{6}{5}", value: "b" },
-                { label: "x = -\\frac{6}{5}, x = \\sqrt{2}", value: "c" },
-                { label: "x = \\sqrt{2}, x = -\\sqrt{2}", value: "d" }
+                { label: 'x = -\\frac{6}{5}, x = \\sqrt{2}, x = -\\sqrt{2}', value: 'a' },
+                { label: 'x = -\\frac{6}{5}', value: 'b' },
+                { label: 'x = -\\frac{6}{5}, x = \\sqrt{2}', value: 'c' },
+                { label: 'x = \\sqrt{2}, x = -\\sqrt{2}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawne rozwiązanie to $$x = -\frac{6}{5}$$. <br>
@@ -84,32 +80,32 @@ const Page = () => {
           </>
         )}
         {completedStages.length === 3 && (
-        <StudentNotes
+          <StudentNotes
             equation="x^3 - 3x^2 - 4x + 12 = 0"
             steps={[
-            {
-                step: "x^2(x - 3) - 4(x - 3) = 0",
-                explanation: "",
-            },
-            {
-                step: "(x - 3)(x^2 - 4) = 0",
-                explanation: "",
-            },
-            {
-                step: "x - 3 = 0 \\quad \\text{lub} \\quad x^2 - 4 = 0",
-                explanation: "",
-            },
-            {
-                step: "x - 3 = 0 \\Rightarrow x = 3",
-                explanation: "",
-            },
-            {
-                step: "x^2 - 4 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\quad \\text{lub} \\quad x = -2",
-                explanation: "",
-            },
+              {
+                step: 'x^2(x - 3) - 4(x - 3) = 0',
+                explanation: '',
+              },
+              {
+                step: '(x - 3)(x^2 - 4) = 0',
+                explanation: '',
+              },
+              {
+                step: 'x - 3 = 0 \\quad \\text{lub} \\quad x^2 - 4 = 0',
+                explanation: '',
+              },
+              {
+                step: 'x - 3 = 0 \\Rightarrow x = 3',
+                explanation: '',
+              },
+              {
+                step: 'x^2 - 4 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\quad \\text{lub} \\quad x = -2',
+                explanation: '',
+              },
             ]}
-            solutions={["x = 3", "x = 2", "x = -2"]}
-        />
+            solutions={['x = 3', 'x = 2', 'x = -2']}
+          />
         )}
       </div>
     </div>

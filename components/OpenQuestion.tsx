@@ -1,8 +1,8 @@
-"use client";
-import { InlineMath } from "react-katex";
-import { motion } from "framer-motion";
+'use client';
+import { InlineMath } from 'react-katex';
+import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
-import { useState } from "react";
+import { useState } from 'react';
 
 interface OpenQuestionProps {
   description: string;
@@ -10,21 +10,19 @@ interface OpenQuestionProps {
   solution: string;
 }
 
-const OpenQuestion: React.FC<OpenQuestionProps> = ({
-  description,
-  descriptionImg,
-  solution
-}) => {
+const OpenQuestion: React.FC<OpenQuestionProps> = ({ description, descriptionImg, solution }) => {
   const [showSolution, setShowSolution] = useState(false);
 
   const renderText = (text: string): React.ReactNode[] => {
-    const parts = text.split(/(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi);
-  
+    const parts = text.split(
+      /(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi
+    );
+
     let strongOpen = false;
-  
+
     return parts.map((part, index) => {
       if (!part) return null;
-  
+
       if (part.toLowerCase() === '<strong>') {
         strongOpen = true;
         return null;
@@ -33,11 +31,11 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
         strongOpen = false;
         return null;
       }
-  
+
       let element: React.ReactNode = null;
-  
-      if (part.toLowerCase().startsWith("<center>") && part.toLowerCase().endsWith("</center>")) {
-        const content = part.replace(/<\/?center>/gi, "");
+
+      if (part.toLowerCase().startsWith('<center>') && part.toLowerCase().endsWith('</center>')) {
+        const content = part.replace(/<\/?center>/gi, '');
         return (
           <div key={index} className="text-center">
             {renderText(content)}
@@ -62,11 +60,10 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
       } else {
         element = <span key={index}>{part}</span>;
       }
-  
+
       return strongOpen ? <strong key={index}>{element}</strong> : element;
     });
   };
-  
 
   return (
     <motion.div
@@ -95,7 +92,7 @@ const OpenQuestion: React.FC<OpenQuestionProps> = ({
             onClick={() => setShowSolution(!showSolution)}
             className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-sm sm:text-base"
           >
-            {showSolution ? "Ukryj rozwiązanie" : "Pokaż rozwiązanie"}
+            {showSolution ? 'Ukryj rozwiązanie' : 'Pokaż rozwiązanie'}
           </button>
         </div>
       )}

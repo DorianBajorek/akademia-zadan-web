@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zapisz wzory na piąty i dziesiąty wyraz ciągu, wykorzystując <InlineMath math="a_1"/> i <InlineMath math="r"/>.
+              Zapisz wzory na piąty i dziesiąty wyraz ciągu, wykorzystując <InlineMath math="a_1" />{' '}
+              i <InlineMath math="r" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jakie są wzory na $$a_5$$ i $$a_{10}$$ przez $$a_1$$ i $$r$$?"
               choices={[
-                { label: "a_5 = a_1 + 3r, \\quad a_{10} = a_1 + 7r", value: "a" },
-                { label: "a_5 = a_1 + 5r, \\quad a_{10} = a_1 + 10r", value: "b" },
-                { label: "a_5 = a_1 + 4r, \\quad a_{10} = a_1 + 9r", value: "c" },
-                { label: "a_5 = a_1 + 4r, \\quad a_{10} = a_1 + 8r", value: "d" },
+                { label: 'a_5 = a_1 + 3r, \\quad a_{10} = a_1 + 7r', value: 'a' },
+                { label: 'a_5 = a_1 + 5r, \\quad a_{10} = a_1 + 10r', value: 'b' },
+                { label: 'a_5 = a_1 + 4r, \\quad a_{10} = a_1 + 9r', value: 'c' },
+                { label: 'a_5 = a_1 + 4r, \\quad a_{10} = a_1 + 8r', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Korzystamy ze wzoru ogólnego: $$a_n = a_1 + (n-1)r$$."
@@ -48,19 +49,19 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Na podstawie wzorów oblicz różnicę <InlineMath math="r"/>.
+              Na podstawie wzorów oblicz różnicę <InlineMath math="r" />.
             </StepDescription>
             <ChoiceQuestion
               question="Z układu równań:<br/> $$ a_5 = a_1 + 4r = 22 \\\\ a_{10} = a_1 + 9r = 47 $$<br/>  Oblicz ile wynosi $$r$$"
               choices={[
-                { label: "r = 4", value: "a" },
-                { label: "r = 5", value: "b" },
-                { label: "r = 7", value: "c" },
-                { label: "r = 6", value: "d" },
+                { label: 'r = 4', value: 'a' },
+                { label: 'r = 5', value: 'b' },
+                { label: 'r = 7', value: 'c' },
+                { label: 'r = 6', value: 'd' },
               ]}
               correctAnswer="b"
               explanation={
-                "Odejmujemy stronami:<br/> $$(a_1 + 9r) - (a_1 + 4r) = 47 - 22$$<br/> $$5r = 25 \\implies r = 5$$"
+                'Odejmujemy stronami:<br/> $$(a_1 + 9r) - (a_1 + 4r) = 47 - 22$$<br/> $$5r = 25 \\implies r = 5$$'
               }
               onComplete={() => handleStageComplete(2)}
             />
@@ -71,21 +72,22 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Podstaw obliczoną wartość <InlineMath math="r=5"/> do jednego z równań, aby wyznaczyć pierwszy wyraz <InlineMath math="a_1"/>.
+              Podstaw obliczoną wartość <InlineMath math="r=5" /> do jednego z równań, aby wyznaczyć
+              pierwszy wyraz <InlineMath math="a_1" />.
             </StepDescription>
             <ChoiceQuestion
               question="Podstaw $$r=5$$ do równania $$a_5 = a_1 + 4r = 22$$. Ile wynosi $$a_1$$?"
               choices={[
-                { label: "a_1 = 2", value: "a" },
-                { label: "a_1 = 1", value: "b" },
-                { label: "a_1 = 3", value: "c" },
-                { label: "a_1 = 6", value: "d" },
+                { label: 'a_1 = 2', value: 'a' },
+                { label: 'a_1 = 1', value: 'b' },
+                { label: 'a_1 = 3', value: 'c' },
+                { label: 'a_1 = 6', value: 'd' },
               ]}
               correctAnswer="a"
               explanation={
-                "$$a_5 = a_1 + 4r = 22$$<br/>" +
-                "$$a_1 + 4 \\cdot 5 = 22$$<br/>" +
-                "$$a_1 = 22 - 20 = 2$$"
+                '$$a_5 = a_1 + 4r = 22$$<br/>' +
+                '$$a_1 + 4 \\cdot 5 = 22$$<br/>' +
+                '$$a_1 = 22 - 20 = 2$$'
               }
               onComplete={() => handleStageComplete(3)}
             />
@@ -97,12 +99,12 @@ const Page = () => {
           <StudentNotes
             equation="a_n = a_1 + (n-1)r"
             steps={[
-              { step: "a_5 = 22 = a_1 + 4r" },
-              { step: "a_{10} = 47 = a_1 + 9r" },
-              { step: "a_{10} - a_5 = 5r = 25 \\implies r = 5" },
-              { step: "a_1 = 22 - 4 \\cdot 5 = 2" }
+              { step: 'a_5 = 22 = a_1 + 4r' },
+              { step: 'a_{10} = 47 = a_1 + 9r' },
+              { step: 'a_{10} - a_5 = 5r = 25 \\implies r = 5' },
+              { step: 'a_1 = 22 - 4 \\cdot 5 = 2' },
             ]}
-            solutions={["a_1 = 2, \\quad r = 5"]}
+            solutions={['a_1 = 2, \\quad r = 5']}
           />
         )}
       </div>

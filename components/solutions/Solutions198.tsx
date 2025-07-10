@@ -1,41 +1,50 @@
-import { InlineMath, BlockMath } from "react-katex";
-import "katex/dist/katex.min.css";
+import { InlineMath, BlockMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 
 const Solution = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300 mt-16">
       <div className="text-lg mb-4">
-        Układ równań <InlineMath math="\begin{cases} x-y=3 \\ 2x + 0.5y = 4 \end{cases}" /> opisuje w układzie współrzędnych na płaszczyźnie
+        Układ równań <InlineMath math="\begin{cases} x-y=3 \\ 2x + 0.5y = 4 \end{cases}" /> opisuje
+        w układzie współrzędnych na płaszczyźnie
       </div>
 
       <div className="space-y-3 mb-6">
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> zbiór pusty.</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ A:</strong> zbiór pusty.
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> dokładnie jeden punkt.</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ B:</strong> dokładnie jeden punkt.
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ C:</strong> dokładnie dwa różne punkty.</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ C:</strong> dokładnie dwa różne punkty.
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ D:</strong> zbiór nieskończony.</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ D:</strong> zbiór nieskończony.
+          </p>
         </div>
       </div>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Rozwiązanie układu równań</h2>
-      <p className="mb-2">
-        Mamy układ:
-      </p>
-      <BlockMath math="\begin{cases} 
+      <p className="mb-2">Mamy układ:</p>
+      <BlockMath
+        math="\begin{cases} 
       x - y = 3 \\ 
       2x + 0.5y = 4 
-      \end{cases}" />
+      \end{cases}"
+      />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Wyznaczenie y z pierwszego równania</h2>
-      <p className="mb-2">
-        Z pierwszego równania:
-      </p>
+      <h2 className="text-xl font-semibold mt-4 mb-2">
+        Krok 2: Wyznaczenie y z pierwszego równania
+      </h2>
+      <p className="mb-2">Z pierwszego równania:</p>
       <BlockMath math="y = x - 3" />
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 3: Podstawienie do drugiego równania</h2>
@@ -55,7 +64,8 @@ const Solution = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Krok 5: Interpretacja geometryczna</h2>
       <p className="mb-2">
-        Układ ma dokładnie jedno rozwiązanie <InlineMath math="(2.2, -0.8)" />, co oznacza że proste przecinają się w jednym punkcie.
+        Układ ma dokładnie jedno rozwiązanie <InlineMath math="(2.2, -0.8)" />, co oznacza że proste
+        przecinają się w jednym punkcie.
       </p>
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>

@@ -1,23 +1,24 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const InequalityNumberLineTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 32,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Dana jest nierówność $3 - 2(1 - 2x) \\geq 2x - 17$. Na którym rysunku poprawnie zaznaczono na osi liczbowej zbiór wszystkich liczb rzeczywistych spełniających powyższą nierówność?",
-    "choiceA": "/steps-images/problem2508A.png",
-    "choiceB": "/steps-images/problem2508B.png",
-    "choiceC": "/steps-images/problem2508C.png",
-    "choiceD": "/steps-images/problem2508D.png",
-    "correct_answer": "d"
+    task_id: 32,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Dana jest nierówność $3 - 2(1 - 2x) \\geq 2x - 17$. Na którym rysunku poprawnie zaznaczono na osi liczbowej zbiór wszystkich liczb rzeczywistych spełniających powyższą nierówność?',
+    choiceA: '/steps-images/problem2508A.png',
+    choiceB: '/steps-images/problem2508B.png',
+    choiceC: '/steps-images/problem2508C.png',
+    choiceD: '/steps-images/problem2508D.png',
+    correct_answer: 'd',
   };
 
   const handleCheckAnswer = () => {
@@ -29,12 +30,11 @@ const InequalityNumberLineTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -43,7 +43,8 @@ const InequalityNumberLineTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 2508 } />
+            taskId={2508}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -56,13 +57,13 @@ const InequalityNumberLineTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

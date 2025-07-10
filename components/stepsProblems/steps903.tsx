@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // Dodany import
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // Dodany import
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -25,10 +25,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak zapisać zależność między ceną przed podwyżką $$x$$ a ceną po podwyżce?"
             choices={[
-              { label: "x - 0,4x = 106,40", value: "a" },
-              { label: "0,4x = 106,40", value: "b" },
-              { label: "x = 106,40 \\cdot 1,4", value: "c" },
-              { label: "x + 0,4x = 106,40", value: "d" },
+              { label: 'x - 0,4x = 106,40', value: 'a' },
+              { label: '0,4x = 106,40', value: 'b' },
+              { label: 'x = 106,40 \\cdot 1,4', value: 'c' },
+              { label: 'x + 0,4x = 106,40', value: 'd' },
             ]}
             correctAnswer="d"
             explanation="Podwyżka o $$40\%$$ oznacza, że nowa cena to $$x + 0,4x$$, czyli $$1,4x$$. Równanie to: $$x + 0,4x = 106,40$$."
@@ -40,10 +40,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak uprościć równanie $$x + 0,4x = 106,40$$?"
             choices={[
-              { label: "x = 106,40", value: "a" },
-              { label: "0,6x = 106,40", value: "b" },
-              { label: "1,4x = 106,40", value: "c" },
-              { label: "x = 0,4 \\cdot 106,40", value: "d" },
+              { label: 'x = 106,40', value: 'a' },
+              { label: '0,6x = 106,40', value: 'b' },
+              { label: '1,4x = 106,40', value: 'c' },
+              { label: 'x = 0,4 \\cdot 106,40', value: 'd' },
             ]}
             correctAnswer="c"
             explanation="$$x + 0,4x = 1,4x$$, więc otrzymujemy równanie $$1,4x = 106,40$$."
@@ -55,10 +55,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak obliczyć $$x$$ z równania $$1,4x = 106,40$$?"
             choices={[
-              { label: "x = \\frac{106,40}{1,4}", value: "a" },
-              { label: "x = 106,40 \\cdot 1,4", value: "b" },
-              { label: "x = 1,4 \\cdot 106,40", value: "c" },
-              { label: "x = 106,40 - 1,4", value: "d" },
+              { label: 'x = \\frac{106,40}{1,4}', value: 'a' },
+              { label: 'x = 106,40 \\cdot 1,4', value: 'b' },
+              { label: 'x = 1,4 \\cdot 106,40', value: 'c' },
+              { label: 'x = 106,40 - 1,4', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Aby obliczyć $$x$$, należy podzielić obie strony przez $$1,4$$: $$x = \frac{106,40}{1,4}.$$"
@@ -70,10 +70,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Ile wynosi $$106,40$$ podzielone przez $$1,4$$?"
             choices={[
-              { label: "76,00", value: "a" },
-              { label: "66,40", value: "b" },
-              { label: "65,40", value: "c" },
-              { label: "63,84", value: "d" },
+              { label: '76,00', value: 'a' },
+              { label: '66,40', value: 'b' },
+              { label: '65,40', value: 'c' },
+              { label: '63,84', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="$$\frac{106,40}{1,4} = 76$$. Poprawna odpowiedź to $$76$$ zł."
@@ -85,12 +85,12 @@ const Page = () => {
           <StudentNotes
             equation="1,4x = 106,40"
             steps={[
-              { step: "x + 0,4x = 106,40" },
-              { step: "1,4x = 106,40" },
-              { step: "x = \\frac{106,40}{1,4}" },
-              { step: "x = 76" },
+              { step: 'x + 0,4x = 106,40' },
+              { step: '1,4x = 106,40' },
+              { step: 'x = \\frac{106,40}{1,4}' },
+              { step: 'x = 76' },
             ]}
-            solutions={["76 zł"]}
+            solutions={['76 zł']}
           />
         )}
       </div>

@@ -1,10 +1,10 @@
-"use client";
-import "katex/dist/katex.min.css";
-import { useEffect, useState, useRef } from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import Question from "@/components/Question";
-import { getProblems, checkBarometerAnswers } from "@/service";
+'use client';
+import 'katex/dist/katex.min.css';
+import { useEffect, useState, useRef } from 'react';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import Question from '@/components/Question';
+import { getProblems, checkBarometerAnswers } from '@/service';
 
 interface QuestionType {
   id: number;
@@ -28,40 +28,44 @@ const TaskSpeedrun: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<number>(300);
   const [timeUp, setTimeUp] = useState<boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const letterMap = ["a", "b", "c", "d"];
-  const tf2Map = ["tt", "tf", "ft", "ff"];
+  const letterMap = ['a', 'b', 'c', 'd'];
+  const tf2Map = ['tt', 'tf', 'ft', 'ff'];
 
   const replaceHashes = (text: string) => {
-    if (text == null) return "";
-    return text.replace(/##/g, "\\");
+    if (text == null) return '';
+    return text.replace(/##/g, '\\');
   };
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
     setIsCorrect(answerIndex === questions[0].correct);
-    setCorrectAnswer(questions[0].taskType === "tf2" ? tf2Map[questions[0].correct] : letterMap[questions[0].correct])
+    setCorrectAnswer(
+      questions[0].taskType === 'tf2'
+        ? tf2Map[questions[0].correct]
+        : letterMap[questions[0].correct]
+    );
     setShowNextTask(true);
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
     window.scrollTo({
       top: document.documentElement.scrollHeight,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   const handleNextTask = async () => {
     setQuestionNr(questionNr + 1);
-    setTimeLeft(300); 
+    setTimeLeft(300);
     setTimeUp(false);
     startTimer();
   };
-  
+
   const startTimer = () => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
-    
+
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
@@ -96,24 +100,26 @@ const TaskSpeedrun: React.FC = () => {
           index: number
         ) => ({
           id: index + 1,
-          text: replaceHashes(elem.description || ""),
+          text: replaceHashes(elem.description || ''),
           answers:
-            elem.task_type === "tf2"
-              ? ["tt", "tf", "ft", "ff"]
+            elem.task_type === 'tf2'
+              ? ['tt', 'tf', 'ft', 'ff']
               : [
                   replaceHashes(elem.choiceA),
                   replaceHashes(elem.choiceB),
                   replaceHashes(elem.choiceC),
                   replaceHashes(elem.choiceD),
                 ],
-          correct: elem.correct_answer.charCodeAt(0)-"a".charCodeAt(0),
+          correct: elem.correct_answer.charCodeAt(0) - 'a'.charCodeAt(0),
           taskId: elem.task_id,
           taskType: elem.task_type,
-          ...(elem.task_type === "tf2" && {
-            question1: replaceHashes(elem.question1 || ""),
-            question2: replaceHashes(elem.question2 || ""),
+          ...(elem.task_type === 'tf2' && {
+            question1: replaceHashes(elem.question1 || ''),
+            question2: replaceHashes(elem.question2 || ''),
           }),
-          images: Array.isArray(elem.images) ? elem.images.map(img => "https://akademiazadan.pl/" + img.image) : [],
+          images: Array.isArray(elem.images)
+            ? elem.images.map((img) => 'https://akademiazadan.pl/' + img.image)
+            : [],
         })
       );
       setIsCorrect(undefined);
@@ -123,7 +129,7 @@ const TaskSpeedrun: React.FC = () => {
       setQuestions(newQuestions);
       startTimer();
     };
-  
+
     fetchData();
 
     return () => {
@@ -132,7 +138,7 @@ const TaskSpeedrun: React.FC = () => {
       }
     };
   }, [questionNr]);
-  
+
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -140,14 +146,12 @@ const TaskSpeedrun: React.FC = () => {
   };
 
   const progressPercentage = (timeLeft / 300) * 100;
-  
+
   return (
     <div className="min-h-screen">
       <Nav />
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadaniowy speedrun
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadaniowy speedrun</h2>
         <p className="text-lg text-gray-700 text-center mb-8">
           Rozwiązuj kolejne losowo wybrane zadania i szlifuj swoje umiejętności
         </p>
@@ -160,7 +164,7 @@ const TaskSpeedrun: React.FC = () => {
             </span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-4">
-            <div 
+            <div
               className={`h-4 rounded-full ${timeLeft <= 30 ? 'bg-red-500' : 'bg-blue-500'}`}
               style={{ width: `${progressPercentage}%`, transition: 'width 1s linear' }}
             ></div>
@@ -168,8 +172,8 @@ const TaskSpeedrun: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          {questions.map((q) => (
-            q.taskType === "tf2" ? 
+          {questions.map((q) =>
+            q.taskType === 'tf2' ? (
               <Question
                 key={q.id}
                 id={q.id}
@@ -185,7 +189,7 @@ const TaskSpeedrun: React.FC = () => {
                 taskType="tf2"
                 images={q.images}
               />
-            : (
+            ) : (
               <Question
                 key={q.id}
                 id={q.id}
@@ -200,8 +204,7 @@ const TaskSpeedrun: React.FC = () => {
                 images={q.images}
               />
             )
-          ))}
-
+          )}
         </div>
 
         {showNextTask && (
@@ -229,7 +232,7 @@ const TaskSpeedrun: React.FC = () => {
             </button>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

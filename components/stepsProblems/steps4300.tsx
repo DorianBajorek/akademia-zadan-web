@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie należy rozwiązać, aby wyznaczyć $$a$$?"
                 choices={[
-                  { label: "a \\cdot (-2) + 1 - a = 0", value: "a" },
-                  { label: "a \\cdot 2 + 1 - a = 0", value: "b" },
-                  { label: "a - 2 + 1 - a = 0", value: "c" },
-                  { label: "-2a + 1 + a = 0", value: "d" },
+                  { label: 'a \\cdot (-2) + 1 - a = 0', value: 'a' },
+                  { label: 'a \\cdot 2 + 1 - a = 0', value: 'b' },
+                  { label: 'a - 2 + 1 - a = 0', value: 'c' },
+                  { label: '-2a + 1 + a = 0', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={
-                  "Podstawiamy $$x = -2$$ do wzoru funkcji: <br/>" +
-                  "$$f(-2) = a \\cdot (-2) + 1 - a = 0$$"
+                  'Podstawiamy $$x = -2$$ do wzoru funkcji: <br/>' +
+                  '$$f(-2) = a \\cdot (-2) + 1 - a = 0$$'
                 }
                 onComplete={() => handleStageComplete(1)}
               />
@@ -45,23 +45,21 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Rozwiąż równanie liniowe
-              </StepDescription>
+              <StepDescription stepNumber={2}>Rozwiąż równanie liniowe</StepDescription>
               <ChoiceQuestion
                 question="Jakie jest rozwiązanie równania $$a \cdot (-2) + 1 - a = 0$$?"
                 choices={[
-                  { label: "a=\\frac{1}{3}", value: "a" },
-                  { label: "a=3", value: "b" },
-                  { label: "a=-\\frac{1}{3}", value: "c" },
-                  { label: "a=-3", value: "d" },
+                  { label: 'a=\\frac{1}{3}', value: 'a' },
+                  { label: 'a=3', value: 'b' },
+                  { label: 'a=-\\frac{1}{3}', value: 'c' },
+                  { label: 'a=-3', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={
-                  "Rozwiązujemy równanie: <br/>" +
-                  "$$-2a +1-a =0 $$<br/> "+
-                  "$$-3a=-1$$<br/> "+
-                  "$$a=-\\frac{1}{3}$$"
+                  'Rozwiązujemy równanie: <br/>' +
+                  '$$-2a +1-a =0 $$<br/> ' +
+                  '$$-3a=-1$$<br/> ' +
+                  '$$a=-\\frac{1}{3}$$'
                 }
                 onComplete={() => handleStageComplete(2)}
               />
@@ -73,15 +71,13 @@ const Page = () => {
               <StudentNotes
                 equation="f(x) = a x + 1 - a"
                 steps={[
-                  { step: "\\text{Miejsce zerowe: }f(-2) = 0" },
-                  { step: "a \\cdot (-2) + 1 - a = 0" },
-                  { step: "-2a + 1 - a = 0" },
-                  { step: "-3a + 1 = 0" },
-                  { step: "a = -\\frac{1}{3}" },
+                  { step: '\\text{Miejsce zerowe: }f(-2) = 0' },
+                  { step: 'a \\cdot (-2) + 1 - a = 0' },
+                  { step: '-2a + 1 - a = 0' },
+                  { step: '-3a + 1 = 0' },
+                  { step: 'a = -\\frac{1}{3}' },
                 ]}
-                solutions={[
-                  "a = -\\frac{1}{3}"
-                ]}
+                solutions={['a = -\\frac{1}{3}']}
               />
             </div>
           )}

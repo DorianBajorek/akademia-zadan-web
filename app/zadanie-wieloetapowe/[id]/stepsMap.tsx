@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 export const stepsMap: Record<string, any> = {
   '100': dynamic(() => import('@/components/stepsProblems/steps100')),
@@ -83,7 +83,7 @@ export const stepsMap: Record<string, any> = {
   '704': dynamic(() => import('@/components/stepsProblems/steps704')),
   '705': dynamic(() => import('@/components/stepsProblems/steps705')),
   '706': dynamic(() => import('@/components/stepsProblems/steps706')),
-  '707': dynamic(() => import('@/components/stepsProblems/steps707')), 
+  '707': dynamic(() => import('@/components/stepsProblems/steps707')),
   '800': dynamic(() => import('@/components/stepsProblems/steps800')),
   '801': dynamic(() => import('@/components/stepsProblems/steps801')),
   '802': dynamic(() => import('@/components/stepsProblems/steps802')),

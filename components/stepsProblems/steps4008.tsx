@@ -1,27 +1,27 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const GeometricSequenceRatioTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
-    const taskData = {
+  const taskData = {
     task_id: 52,
-    exam_type: "mp",
-    task_type: "mc4",
+    exam_type: 'mp',
+    task_type: 'mc4',
     description: `
         W okręgu o środku $O$ kąt środkowy $AOB$ oparty jest na tym samym łuku co kąt wpisany $ACB$. 
         Wiadomo, że kąt $ACB$ ma miarę $35°$. Oblicz miarę kąta $AOB$.
     `,
-    choiceA: "$35^{\\circ}$",
-    choiceB: "$55^{\\circ}$",
-    choiceC: "$70^{\\circ}$",
-    choiceD: "$90^{\\circ}$",
-    correct_answer: "c",
-    };
+    choiceA: '$35^{\\circ}$',
+    choiceB: '$55^{\\circ}$',
+    choiceC: '$70^{\\circ}$',
+    choiceD: '$90^{\\circ}$',
+    correct_answer: 'c',
+  };
 
   const handleCheckAnswer = () => {
     if (selectedAnswer !== null) {
@@ -32,12 +32,11 @@ const GeometricSequenceRatioTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -46,7 +45,8 @@ const GeometricSequenceRatioTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 4008 } />
+            taskId={4008}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -59,13 +59,13 @@ const GeometricSequenceRatioTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

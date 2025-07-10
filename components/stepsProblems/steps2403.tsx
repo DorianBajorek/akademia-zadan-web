@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -15,12 +15,14 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Rozwiązywanie równań z nawiasami</h2>
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
+          Rozwiązywanie równań z nawiasami
+        </h2>
         <p className="text-lg text-gray-800">Która z liczb jest rozwiązaniem równania:</p>
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
           <InlineMath math="2(x - 1) + x = x - 3(2 - 3x)" />
         </p>
-        
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -29,10 +31,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "2x - 2 + x = x - 6 - 9x", value: "a" },
-                { label: "2x - 1 + x = x - 6 - 9x", value: "b" },
-                { label: "2x - 2 + x = x - 6 + 9x", value: "c" },
-                { label: "2x - 1 + x = x - 6 + 9x", value: "d" }
+                { label: '2x - 2 + x = x - 6 - 9x', value: 'a' },
+                { label: '2x - 1 + x = x - 6 - 9x', value: 'b' },
+                { label: '2x - 2 + x = x - 6 + 9x', value: 'c' },
+                { label: '2x - 1 + x = x - 6 + 9x', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne wymnożenie to $$2x - 2 + x = x - 6 + 9x$$. <br>
@@ -43,7 +45,7 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -52,10 +54,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda uproszczone równanie?"
               choices={[
-                { label: "3x - 1 = 10x - 6", value: "a" },
-                { label: "3x - 2 = -8x - 6", value: "b" },
-                { label: "3x - 2 = 10x - 6", value: "c" },
-                { label: "2x - 2 = -8x - 6", value: "d" }
+                { label: '3x - 1 = 10x - 6', value: 'a' },
+                { label: '3x - 2 = -8x - 6', value: 'b' },
+                { label: '3x - 2 = 10x - 6', value: 'c' },
+                { label: '2x - 2 = -8x - 6', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne uproszczenie to $$3x - 2 = 10x - 6$$. <br>
@@ -70,15 +72,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
-              Trzeci krok: przenieś wyrażenia z <InlineMath math="x"/> na jedną stronę, a liczby na drugą:
+              Trzeci krok: przenieś wyrażenia z <InlineMath math="x" /> na jedną stronę, a liczby na
+              drugą:
             </p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "-7x = -4", value: "a" },
-                { label: "7x = 4", value: "b" },
-                { label: "-7x = 4", value: "c" },
-                { label: "13x = -8", value: "d" }
+                { label: '-7x = -4', value: 'a' },
+                { label: '7x = 4', value: 'b' },
+                { label: '-7x = 4', value: 'c' },
+                { label: '13x = -8', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$-7x = -4$$. <br>
@@ -92,16 +95,14 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Czwarty krok: znajdź rozwiązanie:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Czwarty krok: znajdź rozwiązanie:</p>
             <ChoiceQuestion
               question="Jakie jest rozwiązanie równania?"
               choices={[
-                { label: "x = \\frac{4}{7}", value: "a" },
-                { label: "x = -\\frac{4}{11}", value: "b" },
-                { label: "x = \\frac{8}{11}", value: "c" },
-                { label: "x = -1", value: "d" }
+                { label: 'x = \\frac{4}{7}', value: 'a' },
+                { label: 'x = -\\frac{4}{11}', value: 'b' },
+                { label: 'x = \\frac{8}{11}', value: 'c' },
+                { label: 'x = -1', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne rozwiązanie to $$x = \frac{4}{7}$$. <br>
@@ -111,28 +112,28 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {completedStages.length === 4 && (
           <StudentNotes
             equation="2(x - 1) + x = x - 3(2 - 3x)"
             steps={[
               {
-                step: "2x - 2 + x = x - 6 + 9x",
+                step: '2x - 2 + x = x - 6 + 9x',
               },
               {
-                step: "3x - 2 = 10x - 6",
+                step: '3x - 2 = 10x - 6',
               },
               {
-                step: "3x - 10x = -6 + 2",
+                step: '3x - 10x = -6 + 2',
               },
               {
-                step: "-7x = -4",
+                step: '-7x = -4',
               },
               {
-                step: "x = \\frac{4}{7}",
+                step: 'x = \\frac{4}{7}',
               },
             ]}
-            solutions={["x=\\frac{4}{7}"]}
+            solutions={['x=\\frac{4}{7}']}
           />
         )}
       </div>

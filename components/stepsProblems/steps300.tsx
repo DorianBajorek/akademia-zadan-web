@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -23,7 +23,7 @@ const Page = () => {
           description="Oblicz wartość logarytmu:"
           equation="\log_{\sqrt{2}} 2"
         />
-        
+
         <div className="mt-8 space-y-8">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
@@ -33,19 +33,19 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^{(\\sqrt{2})} = 2", value: "a" },
-                  { label: "\\sqrt{2} \\cdot x = 2", value: "b" },
-                  { label: "(\\sqrt{2})^x = 2", value: "c" },
-                  { label: "\\sqrt{2} = 2^x", value: "d" },
+                  { label: 'x^{(\\sqrt{2})} = 2', value: 'a' },
+                  { label: '\\sqrt{2} \\cdot x = 2', value: 'b' },
+                  { label: '(\\sqrt{2})^x = 2', value: 'c' },
+                  { label: '\\sqrt{2} = 2^x', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Z definicji logarytmu wiemy, że $$\log_{\sqrt{2}} 2 = x$$ oznacza $$(\sqrt{2})^x = 2$$."
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/definicjaLogarytmu.png"}
+                img={'/steps-images/definicjaLogarytmu.png'}
               />
             </div>
           )}
-          
+
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
@@ -54,10 +54,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "2^{\\frac{x}{2}} = 2^1", value: "a" },
-                  { label: "2^{\\frac{1}{2}} = 2^x", value: "b" },
-                  { label: "2^{2x} = 2^1", value: "c" },
-                  { label: "2^{\\frac{1}{x}} = 2^{\\frac{1}{2}}", value: "d" }
+                  { label: '2^{\\frac{x}{2}} = 2^1', value: 'a' },
+                  { label: '2^{\\frac{1}{2}} = 2^x', value: 'b' },
+                  { label: '2^{2x} = 2^1', value: 'c' },
+                  { label: '2^{\\frac{1}{x}} = 2^{\\frac{1}{2}}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne przekształcenie to $$2^{\frac{x}{2}} = 2^1$$. <br>
@@ -72,7 +72,8 @@ const Page = () => {
           {completedStages.includes(2) && (
             <div>
               <StepDescription stepNumber={3}>
-                Mając równe podstawy, wyrażenie jest równe, gdy mają równe wykładniki. Porównajmy je rozwiązując równanie liniowe. Obliczmy wartość x.
+                Mając równe podstawy, wyrażenie jest równe, gdy mają równe wykładniki. Porównajmy je
+                rozwiązując równanie liniowe. Obliczmy wartość x.
               </StepDescription>
               <NumericQuestion
                 question="Jaka jest wartość x?"
@@ -85,29 +86,29 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.length === 3 && (
             <div className="mt-8">
               <StudentNotes
                 equation="\log_{\sqrt{2}} 2"
                 steps={[
                   {
-                    step: "\\log_{\\sqrt{2}} 2 = x \\Rightarrow (\\sqrt{2})^x = 2",
+                    step: '\\log_{\\sqrt{2}} 2 = x \\Rightarrow (\\sqrt{2})^x = 2',
                   },
                   {
-                    step: "\\sqrt{2} = 2^{\\frac{1}{2}} \\Rightarrow (2^{\\frac{1}{2}})^x = 2^1",
+                    step: '\\sqrt{2} = 2^{\\frac{1}{2}} \\Rightarrow (2^{\\frac{1}{2}})^x = 2^1',
                   },
                   {
-                    step: "2^{\\frac{x}{2}} = 2^1",
+                    step: '2^{\\frac{x}{2}} = 2^1',
                   },
                   {
-                    step: "\\frac{x}{2} = 1",
+                    step: '\\frac{x}{2} = 1',
                   },
                   {
-                    step: "x = 2",
-                  }
+                    step: 'x = 2',
+                  },
                 ]}
-                solutions={["x = 2"]}
+                solutions={['x = 2']}
               />
             </div>
           )}

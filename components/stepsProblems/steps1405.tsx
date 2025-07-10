@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,16 +26,14 @@ const Page = () => {
         <div className="mt-8 space-y-8">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
-              <StepDescription stepNumber={1}>
-                Przekształcenie do postaci ogólnej
-              </StepDescription>
+              <StepDescription stepNumber={1}>Przekształcenie do postaci ogólnej</StepDescription>
               <ChoiceQuestion
                 question="Jak wygląda równanie w postaci ogólnej?"
                 choices={[
-                  { label: "x² - 2x - 3 = 0", value: "a" },
-                  { label: "x² + 2x - 3 = 0", value: "b" },
-                  { label: "x² - 4x - 7 = 0", value: "c" },
-                  { label: "x² - 2x - 5 = 0", value: "d" }
+                  { label: 'x² - 2x - 3 = 0', value: 'a' },
+                  { label: 'x² + 2x - 3 = 0', value: 'b' },
+                  { label: 'x² - 4x - 7 = 0', value: 'c' },
+                  { label: 'x² - 2x - 5 = 0', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Przekształcamy równanie:
@@ -50,16 +48,14 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Obliczenie wyróżnika równania (Δ)
-              </StepDescription>
+              <StepDescription stepNumber={2}>Obliczenie wyróżnika równania (Δ)</StepDescription>
               <ChoiceQuestion
                 question="Która wartość jest poprawną deltą Δ dla tego równania?"
                 choices={[
-                  { label: "Δ = 12", value: "a" },
-                  { label: "Δ = 16", value: "b" },
-                  { label: "Δ = 4", value: "c" },
-                  { label: "Δ = 8", value: "d" }
+                  { label: 'Δ = 12', value: 'a' },
+                  { label: 'Δ = 16', value: 'b' },
+                  { label: 'Δ = 4', value: 'c' },
+                  { label: 'Δ = 8', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Delta (Δ) jest obliczana ze wzoru:
@@ -75,16 +71,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Wyznaczenie pierwiastków równania
-              </StepDescription>
+              <StepDescription stepNumber={3}>Wyznaczenie pierwiastków równania</StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x₁ = 0, x₂ = 2", value: "a" },
-                  { label: "x₁ = 1, x₂ = -3", value: "b" },
-                  { label: "x₁ = -3, x₂ = 1", value: "c" },
-                  { label: "x₁ = -1, x₂ = 3", value: "d" }
+                  { label: 'x₁ = 0, x₂ = 2', value: 'a' },
+                  { label: 'x₁ = 1, x₂ = -3', value: 'b' },
+                  { label: 'x₁ = -3, x₂ = 1', value: 'c' },
+                  { label: 'x₁ = -1, x₂ = 3', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Ponieważ delta jest dodatnia, równanie ma dwa pierwiastki: <br>
@@ -105,12 +99,12 @@ const Page = () => {
               <StudentNotes
                 equation="x² + 1 = 2(x + 2)"
                 steps={[
-                  { step: "\\text{Przekształcenie: }x² + 1 = 2x + 4 → x² - 2x - 3 = 0" },
-                  { step: "Δ = (-2)² - 4·1·(-3) = 4 + 12 = 16, \\sqrt{\\Delta} = \\sqrt{16} = 4" },
-                  { step: "x₁ = \\frac{2-4}{2} = -1" },
-                  { step: "x₂ = \\frac{2+4}{2} = 3" }
+                  { step: '\\text{Przekształcenie: }x² + 1 = 2x + 4 → x² - 2x - 3 = 0' },
+                  { step: 'Δ = (-2)² - 4·1·(-3) = 4 + 12 = 16, \\sqrt{\\Delta} = \\sqrt{16} = 4' },
+                  { step: 'x₁ = \\frac{2-4}{2} = -1' },
+                  { step: 'x₂ = \\frac{2+4}{2} = 3' },
                 ]}
-                solutions={["x₁ = -1", "x₂ = 3"]}
+                solutions={['x₁ = -1', 'x₂ = 3']}
               />
             </div>
           )}

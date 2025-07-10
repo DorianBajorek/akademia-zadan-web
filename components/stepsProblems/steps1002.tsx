@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,10 +32,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Ile wynosi $$\left(\frac{1}{2}\right)^{-3}$$?"
                 choices={[
-                  { label: "\\frac{1}{8}", value: "a" },
-                  { label: "8", value: "b" },
-                  { label: "-\\frac{3}{2}", value: "c" },
-                  { label: "\\frac{3}{2}", value: "d" },
+                  { label: '\\frac{1}{8}', value: 'a' },
+                  { label: '8', value: 'b' },
+                  { label: '-\\frac{3}{2}', value: 'c' },
+                  { label: '\\frac{3}{2}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Podnosząc ułamek do potęgi ujemnej, odwracamy go i podnosimy do potęgi dodatniej: <br>
@@ -53,10 +53,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Ile wynosi $$\sqrt[3]{27}$$?"
                 choices={[
-                  { label: "9", value: "a" },
-                  { label: "3", value: "b" },
-                  { label: "81", value: "c" },
-                  { label: "\\sqrt{27}", value: "d" },
+                  { label: '9', value: 'a' },
+                  { label: '3', value: 'b' },
+                  { label: '81', value: 'c' },
+                  { label: '\\sqrt{27}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Pierwiastek sześcienny z 27 to liczba, która podniesiona do potęgi trzeciej daje 27: <br>
@@ -68,16 +68,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Dodaj obie części wyrażenia
-              </StepDescription>
+              <StepDescription stepNumber={3}>Dodaj obie części wyrażenia</StepDescription>
               <ChoiceQuestion
                 question="Jaki jest wynik końcowy wyrażenia $$8 + 3$$?"
                 choices={[
-                  { label: "11", value: "a" },
-                  { label: "5", value: "b" },
-                  { label: "24", value: "c" },
-                  { label: "\\frac{11}{1}", value: "d" },
+                  { label: '11', value: 'a' },
+                  { label: '5', value: 'b' },
+                  { label: '24', value: 'c' },
+                  { label: '\\frac{11}{1}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Po obliczeniu obu części wyrażenia wystarczy je dodać: <br>
@@ -92,11 +90,11 @@ const Page = () => {
               <StudentNotes
                 equation="\left(\frac{1}{2}\right)^{-3} + \sqrt[3]{27}"
                 steps={[
-                  { step: "\\left(\\frac{1}{2}\\right)^{-3} = 8" },
-                  { step: "\\sqrt[3]{27} = 3" },
-                  { step: "8 + 3 = 11" }
+                  { step: '\\left(\\frac{1}{2}\\right)^{-3} = 8' },
+                  { step: '\\sqrt[3]{27} = 3' },
+                  { step: '8 + 3 = 11' },
                 ]}
-                solutions={["11"]}
+                solutions={['11']}
               />
             </div>
           )}

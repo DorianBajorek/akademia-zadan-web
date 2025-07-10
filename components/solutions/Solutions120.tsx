@@ -1,5 +1,5 @@
-import { InlineMath, BlockMath } from "react-katex";
-import "katex/dist/katex.min.css";
+import { InlineMath, BlockMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 
 const Solution = () => {
   return (
@@ -10,26 +10,39 @@ const Solution = () => {
 
       <div className="space-y-3 mb-6">
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ A:</strong> <InlineMath math="14" /> cyfr</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ A:</strong> <InlineMath math="14" /> cyfr
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ B:</strong> <InlineMath math="15" /> cyfr</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ B:</strong> <InlineMath math="15" /> cyfr
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ C:</strong> <InlineMath math="16" /> cyfr</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ C:</strong> <InlineMath math="16" /> cyfr
+          </p>
         </div>
         <div className="p-4 bg-gray-100 rounded-lg">
-          <p className="font-semibold"><strong>ODPOWIEDŹ D:</strong> <InlineMath math="30" /> cyfr</p>
+          <p className="font-semibold">
+            <strong>ODPOWIEDŹ D:</strong> <InlineMath math="30" /> cyfr
+          </p>
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 1: Uproszczenie liczby <InlineMath math="n" /></h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">
+        Krok 1: Uproszczenie liczby <InlineMath math="n" />
+      </h2>
       <p className="mb-2">
-        Liczba <InlineMath math="n = 2^{14} \cdot 5^{15}" /> może zostać uproszczona przez wyciągnięcie wspólnych czynników:
+        Liczba <InlineMath math="n = 2^{14} \cdot 5^{15}" /> może zostać uproszczona przez
+        wyciągnięcie wspólnych czynników:
       </p>
       <BlockMath math="n = 2^{14} \cdot 5^{14} \cdot 5^{1} = (2 \cdot 5)^{14} \cdot 5 = 10^{14} \cdot 5" />
 
-      <h2 className="text-xl font-semibold mt-4 mb-2">Krok 2: Zapisanie liczby w postaci dziesiętnej</h2>
+      <h2 className="text-xl font-semibold mt-4 mb-2">
+        Krok 2: Zapisanie liczby w postaci dziesiętnej
+      </h2>
       <p className="mb-2">
         Liczba <InlineMath math="10^{14}" /> to jedynka i 14 zer. Mnożąc ją przez 5, otrzymujemy:
       </p>
@@ -52,7 +65,8 @@ const Solution = () => {
 
       <h2 className="text-xl font-semibold mt-4 mb-2">Odpowiedź</h2>
       <p className="text-lg font-bold text-green-600">
-        Liczba <InlineMath math="n" /> ma <InlineMath math="15" /> cyfr (odpowiedź <strong>B</strong>).
+        Liczba <InlineMath math="n" /> ma <InlineMath math="15" /> cyfr (odpowiedź{' '}
+        <strong>B</strong>).
       </p>
     </div>
   );

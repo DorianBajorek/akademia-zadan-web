@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest długość boku kwadratu $$AB$$?"
                 choices={[
-                  { label: "4", value: "a" },
-                  { label: "8", value: "b" },
-                  { label: "4\\sqrt{5}", value: "c" },
-                  { label: "8\\sqrt{2}", value: "d" },
+                  { label: '4', value: 'a' },
+                  { label: '8', value: 'b' },
+                  { label: '4\\sqrt{5}', value: 'c' },
+                  { label: '8\\sqrt{2}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={
-                  "Długość odcinka $$AB$$ obliczamy:<br/>" +
-                  "$$AB = \\sqrt{(4 - (-4))^2 + (0 - 4)^2} = \\sqrt{8^2 + (-4)^2} = \\sqrt{64 + 16} = \\sqrt{80} = 4\\sqrt{5}$$"
+                  'Długość odcinka $$AB$$ obliczamy:<br/>' +
+                  '$$AB = \\sqrt{(4 - (-4))^2 + (0 - 4)^2} = \\sqrt{8^2 + (-4)^2} = \\sqrt{64 + 16} = \\sqrt{80} = 4\\sqrt{5}$$'
                 }
                 onComplete={() => handleStageComplete(1)}
               />
@@ -51,10 +51,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak wyrażamy długość przekątnej kwadratu o boku $$a$$?"
                 choices={[
-                  { label: "a", value: "a" },
-                  { label: "a\\sqrt{2}", value: "b" },
-                  { label: "2a", value: "c" },
-                  { label: "a^2", value: "d" },
+                  { label: 'a', value: 'a' },
+                  { label: 'a\\sqrt{2}', value: 'b' },
+                  { label: '2a', value: 'c' },
+                  { label: 'a^2', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Przekątna kwadratu: $$d = a\sqrt{2}$$."
@@ -71,14 +71,14 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest długość przekątnej tego kwadratu?"
                 choices={[
-                  { label: "4\\sqrt{10}", value: "a" },
-                  { label: "4\\sqrt{2}", value: "b" },
-                  { label: "4\\sqrt{5}", value: "c" },
-                  { label: "8\\sqrt{5}", value: "d" },
+                  { label: '4\\sqrt{10}', value: 'a' },
+                  { label: '4\\sqrt{2}', value: 'b' },
+                  { label: '4\\sqrt{5}', value: 'c' },
+                  { label: '8\\sqrt{5}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={
-                  "Bok kwadratu $$a = 4\\sqrt{5}$$, więc przekątna to $$4\\sqrt{5} \\cdot \\sqrt{2} = 4\\sqrt{10}$$."
+                  'Bok kwadratu $$a = 4\\sqrt{5}$$, więc przekątna to $$4\\sqrt{5} \\cdot \\sqrt{2} = 4\\sqrt{10}$$.'
                 }
                 onComplete={() => handleStageComplete(3)}
               />
@@ -90,12 +90,10 @@ const Page = () => {
               <StudentNotes
                 equation="d = a\sqrt{2}"
                 steps={[
-                  { step: "AB = \\sqrt{(4 + 4)^2 + (0 - 4)^2} = 4\\sqrt{5}" },
-                  { step: "\\text{Przekątna: } 4\\sqrt{5} \\cdot \\sqrt{2} = 4\\sqrt{10}" },
+                  { step: 'AB = \\sqrt{(4 + 4)^2 + (0 - 4)^2} = 4\\sqrt{5}' },
+                  { step: '\\text{Przekątna: } 4\\sqrt{5} \\cdot \\sqrt{2} = 4\\sqrt{10}' },
                 ]}
-                solutions={[
-                  "\\text{Przekątna: } 4\\sqrt{10}"
-                ]}
+                solutions={['\\text{Przekątna: } 4\\sqrt{10}']}
               />
             </div>
           )}

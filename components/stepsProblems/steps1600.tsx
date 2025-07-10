@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zacznij od wyrażenia jednej zmiennej za pomocą drugiej. Korzystając z warunku <InlineMath math="x + y = 12"/>, wyznacz wzór na <InlineMath math="y"/>.
+              Zacznij od wyrażenia jednej zmiennej za pomocą drugiej. Korzystając z warunku{' '}
+              <InlineMath math="x + y = 12" />, wyznacz wzór na <InlineMath math="y" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda wyrażenie dla $$y$$?"
               choices={[
-                { label: "y = 12 + x", value: "a" },
-                { label: "y = 12 - x", value: "b" },
-                { label: "y = x - 12", value: "c" },
-                { label: "y = 12x", value: "d" },
+                { label: 'y = 12 + x', value: 'a' },
+                { label: 'y = 12 - x', value: 'b' },
+                { label: 'y = x - 12', value: 'c' },
+                { label: 'y = 12x', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Z równania $$x + y = 12$$ wynika, że $$y = 12 - x$$."
@@ -49,15 +50,17 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Podstaw uzyskany wzór na <InlineMath math="y"/> do wyrażenia <InlineMath math="2x^2 + y^2"/>, aby otrzymać funkcję jednej zmiennej <InlineMath math="x"/>.
+              Podstaw uzyskany wzór na <InlineMath math="y" /> do wyrażenia{' '}
+              <InlineMath math="2x^2 + y^2" />, aby otrzymać funkcję jednej zmiennej{' '}
+              <InlineMath math="x" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda wyrażenie po podstawieniu?"
               choices={[
-                { label: "2x^2 + 144", value: "a" },
-                { label: "2x^2 + 12x", value: "b" },
-                { label: "2x^2 + x^2", value: "c" },
-                { label: "2x^2 + (12 - x)^2", value: "d" },
+                { label: '2x^2 + 144', value: 'a' },
+                { label: '2x^2 + 12x', value: 'b' },
+                { label: '2x^2 + x^2', value: 'c' },
+                { label: '2x^2 + (12 - x)^2', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Podstawiając $$y = 12 - x$$, otrzymujemy $$2x^{2} + (12 - x)^{2}$$."
@@ -71,15 +74,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Przekształć otrzymaną funkcję do postaci ogólnej funkcji kwadratowej <InlineMath math="f(x) = ax^2 + bx + c"/>.
+              Przekształć otrzymaną funkcję do postaci ogólnej funkcji kwadratowej{' '}
+              <InlineMath math="f(x) = ax^2 + bx + c" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wygląda uproszczone wyrażenie?"
               choices={[
-                { label: "x^2 - 24x + 144", value: "a" },
-                { label: "2x^2 + 144", value: "b" },
-                { label: "3x^2 - 24x + 144", value: "c" },
-                { label: "3x^2 + 24x + 144", value: "d" },
+                { label: 'x^2 - 24x + 144', value: 'a' },
+                { label: '2x^2 + 144', value: 'b' },
+                { label: '3x^2 - 24x + 144', value: 'c' },
+                { label: '3x^2 + 24x + 144', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Rozwijamy kwadrat różnicy: $$(12 - x)^{2} = 12^2 - 2 \cdot 12 \cdot x + x^2 = 144 - 24x + x^2$$. Po dodaniu do $$2x^{2}$$ i uporządkowaniu otrzymujemy $$3x^{2} - 24x + 144$$."
@@ -92,7 +96,9 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Funkcja kwadratowa z dodatnim współczynnikiem <InlineMath math="a"/> osiąga minimum w wierzchołku. Oblicz jego pierwszą współrzędną <InlineMath math="p = \frac{-b}{2a}"/>, aby znaleźć <InlineMath math="x_{min}"/>.
+              Funkcja kwadratowa z dodatnim współczynnikiem <InlineMath math="a" /> osiąga minimum w
+              wierzchołku. Oblicz jego pierwszą współrzędną <InlineMath math="p = \frac{-b}{2a}" />,
+              aby znaleźć <InlineMath math="x_{min}" />.
             </StepDescription>
             <NumericQuestion
               question="Dla jakiej wartości $$x_{min}$$ wyrażenie osiąga minimum?"
@@ -108,7 +114,8 @@ const Page = () => {
         {completedStages.includes(4) && (
           <>
             <StepDescription stepNumber={5}>
-              Mając optymalną wartość <InlineMath math="x_{min}"/>, oblicz <InlineMath math="y"/>, a następnie znajdź najmniejszą wartość wyrażenia <InlineMath math="2x^2 + y^2"/>.
+              Mając optymalną wartość <InlineMath math="x_{min}" />, oblicz <InlineMath math="y" />,
+              a następnie znajdź najmniejszą wartość wyrażenia <InlineMath math="2x^2 + y^2" />.
             </StepDescription>
             <NumericQuestion
               question="Jaka jest najmniejsza wartość wyrażenia?"
@@ -124,13 +131,13 @@ const Page = () => {
           <StudentNotes
             equation="f(x,y) = 2x^2 + y^2"
             steps={[
-              { step: "\\text{Warunek: } y = 12 - x" },
-              { step: "f(x) = 2x^2 + (12 - x)^2 = 3x^2 - 24x + 144" },
-              { step: "\\text{Minimum dla } x = -\\frac{-24}{2 \\cdot 3} = 4" },
-              { step: "\\text{Wtedy } y = 12 - 4 = 8" },
-              { step: "\\text{Najmniejsza wartość: } 2(4^2) + 8^2 = 32 + 64 = 96" },
+              { step: '\\text{Warunek: } y = 12 - x' },
+              { step: 'f(x) = 2x^2 + (12 - x)^2 = 3x^2 - 24x + 144' },
+              { step: '\\text{Minimum dla } x = -\\frac{-24}{2 \\cdot 3} = 4' },
+              { step: '\\text{Wtedy } y = 12 - 4 = 8' },
+              { step: '\\text{Najmniejsza wartość: } 2(4^2) + 8^2 = 32 + 64 = 96' },
             ]}
-            solutions={["\\text{x=4, y=8, najmniejsza wartość: 96}"]}
+            solutions={['\\text{x=4, y=8, najmniejsza wartość: 96}']}
           />
         )}
       </div>

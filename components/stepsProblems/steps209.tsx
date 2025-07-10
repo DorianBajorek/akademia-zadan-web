@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -22,16 +22,14 @@ const Page = () => {
         </p>
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Przenieś wszystkie wyrazy na lewą stronę:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Przenieś wszystkie wyrazy na lewą stronę:</p>
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^3 + 2x^2 + 5x + 10 = 0", value: "a" },
-                { label: "x^3 - 2x^2 - 5x - 10 = 0", value: "b" },
-                { label: "x^3 + 2x^2 - 5x + 10 = 0", value: "c" },
-                { label: "x^3 + 2x^2 - 5x - 10 = 0", value: "d" },
+                { label: 'x^3 + 2x^2 + 5x + 10 = 0', value: 'a' },
+                { label: 'x^3 - 2x^2 - 5x - 10 = 0', value: 'b' },
+                { label: 'x^3 + 2x^2 - 5x + 10 = 0', value: 'c' },
+                { label: 'x^3 + 2x^2 - 5x - 10 = 0', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawne przekształcenie to $$x^3 + 2x^2 - 5x - 10 = 0$$. 
@@ -49,10 +47,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które grupowanie jest poprawne?"
               choices={[
-                { label: "x^2(x + 2) - 5(x + 2) = 0", value: "a" },
-                { label: "x^2(x - 2) + 5(x - 2) = 0", value: "b" },
-                { label: "x(x^2 + 2x) - 5(x + 2) = 0", value: "c" },
-                { label: "x^2(x + 2) + 5(x + 2) = 0", value: "d" }
+                { label: 'x^2(x + 2) - 5(x + 2) = 0', value: 'a' },
+                { label: 'x^2(x - 2) + 5(x - 2) = 0', value: 'b' },
+                { label: 'x(x^2 + 2x) - 5(x + 2) = 0', value: 'c' },
+                { label: 'x^2(x + 2) + 5(x + 2) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne grupowanie to $$x^2(x + 2) - 5(x + 2) = 0$$. <br>
@@ -66,16 +64,14 @@ const Page = () => {
         )}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Wyciągnij wspólny czynnik przed nawias:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Wyciągnij wspólny czynnik przed nawias:</p>
             <ChoiceQuestion
               question="Która postać jest poprawna?"
               choices={[
-                { label: "(x - 2)(x^2 + 5) = 0", value: "a" },
-                { label: "(x + 2)(x^2 - 5) = 0", value: "b" },
-                { label: "(x + 2)(x^2 + 5) = 0", value: "c" },
-                { label: "(x - 2)(x^2 - 5) = 0", value: "d" }
+                { label: '(x - 2)(x^2 + 5) = 0', value: 'a' },
+                { label: '(x + 2)(x^2 - 5) = 0', value: 'b' },
+                { label: '(x + 2)(x^2 + 5) = 0', value: 'c' },
+                { label: '(x - 2)(x^2 - 5) = 0', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawna postać to $$(x + 2)(x^2 - 5) = 0$$. 
@@ -87,16 +83,14 @@ const Page = () => {
         )}
         {completedStages.includes(3) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie całkowicie:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Rozwiąż równanie całkowicie:</p>
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne?"
               choices={[
-                { label: "x = 2, x = \\sqrt{5}, x = -\\sqrt{5}", value: "a" },
-                { label: "x = -2, x = 5, x = -5", value: "b" },
-                { label: "x = -2, x = \\sqrt{5}, x = -\\sqrt{5}", value: "c" },
-                { label: "x = 2, x = 5, x = -5", value: "d" }
+                { label: 'x = 2, x = \\sqrt{5}, x = -\\sqrt{5}', value: 'a' },
+                { label: 'x = -2, x = 5, x = -5', value: 'b' },
+                { label: 'x = -2, x = \\sqrt{5}, x = -\\sqrt{5}', value: 'c' },
+                { label: 'x = 2, x = 5, x = -5', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne rozwiązanie to $$x = -2, x = \sqrt{5}, x = -\sqrt{5}$$. <br>
@@ -112,22 +106,22 @@ const Page = () => {
             equation="x^3 + 2x^2 = 5x + 10"
             steps={[
               {
-                step: "x^3 + 2x^2 - 5x - 10 = 0",
+                step: 'x^3 + 2x^2 - 5x - 10 = 0',
               },
               {
-                step: "x^2(x + 2) - 5(x + 2) = 0",
+                step: 'x^2(x + 2) - 5(x + 2) = 0',
               },
               {
-                step: "(x + 2)(x^2 - 5) = 0",
+                step: '(x + 2)(x^2 - 5) = 0',
               },
               {
-                step: "x + 2 = 0 \\Rightarrow x = -2",
+                step: 'x + 2 = 0 \\Rightarrow x = -2',
               },
               {
-                step: "x^2 - 5 = 0 \\Rightarrow x^2 = 5 \\Rightarrow x = \\sqrt{5} \\text{ lub } x = -\\sqrt{5}",
-              }
+                step: 'x^2 - 5 = 0 \\Rightarrow x^2 = 5 \\Rightarrow x = \\sqrt{5} \\text{ lub } x = -\\sqrt{5}',
+              },
             ]}
-            solutions={["x = -2", "x = \\sqrt{5}", "x = -\\sqrt{5}"]}
+            solutions={['x = -2', 'x = \\sqrt{5}', 'x = -\\sqrt{5}']}
           />
         )}
       </div>

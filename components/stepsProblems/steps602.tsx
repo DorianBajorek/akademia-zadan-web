@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,16 +28,14 @@ const Page = () => {
 
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-            <StepDescription stepNumber={1}>
-              Kiedy dwie proste są prostopadłe?
-            </StepDescription>
+            <StepDescription stepNumber={1}>Kiedy dwie proste są prostopadłe?</StepDescription>
             <ChoiceQuestion
               question="Który warunek musi być spełniony, aby proste były prostopadłe?"
               choices={[
-                { label: "\\text{Iloczyn ich współczynników kierunkowych wynosi -1}", value: "a" },
-                { label: "\\text{Ich współczynniki kierunkowe są równe}", value: "b" },
-                { label: "\\text{Suma ich współczynników kierunkowych wynosi 0}", value: "c" },
-                { label: "\\text{Ich wyrazy wolne są równe}", value: "d" },
+                { label: '\\text{Iloczyn ich współczynników kierunkowych wynosi -1}', value: 'a' },
+                { label: '\\text{Ich współczynniki kierunkowe są równe}', value: 'b' },
+                { label: '\\text{Suma ich współczynników kierunkowych wynosi 0}', value: 'c' },
+                { label: '\\text{Ich wyrazy wolne są równe}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Dwie proste są prostopadłe, gdy iloczyn ich współczynników kierunkowych wynosi -1."
@@ -55,10 +53,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "\\frac{2}{m-1} \\cdot m = 1", value: "a" },
-                { label: "\\frac{2}{m-1} \\cdot m = -1", value: "b" },
-                { label: "\\frac{2}{m-1} + m = -1", value: "c" },
-                { label: "\\frac{2}{m-1} = m", value: "d" },
+                { label: '\\frac{2}{m-1} \\cdot m = 1', value: 'a' },
+                { label: '\\frac{2}{m-1} \\cdot m = -1', value: 'b' },
+                { label: '\\frac{2}{m-1} + m = -1', value: 'c' },
+                { label: '\\frac{2}{m-1} = m', value: 'd' },
               ]}
               correctAnswer="b"
               explanation={`Poprawne równanie to: $$\\frac{2}{m-1} \\cdot m = -1$$ <br>
@@ -76,10 +74,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaka jest wartość m?"
               choices={[
-                { label: "m = 2", value: "a" },
-                { label: "m = \\frac{1}{2}", value: "b" },
-                { label: "m = \\frac{1}{3}", value: "c" },
-                { label: "m = -2", value: "d" },
+                { label: 'm = 2', value: 'a' },
+                { label: 'm = \\frac{1}{2}', value: 'b' },
+                { label: 'm = \\frac{1}{3}', value: 'c' },
+                { label: 'm = -2', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Kolejne kroki rozwiązania: <br>
@@ -101,12 +99,12 @@ const Page = () => {
           <StudentNotes
             equation="\\text{Proste są prostopadłe} \n y = \\frac{2}{m-1}x + m - 2 \n y = mx + \\frac{1}{m+1}"
             steps={[
-              { step: "\\text{Warunek prostopadłości: } a_1 \\cdot a_2 = -1" },
-              { step: "\\frac{2}{m-1} \\cdot m = -1" },
-              { step: "2m = -m + 1" },
-              { step: "m = \\frac{1}{3}" },
+              { step: '\\text{Warunek prostopadłości: } a_1 \\cdot a_2 = -1' },
+              { step: '\\frac{2}{m-1} \\cdot m = -1' },
+              { step: '2m = -m + 1' },
+              { step: 'm = \\frac{1}{3}' },
             ]}
-            solutions={["m = \\frac{1}{3}"]}
+            solutions={['m = \\frac{1}{3}']}
           />
         )}
       </div>

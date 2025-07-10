@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,15 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Aby ułatwić analizę, zacznij od przekształcenia wzoru na <InlineMath math="a_n"/>.
+              Aby ułatwić analizę, zacznij od przekształcenia wzoru na <InlineMath math="a_n" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak można przekształcić wyraz $$a_n = \frac{24-4n}{n}$$?"
               choices={[
-                { label: "a_n = \\frac{24}{n} - 4", value: "a" },
-                { label: "a_n = \\frac{24}{n} + 4", value: "b" },
-                { label: "a_n = \\frac{24n-4}{n}", value: "c" },
-                { label: "a_n = \\frac{24}{n-4}", value: "d" },
+                { label: 'a_n = \\frac{24}{n} - 4', value: 'a' },
+                { label: 'a_n = \\frac{24}{n} + 4', value: 'b' },
+                { label: 'a_n = \\frac{24n-4}{n}', value: 'c' },
+                { label: 'a_n = \\frac{24}{n-4}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Rozdzielamy licznik na dwa ułamki: $$\frac{24-4n}{n} = \frac{24}{n} - \frac{4n}{n} = \frac{24}{n} - 4$$."
@@ -47,15 +47,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Zastanów się, jaki warunek musi spełniać <InlineMath math="n"/>, aby wyrażenie <InlineMath math="a_n = \frac{24}{n} - 4"/> było liczbą całkowitą.
+              Zastanów się, jaki warunek musi spełniać <InlineMath math="n" />, aby wyrażenie{' '}
+              <InlineMath math="a_n = \frac{24}{n} - 4" /> było liczbą całkowitą.
             </StepDescription>
             <ChoiceQuestion
               question="Dla jakich wartości $$n$$ wyraz $$a_n = \frac{24}{n} - 4$$ jest liczbą całkowitą?"
               choices={[
-                { label: "\\text{ Dla n będących dzielnikami 24 }", value: "a" },
-                { label: "\\text{ Dla $n$ będących dzielnikami 4}", value: "b" },
-                { label: "\\text{ Dla wszystkich n}", value: "c" },
-                { label: "\\text{ Dla $n$ parzystych}", value: "d" },
+                { label: '\\text{ Dla n będących dzielnikami 24 }', value: 'a' },
+                { label: '\\text{ Dla $n$ będących dzielnikami 4}', value: 'b' },
+                { label: '\\text{ Dla wszystkich n}', value: 'c' },
+                { label: '\\text{ Dla $n$ parzystych}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Wyrażenie $$a_n$$ jest liczbą całkowitą, jeśli ułamek $$\frac{24}{n}$$ jest liczbą całkowitą. To zachodzi tylko wtedy, gdy $$n$$ jest dzielnikiem liczby 24."
@@ -68,15 +69,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Wypisz wszystkie naturalne dzielniki liczby 24. To są potencjalne wartości <InlineMath math="n"/>.
+              Wypisz wszystkie naturalne dzielniki liczby 24. To są potencjalne wartości{' '}
+              <InlineMath math="n" />.
             </StepDescription>
             <ChoiceQuestion
               question="Które z poniższych to wszystkie dzielniki liczby $$24$$ większe lub równe $$1$$?"
               choices={[
-                { label: "2, 4, 8, 24", value: "a" },
-                { label: "1, 2, 4, 8, 12, 24", value: "b" },
-                { label: "1, 2, 3, 4, 6, 8, 12, 24", value: "c" },
-                { label: "1, 3, 9, 24", value: "d" },
+                { label: '2, 4, 8, 24', value: 'a' },
+                { label: '1, 2, 4, 8, 12, 24', value: 'b' },
+                { label: '1, 2, 3, 4, 6, 8, 12, 24', value: 'c' },
+                { label: '1, 3, 9, 24', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Dzielniki liczby $$24$$ to: $$1, 2, 3, 4, 6, 8, 12, 24$$."
@@ -89,21 +91,22 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Teraz sprawdź, dla których z tych dzielników spełniony jest warunek nieujemności, czyli <InlineMath math="a_n \geq 0"/>.
+              Teraz sprawdź, dla których z tych dzielników spełniony jest warunek nieujemności,
+              czyli <InlineMath math="a_n \geq 0" />.
             </StepDescription>
             <ChoiceQuestion
               question="Dla których z tych $$n$$ wyraz $$a_n = \frac{24-4n}{n}$$ jest nieujemny?"
               choices={[
-                { label: " n = 1, 2, 3, 4, 6", value: "a" },
-                { label: " n = 1, 2, 3, 4, 6, 8", value: "b" },
-                { label: " n = 1, 2, 3, 4, 6, 8, 12", value: "c" },
-                { label: " n = 1, 2, 3, 4", value: "d" },
+                { label: ' n = 1, 2, 3, 4, 6', value: 'a' },
+                { label: ' n = 1, 2, 3, 4, 6, 8', value: 'b' },
+                { label: ' n = 1, 2, 3, 4, 6, 8, 12', value: 'c' },
+                { label: ' n = 1, 2, 3, 4', value: 'd' },
               ]}
               correctAnswer="a"
               explanation={
-                "Warunek $$a_n \\geq 0$$ jest równoważny nierówności $$\\frac{24-4n}{n}\\geq 0$$. Ponieważ $$n \\geq 1$$, mianownik jest dodatni, więc wystarczy sprawdzić, kiedy licznik jest nieujemny: <br/>" +
-                "$$24-4n \\geq 0 \\implies 24 \\geq 4n \\implies n \\leq 6$$.<br/>" +
-                "Zatem szukamy dzielników liczby 24, które są mniejsze lub równe 6. Są to: $$1, 2, 3, 4, 6$$."
+                'Warunek $$a_n \\geq 0$$ jest równoważny nierówności $$\\frac{24-4n}{n}\\geq 0$$. Ponieważ $$n \\geq 1$$, mianownik jest dodatni, więc wystarczy sprawdzić, kiedy licznik jest nieujemny: <br/>' +
+                '$$24-4n \\geq 0 \\implies 24 \\geq 4n \\implies n \\leq 6$$.<br/>' +
+                'Zatem szukamy dzielników liczby 24, które są mniejsze lub równe 6. Są to: $$1, 2, 3, 4, 6$$.'
               }
               onComplete={() => handleStageComplete(4)}
             />
@@ -114,15 +117,16 @@ const Page = () => {
         {completedStages.includes(4) && (
           <>
             <StepDescription stepNumber={5}>
-              Policz, ile jest wartości <InlineMath math="n"/>, które spełniają oba warunki jednocześnie.
+              Policz, ile jest wartości <InlineMath math="n" />, które spełniają oba warunki
+              jednocześnie.
             </StepDescription>
             <ChoiceQuestion
               question="Ile jest wszystkich nieujemnych całkowitych wyrazów tego ciągu?"
               choices={[
-                { label: "5", value: "a" },
-                { label: "6", value: "b" },
-                { label: "7", value: "c" },
-                { label: "4", value: "d" },
+                { label: '5', value: 'a' },
+                { label: '6', value: 'b' },
+                { label: '7', value: 'c' },
+                { label: '4', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Wartości $$n$$, dla których wyraz $$a_n$$ jest całkowity i nieujemny, to $$1, 2, 3, 4, 6$$. Jest ich łącznie 5."
@@ -136,14 +140,12 @@ const Page = () => {
           <StudentNotes
             equation="a_n = \frac{24-4n}{n}"
             steps={[
-              { step: "\\text{Warunek całkowitości: } n \\text{ jest dzielnikiem 24}" },
-              { step: "\\text{Dzielniki 24: } \\{1, 2, 3, 4, 6, 8, 12, 24\\}" },
-              { step: "\\text{Warunek nieujemności: } a_n \\ge 0 \\implies n \\le 6" },
-              { step: "\\text{Część wspólna: } \\{1, 2, 3, 4, 6\\}" }
+              { step: '\\text{Warunek całkowitości: } n \\text{ jest dzielnikiem 24}' },
+              { step: '\\text{Dzielniki 24: } \\{1, 2, 3, 4, 6, 8, 12, 24\\}' },
+              { step: '\\text{Warunek nieujemności: } a_n \\ge 0 \\implies n \\le 6' },
+              { step: '\\text{Część wspólna: } \\{1, 2, 3, 4, 6\\}' },
             ]}
-            solutions={[
-              "\\text{Liczba wyrazów: 5}"
-            ]}
+            solutions={['\\text{Liczba wyrazów: 5}']}
           />
         )}
       </div>

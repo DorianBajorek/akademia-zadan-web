@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // Dodany import komponentu
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // Dodany import komponentu
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -25,10 +25,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak obliczyć kwotę obniżki?"
             choices={[
-              { label: "220 - 176 = 44", value: "a" },
-              { label: "220 + 176 = 396", value: "b" },
-              { label: "176 - 220 = -44", value: "c" },
-              { label: "220 / 176 ≈ 1,25", value: "d" },
+              { label: '220 - 176 = 44', value: 'a' },
+              { label: '220 + 176 = 396', value: 'b' },
+              { label: '176 - 220 = -44', value: 'c' },
+              { label: '220 / 176 ≈ 1,25', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Obniżkę obliczamy odejmując nową cenę od starej: $$220 - 176 = 44$$ zł."
@@ -40,10 +40,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak zapisać obniżkę jako procent ceny początkowej?"
             choices={[
-              { label: "\\frac{44}{176} × 100\\%", value: "a" },
-              { label: "\\frac{220}{44} × 100\\%", value: "b" },
-              { label: "\\frac{176}{220} × 100\\%", value: "c" },
-              { label: "\\frac{44}{ 220} × 100\\%", value: "d" },
+              { label: '\\frac{44}{176} × 100\\%', value: 'a' },
+              { label: '\\frac{220}{44} × 100\\%', value: 'b' },
+              { label: '\\frac{176}{220} × 100\\%', value: 'c' },
+              { label: '\\frac{44}{ 220} × 100\\%', value: 'd' },
             ]}
             correctAnswer="d"
             explanation="Procent obniżki = (kwota obniżki / cena początkowa) × $$100\\%$$ = $$\frac{44}{220} × 100\%$$."
@@ -55,10 +55,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Oblicz $$\frac{44}{220} × 100\%$$?"
             choices={[
-              { label: "20\\%", value: "a" },
-              { label: "25\\%", value: "b" },
-              { label: "44\\%", value: "c" },
-              { label: "80\\%", value: "d" },
+              { label: '20\\%', value: 'a' },
+              { label: '25\\%', value: 'b' },
+              { label: '44\\%', value: 'c' },
+              { label: '80\\%', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="$$\frac{44}{220} = 0,2$$, a $$0,2 × 100\% = 20\%$$. Obniżka wynosi $$20\%$$."
@@ -71,19 +71,19 @@ const Page = () => {
             equation="\text{Procent obniżki} = \frac{\text{Kwota obniżki}}{\text{Cena początkowa}} \times 100\\%"
             steps={[
               {
-                step: "\\text{Kwota obniżki: } 220 - 176 = 44 \\text{zł}",
+                step: '\\text{Kwota obniżki: } 220 - 176 = 44 \\text{zł}',
               },
               {
-                step: "\\text{Procent obniżki: } \\frac{44}{220} \\cdot 100\\%",
+                step: '\\text{Procent obniżki: } \\frac{44}{220} \\cdot 100\\%',
               },
               {
-                step: "\\frac{44}{220} = 0,2",
+                step: '\\frac{44}{220} = 0,2',
               },
               {
-                step: "0,2 \\cdot 100\\% = 20\\%",
+                step: '0,2 \\cdot 100\\% = 20\\%',
               },
             ]}
-            solutions={["20\\%"]}
+            solutions={['20\\%']}
           />
         )}
       </div>

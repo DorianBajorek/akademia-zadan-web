@@ -1,9 +1,9 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const GeometricSequenceQuotientTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -11,17 +11,17 @@ const GeometricSequenceQuotientTask: React.FC = () => {
 
   const taskData = {
     task_id: 52,
-    exam_type: "mp",
-    task_type: "mc4",
+    exam_type: 'mp',
+    task_type: 'mc4',
     description: `
       Pierwszy wyraz ciągu geometrycznego jest równy $8$, a czwarty wyraz tego ciągu jest równy $(-216)$.
       Iloraz tego ciągu jest równy
     `,
-    choiceA: "$-\\frac{224}{3}$",
-    choiceB: "$-3$",
-    choiceC: "$-9$",
-    choiceD: "$-27$",
-    correct_answer: "b"
+    choiceA: '$-\\frac{224}{3}$',
+    choiceB: '$-3$',
+    choiceC: '$-9$',
+    choiceD: '$-27$',
+    correct_answer: 'b',
   };
 
   const handleCheckAnswer = () => {
@@ -33,12 +33,11 @@ const GeometricSequenceQuotientTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -47,7 +46,8 @@ const GeometricSequenceQuotientTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 3212 } />
+            taskId={3212}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -60,18 +60,18 @@ const GeometricSequenceQuotientTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

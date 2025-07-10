@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -17,7 +17,6 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-
         <TaskDescription
           title="Równanie logarytmiczne"
           description="Oblicz wartość logarytmu:"
@@ -33,10 +32,22 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^{(\\sqrt{3\\sqrt{3}})} = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}", value: "a" },
-                  { label: "\\sqrt{3\\sqrt{3}} \\cdot x = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}", value: "b" },
-                  { label: "(\\sqrt{3\\sqrt{3}})^x = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}", value: "c" },
-                  { label: "\\sqrt{3\\sqrt{3}} = (\\sqrt[4]{3} \\cdot \\sqrt[3]{3})^x", value: "d" },
+                  {
+                    label: 'x^{(\\sqrt{3\\sqrt{3}})} = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}',
+                    value: 'a',
+                  },
+                  {
+                    label: '\\sqrt{3\\sqrt{3}} \\cdot x = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}',
+                    value: 'b',
+                  },
+                  {
+                    label: '(\\sqrt{3\\sqrt{3}})^x = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}',
+                    value: 'c',
+                  },
+                  {
+                    label: '\\sqrt{3\\sqrt{3}} = (\\sqrt[4]{3} \\cdot \\sqrt[3]{3})^x',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="c"
                 explanation="Z definicji logarytmu wiemy, że $$\log_{\sqrt{3\sqrt{3}}}{\sqrt[4]{3}\cdot\sqrt[3]{3}} = x$$ oznacza $$(\sqrt{3\sqrt{3}})^x = \sqrt[4]{3} \cdot \sqrt[3]{3}$$."
@@ -54,10 +65,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "3^{\\frac{x}{4}} = 3^{\\frac{7}{12}}", value: "a" },
-                  { label: "3^{\\frac{x}{2}} = 3^{\\frac{7}{12}}", value: "b" },
-                  { label: "3^{\\frac{3x}{4}} = 3^{\\frac{7}{12}}", value: "c" },
-                  { label: "3^{\\frac{4x}{3}} = 3^{\\frac{7}{12}}", value: "d" }
+                  { label: '3^{\\frac{x}{4}} = 3^{\\frac{7}{12}}', value: 'a' },
+                  { label: '3^{\\frac{x}{2}} = 3^{\\frac{7}{12}}', value: 'b' },
+                  { label: '3^{\\frac{3x}{4}} = 3^{\\frac{7}{12}}', value: 'c' },
+                  { label: '3^{\\frac{4x}{3}} = 3^{\\frac{7}{12}}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={`Poprawne przekształcenie to $$3^{\\frac{3x}{4}} = 3^{\\frac{7}{12}}$$. <br>
@@ -71,16 +82,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Porównaj wykładniki:
-              </StepDescription>
+              <StepDescription stepNumber={3}>Porównaj wykładniki:</StepDescription>
               <ChoiceQuestion
                 question="Które równanie wynika z porównania wykładników?"
                 choices={[
-                  { label: "\\frac{3x}{4} = \\frac{7}{12}", value: "a" },
-                  { label: "x = \\frac{7}{12}", value: "b" },
-                  { label: "\\frac{x}{4} = \\frac{7}{12}", value: "c" },
-                  { label: "x = \\frac{7}{9}", value: "d" }
+                  { label: '\\frac{3x}{4} = \\frac{7}{12}', value: 'a' },
+                  { label: 'x = \\frac{7}{12}', value: 'b' },
+                  { label: '\\frac{x}{4} = \\frac{7}{12}', value: 'c' },
+                  { label: 'x = \\frac{7}{9}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne równanie to $$\frac{3x}{4} = \frac{7}{12}$$. <br>
@@ -92,9 +101,7 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Oblicz wartość x:
-              </StepDescription>
+              <StepDescription stepNumber={4}>Oblicz wartość x:</StepDescription>
               <NumericQuestion
                 question="Jaka jest wartość x? (Podaj w formie ułamka a/b)"
                 correctAnswer="7/9"
@@ -114,28 +121,28 @@ const Page = () => {
                 equation="\log_{\sqrt{3\sqrt{3}}} (\sqrt[4]{3} \cdot \sqrt[3]{3})"
                 steps={[
                   {
-                    step: "\\log_{\\sqrt{3\\sqrt{3}}} (\\sqrt[4]{3} \\cdot \\sqrt[3]{3}) = x \\Rightarrow (\\sqrt{3\\sqrt{3}})^x = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}",
+                    step: '\\log_{\\sqrt{3\\sqrt{3}}} (\\sqrt[4]{3} \\cdot \\sqrt[3]{3}) = x \\Rightarrow (\\sqrt{3\\sqrt{3}})^x = \\sqrt[4]{3} \\cdot \\sqrt[3]{3}',
                   },
                   {
-                    step: "\\sqrt{3\\sqrt{3}} = 3^{\\frac{3}{4}} \\text{ (podstawa logarytmu)}",
+                    step: '\\sqrt{3\\sqrt{3}} = 3^{\\frac{3}{4}} \\text{ (podstawa logarytmu)}',
                   },
                   {
-                    step: "\\sqrt[4]{3} \\cdot \\sqrt[3]{3} = 3^{\\frac{7}{12}} \\text{ (liczba logarytmowana)}",
+                    step: '\\sqrt[4]{3} \\cdot \\sqrt[3]{3} = 3^{\\frac{7}{12}} \\text{ (liczba logarytmowana)}',
                   },
                   {
-                    step: "3^{\\frac{3x}{4}} = 3^{\\frac{7}{12}}",
+                    step: '3^{\\frac{3x}{4}} = 3^{\\frac{7}{12}}',
                   },
                   {
-                    step: "\\frac{3x}{4} = \\frac{7}{12} / \\cdot 12",
+                    step: '\\frac{3x}{4} = \\frac{7}{12} / \\cdot 12',
                   },
                   {
-                    step: "9x = 7",
+                    step: '9x = 7',
                   },
                   {
-                    step: "x = \\frac{7}{9}",
-                  }
+                    step: 'x = \\frac{7}{9}',
+                  },
                 ]}
-                solutions={["x = \\frac{7}{9}"]}
+                solutions={['x = \\frac{7}{9}']}
               />
             </div>
           )}

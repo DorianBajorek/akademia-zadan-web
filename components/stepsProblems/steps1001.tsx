@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Oszacujmy wartość pierwiastka aby wiedzieć, czy wartość pod pierwiastkiem jest ujemna czy dodatnia.
+                Oszacujmy wartość pierwiastka aby wiedzieć, czy wartość pod pierwiastkiem jest
+                ujemna czy dodatnia.
               </StepDescription>
               <ChoiceQuestion
                 question="Ile wynosi w przybliżeniu $$\sqrt{5}$$?"
                 choices={[
-                  { label: "\\text{około } 2,24", value: "a" },
-                  { label: "\\text{około } 2,00", value: "b" },
-                  { label: "\\text{około } 2,50", value: "c" },
-                  { label: "\\text{około } 1,73", value: "d" },
+                  { label: '\\text{około } 2,24', value: 'a' },
+                  { label: '\\text{około } 2,00', value: 'b' },
+                  { label: '\\text{około } 2,50', value: 'c' },
+                  { label: '\\text{około } 1,73', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="$$\sqrt{5} ≈ 2.23606798$$. Wystarczy, że weźniemy tylko dwie cyfry $$2,24$$."
@@ -53,9 +54,9 @@ const Page = () => {
               <ChoiceQuestion
                 question="Czy wyrażenie $$3 - \sqrt{5}$$ jest dodatnie czy ujemne?"
                 choices={[
-                  { label: "\\text{Dodatnie}", value: "a" },
-                  { label: "\\text{Ujemne}", value: "b" },
-                  { label: "\\text{Równe zero}", value: "c" },
+                  { label: '\\text{Dodatnie}', value: 'a' },
+                  { label: '\\text{Ujemne}', value: 'b' },
+                  { label: '\\text{Równe zero}', value: 'c' },
                 ]}
                 correctAnswer="a"
                 explanation="Ponieważ $$\sqrt{5} ≈ 2.24$$, to $$3 - \sqrt{5} ≈ 3 - 2.24 = 0.76$$, czyli wynik jest dodatni."
@@ -66,15 +67,13 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Obliczenie wartości bezwzględnej
-              </StepDescription>
+              <StepDescription stepNumber={3}>Obliczenie wartości bezwzględnej</StepDescription>
               <ChoiceQuestion
                 question="Jak obliczyć $$|3 - \sqrt{5}|$$?"
                 choices={[
-                  { label: "3 - \\sqrt{5}", value: "a" },
-                  { label: "\\sqrt{5} - 3", value: "b" },
-                  { label: "0", value: "c" },
+                  { label: '3 - \\sqrt{5}', value: 'a' },
+                  { label: '\\sqrt{5} - 3', value: 'b' },
+                  { label: '0', value: 'c' },
                 ]}
                 correctAnswer="a"
                 explanation="Z definicji wartości bezwzględnej: jeśli wyrażenie jest dodatnie, to pozostaje bez zmian. <br>
@@ -89,11 +88,11 @@ const Page = () => {
               <StudentNotes
                 equation="|3 - \sqrt{5}|"
                 steps={[
-                  { step: "\\sqrt{5} ≈ 2.2361" },
-                  { step: "3 - \\sqrt{5} ≈ 0.7639 > 0" },
-                  { step: "|3 - \\sqrt{5}| = 3 - \\sqrt{5}" }
+                  { step: '\\sqrt{5} ≈ 2.2361' },
+                  { step: '3 - \\sqrt{5} ≈ 0.7639 > 0' },
+                  { step: '|3 - \\sqrt{5}| = 3 - \\sqrt{5}' },
                 ]}
-                solutions={["3 - \\sqrt{5}"]}
+                solutions={['3 - \\sqrt{5}']}
               />
             </div>
           )}
