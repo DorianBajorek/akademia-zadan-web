@@ -12,6 +12,8 @@ import { solveProblem } from '@/service';
 const Page = () => {
   const taskId = '900';
   const [problemSolved, setProblemSolved] = useState(false);
+  const [completedStages, setCompletedStages] = useState<number[]>([]);
+  const { token } = useAuth();
 
   useEffect(() => {
     if (problemSolved) {
@@ -21,8 +23,6 @@ const Page = () => {
     }
   }, [problemSolved, taskId, token]);
 
-  const [completedStages, setCompletedStages] = useState<number[]>([]);
-  const { token } = useAuth();
 
   const handleStageComplete = (stage: number) => {
     setCompletedStages((prev) => {
