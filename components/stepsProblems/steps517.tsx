@@ -14,7 +14,7 @@ const MathProblem = () => {
 
   return (
     <div className="container mx-auto p-4 max-w-3xl">
-      <TaskContent content={taskContent} youtubeId="8maQMsiRXJM" />
+      <TaskContent content={taskContent} youtubeId="8maQMsiRXJM" taskId={'517'}/>
     </div>
   );
 };
