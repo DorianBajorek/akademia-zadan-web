@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '@/app/UserData';
 import { solveProblem } from '@/service';
 

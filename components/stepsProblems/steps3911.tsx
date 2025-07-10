@@ -8,6 +8,19 @@ import { useState } from 'react';
 import TrueFalseQuestion from '../TrueFalseQuestion';
 
 const InequalityTrueFalseTask: React.FC = () => {
+
+  const [problemSolved, setProblemSolved] = useState(false);
+  const { token } = useAuth();
+  const taskId = '3911';
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
+
   const [selectedAnswers, setSelectedAnswers] = useState<(boolean | null)[]>([]);
   const [showResult, setShowResult] = useState(false);
 
@@ -51,7 +64,11 @@ const InequalityTrueFalseTask: React.FC = () => {
   const handleCheckAnswer = () => {
     if (selectedAnswers.every((answer) => answer !== null)) {
       setShowResult(true);
+    
+    if (selectedAnswer === taskData.correct_answer && !problemSolved) {
+      setProblemSolved(true);
     }
+  }
   };
 
   const allAnswersSelected = selectedAnswers.every((answer) => answer !== null);
