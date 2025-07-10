@@ -5,8 +5,11 @@ import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
 import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/app/UserData";
+import { getProblemProgress } from "@/service";
 
-const tasks = [
+const LOCAL_TASKS_META = [
     {
     id: "2300",
     title: "Zadanie 1",
@@ -28,13 +31,6 @@ const tasks = [
     img: "/problemImages/problem2302.png",
     isCompleted: false,
   },
-  // {
-  //   id: "2303",
-  //   title: "Zadanie 4",
-  //   description: "Obliczenie wartości dla zadanego argumentu",
-  //   img: "/problemImages/problem2303.png",
-  //   isCompleted: false,
-  // },
   {
     id: "2304",
     title: "Zadanie 5",
@@ -49,16 +45,42 @@ const tasks = [
     img: "/problemImages/problem2305.png",
     isCompleted: false,
   },
-  // {
-  //   id: "2306",
-  //   title: "Zadanie 7",
-  //   description: "Obliczenie wartości dla zadanego argumentu",
-  //   img: "/problemImages/problem2306.png",
-  //   isCompleted: false,
-  // },
 ];
 
 const TopicTasksPage = () => {
+                    const [tasks, setTasks] = useState<Task[]>([]);
+                    const { token } = useAuth();
+                  
+                    useEffect(() => {
+                      const fetchTasks = async () => {
+                        if (!token) return;
+                  
+                        try {
+                          const response = await getProblemProgress(
+                            "funkcje",
+                            "funkcja-za-pomoca-wzoru",
+                            token
+                          );
+                  
+                          const mergedTasks = response.tasks.map((taskFromApi: any) => {
+                            const meta = LOCAL_TASKS_META.find((m) => m.id === String(taskFromApi.id));
+                            return {
+                              id: taskFromApi.id,
+                              title: meta?.title || `Zadanie ${taskFromApi.id}`,
+                              description: meta?.description || "",
+                              img: meta?.img || "",
+                              isCompleted: taskFromApi.completed,
+                            };
+                          });
+                  
+                          setTasks(mergedTasks);
+                        } catch (error) {
+                          console.error("Nie udało się pobrać zadań", error);
+                        }
+                      };
+                  
+                      fetchTasks();
+                    }, [token]);
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
   const firstGroup = tasks.filter(task => parseInt(task.id) >= 2300 && parseInt(task.id) <= 2303);

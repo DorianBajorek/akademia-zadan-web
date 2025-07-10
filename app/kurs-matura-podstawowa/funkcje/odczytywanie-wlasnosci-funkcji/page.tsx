@@ -5,36 +5,11 @@ import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
 import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/app/UserData";
+import { getProblemProgress } from "@/service";
 
-const tasks = [
-  //   {
-  //   id: "3900",
-  //   title: "Zadanie 1",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3900.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3901",
-  //   title: "Zadanie 2",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3901.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3902",
-  //   title: "Zadanie 3",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3902.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3903",
-  //   title: "Zadanie 4",
-  //   description: "Wyznaczenia zbioru wartości",
-  //   img: "/problemImages/problem3903.png",
-  //   isCompleted: false,
-  // },
+const LOCAL_TASKS_META = [
       {
     id: "3904",
     title: "Zadanie 5",
@@ -42,20 +17,6 @@ const tasks = [
     img: "/problemImages/problem3904.png",
     isCompleted: false,
   },
-  //     {
-  //   id: "3905",
-  //   title: "Zadanie 6",
-  //   description: "Wyznaczanie dziedziny funkcji",
-  //   img: "/problemImages/problem3905.png",
-  //   isCompleted: false,
-  // },
-  //     {
-  //   id: "3906",
-  //   title: "Zadanie 7",
-  //   description: "Wyznaczanie dziedziny funkcji",
-  //   img: "/problemImages/problem3906.png",
-  //   isCompleted: false,
-  // },
   {
     id: "3907",
     title: "Zadanie 8",
@@ -101,6 +62,39 @@ const tasks = [
 ];
 
 const TopicTasksPage = () => {
+                    const [tasks, setTasks] = useState<Task[]>([]);
+                    const { token } = useAuth();
+                  
+                    useEffect(() => {
+                      const fetchTasks = async () => {
+                        if (!token) return;
+                  
+                        try {
+                          const response = await getProblemProgress(
+                            "funkcje",
+                            "odczytywanie-wlasnosci-funkcji",
+                            token
+                          );
+                  
+                          const mergedTasks = response.tasks.map((taskFromApi: any) => {
+                            const meta = LOCAL_TASKS_META.find((m) => m.id === String(taskFromApi.id));
+                            return {
+                              id: taskFromApi.id,
+                              title: meta?.title || `Zadanie ${taskFromApi.id}`,
+                              description: meta?.description || "",
+                              img: meta?.img || "",
+                              isCompleted: taskFromApi.completed,
+                            };
+                          });
+                  
+                          setTasks(mergedTasks);
+                        } catch (error) {
+                          console.error("Nie udało się pobrać zadań", error);
+                        }
+                      };
+                  
+                      fetchTasks();
+                    }, [token]);
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
   const firstGroup = tasks.filter(task => parseInt(task.id) >= 3900 && parseInt(task.id) <= 3907);

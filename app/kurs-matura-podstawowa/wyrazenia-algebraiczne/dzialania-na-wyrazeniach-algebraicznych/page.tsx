@@ -5,8 +5,11 @@ import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
 import TaskCards from "@/components/TaskCards";
 import TopicStats from "@/components/TopicStats";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/app/UserData";
+import { getProblemProgress } from "@/service";
 
-const tasks = [
+const LOCAL_TASKS_META = [
   {
     id: "1800",
     title: "Zadanie 1",
@@ -88,6 +91,39 @@ const tasks = [
 ];
 
 const TopicTasksPage = () => {
+          const [tasks, setTasks] = useState<Task[]>([]);
+          const { token } = useAuth();
+        
+          useEffect(() => {
+            const fetchTasks = async () => {
+              if (!token) return;
+        
+              try {
+                const response = await getProblemProgress(
+                  "wyrazenia-algebraiczne",
+                  "dzialania-na-wyrazeniach-algebraicznych",
+                  token
+                );
+        
+                const mergedTasks = response.tasks.map((taskFromApi: any) => {
+                  const meta = LOCAL_TASKS_META.find((m) => m.id === String(taskFromApi.id));
+                  return {
+                    id: taskFromApi.id,
+                    title: meta?.title || `Zadanie ${taskFromApi.id}`,
+                    description: meta?.description || "",
+                    img: meta?.img || "",
+                    isCompleted: taskFromApi.completed,
+                  };
+                });
+        
+                setTasks(mergedTasks);
+              } catch (error) {
+                console.error("Nie udało się pobrać zadań", error);
+              }
+            };
+        
+            fetchTasks();
+          }, [token]);
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
   const firstGroup = tasks.filter(task => parseInt(task.id) >= 1800 && parseInt(task.id) <= 1803);

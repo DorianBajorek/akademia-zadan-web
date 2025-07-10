@@ -9,14 +9,6 @@ import TopicStats from "@/components/TopicStats";
 import { getProblemProgress } from "@/service";
 import { useAuth } from "@/app/UserData";
 
-type Task = {
-  id: string;
-  title: string;
-  description: string;
-  img: string;
-  isCompleted: boolean;
-};
-
 const LOCAL_TASKS_META = [
   {
     id: "500",
