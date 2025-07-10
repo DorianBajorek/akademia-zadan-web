@@ -1,8 +1,14 @@
 'use client';
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
 import TrueFalseQuestion from '../TrueFalseQuestion';
 
 const SystemOfEquationsTask: React.FC = () => {
+  const { token } = useAuth();
+  const taskId = '3003';
+  const [problemSolved, setProblemSolved] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState<(boolean | null)[]>([]);
   const [showResult, setShowResult] = useState(false);
 
@@ -31,9 +37,19 @@ const SystemOfEquationsTask: React.FC = () => {
     ],
   };
 
-  useState(() => {
+  // Inicjalizacja odpowiedzi po załadowaniu komponentu
+  useEffect(() => {
     setSelectedAnswers(Array(taskData.statements.length).fill(null));
-  });
+  }, [taskData.statements.length]);
+
+  // Wysłanie informacji o rozwiązaniu
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
 
   const handleAnswerSelect = (index: number, isTrue: boolean) => {
     const newAnswers = [...selectedAnswers];
@@ -44,6 +60,14 @@ const SystemOfEquationsTask: React.FC = () => {
   const handleCheckAnswer = () => {
     if (selectedAnswers.every((answer) => answer !== null)) {
       setShowResult(true);
+
+      const allCorrect = selectedAnswers.every(
+        (answer, index) => answer === taskData.statements[index].isTrue
+      );
+
+      if (allCorrect) {
+        setProblemSolved(true);
+      }
     }
   };
 

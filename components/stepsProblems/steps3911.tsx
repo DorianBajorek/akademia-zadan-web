@@ -1,8 +1,15 @@
 'use client';
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
 import TrueFalseQuestion from '../TrueFalseQuestion';
 
 const InequalityTrueFalseTask: React.FC = () => {
+  const { token } = useAuth();
+  const taskId = '3911';
+  const [problemSolved, setProblemSolved] = useState(false);
+
   const [selectedAnswers, setSelectedAnswers] = useState<(boolean | null)[]>([]);
   const [showResult, setShowResult] = useState(false);
 
@@ -33,9 +40,19 @@ const InequalityTrueFalseTask: React.FC = () => {
     questionImg: '/problemImages/problem3911.png',
   };
 
-  useState(() => {
+  // Inicjalizacja odpowiedzi
+  useEffect(() => {
     setSelectedAnswers(Array(taskData.statements.length).fill(null));
-  });
+  }, [taskData.statements.length]);
+
+  // Wysłanie informacji o rozwiązaniu
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
 
   const handleAnswerSelect = (index: number, isTrue: boolean) => {
     const newAnswers = [...selectedAnswers];
@@ -46,6 +63,14 @@ const InequalityTrueFalseTask: React.FC = () => {
   const handleCheckAnswer = () => {
     if (selectedAnswers.every((answer) => answer !== null)) {
       setShowResult(true);
+
+      const allCorrect = selectedAnswers.every(
+        (answer, index) => answer === taskData.statements[index].isTrue
+      );
+
+      if (allCorrect) {
+        setProblemSolved(true);
+      }
     }
   };
 
@@ -63,7 +88,7 @@ const InequalityTrueFalseTask: React.FC = () => {
             selectedAnswers={selectedAnswers}
             onAnswerSelect={handleAnswerSelect}
             isSubmitted={showResult}
-            questionImg={'/problemImages/problem3911.png'}
+            questionImg={taskData.questionImg}
           />
 
           <button
