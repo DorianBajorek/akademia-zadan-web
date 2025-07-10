@@ -7,11 +7,11 @@ import TaskCards from '@/components/TaskCards';
 import TopicStats from '@/components/TopicStats';
 
 const tasks = [
-  {
-    id: '3900',
-    title: 'Zadanie 1',
-    description: 'Wyznaczenia zbioru wartości',
-    img: '/problemImages/problem3900.png',
+    {
+    id: "3900",
+    title: "Zadanie 1",
+    description: "Zbiór wartości funkcji",
+    img: "/problemImages/problem3900.png",
     isCompleted: false,
   },
 ];

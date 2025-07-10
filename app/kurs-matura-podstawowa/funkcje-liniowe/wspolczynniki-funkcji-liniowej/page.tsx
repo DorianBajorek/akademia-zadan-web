@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/UserData';
 import { getProblemProgress } from '@/service';
 
+<<<<<<< HEAD
 const LOCAL_TASKS_META = [
   {
     id: '4500',
@@ -73,6 +74,70 @@ const LOCAL_TASKS_META = [
     title: 'Zadanie 1',
     description: 'Wskaż miejsca zerowe funkcji',
     img: '/problemImages/problem4508.png',
+=======
+const tasks = [
+    {
+    id: "4500",
+    title: "Zadanie 1",
+    description: "Współczynniki funkcji liniowej",
+    img: "/problemImages/problem4500.png",
+    isCompleted: false,
+  },
+      {
+    id: "4501",
+    title: "Zadanie 2",
+    description: "Współczynniki funkcji liniowej",
+    img: "/problemImages/problem4501.png",
+    isCompleted: false,
+  },
+      {
+    id: "4502",
+    title: "Zadanie 3",
+    description: "Współczynniki funkcji liniowej",
+    img: "/problemImages/problem4502.png",
+    isCompleted: false,
+  },
+      {
+    id: "4503",
+    title: "Zadanie 4",
+    description: "Równanie prostej",
+    img: "/problemImages/problem4503.png",
+    isCompleted: false,
+  },
+      {
+    id: "4504",
+    title: "Zadanie 5",
+    description: "Kąt nachylenia prostej",
+    img: "/problemImages/problem4504.png",
+    isCompleted: false,
+  },
+      {
+    id: "4505",
+    title: "Zadanie 6",
+    description: "Kąt nachylenia prostej",
+    img: "/problemImages/problem4505.png",
+    isCompleted: false,
+  },
+      {
+    id: "4506",
+    title: "Zadanie 7",
+    description: "Własności funkcji liniowej",
+    img: "/problemImages/problem4506.png",
+    isCompleted: false,
+  },
+      {
+    id: "4507",
+    title: "Zadanie 8",
+    description: "Własności funkcji liniowej",
+    img: "/problemImages/problem4507.png",
+    isCompleted: false,
+  },
+      {
+    id: "4508",
+    title: "Zadanie 9",
+    description: "Własności funkcji liniowej",
+    img: "/problemImages/problem4508.png",
+>>>>>>> main
     isCompleted: false,
   },
 ];
