@@ -1,5 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
+
 import { useState } from 'react';
 import { InlineMath } from 'react-katex';
 import ChoiceQuestion from './ChoiceQuestion';
@@ -8,10 +12,28 @@ import TaskDescription from '../TaskDescription';
 import StepDescription from '../StepDescription';
 
 const Page = () => {
+  const { token } = useAuth();
+  const taskId = '4502';
+  const [problemSolved, setProblemSolved] = useState(false);
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
+
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) => (prev.includes(stage) ? prev : [...prev, stage]));
+    setCompletedStages((prev) => {
+      const updated = [...prev, stage];
+      if (updated.length === 2 && !problemSolved) {
+        setProblemSolved(true);
+      }
+      return updated;
+    });
   };
 
   const resetLesson = () => {

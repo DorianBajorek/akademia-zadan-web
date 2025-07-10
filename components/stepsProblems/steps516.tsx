@@ -1,4 +1,9 @@
 'use client';
+
+import { useEffect } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
+
 import 'katex/dist/katex.min.css';
 import TaskContent from '@/components/TaskContent';
 

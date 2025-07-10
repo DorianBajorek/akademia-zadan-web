@@ -1,4 +1,9 @@
 'use client';
+
+import { useEffect } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Footer from '@/components/Footer';

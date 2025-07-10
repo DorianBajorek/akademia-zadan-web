@@ -10,67 +10,67 @@ import { useAuth } from '@/app/UserData';
 import { getProblemProgress } from '@/service';
 
 const LOCAL_TASKS_META = [
-    {
-    id: "600",
-    title: "Zadanie 1",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem600.png",
+  {
+    id: '600',
+    title: 'Zadanie 1',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem600.png',
     isCompleted: false,
   },
-      {
-    id: "601",
-    title: "Zadanie 2",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem601.png",
+  {
+    id: '601',
+    title: 'Zadanie 2',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem601.png',
     isCompleted: false,
   },
-      {
-    id: "603",
-    title: "Zadanie 3",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem603.png",
+  {
+    id: '603',
+    title: 'Zadanie 3',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem603.png',
     isCompleted: false,
   },
-      {
-    id: "605",
-    title: "Zadanie 4",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem605.png",
+  {
+    id: '605',
+    title: 'Zadanie 4',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem605.png',
     isCompleted: false,
   },
-      {
-    id: "4600",
-    title: "Zadanie 5",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem4600.png",
+  {
+    id: '4600',
+    title: 'Zadanie 5',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem4600.png',
     isCompleted: false,
   },
-      {
-    id: "4601",
-    title: "Zadanie 6",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem4601.png",
+  {
+    id: '4601',
+    title: 'Zadanie 6',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem4601.png',
     isCompleted: false,
   },
-      {
-    id: "4602",
-    title: "Zadanie 7",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem4602.png",
+  {
+    id: '4602',
+    title: 'Zadanie 7',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem4602.png',
     isCompleted: false,
   },
-      {
-    id: "4603",
-    title: "Zadanie 8",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem4603.png",
+  {
+    id: '4603',
+    title: 'Zadanie 8',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem4603.png',
     isCompleted: false,
   },
-      {
-    id: "4604",
-    title: "Zadanie 9",
-    description: "Równoległość prostych",
-    img: "/problemImages/problem4604.png",
+  {
+    id: '4604',
+    title: 'Zadanie 9',
+    description: 'Równoległość prostych',
+    img: '/problemImages/problem4604.png',
     isCompleted: false,
   },
 ];

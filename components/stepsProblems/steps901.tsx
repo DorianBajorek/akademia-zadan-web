@@ -10,11 +10,28 @@ import { useAuth } from '@/app/UserData';
 import { solveProblem } from '@/service';
 
 const Page = () => {
+  const taskId = '901';
+  const [problemSolved, setProblemSolved] = useState(false);
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
+
   const [completedStages, setCompletedStages] = useState<number[]>([]);
   const { token } = useAuth();
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) => [...prev, stage]);
+    setCompletedStages((prev) => {
+      const updated = [...prev, stage];
+      if (updated.length === 2 && !problemSolved) {
+        setProblemSolved(true);
+      }
+      return updated;
+    });
   };
 
   useEffect(() => {

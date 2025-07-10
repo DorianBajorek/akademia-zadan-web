@@ -1,5 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
+
 import { useState } from 'react';
 import { InlineMath } from 'react-katex';
 import ChoiceQuestion from './ChoiceQuestion';
@@ -8,10 +12,28 @@ import TaskDescription from '../TaskDescription';
 import StepDescription from '../StepDescription';
 
 const Page = () => {
+  const { token } = useAuth();
+  const taskId = '2602';
+  const [problemSolved, setProblemSolved] = useState(false);
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
+
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) => [...prev, stage]);
+    setCompletedStages((prev) => {
+      const updated = [...prev, stage];
+      if (updated.length === 2 && !problemSolved) {
+        setProblemSolved(true);
+      }
+      return updated;
+    });
   };
 
   return (
@@ -32,10 +54,22 @@ const Page = () => {
             <ChoiceQuestion
               question="Czy pierwsze równanie jest spełnione?"
               choices={[
-                { label: "Tak,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} \\ne \\frac{1}{2}", value: "a" },
-                { label: "Tak,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}", value: "b" },
-                { label: "Nie,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}", value: "c" },
-                { label: "\\text{Nie można tego stwierdzić}", value: "d" }
+                {
+                  label:
+                    'Tak,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} \\ne \\frac{1}{2}',
+                  value: 'a',
+                },
+                {
+                  label:
+                    'Tak,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}',
+                  value: 'b',
+                },
+                {
+                  label:
+                    'Nie,\\ bo \\ \\frac{1}{2}·\\frac{1}{2} + \\frac{1}{3}·\\frac{1}{3} = \\frac{1}{4} + \\frac{1}{9} = \\frac{13}{36} ≠ \\frac{1}{2}',
+                  value: 'c',
+                },
+                { label: '\\text{Nie można tego stwierdzić}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Podstawiamy $$x=\frac{1}{2}$$ i $$y=\frac{1}{3}$$ do pierwszego równania:<br><br>$$\frac{1}{2}·\frac{1}{2} + \frac{1}{3}·\frac{1}{3} = \frac{1}{4} + \frac{1}{9} = \frac{13}{36}$$<br><br>$$\frac{13}{36} ≠ \frac{1}{2}$$ (bo $$\frac{1}{2} = \frac{18}{36}$$)<br><br>Równość nie jest prawdziwa, więc pierwsze równanie nie jest spełnione."
