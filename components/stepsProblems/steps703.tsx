@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import { InlineMath } from "react-katex";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import { InlineMath } from 'react-katex';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,15 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Rozważ liczby trzycyfrowe zaczynające się cyfrą <InlineMath math="3"/>.
+              Rozważ liczby trzycyfrowe zaczynające się cyfrą <InlineMath math="3" />.
             </StepDescription>
             <ChoiceQuestion
               question="Ile jest liczb naturalnych trzycyfrowych o sumie cyfr równej $$3$$, które zaczynają się cyfrą $$3$$?"
               choices={[
-                { label: "0", value: "a" },
-                { label: "1", value: "b" },
-                { label: "2", value: "c" },
-                { label: "3", value: "d" },
+                { label: '0', value: 'a' },
+                { label: '1', value: 'b' },
+                { label: '2', value: 'c' },
+                { label: '3', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Jest jedna taka liczba - $$300$$."
@@ -46,15 +46,15 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Rozważ liczby trzycyfrowe zaczynające się cyfrą <InlineMath math="2"/>.
+              Rozważ liczby trzycyfrowe zaczynające się cyfrą <InlineMath math="2" />.
             </StepDescription>
             <ChoiceQuestion
               question="Ile jest liczb naturalnych trzycyfrowych o sumie cyfr równej $$3$$, które zaczynają się cyfrą $$2$$?"
               choices={[
-                { label: "0", value: "a" },
-                { label: "1", value: "b" },
-                { label: "2", value: "c" },
-                { label: "3", value: "d" },
+                { label: '0', value: 'a' },
+                { label: '1', value: 'b' },
+                { label: '2', value: 'c' },
+                { label: '3', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Są 2 takie liczby - $$210$$ i $$201$$."
@@ -71,10 +71,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Ile jest liczb naturalnych trzycyfrowych o sumie cyfr równej 3, które zaczynają się cyfrą 1?"
               choices={[
-                { label: "0", value: "a" },
-                { label: "1", value: "b" },
-                { label: "2", value: "c" },
-                { label: "3", value: "d" },
+                { label: '0', value: 'a' },
+                { label: '1', value: 'b' },
+                { label: '2', value: 'c' },
+                { label: '3', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Są trzy takie liczby - $$111$$, $$120$$ i $$102$$."
@@ -85,9 +85,7 @@ const Page = () => {
 
         {completedStages.includes(3) && (
           <>
-            <StepDescription stepNumber={4}>
-              Oblicz końcowy wynik.
-            </StepDescription>
+            <StepDescription stepNumber={4}>Oblicz końcowy wynik.</StepDescription>
             <NumericQuestion
               question="Podaj ostateczny wynik - liczbę rozważanych liczb:"
               correctAnswer="6"
@@ -101,11 +99,11 @@ const Page = () => {
           <StudentNotes
             equation="\text{Rozważamy liczby naturalne trzycyfrowe o sumie cyfr równej 3}"
             steps={[
-              { step: "\\text{Liczby zaczynające się od cyfry 3: 300}" },
-              { step: "\\text{Liczby zaczynające się od cyfry 2: 210, 201}" },
-              { step: "\\text{Liczby zaczynające się od cyfry 1: 111, 120, 102}" },
+              { step: '\\text{Liczby zaczynające się od cyfry 3: 300}' },
+              { step: '\\text{Liczby zaczynające się od cyfry 2: 210, 201}' },
+              { step: '\\text{Liczby zaczynające się od cyfry 1: 111, 120, 102}' },
             ]}
-            solutions={["\\text{Liczba szukanych liczb wynosi 6.}"]}
+            solutions={['\\text{Liczba szukanych liczb wynosi 6.}']}
           />
         )}
       </div>

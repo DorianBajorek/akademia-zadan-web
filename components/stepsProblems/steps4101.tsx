@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,21 +27,22 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Równanie iloczynowe jest równe zero, gdy co najmniej jeden z jego czynników jest równy zero. Znajdź wszystkie wartości <InlineMath math="x"/>, które spełniają ten warunek.
+              Równanie iloczynowe jest równe zero, gdy co najmniej jeden z jego czynników jest równy
+              zero. Znajdź wszystkie wartości <InlineMath math="x" />, które spełniają ten warunek.
             </StepDescription>
             <ChoiceQuestion
               question="Jakie są miejsca zerowe równania $$2(x-4)(x^2-1)=0$$?"
               choices={[
-                { label: "x = 2, x = -2, x = 4", value: "a" },
-                { label: "x = 4, x = -1", value: "b" },
-                { label: "x = 4, x = 1, x = -1", value: "c" },
-                { label: "x = 0, x = 1, x = 4", value: "d" }
+                { label: 'x = 2, x = -2, x = 4', value: 'a' },
+                { label: 'x = 4, x = -1', value: 'b' },
+                { label: 'x = 4, x = 1, x = -1', value: 'c' },
+                { label: 'x = 0, x = 1, x = 4', value: 'd' },
               ]}
               correctAnswer="c"
               explanation={
-                "Aby iloczyn był równy zero, jeden z czynników musi być równy zero. Mamy więc dwa przypadki:<br/>" +
-                "1) $$x-4=0 \\implies x=4$$<br/>" +
-                "2) $$x^2-1=0 \\implies (x-1)(x+1)=0 \\implies x=1$$ lub $$x=-1$$."
+                'Aby iloczyn był równy zero, jeden z czynników musi być równy zero. Mamy więc dwa przypadki:<br/>' +
+                '1) $$x-4=0 \\implies x=4$$<br/>' +
+                '2) $$x^2-1=0 \\implies (x-1)(x+1)=0 \\implies x=1$$ lub $$x=-1$$.'
               }
               onComplete={() => handleStageComplete(1)}
             />
@@ -57,14 +58,14 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaki jest iloczyn wszystkich miejsc zerowych równania?"
               choices={[
-                { label: "-8", value: "a" },
-                { label: "4", value: "b" },
-                { label: "8", value: "c" },
-                { label: "-4", value: "d" }
+                { label: '-8', value: 'a' },
+                { label: '4', value: 'b' },
+                { label: '8', value: 'c' },
+                { label: '-4', value: 'd' },
               ]}
               correctAnswer="d"
               explanation={
-                "Miejsca zerowe to $$4, 1, -1$$.<br/>Iloczyn tych rozwiązań wynosi: $$4 \\cdot 1 \\cdot (-1) = -4$$."
+                'Miejsca zerowe to $$4, 1, -1$$.<br/>Iloczyn tych rozwiązań wynosi: $$4 \\cdot 1 \\cdot (-1) = -4$$.'
               }
               onComplete={() => handleStageComplete(2)}
             />
@@ -76,15 +77,13 @@ const Page = () => {
           <StudentNotes
             equation="2(x-4)(x^2-1)=0"
             steps={[
-              { step: "\\text{Przyrównujemy czynniki do zera:}" },
-              { step: "x-4=0 \\implies x_1=4" },
-              { step: "x^2-1=0 \\implies x_2=1, \\; x_3=-1" },
-              { step: "\\text{Mnożymy rozwiązania:}" },
-              { step: "x_1 \\cdot x_2 \\cdot x_3 = 4 \\cdot 1 \\cdot (-1) = -4" }
+              { step: '\\text{Przyrównujemy czynniki do zera:}' },
+              { step: 'x-4=0 \\implies x_1=4' },
+              { step: 'x^2-1=0 \\implies x_2=1, \\; x_3=-1' },
+              { step: '\\text{Mnożymy rozwiązania:}' },
+              { step: 'x_1 \\cdot x_2 \\cdot x_3 = 4 \\cdot 1 \\cdot (-1) = -4' },
             ]}
-            solutions={[
-              "\\text{Iloczyn rozwiązań jest równy } -4."
-            ]}
+            solutions={['\\text{Iloczyn rozwiązań jest równy } -4.']}
           />
         )}
       </div>

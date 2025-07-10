@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription"; // Dodano import
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription'; // Dodano import
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,10 +30,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaki jest współczynnik kierunkowy a w podanej funkcji?"
               choices={[
-                { label: "a = 2", value: "a" },
-                { label: "a = \\sqrt{3}", value: "b" },
-                { label: "a = 3", value: "c" },
-                { label: "a = \\frac{\\sqrt{3}}{2}", value: "d" }
+                { label: 'a = 2', value: 'a' },
+                { label: 'a = \\sqrt{3}', value: 'b' },
+                { label: 'a = 3', value: 'c' },
+                { label: 'a = \\frac{\\sqrt{3}}{2}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Współczynnik kierunkowy to liczba stojąca przed $$x$$ w równaniu funkcji liniowej. Dla $$y = \sqrt{3}x + 2$$ mamy $$a = \sqrt{3}$$."
@@ -45,15 +45,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Oblicz wartość kąta <InlineMath math="\alpha" /> korzystając z zależności <InlineMath math="\tan\alpha = a" />.
+              Oblicz wartość kąta <InlineMath math="\alpha" /> korzystając z zależności{' '}
+              <InlineMath math="\tan\alpha = a" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaka jest wartość kąta $$\alpha$$ dla $$a = \sqrt{3}$$?"
               choices={[
-                { label: "30^\\circ", value: "a" },
-                { label: "45^\\circ", value: "b" },
-                { label: "60^\\circ", value: "c" },
-                { label: "90^\\circ", value: "d" }
+                { label: '30^\\circ', value: 'a' },
+                { label: '45^\\circ', value: 'b' },
+                { label: '60^\\circ', value: 'c' },
+                { label: '90^\\circ', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Ponieważ $$\tg(60^\circ) = \sqrt{3}$$, to $$\alpha = 60^\circ$$."
@@ -67,13 +68,13 @@ const Page = () => {
             equation=""
             steps={[
               {
-                step: "\\text{Odczytujemy współczynnik kierunkowy: } a = \\sqrt{3}",
+                step: '\\text{Odczytujemy współczynnik kierunkowy: } a = \\sqrt{3}',
               },
               {
-                step: "\\text{Obliczamy kąt: } \\alpha = 60^\\circ \\text{, bo } \\tg(60^{\\circ}) = \\sqrt{3}",
-              }
+                step: '\\text{Obliczamy kąt: } \\alpha = 60^\\circ \\text{, bo } \\tg(60^{\\circ}) = \\sqrt{3}',
+              },
             ]}
-            solutions={["60^\\circ"]}
+            solutions={['60^\\circ']}
           />
         )}
       </div>

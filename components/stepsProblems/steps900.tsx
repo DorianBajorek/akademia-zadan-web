@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
-import { useAuth } from "@/app/UserData";
-import { solveProblem } from "@/service";
+import { useEffect, useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -19,7 +19,7 @@ const Page = () => {
 
   useEffect(() => {
     if (completedStages.length === 3) {
-      solveProblem("500", token);
+      solveProblem('500', token);
     }
   }, [completedStages, token]);
 
@@ -43,10 +43,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie poprawnie przedstawia sytuację z zadania?"
               choices={[
-                { label: "0.3x = x - 2730", value: "a" },
-                { label: "30x = x - 2730", value: "b" },
-                { label: "0.3x = 2730 - x", value: "c" },
-                { label: "30x = 2730 - x", value: "d" },
+                { label: '0.3x = x - 2730', value: 'a' },
+                { label: '30x = x - 2730', value: 'b' },
+                { label: '0.3x = 2730 - x', value: 'c' },
+                { label: '30x = 2730 - x', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne równanie to $$0.3x = x - 2730$$, ponieważ $$30\\%$$ liczby $$x$$ zapisujemy jako $$0.3x$$, a 'jest o $$2730$$ mniejsze od $$x$$' oznacza $$x - 2730$$."
@@ -58,15 +58,15 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Przekształć równanie <InlineMath math="0.3x = x - 2730"/>.
+              Przekształć równanie <InlineMath math="0.3x = x - 2730" />.
             </StepDescription>
             <ChoiceQuestion
               question="Który krok rozwiązania jest poprawny?"
               choices={[
-                { label: "0.3x + x = 2730", value: "a" },
-                { label: "0.3x - x = -2730", value: "b" },
-                { label: "0.3x = 2730", value: "c" },
-                { label: "x - 0.3x = 2730", value: "d" },
+                { label: '0.3x + x = 2730', value: 'a' },
+                { label: '0.3x - x = -2730', value: 'b' },
+                { label: '0.3x = 2730', value: 'c' },
+                { label: 'x - 0.3x = 2730', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawny pierwszy krok to przeniesienie $$x$$ na lewą stronę: $$0.3x - x = -2730$$."
@@ -78,15 +78,15 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Rozwiąż równanie <InlineMath math="0.3x - x = -2730"/>.
+              Rozwiąż równanie <InlineMath math="0.3x - x = -2730" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jakie jest rozwiązanie równania?"
               choices={[
-                { label: "x = 3900", value: "a" },
-                { label: "x = 1911", value: "b" },
-                { label: "x = 9100", value: "c" },
-                { label: "x = 2100", value: "d" },
+                { label: 'x = 3900', value: 'a' },
+                { label: 'x = 1911', value: 'b' },
+                { label: 'x = 9100', value: 'c' },
+                { label: 'x = 2100', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Rozwiązanie: $$-0.7x = -2730$$, więc $$x = \frac{-2730}{-0.7} = 3900$$."
@@ -100,16 +100,16 @@ const Page = () => {
             equation="30\% \text{ liczby } x \text{ jest o } 2730 \text{ mniejsze od liczby } x"
             steps={[
               {
-                step: "0.3x = x - 2730",
+                step: '0.3x = x - 2730',
               },
               {
-                step: "0.3x - x = -2730 \\Rightarrow -0.7x = -2730",
+                step: '0.3x - x = -2730 \\Rightarrow -0.7x = -2730',
               },
               {
-                step: "x = \\frac{-2730}{-0.7} = 3900",
+                step: 'x = \\frac{-2730}{-0.7} = 3900',
               },
             ]}
-            solutions={["3900"]}
+            solutions={['3900']}
           />
         )}
       </div>

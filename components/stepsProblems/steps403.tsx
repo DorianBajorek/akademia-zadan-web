@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -22,29 +22,27 @@ const Page = () => {
           title="Trzywyrazowy ciąg arytmetyczny"
           description="Trzywyrazowy ciąg $$(1, 4, a+5)$$ jest arytmetyczny. Wyznacz wartość $$a$$ i określ monotoniczność ciągu."
         />
-        
+
         <div className="mt-8 space-y-8">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
-              <StepDescription stepNumber={1}>
-                Warunek na ciąg arytmetyczny
-              </StepDescription>
+              <StepDescription stepNumber={1}>Warunek na ciąg arytmetyczny</StepDescription>
               <ChoiceQuestion
                 question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
                 choices={[
-                  { label: "a+b+c=0", value: "a" },
-                  { label: "b-c=2a", value: "b" },
-                  { label: "b = \\frac{a+c}{2}", value: "c" },
-                  { label: "2c=a+b", value: "d" },
+                  { label: 'a+b+c=0', value: 'a' },
+                  { label: 'b-c=2a', value: 'b' },
+                  { label: 'b = \\frac{a+c}{2}', value: 'c' },
+                  { label: '2c=a+b', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/warunek_ciag_arytmetyczny.png"}
+                img={'/steps-images/warunek_ciag_arytmetyczny.png'}
               />
             </div>
           )}
-          
+
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
@@ -53,10 +51,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie jest poprawne?"
                 choices={[
-                  { label: "1=\\frac{4+a+5}{2}", value: "a" },
-                  { label: "4=\\frac{1+a+5}{2}", value: "b" },
-                  { label: "a+5=\\frac{1+4}{2}", value: "c" },
-                  { label: "4 = \\frac{1-a+5}{2}", value: "d" }
+                  { label: '1=\\frac{4+a+5}{2}', value: 'a' },
+                  { label: '4=\\frac{1+a+5}{2}', value: 'b' },
+                  { label: 'a+5=\\frac{1+4}{2}', value: 'c' },
+                  { label: '4 = \\frac{1-a+5}{2}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawne przekształcenie to $$4 = \frac{1+a+5}{2}$$. <br>
@@ -67,19 +65,17 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Uproszczenie równania
-              </StepDescription>
+              <StepDescription stepNumber={3}>Uproszczenie równania</StepDescription>
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "8=6+a", value: "a" },
-                  { label: "4=3+a", value: "b" },
-                  { label: "2=a-6", value: "c" },
-                  { label: "4=6+a", value: "d" }
+                  { label: '8=6+a', value: 'a' },
+                  { label: '4=3+a', value: 'b' },
+                  { label: '2=a-6', value: 'c' },
+                  { label: '4=6+a', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne rozwiązanie to $$8=6+a$$. <br>
@@ -89,12 +85,10 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Rozwiązanie równania
-              </StepDescription>
+              <StepDescription stepNumber={4}>Rozwiązanie równania</StepDescription>
               <NumericQuestion
                 question="Rozwiąż równanie $$8=6+a$$. Podaj wartość a"
                 correctAnswer="2"
@@ -109,16 +103,14 @@ const Page = () => {
 
           {completedStages.includes(4) && (
             <div>
-              <StepDescription stepNumber={5}>
-                Określenie monotoniczności ciągu
-              </StepDescription>
+              <StepDescription stepNumber={5}>Określenie monotoniczności ciągu</StepDescription>
               <ChoiceQuestion
                 question="Jaki jest pełny ciąg i jego monotoniczność?"
                 choices={[
-                  { label: "(1,4,7) \\rightarrow \\text{rosnący}", value: "a" },
-                  { label: "(1,4,7) \\rightarrow \\text{malejący}", value: "b" },
-                  { label: "(1,4,3) \\rightarrow \\text{rosnący}", value: "c" },
-                  { label: "(1,4,3) \\rightarrow \\text{malejący}", value: "d" }
+                  { label: '(1,4,7) \\rightarrow \\text{rosnący}', value: 'a' },
+                  { label: '(1,4,7) \\rightarrow \\text{malejący}', value: 'b' },
+                  { label: '(1,4,3) \\rightarrow \\text{rosnący}', value: 'c' },
+                  { label: '(1,4,3) \\rightarrow \\text{malejący}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Dla $$a=2$$ otrzymujemy ciąg $$(1,4,7)$$. <br>
@@ -129,26 +121,26 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.length === 5 && (
             <div className="mt-8">
               <StudentNotes
                 equation="(1,4,a+5) \rightarrow \text{ciąg arytmetyczny}"
                 steps={[
                   {
-                    step: "x=1, y=4, z=a+5, y=\\frac{x+z}{2}",
+                    step: 'x=1, y=4, z=a+5, y=\\frac{x+z}{2}',
                   },
                   {
-                    step: "4=\\frac{1+a+5}{2}",
+                    step: '4=\\frac{1+a+5}{2}',
                   },
                   {
-                    step: "8=6+a",
+                    step: '8=6+a',
                   },
                   {
-                    step: "a=2 \\text{ i ciąg } (1,4,7) \\text{ jest rosnący}"
-                  }
+                    step: 'a=2 \\text{ i ciąg } (1,4,7) \\text{ jest rosnący}',
+                  },
                 ]}
-                solutions={["a=2", "(1,4,7) \\text{ - ciąg rosnący}"]}
+                solutions={['a=2', '(1,4,7) \\text{ - ciąg rosnący}']}
               />
             </div>
           )}

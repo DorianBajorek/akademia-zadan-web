@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // Upewnij się, że ścieżka jest poprawna
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // Upewnij się, że ścieżka jest poprawna
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,10 +27,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak wygląda wzór funkcji $$f(x)$$ w postaci iloczynowej?"
             choices={[
-              { label: "f(x) = (x + 1)(x + 2)", value: "a" },
-              { label: "f(x) = 2(x + 1)(x - 2)", value: "b" },
-              { label: "f(x) = 2(x - 1)(x + 2)", value: "c" },
-              { label: "f(x) = 2(x - 1)(x - 2)", value: "d" },
+              { label: 'f(x) = (x + 1)(x + 2)', value: 'a' },
+              { label: 'f(x) = 2(x + 1)(x - 2)', value: 'b' },
+              { label: 'f(x) = 2(x - 1)(x + 2)', value: 'c' },
+              { label: 'f(x) = 2(x - 1)(x - 2)', value: 'd' },
             ]}
             correctAnswer="c"
             explanation="Wzór funkcji kwadratowej w postaci iloczynowej to $$f(x) = a(x - x_1)(x - x_2)$$. Podstawiając $$a = 2$$, $$x_1 = 1$$, $$x_2 = -2$$, otrzymujemy: $$f(x) = 2(x - 1)(x + 2)$$."
@@ -44,10 +44,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Podstaw $$x = 5$$ do wzoru $$f(x) = 2(x - 1)(x + 2)$$"
             choices={[
-              { label: "f(5) = 24", value: "a" },
-              { label: "f(5) = 36", value: "b" },
-              { label: "f(5) = 20", value: "c" },
-              { label: "f(5) = 56", value: "d" },
+              { label: 'f(5) = 24', value: 'a' },
+              { label: 'f(5) = 36', value: 'b' },
+              { label: 'f(5) = 20', value: 'c' },
+              { label: 'f(5) = 56', value: 'd' },
             ]}
             correctAnswer="d"
             explanation="Obliczamy: $$f(5) = 2(5 - 1)(5 + 2) = 2 \cdot 4 \cdot 7 = 56$$."
@@ -61,11 +61,11 @@ const Page = () => {
           <StudentNotes
             equation="f(x) = 2(x - 1)(x + 2), \quad f(5) = ?"
             steps={[
-              { step: "\\text{Zapisujemy wzór: } f(x) = 2(x - 1)(x + 2)" },
-              { step: "\\text{Podstawiamy } x = 5: f(5) = 2(5 - 1)(5 + 2)" },
-              { step: "f(5) = 2 \\cdot 4 \\cdot 7 = 56" },
+              { step: '\\text{Zapisujemy wzór: } f(x) = 2(x - 1)(x + 2)' },
+              { step: '\\text{Podstawiamy } x = 5: f(5) = 2(5 - 1)(5 + 2)' },
+              { step: 'f(5) = 2 \\cdot 4 \\cdot 7 = 56' },
             ]}
-            solutions={["f(5) = 56"]}
+            solutions={['f(5) = 56']}
           />
         )}
       </div>

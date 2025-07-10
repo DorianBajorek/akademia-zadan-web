@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { BlockMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { BlockMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,11 +30,26 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które dwa punkty można wybrać, aby napisać równanie prostej?"
                 choices={[
-                  { label: "(x_A, y_A) = (-1, \\frac{3}{\\sqrt{2}}), \\ (x_B, y_B) = (5, \\frac{7}{\\sqrt{2}})", value: "a" },
-                  { label: "(x_A, y_A) = (1, \\frac{3}{\\sqrt{2}}), \\ (x_B, y_B) = (-5, \\frac{7}{\\sqrt{2}})", value: "b" },
-                  { label: "(x_A, y_A) = (1, \\frac{1}{\\sqrt{2}}), \\ (x_B, y_B) = (5, \\frac{3}{\\sqrt{2}})", value: "c" },
-                  { label: "(x_A, y_A) = (-1, \\frac{1}{\\sqrt{2}}), \\ (x_B, y_B) = (1, \\frac{3}{\\sqrt{2}})", value: "d" },
-
+                  {
+                    label:
+                      '(x_A, y_A) = (-1, \\frac{3}{\\sqrt{2}}), \\ (x_B, y_B) = (5, \\frac{7}{\\sqrt{2}})',
+                    value: 'a',
+                  },
+                  {
+                    label:
+                      '(x_A, y_A) = (1, \\frac{3}{\\sqrt{2}}), \\ (x_B, y_B) = (-5, \\frac{7}{\\sqrt{2}})',
+                    value: 'b',
+                  },
+                  {
+                    label:
+                      '(x_A, y_A) = (1, \\frac{1}{\\sqrt{2}}), \\ (x_B, y_B) = (5, \\frac{3}{\\sqrt{2}})',
+                    value: 'c',
+                  },
+                  {
+                    label:
+                      '(x_A, y_A) = (-1, \\frac{1}{\\sqrt{2}}), \\ (x_B, y_B) = (1, \\frac{3}{\\sqrt{2}})',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="d"
                 explanation="Wybieramy dwa dowolne różne punkty z tabeli, np. $$A = (-1, \frac{1}{\sqrt{2}}), B = (1, \frac{3}{\sqrt{2}})$$."
@@ -51,15 +66,27 @@ const Page = () => {
               <ChoiceQuestion
                 question="Podstaw wybrane punkty do wzoruna równanie prostej przechodzącej przez punkt $$A$$ i $$B$$:<br/> $$ (y - y_A)(x_B - x_A) - (y_B - y_A)(x - x_A) = 0 $$"
                 choices={[
-                  { label: "(y - \\frac{1}{\\sqrt{2}}) (1 - (-1)) - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x - (-1)) = 0", value: "a" },
-                  { label: "(y - 1) (1 - (-1)) - (3 - 1) (x - (-1)) = 0", value: "b" },
-                  { label: "(y - \\frac{1}{\\sqrt{2}}) (2-1) - (\\frac{7}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0", value: "c" },
-                  { label: "(y - \\frac{1}{\\sqrt{2}}) (2-1) - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x - 1) = 0", value: "d" },
+                  {
+                    label:
+                      '(y - \\frac{1}{\\sqrt{2}}) (1 - (-1)) - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x - (-1)) = 0',
+                    value: 'a',
+                  },
+                  { label: '(y - 1) (1 - (-1)) - (3 - 1) (x - (-1)) = 0', value: 'b' },
+                  {
+                    label:
+                      '(y - \\frac{1}{\\sqrt{2}}) (2-1) - (\\frac{7}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0',
+                    value: 'c',
+                  },
+                  {
+                    label:
+                      '(y - \\frac{1}{\\sqrt{2}}) (2-1) - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x - 1) = 0',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="a"
                 explanation={
-                  "Podstawiamy:<br/> $$x_A = -1,\\ y_A = \\frac{1}{\\sqrt{2}},\\ x_B = 1,\\ y_B = \\frac{3}{\\sqrt{2}}$$.<br/>" +
-                  "Wzór: $$(y - \\frac{1}{\\sqrt{2}}) (1 - (-1)) - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x - (-1)) = 0$$"
+                  'Podstawiamy:<br/> $$x_A = -1,\\ y_A = \\frac{1}{\\sqrt{2}},\\ x_B = 1,\\ y_B = \\frac{3}{\\sqrt{2}}$$.<br/>' +
+                  'Wzór: $$(y - \\frac{1}{\\sqrt{2}}) (1 - (-1)) - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x - (-1)) = 0$$'
                 }
                 onComplete={() => handleStageComplete(2)}
               />
@@ -74,10 +101,22 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie równanie otrzymasz, podstawiając $$y=0$$ do poprzedniego wzoru?"
                 choices={[
-                  { label: "(0 - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0", value: "a" },
-                  { label: "(0 + \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0", value: "b" },
-                  { label: "(0 - 1) \\cdot 2 - (3 - 1)(x + 1) = 0", value: "c" },
-                  { label: "(0 - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{7}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}})(x + 1) = 0", value: "d" },
+                  {
+                    label:
+                      '(0 - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0',
+                    value: 'a',
+                  },
+                  {
+                    label:
+                      '(0 + \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0',
+                    value: 'b',
+                  },
+                  { label: '(0 - 1) \\cdot 2 - (3 - 1)(x + 1) = 0', value: 'c' },
+                  {
+                    label:
+                      '(0 - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{7}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}})(x + 1) = 0',
+                    value: 'd',
+                  },
                 ]}
                 correctAnswer="a"
                 explanation="Szukamy miejsca zerowego, czyli podstawiamy $$y = 0$$."
@@ -93,15 +132,15 @@ const Page = () => {
               </StepDescription>
               <NumericQuestion
                 question={
-                  "Wyznacz $$x$$ z równania:<br/>" +
-                  "$$ (0 - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0 $$"
+                  'Wyznacz $$x$$ z równania:<br/>' +
+                  '$$ (0 - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{3}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}) (x + 1) = 0 $$'
                 }
                 correctAnswer="-2"
                 explanation={
-                  "$$ ( -\\frac{1}{\\sqrt{2}} ) \\cdot 2 - ( \\frac{2}{\\sqrt{2}} ) (x + 1) = 0 $$<br/>" +
-                  "$$ -\\frac{2}{\\sqrt{2}} - \\frac{2}{\\sqrt{2}} (x + 1) = 0 $$<br/>" +
-                  "$$ -\\frac{2}{\\sqrt{2}} (x + 2) = 0 $$<br/>" +
-                  "Dzielimy przez $$-\\frac{2}{\\sqrt{2}}$$:<br/> $$x + 2 = 0$$<br/> $$x = -2$$"
+                  '$$ ( -\\frac{1}{\\sqrt{2}} ) \\cdot 2 - ( \\frac{2}{\\sqrt{2}} ) (x + 1) = 0 $$<br/>' +
+                  '$$ -\\frac{2}{\\sqrt{2}} - \\frac{2}{\\sqrt{2}} (x + 1) = 0 $$<br/>' +
+                  '$$ -\\frac{2}{\\sqrt{2}} (x + 2) = 0 $$<br/>' +
+                  'Dzielimy przez $$-\\frac{2}{\\sqrt{2}}$$:<br/> $$x + 2 = 0$$<br/> $$x = -2$$'
                 }
                 onComplete={() => handleStageComplete(4)}
               />
@@ -113,14 +152,18 @@ const Page = () => {
               <StudentNotes
                 equation="(y - y_A)(x_B - x_A) - (y_B - y_A)(x - x_A) = 0"
                 steps={[
-                  { step: "\\text{Wybieramy punkty: }A = (-1, \\frac{1}{\\sqrt{2}}), B = (1, \\frac{3}{\\sqrt{2}})" },
-                  { step: "\\text{Podstawiamy do wzoru: }(y - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{2}{\\sqrt{2}}) (x + 1) = 0" },
-                  { step: "\\text{Podstawiamy }y=0 \\text{ :  }(-\\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{2}{\\sqrt{2}}) (x + 1) = 0" },
-                  { step: "\\text{Ostatecznie: }x + 2 = 0 \\implies x = -2" },
+                  {
+                    step: '\\text{Wybieramy punkty: }A = (-1, \\frac{1}{\\sqrt{2}}), B = (1, \\frac{3}{\\sqrt{2}})',
+                  },
+                  {
+                    step: '\\text{Podstawiamy do wzoru: }(y - \\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{2}{\\sqrt{2}}) (x + 1) = 0',
+                  },
+                  {
+                    step: '\\text{Podstawiamy }y=0 \\text{ :  }(-\\frac{1}{\\sqrt{2}}) \\cdot 2 - (\\frac{2}{\\sqrt{2}}) (x + 1) = 0',
+                  },
+                  { step: '\\text{Ostatecznie: }x + 2 = 0 \\implies x = -2' },
                 ]}
-                solutions={[
-                  "x = -2"
-                ]}
+                solutions={['x = -2']}
               />
             </div>
           )}

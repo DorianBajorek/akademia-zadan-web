@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,16 +27,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Do wyznaczenia delty potrzebne będę nam współczynniki.
-                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
+                Do wyznaczenia delty potrzebne będę nam współczynniki. Wybierz poprawne wartości
+                współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 1, b = 6, c = -7", value: "a" },
-                  { label: "a = 2, b = 6, c = -7", value: "b" },
-                  { label: "a = 1, b = -6, c = 7", value: "c" },
-                  { label: "a = -1, b = 6, c = 7", value: "d" }
+                  { label: 'a = 1, b = 6, c = -7', value: 'a' },
+                  { label: 'a = 2, b = 6, c = -7', value: 'b' },
+                  { label: 'a = 1, b = -6, c = 7', value: 'c' },
+                  { label: 'a = -1, b = 6, c = 7', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Współczynniki dla tej nierówności to $$a = 1, b = 6, c = -7$$. 
@@ -55,15 +55,15 @@ const Page = () => {
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
-                Oblicz <InlineMath math="\Delta"/> dla tej nierówności.
+                Oblicz <InlineMath math="\Delta" /> dla tej nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Która wartość jest poprawną $$\Delta$$ dla tej nierówności?"
                 choices={[
-                  { label: "Δ = 36", value: "a" },
-                  { label: "Δ = 64", value: "b" },
-                  { label: "Δ = -28", value: "c" },
-                  { label: "Δ = 16", value: "d" }
+                  { label: 'Δ = 36', value: 'a' },
+                  { label: 'Δ = 64', value: 'b' },
+                  { label: 'Δ = -28', value: 'c' },
+                  { label: 'Δ = 16', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Mamy wzór: <br>
@@ -85,10 +85,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x_1 = 0, x_2 = 6", value: "a" },
-                  { label: "x_1 = 7, x_2 = -1", value: "b" },
-                  { label: "x_1 = 3, x_2 = -3", value: "c" },
-                  { label: "x_1 = -7, x_2 = 1", value: "d" }
+                  { label: 'x_1 = 0, x_2 = 6', value: 'a' },
+                  { label: 'x_1 = 7, x_2 = -1', value: 'b' },
+                  { label: 'x_1 = 3, x_2 = -3', value: 'c' },
+                  { label: 'x_1 = -7, x_2 = 1', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Ponieważ delta jest dodatnia, równanie ma dwa pierwiastki: <br>
@@ -112,10 +112,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$x^2 + 6x - 7 \leq 0$$?"
                 choices={[
-                  { label: "x \\in \\langle-7, 1\\rangle", value: "a" },
-                  { label: "x ∈ (-∞, -7\\rangle ∪ \\langle1, ∞)", value: "b" },
-                  { label: "x ∈ (-7, 1)", value: "c" },
-                  { label: "x ∈ (-∞, -7) ∪ (1, ∞)", value: "d" }
+                  { label: 'x \\in \\langle-7, 1\\rangle', value: 'a' },
+                  { label: 'x ∈ (-∞, -7\\rangle ∪ \\langle1, ∞)', value: 'b' },
+                  { label: 'x ∈ (-7, 1)', value: 'c' },
+                  { label: 'x ∈ (-∞, -7) ∪ (1, ∞)', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Rozwiązaniem nierówności $$x^2 + 6x - 7 \leq 0$$ jest przedział:
@@ -134,20 +134,20 @@ const Page = () => {
                 equation="x^2 + 6x - 7 \leq 0"
                 steps={[
                   {
-                    step: "a = 1, b = 6, c = -7",
+                    step: 'a = 1, b = 6, c = -7',
                   },
                   {
-                    step: "\\Delta = b^2 - 4ac = 6^2 - 4 \\cdot 1 \\cdot (-7) = 36 + 28 = 64",
+                    step: '\\Delta = b^2 - 4ac = 6^2 - 4 \\cdot 1 \\cdot (-7) = 36 + 28 = 64',
                   },
                   {
-                    step: "x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = \\frac{-6 - 8}{2} = -7",
+                    step: 'x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = \\frac{-6 - 8}{2} = -7',
                   },
                   {
-                    step: "x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = \\frac{-6 + 8}{2} = 1",
-                    image: "/steps-images/fun3.png"
+                    step: 'x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = \\frac{-6 + 8}{2} = 1',
+                    image: '/steps-images/fun3.png',
                   },
                 ]}
-                solutions={["x \\in \\langle-7, 1\\rangle"]}
+                solutions={['x \\in \\langle-7, 1\\rangle']}
               />
             </div>
           )}

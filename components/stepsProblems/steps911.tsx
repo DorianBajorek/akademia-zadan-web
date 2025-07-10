@@ -1,24 +1,25 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const HardcodedTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 418,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Klient wpłacił do banku 30 000 zł na lokatę dwuletnią. Po każdym rocznym okresie oszczędzania bank dolicza odsetki w wysokości 7% od kwoty bieżącego kapitału znajdującego się na lokacie. Po dwóch latach oszczędzania łączna wartość doliczonych odsetek na tej lokacie (bez uwzględniania podatków) jest równa",
-    "choiceA": "2100 zł",
-    "choiceB": "2247 zł",
-    "choiceC": "4200 zł",
-    "choiceD": "4347 zł",
-    "correct_answer": "d"
+    task_id: 418,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Klient wpłacił do banku 30 000 zł na lokatę dwuletnią. Po każdym rocznym okresie oszczędzania bank dolicza odsetki w wysokości 7% od kwoty bieżącego kapitału znajdującego się na lokacie. Po dwóch latach oszczędzania łączna wartość doliczonych odsetek na tej lokacie (bez uwzględniania podatków) jest równa',
+    choiceA: '2100 zł',
+    choiceB: '2247 zł',
+    choiceC: '4200 zł',
+    choiceD: '4347 zł',
+    correct_answer: 'd',
   };
 
   const handleCheckAnswer = () => {
@@ -35,7 +36,8 @@ const HardcodedTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +46,8 @@ const HardcodedTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 911 } />
+            taskId={911}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -57,18 +60,18 @@ const HardcodedTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

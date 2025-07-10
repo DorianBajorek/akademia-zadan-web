@@ -1,8 +1,8 @@
-"use client";
-import { InlineMath } from "react-katex";
-import { motion } from "framer-motion";
+'use client';
+import { InlineMath } from 'react-katex';
+import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
-import { useState } from "react";
+import { useState } from 'react';
 
 interface Question3Props {
   description: string;
@@ -18,8 +18,8 @@ interface Question3Props {
   solution: string;
 }
 
-const answerLabels = ["A", "B", "C", "D"];
-const letterMap = ["a", "b", "c", "d"];
+const answerLabels = ['A', 'B', 'C', 'D'];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const Question3: React.FC<Question3Props> = ({
   description,
@@ -32,20 +32,22 @@ const Question3: React.FC<Question3Props> = ({
   selectedAnswer,
   onAnswerSelect,
   isCorrect,
-  solution
+  solution,
 }) => {
   const [showSolution, setShowSolution] = useState(false);
   const answers = [choiceA, choiceB, choiceC, choiceD];
   const correctAnswerIndex = letterMap.indexOf(correctAnswer.toLowerCase());
 
-const renderText = (text: string): React.ReactNode[] => {
-    const parts = text.split(/(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi);
-  
+  const renderText = (text: string): React.ReactNode[] => {
+    const parts = text.split(
+      /(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi
+    );
+
     let strongOpen = false;
-  
+
     return parts.map((part, index) => {
       if (!part) return null;
-  
+
       if (part.toLowerCase() === '<strong>') {
         strongOpen = true;
         return null;
@@ -54,11 +56,11 @@ const renderText = (text: string): React.ReactNode[] => {
         strongOpen = false;
         return null;
       }
-  
+
       let element: React.ReactNode = null;
-  
-      if (part.toLowerCase().startsWith("<center>") && part.toLowerCase().endsWith("</center>")) {
-        const content = part.replace(/<\/?center>/gi, "");
+
+      if (part.toLowerCase().startsWith('<center>') && part.toLowerCase().endsWith('</center>')) {
+        const content = part.replace(/<\/?center>/gi, '');
         return (
           <div key={index} className="text-center">
             {renderText(content)}
@@ -83,14 +85,13 @@ const renderText = (text: string): React.ReactNode[] => {
       } else {
         element = <span key={index}>{part}</span>;
       }
-  
+
       return strongOpen ? <strong key={index}>{element}</strong> : element;
     });
   };
-  
 
   const isImage = (text: string) => {
-    return /\.(jpeg|jpg|gif|png|webp|svg)$/.test(text) || text.startsWith("http");
+    return /\.(jpeg|jpg|gif|png|webp|svg)$/.test(text) || text.startsWith('http');
   };
 
   const renderAnswerContent = (text: string) => {
@@ -102,13 +103,13 @@ const renderText = (text: string): React.ReactNode[] => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border-2 border-gray-100 max-w-3xl mx-auto"
     >
-      <motion.h3 
+      <motion.h3
         className="text-lg sm:text-xl font-medium text-gray-800 mb-4 sm:mb-6 leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -134,21 +135,21 @@ const renderText = (text: string): React.ReactNode[] => {
 
       <div className="space-y-3 sm:space-y-4">
         {answers.map((answer, index) => {
-          let buttonStyle = "border-gray-200 hover:border-blue-300 bg-white hover:bg-blue-50";
+          let buttonStyle = 'border-gray-200 hover:border-blue-300 bg-white hover:bg-blue-50';
           const isSelected = selectedAnswer === letterMap[index];
           const isActuallyCorrect = index === correctAnswerIndex;
 
           if (isSelected) {
             buttonStyle =
               isCorrect === undefined || isCorrect === null
-                ? "border-blue-500 bg-blue-50 shadow-md"
+                ? 'border-blue-500 bg-blue-50 shadow-md'
                 : isCorrect
-                ? "border-emerald-500 bg-emerald-50 shadow-md"
-                : "border-rose-500 bg-rose-50 shadow-md";
+                  ? 'border-emerald-500 bg-emerald-50 shadow-md'
+                  : 'border-rose-500 bg-rose-50 shadow-md';
           }
 
           if (!isSelected && isCorrect === false && isActuallyCorrect) {
-            buttonStyle = "border-emerald-500 bg-emerald-50 shadow-md";
+            buttonStyle = 'border-emerald-500 bg-emerald-50 shadow-md';
           }
 
           return (
@@ -161,17 +162,19 @@ const renderText = (text: string): React.ReactNode[] => {
               whileTap={{ scale: isCorrect === null ? 0.98 : 1 }}
             >
               <div className="flex items-start">
-                <span className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 text-sm sm:text-base rounded-full flex items-center justify-center mr-3 font-bold ${
-                  isSelected 
-                    ? isCorrect === true 
-                      ? "bg-emerald-500 text-white" 
-                      : isCorrect === false 
-                        ? "bg-rose-500 text-white" 
-                        : "bg-blue-500 text-white"
-                    : isCorrect === false && isActuallyCorrect
-                      ? "bg-emerald-500 text-white"
-                      : "bg-gray-100 text-gray-700"
-                }`}>
+                <span
+                  className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 text-sm sm:text-base rounded-full flex items-center justify-center mr-3 font-bold ${
+                    isSelected
+                      ? isCorrect === true
+                        ? 'bg-emerald-500 text-white'
+                        : isCorrect === false
+                          ? 'bg-rose-500 text-white'
+                          : 'bg-blue-500 text-white'
+                      : isCorrect === false && isActuallyCorrect
+                        ? 'bg-emerald-500 text-white'
+                        : 'bg-gray-100 text-gray-700'
+                  }`}
+                >
                   {answerLabels[index]}
                 </span>
                 <div className="text-gray-700 text-sm sm:text-base">
@@ -188,7 +191,7 @@ const renderText = (text: string): React.ReactNode[] => {
           onClick={() => setShowSolution(!showSolution)}
           className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-sm sm:text-base"
         >
-          {showSolution ? "Ukryj rozwiązanie" : "Pokaż rozwiązanie"}
+          {showSolution ? 'Ukryj rozwiązanie' : 'Pokaż rozwiązanie'}
         </button>
       </div>
 

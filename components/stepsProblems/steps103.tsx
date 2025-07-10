@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
+                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej
+                nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 2, b = 3, c = -2", value: "a" },
-                  { label: "a = -2, b = -3, c = 2", value: "b" },
-                  { label: "a = 2, b = -3, c = 2", value: "c" },
-                  { label: "a = -2, b = 3, c = 2", value: "d" },
+                  { label: 'a = 2, b = 3, c = -2', value: 'a' },
+                  { label: 'a = -2, b = -3, c = 2', value: 'b' },
+                  { label: 'a = 2, b = -3, c = 2', value: 'c' },
+                  { label: 'a = -2, b = 3, c = 2', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Współczynniki dla tej nierówności to $$a = -2, b = 3, c = 2$$. 
@@ -79,10 +80,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x₁ = -0.5, x₂ = 2", value: "a" },
-                  { label: "x₁ = 0.5, x₂ = -2", value: "b" },
-                  { label: "x₁ = 1, x₂ = -1", value: "c" },
-                  { label: "x₁ = 0, x₂ = 1.5", value: "d" }
+                  { label: 'x₁ = -0.5, x₂ = 2', value: 'a' },
+                  { label: 'x₁ = 0.5, x₂ = -2', value: 'b' },
+                  { label: 'x₁ = 1, x₂ = -1', value: 'c' },
+                  { label: 'x₁ = 0, x₂ = 1.5', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Ponieważ delta jest dodatnia, równanie ma dwa pierwiastki: <br>
@@ -106,10 +107,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$-2x^2 + 3x + 2 \leq 0$$?"
                 choices={[
-                  { label: "x ∈ \\langle-0.5, 2\\rangle", value: "a" },
-                  { label: "x ∈ (-0.5, 2)", value: "b" },
-                  { label: "x ∈ (-∞, -0.5\\rangle ∪ \\langle2, ∞)", value: "c" },
-                  { label: "x ∈ (-∞, -0.5) ∪ (2, ∞)", value: "d" }
+                  { label: 'x ∈ \\langle-0.5, 2\\rangle', value: 'a' },
+                  { label: 'x ∈ (-0.5, 2)', value: 'b' },
+                  { label: 'x ∈ (-∞, -0.5\\rangle ∪ \\langle2, ∞)', value: 'c' },
+                  { label: 'x ∈ (-∞, -0.5) ∪ (2, ∞)', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Rozwiązaniem nierówności $$-2x^2 + 3x + 2 \leq 0$$ jest przedział:
@@ -128,20 +129,20 @@ const Page = () => {
                 equation="-2x^2 + 3x + 2 \leq 0"
                 steps={[
                   {
-                    step: "a = -2, b = 3, c = 2",
+                    step: 'a = -2, b = 3, c = 2',
                   },
                   {
-                    step: "\\Delta = b^2 - 4ac = 3^2 - 4 \\cdot (-2) \\cdot 2 = 9 + 16 = 25",
+                    step: '\\Delta = b^2 - 4ac = 3^2 - 4 \\cdot (-2) \\cdot 2 = 9 + 16 = 25',
                   },
                   {
-                    step: "x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = \\frac{-3 - 5}{-4} = 2",
+                    step: 'x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = \\frac{-3 - 5}{-4} = 2',
                   },
                   {
-                    step: "x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = \\frac{-3 + 5}{-4} = -0.5",
-                    image: "/steps-images/fun4.png"
+                    step: 'x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = \\frac{-3 + 5}{-4} = -0.5',
+                    image: '/steps-images/fun4.png',
                   },
                 ]}
-                solutions={["x \\in (-\\infty, -0.5\\rangle \\cup \\langle2, \\infty)"]}
+                solutions={['x \\in (-\\infty, -0.5\\rangle \\cup \\langle2, \\infty)']}
               />
             </div>
           )}

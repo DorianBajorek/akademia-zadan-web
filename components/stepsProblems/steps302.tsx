@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,15 +31,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^5 = \\sqrt{125}", value: "a" },
-                  { label: "5 \\cdot x = \\sqrt{125}", value: "b" },
-                  { label: "5^x = \\sqrt{125}", value: "c" },
-                  { label: "5 = (\\sqrt{125})^x", value: "d" },
+                  { label: 'x^5 = \\sqrt{125}', value: 'a' },
+                  { label: '5 \\cdot x = \\sqrt{125}', value: 'b' },
+                  { label: '5^x = \\sqrt{125}', value: 'c' },
+                  { label: '5 = (\\sqrt{125})^x', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Z definicji logarytmu wiemy, że $$\log_5 \sqrt{125} = x$$ oznacza $$5^x = \sqrt{125}$$."
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/definicjaLogarytmu.png"}
+                img={'/steps-images/definicjaLogarytmu.png'}
               />
             </div>
           )}
@@ -52,10 +52,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "5^x = 5^{\\frac{3}{2}}", value: "a" },
-                  { label: "5^x = 5^3", value: "b" },
-                  { label: "5^x = 125^{\\frac{1}{2}}", value: "c" },
-                  { label: "5^x = 5^{\\frac{2}{3}}", value: "d" }
+                  { label: '5^x = 5^{\\frac{3}{2}}', value: 'a' },
+                  { label: '5^x = 5^3', value: 'b' },
+                  { label: '5^x = 125^{\\frac{1}{2}}', value: 'c' },
+                  { label: '5^x = 5^{\\frac{2}{3}}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne przekształcenie to $$5^x = 5^{\frac{3}{2}}$$. <br>
@@ -74,10 +74,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie wynika z porównania wykładników?"
                 choices={[
-                  { label: "x = 3", value: "a" },
-                  { label: "x = \\frac{2}{3}", value: "b" },
-                  { label: "x = \\frac{3}{2}", value: "c" },
-                  { label: "x = \\frac{1}{2}", value: "d" }
+                  { label: 'x = 3', value: 'a' },
+                  { label: 'x = \\frac{2}{3}', value: 'b' },
+                  { label: 'x = \\frac{3}{2}', value: 'c' },
+                  { label: 'x = \\frac{1}{2}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Poprawne równanie to $$x = \frac{3}{2}$$. <br>
@@ -93,19 +93,19 @@ const Page = () => {
                 equation="\log_5 \sqrt{125}"
                 steps={[
                   {
-                    step: "\\log_5 \\sqrt{125} = x \\Rightarrow 5^x = \\sqrt{125}",
+                    step: '\\log_5 \\sqrt{125} = x \\Rightarrow 5^x = \\sqrt{125}',
                   },
                   {
-                    step: "\\sqrt{125} = 125^{\\frac{1}{2}} = (5^3)^{\\frac{1}{2}} = 5^{\\frac{3}{2}}",
+                    step: '\\sqrt{125} = 125^{\\frac{1}{2}} = (5^3)^{\\frac{1}{2}} = 5^{\\frac{3}{2}}',
                   },
                   {
-                    step: "5^x = 5^{\\frac{3}{2}}",
+                    step: '5^x = 5^{\\frac{3}{2}}',
                   },
                   {
-                    step: "x = \\frac{3}{2}",
-                  }
+                    step: 'x = \\frac{3}{2}',
+                  },
                 ]}
-                solutions={["x = \\frac{3}{2}"]}
+                solutions={['x = \\frac{3}{2}']}
               />
             </div>
           )}

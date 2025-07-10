@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,10 +28,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^2(x+5) - 2(x+5) = 0", value: "a" },
-                { label: "x^2(x+5) + 2(x+5) = 0", value: "b" },
-                { label: "x^2(x-5) - 2(x-5) = 0", value: "c" },
-                { label: "x^2(x-5) + 2(x-5) = 0", value: "d" }
+                { label: 'x^2(x+5) - 2(x+5) = 0', value: 'a' },
+                { label: 'x^2(x+5) + 2(x+5) = 0', value: 'b' },
+                { label: 'x^2(x-5) - 2(x-5) = 0', value: 'c' },
+                { label: 'x^2(x-5) + 2(x-5) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$x^2(x+5) - 2(x+5) = 0$$. 
@@ -42,16 +42,14 @@ const Page = () => {
         )}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Zaznacz poprawną postać po pogrupowaniu:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Zaznacz poprawną postać po pogrupowaniu:</p>
             <ChoiceQuestion
               question="Która postać jest poprawna po pogrupowaniu?"
               choices={[
-                { label: "(x+5)(x^2+2) = 0", value: "a" },
-                { label: "(x+5)(x^2-2) = 0", value: "b" },
-                { label: "(x-5)(x^2-2) = 0", value: "c" },
-                { label: "(x-5)(x^2+2) = 0", value: "d" }
+                { label: '(x+5)(x^2+2) = 0', value: 'a' },
+                { label: '(x+5)(x^2-2) = 0', value: 'b' },
+                { label: '(x-5)(x^2-2) = 0', value: 'c' },
+                { label: '(x-5)(x^2+2) = 0', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawna postać po pogrupowaniu to $$(x+5)(x^2-2) = 0$$. 
@@ -62,16 +60,14 @@ const Page = () => {
         )}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie całkowicie.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Rozwiąż równanie całkowicie.</p>
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne dla całego równania?"
               choices={[
-                { label: "x = 5, x = \\sqrt{2}, x = -\\sqrt{2}", value: "a" },
-                { label: "x = -5, x = 2, x = -2", value: "b" },
-                { label: "x = 5, x = 2, x = -2", value: "c" },
-                { label: "x = -5, x = \\sqrt{2}, x = -\\sqrt{2}", value: "d" },
+                { label: 'x = 5, x = \\sqrt{2}, x = -\\sqrt{2}', value: 'a' },
+                { label: 'x = -5, x = 2, x = -2', value: 'b' },
+                { label: 'x = 5, x = 2, x = -2', value: 'c' },
+                { label: 'x = -5, x = \\sqrt{2}, x = -\\sqrt{2}', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawne rozwiązanie to $$x = -5, x = \sqrt{2}, x = -\sqrt{2}$$. <br>
@@ -79,7 +75,7 @@ const Page = () => {
               1. $$x+5 = 0$$ przenosimy $$5$$ na drugą stronę i otrzymujemy $$x=-5$$. <br>
               2. $$x^2-2 = 0$$. Rozwiązujemy jak niżej: <br>
               $$x^2 = 2$$ Pierwiastkujemy stronami pamiętając o dwóch rozwiązaniach: <br>
-              $$x=\sqrt{2}$$ lub $$x=-\sqrt{2}$$."             
+              $$x=\sqrt{2}$$ lub $$x=-\sqrt{2}$$."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -89,19 +85,19 @@ const Page = () => {
             equation="x^3 + 5x^2 - 2x - 10 = 0"
             steps={[
               {
-                step: "x^2(x+5) - 2(x+5) = 0",
+                step: 'x^2(x+5) - 2(x+5) = 0',
               },
               {
-                step: "(x+5)(x^2-2) = 0",
+                step: '(x+5)(x^2-2) = 0',
               },
               {
-                step: "x + 5 = 0 \\Rightarrow x = -5",
+                step: 'x + 5 = 0 \\Rightarrow x = -5',
               },
               {
-                step: "x^2 - 2 = 0 \\Rightarrow x^2 = 2 \\Rightarrow x = \\sqrt{2} \\text{ lub } x = -\\sqrt{2}",
-              }
+                step: 'x^2 - 2 = 0 \\Rightarrow x^2 = 2 \\Rightarrow x = \\sqrt{2} \\text{ lub } x = -\\sqrt{2}',
+              },
             ]}
-            solutions={["x = -5", "x = \\sqrt{2}", "x = -\\sqrt{2}"]}
+            solutions={['x = -5', 'x = \\sqrt{2}', 'x = -\\sqrt{2}']}
           />
         )}
       </div>

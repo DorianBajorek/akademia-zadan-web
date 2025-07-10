@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które rozbicie równania jest poprawne?"
               choices={[
-                { label: "x + 1 = 2", value: "a" },
-                { label: "x + 1 = -2", value: "b" },
-                { label: "x + 1 = 2 \\ , \\ x + 1 = -2", value: "c" },
-                { label: "x - 1 = 2 \\ , \\ x + 1 = -2", value: "d" }
+                { label: 'x + 1 = 2', value: 'a' },
+                { label: 'x + 1 = -2', value: 'b' },
+                { label: 'x + 1 = 2 \\ , \\ x + 1 = -2', value: 'c' },
+                { label: 'x - 1 = 2 \\ , \\ x + 1 = -2', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Równanie z wartością bezwzględną $$|x + 1| = 2$$ rozbijamy na dwa przypadki:
@@ -48,9 +48,7 @@ const Page = () => {
 
         {completedStages.includes(1) && (
           <>
-            <StepDescription stepNumber={2}>
-              Rozwiąż pierwsze równanie.
-            </StepDescription>
+            <StepDescription stepNumber={2}>Rozwiąż pierwsze równanie.</StepDescription>
             <NumericQuestion
               question="Jakie jest rozwiązanie równania $$x + 1 = 2$$?"
               correctAnswer="1"
@@ -67,9 +65,7 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <StepDescription stepNumber={3}>
-              Rozwiąż drugie równanie.
-            </StepDescription>
+            <StepDescription stepNumber={3}>Rozwiąż drugie równanie.</StepDescription>
             <NumericQuestion
               question="Jakie jest rozwiązanie równania $$x + 1 = -2$$?"
               correctAnswer="-3"
@@ -92,10 +88,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Który zbiór jest rozwiązaniem równania $$|x + 1| = 2$$?"
               choices={[
-                { label: "x = -3, x = 1", value: "a" },
-                { label: "x ∈ ⟨-3, 1⟩", value: "b" },
-                { label: "x ∈ ℝ", value: "c" },
-                { label: "x ∈ ∅", value: "d" }
+                { label: 'x = -3, x = 1', value: 'a' },
+                { label: 'x ∈ ⟨-3, 1⟩', value: 'b' },
+                { label: 'x ∈ ℝ', value: 'c' },
+                { label: 'x ∈ ∅', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Rozwiązaniem równania $$|x + 1| = 2$$ są dwie liczby:
@@ -111,10 +107,10 @@ const Page = () => {
           <StudentNotes
             equation="|x + 1| = 2"
             steps={[
-              { step: "x + 1 = 2 \\ \\ lub \\ \\ x + 1 = -2" },
-              { step: "x = 1 \\ \\ lub \\ \\ x = -3" },
+              { step: 'x + 1 = 2 \\ \\ lub \\ \\ x + 1 = -2' },
+              { step: 'x = 1 \\ \\ lub \\ \\ x = -3' },
             ]}
-            solutions={["x \\in \\{-3, 1\\}"]}
+            solutions={['x \\in \\{-3, 1\\}']}
           />
         )}
       </div>

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,10 +28,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "x^2(x-3) + 4(x-3) = 0", value: "a" },
-                { label: "x^2(x+3) - 4(x+3) = 0", value: "b" },
-                { label: "x^2(x-3) - 4(x-3) = 0", value: "c" },
-                { label: "x^2(x+3) + 4(x+3) = 0", value: "d" }
+                { label: 'x^2(x-3) + 4(x-3) = 0', value: 'a' },
+                { label: 'x^2(x+3) - 4(x+3) = 0', value: 'b' },
+                { label: 'x^2(x-3) - 4(x-3) = 0', value: 'c' },
+                { label: 'x^2(x+3) + 4(x+3) = 0', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne przekształcenie to $$x^2(x-3) - 4(x-3) = 0$$. 
@@ -42,16 +42,14 @@ const Page = () => {
         )}
         {completedStages.includes(1) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Zaznacz poprawną postać po pogrupowaniu:
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Zaznacz poprawną postać po pogrupowaniu:</p>
             <ChoiceQuestion
               question="Która postać jest poprawna po pogrupowaniu?"
               choices={[
-                { label: "(x-3)(x^2-4) = 0", value: "a" },
-                { label: "(x-3)(x^2+4) = 0", value: "b" },
-                { label: "(x+3)(x^2-4) = 0", value: "c" },
-                { label: "(x+3)(x^2+4) = 0", value: "d" }
+                { label: '(x-3)(x^2-4) = 0', value: 'a' },
+                { label: '(x-3)(x^2+4) = 0', value: 'b' },
+                { label: '(x+3)(x^2-4) = 0', value: 'c' },
+                { label: '(x+3)(x^2+4) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawna postać po pogrupowaniu to $$(x-3)(x^2-4) = 0$$. 
@@ -62,16 +60,14 @@ const Page = () => {
         )}
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Rozwiąż równanie całkowicie.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Rozwiąż równanie całkowicie.</p>
             <ChoiceQuestion
               question="Które rozwiązanie jest poprawne dla całego równania?"
               choices={[
-                { label: "x = 3, x = 4, x = -4", value: "a" },
-                { label: "x = -3, x = 2, x = -2", value: "b" },
-                { label: "x = 3, x = 2, x = -2", value: "c" },
-                { label: "x = -3, x = 4, x = -4", value: "d" }
+                { label: 'x = 3, x = 4, x = -4', value: 'a' },
+                { label: 'x = -3, x = 2, x = -2', value: 'b' },
+                { label: 'x = 3, x = 2, x = -2', value: 'c' },
+                { label: 'x = -3, x = 4, x = -4', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawne rozwiązanie to $$x = 3, x = 2, x = -2$$. <br>
@@ -79,7 +75,7 @@ const Page = () => {
               1. $$x-3 = 0$$ przenosimy $$3$$ na drugą stronę i otrzymujemy $$x=3$$. <br>
               2. $$x^2-4 = 0$$. Rozwiązujemy jak niżej: <br>
               $$x^2 = 4$$ Pierwiastkujemy stronami pamiętając o dwóch rozwiązaniach: <br>
-              $$x=2$$ lub $$x=-2$$."             
+              $$x=2$$ lub $$x=-2$$."
               onComplete={() => handleStageComplete(3)}
             />
           </>
@@ -89,19 +85,19 @@ const Page = () => {
             equation="x^3 - 3x^2 - 4x + 12 = 0"
             steps={[
               {
-                step: "x^2(x-3) - 4(x-3) = 0",
+                step: 'x^2(x-3) - 4(x-3) = 0',
               },
               {
-                step: "(x-3)(x^2-4) = 0",
+                step: '(x-3)(x^2-4) = 0',
               },
               {
-                step: "x - 3 = 0 \\Rightarrow x = 3",
+                step: 'x - 3 = 0 \\Rightarrow x = 3',
               },
               {
-                step: "x^2 - 4 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\text{ lub } x = -2",
-              }
+                step: 'x^2 - 4 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\text{ lub } x = -2',
+              },
             ]}
-            solutions={["x = 3", "x = 2", "x = -2"]}
+            solutions={['x = 3', 'x = 2', 'x = -2']}
           />
         )}
       </div>

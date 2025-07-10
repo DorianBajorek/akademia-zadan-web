@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,17 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zacznij od przetłumaczenia informacji o polu prostokąta na równanie matematyczne. Przyjmij, że boki prostokąta to <InlineMath math='a'/> (dłuższy) i <InlineMath math='b'/> (krótszy).
+              Zacznij od przetłumaczenia informacji o polu prostokąta na równanie matematyczne.
+              Przyjmij, że boki prostokąta to <InlineMath math="a" /> (dłuższy) i{' '}
+              <InlineMath math="b" /> (krótszy).
             </StepDescription>
             <ChoiceQuestion
               question="Które równanie opisuje pole powierzchni?"
               choices={[
-                { label: String.raw`a \cdot b = 100`, value: "a" },
-                { label: String.raw`2(a + b) = 100`, value: "b" },
-                { label: String.raw`a + b = 100`, value: "c" },
-                { label: String.raw`(a + b)^2 = 100`, value: "d" }
+                { label: String.raw`a \cdot b = 100`, value: 'a' },
+                { label: String.raw`2(a + b) = 100`, value: 'b' },
+                { label: String.raw`a + b = 100`, value: 'c' },
+                { label: String.raw`(a + b)^2 = 100`, value: 'd' },
               ]}
               correctAnswer="a"
               explanation={
@@ -51,15 +53,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Teraz zapisz w postaci równania informację o tym, że dłuższy bok jest dwa razy większy od krótszego.
+              Teraz zapisz w postaci równania informację o tym, że dłuższy bok jest dwa razy większy
+              od krótszego.
             </StepDescription>
             <ChoiceQuestion
               question="Które równanie opisuje zależność między bokami?"
               choices={[
-                { label: String.raw`a = 2b`, value: "a" },
-                { label: String.raw`b = 2a`, value: "b" },
-                { label: String.raw`a - b = 2`, value: "c" },
-                { label: String.raw`a + b = 2`, value: "d" }
+                { label: String.raw`a = 2b`, value: 'a' },
+                { label: String.raw`b = 2a`, value: 'b' },
+                { label: String.raw`a - b = 2`, value: 'c' },
+                { label: String.raw`a + b = 2`, value: 'd' },
               ]}
               correctAnswer="a"
               explanation={
@@ -74,23 +77,23 @@ const Page = () => {
 
         {/* Podsumowanie */}
         {completedStages.includes(2) && (
-        <StudentNotes
+          <StudentNotes
             equation=""
             steps={[
-              { 
-                step: String.raw`\text{1. Równanie pola: }ab = 100` 
+              {
+                step: String.raw`\text{1. Równanie pola: }ab = 100`,
               },
-              { 
-                step: String.raw`2. \text{Relacja między bokami: } a = 2b` 
-              }
+              {
+                step: String.raw`2. \text{Relacja między bokami: } a = 2b`,
+              },
             ]}
             solutions={[
-            String.raw`\text{Ostateczny układ równań: } \boxed{\begin{cases} 
+              String.raw`\text{Ostateczny układ równań: } \boxed{\begin{cases} 
                 ab = 100\\ 
                 a = 2b
-            \end{cases}}`
+            \end{cases}}`,
             ]}
-        />
+          />
         )}
       </div>
     </div>

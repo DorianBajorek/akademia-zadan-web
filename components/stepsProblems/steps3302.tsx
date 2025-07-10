@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,17 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zastanów się, jak można obliczyć dowolny wyraz ciągu <InlineMath math="a_n"/>, znając jedynie wzór na sumę <InlineMath math="S_n"/>. Pomyśl o różnicy między sumą <InlineMath math="S_3"/> a <InlineMath math="S_2"/>.
+              Zastanów się, jak można obliczyć dowolny wyraz ciągu <InlineMath math="a_n" />, znając
+              jedynie wzór na sumę <InlineMath math="S_n" />. Pomyśl o różnicy między sumą{' '}
+              <InlineMath math="S_3" /> a <InlineMath math="S_2" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jak wyrazić $$a_3$$ za pomocą sum $$S_n$$?"
               choices={[
-                { label: "a_3 = S_2 - S_1", value: "a" },
-                { label: "a_3 = S_3 + S_2", value: "b" },
-                { label: "a_3 = S_3 - S_2", value: "c" },
-                { label: "a_3 = S_3", value: "d" },
+                { label: 'a_3 = S_2 - S_1', value: 'a' },
+                { label: 'a_3 = S_3 + S_2', value: 'b' },
+                { label: 'a_3 = S_3 - S_2', value: 'c' },
+                { label: 'a_3 = S_3', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Dowolny wyraz ciągu (dla $$n>1$$) można wyznaczyć, odejmując od sumy $$n$$ wyrazów sumę $$n-1$$ wyrazów: $$a_n = S_n - S_{n-1}$$. Zatem dla $$n=3$$ mamy $$a_3 = S_3 - S_2$$."
@@ -47,15 +49,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Oblicz sumę trzech pierwszych wyrazów ciągu (<InlineMath math="S_3"/>), korzystając z podanego wzoru.
+              Oblicz sumę trzech pierwszych wyrazów ciągu (<InlineMath math="S_3" />
+              ), korzystając z podanego wzoru.
             </StepDescription>
             <ChoiceQuestion
               question="Oblicz $$S_3$$ ze wzoru $$S_n = n^2 + 2n$$."
               choices={[
-                { label: "S_3 = 9 + 3 = 12", value: "a" },
-                { label: "S_3 = 6 + 6 = 12", value: "b" },
-                { label: "S_3 = 6 + 3 = 9", value: "c" },
-                { label: "S_3 = 9 + 6 = 15", value: "d" },
+                { label: 'S_3 = 9 + 3 = 12', value: 'a' },
+                { label: 'S_3 = 6 + 6 = 12', value: 'b' },
+                { label: 'S_3 = 6 + 3 = 9', value: 'c' },
+                { label: 'S_3 = 9 + 6 = 15', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Podstawiamy $$n=3$$ do wzoru: $$S_3 = 3^2 + 2 \cdot 3 = 9 + 6 = 15$$."
@@ -68,15 +71,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Teraz oblicz sumę dwóch pierwszych wyrazów ciągu (<InlineMath math="S_2"/>).
+              Teraz oblicz sumę dwóch pierwszych wyrazów ciągu (<InlineMath math="S_2" />
+              ).
             </StepDescription>
             <ChoiceQuestion
               question="Oblicz $$S_2$$ ze wzoru $$S_n = n^2 + 2n$$."
               choices={[
-                { label: "S_2 = 2 + 2 = 4", value: "a" },
-                { label: "S_2 = 2 + 4 = 6", value: "b" },
-                { label: "S_2 = 4 + 4 = 8", value: "c" },
-                { label: "S_2 = 4 + 2 = 6", value: "d" },
+                { label: 'S_2 = 2 + 2 = 4', value: 'a' },
+                { label: 'S_2 = 2 + 4 = 6', value: 'b' },
+                { label: 'S_2 = 4 + 4 = 8', value: 'c' },
+                { label: 'S_2 = 4 + 2 = 6', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Podstawiamy $$n=2$$ do wzoru: $$S_2 = 2^2 + 2 \cdot 2 = 4 + 4 = 8$$."
@@ -89,15 +93,16 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Mając wartości <InlineMath math="S_3"/> i <InlineMath math="S_2"/>, oblicz wartość trzeciego wyrazu, <InlineMath math="a_3"/>.
+              Mając wartości <InlineMath math="S_3" /> i <InlineMath math="S_2" />, oblicz wartość
+              trzeciego wyrazu, <InlineMath math="a_3" />.
             </StepDescription>
             <ChoiceQuestion
               question="Oblicz $$a_3$$ na podstawie poprzednich kroków."
               choices={[
-                { label: "a_3 = 15 - 8 = 7", value: "a" },
-                { label: "a_3 = 8 - 7 = 1", value: "b" },
-                { label: "a_3 = 8 + 7 = 15", value: "c" },
-                { label: "a_3 = 15 - 7 = 8", value: "d" },
+                { label: 'a_3 = 15 - 8 = 7', value: 'a' },
+                { label: 'a_3 = 8 - 7 = 1', value: 'b' },
+                { label: 'a_3 = 8 + 7 = 15', value: 'c' },
+                { label: 'a_3 = 15 - 7 = 8', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Zgodnie z ustaloną zależnością: $$a_3 = S_3 - S_2 = 15 - 8 = 7$$."
@@ -111,14 +116,12 @@ const Page = () => {
           <StudentNotes
             equation="S_n = n^2 + 2n"
             steps={[
-              { step: "\\text{Kluczowa zależność: } a_3 = S_3 - S_2" },
-              { step: "\\text{Obliczenie } S_3: S_3 = 3^2 + 2(3) = 15" },
-              { step: "\\text{Obliczenie } S_2: S_2 = 2^2 + 2(2) = 8" },
-              { step: "\\text{Wynik: } a_3 = 15 - 8 = 7" }
+              { step: '\\text{Kluczowa zależność: } a_3 = S_3 - S_2' },
+              { step: '\\text{Obliczenie } S_3: S_3 = 3^2 + 2(3) = 15' },
+              { step: '\\text{Obliczenie } S_2: S_2 = 2^2 + 2(2) = 8' },
+              { step: '\\text{Wynik: } a_3 = 15 - 8 = 7' },
             ]}
-            solutions={[
-              "\\text{Trzeci wyraz ciągu jest równy 7.}"
-            ]}
+            solutions={['\\text{Trzeci wyraz ciągu jest równy 7.}']}
           />
         )}
       </div>

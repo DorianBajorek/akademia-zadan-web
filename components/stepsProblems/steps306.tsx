@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^{(3\\sqrt{3})} = 27\\sqrt[3]{3}", value: "a" },
-                  { label: "3\\sqrt{3} \\cdot x = 27\\sqrt[3]{3}", value: "b" },
-                  { label: "3\\sqrt{3} = (27\\sqrt[3]{3})^x", value: "c" },
-                  { label: "(3\\sqrt{3})^x = 27\\sqrt[3]{3}", value: "d" },
+                  { label: 'x^{(3\\sqrt{3})} = 27\\sqrt[3]{3}', value: 'a' },
+                  { label: '3\\sqrt{3} \\cdot x = 27\\sqrt[3]{3}', value: 'b' },
+                  { label: '3\\sqrt{3} = (27\\sqrt[3]{3})^x', value: 'c' },
+                  { label: '(3\\sqrt{3})^x = 27\\sqrt[3]{3}', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Z definicji logarytmu wiemy, że $$\log_{3\sqrt{3}} 27\sqrt[3]{3} = x$$ oznacza $$(3\sqrt{3})^x = 27\sqrt[3]{3}$$."
@@ -52,10 +52,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "3^{\\frac{x}{2}} = 3^{10}", value: "a" },
-                  { label: "3^{3x} = 3^{\\frac{10}{3}}", value: "b" },
-                  { label: "3^{\\frac{3}{2}} = 3^{\\frac{x}{3}}", value: "c" },
-                  { label: "3^{\\frac{3x}{2}} = 3^{\\frac{10}{3}}", value: "d" },
+                  { label: '3^{\\frac{x}{2}} = 3^{10}', value: 'a' },
+                  { label: '3^{3x} = 3^{\\frac{10}{3}}', value: 'b' },
+                  { label: '3^{\\frac{3}{2}} = 3^{\\frac{x}{3}}', value: 'c' },
+                  { label: '3^{\\frac{3x}{2}} = 3^{\\frac{10}{3}}', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation={`Poprawne przekształcenie to $$3^{\\frac{3x}{2}} = 3^{\\frac{10}{3}}$$. <br>
@@ -75,10 +75,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie wynika z porównania wykładników?"
                 choices={[
-                  { label: "\\frac{3x}{2} = \\frac{10}{3}", value: "a" },
-                  { label: "x = \\frac{10}{3}", value: "b" },
-                  { label: "\\frac{x}{2} = \\frac{10}{3}", value: "c" },
-                  { label: "x = \\frac{20}{9}", value: "d" },
+                  { label: '\\frac{3x}{2} = \\frac{10}{3}', value: 'a' },
+                  { label: 'x = \\frac{10}{3}', value: 'b' },
+                  { label: '\\frac{x}{2} = \\frac{10}{3}', value: 'c' },
+                  { label: 'x = \\frac{20}{9}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne równanie to $$\frac{3x}{2} = \frac{10}{3}$$. <br>
@@ -90,16 +90,14 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Rozwiąż równanie liniowe
-              </StepDescription>
+              <StepDescription stepNumber={4}>Rozwiąż równanie liniowe</StepDescription>
               <ChoiceQuestion
                 question="Jaka jest wartość x?"
                 choices={[
-                  { label: "x = \\frac{20}{9}", value: "a" },
-                  { label: "x = \\frac{10}{3}", value: "b" },
-                  { label: "x = \\frac{9}{20}", value: "c" },
-                  { label: "x = \\frac{3}{10}", value: "d" },
+                  { label: 'x = \\frac{20}{9}', value: 'a' },
+                  { label: 'x = \\frac{10}{3}', value: 'b' },
+                  { label: 'x = \\frac{9}{20}', value: 'c' },
+                  { label: 'x = \\frac{3}{10}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`Poprawne rozwiązanie to $$x = \\frac{20}{9}$$. <br>
@@ -117,22 +115,22 @@ const Page = () => {
                 equation="\log_{3\sqrt{3}} 27 \sqrt[3]{3}"
                 steps={[
                   {
-                    step: "\\log_{3\\sqrt{3}} 27\\sqrt[3]{3} = x \\Rightarrow (3\\sqrt{3})^x = 27\\sqrt[3]{3}",
+                    step: '\\log_{3\\sqrt{3}} 27\\sqrt[3]{3} = x \\Rightarrow (3\\sqrt{3})^x = 27\\sqrt[3]{3}',
                   },
                   {
-                    step: "3\\sqrt{3} = 3^{\\frac{3}{2}}, \\quad 27\\sqrt[3]{3} = 3^{\\frac{10}{3}}",
+                    step: '3\\sqrt{3} = 3^{\\frac{3}{2}}, \\quad 27\\sqrt[3]{3} = 3^{\\frac{10}{3}}',
                   },
                   {
-                    step: "3^{\\frac{3x}{2}} = 3^{\\frac{10}{3}}",
+                    step: '3^{\\frac{3x}{2}} = 3^{\\frac{10}{3}}',
                   },
                   {
-                    step: "\\frac{3x}{2} = \\frac{10}{3}",
+                    step: '\\frac{3x}{2} = \\frac{10}{3}',
                   },
                   {
-                    step: "x = \\frac{20}{9}",
+                    step: 'x = \\frac{20}{9}',
                   },
                 ]}
-                solutions={["x = \\frac{20}{9}"]}
+                solutions={['x = \\frac{20}{9}']}
               />
             </div>
           )}

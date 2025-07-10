@@ -1,24 +1,24 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const GeometricSequenceRatioTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const taskData = {
-  "task_id": 53,
-  "exam_type": "mp",
-  "task_type": "mc4",
-  "description": "Rozwiązaniem równania $x^2(x+1) = x^2 - 8$ jest",
-  "choiceA": "$-9$",
-  "choiceB": "$-2$",
-  "choiceC": "$2$",
-  "choiceD": "$7$",
-  "correct_answer": "b"
-};
+    task_id: 53,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description: 'Rozwiązaniem równania $x^2(x+1) = x^2 - 8$ jest',
+    choiceA: '$-9$',
+    choiceB: '$-2$',
+    choiceC: '$2$',
+    choiceD: '$7$',
+    correct_answer: 'b',
+  };
   const handleCheckAnswer = () => {
     if (selectedAnswer !== null) {
       setShowResult(true);
@@ -28,12 +28,11 @@ const GeometricSequenceRatioTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -42,7 +41,8 @@ const GeometricSequenceRatioTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 4111 } />
+            taskId={4111}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -55,18 +55,18 @@ const GeometricSequenceRatioTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

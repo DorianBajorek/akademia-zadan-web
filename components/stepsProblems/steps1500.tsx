@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // Dodano import
-import NumericQuestion from "./NumericQuestion";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // Dodano import
+import NumericQuestion from './NumericQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,10 +26,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Ile wynosi $$f\left(-\frac{7}{3}\right)$$?"
             choices={[
-              { label: "a) c + 10", value: "a" },
-              { label: "b) c", value: "b" },
-              { label: "c) c - 1", value: "c" },
-              { label: "d) -c", value: "d" },
+              { label: 'a) c + 10', value: 'a' },
+              { label: 'b) c', value: 'b' },
+              { label: 'c) c - 1', value: 'c' },
+              { label: 'd) -c', value: 'd' },
             ]}
             correctAnswer="b"
             explanation="Skoro liczba $$-\frac{7}{3}$$ jest miejscem zerowym funkcji, to:
@@ -47,10 +47,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Ile wynosi wartość współczynnika $$c$$?"
             choices={[
-              { label: "c = 0", value: "a" },
-              { label: "c = 1", value: "b" },
-              { label: "c = -98", value: "c" },
-              { label: "c = 98", value: "d" },
+              { label: 'c = 0', value: 'a' },
+              { label: 'c = 1', value: 'b' },
+              { label: 'c = -98', value: 'c' },
+              { label: 'c = 98', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Skoro $$f\left(-\frac{7}{3}\right) = c$$ i $$f\left(-\frac{7}{3}\right) = 0$$, to $$c=0$$."
@@ -62,13 +62,15 @@ const Page = () => {
           <StudentNotes
             equation="f(x) = 3x^2 + 7x + c, \quad f\left(-\frac{7}{3}\right) = 0"
             steps={[
-              { step: "\\text{Podstawiamy }x = -\\frac{7}{3} \\text{ do funkcji kwadratowej: } f(x) = 3x^2 + 7x + c" },
-              { step: "3 \\cdot \\left(-\\frac{7}{3}\\right)^2 = \\frac{147}{9}" },
-              { step: "7 \\cdot \\left(-\\frac{7}{3}\\right) = -\\frac{147}{9}" },
-              { step: "\\frac{147}{9} - \\frac{147}{9} + c = 0" },
-              { step: "0 + c = 0 \\Rightarrow c = 0" },
+              {
+                step: '\\text{Podstawiamy }x = -\\frac{7}{3} \\text{ do funkcji kwadratowej: } f(x) = 3x^2 + 7x + c',
+              },
+              { step: '3 \\cdot \\left(-\\frac{7}{3}\\right)^2 = \\frac{147}{9}' },
+              { step: '7 \\cdot \\left(-\\frac{7}{3}\\right) = -\\frac{147}{9}' },
+              { step: '\\frac{147}{9} - \\frac{147}{9} + c = 0' },
+              { step: '0 + c = 0 \\Rightarrow c = 0' },
             ]}
-            solutions={["c = 0"]}
+            solutions={['c = 0']}
           />
         )}
       </div>

@@ -1,8 +1,8 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const ModuloFunctionTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -10,14 +10,15 @@ const ModuloFunctionTask: React.FC = () => {
 
   const taskData = {
     task_id: 48,
-    exam_type: "mp",
-    task_type: "mc4",
-    description: "Funkcja $f$ każdej liczbie naturalnej $n \\geq 1$ przyporządkowuje resztę z dzielenia tej liczby przez $4$. Zbiorem wartości funkcji $f$ jest",
-    choiceA: "$0, 1, 2, 3, 4$",      // poprawna
-    choiceB: "$1, 2, 3, 4$",      // błędna (reszta nigdy nie będzie 4)
-    choiceC: "$0, 1, 2, 3$",   // błędna (zawiera niepoprawną wartość 4)
-    choiceD: "$0, 2$",            // błędna (brakuje 1 i 3)
-    correct_answer: "c"
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Funkcja $f$ każdej liczbie naturalnej $n \\geq 1$ przyporządkowuje resztę z dzielenia tej liczby przez $4$. Zbiorem wartości funkcji $f$ jest',
+    choiceA: '$0, 1, 2, 3, 4$', // poprawna
+    choiceB: '$1, 2, 3, 4$', // błędna (reszta nigdy nie będzie 4)
+    choiceC: '$0, 1, 2, 3$', // błędna (zawiera niepoprawną wartość 4)
+    choiceD: '$0, 2$', // błędna (brakuje 1 i 3)
+    correct_answer: 'c',
   };
 
   const handleCheckAnswer = () => {
@@ -29,12 +30,11 @@ const ModuloFunctionTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -43,7 +43,8 @@ const ModuloFunctionTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 2109 } />
+            taskId={2109}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -56,13 +57,13 @@ const ModuloFunctionTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

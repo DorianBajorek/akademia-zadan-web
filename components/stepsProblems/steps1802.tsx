@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,15 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zacznij od pomnożenia dwóch pierwszych nawiasów: <InlineMath math="(x + 2)(x - 3)"/>.
+              Zacznij od pomnożenia dwóch pierwszych nawiasów: <InlineMath math="(x + 2)(x - 3)" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wynik mnożenia $$(x + 2)(x - 3)$$?"
               choices={[
-                { label: "x^2 + x - 6", value: "a" },
-                { label: "x^2 + 3x - 2x - 6", value: "b" },
-                { label: "x^2 - 3x + 2x - 6", value: "c" },
-                { label: "x^2 - x - 6", value: "d" }
+                { label: 'x^2 + x - 6', value: 'a' },
+                { label: 'x^2 + 3x - 2x - 6', value: 'b' },
+                { label: 'x^2 - 3x + 2x - 6', value: 'c' },
+                { label: 'x^2 - x - 6', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawny wynik to $$x^2 - 3x + 2x - 6$$. <br>
@@ -57,10 +57,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda wyrażenie $$x^2 - 3x + 2x - 6$$ po uproszczeniu?"
               choices={[
-                { label: "x^2 + 5x - 6", value: "a" },
-                { label: "x^2 + x - 6", value: "b" },
-                { label: "x^2 - 5x - 6", value: "c" },
-                { label: "x^2 - x - 6", value: "d" }
+                { label: 'x^2 + 5x - 6', value: 'a' },
+                { label: 'x^2 + x - 6', value: 'b' },
+                { label: 'x^2 - 5x - 6', value: 'c' },
+                { label: 'x^2 - x - 6', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawne uproszczenie to $$x^2 - x - 6$$. 
@@ -74,15 +74,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Otrzymany wynik pomnóż przez trzeci nawias: <InlineMath math="(x^2 - x - 6)(2x + 1)"/>.
+              Otrzymany wynik pomnóż przez trzeci nawias:{' '}
+              <InlineMath math="(x^2 - x - 6)(2x + 1)" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wynik tego mnożenia?"
               choices={[
-                { label: "2x^3 + x^2 - 2x^2 - x - 12x - 6", value: "a" },
-                { label: "2x^3 - x^2 - 12x - 6", value: "b" },
-                { label: "2x^3 - 2x^2 - 13x - 6", value: "c" },
-                { label: "2x^3 + x^2 - 13x - 6", value: "d" }
+                { label: '2x^3 + x^2 - 2x^2 - x - 12x - 6', value: 'a' },
+                { label: '2x^3 - x^2 - 12x - 6', value: 'b' },
+                { label: '2x^3 - 2x^2 - 13x - 6', value: 'c' },
+                { label: '2x^3 + x^2 - 13x - 6', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawny wynik to $$2x^3 + x^2 - 2x^2 - x - 12x - 6$$. <br>
@@ -107,10 +108,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jak wygląda końcowe wyrażenie po uproszczeniu?"
               choices={[
-                { label: "2x^3 - x^2 - 13x - 6", value: "a" },
-                { label: "2x^3 + x^2 - 13x - 6", value: "b" },
-                { label: "2x^3 - 3x^2 - 13x - 6", value: "c" },
-                { label: "2x^3 - x^2 - 11x - 6", value: "d" }
+                { label: '2x^3 - x^2 - 13x - 6', value: 'a' },
+                { label: '2x^3 + x^2 - 13x - 6', value: 'b' },
+                { label: '2x^3 - 3x^2 - 13x - 6', value: 'c' },
+                { label: '2x^3 - x^2 - 11x - 6', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne uproszczenie to $$2x^3 - x^2 - 13x - 6$$. <br>
@@ -121,26 +122,26 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 4 && (
           <StudentNotes
             equation="(x + 2)(x - 3)(2x + 1)"
             steps={[
               {
-                step: "(x^2 - 3x + 2x - 6)(2x + 1)",
+                step: '(x^2 - 3x + 2x - 6)(2x + 1)',
               },
               {
-                step: "(x^2 - x - 6)(2x + 1)",
+                step: '(x^2 - x - 6)(2x + 1)',
               },
               {
-                step: "2x^3 + x^2 - 2x^2 - x - 12x - 6",
+                step: '2x^3 + x^2 - 2x^2 - x - 12x - 6',
               },
               {
-                step: "2x^3 - x^2 - 13x - 6"
-              }
+                step: '2x^3 - x^2 - 13x - 6',
+              },
             ]}
-            solutions={["2x^3 - x^2 - 13x - 6"]}
+            solutions={['2x^3 - x^2 - 13x - 6']}
           />
         )}
       </div>

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,15 +31,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^{\\frac{1}{\\sqrt{3}}} = 1", value: "a" },
-                  { label: "\\left(\\frac{1}{\\sqrt{3}}\\right)^x = 1", value: "b" },
-                  { label: "\\frac{1}{\\sqrt{3}} \\cdot x = 1", value: "c" },
-                  { label: "\\frac{1}{\\sqrt{3}} = 1^x", value: "d" },
+                  { label: 'x^{\\frac{1}{\\sqrt{3}}} = 1', value: 'a' },
+                  { label: '\\left(\\frac{1}{\\sqrt{3}}\\right)^x = 1', value: 'b' },
+                  { label: '\\frac{1}{\\sqrt{3}} \\cdot x = 1', value: 'c' },
+                  { label: '\\frac{1}{\\sqrt{3}} = 1^x', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Z definicji logarytmu wiemy, że $$\log_{\frac{1}{\sqrt{3}}} 1 = x$$ oznacza $$\left(\frac{1}{\sqrt{3}}\right)^x = 1$$."
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/definicjaLogarytmu.png"}
+                img={'/steps-images/definicjaLogarytmu.png'}
               />
             </div>
           )}
@@ -47,16 +47,17 @@ const Page = () => {
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
-                W tym przypadku mamy do czynienia z równaniem, które możemy rozwiązać
-                poprzez zastosowanie własności potęg. Pamiętaj, że każda liczba różna od zera podniesiona do potęgi 0 daje 1. Obliczamy x.
+                W tym przypadku mamy do czynienia z równaniem, które możemy rozwiązać poprzez
+                zastosowanie własności potęg. Pamiętaj, że każda liczba różna od zera podniesiona do
+                potęgi 0 daje 1. Obliczamy x.
               </StepDescription>
               <ChoiceQuestion
                 question="Dla jakiego x równanie jest spełnione?"
                 choices={[
-                  { label: "x = 0", value: "a" },
-                  { label: "x = 1", value: "b" },
-                  { label: "x = \\frac{1}{2}", value: "c" },
-                  { label: "x = -\\frac{1}{2}", value: "d" },
+                  { label: 'x = 0', value: 'a' },
+                  { label: 'x = 1', value: 'b' },
+                  { label: 'x = \\frac{1}{2}', value: 'c' },
+                  { label: 'x = -\\frac{1}{2}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne rozwiązanie to $$x = 0$$. <br>
@@ -74,16 +75,16 @@ const Page = () => {
                 equation="\log_{\frac{1}{\sqrt{3}}} 1"
                 steps={[
                   {
-                    step: "\\log_{\\frac{1}{\\sqrt{3}}} 1 = x \\Rightarrow \\left(\\frac{1}{\\sqrt{3}}\\right)^x = 1",
+                    step: '\\log_{\\frac{1}{\\sqrt{3}}} 1 = x \\Rightarrow \\left(\\frac{1}{\\sqrt{3}}\\right)^x = 1',
                   },
                   {
-                    step: "a^0 = 1 \\text{ dla każdego } a \\neq 0",
+                    step: 'a^0 = 1 \\text{ dla każdego } a \\neq 0',
                   },
                   {
-                    step: "x = 0",
-                  }
+                    step: 'x = 0',
+                  },
                 ]}
-                solutions={["x = 0"]}
+                solutions={['x = 0']}
               />
             </div>
           )}

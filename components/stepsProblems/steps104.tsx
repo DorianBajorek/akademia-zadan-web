@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
+                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej
+                nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = -3, b = 3, c = 36", value: "a" },
-                  { label: "a = 3, b = 3, c = -36", value: "b" },
-                  { label: "a = -3, b = -3, c = 36", value: "c" },
-                  { label: "a = 3, b = -3, c = 36", value: "d" }
+                  { label: 'a = -3, b = 3, c = 36', value: 'a' },
+                  { label: 'a = 3, b = 3, c = -36', value: 'b' },
+                  { label: 'a = -3, b = -3, c = 36', value: 'c' },
+                  { label: 'a = 3, b = -3, c = 36', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Współczynniki dla tej nierówności to $$a = -3, b = 3, c = 36$$. 
@@ -79,10 +80,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x₁ = -3, x₂ = 4", value: "a" },
-                  { label: "x₁ = 3, x₂ = -4", value: "b" },
-                  { label: "x₁ = 1, x₂ = -1", value: "c" },
-                  { label: "x₁ = 0, x₂ = 1.5", value: "d" }
+                  { label: 'x₁ = -3, x₂ = 4', value: 'a' },
+                  { label: 'x₁ = 3, x₂ = -4', value: 'b' },
+                  { label: 'x₁ = 1, x₂ = -1', value: 'c' },
+                  { label: 'x₁ = 0, x₂ = 1.5', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Ponieważ delta jest dodatnia, równanie ma dwa pierwiastki: <br>
@@ -106,10 +107,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$-3x^2 + 3x + 36 \geq 0$$?"
                 choices={[
-                  { label: "x ∈ \\langle-3, 4\\rangle", value: "a" },
-                  { label: "x ∈ (-∞, -3\\rangle ∪ \\langle4, ∞)", value: "b" },
-                  { label: "x ∈ (-3, 4)", value: "c" },
-                  { label: "x ∈ (-∞, -3) ∪ (4, ∞)", value: "d" }
+                  { label: 'x ∈ \\langle-3, 4\\rangle', value: 'a' },
+                  { label: 'x ∈ (-∞, -3\\rangle ∪ \\langle4, ∞)', value: 'b' },
+                  { label: 'x ∈ (-3, 4)', value: 'c' },
+                  { label: 'x ∈ (-∞, -3) ∪ (4, ∞)', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Rozwiązaniem nierówności $$-3x^2 + 3x + 36 \geq 0$$ jest przedział:
@@ -128,20 +129,20 @@ const Page = () => {
                 equation="-3x^2 + 3x + 36 \geq 0"
                 steps={[
                   {
-                    step: "a = -3, b = 3, c = 36",
+                    step: 'a = -3, b = 3, c = 36',
                   },
                   {
-                    step: "\\Delta = b^2 - 4ac = 3^2 - 4 \\cdot (-3) \\cdot 36 = 9 + 432 = 441",
+                    step: '\\Delta = b^2 - 4ac = 3^2 - 4 \\cdot (-3) \\cdot 36 = 9 + 432 = 441',
                   },
                   {
-                    step: "x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = \\frac{-3 - 21}{-6} = 4",
+                    step: 'x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a} = \\frac{-3 - 21}{-6} = 4',
                   },
                   {
-                    step: "x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = \\frac{-3 + 21}{-6} = -3",
-                    image: "/steps-images/fun5.png"
+                    step: 'x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} = \\frac{-3 + 21}{-6} = -3',
+                    image: '/steps-images/fun5.png',
                   },
                 ]}
-                solutions={["x \\in \\langle-3, 4\\rangle"]}
+                solutions={['x \\in \\langle-3, 4\\rangle']}
               />
             </div>
           )}

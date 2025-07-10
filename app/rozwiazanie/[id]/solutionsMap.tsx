@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 export const solutionsMap: Record<string, any> = {
   '2': dynamic(() => import('@/components/solutions/Solutions2')),

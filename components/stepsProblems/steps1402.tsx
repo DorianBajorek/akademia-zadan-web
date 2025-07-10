@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia delty.
+                Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia
+                delty.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tym równaniu?"
                 choices={[
-                  { label: "a = -1, b = 4, c = 5", value: "a" },
-                  { label: "a = 1, b = -4, c = 5", value: "b" },
-                  { label: "a = 1, b = 4, c = -5", value: "c" },
-                  { label: "a = 1, b = 4, c = 5", value: "d" },
+                  { label: 'a = -1, b = 4, c = 5', value: 'a' },
+                  { label: 'a = 1, b = -4, c = 5', value: 'b' },
+                  { label: 'a = 1, b = 4, c = -5', value: 'c' },
+                  { label: 'a = 1, b = 4, c = 5', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Współczynniki dla równania $$x^2 + 4x + 5 = 0$$ to $$a = 1, b = 4, c = 5$$."
@@ -48,9 +49,7 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Obliczenie wyróżnika równania (Δ)
-              </StepDescription>
+              <StepDescription stepNumber={2}>Obliczenie wyróżnika równania (Δ)</StepDescription>
               <NumericQuestion
                 question="Która wartość jest poprawną deltą (Δ) dla tego równania?"
                 correctAnswer="-4"
@@ -73,10 +72,13 @@ const Page = () => {
               <ChoiceQuestion
                 question="Co oznacza, że $$\Delta < 0$$?"
                 choices={[
-                  { label: "\\text{Brak miejsc zerowych – brak rozwiązań rzeczywistych}", value: "a" },
-                  { label: "\\text{Jedno rozwiązanie rzeczywiste}", value: "b" },
-                  { label: "\\text{Dwa rozwiązania rzeczywiste}", value: "c" },
-                  { label: "\\text{Rozwiązanie jest liczbą zespoloną ujemną}", value: "d" },
+                  {
+                    label: '\\text{Brak miejsc zerowych – brak rozwiązań rzeczywistych}',
+                    value: 'a',
+                  },
+                  { label: '\\text{Jedno rozwiązanie rzeczywiste}', value: 'b' },
+                  { label: '\\text{Dwa rozwiązania rzeczywiste}', value: 'c' },
+                  { label: '\\text{Rozwiązanie jest liczbą zespoloną ujemną}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Jeśli $$\Delta < 0$$, to równanie kwadratowe nie ma miejsc zerowych w zbiorze liczb rzeczywistych. Można je rozwiązać jedynie w zbiorze liczb zespolonych."
@@ -91,11 +93,11 @@ const Page = () => {
               <StudentNotes
                 equation="x^2 + 4x + 5 = 0"
                 steps={[
-                  { step: "a = 1, b = 4, c = 5" },
-                  { step: "\\Delta = b^2 - 4ac = 4^2 - 4 \\cdot 1 \\cdot 5 = 16 - 20 = -4" },
-                  { step: "\\Delta < 0 \\Rightarrow \\text{brak miejsc zerowych w } \\mathbb{R}" }
+                  { step: 'a = 1, b = 4, c = 5' },
+                  { step: '\\Delta = b^2 - 4ac = 4^2 - 4 \\cdot 1 \\cdot 5 = 16 - 20 = -4' },
+                  { step: '\\Delta < 0 \\Rightarrow \\text{brak miejsc zerowych w } \\mathbb{R}' },
                 ]}
-                solutions={["\\text{Brak miejsc zerowych (brak rozwiązań rzeczywistych)}"]}
+                solutions={['\\text{Brak miejsc zerowych (brak rozwiązań rzeczywistych)}']}
               />
             </div>
           )}

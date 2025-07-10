@@ -1,23 +1,24 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const ParametricEquationTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 37,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Dla jakiej wartości parametru m układ równań $\\begin{cases} \\frac{2}{3}x + \\frac{m}{4}y = 1 \\\\ \\frac{1}{2}x - \\frac{3}{5}y = 2 \\end{cases}$ nie ma rozwiązania?",
-    "choiceA": "$m = -\\frac{9}{5}$",
-    "choiceB": "$m = \\frac{8}{15}$",
-    "choiceC": "$m = -\\frac{5}{9}$",
-    "choiceD": "$m = \\frac{15}{8}$",
-    "correct_answer": "a",
+    task_id: 37,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Dla jakiej wartości parametru m układ równań $\\begin{cases} \\frac{2}{3}x + \\frac{m}{4}y = 1 \\\\ \\frac{1}{2}x - \\frac{3}{5}y = 2 \\end{cases}$ nie ma rozwiązania?',
+    choiceA: '$m = -\\frac{9}{5}$',
+    choiceB: '$m = \\frac{8}{15}$',
+    choiceC: '$m = -\\frac{5}{9}$',
+    choiceD: '$m = \\frac{15}{8}$',
+    correct_answer: 'a',
   };
 
   const handleCheckAnswer = () => {
@@ -34,7 +35,8 @@ const ParametricEquationTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -43,7 +45,8 @@ const ParametricEquationTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 3006 } />
+            taskId={3006}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -56,13 +59,13 @@ const ParametricEquationTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź! ✓"
+                ? 'Poprawna odpowiedź! ✓'
                 : `Błędna odpowiedź! Poprawnie: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,10 +30,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest najmniejsza wartość funkcji widoczna na wykresie?"
                 choices={[
-                  { label: "0", value: "a" },
-                  { label: "-2", value: "b" },
-                  { label: "4", value: "c" },
-                  { label: "\\text{Funkcja nie ma wartości minimalnej}", value: "d" }
+                  { label: '0', value: 'a' },
+                  { label: '-2', value: 'b' },
+                  { label: '4', value: 'c' },
+                  { label: '\\text{Funkcja nie ma wartości minimalnej}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Aby wyznaczyć minimalną wartość funkcji, patrzymy na najniższy punkt na wykresie, który znajduje się na osi x w punkcie $$(-5, 0)$$ lub $$(7, 0)$$. Wiemy, że wartości to $$y$$ więc najniższa wartośc w tym przypadku to $$0$$, co widać na poniższej fotografii."
@@ -42,7 +42,7 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
@@ -51,10 +51,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaka jest największa wartość funkcji widoczna na wykresie?"
                 choices={[
-                  { label: "3", value: "a" },
-                  { label: "4", value: "b" },
-                  { label: "\\text{Funkcja nie ma wartości maksymalnej}", value: "c" },
-                  { label: "0", value: "d" }
+                  { label: '3', value: 'a' },
+                  { label: '4', value: 'b' },
+                  { label: '\\text{Funkcja nie ma wartości maksymalnej}', value: 'c' },
+                  { label: '0', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Aby wyznaczyć maksymalną wartość funkcji, patrzymy na najwyższy punkt na wykresie, który znajduje się na osi $$y$$ w punkcie $$(1\frac{1}{2}, 3)$$. Wiemy, że wartości to $$y$$ więc najwyższa wartośc w tym przypadku to $$3$$, co widać na poniższej fotografii."
@@ -63,7 +63,7 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(2) && (
             <div>
               <StepDescription stepNumber={3}>
@@ -72,10 +72,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który zbiór poprawnie opisuje wartości funkcji f?"
                 choices={[
-                  { label: "ZW = \\langle-5;7\\rangle", value: "a" },
-                  { label: "ZW = \\langle0;3)", value: "b" },
-                  { label: "ZW = \\langle0;3\\rangle", value: "c" },
-                  { label: "ZW = (0;3)", value: "d" }
+                  { label: 'ZW = \\langle-5;7\\rangle', value: 'a' },
+                  { label: 'ZW = \\langle0;3)', value: 'b' },
+                  { label: 'ZW = \\langle0;3\\rangle', value: 'c' },
+                  { label: 'ZW = (0;3)', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Zbiór wartości to wszystkie $$y$$ od minimum $$0$$ do maximum $$3$$, włącznie z tymi wartościami."
@@ -83,17 +83,17 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.length === 3 && (
             <div className="mt-8">
               <StudentNotes
                 equation=""
                 steps={[
                   {
-                    step: "\\text{Najwyższa wartośc funkcji to 3, a najniższa to 0.}",
+                    step: '\\text{Najwyższa wartośc funkcji to 3, a najniższa to 0.}',
                   },
                 ]}
-                solutions={["ZW  = \\langle0;3\\rangle"]}
+                solutions={['ZW  = \\langle0;3\\rangle']}
               />
             </div>
           )}

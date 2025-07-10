@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // dodany import komponentu
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // dodany import komponentu
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,10 +27,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jakie są pierwiastki funkcji $$f(x) = 2x^2 - 4x - 6$$?"
             choices={[
-              { label: "x₁ = 1, x₂ = -3", value: "a" },
-              { label: "x₁ = 2, x₂ = -1.5", value: "b" },
-              { label: "x₁ = 3, x₂ = -1", value: "c" },
-              { label: "x₁ = -2, x₂ = 1.5", value: "d" },
+              { label: 'x₁ = 1, x₂ = -3', value: 'a' },
+              { label: 'x₁ = 2, x₂ = -1.5', value: 'b' },
+              { label: 'x₁ = 3, x₂ = -1', value: 'c' },
+              { label: 'x₁ = -2, x₂ = 1.5', value: 'd' },
             ]}
             correctAnswer="c"
             explanation={`Rozwiązujemy równanie $$2x^2 - 4x - 6 = 0$$.
@@ -47,10 +47,10 @@ $$x_1 = \\frac{2+4}{2} = 3$$, $$x_2 = \\frac{2-4}{2} = -1$$.`}
           <ChoiceQuestion
             question="Jak wygląda wzór funkcji $$f(x)$$ w postaci iloczynowej?"
             choices={[
-              { label: "f(x) = (x - 3)(x + 1)", value: "a" },
-              { label: "f(x) = 2(x - 3)(x + 1)", value: "b" },
-              { label: "f(x) = 2(x + 3)(x - 1)", value: "c" },
-              { label: "f(x) = (x + 3)(x - 1)", value: "d" },
+              { label: 'f(x) = (x - 3)(x + 1)', value: 'a' },
+              { label: 'f(x) = 2(x - 3)(x + 1)', value: 'b' },
+              { label: 'f(x) = 2(x + 3)(x - 1)', value: 'c' },
+              { label: 'f(x) = (x + 3)(x - 1)', value: 'd' },
             ]}
             correctAnswer="b"
             explanation={`Wzór funkcji kwadratowej w postaci iloczynowej to:
@@ -67,12 +67,14 @@ $$f(x) = 2(x - 3)(x + 1)$$.`}
           <StudentNotes
             equation="f(x) = 2x^2 - 4x - 6"
             steps={[
-              { step: "\\text{Znajdź pierwiastki: } 2x^2 - 4x - 6 = 0 \\Rightarrow x^2 - 2x - 3 = 0" },
-              { step: "\\Delta = 4 + 12 = 16, \\sqrt{\\Delta} = 4" },
-              { step: "x_1 = \\frac{2+4}{2} = 3, \\quad x_2 = \\frac{2-4}{2} = -1" },
-              { step: "\\text{Postać iloczynowa: } f(x) = 2(x - 3)(x + 1)" },
+              {
+                step: '\\text{Znajdź pierwiastki: } 2x^2 - 4x - 6 = 0 \\Rightarrow x^2 - 2x - 3 = 0',
+              },
+              { step: '\\Delta = 4 + 12 = 16, \\sqrt{\\Delta} = 4' },
+              { step: 'x_1 = \\frac{2+4}{2} = 3, \\quad x_2 = \\frac{2-4}{2} = -1' },
+              { step: '\\text{Postać iloczynowa: } f(x) = 2(x - 3)(x + 1)' },
             ]}
-            solutions={["f(x) = 2(x - 3)(x + 1)"]}
+            solutions={['f(x) = 2(x - 3)(x + 1)']}
           />
         )}
       </div>

@@ -1,24 +1,24 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const QuadraticExpressionTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 27,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Dla każdej liczby rzeczywistej $x$, wyrażenie $4x² - 12x + 9$ jest równe",
-    "choiceA": "$(4x + 3)(x + 3)$",
-    "choiceB": "$(2x - 3)(2x + 3)$",
-    "choiceC": "$(2x - 3)^2$",
-    "choiceD": "$(x - 3)(4x - 3)$",
-    "correct_answer": "c",
+    task_id: 27,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description: 'Dla każdej liczby rzeczywistej $x$, wyrażenie $4x² - 12x + 9$ jest równe',
+    choiceA: '$(4x + 3)(x + 3)$',
+    choiceB: '$(2x - 3)(2x + 3)$',
+    choiceC: '$(2x - 3)^2$',
+    choiceD: '$(x - 3)(4x - 3)$',
+    correct_answer: 'c',
   };
 
   const handleCheckAnswer = () => {
@@ -35,7 +35,8 @@ const QuadraticExpressionTask: React.FC = () => {
         </h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +45,8 @@ const QuadraticExpressionTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 1807 } />
+            taskId={1807}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -57,18 +59,18 @@ const QuadraticExpressionTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

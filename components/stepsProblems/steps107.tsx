@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -33,10 +33,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Która postać nierówności jest poprawna po przekształceniu?"
                 choices={[
-                  { label: "2x² + 5x - 5 > 0", value: "a" },
-                  { label: "2x² + 5x - 7 > 0", value: "b" },
-                  { label: "2x² + 3x - 7 > 0", value: "c" },
-                  { label: "2x² + 3x - 5 > 0", value: "d" },
+                  { label: '2x² + 5x - 5 > 0', value: 'a' },
+                  { label: '2x² + 5x - 7 > 0', value: 'b' },
+                  { label: '2x² + 3x - 7 > 0', value: 'c' },
+                  { label: '2x² + 3x - 5 > 0', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Aby przekształcić nierówność, wykonaj następujące kroki:
@@ -57,15 +57,16 @@ const Page = () => {
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
-                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
+                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej
+                nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 2, b = 3, c = -5", value: "a" },
-                  { label: "a = 2, b = 5, c = -5", value: "b" },
-                  { label: "a = 2, b = 4, c = -6", value: "c" },
-                  { label: "a = 2, b = 3, c = -7", value: "d" }
+                  { label: 'a = 2, b = 3, c = -5', value: 'a' },
+                  { label: 'a = 2, b = 5, c = -5', value: 'b' },
+                  { label: 'a = 2, b = 4, c = -6', value: 'c' },
+                  { label: 'a = 2, b = 3, c = -7', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Współczynniki dla tej nierówności to $$a = 2, b = 3, c = -5$$. 
@@ -106,10 +107,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x₁ = -2.5, x₂ = 1", value: "a" },
-                  { label: "x₁ = 2.5, x₂ = -1", value: "b" },
-                  { label: "x₁ = 1.5, x₂ = -2", value: "c" },
-                  { label: "x₁ = 2, x₂ = -1.5", value: "d" }
+                  { label: 'x₁ = -2.5, x₂ = 1', value: 'a' },
+                  { label: 'x₁ = 2.5, x₂ = -1', value: 'b' },
+                  { label: 'x₁ = 1.5, x₂ = -2', value: 'c' },
+                  { label: 'x₁ = 2, x₂ = -1.5', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Dla dodatniej delty (Δ = 49): <br>
@@ -129,10 +130,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$2x^2 + 3x - 5 > 0$$?"
                 choices={[
-                  { label: "x ∈ (-∞, -2.5) ∪ (1, ∞)", value: "a" },
-                  { label: "x ∈ (-2.5, 1)", value: "b" },
-                  { label: "x ∈ (-∞, -2.5⟩ ∪ ⟨1, ∞)", value: "c" },
-                  { label: "x ∈ ⟨-2.5, 1⟩", value: "d" }
+                  { label: 'x ∈ (-∞, -2.5) ∪ (1, ∞)', value: 'a' },
+                  { label: 'x ∈ (-2.5, 1)', value: 'b' },
+                  { label: 'x ∈ (-∞, -2.5⟩ ∪ ⟨1, ∞)', value: 'c' },
+                  { label: 'x ∈ ⟨-2.5, 1⟩', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Rozwiązanie dla a > 0 i nierówności '>': <br>
@@ -150,15 +151,15 @@ const Page = () => {
               <StudentNotes
                 equation="2(x-1)(x+3) > x-1"
                 steps={[
-                  { step: "2(x^2+2x-3) > x-1" },
-                  { step: "2x^2 + 4x - 6 > x-1" },
-                  { step: "2x^2 + 3x - 5 > 0" },
-                  { step: "a = 2, b = 3, c = -5" },
-                  { step: "Δ = 3² - 4·2·(-5) = 49" },
-                  { step: "x₁ = (-3 - 7)/4 = -2.5" },
-                  { step: "x₂ = (-3 + 7)/4 = 1" },
+                  { step: '2(x^2+2x-3) > x-1' },
+                  { step: '2x^2 + 4x - 6 > x-1' },
+                  { step: '2x^2 + 3x - 5 > 0' },
+                  { step: 'a = 2, b = 3, c = -5' },
+                  { step: 'Δ = 3² - 4·2·(-5) = 49' },
+                  { step: 'x₁ = (-3 - 7)/4 = -2.5' },
+                  { step: 'x₂ = (-3 + 7)/4 = 1' },
                 ]}
-                solutions={["x ∈ (-∞, -2.5) ∪ (1, ∞)"]}
+                solutions={['x ∈ (-∞, -2.5) ∪ (1, ∞)']}
               />
             </div>
           )}

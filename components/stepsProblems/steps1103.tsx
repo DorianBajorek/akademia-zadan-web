@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak można zapisać wyrażenie $$4 \log_4 2 + 2 \log_4 8$$ korzystając z właściwości logarytmów?"
                 choices={[
-                  { label: "\\log_4{(4 \\cdot 2)} + \\log_4{(2 \\cdot 8)}", value: "a" },
-                  { label: "\\log_4{2^4} + \\log_4{8^2}", value: "b" },
-                  { label: "(4 + 2) \\cdot \\log_4{(2 + 8)}", value: "c" },
-                  { label: "\\log_4{(2 + 8)}", value: "d" },
+                  { label: '\\log_4{(4 \\cdot 2)} + \\log_4{(2 \\cdot 8)}', value: 'a' },
+                  { label: '\\log_4{2^4} + \\log_4{8^2}', value: 'b' },
+                  { label: '(4 + 2) \\cdot \\log_4{(2 + 8)}', value: 'c' },
+                  { label: '\\log_4{(2 + 8)}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation={`
@@ -57,10 +57,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak można zapisać sumę $$\log_4{16} + \log_4{64}$$?"
                 choices={[
-                  { label: "\\log_4{(16 \\cdot 64)}", value: "a" },
-                  { label: "\\log_4{(16 + 64)}", value: "b" },
-                  { label: "\\log_{16}{64}", value: "c" },
-                  { label: "\\log_4{80}", value: "d" },
+                  { label: '\\log_4{(16 \\cdot 64)}', value: 'a' },
+                  { label: '\\log_4{(16 + 64)}', value: 'b' },
+                  { label: '\\log_{16}{64}', value: 'c' },
+                  { label: '\\log_4{80}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`
@@ -83,10 +83,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Ile wynosi $$\log_4{1024}$$?"
                 choices={[
-                  { label: "5", value: "a" },
-                  { label: "4", value: "b" },
-                  { label: "6", value: "c" },
-                  { label: "10", value: "d" },
+                  { label: '5', value: 'a' },
+                  { label: '4', value: 'b' },
+                  { label: '6', value: 'c' },
+                  { label: '10', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`
@@ -105,12 +105,12 @@ const Page = () => {
               <StudentNotes
                 equation="4 \log_4 2 + 2 \log_4 8"
                 steps={[
-                  { step: "4 \\log_4 2 + 2 \\log_4 8 = \\log_4 2^4 + \\log_4 8^2" },
-                  { step: "= \\log_4{16} + \\log_4{64}" },
-                  { step: "= \\log_4{(16 \\cdot 64)} = \\log_4{1024}" },
-                  { step: "= 5" },
+                  { step: '4 \\log_4 2 + 2 \\log_4 8 = \\log_4 2^4 + \\log_4 8^2' },
+                  { step: '= \\log_4{16} + \\log_4{64}' },
+                  { step: '= \\log_4{(16 \\cdot 64)} = \\log_4{1024}' },
+                  { step: '= 5' },
                 ]}
-                solutions={["5"]}
+                solutions={['5']}
               />
             </div>
           )}

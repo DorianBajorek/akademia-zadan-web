@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,15 +32,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^{(\\sqrt{3})} = 9", value: "a" },
-                  { label: "\\sqrt{3} \\cdot x = 9", value: "b" },
-                  { label: "\\sqrt{3} = 9^x", value: "c" },
-                  { label: "(\\sqrt{3})^x = 9", value: "d" },
+                  { label: 'x^{(\\sqrt{3})} = 9', value: 'a' },
+                  { label: '\\sqrt{3} \\cdot x = 9', value: 'b' },
+                  { label: '\\sqrt{3} = 9^x', value: 'c' },
+                  { label: '(\\sqrt{3})^x = 9', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Z definicji logarytmu wiemy, że $$\log_{\sqrt{3}} 9 = x$$ oznacza $$(\sqrt{3})^x = 9$$."
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/definicjaLogarytmu.png"}
+                img={'/steps-images/definicjaLogarytmu.png'}
               />
             </div>
           )}
@@ -53,10 +53,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "3^{\\frac{x}{2}} = 3^2", value: "a" },
-                  { label: "3^{\\frac{1}{2}} = 3^x", value: "b" },
-                  { label: "3^{2x} = 3^1", value: "c" },
-                  { label: "3^{\\frac{1}{x}} = 3^{\\frac{1}{2}}", value: "d" }
+                  { label: '3^{\\frac{x}{2}} = 3^2', value: 'a' },
+                  { label: '3^{\\frac{1}{2}} = 3^x', value: 'b' },
+                  { label: '3^{2x} = 3^1', value: 'c' },
+                  { label: '3^{\\frac{1}{x}} = 3^{\\frac{1}{2}}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne przekształcenie to $$3^{\frac{x}{2}} = 3^2$$. <br>
@@ -71,15 +71,16 @@ const Page = () => {
           {completedStages.includes(2) && (
             <div>
               <StepDescription stepNumber={3}>
-                Mając równe podstawy, wyrażenie jest równe, gdy mają równe wykładniki. Jakie równanie wynika z porównania wykładników?
+                Mając równe podstawy, wyrażenie jest równe, gdy mają równe wykładniki. Jakie
+                równanie wynika z porównania wykładników?
               </StepDescription>
               <ChoiceQuestion
                 question="Które równanie wynika z porównania wykładników?"
                 choices={[
-                  { label: "x = \\frac{1}{2}", value: "a" },
-                  { label: "\\frac{1}{2} = x", value: "b" },
-                  { label: "x = 4", value: "c" },
-                  { label: "\\frac{x}{2} = 2", value: "d" },
+                  { label: 'x = \\frac{1}{2}', value: 'a' },
+                  { label: '\\frac{1}{2} = x', value: 'b' },
+                  { label: 'x = 4', value: 'c' },
+                  { label: '\\frac{x}{2} = 2', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation="Poprawne równanie to $$\frac{x}{2} = 2$$. <br>
@@ -91,9 +92,7 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Rozwiąż równanie liniowe
-              </StepDescription>
+              <StepDescription stepNumber={4}>Rozwiąż równanie liniowe</StepDescription>
               <NumericQuestion
                 question="Jaka jest wartość x?"
                 correctAnswer="4"
@@ -112,22 +111,22 @@ const Page = () => {
                 equation="\log_{\sqrt{3}} 9"
                 steps={[
                   {
-                    step: "\\log_{\\sqrt{3}} 9 = x \\Rightarrow (\\sqrt{3})^x = 9",
+                    step: '\\log_{\\sqrt{3}} 9 = x \\Rightarrow (\\sqrt{3})^x = 9',
                   },
                   {
-                    step: "\\sqrt{3} = 3^{\\frac{1}{2}} \\Rightarrow (3^{\\frac{1}{2}})^x = 3^2",
+                    step: '\\sqrt{3} = 3^{\\frac{1}{2}} \\Rightarrow (3^{\\frac{1}{2}})^x = 3^2',
                   },
                   {
-                    step: "3^{\\frac{x}{2}} = 3^2",
+                    step: '3^{\\frac{x}{2}} = 3^2',
                   },
                   {
-                    step: "\\frac{x}{2} = 2",
+                    step: '\\frac{x}{2} = 2',
                   },
                   {
-                    step: "x = 4",
-                  }
+                    step: 'x = 4',
+                  },
                 ]}
-                solutions={["x = 4"]}
+                solutions={['x = 4']}
               />
             </div>
           )}

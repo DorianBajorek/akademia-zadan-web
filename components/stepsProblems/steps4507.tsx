@@ -1,35 +1,36 @@
-"use client";
-import { useState } from "react";
-import TrueFalseQuestion from "../TrueFalseQuestion";
+'use client';
+import { useState } from 'react';
+import TrueFalseQuestion from '../TrueFalseQuestion';
 
 const AnotherLinearFunctionTrueFalseTask: React.FC = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<(boolean | null)[]>([]);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 45,
-    "exam_type": "mp",
-    "task_type": "true_false",
-    "description": "Funkcja liniowa $f$ jest określona wzorem $f(x) = -3x + 6$. Oceń prawdziwość poniższych stwierdzeń.",
-    "statements": [
+    task_id: 45,
+    exam_type: 'mp',
+    task_type: 'true_false',
+    description:
+      'Funkcja liniowa $f$ jest określona wzorem $f(x) = -3x + 6$. Oceń prawdziwość poniższych stwierdzeń.',
+    statements: [
       {
-        "text": "Funkcja $f$ jest malejąca.",
-        "isTrue": true
+        text: 'Funkcja $f$ jest malejąca.',
+        isTrue: true,
       },
       {
-        "text": "Miejscem zerowym funkcji $f$ jest liczba $2$.",
-        "isTrue": true
+        text: 'Miejscem zerowym funkcji $f$ jest liczba $2$.',
+        isTrue: true,
       },
       {
-        "text": "Wykres funkcji $f$ przecina oś $Oy$ w punkcie $(0, -6)$.",
-        "isTrue": false
+        text: 'Wykres funkcji $f$ przecina oś $Oy$ w punkcie $(0, -6)$.',
+        isTrue: false,
       },
       {
-        "text": "Funkcja $f$ przyjmuje wartości dodatnie dla argumentów mniejszych od $2$.",
-        "isTrue": true
-      }
+        text: 'Funkcja $f$ przyjmuje wartości dodatnie dla argumentów mniejszych od $2$.',
+        isTrue: true,
+      },
     ],
-    "questionImg": "/problemImages/problem4702.png"
+    questionImg: '/problemImages/problem4702.png',
   };
 
   useState(() => {
@@ -43,19 +44,17 @@ const AnotherLinearFunctionTrueFalseTask: React.FC = () => {
   };
 
   const handleCheckAnswer = () => {
-    if (selectedAnswers.every(answer => answer !== null)) {
+    if (selectedAnswers.every((answer) => answer !== null)) {
       setShowResult(true);
     }
   };
 
-  const allAnswersSelected = selectedAnswers.every(answer => answer !== null);
+  const allAnswersSelected = selectedAnswers.every((answer) => answer !== null);
 
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
           <TrueFalseQuestion
@@ -77,21 +76,30 @@ const AnotherLinearFunctionTrueFalseTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswers.every((answer, index) => answer === taskData.statements[index].isTrue)
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
-              {selectedAnswers.every((answer, index) => answer === taskData.statements[index].isTrue)
-                ? "Wszystkie odpowiedzi poprawne!"
-                : "Nie wszystkie odpowiedzi są poprawne!"}
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswers.every(
+                  (answer, index) => answer === taskData.statements[index].isTrue
+                )
+                  ? 'text-green-600'
+                  : 'text-red-600'
+              }`}
+            >
+              {selectedAnswers.every(
+                (answer, index) => answer === taskData.statements[index].isTrue
+              )
+                ? 'Wszystkie odpowiedzi poprawne!'
+                : 'Nie wszystkie odpowiedzi są poprawne!'}
             </p>
-            
-            {!selectedAnswers.every((answer, index) => answer === taskData.statements[index].isTrue) && (
+
+            {!selectedAnswers.every(
+              (answer, index) => answer === taskData.statements[index].isTrue
+            ) && (
               <div className="mt-4 space-y-2">
                 {taskData.statements.map((statement, index) => (
                   <p key={index} className="text-lg">
-                    Stwierdzenie {index + 1}: {statement.isTrue ? "Prawda" : "Fałsz"} - {statement.text}
+                    Stwierdzenie {index + 1}: {statement.isTrue ? 'Prawda' : 'Fałsz'} -{' '}
+                    {statement.text}
                   </p>
                 ))}
               </div>

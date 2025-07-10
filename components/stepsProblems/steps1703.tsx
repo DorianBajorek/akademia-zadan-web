@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import NumericQuestion from "./NumericQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; 
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import NumericQuestion from './NumericQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
@@ -22,18 +22,16 @@ const Page = () => {
           description="Dla jakiego parametru $$m$$ funkcja kwadratowa $$f(x)=2(x-2)\left(x-\frac{m+1}{3}\right)$$ ma dokładnie jedno miejsce zerowe?"
         />
 
- {(completedStages.includes(1) || completedStages.length === 0) && (
+        {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
-                      <StepDescription stepNumber={1}>
-               Zidentyfikuj miejsca zerowe funkcji
-            </StepDescription>
+            <StepDescription stepNumber={1}>Zidentyfikuj miejsca zerowe funkcji</StepDescription>
             <ChoiceQuestion
               question="Jakie są miejsca zerowe tej funkcji?"
               choices={[
-                { label: "x_1 = 2, x_2 = \\frac{m-1}{3}", value: "a" },
-                { label: "x_1 = -2, x_2 = \\frac{m+1}{3}", value: "b" },
-                { label: "x_1 = 2, x_2 = \\frac{m+1}{3}", value: "c" },
-                { label: "x_1 = 2, x_2 = \\frac{m+1}{2}", value: "d" },
+                { label: 'x_1 = 2, x_2 = \\frac{m-1}{3}', value: 'a' },
+                { label: 'x_1 = -2, x_2 = \\frac{m+1}{3}', value: 'b' },
+                { label: 'x_1 = 2, x_2 = \\frac{m+1}{3}', value: 'c' },
+                { label: 'x_1 = 2, x_2 = \\frac{m+1}{2}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Z postaci iloczynowej $$f(x)=2(x-2)(x-\frac{m+1}{3})$$ odczytujemy miejsca zerowe: $$x_1=2, x_2=\frac{m+1}{3}$$."
@@ -44,15 +42,15 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Funkcja kwadratowa ma jedno miejsce zerowe, jeśli <InlineMath math="x_1=x_2"/>.
+              Funkcja kwadratowa ma jedno miejsce zerowe, jeśli <InlineMath math="x_1=x_2" />.
             </StepDescription>
             <ChoiceQuestion
               question="Rozwiąż równanie $$2 = \frac{m+1}{3}$$"
               choices={[
-                { label: "m = 1", value: "a" },
-                { label: "m = 5", value: "b" },
-                { label: "m = -7", value: "c" },
-                { label: "m = 7", value: "d" },
+                { label: 'm = 1', value: 'a' },
+                { label: 'm = 5', value: 'b' },
+                { label: 'm = -7', value: 'c' },
+                { label: 'm = 7', value: 'd' },
               ]}
               correctAnswer="b"
               explanation=" Rozwiązujemy: 
@@ -67,12 +65,12 @@ const Page = () => {
           <StudentNotes
             equation="f(x)=2(x-2)(x-(m+1)/3)"
             steps={[
-              { step: "\\text{Warunek na jedno miejsce zerowe: } x_1 = x_2" },
-              { step: "2 = \\frac{m+1}{3}" },
-              { step: "m + 1 = 6" },
-              { step: "m = 5" },
+              { step: '\\text{Warunek na jedno miejsce zerowe: } x_1 = x_2' },
+              { step: '2 = \\frac{m+1}{3}' },
+              { step: 'm + 1 = 6' },
+              { step: 'm = 5' },
             ]}
-            solutions={["m = 5"]}
+            solutions={['m = 5']}
           />
         )}
       </div>

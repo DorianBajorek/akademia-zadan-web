@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -21,20 +21,21 @@ const Page = () => {
           title="Wyznaczanie równania prostej"
           description="Wyznacz równanie funkcji liniowej, która tworzy z osią OX kąt $$45^\circ$$ i przecina oś OY w punkcie $$(0, 3)$$."
         />
-        
+
         {/* ETAP 1: Wyznaczenie współczynnika kierunkowego a */}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Współczynnik kierunkowy <InlineMath math="a"/> prostej jest równy tangensowi jej kąta nachylenia do osi OX. Oblicz jego wartość.
+              Współczynnik kierunkowy <InlineMath math="a" /> prostej jest równy tangensowi jej kąta
+              nachylenia do osi OX. Oblicz jego wartość.
             </StepDescription>
             <ChoiceQuestion
               question="Jaką wartość ma współczynnik kierunkowy $$a$$?"
               choices={[
-                { label: "a = \\sin(45^\\circ) = \\frac{\\sqrt{2}}{2}", value: "a" },
-                { label: "a = \\cos(45^\\circ) = \\frac{\\sqrt{2}}{2}", value: "b" },
-                { label: "a = \\tg(45^\\circ) = 1", value: "c" },
-                { label: "a = \\ctg(45^\\circ) = 1", value: "d" }
+                { label: 'a = \\sin(45^\\circ) = \\frac{\\sqrt{2}}{2}', value: 'a' },
+                { label: 'a = \\cos(45^\\circ) = \\frac{\\sqrt{2}}{2}', value: 'b' },
+                { label: 'a = \\tg(45^\\circ) = 1', value: 'c' },
+                { label: 'a = \\ctg(45^\\circ) = 1', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Współczynnik kierunkowy prostej to tangens kąta jej nachylenia do osi OX: $$a = \tg(\alpha)$$. Zatem: $$a = \tg(45^\circ) = 1$$."
@@ -47,15 +48,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Wyraz wolny <InlineMath math="b"/> w równaniu prostej <InlineMath math="y=ax+b"/> to rzędna (współrzędna y) punktu przecięcia z osią OY. Wyznacz jego wartość.
+              Wyraz wolny <InlineMath math="b" /> w równaniu prostej <InlineMath math="y=ax+b" /> to
+              rzędna (współrzędna y) punktu przecięcia z osią OY. Wyznacz jego wartość.
             </StepDescription>
             <ChoiceQuestion
               question="Jaka jest wartość wyrazu wolnego $$b$$?"
               choices={[
-                { label: "b = 0", value: "a" },
-                { label: "b = 1", value: "b" },
-                { label: "b = 3", value: "c" },
-                { label: "b = 4", value: "d" }
+                { label: 'b = 0', value: 'a' },
+                { label: 'b = 1', value: 'b' },
+                { label: 'b = 3', value: 'c' },
+                { label: 'b = 4', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Wyraz wolny $$b$$ odpowiada wartości $$y$$ w punkcie przecięcia prostej z osią OY. Skoro punkt ten to $$(0, 3)$$, to $$b = 3$$."
@@ -68,15 +70,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Podstaw obliczone wartości <InlineMath math="a"/> i <InlineMath math="b"/> do wzoru ogólnego prostej <InlineMath math="y=ax+b"/>.
+              Podstaw obliczone wartości <InlineMath math="a" /> i <InlineMath math="b" /> do wzoru
+              ogólnego prostej <InlineMath math="y=ax+b" />.
             </StepDescription>
             <ChoiceQuestion
               question="Które równanie opisuje daną funkcję?"
               choices={[
-                { label: "y = \\frac{\\sqrt{2}}{2}x + 3", value: "a" },
-                { label: "y = x + 3", value: "b" },
-                { label: "y = x - 3", value: "c" },
-                { label: "y = 3x + 1", value: "d" }
+                { label: 'y = \\frac{\\sqrt{2}}{2}x + 3', value: 'a' },
+                { label: 'y = x + 3', value: 'b' },
+                { label: 'y = x - 3', value: 'c' },
+                { label: 'y = 3x + 1', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawne równanie łączy obliczone wartości współczynników $$a = 1$$ i $$b=3$$, co daje: $$y = 1 \cdot x + 3 = x+3$$."
@@ -91,16 +94,16 @@ const Page = () => {
             equation="y = ax + b"
             steps={[
               {
-                step: "\\text{1. Obliczenie współczynnika kierunkowego: } a = \\tg(45^\\circ) = 1",
+                step: '\\text{1. Obliczenie współczynnika kierunkowego: } a = \\tg(45^\\circ) = 1',
               },
               {
-                step: "\\text{2. Wyznaczenie wyrazu wolnego z punktu (0, 3): } b = 3",
+                step: '\\text{2. Wyznaczenie wyrazu wolnego z punktu (0, 3): } b = 3',
               },
               {
-                step: "\\text{3. Ostateczne równanie prostej: } y = x + 3",
-              }
+                step: '\\text{3. Ostateczne równanie prostej: } y = x + 3',
+              },
             ]}
-            solutions={["y = x + 3"]}
+            solutions={['y = x + 3']}
           />
         )}
       </div>

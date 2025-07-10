@@ -1,8 +1,8 @@
-"use client";
-import { useState } from "react";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const FirstDigitFunctionTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -10,14 +10,15 @@ const FirstDigitFunctionTask: React.FC = () => {
 
   const taskData = {
     task_id: 43,
-    exam_type: "mp",
-    task_type: "mc4",
-    description: "Dana jest funkcja $f$, która każdej liczbie naturalnej przyporządkowuje jej pierwszą cyfrę. Ile wynosi $f(1234)$?",
-    choiceA: "1",
-    choiceB: "2",
-    choiceC: "3",
-    choiceD: "4",
-    correct_answer: "a"
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description:
+      'Dana jest funkcja $f$, która każdej liczbie naturalnej przyporządkowuje jej pierwszą cyfrę. Ile wynosi $f(1234)$?',
+    choiceA: '1',
+    choiceB: '2',
+    choiceC: '3',
+    choiceD: '4',
+    correct_answer: 'a',
   };
 
   const handleCheckAnswer = () => {
@@ -29,12 +30,11 @@ const FirstDigitFunctionTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -43,7 +43,8 @@ const FirstDigitFunctionTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 2103 } />
+            taskId={2103}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -56,13 +57,13 @@ const FirstDigitFunctionTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription"; // Dodano import komponentu
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription'; // Dodano import komponentu
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -24,10 +24,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak zapisać zależność między ceną przed obniżką $$x$$ a ceną po obniżce?"
             choices={[
-              { label: "2x - 0,15x = 850", value: "a" },
-              { label: "x + 0,15x = 850", value: "b" },
-              { label: "0,15x = 850", value: "c" },
-              { label: "0,85x = 850", value: "d" },
+              { label: '2x - 0,15x = 850', value: 'a' },
+              { label: 'x + 0,15x = 850', value: 'b' },
+              { label: '0,15x = 850', value: 'c' },
+              { label: '0,85x = 850', value: 'd' },
             ]}
             correctAnswer="d"
             explanation="Obniżka o $$15\%$$ oznacza, że nowa cena to $$0,85x$$. Równanie to: $$0,85x = 850$$."
@@ -39,10 +39,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Jak obliczyć $$x$$ z równania $$0,85x = 850$$?"
             choices={[
-              { label: "x = \\frac{850}{0,85}", value: "a" },
-              { label: "x = 850 + 0,15 \\cdot 850", value: "b" },
-              { label: "x = 850 \\cdot 0,85", value: "c" },
-              { label: "x = 850 - 0,15 \\cdot 850", value: "d" },
+              { label: 'x = \\frac{850}{0,85}', value: 'a' },
+              { label: 'x = 850 + 0,15 \\cdot 850', value: 'b' },
+              { label: 'x = 850 \\cdot 0,85', value: 'c' },
+              { label: 'x = 850 - 0,15 \\cdot 850', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Aby obliczyć $$x$$, należy podzielić obie strony przez $$0,85$$: $$x = \frac{850}{0,85}$$."
@@ -54,10 +54,10 @@ const Page = () => {
           <ChoiceQuestion
             question="Ile wynosi $$\frac{850}{0,85}$$?"
             choices={[
-              { label: "1000", value: "a" },
-              { label: "900", value: "b" },
-              { label: "977,50", value: "c" },
-              { label: "865", value: "d" },
+              { label: '1000', value: 'a' },
+              { label: '900', value: 'b' },
+              { label: '977,50', value: 'c' },
+              { label: '865', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="$$\frac{850}{0,85} = 1000$$. Poprawna odpowiedź to $$1000$$ zł."
@@ -69,11 +69,11 @@ const Page = () => {
           <StudentNotes
             equation="0,85x = 850"
             steps={[
-              { step: "0,85x = 850" },
-              { step: "x = \\frac{850}{0,85}" },
-              { step: "x = 1000" },
+              { step: '0,85x = 850' },
+              { step: 'x = \\frac{850}{0,85}' },
+              { step: 'x = 1000' },
             ]}
-            solutions={["1000 zł"]}
+            solutions={['1000 zł']}
           />
         )}
       </div>

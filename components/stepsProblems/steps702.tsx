@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import { InlineMath } from "react-katex";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import { InlineMath } from 'react-katex';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Na pierwszej (od lewej) pozycji może / mogą znaleźć się:"
               choices={[
-                { label: "\\text{1 cyfra}", value: "a" },
-                { label: "\\text{2 cyfry}", value: "b" },
-                { label: "\\text{3 cyfry}", value: "c" },
-                { label: "\\text{4 cyfry}", value: "d" },
+                { label: '\\text{1 cyfra}', value: 'a' },
+                { label: '\\text{2 cyfry}', value: 'b' },
+                { label: '\\text{3 cyfry}', value: 'c' },
+                { label: '\\text{4 cyfry}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Na pierwszej pozycji mogą znaleźć się $$2$$ cyfry - $$5$$ i $$7$$, gdyż liczba nie może zaczynać się od $$0$$."
@@ -51,10 +51,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Na drugiej (od lewej) pozycji może / mogą znaleźć się:"
               choices={[
-                { label: "\\text{1 cyfra}", value: "a" },
-                { label: "\\text{2 cyfry}", value: "b" },
-                { label: "\\text{3 cyfry}", value: "c" },
-                { label: "\\text{4 cyfry}", value: "d" },
+                { label: '\\text{1 cyfra}', value: 'a' },
+                { label: '\\text{2 cyfry}', value: 'b' },
+                { label: '\\text{3 cyfry}', value: 'c' },
+                { label: '\\text{4 cyfry}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Na drugiej pozycji mogą znaleźć się wszystkie $$3$$ rozważane cyfry $$(0, 5, 7)$$."
@@ -71,10 +71,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Na trzeciej (od lewej) pozycji może / mogą znaleźć się:"
               choices={[
-                { label: "\\text{1 cyfra}", value: "a" },
-                { label: "\\text{2 cyfry}", value: "b" },
-                { label: "\\text{3 cyfry}", value: "c" },
-                { label: "\\text{4 cyfry}", value: "d" },
+                { label: '\\text{1 cyfra}', value: 'a' },
+                { label: '\\text{2 cyfry}', value: 'b' },
+                { label: '\\text{3 cyfry}', value: 'c' },
+                { label: '\\text{4 cyfry}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Na trzeciej pozycji także mogą znaleźć się wszystkie $$3$$ rozważane cyfry $$(0, 5, 7)$$."
@@ -91,10 +91,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Na czwartej (od lewej) pozycji może / mogą znaleźć się:"
               choices={[
-                { label: "\\text{1 cyfra}", value: "a" },
-                { label: "\\text{2 cyfry}", value: "b" },
-                { label: "\\text{3 cyfry}", value: "c" },
-                { label: "\\text{4 cyfry}", value: "d" },
+                { label: '\\text{1 cyfra}', value: 'a' },
+                { label: '\\text{2 cyfry}', value: 'b' },
+                { label: '\\text{3 cyfry}', value: 'c' },
+                { label: '\\text{4 cyfry}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Na czwartej pozycji także mogą znaleźć się $$3$$ rozważane cyfry $$(0, 5, 7)$$."
@@ -105,16 +105,14 @@ const Page = () => {
 
         {completedStages.includes(4) && (
           <>
-            <StepDescription stepNumber={5}>
-              Ustal możliwe cyfry na piątej pozycji.
-            </StepDescription>
+            <StepDescription stepNumber={5}>Ustal możliwe cyfry na piątej pozycji.</StepDescription>
             <ChoiceQuestion
               question="Na piątej (od lewej), czyli ostatniej, pozycji może / mogą znaleźć się:"
               choices={[
-                { label: "\\text{1 cyfra}", value: "a" },
-                { label: "\\text{2 cyfry}", value: "b" },
-                { label: "\\text{3 cyfry}", value: "c" },
-                { label: "\\text{4 cyfry}", value: "d" },
+                { label: '\\text{1 cyfra}', value: 'a' },
+                { label: '\\text{2 cyfry}', value: 'b' },
+                { label: '\\text{3 cyfry}', value: 'c' },
+                { label: '\\text{4 cyfry}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Na ostatniej pozycji także mogą znaleźć się $$3$$ rozważane cyfry $$(0, 5, 7)$$."
@@ -131,10 +129,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Ostateczna liczba możliwych do uzyskania cyfr przedstawia się wzorem:"
               choices={[
-                { label: "2 \\cdot 3 \\cdot 3 \\cdot 3 \\cdot 3 = 2 \\cdot 3^4", value: "a" },
-                { label: "3 \\cdot 3 \\cdot 3 \\cdot 3 \\cdot 3 = 3^5", value: "b" },
-                { label: "2 + 3 + 3 + 3 + 3 = 2 + 3 \\cdot 4", value: "c" },
-                { label: "3 + 3 + 3 + 3 + 3 = 3 \\cdot 5", value: "d" },
+                { label: '2 \\cdot 3 \\cdot 3 \\cdot 3 \\cdot 3 = 2 \\cdot 3^4', value: 'a' },
+                { label: '3 \\cdot 3 \\cdot 3 \\cdot 3 \\cdot 3 = 3^5', value: 'b' },
+                { label: '2 + 3 + 3 + 3 + 3 = 2 + 3 \\cdot 4', value: 'c' },
+                { label: '3 + 3 + 3 + 3 + 3 = 3 \\cdot 5', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Na pierwszej pozycji są 2 możliwości, a na pozostałych czterech po $$3$$."
@@ -145,9 +143,7 @@ const Page = () => {
 
         {completedStages.includes(6) && (
           <>
-            <StepDescription stepNumber={7}>
-              Oblicz końcowy wynik.
-            </StepDescription>
+            <StepDescription stepNumber={7}>Oblicz końcowy wynik.</StepDescription>
             <NumericQuestion
               question="Podaj ostateczny wynik - liczbę rozważanych liczb:"
               correctAnswer="162"
@@ -161,11 +157,11 @@ const Page = () => {
           <StudentNotes
             equation="x - \text{liczba szukanych liczb}"
             steps={[
-              { step: "x = 2 \\cdot 3 \\cdot 3 \\cdot 3 \\cdot 3" },
-              { step: "x = 2 \\cdot 3^4" },
-              { step: "x = 162" },
+              { step: 'x = 2 \\cdot 3 \\cdot 3 \\cdot 3 \\cdot 3' },
+              { step: 'x = 2 \\cdot 3^4' },
+              { step: 'x = 162' },
             ]}
-            solutions={["\\text{Liczba szukanych liczb wynosi 162.}"]}
+            solutions={['\\text{Liczba szukanych liczb wynosi 162.}']}
           />
         )}
       </div>

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
@@ -29,10 +29,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateUsername = (newUsername: string) => {
-    console.log("Updating username:", newUsername);
+    console.log('Updating username:', newUsername);
     setUsername(newUsername);
     localStorage.setItem('userName', newUsername);
-  }
+  };
 
   const logout = () => {
     setToken('');

@@ -1,8 +1,8 @@
-"use client";
-import { InlineMath } from "react-katex";
+'use client';
+import { InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface TrueFalseQuestionProps {
   question: string;
@@ -24,18 +24,20 @@ const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
   selectedAnswers,
   onAnswerSelect,
   isSubmitted = false,
-  solution = "",
+  solution = '',
 }) => {
   const [showSolution, setShowSolution] = useState(false);
 
- const renderText = (text: string): React.ReactNode[] => {
-    const parts = text.split(/(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi);
-  
+  const renderText = (text: string): React.ReactNode[] => {
+    const parts = text.split(
+      /(<center>.*?<\/center>|<br\s*\/?>|\$.*?\$|<img[^>]*?>|<\/?strong>)/gi
+    );
+
     let strongOpen = false;
-  
+
     return parts.map((part, index) => {
       if (!part) return null;
-  
+
       if (part.toLowerCase() === '<strong>') {
         strongOpen = true;
         return null;
@@ -44,11 +46,11 @@ const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
         strongOpen = false;
         return null;
       }
-  
+
       let element: React.ReactNode = null;
-  
-      if (part.toLowerCase().startsWith("<center>") && part.toLowerCase().endsWith("</center>")) {
-        const content = part.replace(/<\/?center>/gi, "");
+
+      if (part.toLowerCase().startsWith('<center>') && part.toLowerCase().endsWith('</center>')) {
+        const content = part.replace(/<\/?center>/gi, '');
         return (
           <div key={index} className="text-center">
             {renderText(content)}
@@ -73,7 +75,7 @@ const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
       } else {
         element = <span key={index}>{part}</span>;
       }
-  
+
       return strongOpen ? <strong key={index}>{element}</strong> : element;
     });
   };
@@ -84,12 +86,12 @@ const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
       ((isTrueButton && selectedAnswers[index] === true) ||
         (!isTrueButton && selectedAnswers[index] === false));
 
-    if (!isSelected) return "border-gray-200 hover:border-blue-400";
+    if (!isSelected) return 'border-gray-200 hover:border-blue-400';
 
-    if (!isSubmitted) return "border-blue-500 bg-blue-50";
+    if (!isSubmitted) return 'border-blue-500 bg-blue-50';
 
     const isCorrect = selectedAnswers[index] === statements[index].isTrue;
-    return isCorrect ? "border-green-500 bg-green-50" : "border-red-500 bg-red-50";
+    return isCorrect ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50';
   };
 
   return (
@@ -99,9 +101,7 @@ const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
       transition={{ duration: 0.4 }}
       className="bg-white shadow-lg p-4 md:p-6 rounded-lg border border-gray-200"
     >
-      <h3 className="text-base sm:text-lg md:text-xl text-gray-800 mb-4">
-        {renderText(question)}
-      </h3>
+      <h3 className="text-base sm:text-lg md:text-xl text-gray-800 mb-4">{renderText(question)}</h3>
 
       {questionImg && (
         <img
@@ -142,7 +142,7 @@ const TrueFalseQuestion: React.FC<TrueFalseQuestionProps> = ({
               onClick={() => setShowSolution(!showSolution)}
               className="text-blue-600 hover:text-blue-800 font-medium transition-colors text-sm sm:text-base"
             >
-              {showSolution ? "Ukryj rozwiązanie" : "Pokaż rozwiązanie"}
+              {showSolution ? 'Ukryj rozwiązanie' : 'Pokaż rozwiązanie'}
             </button>
           </div>
 

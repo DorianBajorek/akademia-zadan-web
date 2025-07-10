@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,16 +26,14 @@ const Page = () => {
         <div className="mt-8 space-y-8">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
-              <StepDescription stepNumber={1}>
-                Skorzystaj z własności logarytmów
-              </StepDescription>
+              <StepDescription stepNumber={1}>Skorzystaj z własności logarytmów</StepDescription>
               <ChoiceQuestion
                 question="Jak można zapisać sumę logarytmów o tej samej podstawie?"
                 choices={[
-                  { label: "\\log_3{(3 + 27)}", value: "a" },
-                  { label: "\\log_3{(3 \\cdot 27)}", value: "b" },
-                  { label: "(\\log_3{3}) \\cdot (\\log_3{27})", value: "c" },
-                  { label: "\\log_3{(27 - 3)}", value: "d" },
+                  { label: '\\log_3{(3 + 27)}', value: 'a' },
+                  { label: '\\log_3{(3 \\cdot 27)}', value: 'b' },
+                  { label: '(\\log_3{3}) \\cdot (\\log_3{27})', value: 'c' },
+                  { label: '\\log_3{(27 - 3)}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Z własności logarytmów wiemy, że $$\log_a{b} + \log_a{c} = \log_a{(b \cdot c)}$$"
@@ -47,16 +45,14 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Oblicz iloczyn argumentów logarytmów
-              </StepDescription>
+              <StepDescription stepNumber={2}>Oblicz iloczyn argumentów logarytmów</StepDescription>
               <ChoiceQuestion
                 question="Ile wynosi $$3 \cdot 27$$?"
                 choices={[
-                  { label: "81", value: "a" },
-                  { label: "30", value: "b" },
-                  { label: "24", value: "c" },
-                  { label: "9", value: "d" },
+                  { label: '81', value: 'a' },
+                  { label: '30', value: 'b' },
+                  { label: '24', value: 'c' },
+                  { label: '9', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="$$3 \cdot 27 = 81$$"
@@ -67,16 +63,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Oblicz wartość logarytmu
-              </StepDescription>
+              <StepDescription stepNumber={3}>Oblicz wartość logarytmu</StepDescription>
               <ChoiceQuestion
                 question="Ile wynosi $$\log_3{81}$$?"
                 choices={[
-                  { label: "27", value: "a" },
-                  { label: "3", value: "b" },
-                  { label: "4", value: "c" },
-                  { label: "9", value: "d" },
+                  { label: '27', value: 'a' },
+                  { label: '3', value: 'b' },
+                  { label: '4', value: 'c' },
+                  { label: '9', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Ponieważ $$3^4 = 81$$, więc $$\log_3{81} = 4$$"
@@ -92,13 +86,13 @@ const Page = () => {
                 equation="\log_3{3} + \log_3{27}"
                 steps={[
                   {
-                    step: "\\log_3{3} + \\log_3{27} = \\log_3{(3 \\cdot 27)} = \\log_3{81}",
+                    step: '\\log_3{3} + \\log_3{27} = \\log_3{(3 \\cdot 27)} = \\log_3{81}',
                   },
                   {
-                    step: "3^4 = 81 \\text{, więc } \\log_3{81} = 4",
+                    step: '3^4 = 81 \\text{, więc } \\log_3{81} = 4',
                   },
                 ]}
-                solutions={["4"]}
+                solutions={['4']}
               />
             </div>
           )}

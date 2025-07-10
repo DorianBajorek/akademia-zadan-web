@@ -1,19 +1,17 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) =>
-      prev.includes(stage) ? prev : [...prev, stage]
-    );
+    setCompletedStages((prev) => (prev.includes(stage) ? prev : [...prev, stage]));
   };
 
   const resetLesson = () => {
@@ -44,9 +42,9 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaki jest znak współczynnika a?"
                 choices={[
-                  { label: "a > 0 \\text{ (funkcja rosnąca)}", value: "a" },
-                  { label: "a < 0 \\text{ (funkcja malejąca)}", value: "b" },
-                  { label: "a = 0 \\text{ (funkcja stała)}", value: "c" }
+                  { label: 'a > 0 \\text{ (funkcja rosnąca)}', value: 'a' },
+                  { label: 'a < 0 \\text{ (funkcja malejąca)}', value: 'b' },
+                  { label: 'a = 0 \\text{ (funkcja stała)}', value: 'c' },
                 ]}
                 correctAnswer="a"
                 explanation="Współczynnik $$a$$ określa kierunek funkcji liniowej. Jeśli wykres rośnie z lewa na prawo, to $$a > 0$$ (funkcja jest rosnąca)."
@@ -63,9 +61,9 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaki jest znak współczynnika b?"
                 choices={[
-                  { label: "b > 0 \\text{ (przecięcie z OY powyżej zera)}", value: "a" },
-                  { label: "b < 0 \\text{ (przecięcie z OY poniżej zera)}", value: "b" },
-                  { label: "b = 0 \\text{ (przecięcie w początku układu)}", value: "c" }
+                  { label: 'b > 0 \\text{ (przecięcie z OY powyżej zera)}', value: 'a' },
+                  { label: 'b < 0 \\text{ (przecięcie z OY poniżej zera)}', value: 'b' },
+                  { label: 'b = 0 \\text{ (przecięcie w początku układu)}', value: 'c' },
                 ]}
                 correctAnswer="b"
                 explanation="Współczynnik $$b$$ to punkt przecięcia z osią $$OY$$. Jeśli wykres przecina oś OY poniżej zera, to $$b < 0$$."
@@ -83,10 +81,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie znaki mają współczynniki a i b?"
                 choices={[
-                  { label: "a < 0 \\text{ i } b < 0", value: "a" },
-                  { label: "a < 0 \\text{ i } b > 0", value: "b" },
-                  { label: "a > 0 \\text{ i } b < 0", value: "c" },
-                  { label: "a > 0 \\text{ i } b > 0", value: "d" }
+                  { label: 'a < 0 \\text{ i } b < 0', value: 'a' },
+                  { label: 'a < 0 \\text{ i } b > 0', value: 'b' },
+                  { label: 'a > 0 \\text{ i } b < 0', value: 'c' },
+                  { label: 'a > 0 \\text{ i } b > 0', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Na podstawie analizy wykresu: funkcja jest rosnąca ($$a > 0$$) i przecina oś OY poniżej zera ($$b < 0$$)."
@@ -102,16 +100,16 @@ const Page = () => {
                 equation="y = ax + b"
                 steps={[
                   {
-                    step: "\\text{Wykres rośnie z lewa na prawo → funkcja rosnąca → } a > 0",
+                    step: '\\text{Wykres rośnie z lewa na prawo → funkcja rosnąca → } a > 0',
                   },
                   {
-                    step: "\\text{Wykres przecina oś OY poniżej zera → } b < 0",
+                    step: '\\text{Wykres przecina oś OY poniżej zera → } b < 0',
                   },
                   {
-                    step: "\\text{Ostatecznie: a > 0 i b < 0}",
-                  }
+                    step: '\\text{Ostatecznie: a > 0 i b < 0}',
+                  },
                 ]}
-                solutions={["\\text{Odpowiedź C: }a > 0 \\text{ i }  b < 0"]}
+                solutions={['\\text{Odpowiedź C: }a > 0 \\text{ i }  b < 0']}
               />
 
               <button

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -23,18 +23,16 @@ const Page = () => {
         />
 
         {completedStages.length === 0 && (
-          <StepDescription stepNumber={1}>
-            Kiedy dwie proste są równoległe?
-          </StepDescription>
+          <StepDescription stepNumber={1}>Kiedy dwie proste są równoległe?</StepDescription>
         )}
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <ChoiceQuestion
             question="Który warunek musi być spełniony, aby proste były równoległe?"
             choices={[
-              { label: "\\text{Ich współczynniki kierunkowe są równe}", value: "a" },
-              { label: "\\text{Ich wyrazy wolne są równe}", value: "b" },
-              { label: "\\text{Suma współczynników kierunkowych wynosi 0}", value: "c" },
-              { label: "\\text{Iloczyn współczynników kierunkowych wynosi -1}", value: "d" },
+              { label: '\\text{Ich współczynniki kierunkowe są równe}', value: 'a' },
+              { label: '\\text{Ich wyrazy wolne są równe}', value: 'b' },
+              { label: '\\text{Suma współczynników kierunkowych wynosi 0}', value: 'c' },
+              { label: '\\text{Iloczyn współczynników kierunkowych wynosi -1}', value: 'd' },
             ]}
             correctAnswer="a"
             explanation="Dwie proste są równoległe, gdy mają równe współczynniki kierunkowe."
@@ -50,10 +48,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie jest poprawne?"
               choices={[
-                { label: "2m + 2 = 3m - 3", value: "a" },
-                { label: "2m + 2 = -(3m - 3)", value: "b" },
-                { label: "(2m + 2)(3m - 3) = -1", value: "c" },
-                { label: "2m + 2 + 3m - 3 = 0", value: "d" }
+                { label: '2m + 2 = 3m - 3', value: 'a' },
+                { label: '2m + 2 = -(3m - 3)', value: 'b' },
+                { label: '(2m + 2)(3m - 3) = -1', value: 'c' },
+                { label: '2m + 2 + 3m - 3 = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation={`Poprawne równanie to: $$2m + 2 = 3m - 3$$ <br>
@@ -71,10 +69,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaka jest wartość m?"
               choices={[
-                { label: "m = -1", value: "a" },
-                { label: "m = 0", value: "b" },
-                { label: "m = 1", value: "c" },
-                { label: "m = 5", value: "d" }
+                { label: 'm = -1', value: 'a' },
+                { label: 'm = 0', value: 'b' },
+                { label: 'm = 1', value: 'c' },
+                { label: 'm = 5', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Kolejne kroki rozwiązania: <br>
@@ -92,11 +90,11 @@ const Page = () => {
           <StudentNotes
             equation="\text{Proste} \\ y=(2m+2)x-2019 \\ y=(3m-3)x+2019 \\ \text{są równoległe}"
             steps={[
-              { step: "\\text{Warunek równoległości: } a_1 = a_2" },
-              { step: "2m + 2 = 3m - 3" },
-              { step: "m = 5" },
+              { step: '\\text{Warunek równoległości: } a_1 = a_2' },
+              { step: '2m + 2 = 3m - 3' },
+              { step: 'm = 5' },
             ]}
-            solutions={["m = 5 \\text{ (Odpowiedź D)}"]}
+            solutions={['m = 5 \\text{ (Odpowiedź D)}']}
           />
         )}
       </div>

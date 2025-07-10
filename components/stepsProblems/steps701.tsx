@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import { InlineMath } from "react-katex";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import { InlineMath } from 'react-katex';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,9 +31,9 @@ const Page = () => {
             <ChoiceQuestion
               question="Który wzór odpowiada zliczaniu permutacji zbioru czteroelementowego?"
               choices={[
-                { label: "4^2", value: "a" },
-                { label: "4!", value: "b" },
-                { label: "\\binom{4}{2}", value: "c" }
+                { label: '4^2', value: 'a' },
+                { label: '4!', value: 'b' },
+                { label: '\\binom{4}{2}', value: 'c' },
               ]}
               correctAnswer="b"
               explanation="Liczba permutacji zbioru n-elementowego wynosi $$n!$$, a więc dla zbioru czteroelementowego: $$4!$$."
@@ -46,7 +46,7 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={3}>
-              Oblicz wartość silni <InlineMath math="4!"/>
+              Oblicz wartość silni <InlineMath math="4!" />
             </StepDescription>
             <NumericQuestion
               question="Ile wynosi wartość $$4!$$"
@@ -61,11 +61,8 @@ const Page = () => {
         {completedStages.length === 2 && (
           <StudentNotes
             equation="\text{Liczba możliwych czteroelementowych kodów utworzonych tylko z cyfr $$1, 3, 6, 8,$$} \\ \text{ gdy w każdym kodzie każda z tych cyfr występuje dokładnie jeden raz.}"
-            steps={[
-              { step: "4! = 4 \\cdot 3 \\cdot 2 \\cdot 1" },
-              { step: "4! = 24" },
-            ]}
-            solutions={["\\text{Liczba szukanych kodów wynosi 24.}"]}
+            steps={[{ step: '4! = 4 \\cdot 3 \\cdot 2 \\cdot 1' }, { step: '4! = 24' }]}
+            solutions={['\\text{Liczba szukanych kodów wynosi 24.}']}
           />
         )}
       </div>

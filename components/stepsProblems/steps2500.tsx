@@ -1,19 +1,17 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) =>
-      prev.includes(stage) ? prev : [...prev, stage]
-    );
+    setCompletedStages((prev) => (prev.includes(stage) ? prev : [...prev, stage]));
   };
 
   const resetLesson = () => {
@@ -38,10 +36,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jaki jest najmniejszy wspólny mianownik?"
                 choices={[
-                  { label: "6", value: "a" },
-                  { label: "24", value: "b" },
-                  { label: "12", value: "c" },
-                  { label: "36", value: "d" }
+                  { label: '6', value: 'a' },
+                  { label: '24', value: 'b' },
+                  { label: '12', value: 'c' },
+                  { label: '36', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="$$NWW(3, 4, 6) = 12$$. To najmniejsza liczba podzielna przez wszystkie mianowniki."
@@ -58,10 +56,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak wygląda nierówność po pomnożeniu przez 12?"
                 choices={[
-                  { label: "4(2x - 1) + 3(x + 2) ≤ 10(x - 1)", value: "a" },
-                  { label: "12(2x - 1) - 12(x + 2) ≤ 12·\\frac{5}{6}(x - 1)", value: "b" },
-                  { label: "4(2x - 1) - 3(x + 2) ≤ 10(x - 1)", value: "c" },
-                  { label: "8x - 4 - 3x + 6 ≤ 10x - 10", value: "d" }
+                  { label: '4(2x - 1) + 3(x + 2) ≤ 10(x - 1)', value: 'a' },
+                  { label: '12(2x - 1) - 12(x + 2) ≤ 12·\\frac{5}{6}(x - 1)', value: 'b' },
+                  { label: '4(2x - 1) - 3(x + 2) ≤ 10(x - 1)', value: 'c' },
+                  { label: '8x - 4 - 3x + 6 ≤ 10x - 10', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={`
@@ -76,16 +74,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <>
-              <StepDescription stepNumber={3}>
-                Wymnóż nawiasy.
-              </StepDescription>
+              <StepDescription stepNumber={3}>Wymnóż nawiasy.</StepDescription>
               <ChoiceQuestion
                 question="Poprawnie wymnożona nierówność to:"
                 choices={[
-                  { label: "8x - 4 - 3x - 6 ≤ 10x - 10", value: "a" },
-                  { label: "8x - 1 - 3x + 6 ≤ 10x - 10", value: "b" },
-                  { label: "8x - 4 + 3x + 6 ≤ 10x - 10", value: "c" },
-                  { label: "8x - 4 - 3x + 6 ≤ 10x - 5", value: "d" }
+                  { label: '8x - 4 - 3x - 6 ≤ 10x - 10', value: 'a' },
+                  { label: '8x - 1 - 3x + 6 ≤ 10x - 10', value: 'b' },
+                  { label: '8x - 4 + 3x + 6 ≤ 10x - 10', value: 'c' },
+                  { label: '8x - 4 - 3x + 6 ≤ 10x - 5', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation={`
@@ -100,16 +96,14 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <>
-              <StepDescription stepNumber={4}>
-                Uprość lewą stronę.
-              </StepDescription>
+              <StepDescription stepNumber={4}>Uprość lewą stronę.</StepDescription>
               <ChoiceQuestion
                 question="Po uproszczeniu otrzymamy:"
                 choices={[
-                  { label: "5x - 10 ≤ 10x - 5", value: "a" },
-                  { label: "11x - 10 ≤ 10x - 10", value: "b" },
-                  { label: "5x + 2 ≤ 10x - 10", value: "c" },
-                  { label: "5x - 10 ≤ 10x - 10", value: "d" }
+                  { label: '5x - 10 ≤ 10x - 5', value: 'a' },
+                  { label: '11x - 10 ≤ 10x - 10', value: 'b' },
+                  { label: '5x + 2 ≤ 10x - 10', value: 'c' },
+                  { label: '5x - 10 ≤ 10x - 10', value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation={`
@@ -129,10 +123,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Poprawne przekształcenie to:"
                 choices={[
-                  { label: "5x - 10x ≤ -10 + 10", value: "a" },
-                  { label: "5x - 10x ≤ 10 - 10", value: "b" },
-                  { label: "-5x - 10x ≤ -10 - 10", value: "c" },
-                  { label: "5x + 10x ≤ -10 + 10", value: "d" }
+                  { label: '5x - 10x ≤ -10 + 10', value: 'a' },
+                  { label: '5x - 10x ≤ 10 - 10', value: 'b' },
+                  { label: '-5x - 10x ≤ -10 - 10', value: 'c' },
+                  { label: '5x + 10x ≤ -10 + 10', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Przenosimy $$10x$$ na lewo (zmieniając znak) i $$-10$$ na prawo (też zmieniamy znak)."
@@ -143,16 +137,14 @@ const Page = () => {
 
           {completedStages.includes(5) && (
             <>
-              <StepDescription stepNumber={6}>
-                Uprość i rozwiąż nierówność.
-              </StepDescription>
+              <StepDescription stepNumber={6}>Uprość i rozwiąż nierówność.</StepDescription>
               <ChoiceQuestion
                 question="Ostateczne rozwiązanie to:"
                 choices={[
-                  { label: "x ≤ 0", value: "a" },
-                  { label: "x ≥ 0", value: "b" },
-                  { label: "x ≥ 4", value: "c" },
-                  { label: "x ≤ -4", value: "d" }
+                  { label: 'x ≤ 0', value: 'a' },
+                  { label: 'x ≥ 0', value: 'b' },
+                  { label: 'x ≥ 4', value: 'c' },
+                  { label: 'x ≤ -4', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="$$-5x ≤ 0 \Rightarrow x ≥ 0$$ (dzielimy przez liczbę ujemną, zmieniamy znak)."
@@ -167,14 +159,16 @@ const Page = () => {
               <StudentNotes
                 equation="\frac{2x - 1}{3} - \frac{x + 2}{4} \leq \frac{5}{6}(x - 1)"
                 steps={[
-                  { step: "\\frac{2x - 1}{3} - \\frac{x + 2}{4} \\leq \\frac{5}{6}(x - 1) / \\cdot 12" },
-                  { step: "4(2x-1) - 3(x+2) ≤ 10(x-1)" },
-                  { step: "8x - 4 - 3x - 6 ≤ 10x - 10" },
-                  { step: "5x - 10 ≤ 10x - 10" },
-                  { step: "5x - 10x ≤ -10 + 10" },
-                  { step: "-5x ≤ 0 → x ≥ 0", image: "/steps-images/nierownosc-liniowa4.png" },
+                  {
+                    step: '\\frac{2x - 1}{3} - \\frac{x + 2}{4} \\leq \\frac{5}{6}(x - 1) / \\cdot 12',
+                  },
+                  { step: '4(2x-1) - 3(x+2) ≤ 10(x-1)' },
+                  { step: '8x - 4 - 3x - 6 ≤ 10x - 10' },
+                  { step: '5x - 10 ≤ 10x - 10' },
+                  { step: '5x - 10x ≤ -10 + 10' },
+                  { step: '-5x ≤ 0 → x ≥ 0', image: '/steps-images/nierownosc-liniowa4.png' },
                 ]}
-                solutions={["x \\in [0, ∞)"]}
+                solutions={['x \\in [0, ∞)']}
               />
               <button
                 onClick={resetLesson}

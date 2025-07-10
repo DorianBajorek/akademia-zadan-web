@@ -1,12 +1,12 @@
-"use client";
-import { useEffect, useState } from "react";
-import Footer from "@/components/Footer";
-import Question3 from "@/components/Question3";
-import OpenQuestion from "@/components/OpenQuestion";
-import TrueFalseQuestion from "@/components/TrueFalseQuestion"; // <--- DODAJ TO
-import { Info } from "lucide-react";
+'use client';
+import { useEffect, useState } from 'react';
+import Footer from '@/components/Footer';
+import Question3 from '@/components/Question3';
+import OpenQuestion from '@/components/OpenQuestion';
+import TrueFalseQuestion from '@/components/TrueFalseQuestion'; // <--- DODAJ TO
+import { Info } from 'lucide-react';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const ExamPage: React.FC = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: any }>({});
@@ -14,7 +14,7 @@ const ExamPage: React.FC = () => {
   const [tasksData, setTasksData] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("/matura2025Nowa/matura2025Maj.json")
+    fetch('/matura2025Nowa/matura2025Maj.json')
       .then((res) => res.json())
       .then((data) => {
         setTasksData(data);
@@ -23,7 +23,7 @@ const ExamPage: React.FC = () => {
         const initialResults: { [key: number]: boolean } = {};
 
         data.forEach((task: any, index: number) => {
-          if (task.task_type === "truefalse") {
+          if (task.task_type === 'truefalse') {
             initialAnswers[index] = Array(task.statements.length).fill(null);
           } else {
             initialAnswers[index] = null;
@@ -40,7 +40,7 @@ const ExamPage: React.FC = () => {
     const answer = selectedAnswers[taskIndex];
     const task = tasksData[taskIndex];
 
-    if (task.task_type === "truefalse") {
+    if (task.task_type === 'truefalse') {
       const allAnswered = answer.every((val: boolean | null) => val !== null);
       if (!allAnswered) return;
     } else if (answer === null) {
@@ -78,7 +78,8 @@ const ExamPage: React.FC = () => {
           Matura maj 2025
         </h1>
         <p className="text-center text-gray-600 mb-8 sm:mb-10 text-base sm:text-lg max-w-2xl mx-auto">
-          Poniżej znajdziesz zadania z matury 2025. Sprawdź swoje umiejętności, klikając w odpowiedzi zadań zamkniętych i weryfikując, czy są poprawne. Powodzenia!
+          Poniżej znajdziesz zadania z matury 2025. Sprawdź swoje umiejętności, klikając w
+          odpowiedzi zadań zamkniętych i weryfikując, czy są poprawne. Powodzenia!
         </p>
 
         <div className="space-y-10 sm:space-y-12">
@@ -89,27 +90,27 @@ const ExamPage: React.FC = () => {
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-2 sm:gap-0">
                 <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600">
-                  Zadanie {task.task_id} {task.task_type === "open" && "(0-2)"}
+                  Zadanie {task.task_id} {task.task_type === 'open' && '(0-2)'}
                 </h2>
                 <div className="flex items-center text-xs sm:text-sm text-gray-600 gap-1">
                   <Info className="w-4 h-4 text-blue-500" />
-                  {task.task_type === "mc4"
-                    ? "Wielokrotny wybór (1 z 4)"
-                    : task.task_type === "truefalse"
-                    ? "Prawda / Fałsz"
-                    : "Pytanie otwarte"}
+                  {task.task_type === 'mc4'
+                    ? 'Wielokrotny wybór (1 z 4)'
+                    : task.task_type === 'truefalse'
+                      ? 'Prawda / Fałsz'
+                      : 'Pytanie otwarte'}
                 </div>
               </div>
 
-              {task.task_type === "mc4" ? (
+              {task.task_type === 'mc4' ? (
                 <div className="space-y-5 sm:space-y-6">
                   <Question3
                     description={task.description}
-                    choiceA={task.choiceA || ""}
-                    choiceB={task.choiceB || ""}
-                    choiceC={task.choiceC || ""}
-                    choiceD={task.choiceD || ""}
-                    correctAnswer={task.correct_answer || ""}
+                    choiceA={task.choiceA || ''}
+                    choiceB={task.choiceB || ''}
+                    choiceC={task.choiceC || ''}
+                    choiceD={task.choiceD || ''}
+                    correctAnswer={task.correct_answer || ''}
                     selectedAnswer={selectedAnswers[index]}
                     onAnswerSelect={(answerIndex) => handleAnswerSelect(index, answerIndex)}
                     isCorrect={
@@ -132,18 +133,18 @@ const ExamPage: React.FC = () => {
                       <p
                         className={`text-base sm:text-lg mb-2 font-bold ${
                           selectedAnswers[index] === task.correct_answer
-                            ? "text-green-600"
-                            : "text-red-600"
+                            ? 'text-green-600'
+                            : 'text-red-600'
                         }`}
                       >
                         {selectedAnswers[index] === task.correct_answer
-                          ? "Poprawna odpowiedź!"
+                          ? 'Poprawna odpowiedź!'
                           : `Błędna odpowiedź! Poprawna: ${task.correct_answer?.toUpperCase()}`}
                       </p>
                     </div>
                   )}
                 </div>
-              ) : task.task_type === "truefalse" ? (
+              ) : task.task_type === 'truefalse' ? (
                 <div className="space-y-5 sm:space-y-6">
                   <TrueFalseQuestion
                     question={task.description}
@@ -171,15 +172,13 @@ const ExamPage: React.FC = () => {
                             key={i}
                             className={`${
                               selectedAnswers[index][i] === s.isTrue
-                                ? "text-green-600 font-semibold"
-                                : "text-red-600 font-semibold"
+                                ? 'text-green-600 font-semibold'
+                                : 'text-red-600 font-semibold'
                             }`}
                           >
-                            Twój wybór dla zdania {i + 1}:{" "}
-                            {selectedAnswers[index][i] ? "Prawda" : "Fałsz"} —{" "}
-                            {selectedAnswers[index][i] === s.isTrue
-                              ? "poprawnie"
-                              : "niepoprawnie"}
+                            Twój wybór dla zdania {i + 1}:{' '}
+                            {selectedAnswers[index][i] ? 'Prawda' : 'Fałsz'} —{' '}
+                            {selectedAnswers[index][i] === s.isTrue ? 'poprawnie' : 'niepoprawnie'}
                           </li>
                         ))}
                       </ul>
@@ -187,10 +186,7 @@ const ExamPage: React.FC = () => {
                   )}
                 </div>
               ) : (
-                <OpenQuestion
-                  description={task.description}
-                  solution={task.solution}
-                />
+                <OpenQuestion description={task.description} solution={task.solution} />
               )}
             </div>
           ))}

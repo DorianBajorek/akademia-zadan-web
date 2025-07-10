@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Rozpocznij od przypomnienia sobie wzoru na <InlineMath math="n"/>-ty wyraz ciągu geometrycznego.
+              Rozpocznij od przypomnienia sobie wzoru na <InlineMath math="n" />
+              -ty wyraz ciągu geometrycznego.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wzór na czwarty wyraz ciągu geometrycznego?"
               choices={[
-                { label: "a_4 = a_1 q^2", value: "a" },
-                { label: "a_4 = a_1 q^4", value: "b" },
-                { label: "a_4 = a_1 q^3", value: "c" },
-                { label: "a_4 = a_1 q", value: "d" },
+                { label: 'a_4 = a_1 q^2', value: 'a' },
+                { label: 'a_4 = a_1 q^4', value: 'b' },
+                { label: 'a_4 = a_1 q^3', value: 'c' },
+                { label: 'a_4 = a_1 q', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Wzór ogólny: $$a_n = a_1 q^{n-1}$$. Dla $$n=4$$: $$a_4 = a_1 q^3$$."
@@ -47,15 +48,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Podstaw znane wartości do wzoru, aby utworzyć równanie z niewiadomą <InlineMath math="q"/>.
+              Podstaw znane wartości do wzoru, aby utworzyć równanie z niewiadomą{' '}
+              <InlineMath math="q" />.
             </StepDescription>
             <ChoiceQuestion
               question="Podstaw dane do wzoru $$a_4 = a_1 q^3$$. Jakie otrzymasz równanie?"
               choices={[
-                { label: "9 = 72 q^3", value: "a" },
-                { label: "72 = 9 q^3", value: "b" },
-                { label: "9 = 72 q^4", value: "c" },
-                { label: "72 = 9 q^2", value: "d" },
+                { label: '9 = 72 q^3', value: 'a' },
+                { label: '72 = 9 q^3', value: 'b' },
+                { label: '9 = 72 q^4', value: 'c' },
+                { label: '72 = 9 q^2', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Po podstawieniu $$a_1 = 72$$ i $$a_4 = 9$$ mamy: $$9 = 72 q^3$$."
@@ -68,15 +70,15 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Przekształć równanie, aby wyznaczyć wartość <InlineMath math="q^3"/>.
+              Przekształć równanie, aby wyznaczyć wartość <InlineMath math="q^3" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaką wartość ma $$q^3$$ po przekształceniu równania?"
               choices={[
-                { label: "q^3 = \\frac{9}{72^{2}}", value: "a" },
-                { label: "q^3 = 8", value: "b" },
-                { label: "q^3 = \\frac{72}{9}", value: "c" },
-                { label: "q^3 = \\frac{1}{8}", value: "d" },
+                { label: 'q^3 = \\frac{9}{72^{2}}', value: 'a' },
+                { label: 'q^3 = 8', value: 'b' },
+                { label: 'q^3 = \\frac{72}{9}', value: 'c' },
+                { label: 'q^3 = \\frac{1}{8}', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="$$9 = 72q^3 \implies q^3 = \frac{9}{72} = \frac{1}{8}$$."
@@ -89,15 +91,16 @@ const Page = () => {
         {completedStages.includes(3) && (
           <>
             <StepDescription stepNumber={4}>
-              Oblicz pierwiastek sześcienny z otrzymanej wartości, aby znaleźć iloraz <InlineMath math="q"/>.
+              Oblicz pierwiastek sześcienny z otrzymanej wartości, aby znaleźć iloraz{' '}
+              <InlineMath math="q" />.
             </StepDescription>
             <ChoiceQuestion
               question="Ile wynosi $$q$$?"
               choices={[
-                { label: "q = \\frac{1}{4}", value: "a" },
-                { label: "q = \\frac{1}{2}", value: "b" },
-                { label: "q = \\frac{1}{6}", value: "c" },
-                { label: "q = \\frac{1}{8}", value: "d" },
+                { label: 'q = \\frac{1}{4}', value: 'a' },
+                { label: 'q = \\frac{1}{2}', value: 'b' },
+                { label: 'q = \\frac{1}{6}', value: 'c' },
+                { label: 'q = \\frac{1}{8}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Pierwiastek trzeciego stopnia z $$\frac{1}{8}$$ to $$\frac{1}{2}$$, więc $$q = \frac{1}{2}$$."
@@ -111,12 +114,12 @@ const Page = () => {
           <StudentNotes
             equation="a_4 = a_1 q^3"
             steps={[
-              { step: "a_1 = 72, a_4 = 9" },
-              { step: "9 = 72 q^3" },
-              { step: "q^3 = \\frac{9}{72} = \\frac{1}{8}" },
-              { step: "q = \\frac{1}{2}" },
+              { step: 'a_1 = 72, a_4 = 9' },
+              { step: '9 = 72 q^3' },
+              { step: 'q^3 = \\frac{9}{72} = \\frac{1}{8}' },
+              { step: 'q = \\frac{1}{2}' },
             ]}
-            solutions={["q = \\frac{1}{2}"]}
+            solutions={['q = \\frac{1}{2}']}
           />
         )}
       </div>

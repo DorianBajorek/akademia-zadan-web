@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,10 +32,13 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak przekształcić wyrażenie z ujemnymi wykładnikami?"
                 choices={[
-                  { label: "3^{-1} = -3, (-\\frac{1}{9})^{-2} = (-\\frac{1}{9})^2", value: "a" },
-                  { label: "3^{-1} = \\frac{1}{3}, (-\\frac{1}{9})^{-2} = (-9)^2", value: "b" },
-                  { label: "3^{-1} = \\frac{1}{3}, (-\\frac{1}{9})^{-2} = (-\\frac{1}{9})^2", value: "c" },
-                  { label: "3^{-1} = -3, (-\\frac{1}{9})^{-2} = (-9)^2", value: "d" },
+                  { label: '3^{-1} = -3, (-\\frac{1}{9})^{-2} = (-\\frac{1}{9})^2', value: 'a' },
+                  { label: '3^{-1} = \\frac{1}{3}, (-\\frac{1}{9})^{-2} = (-9)^2', value: 'b' },
+                  {
+                    label: '3^{-1} = \\frac{1}{3}, (-\\frac{1}{9})^{-2} = (-\\frac{1}{9})^2',
+                    value: 'c',
+                  },
+                  { label: '3^{-1} = -3, (-\\frac{1}{9})^{-2} = (-9)^2', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawne przekształcenia:
@@ -49,16 +52,14 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Oblicz wartość mianownika:
-              </StepDescription>
+              <StepDescription stepNumber={2}>Oblicz wartość mianownika:</StepDescription>
               <ChoiceQuestion
                 question="Ile wynosi $$(-9)^2$$?"
                 choices={[
-                  { label: "-81", value: "a" },
-                  { label: "81", value: "b" },
-                  { label: "18", value: "c" },
-                  { label: "-18", value: "d" },
+                  { label: '-81', value: 'a' },
+                  { label: '81', value: 'b' },
+                  { label: '18', value: 'c' },
+                  { label: '-18', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="$$(-9)^2 = (-9) \cdot (-9) = 81$$ (minus razy minus daje plus)"
@@ -76,10 +77,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak uprościć wyrażenie $$\frac{\frac{1}{3}}{81} \cdot 81$$?"
                 choices={[
-                  { label: "\\frac{1}{3}", value: "a" },
-                  { label: "3", value: "b" },
-                  { label: "1", value: "c" },
-                  { label: "81", value: "d" },
+                  { label: '\\frac{1}{3}', value: 'a' },
+                  { label: '3', value: 'b' },
+                  { label: '1', value: 'c' },
+                  { label: '81', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="$$\frac{\frac{1}{3}}{81} \cdot 81 = \frac{1}{3} \cdot \frac{81}{81} = \frac{1}{3}$$"
@@ -94,10 +95,10 @@ const Page = () => {
                 equation="\frac{3^{-1}}{(-\frac{1}{9})^{-2}} \cdot 81"
                 steps={[
                   {
-                    step: "\\frac{3^{-1}}{(-\\frac{1}{9})^{-2}} \\cdot 81 = \\frac{\\frac{1}{3}}{(-9)^{2}} \\cdot 81 = \\frac{\\frac{1}{3}}{81} \\cdot 81 = \\frac{1}{3}",
-                  }
+                    step: '\\frac{3^{-1}}{(-\\frac{1}{9})^{-2}} \\cdot 81 = \\frac{\\frac{1}{3}}{(-9)^{2}} \\cdot 81 = \\frac{\\frac{1}{3}}{81} \\cdot 81 = \\frac{1}{3}',
+                  },
                 ]}
-                solutions={["\\frac{1}{3}"]}
+                solutions={['\\frac{1}{3}']}
               />
             </div>
           )}

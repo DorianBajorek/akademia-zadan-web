@@ -1,19 +1,17 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
   const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) =>
-      prev.includes(stage) ? prev : [...prev, stage]
-    );
+    setCompletedStages((prev) => (prev.includes(stage) ? prev : [...prev, stage]));
   };
 
   const resetLesson = () => {
@@ -32,16 +30,14 @@ const Page = () => {
         <div className="mt-8 space-y-10">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <>
-              <StepDescription stepNumber={1}>
-                Wymnóż nawiasy po lewej stronie.
-              </StepDescription>
+              <StepDescription stepNumber={1}>Wymnóż nawiasy po lewej stronie.</StepDescription>
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "2x - 2 + 3x + 9 \\geq x - 7", value: "a" },
-                  { label: "2x - 1 + 3x + 3\\geq x - 7", value: "b" },
-                  { label: "2x - 2 + 3x + 3 \\geq x - 7", value: "c" },
-                  { label: "2x - 2 + x + 9 \\geq x - 7", value: "d" }
+                  { label: '2x - 2 + 3x + 9 \\geq x - 7', value: 'a' },
+                  { label: '2x - 1 + 3x + 3\\geq x - 7', value: 'b' },
+                  { label: '2x - 2 + 3x + 3 \\geq x - 7', value: 'c' },
+                  { label: '2x - 2 + x + 9 \\geq x - 7', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="$$2(x - 1) = 2x - 2$$, $$3(x + 3) = 3x + 9$$ — czyli: $$2x - 2 + 3x + 9 \geq x - 7$$"
@@ -52,16 +48,14 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <>
-              <StepDescription stepNumber={2}>
-                Uprość lewą stronę nierówności.
-              </StepDescription>
+              <StepDescription stepNumber={2}>Uprość lewą stronę nierówności.</StepDescription>
               <ChoiceQuestion
                 question="Jak wygląda uproszczona nierówność?"
                 choices={[
-                  { label: "5x + 11 \\geq x - 7", value: "a" },
-                  { label: "5x + 7 \\geq x - 7", value: "b" },
-                  { label: "6x + 7 \\geq x - 7", value: "c" },
-                  { label: "5x + 5 \\geq x - 7", value: "d" }
+                  { label: '5x + 11 \\geq x - 7', value: 'a' },
+                  { label: '5x + 7 \\geq x - 7', value: 'b' },
+                  { label: '6x + 7 \\geq x - 7', value: 'c' },
+                  { label: '5x + 5 \\geq x - 7', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="$$2x + 3x = 5x$$ i $$-2 + 9 = 7$$ $$\Rightarrow$$ $$5x + 7 \geq x - 7$$"
@@ -78,10 +72,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "5x - x \\geq 7 - 7", value: "a" },
-                  { label: "5x + x \\geq -7 + 7", value: "b" },
-                  { label: "5x - x \\geq -7 - 7", value: "c" },
-                  { label: "5x + x \\geq 7 + 7", value: "d" }
+                  { label: '5x - x \\geq 7 - 7', value: 'a' },
+                  { label: '5x + x \\geq -7 + 7', value: 'b' },
+                  { label: '5x - x \\geq -7 - 7', value: 'c' },
+                  { label: '5x + x \\geq 7 + 7', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="$$x$$ na lewą stronę: $$5x - x$$, $$7$$ na prawą: $$-7 - 7$$ $$\Rightarrow$$ $$5x - x \geq -14$$"
@@ -92,16 +86,14 @@ const Page = () => {
 
           {completedStages.includes(3) && (
             <>
-              <StepDescription stepNumber={4}>
-                Uprość obie strony nierówności.
-              </StepDescription>
+              <StepDescription stepNumber={4}>Uprość obie strony nierówności.</StepDescription>
               <ChoiceQuestion
                 question="Jak wygląda uproszczona nierówność?"
                 choices={[
-                  { label: "6x \\geq 0", value: "a" },
-                  { label: "4x \\geq -14", value: "b" },
-                  { label: "4x \\geq 0", value: "c" },
-                  { label: "6x \\geq 14", value: "d" }
+                  { label: '6x \\geq 0', value: 'a' },
+                  { label: '4x \\geq -14', value: 'b' },
+                  { label: '4x \\geq 0', value: 'c' },
+                  { label: '6x \\geq 14', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="$$5x - x = 4x$$ i $$-7 - 7 = -14$$ $$\Rightarrow$$ $$4x \geq -14$$"
@@ -118,10 +110,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jakie jest rozwiązanie nierówności?"
                 choices={[
-                  { label: "x \\geq 0", value: "a" },
-                  { label: "x \\geq 3.5", value: "b" },
-                  { label: "x \\geq -3.5", value: "c" },
-                  { label: "x \\leq -3.5", value: "d" }
+                  { label: 'x \\geq 0', value: 'a' },
+                  { label: 'x \\geq 3.5', value: 'b' },
+                  { label: 'x \\geq -3.5', value: 'c' },
+                  { label: 'x \\leq -3.5', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="$$x \geq \frac{-14}{4} = -3.5$$ — dzielimy przez liczbę dodatnią, więc znak nierówności się nie zmienia."
@@ -136,16 +128,16 @@ const Page = () => {
               <StudentNotes
                 equation="2(x-1) + 3(x+3) \geq x - 7"
                 steps={[
-                  { step: "2x - 2 + 3x + 9 \\geq x - 7" },
-                  { step: "5x + 7 \\geq x - 7" },
-                  { step: "5x - x \\geq -7 - 7" },
-                  { step: "4x \\geq -14" },
+                  { step: '2x - 2 + 3x + 9 \\geq x - 7' },
+                  { step: '5x + 7 \\geq x - 7' },
+                  { step: '5x - x \\geq -7 - 7' },
+                  { step: '4x \\geq -14' },
                   {
-                    step: "x \\geq -3.5",
-                    image: "/steps-images/nierownosc-liniowa2.png",
+                    step: 'x \\geq -3.5',
+                    image: '/steps-images/nierownosc-liniowa2.png',
                   },
                 ]}
-                solutions={["x \\in [-3.5, \\infty)"]}
+                solutions={['x \\in [-3.5, \\infty)']}
               />
 
               <button

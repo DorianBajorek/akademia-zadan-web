@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
-import NumericQuestion from "./NumericQuestion";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
+import { useState } from 'react';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
+import NumericQuestion from './NumericQuestion';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,7 +26,8 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Równanie z wartością bezwzględną w przypadku równości do zera, można opuścić wartość bezwzględną bez konseekwencji. Rozwiążmy to równanie.
+              Równanie z wartością bezwzględną w przypadku równości do zera, można opuścić wartość
+              bezwzględną bez konseekwencji. Rozwiążmy to równanie.
             </StepDescription>
             <NumericQuestion
               question="Oblicz wartość x, dla której $$x - 8 = 0$$:"
@@ -48,10 +49,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Który zbiór jest rozwiązaniem równania $$|x - 8| = 0$$?"
               choices={[
-                { label: "x = 8", value: "a" },
-                { label: "x ∈ ℝ", value: "b" },
-                { label: "x ∈ ∅", value: "c" },
-                { label: "x = -8", value: "d" }
+                { label: 'x = 8', value: 'a' },
+                { label: 'x ∈ ℝ', value: 'b' },
+                { label: 'x ∈ ∅', value: 'c' },
+                { label: 'x = -8', value: 'd' },
               ]}
               correctAnswer="a"
               explanation={`Wartość bezwzględna jest równa zero tylko wtedy, gdy jej argument jest równy zero.  
@@ -64,11 +65,8 @@ const Page = () => {
         {completedStages.includes(2) && (
           <StudentNotes
             equation="|x - 8| = 0"
-            steps={[
-              { step: "|x - 8| = 0 \\ \\Leftrightarrow \\ x - 8 = 0" },
-              { step: "x = 8" }
-            ]}
-            solutions={["x = 8"]}
+            steps={[{ step: '|x - 8| = 0 \\ \\Leftrightarrow \\ x - 8 = 0' }, { step: 'x = 8' }]}
+            solutions={['x = 8']}
           />
         )}
       </div>

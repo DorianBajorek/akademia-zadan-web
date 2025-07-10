@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Wymnóż pierwszą parę nawiasów: <InlineMath math="(2x + 3)(x - 4)"/>. Pamiętaj o wymnożeniu każdego wyrazu z pierwszego nawiasu przez każdy wyraz z drugiego.
+              Wymnóż pierwszą parę nawiasów: <InlineMath math="(2x + 3)(x - 4)" />. Pamiętaj o
+              wymnożeniu każdego wyrazu z pierwszego nawiasu przez każdy wyraz z drugiego.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wynik mnożenia $$(2x + 3)(x - 4)$$?"
               choices={[
-                { label: "2x^2 - 5x + 12", value: "a" },
-                { label: "2x^2 + 8x + 3x + 12", value: "b" },
-                { label: "2x^2 - 5x - 12", value: "c" },
-                { label: "2x^2 - 8x + 3x - 12", value: "d" }
+                { label: '2x^2 - 5x + 12', value: 'a' },
+                { label: '2x^2 + 8x + 3x + 12', value: 'b' },
+                { label: '2x^2 - 5x - 12', value: 'c' },
+                { label: '2x^2 - 8x + 3x - 12', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawny wynik to $$2x^2 - 8x + 3x - 12$$. <br> 
@@ -52,15 +53,15 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Teraz wymnóż drugą parę nawiasów: <InlineMath math="(x + 5)(x - 2)"/>.
+              Teraz wymnóż drugą parę nawiasów: <InlineMath math="(x + 5)(x - 2)" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest wynik mnożenia $$(x + 5)(x - 2)$$?"
               choices={[
-                { label: "x^2 - 2x + 5x - 10", value: "a" },
-                { label: "x^2 + 2x + 5x + 10", value: "b" },
-                { label: "x^2 + 3x - 10", value: "c" },
-                { label: "x^2 - 7x - 10", value: "d" }
+                { label: 'x^2 - 2x + 5x - 10', value: 'a' },
+                { label: 'x^2 + 2x + 5x + 10', value: 'b' },
+                { label: 'x^2 + 3x - 10', value: 'c' },
+                { label: 'x^2 - 7x - 10', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawny wynik to $$x^2 - 2x + 5x - 10$$. <br> 
@@ -77,15 +78,16 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Połącz uzyskane wyniki i zredukuj wyrazy podobne. Pamiętaj o znaku minus przed drugim nawiasem.
+              Połącz uzyskane wyniki i zredukuj wyrazy podobne. Pamiętaj o znaku minus przed drugim
+              nawiasem.
             </StepDescription>
             <ChoiceQuestion
               question="Jaki jest ostateczny wynik po uproszczeniu całego wyrażenia?"
               choices={[
-                { label: "x^2 + 8x - 22", value: "a" },
-                { label: "x^2 - 4x - 22", value: "b" },
-                { label: "3x^2 - 4x - 2", value: "c" },
-                { label: "x^2 - 8x - 2", value: "d" }
+                { label: 'x^2 + 8x - 22', value: 'a' },
+                { label: 'x^2 - 4x - 22', value: 'b' },
+                { label: '3x^2 - 4x - 2', value: 'c' },
+                { label: 'x^2 - 8x - 2', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawny wynik to $$x^2 - 8x - 2$$. <br> 
@@ -104,19 +106,19 @@ const Page = () => {
             equation="(2x + 3)(x - 4) - (x + 5)(x - 2)"
             steps={[
               {
-                step: "(2x^2 - 8x + 3x - 12) - (x^2 - 2x + 5x - 10)",
+                step: '(2x^2 - 8x + 3x - 12) - (x^2 - 2x + 5x - 10)',
               },
               {
-                step: "(2x^2 - 5x - 12) - (x^2 + 3x - 10)",
+                step: '(2x^2 - 5x - 12) - (x^2 + 3x - 10)',
               },
               {
-                step: "2x^2 - 5x - 12 - x^2 - 3x + 10",
+                step: '2x^2 - 5x - 12 - x^2 - 3x + 10',
               },
               {
-                step: "x^2 - 8x - 2",
+                step: 'x^2 - 8x - 2',
               },
             ]}
-            solutions={["x^2 - 8x - 2"]}
+            solutions={['x^2 - 8x - 2']}
           />
         )}
       </div>

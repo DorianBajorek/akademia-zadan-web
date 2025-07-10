@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które rozbicie równania jest poprawne?"
               choices={[
-                { label: "2x + 1 = 9", value: "a" },
-                { label: "2x + 1 = -9", value: "b" },
-                { label: "2x + 1 = 9 \\ , \\ 2x + 1 = -9", value: "c" },
-                { label: "2x - 1 = 9 \\ , \\ 2x + 1 = -9", value: "d" }
+                { label: '2x + 1 = 9', value: 'a' },
+                { label: '2x + 1 = -9', value: 'b' },
+                { label: '2x + 1 = 9 \\ , \\ 2x + 1 = -9', value: 'c' },
+                { label: '2x - 1 = 9 \\ , \\ 2x + 1 = -9', value: 'd' },
               ]}
               correctAnswer="c"
               explanation={`Równanie z wartością bezwzględną $$|2x+1|=9$$ rozbijamy na dwa przypadki: 
@@ -47,9 +47,7 @@ const Page = () => {
 
         {completedStages.includes(1) && (
           <>
-            <StepDescription stepNumber={2}>
-              Rozwiąż pierwsze równanie.
-            </StepDescription>
+            <StepDescription stepNumber={2}>Rozwiąż pierwsze równanie.</StepDescription>
             <NumericQuestion
               question="Jakie jest rozwiązanie równania $$2x+1=9$$?"
               correctAnswer="4"
@@ -66,9 +64,7 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <StepDescription stepNumber={3}>
-              Rozwiąż drugie równanie.
-            </StepDescription>
+            <StepDescription stepNumber={3}>Rozwiąż drugie równanie.</StepDescription>
             <NumericQuestion
               question="Jakie jest rozwiązanie równania $$2x+1=-9$$?"
               correctAnswer="-5"
@@ -91,10 +87,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Który zbiór jest rozwiązaniem równania $$|2x+1|=9$$?"
               choices={[
-                { label: "x = -5, x = 4", value: "a" },
-                { label: "x ∈ ⟨-5, 4⟩", value: "b" },
-                { label: "x ∈ ℝ", value: "c" },
-                { label: "x ∈ ∅", value: "d" }
+                { label: 'x = -5, x = 4', value: 'a' },
+                { label: 'x ∈ ⟨-5, 4⟩', value: 'b' },
+                { label: 'x ∈ ℝ', value: 'c' },
+                { label: 'x ∈ ∅', value: 'd' },
               ]}
               correctAnswer="a"
               explanation={`Rozwiązaniem równania $$|2x+1|=9$$ są dwie liczby:  
@@ -109,10 +105,10 @@ const Page = () => {
           <StudentNotes
             equation="|2x+1| = 9"
             steps={[
-              { step: "2x+1 = 9 \\ \\ lub \\ \\ 2x+1 = -9" },
-              { step: "x = 4 \\ \\ lub \\ \\ x = -5" }
+              { step: '2x+1 = 9 \\ \\ lub \\ \\ 2x+1 = -9' },
+              { step: 'x = 4 \\ \\ lub \\ \\ x = -5' },
             ]}
-            solutions={["x \\in \\{-5, 4\\}"]}
+            solutions={['x \\in \\{-5, 4\\}']}
           />
         )}
       </div>

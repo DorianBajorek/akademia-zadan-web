@@ -1,33 +1,34 @@
-"use client";
-import { useState } from "react";
-import TrueFalseQuestion from "../TrueFalseQuestion";
+'use client';
+import { useState } from 'react';
+import TrueFalseQuestion from '../TrueFalseQuestion';
 
 const LinearFunctionPropertiesTask: React.FC = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<(boolean | null)[]>([]);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 78,
-    "exam_type": "mp",
-    "task_type": "true_false",
-    "description": "Funkcja liniowa $f$ jest określona wzorem $f(x) = \\frac{1}{2}x - 4$. Oceń prawdziwość poniższych stwierdzeń.",
-    "statements": [
+    task_id: 78,
+    exam_type: 'mp',
+    task_type: 'true_false',
+    description:
+      'Funkcja liniowa $f$ jest określona wzorem $f(x) = \\frac{1}{2}x - 4$. Oceń prawdziwość poniższych stwierdzeń.',
+    statements: [
       {
-        "text": "Funkcja $f$ jest rosnąca w całej swojej dziedzinie.",
-        "isTrue": true
+        text: 'Funkcja $f$ jest rosnąca w całej swojej dziedzinie.',
+        isTrue: true,
       },
       {
-        "text": "Wykres funkcji $f$ przecina oś $Ox$ w punkcie $(8, 0)$.",
-        "isTrue": true
+        text: 'Wykres funkcji $f$ przecina oś $Ox$ w punkcie $(8, 0)$.',
+        isTrue: true,
       },
       {
-        "text": "Funkcja $f$ przyjmuje wartości ujemne dla $x < 8$.",
-        "isTrue": true
+        text: 'Funkcja $f$ przyjmuje wartości ujemne dla $x < 8$.',
+        isTrue: true,
       },
       {
-        "text": "Pole trójkąta ograniczonego osiami układu współrzędnych i wykresem funkcji $f$ wynosi 16.",
-        "isTrue": true
-      }
+        text: 'Pole trójkąta ograniczonego osiami układu współrzędnych i wykresem funkcji $f$ wynosi 16.',
+        isTrue: true,
+      },
     ],
   };
 
@@ -42,12 +43,12 @@ const LinearFunctionPropertiesTask: React.FC = () => {
   };
 
   const handleCheckAnswer = () => {
-    if (selectedAnswers.every(answer => answer !== null)) {
+    if (selectedAnswers.every((answer) => answer !== null)) {
       setShowResult(true);
     }
   };
 
-  const allAnswersSelected = selectedAnswers.every(answer => answer !== null);
+  const allAnswersSelected = selectedAnswers.every((answer) => answer !== null);
 
   return (
     <div className="min-h-screen">
@@ -76,14 +77,20 @@ const LinearFunctionPropertiesTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswers.every((answer, index) => answer === taskData.statements[index].isTrue)
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
-              {selectedAnswers.every((answer, index) => answer === taskData.statements[index].isTrue)
-                ? "Brawo! Wszystkie odpowiedzi są poprawne!"
-                : "Niestety, popełniłeś błędy!"}
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswers.every(
+                  (answer, index) => answer === taskData.statements[index].isTrue
+                )
+                  ? 'text-green-600'
+                  : 'text-red-600'
+              }`}
+            >
+              {selectedAnswers.every(
+                (answer, index) => answer === taskData.statements[index].isTrue
+              )
+                ? 'Brawo! Wszystkie odpowiedzi są poprawne!'
+                : 'Niestety, popełniłeś błędy!'}
             </p>
           </div>
         )}

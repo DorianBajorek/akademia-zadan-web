@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,10 +32,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak zapisać $$0.(3)$$ jako ułamek zwykły?"
                 choices={[
-                  { label: "\\frac{1}{2}", value: "a" },
-                  { label: "\\frac{1}{3}", value: "b" },
-                  { label: "\\frac{1}{4}", value: "c" },
-                  { label: "\\frac{1}{5}", value: "d" },
+                  { label: '\\frac{1}{2}', value: 'a' },
+                  { label: '\\frac{1}{3}', value: 'b' },
+                  { label: '\\frac{1}{4}', value: 'c' },
+                  { label: '\\frac{1}{5}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawna zamiana: $$0.(3) = \frac{1}{3} $$. Każdy maturzysta powinien to po prostu pamiętać. Takie coś można wyprowadzić w następujacy sposób: <br>
@@ -59,10 +59,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak przekształcić wyrażenie $$\left(\frac{27}{343}\right)^{-\frac{1}{3}}$$, korzystając z minusa w wykładniku?"
                 choices={[
-                  { label: "\\left(\\frac{27}{343}\\right)^{\\frac{1}{3}}", value: "a" },
-                  { label: "\\left(\\frac{343}{27}\\right)^{\\frac{1}{3}}", value: "b" },
-                  { label: "\\left(\\frac{27}{343}\\right)^{-3}", value: "c" },
-                  { label: "\\left(\\frac{343}{27}\\right)^{-3}", value: "d" },
+                  { label: '\\left(\\frac{27}{343}\\right)^{\\frac{1}{3}}', value: 'a' },
+                  { label: '\\left(\\frac{343}{27}\\right)^{\\frac{1}{3}}', value: 'b' },
+                  { label: '\\left(\\frac{27}{343}\\right)^{-3}', value: 'c' },
+                  { label: '\\left(\\frac{343}{27}\\right)^{-3}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawne przekształcenie: $$\left(\frac{27}{343}\right)^{-\frac{1}{3}} = \left(\frac{343}{27}\right)^{\frac{1}{3}}$$. Minus powoduje zamianę miejscami licznika i mianownika ułamka."
@@ -75,15 +75,15 @@ const Page = () => {
           {completedStages.includes(2) && (
             <div>
               <StepDescription stepNumber={3}>
-                Zamiana potęgi <InlineMath math="\frac{1}{3}"/> na pierwiastek trzeciego stopnia:
+                Zamiana potęgi <InlineMath math="\frac{1}{3}" /> na pierwiastek trzeciego stopnia:
               </StepDescription>
               <ChoiceQuestion
                 question="Jak zapisać wyrażenie $$\left(\frac{343}{27}\right)^{\frac{1}{3}}$$ za pomocą pierwiastka?"
                 choices={[
-                  { label: "\\sqrt{\\frac{343}{27}}", value: "a" },
-                  { label: "\\sqrt[3]{\\frac{343}{27}}", value: "b" },
-                  { label: "\\sqrt[4]{\\frac{343}{27}}", value: "c" },
-                  { label: "\\sqrt[5]{\\frac{343}{27}}", value: "d" },
+                  { label: '\\sqrt{\\frac{343}{27}}', value: 'a' },
+                  { label: '\\sqrt[3]{\\frac{343}{27}}', value: 'b' },
+                  { label: '\\sqrt[4]{\\frac{343}{27}}', value: 'c' },
+                  { label: '\\sqrt[5]{\\frac{343}{27}}', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawna zamiana: $$\left(\frac{343}{27}\right)^{\frac{1}{3}} = \sqrt[3]{\frac{343}{27}}$$. Jaki mianownik, taki stopień pierwiastka."
@@ -101,10 +101,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Jak obliczyć $$\sqrt[3]{\frac{343}{27}}$$?"
                 choices={[
-                  { label: "\\frac{7}{3}", value: "a" },
-                  { label: "\\frac{9}{4}", value: "b" },
-                  { label: "\\frac{5}{2}", value: "c" },
-                  { label: "\\frac{8}{3}", value: "d" },
+                  { label: '\\frac{7}{3}', value: 'a' },
+                  { label: '\\frac{9}{4}', value: 'b' },
+                  { label: '\\frac{5}{2}', value: 'c' },
+                  { label: '\\frac{8}{3}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Poprawne obliczenie: $$\sqrt[3]{\frac{343}{27}} = \frac{\sqrt[3]{343}}{\sqrt[3]{27}} = \frac{7}{3}$$."
@@ -119,13 +119,13 @@ const Page = () => {
                 equation="\left(\frac{27}{343}\right)^{-0.(3)}"
                 steps={[
                   {
-                    step: "0.(3) = \\frac{1}{3}",
+                    step: '0.(3) = \\frac{1}{3}',
                   },
                   {
-                    step: "\\left(\\frac{27}{343}\\right)^{-\\frac{1}{3}} = \\left(\\frac{343}{27}\\right)^{\\frac{1}{3}} = \\sqrt[3]{\\frac{343}{27}} = \\frac{7}{3}",
-                  }
+                    step: '\\left(\\frac{27}{343}\\right)^{-\\frac{1}{3}} = \\left(\\frac{343}{27}\\right)^{\\frac{1}{3}} = \\sqrt[3]{\\frac{343}{27}} = \\frac{7}{3}',
+                  },
                 ]}
-                solutions={["\\frac{7}{3}"]}
+                solutions={['\\frac{7}{3}']}
               />
             </div>
           )}

@@ -1,8 +1,8 @@
-"use client";
-import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import { solutionsMap } from "@/app/rozwiazanie/[id]/solutionsMap";
+'use client';
+import Link from 'next/link';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import { solutionsMap } from '@/app/rozwiazanie/[id]/solutionsMap';
 
 const SolutionsPage = () => {
   const solutionIds = Object.keys(solutionsMap);
@@ -11,9 +11,7 @@ const SolutionsPage = () => {
     <div className="min-h-screen">
       <Nav />
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Lista Rozwiązań
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Lista Rozwiązań</h2>
         <p className="text-lg text-gray-700 text-center mb-8">
           Kliknij na zadanie, aby zobaczyć jego rozwiązanie.
         </p>
@@ -27,7 +25,7 @@ const SolutionsPage = () => {
             </Link>
           ))}
         </div>
-</main>
+      </main>
     </div>
   );
 };

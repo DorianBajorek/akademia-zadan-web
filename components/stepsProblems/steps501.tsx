@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne dla liczby 27?"
               choices={[
-                { label: "27 = 3^2", value: "a" },
-                { label: "27 = 3^3", value: "b" },
-                { label: "27 = 3^4", value: "c" },
-                { label: "27 = 3^5", value: "d" },
+                { label: '27 = 3^2', value: 'a' },
+                { label: '27 = 3^3', value: 'b' },
+                { label: '27 = 3^4', value: 'c' },
+                { label: '27 = 3^5', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Poprawne przekształcenie to $$27 = 3^3$$."
@@ -52,10 +52,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne dla wyrażenia $$\sqrt{27}$$?"
               choices={[
-                { label: "\\sqrt{27} = 27^{\\frac{1}{3}} = (3^3)^{\\frac{1}{3}}", value: "a" },
-                { label: "\\sqrt{27} = 27^{2} = (3^3)^{2}", value: "b" },
-                { label: "\\sqrt{27} = 27^{-\\frac{1}{2}} = (3^3)^{-\\frac{1}{2}}", value: "c" },
-                { label: "\\sqrt{27} = 27^{\\frac{1}{2}} = (3^3)^{\\frac{1}{2}}", value: "d" },
+                { label: '\\sqrt{27} = 27^{\\frac{1}{3}} = (3^3)^{\\frac{1}{3}}', value: 'a' },
+                { label: '\\sqrt{27} = 27^{2} = (3^3)^{2}', value: 'b' },
+                { label: '\\sqrt{27} = 27^{-\\frac{1}{2}} = (3^3)^{-\\frac{1}{2}}', value: 'c' },
+                { label: '\\sqrt{27} = 27^{\\frac{1}{2}} = (3^3)^{\\frac{1}{2}}', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawne przekształcenie to $$\sqrt{27} = 27^{\frac{1}{2}} = (3^3)^{\frac{1}{2}}$$, ponieważ pierwiastek kwadratowy to potęga o wykładniku $$\frac{1}{2}$$."
@@ -73,10 +73,19 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "(3^3)^{\\frac{1}{2}} = 3^{3 \\cdot \\frac{1}{2}} = 3^{\\frac{3}{2}}", value: "a" },
-                { label: "(3^3)^{\\frac{1}{2}} = 3^{3 + \\frac{1}{2}} = 3^{\\frac{7}{2}}", value: "b" },
-                { label: "(3^3)^{\\frac{1}{2}} = 3^{3 - \\frac{1}{2}} = 3^{\\frac{5}{2}}", value: "c" },
-                { label: "(3^3)^{\\frac{1}{2}} = 3^{\\frac{1}{2}}", value: "d" }
+                {
+                  label: '(3^3)^{\\frac{1}{2}} = 3^{3 \\cdot \\frac{1}{2}} = 3^{\\frac{3}{2}}',
+                  value: 'a',
+                },
+                {
+                  label: '(3^3)^{\\frac{1}{2}} = 3^{3 + \\frac{1}{2}} = 3^{\\frac{7}{2}}',
+                  value: 'b',
+                },
+                {
+                  label: '(3^3)^{\\frac{1}{2}} = 3^{3 - \\frac{1}{2}} = 3^{\\frac{5}{2}}',
+                  value: 'c',
+                },
+                { label: '(3^3)^{\\frac{1}{2}} = 3^{\\frac{1}{2}}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne przekształcenie to $$(3^3)^{\frac{1}{2}} = 3^{3 \cdot \frac{1}{2}} = 3^{\frac{3}{2}}$$. Gdy mamy potęgę potęgi, mnożymy wykładniki."
@@ -94,10 +103,25 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne dla wyrażenia $$3^{-3} \cdot 3^{\frac{3}{2}}$$?"
               choices={[
-                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 \\cdot \\frac{3}{2}} = 3^{-\\frac{9}{2}}", value: "a" },
-                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 + \\frac{3}{2}} = 3^{-\\frac{3}{2}}", value: "b" },
-                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 - \\frac{3}{2}} = 3^{-\\frac{9}{2}}", value: "c" },
-                { label: "3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{3 + \\frac{3}{2}} = 3^{\\frac{9}{2}}", value: "d" }
+                {
+                  label:
+                    '3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 \\cdot \\frac{3}{2}} = 3^{-\\frac{9}{2}}',
+                  value: 'a',
+                },
+                {
+                  label:
+                    '3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 + \\frac{3}{2}} = 3^{-\\frac{3}{2}}',
+                  value: 'b',
+                },
+                {
+                  label:
+                    '3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 - \\frac{3}{2}} = 3^{-\\frac{9}{2}}',
+                  value: 'c',
+                },
+                {
+                  label: '3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{3 + \\frac{3}{2}} = 3^{\\frac{9}{2}}',
+                  value: 'd',
+                },
               ]}
               correctAnswer="b"
               explanation="Poprawne przekształcenie to $$3^{-3} \cdot 3^{\frac{3}{2}} = 3^{-3 + \frac{3}{2}} = 3^{-\frac{3}{2}}$$. Gdy mnożymy potęgi o tej samej podstawie, dodajemy wykładniki."
@@ -112,10 +136,10 @@ const Page = () => {
             equation="3^{-3} \cdot \sqrt{27}"
             steps={[
               {
-                step: "3^{-3} \\cdot \\sqrt{27} = 3^{-3} \\cdot \\sqrt{3^3} = 3^{-3} \\cdot (3^3)^{\\frac{1}{2}}= 3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 + \\frac{3}{2}} = 3^{-\\frac{3}{2}}",
+                step: '3^{-3} \\cdot \\sqrt{27} = 3^{-3} \\cdot \\sqrt{3^3} = 3^{-3} \\cdot (3^3)^{\\frac{1}{2}}= 3^{-3} \\cdot 3^{\\frac{3}{2}} = 3^{-3 + \\frac{3}{2}} = 3^{-\\frac{3}{2}}',
               },
             ]}
-            solutions={["3^{-\\frac{3}{2}}"]}
+            solutions={['3^{-\\frac{3}{2}}']}
           />
         )}
       </div>

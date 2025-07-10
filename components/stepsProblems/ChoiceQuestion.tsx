@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import "katex/dist/katex.min.css";
-import { useState } from "react";
-import { InlineMath } from "react-katex";
+import 'katex/dist/katex.min.css';
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
 
 interface ChoiceQuestionProps {
   question: string;
@@ -47,8 +47,8 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
 
   const renderTextWithMath = (text: string) => {
     return text.split(/(\$\$.*?\$\$|<br\s*\/?>|\n)/g).map((part, index) => {
-      if (part.startsWith("$$") && part.endsWith("$$")) {
-        return <InlineMath key={index} math={part.replace(/\$\$/g, "")} />;
+      if (part.startsWith('$$') && part.endsWith('$$')) {
+        return <InlineMath key={index} math={part.replace(/\$\$/g, '')} />;
       } else if (part.match(/<br\s*\/?>|\n/)) {
         return <br key={index} />;
       }
@@ -56,32 +56,31 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
     });
   };
 
-    const wrapTextWithBreaks = (label: string, maxLength = 25): string => {
-      const match = label.match(/^\\text\{(.+)\}$/);
-      if (!match) return label;
+  const wrapTextWithBreaks = (label: string, maxLength = 25): string => {
+    const match = label.match(/^\\text\{(.+)\}$/);
+    if (!match) return label;
 
-      const text = match[1];
-      const words = text.split(" ");
+    const text = match[1];
+    const words = text.split(' ');
 
-      const lines: string[] = [];
-      let currentLine = "";
+    const lines: string[] = [];
+    let currentLine = '';
 
-      for (const word of words) {
-        if ((currentLine + " " + word).trim().length > maxLength) {
-          lines.push(currentLine.trim());
-          currentLine = word;
-        } else {
-          currentLine += " " + word;
-        }
-      }
-
-      if (currentLine.trim()) {
+    for (const word of words) {
+      if ((currentLine + ' ' + word).trim().length > maxLength) {
         lines.push(currentLine.trim());
+        currentLine = word;
+      } else {
+        currentLine += ' ' + word;
       }
+    }
 
-      return lines.map((line) => `\\text{${line}}`).join(" \\\\ ");
-    };
+    if (currentLine.trim()) {
+      lines.push(currentLine.trim());
+    }
 
+    return lines.map((line) => `\\text{${line}}`).join(' \\\\ ');
+  };
 
   return (
     <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg border border-gray-200 mt-6 transition-all duration-300 hover:shadow-xl">
@@ -104,7 +103,12 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 15l7-7 7 7"
+                  />
                 </svg>
                 Ukryj tablice
               </>
@@ -117,7 +121,12 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
                 Sprawdź tablice
               </>
@@ -143,12 +152,12 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                 ${
                   selected === choice.value
                     ? isCorrect
-                      ? "border-emerald-500 bg-emerald-50 shadow-md"
-                      : "border-rose-500 bg-rose-50 shadow-md"
-                    : "border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md"
+                      ? 'border-emerald-500 bg-emerald-50 shadow-md'
+                      : 'border-rose-500 bg-rose-50 shadow-md'
+                    : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md'
                 }
-                ${selected && selected !== choice.value ? "opacity-80" : ""}
-                ${isCorrect !== null && isCorrect && selected === choice.value ? "animate-pulse-short" : ""}
+                ${selected && selected !== choice.value ? 'opacity-80' : ''}
+                ${isCorrect !== null && isCorrect && selected === choice.value ? 'animate-pulse-short' : ''}
               `}
               onClick={() => handleSelect(choice.value)}
               disabled={isCorrect !== null && isCorrect}
@@ -158,9 +167,9 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                 ${
                   selected === choice.value
                     ? isCorrect
-                      ? "bg-emerald-500 border-emerald-500 text-white"
-                      : "bg-rose-500 border-rose-500 text-white"
-                    : "bg-white border-gray-300"
+                      ? 'bg-emerald-500 border-emerald-500 text-white'
+                      : 'bg-rose-500 border-rose-500 text-white'
+                    : 'bg-white border-gray-300'
                 }`}
               >
                 {selected === choice.value && (
@@ -199,7 +208,12 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 15l7-7 7 7"
+                  />
                 </svg>
                 Ukryj rozwiązanie
               </>
@@ -212,7 +226,12 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
                 Podejrzyj rozwiązanie
               </>
@@ -230,7 +249,12 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
               Wyjaśnienie:
             </h4>

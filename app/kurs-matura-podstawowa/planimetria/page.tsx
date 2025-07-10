@@ -1,23 +1,23 @@
-"use client";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+'use client';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { useEffect } from "react";
-import { useAuth } from "@/app/UserData";
-import { getTopicsProgress } from "@/service";
+import { useEffect } from 'react';
+import { useAuth } from '@/app/UserData';
+import { getTopicsProgress } from '@/service';
 
 const RealNumbersCourse: React.FC = () => {
-  const field = "liczby-rzeczywiste";
+  const field = 'liczby-rzeczywiste';
   const topicProgress = {
-    "Kąty w okręgu": 30,
+    'Kąty w okręgu': 30,
   };
 
   const topics = [
     {
-      title: "Kąty w okręgu",
-      shortDesc: "Obliczanie miar kątów wpisanych i środkowych w okręgu",
-      slug: "/planimetria/katy-w-okregu",
-      icon: "°"
+      title: 'Kąty w okręgu',
+      shortDesc: 'Obliczanie miar kątów wpisanych i środkowych w okręgu',
+      slug: '/planimetria/katy-w-okregu',
+      icon: '°',
     },
   ];
 
@@ -30,7 +30,7 @@ const RealNumbersCourse: React.FC = () => {
         if (data) {
         }
       } catch (error) {
-        console.error("Error fetching topics progress", error);
+        console.error('Error fetching topics progress', error);
       }
     };
 
@@ -54,23 +54,28 @@ const RealNumbersCourse: React.FC = () => {
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            Dział „Planimetria – kąty w okręgu” dotyczy właściwości kątów związanych z okręgiem i jego elementami. Nauczysz się rozpoznawać kąty wpisane, środkowe oraz kąty między cięciami i stycznymi. Poznasz zależności między tymi kątami oraz ich zastosowanie w rozwiązywaniu zadań geometrycznych. Ta wiedza jest kluczowa do zrozumienia geometrii okręgów i figur na nich opartych.
+            Dział „Planimetria – kąty w okręgu” dotyczy właściwości kątów związanych z okręgiem i
+            jego elementami. Nauczysz się rozpoznawać kąty wpisane, środkowe oraz kąty między
+            cięciami i stycznymi. Poznasz zależności między tymi kątami oraz ich zastosowanie w
+            rozwiązywaniu zadań geometrycznych. Ta wiedza jest kluczowa do zrozumienia geometrii
+            okręgów i figur na nich opartych.
           </p>
           <div className="mt-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">
               <span>Ogólny postęp w dziale:</span>
-              <span>{
-                Math.round(
-                  Object.values(topicProgress).reduce((a, b) => a + b, 0) / 
-                  Object.keys(topicProgress).length
-                )
-              }%</span>
+              <span>
+                {Math.round(
+                  Object.values(topicProgress).reduce((a, b) => a + b, 0) /
+                    Object.keys(topicProgress).length
+                )}
+                %
+              </span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div 
-                className="bg-blue-600 h-2.5 rounded-full" 
-                style={{ 
-                  width: `${Object.values(topicProgress).reduce((a, b) => a + b, 0) / Object.keys(topicProgress).length}%` 
+              <div
+                className="bg-blue-600 h-2.5 rounded-full"
+                style={{
+                  width: `${Object.values(topicProgress).reduce((a, b) => a + b, 0) / Object.keys(topicProgress).length}%`,
                 }}
               ></div>
             </div>
@@ -81,7 +86,7 @@ const RealNumbersCourse: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {topics.map((topic, index) => (
-            <Link 
+            <Link
               key={index}
               href={`/kurs-matura-podstawowa/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
@@ -93,9 +98,11 @@ const RealNumbersCourse: React.FC = () => {
                   <p className="text-sm text-gray-600 mb-3">{topic.shortDesc}</p>
 
                   <div className="w-full bg-gray-100 rounded-full h-2">
-                    <div 
-                      className="bg-green-500 h-2 rounded-full" 
-                      style={{ width: `${topicProgress[topic.title as keyof typeof topicProgress]}%` }}
+                    <div
+                      className="bg-green-500 h-2 rounded-full"
+                      style={{
+                        width: `${topicProgress[topic.title as keyof typeof topicProgress]}%`,
+                      }}
                     ></div>
                   </div>
                   <div className="text-right text-xs text-gray-500 mt-1">

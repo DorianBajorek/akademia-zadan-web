@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -30,10 +30,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które przekształcenie jest poprawne?"
               choices={[
-                { label: "4x^2(x^2 - 9) = 0", value: "a" },
-                { label: "x(4x^3 - 9x) = 0", value: "b" },
-                { label: "x^2(4x^2 + 9) = 0", value: "c" },
-                { label: "x^2(4x^2 - 9) = 0", value: "d" },
+                { label: '4x^2(x^2 - 9) = 0', value: 'a' },
+                { label: 'x(4x^3 - 9x) = 0', value: 'b' },
+                { label: 'x^2(4x^2 + 9) = 0', value: 'c' },
+                { label: 'x^2(4x^2 - 9) = 0', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawne przekształcenie to $$x^2(4x^2 - 9) = 0$$. 
@@ -52,10 +52,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które rozłożenie jest poprawne?"
               choices={[
-                { label: "x^2(2x - 3)(2x + 3) = 0", value: "a" },
-                { label: "x^2(4x - 3)(x + 3) = 0", value: "b" },
-                { label: "x^2(2x - 9)(2x + 1) = 0", value: "c" },
-                { label: "x^2(4x^2 - 9) = 0", value: "d" }
+                { label: 'x^2(2x - 3)(2x + 3) = 0', value: 'a' },
+                { label: 'x^2(4x - 3)(x + 3) = 0', value: 'b' },
+                { label: 'x^2(2x - 9)(2x + 1) = 0', value: 'c' },
+                { label: 'x^2(4x^2 - 9) = 0', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne rozłożenie to $$x^2(2x - 3)(2x + 3) = 0$$. 
@@ -75,10 +75,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jakie są wszystkie rozwiązania równania?"
               choices={[
-                { label: "x = 0, x = 1.5, x = -1.5", value: "a" },
-                { label: "x = 0, x = 1.5, x = -1.5", value: "b" },
-                { label: "x = 0, x = 3, x = -3", value: "c" },
-                { label: "x = 1.5, x = -1.5", value: "d" }
+                { label: 'x = 0, x = 1.5, x = -1.5', value: 'a' },
+                { label: 'x = 0, x = 1.5, x = -1.5', value: 'b' },
+                { label: 'x = 0, x = 3, x = -3', value: 'c' },
+                { label: 'x = 1.5, x = -1.5', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Rozwiązujemy równanie $$x^2(2x - 3)(2x + 3) = 0$$: <br>
@@ -96,22 +96,22 @@ const Page = () => {
             equation="4x^4 - 9x^2 = 0"
             steps={[
               {
-                step: "x^2(4x^2 - 9) = 0",
+                step: 'x^2(4x^2 - 9) = 0',
               },
               {
-                step: "x^2(2x - 3)(2x + 3) = 0",
+                step: 'x^2(2x - 3)(2x + 3) = 0',
               },
               {
-                step: "x^2 = 0 \\Rightarrow x = 0",
+                step: 'x^2 = 0 \\Rightarrow x = 0',
               },
               {
-                step: "2x - 3 = 0 \\Rightarrow x = 1.5",
+                step: '2x - 3 = 0 \\Rightarrow x = 1.5',
               },
               {
-                step: "2x + 3 = 0 \\Rightarrow x = -1.5",
-              }
+                step: '2x + 3 = 0 \\Rightarrow x = -1.5',
+              },
             ]}
-            solutions={["x = 0", "x = 1.5", "x = -1.5"]}
+            solutions={['x = 0', 'x = 1.5', 'x = -1.5']}
           />
         )}
       </div>

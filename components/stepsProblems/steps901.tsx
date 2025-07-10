@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
-import { useAuth } from "@/app/UserData";
-import { solveProblem } from "@/service";
+import { useEffect, useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -19,7 +19,7 @@ const Page = () => {
 
   useEffect(() => {
     if (completedStages.length === 3) {
-      solveProblem("500", token);
+      solveProblem('500', token);
     }
   }, [completedStages, token]);
 
@@ -43,10 +43,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które równanie poprawnie przedstawia sytuację z zadania?"
               choices={[
-                { label: "A + B = 1 200 000; 0.13A + 0.11B = 146 700", value: "a" },
-                { label: "A + B = 146 700; 0.13A + 0.11B = 1 200 000", value: "b" },
-                { label: "A - B = 1 200 000; 0.13A - 0.11B = 146 700", value: "c" },
-                { label: "A = 1 200 000 - B; 0.11A + 0.13B = 146 700", value: "d" },
+                { label: 'A + B = 1 200 000; 0.13A + 0.11B = 146 700', value: 'a' },
+                { label: 'A + B = 146 700; 0.13A + 0.11B = 1 200 000', value: 'b' },
+                { label: 'A - B = 1 200 000; 0.13A - 0.11B = 146 700', value: 'c' },
+                { label: 'A = 1 200 000 - B; 0.11A + 0.13B = 146 700', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Układ równań to:
@@ -59,15 +59,15 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Podstaw zmienną <InlineMath math ="B = 1\,200\,000 - A"/>  do drugiego równania.
+              Podstaw zmienną <InlineMath math="B = 1\,200\,000 - A" /> do drugiego równania.
             </StepDescription>
             <ChoiceQuestion
               question="Które podstawienie jest poprawne?"
               choices={[
-                { label: "B = A - 1 200 000; 0.13A + 0.11(A - 1 200 000) = 146 700", value: "a" },
-                { label: "A = 1 200 000 + B; 0.13(1 200 000 + B) + 0.11B = 146 700", value: "b" },
-                { label: "B = 1 200 000 - A; 0.13A + 0.11(1 200 000 - A) = 146 700", value: "c" },
-                { label: "A = B - 1 200 000; 0.13(B - 1 200 000) + 0.11B = 146 700", value: "d" },
+                { label: 'B = A - 1 200 000; 0.13A + 0.11(A - 1 200 000) = 146 700', value: 'a' },
+                { label: 'A = 1 200 000 + B; 0.13(1 200 000 + B) + 0.11B = 146 700', value: 'b' },
+                { label: 'B = 1 200 000 - A; 0.13A + 0.11(1 200 000 - A) = 146 700', value: 'c' },
+                { label: 'A = B - 1 200 000; 0.13(B - 1 200 000) + 0.11B = 146 700', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Podstawienie $$B = 1\,200\,000 - A$$ i wstawienie do równania:
@@ -80,15 +80,15 @@ const Page = () => {
         {completedStages.includes(2) && (
           <>
             <StepDescription stepNumber={3}>
-              Rozwiąż równanie i znajdź wartość <InlineMath math ="A"/>.
+              Rozwiąż równanie i znajdź wartość <InlineMath math="A" />.
             </StepDescription>
             <ChoiceQuestion
               question="Jaka jest kwota przyznana zespołowi $$A$$?"
               choices={[
-                { label: "600 000 zł", value: "a" },
-                { label: "750 000 zł", value: "b" },
-                { label: "450 000 zł", value: "c" },
-                { label: "900 000 zł", value: "d" },
+                { label: '600 000 zł', value: 'a' },
+                { label: '750 000 zł', value: 'b' },
+                { label: '450 000 zł', value: 'c' },
+                { label: '900 000 zł', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Podstawienie i przekształcenie daje:
@@ -105,16 +105,16 @@ const Page = () => {
             equation="A + B = 1\,200\,000 \quad \text{oraz} \quad 0.13A + 0.11B = 146\,700"
             steps={[
               {
-                step: "B = 1\,200\,000 - A",
+                step: 'B = 1\,200\,000 - A',
               },
               {
-                step: "0.13A + 0.11(1\,200\,000 - A) = 146\,700",
+                step: '0.13A + 0.11(1\,200\,000 - A) = 146\,700',
               },
               {
-                step: "0.13A + 132\,000 - 0.11A = 146\,700 \\Rightarrow 0.02A = 14\,700 \\Rightarrow A = 735\,000",
+                step: '0.13A + 132\,000 - 0.11A = 146\,700 \\Rightarrow 0.02A = 14\,700 \\Rightarrow A = 735\,000',
               },
             ]}
-            solutions={["735\,000\\ \\text{zł}"]}
+            solutions={['735\,000\\ \\text{zł}']}
           />
         )}
       </div>

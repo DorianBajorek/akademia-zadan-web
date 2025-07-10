@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -33,10 +33,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Która postać nierówności jest poprawna po przekształceniu?"
                 choices={[
-                  { label: "x² - 4x - 3 < 0", value: "a" },
-                  { label: "x² - 4x + 3 < 0", value: "b" },
-                  { label: "x² + 4x + 3 < 0", value: "c" },
-                  { label: "x² + 4x - 3 < 0", value: "d" }
+                  { label: 'x² - 4x - 3 < 0', value: 'a' },
+                  { label: 'x² - 4x + 3 < 0', value: 'b' },
+                  { label: 'x² + 4x + 3 < 0', value: 'c' },
+                  { label: 'x² + 4x - 3 < 0', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Przekształcenie krok po kroku:<br>
@@ -57,10 +57,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 1, b = -4, c = 3", value: "a" },
-                  { label: "a = 1, b = 4, c = 3", value: "b" },
-                  { label: "a = 1, b = -4, c = -3", value: "c" },
-                  { label: "a = 1, b = 4, c = -3", value: "d" }
+                  { label: 'a = 1, b = -4, c = 3', value: 'a' },
+                  { label: 'a = 1, b = 4, c = 3', value: 'b' },
+                  { label: 'a = 1, b = -4, c = -3', value: 'c' },
+                  { label: 'a = 1, b = 4, c = -3', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Dla nierówności $$x^2 - 4x + 3 < 0$$: <br>
@@ -99,10 +99,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x₁ = 1, x₂ = 3", value: "a" },
-                  { label: "x₁ = -1, x₂ = -3", value: "b" },
-                  { label: "x₁ = 1, x₂ = -3", value: "c" },
-                  { label: "x₁ = -1, x₂ = 3", value: "d" }
+                  { label: 'x₁ = 1, x₂ = 3', value: 'a' },
+                  { label: 'x₁ = -1, x₂ = -3', value: 'b' },
+                  { label: 'x₁ = 1, x₂ = -3', value: 'c' },
+                  { label: 'x₁ = -1, x₂ = 3', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Dla $$Δ = 4$$: <br>
@@ -122,10 +122,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$x^2 - 4x + 3 < 0$$?"
                 choices={[
-                  { label: "x ∈ (1, 3)", value: "a" },
-                  { label: "x ∈ (-∞, 1) ∪ (3, ∞)", value: "b" },
-                  { label: "x ∈ (-∞, 1⟩ ∪ ⟨3, ∞)", value: "c" },
-                  { label: "x ∈ ⟨1, 3⟩", value: "d" }
+                  { label: 'x ∈ (1, 3)', value: 'a' },
+                  { label: 'x ∈ (-∞, 1) ∪ (3, ∞)', value: 'b' },
+                  { label: 'x ∈ (-∞, 1⟩ ∪ ⟨3, ∞)', value: 'c' },
+                  { label: 'x ∈ ⟨1, 3⟩', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Rozwiązanie dla a > 0 i nierówności '<': <br>
@@ -143,15 +143,15 @@ const Page = () => {
               <StudentNotes
                 equation="2(x+1)(x-3) < x^2 - 9"
                 steps={[
-                  { step: "2(x^2 - 2x - 3) < x^2 - 9" },
-                  { step: "2x^2 - 4x - 6 < x^2 - 9" },
-                  { step: "x^2 - 4x + 3 < 0" },
-                  { step: "a = 1, b = -4, c = 3" },
-                  { step: "Δ = (-4)² - 4·1·3 = 4" },
-                  { step: "x₁ = (4 - 2)/2 = 1" },
-                  { step: "x₂ = (4 + 2)/2 = 3" },
+                  { step: '2(x^2 - 2x - 3) < x^2 - 9' },
+                  { step: '2x^2 - 4x - 6 < x^2 - 9' },
+                  { step: 'x^2 - 4x + 3 < 0' },
+                  { step: 'a = 1, b = -4, c = 3' },
+                  { step: 'Δ = (-4)² - 4·1·3 = 4' },
+                  { step: 'x₁ = (4 - 2)/2 = 1' },
+                  { step: 'x₂ = (4 + 2)/2 = 3' },
                 ]}
-                solutions={["x ∈ (1, 3)"]}
+                solutions={['x ∈ (1, 3)']}
               />
             </div>
           )}

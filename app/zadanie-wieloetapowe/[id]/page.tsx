@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { notFound, useParams, useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
@@ -57,13 +57,13 @@ const Rozwiazanie = () => {
         )}
       </div>
       <StepsProblem />
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-10 right-8 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 transition-colors"
-          aria-label="Wróć na górę"
-        >
-          <FaArrowUp />
-        </button>
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-10 right-8 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 transition-colors"
+        aria-label="Wróć na górę"
+      >
+        <FaArrowUp />
+      </button>
       <Footer />
     </Suspense>
   );

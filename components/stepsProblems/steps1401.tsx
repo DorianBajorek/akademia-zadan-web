@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,15 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-              Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia delty.
+                Wyznaczmy teraz współczynniki równania kwadratowe. Będzie to potrzebne do wyzaczenia
+                delty.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tym równaniu?"
                 choices={[
-                  { label: "a = 2, b = -3, c = 1", value: "a" },
-                  { label: "a = 1, b = -3, c = -2", value: "b" },
-                  { label: "a = 1, b = -3, c = 2", value: "c" },             
-                  { label: "a = -1, b = 3, c = 2", value: "d" },
+                  { label: 'a = 2, b = -3, c = 1', value: 'a' },
+                  { label: 'a = 1, b = -3, c = -2', value: 'b' },
+                  { label: 'a = 1, b = -3, c = 2', value: 'c' },
+                  { label: 'a = -1, b = 3, c = 2', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Współczynniki dla równania $$x^2 - 3x + 2 = 0$$ to $$a = 1, b = -3, c = 2$$."
@@ -48,9 +49,7 @@ const Page = () => {
 
           {completedStages.includes(1) && (
             <div>
-              <StepDescription stepNumber={2}>
-                Obliczenie wyróżnika równania (Δ)
-              </StepDescription>
+              <StepDescription stepNumber={2}>Obliczenie wyróżnika równania (Δ)</StepDescription>
               <NumericQuestion
                 question="Która wartość jest poprawną deltą (Δ) dla tego równania?"
                 correctAnswer="1"
@@ -67,16 +66,14 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Wyznaczenie pierwiastków równania
-              </StepDescription>
+              <StepDescription stepNumber={3}>Wyznaczenie pierwiastków równania</StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla pierwiastków $$x_1, x_2$$?"
                 choices={[
-                  { label: "x_1 = 2, x_2 = 1", value: "a" },
-                  { label: "x_1 = -2, x_2 = -1", value: "b" },
-                  { label: "x_1 = 1, x_2 = 2", value: "c" },
-                  { label: "x_1 = 3, x_2 = -2", value: "d" },
+                  { label: 'x_1 = 2, x_2 = 1', value: 'a' },
+                  { label: 'x_1 = -2, x_2 = -1', value: 'b' },
+                  { label: 'x_1 = 1, x_2 = 2', value: 'c' },
+                  { label: 'x_1 = 3, x_2 = -2', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Pierwiastki wyznaczamy ze wzoru: <br>
@@ -97,11 +94,11 @@ const Page = () => {
               <StudentNotes
                 equation="x^2 - 3x + 2 = 0"
                 steps={[
-                  { step: "a = 1, b = -3, c = 2" },
-                  { step: "\\Delta = b^2 - 4ac = (-3)^2 - 4 \\cdot 1 \\cdot 2 = 9 - 8 = 1" },
-                  { step: "x_1 = \\frac{3 - 1}{2} = 1, \\quad x_2 = \\frac{3 + 1}{2} = 2" }
+                  { step: 'a = 1, b = -3, c = 2' },
+                  { step: '\\Delta = b^2 - 4ac = (-3)^2 - 4 \\cdot 1 \\cdot 2 = 9 - 8 = 1' },
+                  { step: 'x_1 = \\frac{3 - 1}{2} = 1, \\quad x_2 = \\frac{3 + 1}{2} = 2' },
                 ]}
-                solutions={["x₁ = 1", "x₂ = 2"]}
+                solutions={['x₁ = 1', 'x₂ = 2']}
               />
             </div>
           )}

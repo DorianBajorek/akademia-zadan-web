@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -16,12 +16,14 @@ const Page = () => {
   return (
     <div className="min-h-screen p-5">
       <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Usuwanie niewymierności z mianownika</h2>
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
+          Usuwanie niewymierności z mianownika
+        </h2>
         <p className="text-lg text-gray-800">Usuń niewymierność z mianownika:</p>
         <p className="text-2xl font-bold text-gray-900 text-center mt-4">
           <InlineMath math="\frac{2}{\sqrt[3]{2}}" />
         </p>
-        
+
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -30,10 +32,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Jaką metodę należy zastosować do usunięcia niewymierności z mianownika?"
               choices={[
-                { label: "\\text{Mnożymy licznik i mianownik przez} \\sqrt[3]{2^2}", value: "a" },
-                { label: "\\text{Mnożymy licznik i mianownik przez} \\sqrt[3]{2}", value: "b" },
-                { label: "\\text{Mnożymy licznik i mianownik przez} 2", value: "c" },
-                { label: "\\text{Mnożymy tylko mianownik przez} \\sqrt[3]{2}", value: "d" },
+                { label: '\\text{Mnożymy licznik i mianownik przez} \\sqrt[3]{2^2}', value: 'a' },
+                { label: '\\text{Mnożymy licznik i mianownik przez} \\sqrt[3]{2}', value: 'b' },
+                { label: '\\text{Mnożymy licznik i mianownik przez} 2', value: 'c' },
+                { label: '\\text{Mnożymy tylko mianownik przez} \\sqrt[3]{2}', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Aby usunąć pierwiastek trzeciego stopnia z mianownika, należy pomnożyć licznik i mianownik przez \\sqrt[3]{2^2} (czyli pierwiastek sześcienny z 4). 
@@ -43,7 +45,7 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {completedStages.includes(1) && (
           <>
             <p className="text-lg text-gray-700 mt-6">
@@ -52,10 +54,13 @@ const Page = () => {
             <ChoiceQuestion
               question="Które wyrażenie jest wynikiem poprawnego mnożenia?"
               choices={[
-                { label: "\\frac{2 \\cdot \\sqrt[3]{4}}{2}", value: "a" },
-                { label: "\\frac{2}{2}", value: "b" },
-                { label: "\\frac{2 \\cdot \\sqrt[3]{4}}{\\sqrt[3]{2} \\cdot \\sqrt[3]{4}}", value: "c" },
-                { label: "\\frac{2}{\\sqrt[3]{2} \\cdot \\sqrt[3]{4}}", value: "d" },
+                { label: '\\frac{2 \\cdot \\sqrt[3]{4}}{2}', value: 'a' },
+                { label: '\\frac{2}{2}', value: 'b' },
+                {
+                  label: '\\frac{2 \\cdot \\sqrt[3]{4}}{\\sqrt[3]{2} \\cdot \\sqrt[3]{4}}',
+                  value: 'c',
+                },
+                { label: '\\frac{2}{\\sqrt[3]{2} \\cdot \\sqrt[3]{4}}', value: 'd' },
               ]}
               correctAnswer="c"
               explanation="Poprawnie wykonane mnożenie daje:
@@ -69,9 +74,7 @@ const Page = () => {
 
         {completedStages.includes(2) && (
           <>
-            <p className="text-lg text-gray-700 mt-6">
-              Oblicz wartość mianownika po mnożeniu.
-            </p>
+            <p className="text-lg text-gray-700 mt-6">Oblicz wartość mianownika po mnożeniu.</p>
             <NumericQuestion
               question="Jaka jest wartość mianownika ∛2 · ∛4?"
               correctAnswer="2"
@@ -92,10 +95,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które wyrażenie jest poprawnym wynikiem końcowym?"
               choices={[
-                { label: "\\frac{2}{2} = 1", value: "a" },
-                { label: "\\frac{2\\sqrt[3]{4}}{2} = \\sqrt[3]{4}", value: "b" },
-                { label: "2\\sqrt[3]{4}", value: "c" },
-                { label: "\\frac{\\sqrt[3]{4}}{2}", value: "d" }
+                { label: '\\frac{2}{2} = 1', value: 'a' },
+                { label: '\\frac{2\\sqrt[3]{4}}{2} = \\sqrt[3]{4}', value: 'b' },
+                { label: '2\\sqrt[3]{4}', value: 'c' },
+                { label: '\\frac{\\sqrt[3]{4}}{2}', value: 'd' },
               ]}
               correctAnswer="b"
               explanation="Ostateczny wynik po usunięciu niewymierności to:
@@ -114,10 +117,10 @@ const Page = () => {
             equation="\frac{2}{\sqrt[3]{2}}"
             steps={[
               {
-                step: "\\frac{2}{\\sqrt[3]{2}} = \\frac{2 \\cdot \\sqrt[3]{4}}{\\sqrt[3]{2} \\cdot \\sqrt[3]{4}} = \\frac{2\\sqrt[3]{4}}{2} = \\sqrt[3]{4}",
-              }
+                step: '\\frac{2}{\\sqrt[3]{2}} = \\frac{2 \\cdot \\sqrt[3]{4}}{\\sqrt[3]{2} \\cdot \\sqrt[3]{4}} = \\frac{2\\sqrt[3]{4}}{2} = \\sqrt[3]{4}',
+              },
             ]}
-            solutions={["\\sqrt[3]{4}"]}
+            solutions={['\\sqrt[3]{4}']}
           />
         )}
       </div>

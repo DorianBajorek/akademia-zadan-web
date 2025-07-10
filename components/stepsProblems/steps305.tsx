@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
+import { useState } from 'react';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,15 +32,15 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie odpowiada definicji logarytmu?"
                 choices={[
-                  { label: "x^3 = \\frac{1}{27}", value: "a" },
-                  { label: "3 \\cdot x = \\frac{1}{27}", value: "b" },
-                  { label: "3^x = \\frac{1}{27}", value: "c" },
-                  { label: "3 = \\left(\\frac{1}{27}\\right)^x", value: "d" },
+                  { label: 'x^3 = \\frac{1}{27}', value: 'a' },
+                  { label: '3 \\cdot x = \\frac{1}{27}', value: 'b' },
+                  { label: '3^x = \\frac{1}{27}', value: 'c' },
+                  { label: '3 = \\left(\\frac{1}{27}\\right)^x', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Z definicji logarytmu wiemy, że $$\log_3 \frac{1}{27} = x$$ oznacza $$3^x = \frac{1}{27}$$."
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/definicjaLogarytmu.png"}
+                img={'/steps-images/definicjaLogarytmu.png'}
               />
             </div>
           )}
@@ -53,10 +53,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "3^x = 3^3", value: "a" },
-                  { label: "3^x = -3^3", value: "b" },
-                  { label: "3^x = 3^{-3}", value: "c" },
-                  { label: "3^x = \\frac{1}{3^3}", value: "d" },
+                  { label: '3^x = 3^3', value: 'a' },
+                  { label: '3^x = -3^3', value: 'b' },
+                  { label: '3^x = 3^{-3}', value: 'c' },
+                  { label: '3^x = \\frac{1}{3^3}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation={`Poprawne przekształcenie to $$3^x = 3^{-3}$$. <br>
@@ -69,9 +69,7 @@ const Page = () => {
 
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Rozwiąż równanie
-              </StepDescription>
+              <StepDescription stepNumber={3}>Rozwiąż równanie</StepDescription>
               <NumericQuestion
                 question="Jaka jest wartość x?"
                 correctAnswer="-3"
@@ -88,19 +86,19 @@ const Page = () => {
                 equation="\log_3 \frac{1}{27}"
                 steps={[
                   {
-                    step: "\\log_3 \\frac{1}{27} = x \\Rightarrow 3^x = \\frac{1}{27}",
+                    step: '\\log_3 \\frac{1}{27} = x \\Rightarrow 3^x = \\frac{1}{27}',
                   },
                   {
-                    step: "\\frac{1}{27} = 3^{-3}",
+                    step: '\\frac{1}{27} = 3^{-3}',
                   },
                   {
-                    step: "3^x = 3^{-3}",
+                    step: '3^x = 3^{-3}',
                   },
                   {
-                    step: "x = -3",
+                    step: 'x = -3',
                   },
                 ]}
-                solutions={["x = -3"]}
+                solutions={['x = -3']}
               />
             </div>
           )}

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -31,10 +31,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Podstawiamy współrzędne punktu $$A=(-1,-4)$$ do wzoru funkcji otrzymamy: "
                 choices={[
-                  { label: "4", value: "a" },
-                  { label: "12", value: "b" },
-                  { label: "16", value: "c" },
-                  { label: "-16", value: "d" }
+                  { label: '4', value: 'a' },
+                  { label: '12', value: 'b' },
+                  { label: '16', value: 'c' },
+                  { label: '-16', value: 'd' },
                 ]}
                 correctAnswer="b"
                 explanation="Poprawna odpowiedź to $$12$$, ponieważ <br>
@@ -50,11 +50,11 @@ const Page = () => {
               <StudentNotes
                 equation="f(x) = -(x - 3)^2 + q,\; A = (-1, -4)"
                 steps={[
-                  { step: "-((-1) - 3)^2 + q = -4" },
-                  { step: "-16 + q = -4" },
-                  { step: "q = 12" },
+                  { step: '-((-1) - 3)^2 + q = -4' },
+                  { step: '-16 + q = -4' },
+                  { step: 'q = 12' },
                 ]}
-                solutions={["q = 12"]}
+                solutions={['q = 12']}
               />
             </div>
           )}

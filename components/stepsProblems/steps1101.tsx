@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -32,20 +32,20 @@ const Page = () => {
                 question="Jak można zapisać sumę logarytmów o tej samej podstawie?"
                 choices={[
                   {
-                    label: "\\log_3{\\left(\\frac{3}{2} + \\frac{2}{9}\\right)}",
-                    value: "a",
+                    label: '\\log_3{\\left(\\frac{3}{2} + \\frac{2}{9}\\right)}',
+                    value: 'a',
                   },
                   {
-                    label: "\\log_3{\\left(\\frac{3}{2} - \\frac{2}{9}\\right)}",
-                    value: "b",
+                    label: '\\log_3{\\left(\\frac{3}{2} - \\frac{2}{9}\\right)}',
+                    value: 'b',
                   },
                   {
-                    label: "\\log_3{\\left(\\frac{3}{2} \\div \\frac{2}{9}\\right)}",
-                    value: "c",
+                    label: '\\log_3{\\left(\\frac{3}{2} \\div \\frac{2}{9}\\right)}',
+                    value: 'c',
                   },
                   {
-                    label: "\\log_3{\\left(\\frac{3}{2} \\cdot \\frac{2}{9}\\right)}",
-                    value: "d",
+                    label: '\\log_3{\\left(\\frac{3}{2} \\cdot \\frac{2}{9}\\right)}',
+                    value: 'd',
                   },
                 ]}
                 correctAnswer="d"
@@ -64,10 +64,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Ile wynosi $$\frac{3}{2} \cdot \frac{2}{9}$$, w najprostrzej postaci?"
                 choices={[
-                  { label: "\\frac{1}{3}", value: "a" },
-                  { label: "\\frac{3}{9}", value: "b" },
-                  { label: "\\frac{2}{3}", value: "c" },
-                  { label: "\\frac{1}{2}", value: "d" },
+                  { label: '\\frac{1}{3}', value: 'a' },
+                  { label: '\\frac{3}{9}', value: 'b' },
+                  { label: '\\frac{2}{3}', value: 'c' },
+                  { label: '\\frac{1}{2}', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="$$\frac{3}{2} \cdot \frac{2}{9} = \frac{6}{18} = \frac{1}{3}$$"
@@ -84,10 +84,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Ile wynosi $$\log_3{\left(\frac{1}{3}\right)}$$?"
                 choices={[
-                  { label: "-1", value: "a" },
-                  { label: "1", value: "b" },
-                  { label: "0", value: "c" },
-                  { label: "3", value: "d" },
+                  { label: '-1', value: 'a' },
+                  { label: '1', value: 'b' },
+                  { label: '0', value: 'c' },
+                  { label: '3', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Ponieważ $$3^{-1} = \frac{1}{3}$$, to $$\log_3{\left(\frac{1}{3}\right)} = -1$$"
@@ -103,16 +103,16 @@ const Page = () => {
                 equation="\log_3{\left(\frac{3}{2}\right)} + \log_3{\left(\frac{2}{9}\right)}"
                 steps={[
                   {
-                    step: "\\log_3{\\left(\\frac{3}{2}\\right)} + \\log_3{\\left(\\frac{2}{9}\\right)} = \\log_3{\\left(\\frac{3}{2} \\cdot \\frac{2}{9}\\right)}",
+                    step: '\\log_3{\\left(\\frac{3}{2}\\right)} + \\log_3{\\left(\\frac{2}{9}\\right)} = \\log_3{\\left(\\frac{3}{2} \\cdot \\frac{2}{9}\\right)}',
                   },
                   {
-                    step: "\\log_3{\\left(\\frac{6}{18}\\right)} = \\log_3{\\left(\\frac{1}{3}\\right)}",
+                    step: '\\log_3{\\left(\\frac{6}{18}\\right)} = \\log_3{\\left(\\frac{1}{3}\\right)}',
                   },
                   {
-                    step: "\\log_3{\\left(\\frac{1}{3}\\right)} = -1",
+                    step: '\\log_3{\\left(\\frac{1}{3}\\right)} = -1',
                   },
                 ]}
-                solutions={["-1"]}
+                solutions={['-1']}
               />
             </div>
           )}

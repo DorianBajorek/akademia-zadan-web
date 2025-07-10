@@ -1,22 +1,22 @@
-"use client";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import dayjs from "dayjs";
-import "dayjs/locale/pl";
-import { CheckCircle, ChevronLeft, ChevronRight, Award, Trophy, Zap, Star } from "lucide-react";
-import { getActivityDays, getStreak, getTotalSolved, getUserData, getBadges } from "@/service";
-import { useAuth } from "../UserData";
-import LoadingSpinner from "@/components/LoadingSpinner";
+'use client';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import dayjs from 'dayjs';
+import 'dayjs/locale/pl';
+import { CheckCircle, ChevronLeft, ChevronRight, Award, Trophy, Zap, Star } from 'lucide-react';
+import { getActivityDays, getStreak, getTotalSolved, getUserData, getBadges } from '@/service';
+import { useAuth } from '../UserData';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
-dayjs.locale("pl");
+dayjs.locale('pl');
 
 const UserProfile: React.FC = () => {
   const [user, setUser] = useState({
-    username: "",
-    email: "",
-    photo: "/default-avatar.png",
+    username: '',
+    email: '',
+    photo: '/default-avatar.png',
     stats: {
       solved: 0,
       topics: 0,
@@ -31,14 +31,14 @@ const UserProfile: React.FC = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
   const { token } = useAuth();
 
-  const startOfMonth = currentDate.startOf("month");
-  const endOfMonth = currentDate.endOf("month");
+  const startOfMonth = currentDate.startOf('month');
+  const endOfMonth = currentDate.endOf('month');
   const startDayOfWeek = startOfMonth.day();
   const daysInMonth = endOfMonth.date();
 
-  const prevMonth = () => setCurrentDate(currentDate.subtract(1, "month"));
-  const nextMonth = () => setCurrentDate(currentDate.add(1, "month"));
-  const formattedMonthYear = currentDate.format("MMMM YYYY");
+  const prevMonth = () => setCurrentDate(currentDate.subtract(1, 'month'));
+  const nextMonth = () => setCurrentDate(currentDate.add(1, 'month'));
+  const formattedMonthYear = currentDate.format('MMMM YYYY');
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -67,7 +67,7 @@ const UserProfile: React.FC = () => {
         setActivityData(activityDaysData.activity_days);
         setBadges(badgesData.badges || []);
       } catch (error) {
-        console.error("Błąd pobierania danych użytkownika:", error);
+        console.error('Błąd pobierania danych użytkownika:', error);
       } finally {
         setIsLoading(false);
       }
@@ -85,16 +85,16 @@ const UserProfile: React.FC = () => {
 
     for (let day = 1; day <= daysInMonth; day++) {
       const dateObj = currentDate.date(day);
-      const dateStr = dateObj.format("YYYY-MM-DD");
+      const dateStr = dateObj.format('YYYY-MM-DD');
       const isActive = activityData.includes(dateStr);
 
       days.push(
         <div
           key={day}
           className={`relative h-10 w-10 flex items-center justify-center text-sm rounded-full 
-          ${isActive ? "bg-blue-500 text-white" : "bg-gray-50 text-gray-500"} 
-          border ${isActive ? "border-blue-600" : "border-gray-200"} font-medium`}
-          title={isActive ? `Aktywność w dniu ${dateStr}` : ""}
+          ${isActive ? 'bg-blue-500 text-white' : 'bg-gray-50 text-gray-500'} 
+          border ${isActive ? 'border-blue-600' : 'border-gray-200'} font-medium`}
+          title={isActive ? `Aktywność w dniu ${dateStr}` : ''}
         >
           {day}
           {isActive && (
@@ -128,7 +128,7 @@ const UserProfile: React.FC = () => {
                 <div className="relative">
                   <div className="relative h-32 w-32 rounded-full border-4 border-white shadow-lg overflow-hidden">
                     <Image
-                      src={"/profile.jpg"}
+                      src={'/profile.jpg'}
                       alt="Zdjęcie profilowe"
                       fill
                       className="object-cover"
@@ -157,7 +157,9 @@ const UserProfile: React.FC = () => {
                         <div className="text-sm text-blue-600 font-medium">Zadania rozwiązane</div>
                       </div>
                       <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-100 text-center">
-                        <div className="text-3xl font-bold text-purple-700">{user.stats.topics}</div>
+                        <div className="text-3xl font-bold text-purple-700">
+                          {user.stats.topics}
+                        </div>
                         <div className="text-sm text-purple-600 font-medium">Tematy ukończone</div>
                       </div>
                       <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-100 text-center">
@@ -178,15 +180,17 @@ const UserProfile: React.FC = () => {
                     Kalendarz aktywności
                   </h2>
                   <div className="flex items-center gap-2">
-                    <button 
-                      onClick={prevMonth} 
+                    <button
+                      onClick={prevMonth}
                       className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
-                    <span className="text-sm font-medium text-gray-700 px-2">{formattedMonthYear}</span>
-                    <button 
-                      onClick={nextMonth} 
+                    <span className="text-sm font-medium text-gray-700 px-2">
+                      {formattedMonthYear}
+                    </span>
+                    <button
+                      onClick={nextMonth}
                       className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700"
                     >
                       <ChevronRight className="h-5 w-5" />
@@ -195,7 +199,7 @@ const UserProfile: React.FC = () => {
                 </div>
 
                 <div className="mb-2 grid grid-cols-7 gap-2 text-center">
-                  {['Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd'].map(day => (
+                  {['Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd'].map((day) => (
                     <div key={day} className="text-xs font-medium text-gray-500 py-1">
                       {day}
                     </div>
@@ -226,7 +230,7 @@ const UserProfile: React.FC = () => {
                         key={index}
                         className="flex flex-col items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-blue-200 transition-colors"
                       >
-                       <div className="relative w-32 h-32 mb-4">
+                        <div className="relative w-32 h-32 mb-4">
                           <Image
                             src={`/badges/${badge}.png`}
                             alt={badge}
@@ -235,7 +239,7 @@ const UserProfile: React.FC = () => {
                           />
                         </div>
                         <h3 className="font-medium text-gray-800 text-center text-sm capitalize">
-                          {badge.replace(/-/g, " ")}
+                          {badge.replace(/-/g, ' ')}
                         </h3>
                       </div>
                     ))}

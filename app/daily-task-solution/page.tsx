@@ -1,7 +1,7 @@
-"use client";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import UnderConstruction from "@/components/UnderConstruction";
+'use client';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
+import UnderConstruction from '@/components/UnderConstruction';
 
 const DailyTaskSolution: React.FC = () => {
   return (

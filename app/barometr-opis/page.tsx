@@ -1,7 +1,12 @@
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
-import { ChartBarIcon, AcademicCapIcon, ClockIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import {
+  ChartBarIcon,
+  AcademicCapIcon,
+  ClockIcon,
+  ArrowRightIcon,
+} from '@heroicons/react/24/outline';
 import { SparklesIcon, ChartBarSquareIcon, TrophyIcon } from '@heroicons/react/24/solid';
 
 const BarometerExamSelector: React.FC = () => {
@@ -15,7 +20,10 @@ const BarometerExamSelector: React.FC = () => {
               <ChartBarSquareIcon className="w-12 h-12 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Odkryj swój <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">matematyczny potencjał</span>
+              Odkryj swój{' '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+                matematyczny potencjał
+              </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Precyzyjny pomiar Twoich umiejętności w inteligentnym systemie diagnostycznym
@@ -30,9 +38,11 @@ const BarometerExamSelector: React.FC = () => {
                   Innowacyjny Barometr Maturalny
                 </h3>
                 <p className="text-gray-600 text-lg mb-6">
-                  Nasz inteligentny system analizuje Twoje odpowiedzi w czasie rzeczywistym, porównując je z wynikami tysięcy zdających, aby dostarczyć precyzyjną prognozę Twojego wyniku maturalnego.
+                  Nasz inteligentny system analizuje Twoje odpowiedzi w czasie rzeczywistym,
+                  porównując je z wynikami tysięcy zdających, aby dostarczyć precyzyjną prognozę
+                  Twojego wyniku maturalnego.
                 </p>
-                
+
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-100 rounded-lg">

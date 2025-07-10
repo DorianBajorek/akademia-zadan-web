@@ -1,24 +1,24 @@
-"use client";
-import { useState } from "react";
-import Footer from "@/components/Footer";
-import Question2 from "../Question2";
+'use client';
+import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Question2 from '../Question2';
 
-const letterMap = ["a", "b", "c", "d"];
+const letterMap = ['a', 'b', 'c', 'd'];
 
 const FactoredFormTask: React.FC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
   const taskData = {
-    "task_id": 27,
-    "exam_type": "mp",
-    "task_type": "mc4",
-    "description": "Wskaż postać iloczynową funkcji kwadratowej $f(x) = 4x^2 - 1$.",
-    "choiceA": "$f(x) = (2x - 1)(2x + 1)$",
-    "choiceB": "$f(x) = (4x - 1)(4x + 1)$",
-    "choiceC": "$f(x) = 4(x - \\frac{1}{2})(x + \\frac{1}{2})$",
-    "choiceD": "$f(x) = (2x - 1)^2$",
-    "correct_answer": "c"
+    task_id: 27,
+    exam_type: 'mp',
+    task_type: 'mc4',
+    description: 'Wskaż postać iloczynową funkcji kwadratowej $f(x) = 4x^2 - 1$.',
+    choiceA: '$f(x) = (2x - 1)(2x + 1)$',
+    choiceB: '$f(x) = (4x - 1)(4x + 1)$',
+    choiceC: '$f(x) = 4(x - \\frac{1}{2})(x + \\frac{1}{2})$',
+    choiceD: '$f(x) = (2x - 1)^2$',
+    correct_answer: 'c',
   };
 
   const handleCheckAnswer = () => {
@@ -30,12 +30,11 @@ const FactoredFormTask: React.FC = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Zadanie matematyczne
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">Zadanie matematyczne</h2>
 
         <div className="space-y-6">
-          <Question2 description={taskData.description}
+          <Question2
+            description={taskData.description}
             choiceA={taskData.choiceA}
             choiceB={taskData.choiceB}
             choiceC={taskData.choiceC}
@@ -44,7 +43,8 @@ const FactoredFormTask: React.FC = () => {
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
             isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
-  taskId={ 1710 } />
+            taskId={1710}
+          />
 
           <button
             onClick={handleCheckAnswer}
@@ -57,18 +57,18 @@ const FactoredFormTask: React.FC = () => {
 
         {showResult && (
           <div className="mt-8 text-center">
-            <p className={`text-2xl mb-4 font-bold ${
-              selectedAnswer === taskData.correct_answer 
-                ? 'text-green-600' 
-                : 'text-red-600'
-            }`}>
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
               {selectedAnswer === taskData.correct_answer
-                ? "Poprawna odpowiedź!"
+                ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
           </div>
         )}
-</main>
+      </main>
     </div>
   );
 };

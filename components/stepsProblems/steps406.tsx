@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -22,29 +22,27 @@ const Page = () => {
           title="Trzywyrazowy ciąg arytmetyczny"
           description="Trzywyrazowy ciąg $$(-4 + x, x^2 - 4, 11)$$ jest arytmetyczny. Wyznacz wartość $$x$$."
         />
-        
+
         <div className="mt-8 space-y-8">
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
-              <StepDescription stepNumber={1}>
-                Warunek na ciąg arytmetyczny
-              </StepDescription>
+              <StepDescription stepNumber={1}>Warunek na ciąg arytmetyczny</StepDescription>
               <ChoiceQuestion
                 question="Jeśli trzywyrazowy ciąg $$(a,b,c)$$ jest arytmetyczny, to które równanie jest spełnione?"
                 choices={[
-                  { label: "a+b+c=0", value: "a" },
-                  { label: "b-c=2a", value: "b" },
-                  { label: "b = \\frac{a+c}{2}", value: "c" },
-                  { label: "2c=a+b", value: "d" },
+                  { label: 'a+b+c=0', value: 'a' },
+                  { label: 'b-c=2a', value: 'b' },
+                  { label: 'b = \\frac{a+c}{2}', value: 'c' },
+                  { label: '2c=a+b', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Z definicji ciągu arytmetycznego wiemy, że $$a_n=\frac{a_{n-1} +a_{n+1}}{2}$$ czyli $$b = \frac{a+c}{2}$$"
                 onComplete={() => handleStageComplete(1)}
-                img={"/steps-images/warunek_ciag_arytmetyczny.png"}
+                img={'/steps-images/warunek_ciag_arytmetyczny.png'}
               />
             </div>
           )}
-          
+
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
@@ -53,10 +51,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Które równanie jest poprawne?"
                 choices={[
-                  { label: `x^2 - 4 = \\frac{-4 + x + 11}{2}`, value: "a" },
-                  { label: `x^2 + 4 = \\frac{-4 + x + 11}{2}`, value: "b" },
-                  { label: `x^2 - 4 = \\frac{4 - x - 11}{2}`, value: "c" },
-                  { label: `x^2 - 4 = \\frac{-4 + x + 11}{2}`, value: "d" }
+                  { label: `x^2 - 4 = \\frac{-4 + x + 11}{2}`, value: 'a' },
+                  { label: `x^2 + 4 = \\frac{-4 + x + 11}{2}`, value: 'b' },
+                  { label: `x^2 - 4 = \\frac{4 - x - 11}{2}`, value: 'c' },
+                  { label: `x^2 - 4 = \\frac{-4 + x + 11}{2}`, value: 'd' },
                 ]}
                 correctAnswer="d"
                 explanation={`Poprawne równanie to: $$x^2 - 4 = \\frac{-4 + x + 11}{2}$$ <br>
@@ -68,19 +66,17 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(2) && (
             <div>
-              <StepDescription stepNumber={3}>
-                Przekształcenie równania
-              </StepDescription>
+              <StepDescription stepNumber={3}>Przekształcenie równania</StepDescription>
               <ChoiceQuestion
                 question="Które przekształcenie jest poprawne?"
                 choices={[
-                  { label: "2x^{2}-x-15=0", value: "a" },
-                  { label: "x^{2}-x-9=0", value: "b" },
-                  { label: "x^{2}-x-15=0", value: "c" },
-                  { label: "x^{2}=x+7", value: "d" }
+                  { label: '2x^{2}-x-15=0', value: 'a' },
+                  { label: 'x^{2}-x-9=0', value: 'b' },
+                  { label: 'x^{2}-x-15=0', value: 'c' },
+                  { label: 'x^{2}=x+7', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Kolejne kroki rozwiązania: <br>
@@ -92,19 +88,17 @@ const Page = () => {
               />
             </div>
           )}
-          
+
           {completedStages.includes(3) && (
             <div>
-              <StepDescription stepNumber={4}>
-                Rozwiązanie równania kwadratowego
-              </StepDescription>
+              <StepDescription stepNumber={4}>Rozwiązanie równania kwadratowego</StepDescription>
               <ChoiceQuestion
                 question="Które rozwiązania są poprawne?"
                 choices={[
-                  { label: "x_{1}=-3, x_{2}=\\frac{5}{2}", value: "a" },
-                  { label: "x_{1}=3, x_{2}=\\frac{5}{2}", value: "b" },
-                  { label: "x_{1}=3, x_{2}=-\\frac{5}{2}", value: "c" },
-                  { label: "x_{1}=3, x_{2}=\\frac{2}{5}", value: "d" }
+                  { label: 'x_{1}=-3, x_{2}=\\frac{5}{2}', value: 'a' },
+                  { label: 'x_{1}=3, x_{2}=\\frac{5}{2}', value: 'b' },
+                  { label: 'x_{1}=3, x_{2}=-\\frac{5}{2}', value: 'c' },
+                  { label: 'x_{1}=3, x_{2}=\\frac{2}{5}', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Rozwiązujemy równanie $$2x^2-x-15=0$$  <br>
@@ -122,16 +116,16 @@ const Page = () => {
                 equation="(-4 + x, x^2 - 4, 11) \rightarrow \text{ciąg arytmetyczny}"
                 steps={[
                   {
-                    step: "b = \\frac{a+c}{2} \\Rightarrow x^2 - 4 = \\frac{-4 + x + 11}{2}",
+                    step: 'b = \\frac{a+c}{2} \\Rightarrow x^2 - 4 = \\frac{-4 + x + 11}{2}',
                   },
                   {
-                    step: "2x^2 - 8 = x + 7",
+                    step: '2x^2 - 8 = x + 7',
                   },
                   {
-                    step: "2x^2 - x - 15 = 0 \\Rightarrow x = 3 \\text{ lub } x = -2.5",
+                    step: '2x^2 - x - 15 = 0 \\Rightarrow x = 3 \\text{ lub } x = -2.5',
                   },
                 ]}
-                solutions={["x = 3", "x = -2.5"]}
+                solutions={['x = 3', 'x = -2.5']}
               />
             </div>
           )}

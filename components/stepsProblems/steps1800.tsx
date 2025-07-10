@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -27,15 +27,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Pogrupuj wyrazy podobne. Wyrazy podobne to takie, które mają te same zmienne podniesione do tych samych potęg.
+              Pogrupuj wyrazy podobne. Wyrazy podobne to takie, które mają te same zmienne
+              podniesione do tych samych potęg.
             </StepDescription>
             <ChoiceQuestion
               question="Które grupowanie jest poprawne?"
               choices={[
-                { label: "(3x^2y - 5xy^2) + (-2x^2y - 4xy) + 6xy^2", value: "a" },
-                { label: "(3x^2y + 5xy^2) + (-2x^2y + 4xy) - 6xy^2", value: "b" },
-                { label: "(3x^2y + 2x^2y) + (5xy^2 + 6xy^2) + 4xy", value: "c" },
-                { label: "(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy", value: "d" }
+                { label: '(3x^2y - 5xy^2) + (-2x^2y - 4xy) + 6xy^2', value: 'a' },
+                { label: '(3x^2y + 5xy^2) + (-2x^2y + 4xy) - 6xy^2', value: 'b' },
+                { label: '(3x^2y + 2x^2y) + (5xy^2 + 6xy^2) + 4xy', value: 'c' },
+                { label: '(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy', value: 'd' },
               ]}
               correctAnswer="d"
               explanation="Poprawne grupowanie to $$(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy$$. <br>
@@ -47,7 +48,7 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* ETAP 2: Redukcja wyrazów podobnych */}
         {completedStages.includes(1) && (
           <>
@@ -57,10 +58,10 @@ const Page = () => {
             <ChoiceQuestion
               question="Które uproszczenie jest poprawne?"
               choices={[
-                { label: "x^2y - xy^2 + 4xy", value: "a" },
-                { label: "5x^2y - xy^2 + 4xy", value: "b" },
-                { label: "x^2y + 11xy^2 + 4xy", value: "c" },
-                { label: "x^2y - xy^2 - 4xy", value: "d" }
+                { label: 'x^2y - xy^2 + 4xy', value: 'a' },
+                { label: '5x^2y - xy^2 + 4xy', value: 'b' },
+                { label: 'x^2y + 11xy^2 + 4xy', value: 'c' },
+                { label: 'x^2y - xy^2 - 4xy', value: 'd' },
               ]}
               correctAnswer="a"
               explanation="Poprawne uproszczenie to $$x^2y - xy^2 + 4xy$$. <br>
@@ -72,20 +73,20 @@ const Page = () => {
             />
           </>
         )}
-        
+
         {/* NOTATKI KOŃCOWE */}
         {completedStages.length === 2 && (
           <StudentNotes
             equation="3x^2y + 5xy^2 - 2x^2y + 4xy - 6xy^2"
             steps={[
               {
-                step: "(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy",
+                step: '(3x^2y - 2x^2y) + (5xy^2 - 6xy^2) + 4xy',
               },
               {
-                step: "x^2y - xy^2 + 4xy"
-              }
+                step: 'x^2y - xy^2 + 4xy',
+              },
             ]}
-            solutions={["x^2y - xy^2 + 4xy"]}
+            solutions={['x^2y - xy^2 + 4xy']}
           />
         )}
       </div>

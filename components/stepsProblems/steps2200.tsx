@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import StepDescription from "../StepDescription";
-import TaskDescription from "../TaskDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import StepDescription from '../StepDescription';
+import TaskDescription from '../TaskDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -26,15 +26,16 @@ const Page = () => {
         {(completedStages.includes(1) || completedStages.length === 0) && (
           <>
             <StepDescription stepNumber={1}>
-              Zacznij od przetłumaczenia informacji o obwodzie prostokąta na równanie matematyczne. Przyjmij, że boki prostokąta to <InlineMath math='a'/> i <InlineMath math='b'/>.
+              Zacznij od przetłumaczenia informacji o obwodzie prostokąta na równanie matematyczne.
+              Przyjmij, że boki prostokąta to <InlineMath math="a" /> i <InlineMath math="b" />.
             </StepDescription>
             <ChoiceQuestion
               question="Które równanie opisuje obwód?"
               choices={[
-                { label: String.raw`2(a + b) = 60`, value: "a" },
-                { label: String.raw`2a + b = 60`, value: "b" },
-                { label: String.raw`a + b = 60`, value: "c" },
-                { label: String.raw`ab = 60`, value: "d" }
+                { label: String.raw`2(a + b) = 60`, value: 'a' },
+                { label: String.raw`2a + b = 60`, value: 'b' },
+                { label: String.raw`a + b = 60`, value: 'c' },
+                { label: String.raw`ab = 60`, value: 'd' },
               ]}
               correctAnswer="a"
               explanation={
@@ -51,15 +52,16 @@ const Page = () => {
         {completedStages.includes(1) && (
           <>
             <StepDescription stepNumber={2}>
-              Teraz zapisz w postaci równania informację o tym, że jeden bok jest o 10 dłuższy od drugiego.
+              Teraz zapisz w postaci równania informację o tym, że jeden bok jest o 10 dłuższy od
+              drugiego.
             </StepDescription>
             <ChoiceQuestion
               question="Które równanie opisuje relację między bokami?"
               choices={[
-                { label: String.raw`b = \frac{a}{10}`, value: "a" },
-                { label: String.raw`10a = b`, value: "b" },
-                { label: String.raw`a + b = 10`, value: "c" },
-                { label: String.raw`b = a + 10`, value: "d" }
+                { label: String.raw`b = \frac{a}{10}`, value: 'a' },
+                { label: String.raw`10a = b`, value: 'b' },
+                { label: String.raw`a + b = 10`, value: 'c' },
+                { label: String.raw`b = a + 10`, value: 'd' },
               ]}
               correctAnswer="d"
               explanation={
@@ -78,11 +80,11 @@ const Page = () => {
           <StudentNotes
             equation=""
             steps={[
-              { step: "\\text{1. Równanie obwodu: } 2(a + b) = 60"},
-              { step: "\\text{2. Relacja między bokami: } b = a + 10" }
+              { step: '\\text{1. Równanie obwodu: } 2(a + b) = 60' },
+              { step: '\\text{2. Relacja między bokami: } b = a + 10' },
             ]}
             solutions={[
-              String.raw`\text{Ostateczny układ równań: } \boxed{\begin{cases} 2(a + b) = 60 \\ b = a + 10 \end{cases}}`
+              String.raw`\text{Ostateczny układ równań: } \boxed{\begin{cases} 2(a + b) = 60 \\ b = a + 10 \end{cases}}`,
             ]}
           />
         )}

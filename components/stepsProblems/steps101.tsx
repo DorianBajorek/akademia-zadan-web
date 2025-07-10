@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { InlineMath } from "react-katex";
-import ChoiceQuestion from "./ChoiceQuestion";
-import StudentNotes from "./StudentsNotes";
-import NumericQuestion from "./NumericQuestion";
-import TaskDescription from "../TaskDescription";
-import StepDescription from "../StepDescription";
+import { useState } from 'react';
+import { InlineMath } from 'react-katex';
+import ChoiceQuestion from './ChoiceQuestion';
+import StudentNotes from './StudentsNotes';
+import NumericQuestion from './NumericQuestion';
+import TaskDescription from '../TaskDescription';
+import StepDescription from '../StepDescription';
 
 const Page = () => {
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -28,16 +28,16 @@ const Page = () => {
           {(completedStages.includes(1) || completedStages.length === 0) && (
             <div>
               <StepDescription stepNumber={1}>
-                Do wyznaczenia delty potrzebne nam będę współczynniki.
-                Wybierz poprawne wartości współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
+                Do wyznaczenia delty potrzebne nam będę współczynniki. Wybierz poprawne wartości
+                współczynników <InlineMath math="a,b,c" /> dla tej nierówności.
               </StepDescription>
               <ChoiceQuestion
                 question="Które wartości są poprawne dla $$ ( a, b, c ) $$ w tej nierówności?"
                 choices={[
-                  { label: "a = 2, b = 6, c = 9", value: "a" },
-                  { label: "a = 1, b = -6, c = 9", value: "b" },
-                  { label: "a = 1, b = 6, c = 9", value: "c" },
-                  { label: "a = -1, b = 6, c = -9", value: "d" }
+                  { label: 'a = 2, b = 6, c = 9', value: 'a' },
+                  { label: 'a = 1, b = -6, c = 9', value: 'b' },
+                  { label: 'a = 1, b = 6, c = 9', value: 'c' },
+                  { label: 'a = -1, b = 6, c = -9', value: 'd' },
                 ]}
                 correctAnswer="c"
                 explanation="Współczynniki dla tej nierówności to $$a = 1, b = 6, c = 9$$. 
@@ -56,7 +56,7 @@ const Page = () => {
           {completedStages.includes(1) && (
             <div>
               <StepDescription stepNumber={2}>
-                Oblicz wyróżnik <InlineMath math="\Delta"/> dla tej nierówności.
+                Oblicz wyróżnik <InlineMath math="\Delta" /> dla tej nierówności.
               </StepDescription>
               <NumericQuestion
                 question="Oblicz wartość $$\Delta$$ i wpisz poniżej"
@@ -99,10 +99,10 @@ const Page = () => {
               <ChoiceQuestion
                 question="Który przedział jest rozwiązaniem nierówności $$x^2 + 6x + 9 \geq 0$$?"
                 choices={[
-                  { label: "x ∈ ℝ", value: "a" },
-                  { label: "x ∈ (-∞, -3\\rangle ∪ \\langle-3, ∞)", value: "b" },
-                  { label: "x ∈ (-3, ∞)", value: "c" },
-                  { label: "x ∈ (-∞, -3)", value: "d" }
+                  { label: 'x ∈ ℝ', value: 'a' },
+                  { label: 'x ∈ (-∞, -3\\rangle ∪ \\langle-3, ∞)', value: 'b' },
+                  { label: 'x ∈ (-3, ∞)', value: 'c' },
+                  { label: 'x ∈ (-∞, -3)', value: 'd' },
                 ]}
                 correctAnswer="a"
                 explanation="Rozwiązaniem nierówności $$x^2 + 6x + 9 \geq 0$$ jest cały zbiór liczb rzeczywistych:
@@ -122,17 +122,17 @@ const Page = () => {
                 equation="x^2 + 6x + 9 \geq 0"
                 steps={[
                   {
-                    step: "a = 1, b = 6, c = 9",
+                    step: 'a = 1, b = 6, c = 9',
                   },
                   {
-                    step: "\\Delta = b^2 - 4ac = 6^2 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0",
+                    step: '\\Delta = b^2 - 4ac = 6^2 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0',
                   },
                   {
-                    step: "x_0 = \\frac{-b}{2a} = \\frac{-6}{2} = -3",
-                    image: "/steps-images/fun2.png"
+                    step: 'x_0 = \\frac{-b}{2a} = \\frac{-6}{2} = -3',
+                    image: '/steps-images/fun2.png',
                   },
                 ]}
-                solutions={["x \\in \\mathbb{R}"]}
+                solutions={['x \\in \\mathbb{R}']}
               />
             </div>
           )}
