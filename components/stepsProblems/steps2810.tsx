@@ -1,4 +1,9 @@
 'use client';
+
+import { useEffect } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
+
 import { useState } from 'react';
 import Footer from '@/components/Footer';
 import Question2 from '../Question2';
@@ -6,6 +11,19 @@ import Question2 from '../Question2';
 const letterMap = ['a', 'b', 'c', 'd'];
 
 const QuadraticAxisTask: React.FC = () => {
+
+  const [problemSolved, setProblemSolved] = useState(false);
+  const { token } = useAuth();
+  const taskId = '2810';
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
+
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
@@ -25,7 +43,11 @@ const QuadraticAxisTask: React.FC = () => {
   const handleCheckAnswer = () => {
     if (selectedAnswer !== null) {
       setShowResult(true);
+    
+    if (selectedAnswer === taskData.correct_answer && !problemSolved) {
+      setProblemSolved(true);
     }
+  }
   };
 
   return (

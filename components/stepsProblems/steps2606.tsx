@@ -1,8 +1,26 @@
 'use client';
+
+import { useEffect } from 'react';
+import { useAuth } from '@/app/UserData';
+import { solveProblem } from '@/service';
+
 import { useState } from 'react';
 import TrueFalseQuestion from '../TrueFalseQuestion';
 
 const EquationTrueFalseTask: React.FC = () => {
+
+  const [problemSolved, setProblemSolved] = useState(false);
+  const { token } = useAuth();
+  const taskId = '2606';
+
+  useEffect(() => {
+    if (problemSolved) {
+      solveProblem(taskId, token)
+        .then(() => console.log('Problem marked as completed'))
+        .catch((err) => console.error('Problem completion failed', err));
+    }
+  }, [problemSolved, taskId, token]);
+
   const [selectedAnswers, setSelectedAnswers] = useState<(boolean | null)[]>([]);
   const [showResult, setShowResult] = useState(false);
 
@@ -40,7 +58,11 @@ const EquationTrueFalseTask: React.FC = () => {
   const handleCheckAnswer = () => {
     if (selectedAnswers.every((answer) => answer !== null)) {
       setShowResult(true);
+    
+    if (selectedAnswer === taskData.correct_answer && !problemSolved) {
+      setProblemSolved(true);
     }
+  }
   };
 
   const allAnswersSelected = selectedAnswers.every((answer) => answer !== null);
