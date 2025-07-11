@@ -81,26 +81,6 @@ const RealNumbersCourse: React.FC = () => {
             równoległe, oraz jak znaleźć miejsce zerowe funkcji. Dzięki analizie wykresów
             zrozumiesz, jak funkcja liniowa opisuje proste zależności między wielkościami.
           </p>
-          <div className="mt-4">
-            <div className="flex justify-between text-sm text-gray-600 mb-1">
-              <span>Ogólny postęp w dziale:</span>
-              <span>
-                {Math.round(
-                  Object.values(topicProgress).reduce((a, b) => a + b, 0) /
-                    Object.keys(topicProgress).length
-                )}
-                %
-              </span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div
-                className="bg-blue-600 h-2.5 rounded-full"
-                style={{
-                  width: `${Object.values(topicProgress).reduce((a, b) => a + b, 0) / Object.keys(topicProgress).length}%`,
-                }}
-              ></div>
-            </div>
-          </div>
         </div>
 
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Tematy w dziale</h2>

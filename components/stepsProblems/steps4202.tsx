@@ -24,7 +24,15 @@ const Page = () => {
   }, [problemSolved, taskId, token]);
 
   const [completedStages, setCompletedStages] = useState<number[]>([]);
-  const handleStageComplete = (stage: number) => setCompletedStages((prev) => [...prev, stage]);
+  const handleStageComplete = (stage: number) => {
+    setCompletedStages((prev) => {
+      const updated = [...prev, stage];
+      if (updated.length === 3 && !problemSolved) {
+        setProblemSolved(true);
+      }
+      return updated;
+    });
+  };
 
   return (
     <div className="min-h-screen p-5">
