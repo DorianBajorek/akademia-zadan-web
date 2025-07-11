@@ -2,45 +2,37 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/UserData';
 import { getTopicsProgress } from '@/service';
 
 const RealNumbersCourse: React.FC = () => {
-  const field = 'liczby-rzeczywiste';
-  const topicProgress = {
-    'Działania na liczbach rzeczywistych': 90,
-    'Obliczanie na potęg': 0,
-    'Pierwiastki i działania na pierwiastkach': 0,
-    'Obliczanie logarytmu': 0,
-    'Przekształcanie wyrażeń': 0,
-    'Zaokrąglanie i szacowanie': 0,
-    'Notacja wykładnicza': 0,
-    'Wartość bezwzględna': 0,
-    'Porównywanie liczb': 0,
-    'Oś liczbowa': 0,
-    Procenty: 0,
-  };
+  const field = 'uklady-rownan';
+
+  const [topicProgress, setTopicProgress] = useState<{ [key: string]: number }>({
+    'Sprawdzenia spełnialności układów równań': 0,
+  });
 
   const topics = [
     {
       title: 'Sprawdzenia spełnialności układów równań',
       shortDesc:
         'Jak sprawdzić, czy układ równań ma rozwiązanie? Poznamy jak to zrobić i jak wykorzsytać to w praktyce.',
-      slug: '/uklady-rownan/sprawdzenie-ukladow-rownan',
+      slug: 'sprawdzenie-ukladow-rownan',
       icon: '🔍',
     },
+    // Możesz odkomentować i uzupełnić postęp, gdy dodasz kolejne tematy
     // {
-    //   title: "Rozwiązywanie układów równań",
-    //   shortDesc: "W tym dziale poznamy sposoby rozwiązywania układów równań.",
-    //   slug: "/uklady-rownan/rozwiazywanie-ukladow-rownan",
-    //   icon: "🔑"
+    //   title: 'Rozwiązywanie układów równań',
+    //   shortDesc: 'W tym dziale poznamy sposoby rozwiązywania układów równań.',
+    //   slug: '/uklady-rownan/rozwiazywanie-ukladow-rownan',
+    //   icon: '🔑',
     // },
-    //     {
-    //   title: "Układy równań w zadaniach tekstowych",
-    //   shortDesc: "Jak wykorzystać układy równań w zadaniach tekstowych? Poznamy jak to zrobić i jak wykorzsytać to w praktyce.",
-    //   slug: "/uklady-rownan/uklady-w-zadaniach-tekstowych",
-    //   icon: "📖"
+    // {
+    //   title: 'Układy równań w zadaniach tekstowych',
+    //   shortDesc: 'Jak wykorzystać układy równań w zadaniach tekstowych? Poznamy jak to zrobić.',
+    //   slug: '/uklady-rownan/uklady-w-zadaniach-tekstowych',
+    //   icon: '📖',
     // },
   ];
 
@@ -51,6 +43,7 @@ const RealNumbersCourse: React.FC = () => {
       try {
         const data = await getTopicsProgress(field, token);
         if (data) {
+          setTopicProgress(data);
         }
       } catch (error) {
         console.error('Error fetching topics progress', error);
@@ -61,6 +54,11 @@ const RealNumbersCourse: React.FC = () => {
       fetchData();
     }
   }, [token]);
+
+  const overallProgress = Math.round(
+    Object.values(topicProgress).reduce((a, b) => a + b, 0) / Object.keys(topicProgress).length
+  );
+
   return (
     <div className="min-h-screen flex flex-col">
       <Nav />
@@ -83,26 +81,6 @@ const RealNumbersCourse: React.FC = () => {
             liczy się czas i precyzja. Dzięki niej łatwiej ocenisz, które pary spełniają warunki
             układu, co ułatwia dalszą pracę z równaniami.
           </p>
-          <div className="mt-4">
-            <div className="flex justify-between text-sm text-gray-600 mb-1">
-              <span>Ogólny postęp w dziale:</span>
-              <span>
-                {Math.round(
-                  Object.values(topicProgress).reduce((a, b) => a + b, 0) /
-                    Object.keys(topicProgress).length
-                )}
-                %
-              </span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div
-                className="bg-blue-600 h-2.5 rounded-full"
-                style={{
-                  width: `${Object.values(topicProgress).reduce((a, b) => a + b, 0) / Object.keys(topicProgress).length}%`,
-                }}
-              ></div>
-            </div>
-          </div>
         </div>
 
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Tematy w dziale</h2>
@@ -111,7 +89,7 @@ const RealNumbersCourse: React.FC = () => {
           {topics.map((topic, index) => (
             <Link
               key={index}
-              href={`/kurs-matura-podstawowa/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/kurs-matura-podstawowa/uklady-rownan/${topic.slug}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-start">
@@ -124,12 +102,12 @@ const RealNumbersCourse: React.FC = () => {
                     <div
                       className="bg-green-500 h-2 rounded-full"
                       style={{
-                        width: `${topicProgress[topic.title as keyof typeof topicProgress]}%`,
+                        width: `${topicProgress[topic.slug] || 0}%`,
                       }}
                     ></div>
                   </div>
                   <div className="text-right text-xs text-gray-500 mt-1">
-                    {topicProgress[topic.title as keyof typeof topicProgress]}% ukończono
+                    {(topicProgress[topic.slug] || 0)}% ukończono
                   </div>
                 </div>
               </div>

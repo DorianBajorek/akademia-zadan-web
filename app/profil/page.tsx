@@ -9,6 +9,7 @@ import { CheckCircle, ChevronLeft, ChevronRight, Award, Trophy, Zap, Star } from
 import { getActivityDays, getStreak, getTotalSolved, getUserData, getBadges } from '@/service';
 import { useAuth } from '../UserData';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import Link from 'next/link';
 
 dayjs.locale('pl');
 
@@ -79,7 +80,10 @@ const UserProfile: React.FC = () => {
   const generateCalendar = () => {
     const days = [];
 
-    for (let i = 0; i < startDayOfWeek; i++) {
+    // Adjust for Polish week starting Monday
+    const polishStartDay = startDayOfWeek === 0 ? 6 : startDayOfWeek - 1;
+
+    for (let i = 0; i < polishStartDay; i++) {
       days.push(<div key={`empty-${i}`} className="h-10"></div>);
     }
 
@@ -128,7 +132,7 @@ const UserProfile: React.FC = () => {
                 <div className="relative">
                   <div className="relative h-32 w-32 rounded-full border-4 border-white shadow-lg overflow-hidden">
                     <Image
-                      src={'/profile.jpg'}
+                      src={'/default-avatar.png'}
                       alt="Zdjęcie profilowe"
                       fill
                       className="object-cover"
@@ -219,9 +223,12 @@ const UserProfile: React.FC = () => {
                   <div className="text-center py-8 bg-gray-50 rounded-lg">
                     <Award className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                     <p className="text-gray-500 mb-4">Jeszcze nie zdobyłeś żadnych odznak</p>
-                    <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-2 rounded-full shadow-sm transition-colors">
+                    <Link
+                      href="/kurs-matura-podstawowa"
+                      className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-2 rounded-full shadow-sm transition-colors text-center"
+                    >
                       Rozpocznij naukę
-                    </button>
+                    </Link>
                   </div>
                 ) : (
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
