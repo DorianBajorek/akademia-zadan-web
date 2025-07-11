@@ -1,6 +1,6 @@
 import axios from './axiosInstance';
-const prefix = 'http://127.0.0.1:8000';
-// const prefix  = "https://www.akademiazadan.pl"
+//const prefix = 'http://127.0.0.1:8000';
+const prefix  = "https://www.akademiazadan.pl"
 
 export const getBarometerProblems = async () => {
   try {
