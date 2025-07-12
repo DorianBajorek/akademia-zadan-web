@@ -187,7 +187,7 @@ const ChoiceQuestion: React.FC<ChoiceQuestionProps> = ({
                   </svg>
                 )}
               </span>
-              <InlineMath math={wrapTextWithBreaks(choice.label)} />
+              <InlineMath math={choice.label} />
             </button>
           ))}
         </div>
