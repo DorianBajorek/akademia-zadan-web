@@ -5,13 +5,15 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import 'dayjs/locale/pl';
-import { CheckCircle, ChevronLeft, ChevronRight, Award, Trophy, Zap, Star } from 'lucide-react';
+import { CheckCircle, ChevronLeft, ChevronRight, Award, Trophy, Zap, Star, Flame, Layers } from 'lucide-react';
 import { getActivityDays, getStreak, getTotalSolved, getUserData, getBadges } from '@/service';
 import { useAuth } from '../UserData';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import Link from 'next/link';
 
 dayjs.locale('pl');
+
+const XP_PER_LEVEL = 100;
 
 const UserProfile: React.FC = () => {
   const [user, setUser] = useState({
@@ -42,6 +44,17 @@ const UserProfile: React.FC = () => {
   const prevMonth = () => setCurrentDate(currentDate.subtract(1, 'month'));
   const nextMonth = () => setCurrentDate(currentDate.add(1, 'month'));
   const formattedMonthYear = currentDate.format('MMMM YYYY');
+
+  // Obliczanie poziomu na podstawie rozwiązanych zadań i odznak
+  const calculateLevel = () => {
+    const totalXP = user.stats.solved * 10 + badges.length * 50;
+    const level = Math.floor(totalXP / XP_PER_LEVEL) + 1;
+    const currentLevelXP = totalXP % XP_PER_LEVEL;
+    const progress = (currentLevelXP / XP_PER_LEVEL) * 100;
+    return { level, progress };
+  };
+
+  const { level, progress } = calculateLevel();
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -152,11 +165,31 @@ const UserProfile: React.FC = () => {
                 <div className="flex-grow text-center md:text-left">
                   <div className="mb-6">
                     <h2 className="text-2xl font-bold text-gray-900 mb-1">{user.username}</h2>
-                    <p className="text-gray-600 flex items-center justify-center md:justify-start">
+                    <p className="text-gray-600 flex items-center justify-center md:justify-start gap-2">
                       <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
                         {user.email}
                       </span>
+                      <span className="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full flex items-center">
+                        <Flame className="h-3 w-3 mr-1" /> Poziom {level}
+                      </span>
                     </p>
+                  </div>
+
+                  {/* Pasek poziomu */}
+                  <div className="mb-6">
+                    <div className="flex justify-between text-sm text-gray-600 mb-1">
+                      <span>Poziom {level}</span>
+                      <span>Poziom {level + 1}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div 
+                        className="bg-gradient-to-r from-blue-500 to-blue-600 h-2.5 rounded-full" 
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                    <div className="text-right text-xs text-gray-500 mt-1">
+                      {Math.round(progress)}% poziomu
+                    </div>
                   </div>
 
                   <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
@@ -166,17 +199,24 @@ const UserProfile: React.FC = () => {
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-100 text-center">
-                        <div className="text-3xl font-bold text-blue-700">{user.stats.solved}</div>
+                        <div className="text-3xl font-bold text-blue-700 flex items-center justify-center gap-2">
+                          {user.stats.solved}
+                          <Layers className="h-6 w-6" />
+                        </div>
                         <div className="text-sm text-blue-600 font-medium">Zadania rozwiązane</div>
                       </div>
                       <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-100 text-center">
-                        <div className="text-3xl font-bold text-purple-700">
-                          {user.stats.topics}
+                        <div className="text-3xl font-bold text-purple-700 flex items-center justify-center gap-2">
+                          {badges.length}
+                          <Award className="h-6 w-6" />
                         </div>
                         <div className="text-sm text-purple-600 font-medium">Tematy ukończone</div>
                       </div>
                       <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-100 text-center">
-                        <div className="text-3xl font-bold text-green-700">{user.stats.streak}</div>
+                        <div className="text-3xl font-bold text-green-700 flex items-center justify-center gap-2">
+                          {user.stats.streak}
+                          <Flame className="h-6 w-6" />
+                        </div>
                         <div className="text-sm text-green-600 font-medium">Dni serii</div>
                       </div>
                     </div>

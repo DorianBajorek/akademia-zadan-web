@@ -2,44 +2,33 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/UserData';
 import { getTopicsProgress } from '@/service';
 
 const RealNumbersCourse: React.FC = () => {
   const field = 'funkcje-liniowe';
-  const topicProgress = {
-    'Działania na liczbach rzeczywistych': 90,
-    'Obliczanie na potęg': 0,
-    'Pierwiastki i działania na pierwiastkach': 0,
-    'Obliczanie logarytmu': 0,
-    'Przekształcanie wyrażeń': 0,
-    'Zaokrąglanie i szacowanie': 0,
-    'Notacja wykładnicza': 0,
-    'Wartość bezwzględna': 0,
-    'Porównywanie liczb': 0,
-    'Oś liczbowa': 0,
-    Procenty: 0,
-  };
+
+  const [topicProgress, setTopicProgress] = useState<{ [key: string]: number }>({});
 
   const topics = [
     {
       title: 'Współczynniki funkcji liniowej',
       shortDesc:
         'Poznaj współczynniki funkcji liniowej i ich znaczenie w kontekście wykresu funkcji.',
-      slug: '/funkcje-liniowe/wspolczynniki-funkcji-liniowej',
+      slug: 'wspolczynniki-funkcji-liniowej',
       icon: '📈',
     },
     {
       title: 'Równoleżność funkcji liniowych',
       shortDesc: 'Jak rozpoznać równoleżność funkcji liniowych? Poznamy zasady i przykłady.',
-      slug: '/funkcje-liniowe/rownoleznosc-funkcji-liniowych',
+      slug: 'rownoleznosc-funkcji-liniowych',
       icon: '🔄',
     },
     {
       title: 'Miejsca zerowe funkcji liniowej',
       shortDesc: 'Jak znaleźć miejsca zerowe funkcji liniowej? Poznamy zasady i przykłady.',
-      slug: '/funkcje-liniowe/miejsca-zerowe-funkcji-liniowej',
+      slug: 'miejsca-zerowe-funkcji-liniowej',
       icon: '0️⃣',
     },
   ];
@@ -51,6 +40,7 @@ const RealNumbersCourse: React.FC = () => {
       try {
         const data = await getTopicsProgress(field, token);
         if (data) {
+          setTopicProgress(data);
         }
       } catch (error) {
         console.error('Error fetching topics progress', error);
@@ -61,6 +51,7 @@ const RealNumbersCourse: React.FC = () => {
       fetchData();
     }
   }, [token]);
+
   return (
     <div className="min-h-screen flex flex-col pt-20">
       <Nav />
@@ -89,7 +80,7 @@ const RealNumbersCourse: React.FC = () => {
           {topics.map((topic, index) => (
             <Link
               key={index}
-              href={`/kurs-matura-podstawowa/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/kurs-matura-podstawowa/funkcje-liniowe/${topic.slug}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-start">
@@ -102,12 +93,12 @@ const RealNumbersCourse: React.FC = () => {
                     <div
                       className="bg-green-500 h-2 rounded-full"
                       style={{
-                        width: `${topicProgress[topic.title as keyof typeof topicProgress]}%`,
+                        width: `${topicProgress[topic.slug] || 0}%`,
                       }}
                     ></div>
                   </div>
                   <div className="text-right text-xs text-gray-500 mt-1">
-                    {topicProgress[topic.title as keyof typeof topicProgress]}% ukończono
+                    {topicProgress[topic.slug] || 0}% ukończono
                   </div>
                 </div>
               </div>
