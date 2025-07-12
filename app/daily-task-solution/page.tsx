@@ -5,7 +5,7 @@ import UnderConstruction from '@/components/UnderConstruction';
 
 const DailyTaskSolution: React.FC = () => {
   return (
-    <div className="">
+    <div className="pt-20">
       <Nav />
       <UnderConstruction />
       <Footer />

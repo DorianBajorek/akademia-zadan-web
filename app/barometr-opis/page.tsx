@@ -11,7 +11,7 @@ import { SparklesIcon, ChartBarSquareIcon, TrophyIcon } from '@heroicons/react/2
 
 const BarometerExamSelector: React.FC = () => {
   return (
-    <>
+    <div className='pt-20'>
       <Nav />
       <div className="from-blue-50 to-indigo-50 min-h-screen flex flex-col">
         <main className="max-w-7xl mx-auto px-6 pt-8 w-full flex-grow">
@@ -91,7 +91,7 @@ const BarometerExamSelector: React.FC = () => {
         </main>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

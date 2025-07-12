@@ -32,6 +32,8 @@ const UserProfile: React.FC = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
   const { token } = useAuth();
 
+  const [selectedBadge, setSelectedBadge] = useState<string | null>(null);
+
   const startOfMonth = currentDate.startOf('month');
   const endOfMonth = currentDate.endOf('month');
   const startDayOfWeek = startOfMonth.day();
@@ -80,11 +82,10 @@ const UserProfile: React.FC = () => {
   const generateCalendar = () => {
     const days = [];
 
-    // Adjust for Polish week starting Monday
     const polishStartDay = startDayOfWeek === 0 ? 6 : startDayOfWeek - 1;
 
     for (let i = 0; i < polishStartDay; i++) {
-      days.push(<div key={`empty-${i}`} className="h-10"></div>);
+      days.push(<div key={`empty-${i}`} className="h-12"></div>);
     }
 
     for (let day = 1; day <= daysInMonth; day++) {
@@ -95,15 +96,15 @@ const UserProfile: React.FC = () => {
       days.push(
         <div
           key={day}
-          className={`relative h-10 w-10 flex items-center justify-center text-sm rounded-full 
+          className={`relative h-12 w-12 flex items-center justify-center text-base rounded-full 
           ${isActive ? 'bg-blue-500 text-white' : 'bg-gray-50 text-gray-500'} 
           border ${isActive ? 'border-blue-600' : 'border-gray-200'} font-medium`}
           title={isActive ? `Aktywność w dniu ${dateStr}` : ''}
         >
           {day}
           {isActive && (
-            <div className="absolute -bottom-1 -right-1 h-5 w-5 bg-blue-600 rounded-full flex items-center justify-center">
-              <CheckCircle className="h-3 w-3 text-white" />
+            <div className="absolute -bottom-1 -right-1 h-6 w-6 bg-blue-600 rounded-full flex items-center justify-center">
+              <CheckCircle className="h-4 w-4 text-white" />
             </div>
           )}
         </div>
@@ -113,8 +114,16 @@ const UserProfile: React.FC = () => {
     return <div className="grid grid-cols-7 gap-2 mt-4">{days}</div>;
   };
 
+  const handleBadgeClick = (badge: string) => {
+    setSelectedBadge(badge);
+  };
+
+  const closeModal = () => {
+    setSelectedBadge(null);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pt-20">
       <Nav />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
@@ -176,7 +185,8 @@ const UserProfile: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div className="flex flex-col gap-8 mb-8">
+              {/* Kalendarz aktywności */}
               <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-xl font-bold text-gray-900 flex items-center">
@@ -204,7 +214,7 @@ const UserProfile: React.FC = () => {
 
                 <div className="mb-2 grid grid-cols-7 gap-2 text-center">
                   {['Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd'].map((day) => (
-                    <div key={day} className="text-xs font-medium text-gray-500 py-1">
+                    <div key={day} className="text-sm font-medium text-gray-500 py-1">
                       {day}
                     </div>
                   ))}
@@ -213,6 +223,7 @@ const UserProfile: React.FC = () => {
                 {generateCalendar()}
               </div>
 
+              {/* Odznaki */}
               <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                   <Trophy className="h-5 w-5 text-amber-500 mr-2" />
@@ -231,21 +242,21 @@ const UserProfile: React.FC = () => {
                     </Link>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {badges.map((badge, index) => (
                       <div
                         key={index}
-                        className="flex flex-col items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-blue-200 transition-colors"
+                        className="flex flex-col items-center p-6 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors cursor-pointer"
+                        onClick={() => handleBadgeClick(badge)}
                       >
-                        <div className="relative w-32 h-32 mb-4">
-                          <Image
-                            src={`/badges/${badge}.png`}
+                        <div className="relative w-60 h-60 mb-6">
+                          <img
+                            src={`/badgesSVG/${badge}.svg`}
                             alt={badge}
-                            fill
-                            className="object-contain"
+                            className="w-full h-full object-contain"
                           />
                         </div>
-                        <h3 className="font-medium text-gray-800 text-center text-sm capitalize">
+                        <h3 className="font-semibold text-gray-800 text-center text-lg capitalize">
                           {badge.replace(/-/g, ' ')}
                         </h3>
                       </div>
@@ -254,6 +265,29 @@ const UserProfile: React.FC = () => {
                 )}
               </div>
             </div>
+
+            {/* Modal powiększający odznakę */}
+            {selectedBadge && (
+              <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
+                <div className="bg-white rounded-2xl shadow-lg p-6 relative max-w-md w-full">
+                  <button
+                    onClick={closeModal}
+                    className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold leading-none"
+                    aria-label="Zamknij modal"
+                  >
+                    ×
+                  </button>
+                  <img
+                    src={`/badgesSVG/${selectedBadge}.svg`}
+                    alt={selectedBadge}
+                    className="w-full h-auto object-contain mb-4"
+                  />
+                  <h3 className="text-center text-lg font-semibold text-gray-800 capitalize">
+                    {selectedBadge.replace(/-/g, ' ')}
+                  </h3>
+                </div>
+              </div>
+            )}
           </>
         )}
       </main>

@@ -1,35 +1,43 @@
 'use client';
 
-import { notFound, useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { stepsMap } from './stepsMap';
 import { FaArrowUp } from 'react-icons/fa';
+import { useAuth } from '@/app/UserData';
+import { useRouter } from 'next/navigation';
+import LoginRequiredScreen from '@/components/LoginRequiredComponent';
 
 const Rozwiazanie = () => {
   const { id } = useParams();
+  const { token } = useAuth();
+
   const router = useRouter();
 
+  if (!token || token === '') {
+    return (
+      <LoginRequiredScreen />
+    );
+  }
+
   const StepsProblem = stepsMap[id as string];
-  if (!StepsProblem) return notFound();
+  if (!StepsProblem) return <div>Nie znaleziono zadania.</div>;
 
   const numericId = parseInt(id as string, 10);
   const nextId = (numericId + 1).toString();
   const hasNext = stepsMap[nextId];
 
   const handleBackToCourse = () => {
-    const path = window.location.pathname;
-    const newPath = '/kurs-matura-podstawowa';
-    router.push(newPath);
+    window.location.href = '/kurs-matura-podstawowa';
   };
 
   const handleNext = () => {
     if (hasNext) {
-      const path = window.location.pathname;
-      const base = path.substring(0, path.lastIndexOf('/'));
-      router.push(`${base}/${nextId}`);
+      const base = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+      window.location.href = `${base}/${nextId}`;
     }
   };
 
@@ -39,6 +47,7 @@ const Rozwiazanie = () => {
 
   return (
     <Suspense fallback={<div>Ładowanie rozwiązania...</div>}>
+      <div className='pt-20'>
       <Nav />
       <div className="p-4">
         <button
@@ -65,6 +74,7 @@ const Rozwiazanie = () => {
         <FaArrowUp />
       </button>
       <Footer />
+      </div>
     </Suspense>
   );
 };
