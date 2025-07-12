@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { getFieldsProgress } from '@/service';
 import { useAuth } from '../UserData';
 import { motion } from 'framer-motion';
+import LoginRequiredScreen from '@/components/LoginRequiredComponent';
 
 const MainCourse: React.FC = () => {
   const { token } = useAuth();
@@ -28,6 +29,10 @@ const MainCourse: React.FC = () => {
       fetchData();
     }
   }, [token]);
+
+  if (!token) {
+    return <LoginRequiredScreen />;
+  }
 
   const courses = [
     {
@@ -156,7 +161,7 @@ const MainCourse: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pt-20">
       <Nav />
 
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1">
@@ -233,6 +238,7 @@ const MainCourse: React.FC = () => {
             );
           })}
         </motion.div>
+
         <div className="my-16 border-t border-gray-300">
           <h2 className="text-2xl font-bold text-gray-800 text-center mt-10 mb-6">
             Egzamin maturalny

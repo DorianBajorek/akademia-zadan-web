@@ -55,7 +55,11 @@ const Nav: React.FC = () => {
   const navLinks = token ? linksLoggedIn : linksLoggedOut;
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50" aria-label="Główne menu nawigacyjne">
+    <nav
+      className="bg-white shadow-md fixed top-0 left-0 w-full z-50"
+      style={{ height: '80px', marginBottom: "100px"}}
+      aria-label="Główne menu nawigacyjne"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-3">
           <Link href="/" aria-label="Strona główna">

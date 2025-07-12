@@ -148,7 +148,7 @@ const TopicTasksPage = () => {
   // Można dodać trzecią grupę jeśli będzie potrzebna
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pt-20">
       <Nav />
       <div className="max-w-7xl mx-auto w-full px-6 pt-8">
         <div className="mb-6">

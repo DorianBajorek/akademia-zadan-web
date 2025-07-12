@@ -98,7 +98,7 @@ const [topicProgress, setTopicProgress] = useState<{ [key: string]: number }>({
   }, [token]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pt-20">
       <Nav />
 
       <main className="max-w-7xl mx-auto px-6 py-12 flex-1">
