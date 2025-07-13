@@ -143,7 +143,7 @@ const TopicTasksPage = () => {
       try {
         const response = await getProblemProgress(
           'liczby-rzeczywiste',
-          'dzialania-na-potegach',
+          'potegi',
           token
         );
 

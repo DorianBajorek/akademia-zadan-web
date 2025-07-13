@@ -6,10 +6,9 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-// === REQUEST INTERCEPTOR ===
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('authToken'); // Access token
+    const token = localStorage.getItem('token');
     const csrfToken = Cookies.get('csrftoken');
 
     if (token) {
@@ -78,9 +77,9 @@ axiosInstance.interceptors.response.use(
         const response = await axios.post('https://www.akademiazadan.pl/api/auth/v1/token_refresh/', {
           refresh: localStorage.getItem('refreshToken'),
         });
-
+        console.log('Token odświeżony:', response.data.access);
         const newAccessToken = response.data.access;
-        localStorage.setItem('authToken', newAccessToken);
+        localStorage.setItem('token', newAccessToken);
 
         processQueue(null, newAccessToken);
         isRefreshing = false;
@@ -91,10 +90,10 @@ axiosInstance.interceptors.response.use(
         processQueue(refreshError, null);
         isRefreshing = false;
 
-        // Wyloguj użytkownika lub przekieruj do logowania
-        localStorage.removeItem('authToken');
+
+        localStorage.removeItem('token');
         localStorage.removeItem('refreshToken');
-        window.location.href = '/login'; // lub inna strona
+        window.location.href = '/login';
 
         return Promise.reject(refreshError);
       }

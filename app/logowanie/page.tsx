@@ -92,9 +92,11 @@ const Login: React.FC = () => {
                 <GoogleLogin
                   onSuccess={async (credentialResponse) => {
                     try {
+                      console.log('Google login response:', credentialResponse);
                       const resp = await google(credentialResponse.credential ?? null);
-
+                      console.log('Google login response data:', resp.refresh);
                       if (resp.access && resp.user?.username) {
+                        localStorage.setItem('refreshToken', resp.refresh);
                         updateToken(resp.access);
                         updateUsername(resp.user.username);
                         window.location.href = '/';
