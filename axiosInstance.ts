@@ -29,19 +29,23 @@ axiosInstance.interceptors.request.use(
 // === RESPONSE INTERCEPTOR (odświeżanie tokena) ===
 
 let isRefreshing = false;
-let failedQueue = [];
+type FailedRequest = {
+  resolve: (token: string) => void;
+  reject: (error: any) => void;
+};
 
-const processQueue = (error, token = null) => {
+let failedQueue: FailedRequest[] = [];
+
+function processQueue(error: any, token: string | null) {
   failedQueue.forEach((prom) => {
     if (error) {
       prom.reject(error);
-    } else {
+    } else if (token) {
       prom.resolve(token);
     }
   });
-
   failedQueue = [];
-};
+}
 
 axiosInstance.interceptors.response.use(
   (response) => response,
