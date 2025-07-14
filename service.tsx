@@ -83,7 +83,7 @@ export const register = async (
     const response = await axios.post(`${prefix}/api/auth/registration/`, payload);
     return response.data;
   } catch (error) {
-    console.error('Error while register', error);
+    throw error;
   }
 };
 
