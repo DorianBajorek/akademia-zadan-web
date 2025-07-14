@@ -17,9 +17,11 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const { updateToken, updateUsername } = useAuth();
 
   const handleSubmit = async () => {
+    setErrorMessage('');
     try {
       const data = await register(email, username, password, confirmPassword);
       console.log('Rejestracja pomyślna:', data);
@@ -30,8 +32,21 @@ const Register: React.FC = () => {
       } else {
         console.error('Rejestracja nieudana. Brak tokena lub nazwy użytkownika.');
       }
-    } catch (error) {
-      console.error('Błąd podczas rejestracji:', error);
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        const data = error.response.data;
+        if (data.email) {
+          setErrorMessage('Zły email, spróbuj inny.');
+        } else if (data.password1 && Array.isArray(data.password1)) {
+          setErrorMessage(data.password1[0]);
+        } else if (data.non_field_errors){
+          setErrorMessage(data.non_field_errors[0]);
+        } else {
+          setErrorMessage('Wystąpił nieoczekiwany błąd. Spróbuj ponownie.');
+        }
+      } else {
+        setErrorMessage('Nie można połączyć się z serwerem.');
+      }
     }
   };
 
@@ -205,6 +220,11 @@ const Register: React.FC = () => {
                     </button>
                   </div>
                 </div>
+
+                {errorMessage && (
+                  <div className="text-red-600 text-sm font-medium mb-4">{errorMessage}</div>
+                )}
+
                 <button
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 rounded-md transition duration-200 text-sm sm:text-base"
