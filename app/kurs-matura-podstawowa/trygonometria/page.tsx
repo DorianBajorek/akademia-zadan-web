@@ -16,7 +16,7 @@ const RealNumbersCourse: React.FC = () => {
     {
       title: 'Trygonometria',
       shortDesc: 'Trygonometria',
-      slug: 'Trygonometria',
+      slug: 'tozsamosci-trygonometryczne',
       icon: '➕',
     },
   ];
