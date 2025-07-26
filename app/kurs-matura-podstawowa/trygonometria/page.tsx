@@ -2,41 +2,38 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/UserData';
 import { getTopicsProgress } from '@/service';
 
 const RealNumbersCourse: React.FC = () => {
-  const field = 'liczby-rzeczywiste';
-  const topicProgress = {
-    'Kąty w okręgu': 30,
-  };
+  const { token } = useAuth();
+  const field = 'trygonometria';
+
+  const [topicProgress, setTopicProgress] = useState<Record<string, number>>({});
 
   const topics = [
     {
-      title: '',
-      shortDesc: '',
-      slug: '',
-      icon: '°',
+      title: 'Trygonometria',
+      shortDesc: 'Trygonometria',
+      slug: 'Trygonometria',
+      icon: '➕',
     },
   ];
-
-  const { token } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getTopicsProgress(field, token);
         if (data) {
+          setTopicProgress(data);
         }
       } catch (error) {
         console.error('Error fetching topics progress', error);
       }
     };
 
-    if (token) {
-      fetchData();
-    }
+    fetchData();
   }, [token]);
 
   return (
@@ -48,18 +45,20 @@ const RealNumbersCourse: React.FC = () => {
           <Link href="/kurs-matura-podstawowa" className="mr-4 text-blue-600 hover:text-blue-800">
             ← Wróć do kursu
           </Link>
-          <h1 className="text-4xl font-bold text-gray-800">Trygonometria</h1>
+          <h1 className="text-4xl font-bold text-gray-800">Liczby rzeczywiste</h1>
         </div>
 
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
           <p className="text-gray-700">
-            Dział „Trygonometria” skupia się na obliczaniu wartości funkcji sinus, cosinus i tangens
-            w trójkątach. Nauczysz się, jak stosować te funkcje do wyznaczania długości boków i miar
-            kątów w trójkątach prostokątnych. Poznasz także podstawowe wartości trygonometryczne dla
-            kątów specjalnych, które ułatwiają szybkie obliczenia. Opanowanie tych zagadnień jest
-            fundamentem do dalszej pracy z funkcjami trygonometrycznymi i zastosowaniami w
-            geometrii.
+            Dział „Liczby rzeczywiste” obejmuje zagadnienia związane z potęgowaniem,
+            pierwiastkowaniem oraz logarytmami, które są podstawowymi narzędziami w analizie
+            matematycznej. Uczysz się tu, jak operować potęgami o różnych wykładnikach, a także jak
+            upraszczać i przekształcać wyrażenia z pierwiastkami. Logarytmy – będące działaniem
+            odwrotnym do potęgowania – pozwalają rozwiązywać równania wykładnicze, a znajomość ich
+            własności ułatwia wykonywanie działań takich jak dodawanie czy odejmowanie logarytmów.
+            Dodatkowo omawiana jest wartość bezwzględna, czyli odległość liczby od zera na osi
+            liczbowej, przydatna m.in. w zagadnieniach geometrycznych i nierównościach.
           </p>
         </div>
 
@@ -69,7 +68,7 @@ const RealNumbersCourse: React.FC = () => {
           {topics.map((topic, index) => (
             <Link
               key={index}
-              href={`/kurs-matura-podstawowa/${topic.slug || topic.title.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/kurs-matura-podstawowa/liczby-rzeczywiste/${topic.slug}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-start">
@@ -81,13 +80,11 @@ const RealNumbersCourse: React.FC = () => {
                   <div className="w-full bg-gray-100 rounded-full h-2">
                     <div
                       className="bg-green-500 h-2 rounded-full"
-                      style={{
-                        width: `${topicProgress[topic.title as keyof typeof topicProgress]}%`,
-                      }}
+                      style={{ width: `${topicProgress[topic.slug] || 0}%` }}
                     ></div>
                   </div>
                   <div className="text-right text-xs text-gray-500 mt-1">
-                    {topicProgress[topic.title as keyof typeof topicProgress]}% ukończono
+                    {topicProgress[topic.slug] || 0}% ukończono
                   </div>
                 </div>
               </div>
