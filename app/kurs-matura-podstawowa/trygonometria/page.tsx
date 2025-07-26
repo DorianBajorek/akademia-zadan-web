@@ -50,16 +50,7 @@ const RealNumbersCourse: React.FC = () => {
 
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-10">
           <h2 className="text-2xl font-semibold text-blue-800 mb-3">O dziale</h2>
-          <p className="text-gray-700">
-            Dział „Liczby rzeczywiste” obejmuje zagadnienia związane z potęgowaniem,
-            pierwiastkowaniem oraz logarytmami, które są podstawowymi narzędziami w analizie
-            matematycznej. Uczysz się tu, jak operować potęgami o różnych wykładnikach, a także jak
-            upraszczać i przekształcać wyrażenia z pierwiastkami. Logarytmy – będące działaniem
-            odwrotnym do potęgowania – pozwalają rozwiązywać równania wykładnicze, a znajomość ich
-            własności ułatwia wykonywanie działań takich jak dodawanie czy odejmowanie logarytmów.
-            Dodatkowo omawiana jest wartość bezwzględna, czyli odległość liczby od zera na osi
-            liczbowej, przydatna m.in. w zagadnieniach geometrycznych i nierównościach.
-          </p>
+<p className="text-gray-700"> Dział „Trygonometria” obejmuje zagadnienia związane z funkcjami trygonometrycznymi, takimi jak sinus, cosinus i tangens, które są kluczowe zarówno w matematyce, jak i w wielu zastosowaniach praktycznych. Uczysz się tu, jak obliczać wartości funkcji trygonometrycznych dla różnych kątów oraz jak wykorzystywać podstawowe tożsamości trygonometryczne do upraszczania wyrażeń i rozwiązywania równań. Umiejętność stosowania wzorów na sumę i różnicę kątów, a także znajomość wykresów funkcji trygonometrycznych, pomaga w analizie okresowości oraz rozwiązywaniu zadań geometrycznych dotyczących trójkątów, okręgów i figur wpisanych. </p>
         </div>
 
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Tematy w dziale</h2>
