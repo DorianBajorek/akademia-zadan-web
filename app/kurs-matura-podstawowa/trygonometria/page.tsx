@@ -59,7 +59,7 @@ const RealNumbersCourse: React.FC = () => {
           {topics.map((topic, index) => (
             <Link
               key={index}
-              href={`/kurs-matura-podstawowa/liczby-rzeczywiste/${topic.slug}`}
+              href={`/kurs-matura-podstawowa/tozsamosci-trygonometryczne/${topic.slug}`}
               className="block bg-white rounded-lg shadow-md hover:shadow-lg transition p-5 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-start">
