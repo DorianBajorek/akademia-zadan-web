@@ -12,9 +12,51 @@ import { getProblemProgress } from '@/service';
 const LOCAL_TASKS_META = [
   {
     id: '4710',
-    title: 'Kąty w okręgu',
-    description: 'Kąt środkowy i wpisany',
-    img: '/problemImages/problem4000.png',
+    title: 'Wyrażenie trygonometryczne',
+    description: 'Wyrażenie trygonometryczne',
+    img: '/problemImages/problem4710.png',
+    isCompleted: true,
+  },
+  {
+    id: '4711',
+    title: 'Wyrażenie trygonometryczne',
+    description: 'Wyrażenie trygonometryczne',
+    img: '/problemImages/problem4711.png',
+    isCompleted: true,
+  },
+  {
+    id: '4712',
+    title: 'Wyrażenie trygonometryczne',
+    description: 'Wyrażenie trygonometryczne',
+    img: '/problemImages/problem4712.png',
+    isCompleted: true,
+  },
+  {
+    id: '4713',
+    title: 'Wyrażenie trygonometryczne',
+    description: 'Wyrażenie trygonometryczne',
+    img: '/problemImages/problem4713.png',
+    isCompleted: true,
+  },
+  {
+    id: '4714',
+    title: 'Wyrażenie trygonometryczne',
+    description: 'Wyrażenie trygonometryczne',
+    img: '/problemImages/problem4714.png',
+    isCompleted: true,
+  },
+  {
+    id: '4715',
+    title: 'Wyrażenie trygonometryczne',
+    description: 'Wyrażenie trygonometryczne',
+    img: '/problemImages/problem4715.png',
+    isCompleted: true,
+  },
+  {
+    id: '4716',
+    title: 'Wyrażenie trygonometryczne',
+    description: 'Wyrażenie trygonometryczne',
+    img: '/problemImages/problem4716.png',
     isCompleted: true,
   }
 ];
@@ -27,8 +69,8 @@ const TopicTasksPage = () => {
       if (!token) return;
 
       try {
-        const response = await getProblemProgress('trygonometria', 'tozsamosci-trygonometryczne', token);
-
+        const response = await getProblemProgress('tozsamosci-trygonometryczne','trygonometria', token);
+        console.log('Fetched tasks:', response);
         const mergedTasks = response.tasks.map((taskFromApi: any) => {
           const meta = LOCAL_TASKS_META.find((m) => m.id === String(taskFromApi.id));
           return {
@@ -50,9 +92,9 @@ const TopicTasksPage = () => {
   }, [token]);
   const completedCount = tasks.filter((task) => task.isCompleted).length;
 
-  const firstGroup = tasks.filter((task) => parseInt(task.id) <= 4000 && parseInt(task.id) >= 4000);
+  const firstGroup = tasks.filter((task) => parseInt(task.id) <= 4700 && parseInt(task.id) >= 4700);
   const secondGroup = tasks.filter(
-    (task) => parseInt(task.id) <= 4009 && parseInt(task.id) >= 4001
+    (task) => parseInt(task.id) <= 4719 && parseInt(task.id) >= 4710
   );
 
   return (
