@@ -91,29 +91,6 @@ const HardcodedTask: React.FC = () => {
                 ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
-
-            {selectedAnswer !== taskData.correct_answer && (
-              <div className="mt-4 p-4 bg-blue-50 rounded-lg text-left">
-                <h3 className="font-bold text-lg mb-2">Wyjaśnienie:</h3>
-                <p className="mb-2">
-                  1. Podwyżka o 20%: <span className="font-math">x × 1.20</span>
-                </p>
-                <p className="mb-2">
-                  2. Obniżka o 10%: <span className="font-math">x × 1.20 × 0.90 = 81 zł</span>
-                </p>
-                <p className="mb-2">
-                  3. Równanie: <span className="font-math">x × 1.08 = 81</span>
-                </p>
-                <p className="mb-2">
-                  4. Rozwiązanie: <span className="font-math">x = 81 ÷ 1.08 = 75 zł</span>
-                </p>
-                <p>Weryfikacja:</p>
-                <ul className="list-disc pl-5">
-                  <li>75 zł + 20% = 90 zł</li>
-                  <li>90 zł - 10% = 81 zł</li>
-                </ul>
-              </div>
-            )}
           </div>
         )}
       </main>

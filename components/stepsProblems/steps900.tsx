@@ -1,19 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { InlineMath } from 'react-katex';
-import ChoiceQuestion from './ChoiceQuestion';
-import StudentNotes from './StudentsNotes';
-import TaskDescription from '../TaskDescription';
-import StepDescription from '../StepDescription';
 import { useAuth } from '@/app/UserData';
 import { solveProblem } from '@/service';
+import Question2 from '../Question2';
 
-const Page = () => {
-  const taskId = '900';
-  const [problemSolved, setProblemSolved] = useState(false);
-  const [completedStages, setCompletedStages] = useState<number[]>([]);
+const letterMap = ['a', 'b', 'c', 'd'];
+
+const PercentEquationTask: React.FC = () => {
   const { token } = useAuth();
+
+  // ID zadania z Twojego oryginalnego kodu
+  const taskId = '900';
+
+  const [problemSolved, setProblemSolved] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
     if (problemSolved) {
@@ -23,115 +25,75 @@ const Page = () => {
     }
   }, [problemSolved, taskId, token]);
 
-
-  const handleStageComplete = (stage: number) => {
-    setCompletedStages((prev) => {
-      const updated = [...prev, stage];
-      if (updated.length === 2 && !problemSolved) {
-        setProblemSolved(true);
-      }
-      return updated;
-    });
+  const taskData = {
+    task_id: 900,
+    exam_type: 'custom',
+    task_type: 'mc4',
+    description:
+      '$30\\%$ liczby $x$ jest o $2730$ mniejsze od liczby $x$. Liczba $x$ jest równa:',
+    choiceA: '$3900$',
+    choiceB: '$1911$',
+    choiceC: '$9100$',
+    choiceD: '$2100$',
+    correct_answer: 'a' as const,
   };
 
-  useEffect(() => {
-    if (completedStages.length === 3) {
-      solveProblem('500', token);
+  const handleCheckAnswer = () => {
+    if (selectedAnswer !== null) {
+      setShowResult(true);
+
+      if (selectedAnswer === taskData.correct_answer && !problemSolved) {
+        setProblemSolved(true);
+      }
     }
-  }, [completedStages, token]);
+  };
 
   return (
-    <div className="min-h-screen p-5">
-      <div className="max-w-5xl w-full bg-white p-4 md:p-8 rounded-lg shadow-md border border-gray-300 mx-auto mt-6 md:mt-10">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Rozwiązywanie równania procentowego
+    <div className="min-h-screen">
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
+          Zadanie matematyczne
         </h2>
 
-        <TaskDescription
-          title="Równanie procentowe"
-          description="$$30\%$$ liczby $$x$$ jest o $$2730$$ mniejsze od liczby $$x$$. Liczba $$x$$ jest równa?"
-        />
-
-        {(completedStages.includes(1) || completedStages.length === 0) && (
-          <>
-            <StepDescription stepNumber={1}>
-              Zapisz równanie matematyczne na podstawie treści zadania.
-            </StepDescription>
-            <ChoiceQuestion
-              question="Które równanie poprawnie przedstawia sytuację z zadania?"
-              choices={[
-                { label: '0.3x = x - 2730', value: 'a' },
-                { label: '30x = x - 2730', value: 'b' },
-                { label: '0.3x = 2730 - x', value: 'c' },
-                { label: '30x = 2730 - x', value: 'd' },
-              ]}
-              correctAnswer="a"
-              explanation="Poprawne równanie to $$0.3x = x - 2730$$, ponieważ $$30\\%$$ liczby $$x$$ zapisujemy jako $$0.3x$$, a 'jest o $$2730$$ mniejsze od $$x$$' oznacza $$x - 2730$$."
-              onComplete={() => handleStageComplete(1)}
-            />
-          </>
-        )}
-
-        {completedStages.includes(1) && (
-          <>
-            <StepDescription stepNumber={2}>
-              Przekształć równanie <InlineMath math="0.3x = x - 2730" />.
-            </StepDescription>
-            <ChoiceQuestion
-              question="Który krok rozwiązania jest poprawny?"
-              choices={[
-                { label: '0.3x + x = 2730', value: 'a' },
-                { label: '0.3x - x = -2730', value: 'b' },
-                { label: '0.3x = 2730', value: 'c' },
-                { label: 'x - 0.3x = 2730', value: 'd' },
-              ]}
-              correctAnswer="b"
-              explanation="Poprawny pierwszy krok to przeniesienie $$x$$ na lewą stronę: $$0.3x - x = -2730$$."
-              onComplete={() => handleStageComplete(2)}
-            />
-          </>
-        )}
-
-        {completedStages.includes(2) && (
-          <>
-            <StepDescription stepNumber={3}>
-              Rozwiąż równanie <InlineMath math="0.3x - x = -2730" />.
-            </StepDescription>
-            <ChoiceQuestion
-              question="Jakie jest rozwiązanie równania?"
-              choices={[
-                { label: 'x = 3900', value: 'a' },
-                { label: 'x = 1911', value: 'b' },
-                { label: 'x = 9100', value: 'c' },
-                { label: 'x = 2100', value: 'd' },
-              ]}
-              correctAnswer="a"
-              explanation="Rozwiązanie: $$-0.7x = -2730$$, więc $$x = \frac{-2730}{-0.7} = 3900$$."
-              onComplete={() => handleStageComplete(3)}
-            />
-          </>
-        )}
-
-        {completedStages.length === 3 && (
-          <StudentNotes
-            equation="30\% \text{ liczby } x \text{ jest o } 2730 \text{ mniejsze od liczby } x"
-            steps={[
-              {
-                step: '0.3x = x - 2730',
-              },
-              {
-                step: '0.3x - x = -2730 \\Rightarrow -0.7x = -2730',
-              },
-              {
-                step: 'x = \\frac{-2730}{-0.7} = 3900',
-              },
-            ]}
-            solutions={['3900']}
+        <div className="space-y-6">
+          <Question2
+            description={taskData.description}
+            choiceA={taskData.choiceA}
+            choiceB={taskData.choiceB}
+            choiceC={taskData.choiceC}
+            choiceD={taskData.choiceD}
+            correctAnswer={taskData.correct_answer}
+            selectedAnswer={selectedAnswer}
+            onAnswerSelect={(index) => setSelectedAnswer(letterMap[index])}
+            isCorrect={showResult ? selectedAnswer === taskData.correct_answer : undefined}
+            taskId={Number(taskData.task_id)}
           />
+
+          <button
+            onClick={handleCheckAnswer}
+            disabled={!selectedAnswer}
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+          >
+            Sprawdź odpowiedź
+          </button>
+        </div>
+
+        {showResult && (
+          <div className="mt-8 text-center">
+            <p
+              className={`text-2xl mb-4 font-bold ${
+                selectedAnswer === taskData.correct_answer ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
+              {selectedAnswer === taskData.correct_answer
+                ? 'Poprawna odpowiedź!'
+                : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
+            </p>
+          </div>
         )}
-      </div>
+      </main>
     </div>
   );
 };
 
-export default Page;
+export default PercentEquationTask;

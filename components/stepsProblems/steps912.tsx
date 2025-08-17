@@ -91,30 +91,6 @@ const HardcodedTask: React.FC = () => {
                 ? 'Poprawna odpowiedź!'
                 : `Błędna odpowiedź! Poprawna: ${taskData.correct_answer.toUpperCase()}`}
             </p>
-
-            {selectedAnswer !== taskData.correct_answer && (
-              <div className="mt-4 p-4 bg-blue-50 rounded-lg text-left">
-                <h3 className="font-bold text-lg mb-2">Wyjaśnienie:</h3>
-                <p className="mb-2">
-                  Wzór na procent składany:{' '}
-                  <span className="font-math">
-                    K<sub>n</sub> = K<sub>0</sub> × (1 + p)<sup>n</sup>
-                  </span>
-                </p>
-                <p className="mb-2">Gdzie:</p>
-                <ul className="list-disc pl-5 mb-2">
-                  <li>p = 3% = 0.03</li>
-                  <li>n = 10 lat</li>
-                </ul>
-                <p className="mb-2">
-                  Wzrost kapitału:{' '}
-                  <span className="font-math">
-                    (1.03)<sup>10</sup> ≈ 1.3439
-                  </span>
-                </p>
-                <p>Zatem wzrost wynosi około 34% (zaokrąglone do 1%)</p>
-              </div>
-            )}
           </div>
         )}
       </main>

@@ -55,6 +55,12 @@ const RealNumbersCourse: React.FC = () => {
       slug: 'rownania-z-wartoscia-bezwzgledna',
       icon: '|x+2|',
     },
+    {
+      title: 'Zadania z procentami',
+      shortDesc: 'Obliczenia procentowe, zadania praktyczne',
+      slug: 'procenty',
+      icon: '%',
+    }
   ];
 
   useEffect(() => {
