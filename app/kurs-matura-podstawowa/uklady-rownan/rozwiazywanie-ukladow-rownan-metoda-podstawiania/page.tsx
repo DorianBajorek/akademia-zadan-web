@@ -97,6 +97,11 @@ const TopicTasksPage = () => {
   }, [token]);
   const completedCount = tasks.filter((task) => task.isCompleted).length;
 
+  const firstGroup = tasks.filter((task) => parseInt(task.id) <= 6003 && parseInt(task.id) >= 6000);
+  const secondGroup = tasks.filter(
+    (task) => parseInt(task.id) <= 6006 && parseInt(task.id) >= 6004
+  );
+
   return (
     <div className="min-h-screen flex flex-col pt-20">
       <Nav />
@@ -139,8 +144,21 @@ const TopicTasksPage = () => {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {firstGroup.map((task) => (
+            <TaskCards key={task.id} tasks={[task]} />
+          ))}
+        </div>
+
+        <div className="col-span-full py-8 text-center">
+          <div className="border-t-2 border-b-2 border-gray-300 py-4">
+            <h2 className="text-xl font-bold text-gray-700">Zadania zamknięte</h2>
+            <p className="text-gray-600 mt-2">Sprawdź się!</p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {tasks.map((task) => (
+          {secondGroup.map((task) => (
             <TaskCards key={task.id} tasks={[task]} />
           ))}
         </div>
