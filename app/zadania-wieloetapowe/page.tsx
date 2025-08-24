@@ -380,6 +380,7 @@ const tasksByCategory = [
       },
     ],
   },
+
 ];
 
 const SolutionsPage = () => {

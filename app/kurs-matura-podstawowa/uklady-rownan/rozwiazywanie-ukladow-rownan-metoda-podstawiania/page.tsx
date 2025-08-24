@@ -11,55 +11,54 @@ import { getProblemProgress } from '@/service';
 
 const LOCAL_TASKS_META = [
   {
-    id: '2600',
+    id: '6000',
     title: 'Zadanie 1',
-    description: 'Spełnialność układu równań',
-    img: '/problemImages/problem2600.png',
+    description: 'Rozwiązywanie układu równań metodą podstawiania',
+    img: '/problemImages/problem6000.png',
     isCompleted: true,
   },
   {
-    id: '2601',
+    id: '6001',
     title: 'Zadanie 2',
-    description: 'Spełnialność układu równań',
-    img: '/problemImages/problem2601.png',
+    description: 'Układ z całkowitymi współczynnikami',
+    img: '/problemImages/problem6001.png',
     isCompleted: true,
   },
   {
-    id: '2602',
+    id: '6002',
     title: 'Zadanie 3',
-    description: 'Spełnialność układu równań',
-    img: '/problemImages/problem2602.png',
+    description: 'Układ z większymi liczbami i minusami',
+    img: '/problemImages/problem6002.png',
     isCompleted: true,
   },
   {
-    id: '2603',
+    id: '6003',
     title: 'Zadanie 4',
-    description: 'Spełnialność układu równań',
-    img: '/problemImages/problem2603.png',
+    description: 'Układ z nawiasami po jednej stronie',
+    img: '/problemImages/problem6003.png',
     isCompleted: true,
   },
   {
-    id: '2604',
+    id: '6004',
     title: 'Zadanie 5',
-    description: 'Liczba rozwiązań układu równań',
-    img: '/problemImages/problem2604.png',
+    description: 'Zadanie zamknięte - układ prosty',
+    img: '/problemImages/problem6004.png',
     isCompleted: true,
   },
   {
-    id: '2605',
+    id: '6005',
     title: 'Zadanie 6',
-    description: 'Spełnialność układu równań',
-    img: '/problemImages/problem2605.png',
+    description: 'Zadanie zamknięte - układ z nawiasami',
+    img: '/problemImages/problem6005.png',
     isCompleted: true,
   },
   {
-    id: '2606',
+    id: '6006',
     title: 'Zadanie 7',
-    description: 'Spełnialność układu równań',
-    img: '/problemImages/problem2606.png',
+    description: 'Zadanie zamknięte - układ z ułamkami',
+    img: '/problemImages/problem6006.png',
     isCompleted: true,
   },
-
 ];
 
 const TopicTasksPage = () => {
@@ -73,7 +72,7 @@ const TopicTasksPage = () => {
       try {
         const response = await getProblemProgress(
           'uklady-rownan',
-          'sprawdzenie-ukladow-rownan',
+          'rozwiazywanie-ukladow-rownan-metoda-podstawiania',
           token
         );
 
@@ -88,8 +87,6 @@ const TopicTasksPage = () => {
           };
         });
 
-
-
         setTasks(mergedTasks);
       } catch (error) {
         console.error('Nie udało się pobrać zadań', error);
@@ -99,11 +96,6 @@ const TopicTasksPage = () => {
     fetchTasks();
   }, [token]);
   const completedCount = tasks.filter((task) => task.isCompleted).length;
-
-  const firstGroup = tasks.filter((task) => parseInt(task.id) <= 2602 && parseInt(task.id) >= 2600);
-  const secondGroup = tasks.filter(
-    (task) => parseInt(task.id) <= 2606 && parseInt(task.id) >= 2603
-  );
 
   return (
     <div className="min-h-screen flex flex-col pt-20">
@@ -137,35 +129,21 @@ const TopicTasksPage = () => {
         <TopicStats
           completedCount={completedCount}
           totalCount={tasks.length}
-          topicTitle={'Sprwadzenia spełnialności układów równań'}
+          topicTitle={'Rozwiązywanie układów równań metodą podstawiania'}
         />
 
         <div className="col-span-full py-8 text-center">
           <div className="border-t-2 border-b-2 border-gray-300 py-4">
             <h2 className="text-xl font-bold text-gray-700">Zadania wieloetapowe</h2>
-            <p className="text-gray-600 mt-2">Do samodzielnej nauki</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {firstGroup.map((task) => (
-            <TaskCards key={task.id} tasks={[task]} />
-          ))}
-        </div>
-
-        <div className="col-span-full py-8 text-center">
-          <div className="border-t-2 border-b-2 border-gray-300 py-4">
-            <h2 className="text-xl font-bold text-gray-700">Zadania zamknięte</h2>
-            <p className="text-gray-600 mt-2">Sprwadź się!</p>
+            <p className="text-gray-600 mt-2">Rozwiązywanie układów równań metodą podstawiania</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {secondGroup.map((task) => (
+          {tasks.map((task) => (
             <TaskCards key={task.id} tasks={[task]} />
           ))}
         </div>
-
-
       </main>
 
       <Footer />

@@ -11,6 +11,7 @@ const RealNumbersCourse: React.FC = () => {
 
   const [topicProgress, setTopicProgress] = useState<{ [key: string]: number }>({
     'Sprawdzenia spełnialności układów równań': 0,
+    'Rozwiązywanie układów równań metodą podstawiania': 0,
   });
 
   const topics = [
@@ -21,19 +22,12 @@ const RealNumbersCourse: React.FC = () => {
       slug: 'sprawdzenie-ukladow-rownan',
       icon: '🔍',
     },
-    // Możesz odkomentować i uzupełnić postęp, gdy dodasz kolejne tematy
-    // {
-    //   title: 'Rozwiązywanie układów równań',
-    //   shortDesc: 'W tym dziale poznamy sposoby rozwiązywania układów równań.',
-    //   slug: '/uklady-rownan/rozwiazywanie-ukladow-rownan',
-    //   icon: '🔑',
-    // },
-    // {
-    //   title: 'Układy równań w zadaniach tekstowych',
-    //   shortDesc: 'Jak wykorzystać układy równań w zadaniach tekstowych? Poznamy jak to zrobić.',
-    //   slug: '/uklady-rownan/uklady-w-zadaniach-tekstowych',
-    //   icon: '📖',
-    // },
+    {
+      title: 'Rozwiązywanie układów równań metodą podstawiania',
+      shortDesc: 'Poznamy metodę podstawiania - jeden z podstawowych sposobów rozwiązywania układów równań.',
+      slug: 'rozwiazywanie-ukladow-rownan-metoda-podstawiania',
+      icon: '🔑',
+    },
   ];
 
   const { token } = useAuth();
