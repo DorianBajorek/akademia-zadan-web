@@ -12,6 +12,7 @@ const RealNumbersCourse: React.FC = () => {
   const [topicProgress, setTopicProgress] = useState<{ [key: string]: number }>({
     'Sprawdzenia spełnialności układów równań': 0,
     'Rozwiązywanie układów równań metodą podstawiania': 0,
+    'Rozwiązywanie układów równań metodą przeciwnych współczynników': 0,
   });
 
   const topics = [
@@ -27,6 +28,12 @@ const RealNumbersCourse: React.FC = () => {
       shortDesc: 'Poznamy metodę podstawiania - jeden z podstawowych sposobów rozwiązywania układów równań.',
       slug: 'rozwiazywanie-ukladow-rownan-metoda-podstawiania',
       icon: '🔑',
+    },
+    {
+      title: 'Rozwiązywanie układów równań metodą przeciwnych współczynników',
+      shortDesc: 'Poznamy metodę przeciwnych współczynników - skuteczny sposób rozwiązywania układów równań.',
+      slug: 'rozwiazywanie-ukladow-rownan-metoda-przeciwnych-wspolczynnikow',
+      icon: '⚖️',
     },
   ];
 
