@@ -27,6 +27,13 @@ const AlgebraicExpressionsCourse: React.FC = () => {
       slug: 'wzory-skroconego-mnozenia',
       icon: '()²',
     },
+    {
+      title: 'Wyrażenia wymierne',
+      shortDesc:
+        'Poznaj operacje na ułamkach algebraicznych, rozwiązywanie równań wymiernych i określanie dziedziny wyrażeń wymiernych.',
+      slug: 'wyrazenia-wymierne',
+      icon: 'P(x)/Q(x)',
+    },
   ];
 
   useEffect(() => {
